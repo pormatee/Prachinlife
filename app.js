@@ -174,10 +174,18 @@ function bindEvents() {
               button.dataset.merchant
               || "all";
 
+            // เมื่อเปลี่ยนร้าน ให้เริ่มจากทุกประเภท
+            // ป้องกัน filter เดิมค้างจนดูเหมือนไม่มีข้อมูล
+            currentType = "all";
+
             currentPage = 1;
 
             updateActiveFilterButtons(
               "merchant"
+            );
+
+            updateActiveFilterButtons(
+              "type"
             );
 
             applyFilters();
@@ -476,7 +484,17 @@ function resetSearch() {
   }
 
   currentSearch = "";
+  currentMerchant = "all";
+  currentType = "all";
   currentPage = 1;
+
+  updateActiveFilterButtons(
+    "merchant"
+  );
+
+  updateActiveFilterButtons(
+    "type"
+  );
 
   applyFilters();
 }
