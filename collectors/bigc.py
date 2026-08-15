@@ -11,6 +11,11 @@ import requests
 from bs4 import BeautifulSoup
 
 
+# =========================================================
+# PromoPrachin
+# Big C Promotion Collector V3
+# =========================================================
+
 SOURCE_URL = "https://corporate.bigc.co.th/promotions-bigc?lang=th"
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
@@ -26,6 +31,10 @@ HEADERS = {
     "Accept-Language": "th-TH,th;q=0.9,en;q=0.8",
 }
 
+
+# =========================================================
+# HELPERS
+# =========================================================
 
 def clean_text(value: str | None) -> str:
     if not value:
@@ -45,6 +54,20 @@ def make_id(value: str) -> str:
 
     return f"bigc-{digest}"
 
+
+def normalize_url(url: str) -> str:
+    if not url:
+        return ""
+
+    return urljoin(
+        SOURCE_URL,
+        url.strip()
+    )
+
+
+# =========================================================
+# LOAD EXISTING DATA
+# =========================================================
 
 def load_existing_promotions() -> list[dict]:
     if not OUTPUT_FILE.exists():
@@ -76,8 +99,14 @@ def load_existing_promotions() -> list[dict]:
     return []
 
 
+# =========================================================
+# DOWNLOAD BIG C PAGE
+# =========================================================
+
 def download_page() -> str:
-    print("🌐 Loading Big C promotions...")
+    print(
+        "🌐 Loading Big C promotions..."
+    )
 
     response = requests.get(
         SOURCE_URL,
@@ -95,20 +124,29 @@ def download_page() -> str:
     return response.text
 
 
+# =========================================================
+# FILTER BAD TITLES
+# =========================================================
+
 def is_bad_title(title: str) -> bool:
+    if not title:
+        return True
+
+    normalized = title.strip().lower()
+
     bad_titles = {
         "ทั้งหมด",
+        "โปรโมชั่น",
+        "promotion",
+        "big c",
         "บิ๊กซี",
         "บิ๊กซีมินิ",
         "ร้านยาเพรียว",
         "บิ๊กซีพลาซ่า",
         "ดูเพิ่มเติม",
-        "โปรโมชั่น",
-        "promotion",
-        "big c",
+        "อ่านเพิ่มเติม",
+        "รายละเอียด",
     }
-
-    normalized = title.strip().lower()
 
     if normalized in bad_titles:
         return True
@@ -119,28 +157,9 @@ def is_bad_title(title: str) -> bool:
     return False
 
 
-def get_image_url(link) -> str:
-    image = link.find("img")
-
-    if not image:
-        return ""
-
-    raw_image = (
-        image.get("src")
-        or image.get("data-src")
-        or image.get("data-lazy-src")
-        or image.get("data-original")
-        or ""
-    )
-
-    if not raw_image:
-        return ""
-
-    return urljoin(
-        SOURCE_URL,
-        raw_image
-    )
-
+# =========================================================
+# FIND TITLE
+# =========================================================
 
 def get_title(link) -> str:
     title = clean_text(
@@ -153,18 +172,15 @@ def get_title(link) -> str:
     image = link.find("img")
 
     if image:
-
         alt = clean_text(
             image.get("alt")
         )
 
-        # alt ของรูปมักให้ชื่อโปรโมชั่นสะอาดกว่า
         if alt and len(alt) > len(title):
             title = alt
 
-    # ลบคำ "ดูเพิ่มเติม"
     title = re.sub(
-        r"\s*ดูเพิ่มเติม\s*$",
+        r"\s*(ดูเพิ่มเติม|อ่านเพิ่มเติม)\s*$",
         "",
         title,
         flags=re.IGNORECASE
@@ -172,6 +188,141 @@ def get_title(link) -> str:
 
     return clean_text(title)
 
+
+# =========================================================
+# IMAGE HELPERS
+# =========================================================
+
+def extract_image_from_tag(image) -> str:
+    if not image:
+        return ""
+
+    raw_image = (
+        image.get("src")
+        or image.get("data-src")
+        or image.get("data-lazy-src")
+        or image.get("data-original")
+        or image.get("data-image")
+        or ""
+    )
+
+    if not raw_image:
+        return ""
+
+    if raw_image.startswith("data:image"):
+        return ""
+
+    return normalize_url(
+        raw_image
+    )
+
+
+def get_image_url(link) -> str:
+    # -----------------------------------------------------
+    # 1) รูปใน link โดยตรง
+    # -----------------------------------------------------
+    image = link.find("img")
+
+    image_url = extract_image_from_tag(
+        image
+    )
+
+    if image_url:
+        return image_url
+
+
+    # -----------------------------------------------------
+    # 2) parent
+    # -----------------------------------------------------
+    parent = link.parent
+
+    if parent:
+        image = parent.find("img")
+
+        image_url = extract_image_from_tag(
+            image
+        )
+
+        if image_url:
+            return image_url
+
+
+    # -----------------------------------------------------
+    # 3) grandparent
+    # -----------------------------------------------------
+    grandparent = (
+        parent.parent
+        if parent
+        else None
+    )
+
+    if grandparent:
+        image = grandparent.find("img")
+
+        image_url = extract_image_from_tag(
+            image
+        )
+
+        if image_url:
+            return image_url
+
+
+    # -----------------------------------------------------
+    # 4) great-grandparent
+    # -----------------------------------------------------
+    great_grandparent = (
+        grandparent.parent
+        if grandparent
+        else None
+    )
+
+    if great_grandparent:
+        image = great_grandparent.find("img")
+
+        image_url = extract_image_from_tag(
+            image
+        )
+
+        if image_url:
+            return image_url
+
+
+    # -----------------------------------------------------
+    # 5) previous sibling
+    # -----------------------------------------------------
+    sibling = link.find_previous("img")
+
+    image_url = extract_image_from_tag(
+        sibling
+    )
+
+    if image_url:
+        return image_url
+
+
+    return ""
+
+
+# =========================================================
+# FIND PROMOTION LINKS
+# =========================================================
+
+def is_promotion_url(url: str) -> bool:
+    if not url:
+        return False
+
+    lower = url.lower()
+
+    return (
+        "promotion" in lower
+        or "campaign" in lower
+        or "promo" in lower
+    )
+
+
+# =========================================================
+# COLLECT PROMOTIONS
+# =========================================================
 
 def collect_bigc_promotions() -> list[dict]:
     html = download_page()
@@ -182,12 +333,17 @@ def collect_bigc_promotions() -> list[dict]:
     )
 
     promotions = []
+
     seen_titles = set()
     seen_urls = set()
 
     links = soup.find_all(
         "a",
         href=True
+    )
+
+    print(
+        f"🔎 Found {len(links)} links"
     )
 
     for link in links:
@@ -199,30 +355,29 @@ def collect_bigc_promotions() -> list[dict]:
         if not href:
             continue
 
-        full_url = urljoin(
-            SOURCE_URL,
+        full_url = normalize_url(
             href
         )
 
-        title = get_title(link)
-
-        if not title:
-            continue
-
-        if is_bad_title(title):
-            continue
-
-        url_lower = full_url.lower()
-
-        # ต้องเกี่ยวข้องกับ promotion
-        if (
-            "promotion" not in url_lower
-            and "campaign" not in url_lower
+        if not is_promotion_url(
+            full_url
         ):
             continue
 
-        # ป้องกันรายการซ้ำ
-        normalized_title = title.lower()
+        title = get_title(
+            link
+        )
+
+        if is_bad_title(
+            title
+        ):
+            continue
+
+        normalized_title = (
+            title
+            .strip()
+            .lower()
+        )
 
         if normalized_title in seen_titles:
             continue
@@ -230,7 +385,9 @@ def collect_bigc_promotions() -> list[dict]:
         if full_url in seen_urls:
             continue
 
-        image_url = get_image_url(link)
+        image_url = get_image_url(
+            link
+        )
 
         seen_titles.add(
             normalized_title
@@ -249,8 +406,12 @@ def collect_bigc_promotions() -> list[dict]:
 
             "product": title,
 
-            # V2 ไม่เดาราคา
+            # -------------------------------------------------
+            # V3 ยังไม่เดาราคา
+            # -------------------------------------------------
+
             "old_price": 0,
+
             "new_price": 0,
 
             "expiry":
@@ -290,26 +451,44 @@ def collect_bigc_promotions() -> list[dict]:
             promotion
         )
 
+        print()
+        print(
+            "PROMOTION:",
+            title
+        )
+
+        print(
+            "URL:",
+            full_url
+        )
+
+        print(
+            "IMAGE:",
+            image_url
+            or
+            "NO IMAGE"
+        )
+
+
+    print()
+
     print(
         f"✅ Found {len(promotions)} "
         f"clean Big C promotions"
     )
 
-    for item in promotions:
-        print(
-            " •",
-            item["product"]
-        )
-
     return promotions
 
+
+# =========================================================
+# MERGE
+# =========================================================
 
 def merge_promotions(
     existing: list[dict],
     bigc_promotions: list[dict]
 ) -> list[dict]:
 
-    # เก็บข้อมูลร้านอื่น
     other_stores = [
         item
         for item in existing
@@ -318,9 +497,14 @@ def merge_promotions(
 
     return (
         bigc_promotions
-        + other_stores
+        +
+        other_stores
     )
 
+
+# =========================================================
+# SAVE
+# =========================================================
 
 def save_promotions(
     promotions: list[dict]
@@ -344,15 +528,23 @@ def save_promotions(
     )
 
 
+# =========================================================
+# MAIN
+# =========================================================
+
 def main() -> None:
 
-    print("=" * 60)
-
     print(
-        "PromoPrachin - Big C Collector V2"
+        "=" * 60
     )
 
-    print("=" * 60)
+    print(
+        "PromoPrachin - Big C Collector V3"
+    )
+
+    print(
+        "=" * 60
+    )
 
     existing = (
         load_existing_promotions()
@@ -364,10 +556,15 @@ def main() -> None:
             collect_bigc_promotions()
         )
 
+
+        # -------------------------------------------------
         # ป้องกันข้อมูลเดิมหาย
+        # -------------------------------------------------
+
         if not bigc_promotions:
 
             print()
+
             print(
                 "⚠️ No Big C promotions found."
             )
@@ -378,25 +575,29 @@ def main() -> None:
 
             return
 
+
         merged = merge_promotions(
             existing,
             bigc_promotions
         )
 
+
         save_promotions(
             merged
         )
 
+
         print()
 
         print(
-            "✅ Big C Collector V2 completed"
+            "✅ Big C Collector V3 completed"
         )
 
         print(
             f"📦 Total records = "
             f"{len(merged)}"
         )
+
 
     except Exception as error:
 
