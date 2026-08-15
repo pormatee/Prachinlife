@@ -1,138 +1,974 @@
 <!DOCTYPE html>
 <html lang="th">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#0f172a">
-  <title>โปรปราจีน | โปรเด็ดใกล้คุณ</title>
-  <meta name="description" content="รวมโปรโมชั่นห้างและร้านค้าในปราจีนบุรี ค้นหา กรอง และดูโปรใกล้หมดได้ง่าย">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+
+<meta charset="UTF-8">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0"
+>
+
+<meta
+name="theme-color"
+content="#071521"
+>
+
+<title>
+โปรปราจีน | โปรโมชั่นและกิจกรรมในปราจีนบุรี
+</title>
+
+<meta
+name="description"
+content="รวมโปรโมชั่น ห้าง ร้านค้า และกิจกรรมในจังหวัดปราจีนบุรี อัปเดตอัตโนมัติ"
+>
+
+<link
+rel="preconnect"
+href="https://fonts.googleapis.com"
+>
+
+<link
+rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin
+>
+
+<link
+href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;500;600;700;800&display=swap"
+rel="stylesheet"
+>
+
+<link
+rel="stylesheet"
+href="style.css"
+>
+
 </head>
 
+
 <body>
-  <header class="topbar">
-    <div class="container topbar-inner">
-      <a class="brand" href="#">
-        <div class="brand-mark">ป</div>
-        <div>
-          <strong>โปรปราจีน</strong>
-          <span>โปรเด็ดใกล้คุณ</span>
-        </div>
-      </a>
 
-      <div class="topbar-actions">
-        <button id="refreshBtn" class="icon-btn" type="button" aria-label="รีเฟรช">↻</button>
-        <button id="themeBtn" class="icon-btn" type="button" aria-label="เปลี่ยนธีม">☾</button>
-      </div>
-    </div>
-  </header>
 
-  <main>
-    <section class="hero">
-      <div class="container hero-grid">
-        <div class="hero-copy">
-          <div class="eyebrow"><span class="live-dot"></span> อัปเดตโปรโมชั่นทุกวัน</div>
-          <h1>รวมโปรเด็ดใน <span>ปราจีนบุรี</span><br>ไว้ให้หาในที่เดียว</h1>
-          <p>ค้นหาโปรโมชั่นจากห้างและร้านค้า ดูส่วนลด โปรใกล้หมด และกิจกรรมที่น่าสนใจโดยไม่ต้องเปิดหลายแอป</p>
+<!-- =====================================
+HEADER
+===================================== -->
 
-          <div class="hero-search">
-            <span>⌕</span>
-            <input id="searchInput" type="search" placeholder="ค้นหา เช่น น้ำมันพืช, นม, Lotus's..." autocomplete="off">
-            <button id="searchBtn" type="button">ค้นหา</button>
-          </div>
+<header class="header">
 
-          <div class="quick-links">
-            <button data-quick="ลดเกิน 30%">🔥 ลดเกิน 30%</button>
-            <button data-quick="ใกล้หมด">⏰ โปรใกล้หมด</button>
-            <button data-quick="ทั้งหมด">✨ ดูทั้งหมด</button>
-          </div>
-        </div>
+<div class="container header-inner">
 
-        <div class="hero-card">
-          <div class="hero-card-glow"></div>
-          <div class="deal-score">
-            <span>ดีลเด่นวันนี้</span>
-            <strong id="heroDealCount">0</strong>
-            <small>โปรโมชั่น</small>
-          </div>
-          <div class="mini-stats">
-            <div><strong id="heroStoreCount">0</strong><span>ร้าน/ห้าง</span></div>
-            <div><strong id="heroAvgDiscount">0%</strong><span>ลดเฉลี่ย</span></div>
-          </div>
-          <p id="lastUpdate">กำลังโหลดข้อมูล...</p>
-        </div>
-      </div>
-    </section>
 
-    <section class="container toolbar-section">
-      <div class="section-heading">
-        <div>
-          <span class="section-kicker">เลือกดูตามร้าน</span>
-          <h2>โปรโมชั่นล่าสุด</h2>
-        </div>
-        <div id="resultCount" class="result-count">0 รายการ</div>
-      </div>
+<a
+href="#"
+class="brand"
+>
 
-      <div class="store-tabs" id="storeTabs">
-        <button class="store-tab active" data-store="ทั้งหมด">ทั้งหมด</button>
-        <button class="store-tab" data-store="Lotus's">🟢 Lotus's</button>
-        <button class="store-tab" data-store="Big C">🔴 Big C</button>
-        <button class="store-tab" data-store="CJ More">🟡 CJ More</button>
-      </div>
+<div class="brand-icon">
+ป
+</div>
 
-      <div class="stats-strip">
-        <div><span>📦</span><strong id="totalCount">0</strong><small>โปรโมชั่น</small></div>
-        <div><span>🏪</span><strong id="storeCount">0</strong><small>ร้าน/ห้าง</small></div>
-        <div><span>💸</span><strong id="discountCount">0%</strong><small>ส่วนลดเฉลี่ย</small></div>
-      </div>
-    </section>
 
-    <section class="container content-section">
-      <div id="promotionList" class="promotion-grid">
-        <div class="skeleton card-skeleton"></div>
-        <div class="skeleton card-skeleton"></div>
-        <div class="skeleton card-skeleton"></div>
-        <div class="skeleton card-skeleton"></div>
-      </div>
+<div class="brand-text">
 
-      <div id="emptyState" class="empty-state hidden">
-        <div>🔎</div>
-        <h3>ยังไม่พบโปรโมชั่น</h3>
-        <p>ลองเปลี่ยนคำค้น หรือเลือกห้างอื่น</p>
-      </div>
+<strong>
+โปรปราจีน
+</strong>
 
-      <div class="load-more-wrap">
-        <button id="loadMoreBtn" class="load-more hidden" type="button">ดูเพิ่มเติม ↓</button>
-      </div>
-    </section>
+<span>
+Prachinburi Local Deals
+</span>
 
-    <section class="container event-section">
-      <div class="event-banner">
-        <div>
-          <span class="section-kicker light">กิจกรรมในปราจีนบุรี</span>
-          <h2>เร็ว ๆ นี้เราจะรวมกิจกรรมของแต่ละห้างไว้ตรงนี้</h2>
-          <p>เวอร์ชันถัดไปสามารถเพิ่มงานอีเวนต์ ตลาดนัด โปรโมชั่นสมาชิก และกิจกรรมสำหรับครอบครัวได้</p>
-        </div>
-        <div class="event-icon">🎪</div>
-      </div>
-    </section>
-  </main>
+</div>
 
-  <footer>
-    <div class="container footer-inner">
-      <div>
-        <strong>โปรปราจีน</strong>
-        <p>เว็บทดลองรวมโปรโมชั่นในจังหวัดปราจีนบุรี</p>
-      </div>
-      <p>© 2026 PromoPrachin</p>
-    </div>
-  </footer>
+</a>
 
-  <div id="toast" class="toast hidden"></div>
 
-  <script src="app.js"></script>
+
+<nav class="desktop-nav">
+
+<a href="#promotions">
+โปรโมชั่น
+</a>
+
+<a href="#stores">
+ห้างและร้าน
+</a>
+
+<a href="#events">
+กิจกรรม
+</a>
+
+<a href="#about">
+เกี่ยวกับเรา
+</a>
+
+</nav>
+
+
+
+<div class="header-actions">
+
+<button
+id="refreshBtn"
+class="header-icon"
+type="button"
+title="อัปเดตข้อมูล"
+>
+
+↻
+
+</button>
+
+
+<button
+id="themeBtn"
+class="header-icon"
+type="button"
+title="เปลี่ยนธีม"
+>
+
+☾
+
+</button>
+
+</div>
+
+
+</div>
+
+</header>
+
+
+
+
+<!-- =====================================
+HERO
+===================================== -->
+
+<section class="hero">
+
+<div class="container hero-layout">
+
+
+<div class="hero-content">
+
+
+<div class="live-label">
+
+<span class="live-dot"></span>
+
+ข้อมูลโปรโมชั่นอัปเดตอัตโนมัติ
+
+</div>
+
+
+
+<h1>
+
+โปรดี ๆ ใน
+<span>ปราจีนบุรี</span>
+
+<br>
+
+หาได้ง่ายกว่าเดิม
+
+</h1>
+
+
+
+<p class="hero-description">
+
+รวมโปรโมชั่นจากห้างและร้านค้า
+ช่วยให้คุณค้นหาโปรลดราคา
+โปรใกล้หมด และกิจกรรมที่น่าสนใจ
+ในพื้นที่ปราจีนบุรีได้จากที่เดียว
+
+</p>
+
+
+
+
+<!-- SEARCH -->
+
+<div class="search-box">
+
+
+<div class="search-icon">
+⌕
+</div>
+
+
+<input
+id="searchInput"
+type="search"
+placeholder="ค้นหาโปรโมชั่น ห้าง สินค้า หรือสาขา..."
+autocomplete="off"
+>
+
+
+<button
+id="searchBtn"
+type="button"
+>
+
+ค้นหา
+
+</button>
+
+
+</div>
+
+
+
+
+<!-- QUICK FILTER -->
+
+<div class="quick-actions">
+
+
+<button
+type="button"
+data-quick="all"
+>
+
+✨ โปรทั้งหมด
+
+</button>
+
+
+<button
+type="button"
+data-quick="discount"
+>
+
+🔥 ลดเกิน 30%
+
+</button>
+
+
+<button
+type="button"
+data-quick="urgent"
+>
+
+⏰ ใกล้หมด
+
+</button>
+
+
+<button
+type="button"
+data-quick="bigc"
+>
+
+🔴 Big C
+
+</button>
+
+
+</div>
+
+
+</div>
+
+
+
+
+<!-- HERO DASHBOARD -->
+
+<div class="hero-dashboard">
+
+
+<div class="dashboard-header">
+
+
+<div>
+
+<span>
+อัปเดตล่าสุด
+</span>
+
+<strong id="lastUpdate">
+กำลังโหลด...
+</strong>
+
+</div>
+
+
+<div class="online-status">
+
+<span></span>
+
+LIVE
+
+</div>
+
+
+</div>
+
+
+
+
+<div class="big-stat">
+
+<span>
+โปรโมชั่นในระบบ
+</span>
+
+<strong id="heroDealCount">
+0
+</strong>
+
+<small>
+รายการ
+</small>
+
+</div>
+
+
+
+
+<div class="dashboard-grid">
+
+
+<div>
+
+<strong id="heroStoreCount">
+0
+</strong>
+
+<span>
+ร้าน / ห้าง
+</span>
+
+</div>
+
+
+<div>
+
+<strong id="heroAvgDiscount">
+0%
+</strong>
+
+<span>
+ส่วนลดเฉลี่ย
+</span>
+
+</div>
+
+
+</div>
+
+
+
+<p class="dashboard-note">
+
+ข้อมูลโปรโมชั่นและสาขาที่ร่วมรายการ
+อาจมีการเปลี่ยนแปลง
+โปรดตรวจสอบกับร้านค้าก่อนซื้อ
+
+</p>
+
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+
+<!-- =====================================
+STORE FILTER
+===================================== -->
+
+<section
+id="stores"
+class="container store-section"
+>
+
+
+<div class="section-title">
+
+
+<div>
+
+<span class="section-label">
+LOCAL DEALS
+</span>
+
+
+<h2>
+เลือกโปรโมชั่นตามร้าน
+</h2>
+
+</div>
+
+
+<div
+id="resultCount"
+class="result-count"
+>
+
+0 รายการ
+
+</div>
+
+
+</div>
+
+
+
+
+<div
+id="storeTabs"
+class="store-tabs"
+>
+
+
+<button
+class="store-tab active"
+data-store="ทั้งหมด"
+type="button"
+>
+
+ทั้งหมด
+
+</button>
+
+
+<button
+class="store-tab"
+data-store="Big C"
+type="button"
+>
+
+<span class="store-dot bigc"></span>
+
+Big C
+
+</button>
+
+
+<button
+class="store-tab"
+data-store="Lotus's"
+type="button"
+>
+
+<span class="store-dot lotus"></span>
+
+Lotus's
+
+</button>
+
+
+<button
+class="store-tab"
+data-store="CJ More"
+type="button"
+>
+
+<span class="store-dot cj"></span>
+
+CJ More
+
+</button>
+
+
+</div>
+
+
+
+
+<!-- STATS -->
+
+<div class="stats">
+
+
+<div class="stat">
+
+<div class="stat-icon">
+📦
+</div>
+
+<div>
+
+<strong id="totalCount">
+0
+</strong>
+
+<span>
+โปรโมชั่น
+</span>
+
+</div>
+
+</div>
+
+
+
+<div class="stat">
+
+<div class="stat-icon">
+🏪
+</div>
+
+<div>
+
+<strong id="storeCount">
+0
+</strong>
+
+<span>
+ร้าน / ห้าง
+</span>
+
+</div>
+
+</div>
+
+
+
+<div class="stat">
+
+<div class="stat-icon">
+💰
+</div>
+
+<div>
+
+<strong id="discountCount">
+0%
+</strong>
+
+<span>
+ส่วนลดเฉลี่ย
+</span>
+
+</div>
+
+</div>
+
+
+
+<div class="stat">
+
+<div class="stat-icon">
+⚡
+</div>
+
+<div>
+
+<strong>
+Auto
+</strong>
+
+<span>
+อัปเดตข้อมูล
+</span>
+
+</div>
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+
+<!-- =====================================
+PROMOTIONS
+===================================== -->
+
+<section
+id="promotions"
+class="container promotions-section"
+>
+
+
+<div class="promotion-toolbar">
+
+
+<div>
+
+<span class="section-label">
+LATEST
+</span>
+
+<h2>
+โปรโมชั่นล่าสุด
+</h2>
+
+<p>
+ข้อมูลที่ระบบรวบรวมล่าสุด
+</p>
+
+</div>
+
+
+
+
+<select
+id="sortSelect"
+class="sort-select"
+>
+
+<option value="default">
+เรียงตามล่าสุด
+</option>
+
+<option value="discount">
+ส่วนลดมากที่สุด
+</option>
+
+<option value="price-low">
+ราคาต่ำสุด
+</option>
+
+<option value="store">
+เรียงตามร้าน
+</option>
+
+</select>
+
+
+</div>
+
+
+
+
+<div
+id="promotionList"
+class="promotion-grid"
+>
+
+
+<div class="skeleton"></div>
+
+<div class="skeleton"></div>
+
+<div class="skeleton"></div>
+
+<div class="skeleton"></div>
+
+
+</div>
+
+
+
+
+<!-- EMPTY -->
+
+<div
+id="emptyState"
+class="empty-state hidden"
+>
+
+
+<div class="empty-icon">
+🔍
+</div>
+
+
+<h3>
+ไม่พบโปรโมชั่น
+</h3>
+
+
+<p>
+ลองเปลี่ยนคำค้น
+หรือเลือกห้างอื่น
+</p>
+
+
+<button
+type="button"
+onclick="resetFilters()"
+>
+
+ดูโปรโมชั่นทั้งหมด
+
+</button>
+
+
+</div>
+
+
+
+
+<div class="load-more-container">
+
+<button
+id="loadMoreBtn"
+class="load-more hidden"
+type="button"
+>
+
+ดูโปรโมชั่นเพิ่มเติม ↓
+
+</button>
+
+</div>
+
+
+</section>
+
+
+
+
+<!-- =====================================
+EVENTS
+===================================== -->
+
+<section
+id="events"
+class="container event-section"
+>
+
+
+<div class="event-card">
+
+
+<div class="event-content">
+
+
+<span class="event-label">
+
+COMING SOON
+
+</span>
+
+
+<h2>
+
+กิจกรรมและอีเวนต์
+ในปราจีนบุรี
+
+</h2>
+
+
+<p>
+
+ต่อไปเราจะรวบรวมกิจกรรมจากห้าง
+ตลาด ร้านอาหาร งานท้องถิ่น
+กิจกรรมสำหรับครอบครัว
+และโปรโมชั่นเฉพาะพื้นที่ไว้ตรงนี้
+
+</p>
+
+
+<button
+type="button"
+disabled
+>
+
+เร็ว ๆ นี้
+
+</button>
+
+
+</div>
+
+
+
+<div class="event-graphic">
+
+🎪
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+
+<!-- =====================================
+ABOUT
+===================================== -->
+
+<section
+id="about"
+class="about-section"
+>
+
+
+<div class="container about-grid">
+
+
+<div>
+
+
+<span class="section-label">
+
+ABOUT
+
+</span>
+
+
+<h2>
+
+ทำไมต้องโปรปราจีน?
+
+</h2>
+
+
+<p>
+
+เราอยากทำให้คนปราจีนบุรี
+ค้นหาโปรโมชั่นและกิจกรรมในพื้นที่
+ได้จากที่เดียว
+โดยไม่ต้องเปิดหลายเว็บไซต์
+หรือหลายแอป
+
+</p>
+
+
+</div>
+
+
+
+
+<div class="about-features">
+
+
+<div>
+
+<strong>
+🔎
+</strong>
+
+<span>
+ค้นหาง่าย
+</span>
+
+</div>
+
+
+<div>
+
+<strong>
+⚡
+</strong>
+
+<span>
+อัปเดตอัตโนมัติ
+</span>
+
+</div>
+
+
+<div>
+
+<strong>
+📍
+</strong>
+
+<span>
+เน้นปราจีนบุรี
+</span>
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+
+<!-- =====================================
+FOOTER
+===================================== -->
+
+<footer>
+
+
+<div class="container footer-inner">
+
+
+<div>
+
+
+<strong class="footer-brand">
+
+โปรปราจีน
+
+</strong>
+
+
+<p>
+
+Prachinburi Local Deals Platform
+
+</p>
+
+
+</div>
+
+
+
+
+<div class="footer-right">
+
+
+<p>
+
+© 2026 PromoPrachin
+
+</p>
+
+
+<p>
+
+ข้อมูลโปรโมชั่นควรตรวจสอบกับร้านค้าอีกครั้ง
+
+</p>
+
+
+</div>
+
+
+</div>
+
+
+</footer>
+
+
+
+
+<!-- TOAST -->
+
+<div
+id="toast"
+class="toast hidden"
+>
+
+</div>
+
+
+
+
+<script src="app.js"></script>
+
+
 </body>
+
 </html>
