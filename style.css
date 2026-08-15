@@ -1091,3 +1091,118 @@ LOCATION LABEL
   font-size: 0.78rem;
   font-weight: 700;
 }
+
+/* =====================================================
+DEAL FILTERS
+===================================================== */
+
+.deal-filters {
+  margin-bottom: 26px;
+  padding: 18px;
+  display: flex;
+  justify-content: space-between;
+  gap: 22px;
+  flex-wrap: wrap;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+}
+
+
+.filter-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+
+.filter-label {
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+
+.filter-buttons {
+  display: flex;
+  gap: 7px;
+  flex-wrap: wrap;
+}
+
+
+.filter-button {
+  min-height: 36px;
+  padding: 6px 12px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 700;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+
+.filter-button:hover {
+  border-color: var(--brand);
+  color: var(--brand);
+}
+
+
+.filter-button.active {
+  border-color: var(--brand);
+  background: var(--brand);
+  color: #fff;
+}
+
+
+.promotion-type-badge {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  margin-bottom: 10px;
+  padding: 5px 9px;
+  border-radius: 999px;
+  font-size: 0.76rem;
+  font-weight: 800;
+}
+
+
+.promotion-type-badge.campaign {
+  background: #eef3ec;
+  color: var(--brand-dark);
+}
+
+
+.promotion-type-badge.coupon {
+  background: #fff3df;
+  color: #9a5b00;
+}
+
+
+.promotion-type-badge.member-offer {
+  background: #f0ecff;
+  color: #6045a7;
+}
+
+
+@media (max-width: 640px) {
+
+  .deal-filters {
+    padding: 14px;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+
+  .filter-group {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+}

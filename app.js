@@ -1,10 +1,12 @@
 const DATA_URL = "promotions.json";
-const PAGE_SIZE = 6;
+const PAGE_SIZE = 8;
 
 let allPromotions = [];
 let filteredPromotions = [];
 let currentPage = 1;
 let currentSearch = "";
+let currentMerchant = "all";
+let currentType = "all";
 let toastTimer = null;
 
 
@@ -155,6 +157,56 @@ function bindEvents() {
             handleQuickAction(
               button.dataset.quick
             );
+          }
+        );
+      }
+    );
+  document
+    .querySelectorAll("[data-merchant]")
+    .forEach(
+      button => {
+
+        button.addEventListener(
+          "click",
+          () => {
+
+            currentMerchant =
+              button.dataset.merchant
+              || "all";
+
+            currentPage = 1;
+
+            updateActiveFilterButtons(
+              "merchant"
+            );
+
+            applyFilters();
+          }
+        );
+      }
+    );
+
+
+  document
+    .querySelectorAll("[data-type]")
+    .forEach(
+      button => {
+
+        button.addEventListener(
+          "click",
+          () => {
+
+            currentType =
+              button.dataset.type
+              || "all";
+
+            currentPage = 1;
+
+            updateActiveFilterButtons(
+              "type"
+            );
+
+            applyFilters();
           }
         );
       }
@@ -432,54 +484,102 @@ function resetSearch() {
 
 function applyFilters() {
 
-  if (!currentSearch) {
+  filteredPromotions =
+    allPromotions.filter(
+      promotion => {
 
-    filteredPromotions =
-      [...allPromotions];
-  }
+        const searchableText = [
+          promotion.title,
+          promotion.merchant,
+          promotion.source,
+          promotion.promotion_type,
+          promotion.category,
+          promotion.branch,
+          promotion.source_type,
+          promotion.location_scope,
+          promotion.province,
+          promotion.district,
+          promotion.subdistrict,
+          promotion.branch_name,
+          getLocationLabel(promotion)
+        ]
+          .filter(Boolean)
+          .join(" ")
+          .toLowerCase();
 
-  else {
+        const matchesSearch =
+          !currentSearch ||
+          searchableText.includes(currentSearch);
 
-    filteredPromotions =
-      allPromotions.filter(
-        promotion => {
+        const matchesMerchant =
+          currentMerchant === "all" ||
+          promotion.merchant === currentMerchant;
 
-          const searchableText = [
-            promotion.title,
-            promotion.merchant,
-            promotion.source,
-            promotion.promotion_type,
-            promotion.category,
-            promotion.branch,
-            promotion.source_type,
-            promotion.location_scope,
-            promotion.province,
-            promotion.district,
-            promotion.subdistrict,
-            promotion.branch_name,
-            getLocationLabel(
-              promotion
-            )
-          ]
-            .filter(Boolean)
-            .join(" ")
-            .toLowerCase();
+        const matchesType =
+          currentType === "all" ||
+          promotion.promotion_type === currentType;
 
-          return searchableText.includes(
-            currentSearch
+        return (
+          matchesSearch &&
+          matchesMerchant &&
+          matchesType
+        );
+      }
+    );
+
+  const useSmartMix =
+    !currentSearch
+    &&
+    currentMerchant === "all"
+    &&
+    currentType === "all";
+
+  filteredPromotions =
+    useSmartMix
+      ? smartMixPromotions(
+          filteredPromotions
+        )
+      : sortLatest(
+          filteredPromotions
+        );
+
+  currentPage = 1;
+
+  renderAll();
+}
+
+
+function updateActiveFilterButtons(filterType) {
+
+  if (filterType === "merchant") {
+
+    document
+      .querySelectorAll("[data-merchant]")
+      .forEach(
+        button => {
+
+          button.classList.toggle(
+            "active",
+            button.dataset.merchant === currentMerchant
           );
         }
       );
   }
 
+  if (filterType === "type") {
 
-  filteredPromotions =
-    sortLatest(
-      filteredPromotions
-    );
+    document
+      .querySelectorAll("[data-type]")
+      .forEach(
+        button => {
 
-
-  renderAll();
+          button.classList.toggle(
+            "active",
+            button.dataset.type === currentType
+          );
+        }
+      );
+  }
 }
 
 
@@ -596,9 +696,184 @@ function getLocationLabel(
 }
 
 
+function getPromotionTypeLabel(promotion) {
+
+  if (promotion.promotion_type === "coupon") {
+    return "คูปอง";
+  }
+
+  if (promotion.promotion_type === "member_offer") {
+    return "สิทธิสมาชิก";
+  }
+
+  if (promotion.promotion_type === "product_deal") {
+    return "ดีลสินค้า";
+  }
+
+  return "แคมเปญ";
+}
+
+
+function getPromotionTypeClass(promotion) {
+
+  if (promotion.promotion_type === "coupon") {
+    return "coupon";
+  }
+
+  if (promotion.promotion_type === "member_offer") {
+    return "member-offer";
+  }
+
+  return "campaign";
+}
+
+
 /* =====================================================
 SORT
 ===================================================== */
+
+function smartMixPromotions(data) {
+
+  const sorted =
+    sortLatest(data);
+
+  const merchantBuckets =
+    new Map();
+
+  for (const item of sorted) {
+
+    const merchant =
+      item.merchant
+      || "Unknown";
+
+    if (!merchantBuckets.has(merchant)) {
+      merchantBuckets.set(
+        merchant,
+        []
+      );
+    }
+
+    merchantBuckets
+      .get(merchant)
+      .push(item);
+  }
+
+
+  const merchants =
+    [...merchantBuckets.keys()];
+
+
+  const selectedTypeCounts = {
+    campaign: 0,
+    coupon: 0,
+    member_offer: 0,
+    product_deal: 0,
+  };
+
+
+  const result = [];
+
+
+  function takeBestItem(bucket) {
+
+    if (!bucket.length) {
+      return null;
+    }
+
+    let bestIndex = 0;
+    let bestCount = Infinity;
+
+    for (
+      let i = 0;
+      i < bucket.length;
+      i++
+    ) {
+
+      const type =
+        bucket[i].promotion_type
+        || "campaign";
+
+      const count =
+        selectedTypeCounts[type]
+        ?? 0;
+
+      if (count < bestCount) {
+
+        bestCount = count;
+        bestIndex = i;
+      }
+    }
+
+
+    const [item] =
+      bucket.splice(
+        bestIndex,
+        1
+      );
+
+
+    const type =
+      item.promotion_type
+      || "campaign";
+
+    selectedTypeCounts[type] =
+      (
+        selectedTypeCounts[type]
+        ?? 0
+      )
+      + 1;
+
+
+    return item;
+  }
+
+
+  let remaining = sorted.length;
+
+
+  while (remaining > 0) {
+
+    let addedThisRound = false;
+
+
+    for (const merchant of merchants) {
+
+      const bucket =
+        merchantBuckets.get(
+          merchant
+        );
+
+      if (!bucket || !bucket.length) {
+        continue;
+      }
+
+
+      const item =
+        takeBestItem(
+          bucket
+        );
+
+
+      if (item) {
+
+        result.push(item);
+
+        remaining--;
+
+        addedThisRound = true;
+      }
+    }
+
+
+    if (!addedThisRound) {
+      break;
+    }
+  }
+
+
+  return result;
+}
+
 
 function sortLatest(data) {
 
@@ -783,6 +1058,18 @@ function renderPromotionCard(
       : "แคมเปญโปรโมชั่น";
 
 
+  const typeLabel =
+    escapeHtml(
+      getPromotionTypeLabel(promotion)
+    );
+
+
+  const typeClass =
+    escapeHtml(
+      getPromotionTypeClass(promotion)
+    );
+
+
   const imageBlock =
     promotion.image_url
       ? `
@@ -863,6 +1150,12 @@ function renderPromotionCard(
 
         </div>
 
+
+        <div
+          class="promotion-type-badge ${typeClass}"
+        >
+          ${typeLabel}
+        </div>
 
         <div class="promotion-location">
           📍 ${locationLabel}
