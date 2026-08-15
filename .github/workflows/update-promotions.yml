@@ -1,0 +1,42 @@
+name: Update Promotions
+
+on:
+  workflow_dispatch:
+
+  schedule:
+    - cron: "0 23 * * *"
+
+permissions:
+  contents: write
+
+jobs:
+  update-promotions:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run Big C collector
+        run: python collectors/bigc.py
+
+      - name: Commit updated promotions
+        run: |
+          git config user.name "PromoPrachin Bot"
+          git config user.email "bot@proprachin.local"
+          git add promotions.json
+
+          if git diff --cached --quiet; then
+            echo "No promotion changes"
+          else
+            git commit -m "Auto update Big C promotions"
+            git push
+          fi
