@@ -755,26 +755,59 @@ function getInterestingScore(promotion) {
   let score = 0;
 
   if (promotion.promotion_type === "coupon") {
-    score += 30;
+    score += 40;
   }
 
   else if (promotion.promotion_type === "member_offer") {
-    score += 20;
+    score += 25;
   }
 
   else if (promotion.promotion_type === "product_deal") {
-    score += 20;
+    score += 35;
   }
 
   else {
     score += 10;
   }
 
+  if (isCataloguePromotion(promotion)) {
+    score += 20;
+  }
+
+  if (promotion.verified === true) {
+    score += 10;
+  }
 
   if (promotion.image_url) {
     score += 5;
   }
 
+  const oldPrice = Number(
+    promotion.old_price || 0
+  );
+
+  const newPrice = Number(
+    promotion.new_price || 0
+  );
+
+  if (
+    oldPrice > 0 &&
+    newPrice > 0 &&
+    newPrice < oldPrice
+  ) {
+    score += 30;
+  }
+
+  const title = String(
+    promotion.title || ""
+  );
+
+  if (
+    /\d+\s*บาท/.test(title) ||
+    /ส่วนลด/.test(title)
+  ) {
+    score += 15;
+  }
 
   if (promotion.location_scope === "province") {
     score += 40;
@@ -788,8 +821,63 @@ function getInterestingScore(promotion) {
     score += 60;
   }
 
-
   return score;
+}
+
+
+function getSmartLabel(promotion) {
+
+  const score =
+    getInterestingScore(promotion);
+
+  if (score >= 60) {
+    return "🔥 ควรเช็ก";
+  }
+
+  if (score >= 35) {
+    return "✨ น่าสนใจ";
+  }
+
+  return "ℹ️ ดูรายละเอียด";
+}
+
+
+function getSmartReason(promotion) {
+
+  const title = String(
+    promotion.title || ""
+  );
+
+  if (promotion.promotion_type === "coupon") {
+
+    if (/\d+\s*บาท/.test(title)) {
+      return "มีมูลค่าส่วนลดระบุชัด เหมาะสำหรับเช็กสิทธิ์ก่อนซื้อ";
+    }
+
+    return "คูปองที่อาจช่วยประหยัด ควรเช็กก่อนซื้อ";
+  }
+
+  if (promotion.promotion_type === "member_offer") {
+    return "สิทธิสมาชิกที่อาจช่วยเพิ่มความคุ้มค่า";
+  }
+
+  if (promotion.promotion_type === "product_deal") {
+    return "ดีลสินค้าที่มีข้อมูลราคา เหมาะสำหรับเปรียบเทียบก่อนซื้อ";
+  }
+
+  if (isCataloguePromotion(promotion)) {
+    return "เปิดดูรายการโปรโมชั่นจากแคตตาล็อกต้นทางก่อนซื้อของ";
+  }
+
+  if (/ลุ้น|ชิง|บินฟรี|รางวัล/.test(title)) {
+    return "กิจกรรมหรือลุ้นรางวัล เหมาะกับคนที่สนใจร่วมแคมเปญ";
+  }
+
+  if (/ส่วนลด|คุ้ม|คูปอง/.test(title)) {
+    return "มีข้อความเกี่ยวกับสิทธิ์หรือความคุ้มค่า ควรเปิดดูรายละเอียด";
+  }
+
+  return "แคมเปญจากแหล่งต้นทางที่อาจน่าสนใจ";
 }
 
 
@@ -1138,23 +1226,53 @@ function renderPromotionCard(
     );
 
   const category =
-    promotion.promotion_type ===
-    "product_deal"
-      ? "ดีลสินค้า"
-      : "แคมเปญโปรโมชั่น";
-
+    escapeHtml(
+      getPromotionCategoryLabel(
+        promotion
+      )
+    );
 
   const typeLabel =
     escapeHtml(
-      getPromotionTypeLabel(promotion)
+      getPromotionTypeLabel(
+        promotion
+      )
     );
-
 
   const typeClass =
     escapeHtml(
-      getPromotionTypeClass(promotion)
+      getPromotionTypeClass(
+        promotion
+      )
     );
 
+  const smartLabel =
+    escapeHtml(
+      getSmartLabel(
+        promotion
+      )
+    );
+
+  const smartReason =
+    escapeHtml(
+      getSmartReason(
+        promotion
+      )
+    );
+
+  const description =
+    escapeHtml(
+      getPromotionDescription(
+        promotion
+      )
+    );
+
+  const actionLabel =
+    escapeHtml(
+      getActionLabel(
+        promotion
+      )
+    );
 
   const imageBlock =
     promotion.image_url
@@ -1175,12 +1293,10 @@ function renderPromotionCard(
         </div>
       `;
 
-
   const verifiedLabel =
     promotion.verified
-      ? "✓ แหล่งข้อมูลต้นทาง"
+      ? "✓ ข้อมูลจากแหล่งต้นทาง"
       : "ข้อมูลจากต้นทาง";
-
 
   const sourceButton =
     promotion.source_url
@@ -1193,7 +1309,7 @@ function renderPromotionCard(
           target="_blank"
           rel="noopener noreferrer"
         >
-          ดูรายละเอียดต้นทาง
+          ${actionLabel}
           <span aria-hidden="true">→</span>
         </a>
       `
@@ -1202,7 +1318,6 @@ function renderPromotionCard(
           ยังไม่มีลิงก์ต้นทาง
         </span>
       `;
-
 
   return `
     <article class="promotion-card">
@@ -1217,7 +1332,6 @@ function renderPromotionCard(
 
       </div>
 
-
       <div class="promotion-body">
 
         <div class="promotion-meta">
@@ -1231,15 +1345,12 @@ function renderPromotionCard(
           </span>
 
           <span>
-            ${escapeHtml(category)}
+            ${category}
           </span>
 
         </div>
 
-
-        <div
-          class="promotion-type-badge ${typeClass}"
-        >
+        <div class="promotion-type-badge ${typeClass}">
           ${typeLabel}
         </div>
 
@@ -1247,11 +1358,21 @@ function renderPromotionCard(
           📍 ${locationLabel}
         </div>
 
-
         <h3 class="promotion-title">
           ${title}
         </h3>
 
+        <p class="promotion-description">
+          <strong>
+            ${smartLabel}
+          </strong>
+          ·
+          ${smartReason}
+        </p>
+
+        <p class="promotion-description">
+          ${description}
+        </p>
 
         <p class="promotion-description">
           ${escapeHtml(
@@ -1260,7 +1381,6 @@ function renderPromotionCard(
           ·
           ${source}
         </p>
-
 
         <div class="promotion-actions">
           ${sourceButton}
