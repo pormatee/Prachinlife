@@ -4,10 +4,15 @@ on:
   workflow_dispatch:
 
   schedule:
+    # 23:00 UTC = 06:00 Thailand
     - cron: "0 23 * * *"
 
 permissions:
   contents: write
+
+concurrency:
+  group: prachinlife-promotions
+  cancel-in-progress: false
 
 jobs:
   update-promotions:
@@ -25,35 +30,60 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: Collect Big C raw data
+      # ==============================================
+      # COLLECT
+      # ==============================================
+
+      - name: Collect Big C
         run: python collectors/bigc.py
 
-      - name: Collect Lotus raw data
+      - name: Collect Lotus
         run: python collectors/lotus.py
 
-      - name: Normalize Big C data
+      # ==============================================
+      # NORMALIZE
+      # ==============================================
+
+      - name: Normalize Big C
         run: python normalizers/bigc.py
 
-      - name: Normalize Lotus data
+      - name: Normalize Lotus
         run: python normalizers/lotus.py
 
-      - name: Merge promotion sources
+      # ==============================================
+      # MERGE
+      # ==============================================
+
+      - name: Merge promotions
         run: python scripts/merge_promotions.py
 
-      - name: Validate merged promotion data
+      # ==============================================
+      # VALIDATE
+      # ==============================================
+
+      - name: Validate promotion data
         run: python scripts/validate_data.py
 
-      - name: Commit updated promotion data
+      # ==============================================
+      # SOURCE HEALTH
+      # ==============================================
+
+      - name: Build source health
+        run: python scripts/build_source_health.py
+
+      # ==============================================
+      # COMMIT
+      # ==============================================
+
+      - name: Commit updated data
         run: |
           git config user.name "PrachinLife Bot"
           git config user.email "bot@prachinlife.local"
 
           git add \
-            data/raw/bigc.json \
-            data/raw/lotus.json \
-            data/normalized/bigc.json \
-            data/normalized/lotus.json \
-            data/normalized/promotions.json \
+            data/raw \
+            data/normalized \
+            data/meta \
             promotions.json
 
           if git diff --cached --quiet; then

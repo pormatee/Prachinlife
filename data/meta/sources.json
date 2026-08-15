@@ -1,0 +1,19 @@
+{
+  "overall_status": "healthy",
+  "sources": {
+    "bigc": {
+      "status": "fresh",
+      "record_count": 4,
+      "last_attempt_at": "2026-08-15T14:14:20.992796+07:00",
+      "last_success_at": "2026-08-15T14:14:20.992796+07:00",
+      "last_error": null
+    },
+    "lotus": {
+      "status": "fresh",
+      "record_count": 12,
+      "last_attempt_at": "2026-08-15T14:14:21.789921+07:00",
+      "last_success_at": "2026-08-15T14:14:21.789921+07:00",
+      "last_error": null
+    }
+  }
+}

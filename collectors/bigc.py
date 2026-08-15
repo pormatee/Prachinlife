@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import time
 from datetime import datetime
 from pathlib import Path
 from urllib.parse import urljoin
@@ -10,37 +11,53 @@ import requests
 from bs4 import BeautifulSoup
 
 
-# =========================================================
-# PrachinLife
-# Big C Raw Collector V5
-#
-# Responsibility:
-# - Fetch Big C official promotion page
-# - Extract raw campaign records
-# - Save only to data/raw/bigc.json
-# - Never write normalized/promotions.json
-# - Never write frontend promotions.json
-# =========================================================
-
-
 SOURCE_URL = "https://corporate.bigc.co.th/promotions-bigc?lang=th"
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
-RAW_OUTPUT_FILE = PROJECT_ROOT / "data" / "raw" / "bigc.json"
+
+RAW_OUTPUT_FILE = (
+    PROJECT_ROOT
+    / "data"
+    / "raw"
+    / "bigc.json"
+)
+
+META_FILE = (
+    PROJECT_ROOT
+    / "data"
+    / "meta"
+    / "bigc.json"
+)
 
 
-HEADERS = {
-    "User-Agent": (
+USER_AGENTS = [
+    (
         "Mozilla/5.0 (Linux; Android 13) "
         "AppleWebKit/537.36 "
         "(KHTML, like Gecko) "
         "Chrome/120.0.0.0 Mobile Safari/537.36"
     ),
-    "Accept-Language": "th-TH,th;q=0.9,en;q=0.8",
-}
+    (
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+        "AppleWebKit/537.36 "
+        "(KHTML, like Gecko) "
+        "Chrome/126.0.0.0 Safari/537.36"
+    ),
+]
 
 
-def clean_text(value: str | None) -> str:
+def now_iso() -> str:
+    return (
+        datetime.now()
+        .astimezone()
+        .isoformat()
+    )
+
+
+def clean_text(
+    value: str | None,
+) -> str:
+
     if not value:
         return ""
 
@@ -78,26 +95,173 @@ def make_source_id(
     return f"bigc-{digest}"
 
 
+def load_json_list(
+    path: Path,
+) -> list[dict]:
+
+    if not path.exists():
+        return []
+
+    try:
+
+        with path.open(
+            "r",
+            encoding="utf-8",
+        ) as file:
+
+            data = json.load(file)
+
+        if isinstance(data, list):
+            return data
+
+    except Exception:
+        pass
+
+    return []
+
+
+def load_meta() -> dict:
+
+    if not META_FILE.exists():
+        return {}
+
+    try:
+
+        with META_FILE.open(
+            "r",
+            encoding="utf-8",
+        ) as file:
+
+            data = json.load(file)
+
+        if isinstance(data, dict):
+            return data
+
+    except Exception:
+        pass
+
+    return {}
+
+
+def save_json(
+    path: Path,
+    data,
+) -> None:
+
+    path.parent.mkdir(
+        parents=True,
+        exist_ok=True,
+    )
+
+    with path.open(
+        "w",
+        encoding="utf-8",
+    ) as file:
+
+        json.dump(
+            data,
+            file,
+            ensure_ascii=False,
+            indent=2,
+        )
+
+
+def build_headers(
+    user_agent: str,
+) -> dict:
+
+    return {
+        "User-Agent":
+            user_agent,
+
+        "Accept":
+            (
+                "text/html,application/xhtml+xml,"
+                "application/xml;q=0.9,image/avif,"
+                "image/webp,*/*;q=0.8"
+            ),
+
+        "Accept-Language":
+            "th-TH,th;q=0.9,en;q=0.8",
+
+        "Cache-Control":
+            "no-cache",
+
+        "Pragma":
+            "no-cache",
+
+        "Referer":
+            "https://corporate.bigc.co.th/",
+
+        "Upgrade-Insecure-Requests":
+            "1",
+    }
+
+
 def download_page() -> str:
 
-    print(
-        "🌐 Loading Big C promotions..."
+    last_error: Exception | None = None
+
+    session = requests.Session()
+
+    for attempt in range(
+        1,
+        4,
+    ):
+
+        user_agent = USER_AGENTS[
+            (attempt - 1)
+            % len(USER_AGENTS)
+        ]
+
+        print(
+            f"🌐 Big C fetch attempt "
+            f"{attempt}/3"
+        )
+
+        try:
+
+            response = session.get(
+                SOURCE_URL,
+                headers=build_headers(
+                    user_agent
+                ),
+                timeout=30,
+                allow_redirects=True,
+            )
+
+            print(
+                "HTTP STATUS =",
+                response.status_code,
+            )
+
+            if response.status_code == 200:
+
+                print(
+                    f"✅ Big C page downloaded "
+                    f"({len(response.text)} chars)"
+                )
+
+                return response.text
+
+            last_error = RuntimeError(
+                f"HTTP {response.status_code}"
+            )
+
+        except Exception as error:
+
+            last_error = error
+
+        if attempt < 3:
+
+            time.sleep(
+                attempt * 2
+            )
+
+    raise RuntimeError(
+        f"Big C download failed: "
+        f"{last_error}"
     )
-
-    response = requests.get(
-        SOURCE_URL,
-        headers=HEADERS,
-        timeout=30,
-    )
-
-    response.raise_for_status()
-
-    print(
-        f"✅ Big C page downloaded "
-        f"({len(response.text)} chars)"
-    )
-
-    return response.text
 
 
 def extract_title(card) -> str:
@@ -158,7 +322,9 @@ def extract_image_url(card) -> str:
     )
 
 
-def extract_destination_url(card) -> str:
+def extract_destination_url(
+    card,
+) -> str:
 
     links = card.find_all(
         "a",
@@ -193,7 +359,7 @@ def extract_destination_url(card) -> str:
     return ""
 
 
-def is_valid_raw_campaign(
+def is_valid_campaign(
     title: str,
     source_url: str,
 ) -> bool:
@@ -204,6 +370,11 @@ def is_valid_raw_campaign(
     if not source_url:
         return False
 
+    if len(
+        title.strip()
+    ) < 5:
+        return False
+
     bad_titles = {
         "โปรโมชั่น",
         "ดูเพิ่มเติม",
@@ -212,18 +383,13 @@ def is_valid_raw_campaign(
         "big c",
     }
 
-    if (
+    return (
         title.strip().lower()
-        in {
+        not in {
             item.lower()
             for item in bad_titles
         }
-    ):
-        return False
-
-    return len(
-        title.strip()
-    ) >= 5
+    )
 
 
 def collect_bigc_raw() -> list[dict]:
@@ -244,15 +410,8 @@ def collect_bigc_raw() -> list[dict]:
         f"promotion cards"
     )
 
-    raw_records: list[dict] = []
-
+    records: list[dict] = []
     seen_urls: set[str] = set()
-
-    collected_at = (
-        datetime.now()
-        .astimezone()
-        .isoformat()
-    )
 
     for card in cards:
 
@@ -272,7 +431,7 @@ def collect_bigc_raw() -> list[dict]:
             )
         )
 
-        if not is_valid_raw_campaign(
+        if not is_valid_campaign(
             title,
             source_url,
         ):
@@ -285,145 +444,277 @@ def collect_bigc_raw() -> list[dict]:
             source_url
         )
 
-        record = {
-            "source_id":
-                make_source_id(
-                    source_url,
+        records.append(
+            {
+                "source_id":
+                    make_source_id(
+                        source_url,
+                        title,
+                    ),
+
+                "source_provider":
+                    "bigc",
+
+                "source_page":
+                    SOURCE_URL,
+
+                "title":
                     title,
-                ),
 
-            "source_provider":
-                "bigc",
+                "image_url":
+                    image_url,
 
-            "source_page":
-                SOURCE_URL,
+                "destination_url":
+                    source_url,
 
-            "title":
-                title,
+                "raw_type":
+                    "campaign",
 
-            "image_url":
-                image_url,
-
-            "destination_url":
-                source_url,
-
-            "raw_type":
-                "campaign",
-
-            "collected_at":
-                collected_at,
-        }
-
-        raw_records.append(
-            record
+                # จะเติม collected_at
+                # หลังเทียบกับข้อมูลเดิม
+                "collected_at":
+                    None,
+            }
         )
-
-        print()
-        print(
-            "RAW:",
-            title
-        )
-        print(
-            "URL:",
-            source_url
-        )
-        print(
-            "IMAGE:",
-            image_url
-            or "NO IMAGE"
-        )
-
-    print()
 
     print(
-        f"✅ Found {len(raw_records)} "
-        f"clean raw Big C campaigns"
+        f"✅ Found {len(records)} "
+        f"clean Big C campaigns"
     )
 
-    return raw_records
+    return records
 
 
-def save_raw(
-    records: list[dict],
+def content_signature(
+    item: dict,
+) -> tuple:
+
+    return (
+        item.get("source_id"),
+        item.get("title"),
+        item.get("image_url"),
+        item.get("destination_url"),
+        item.get("raw_type"),
+    )
+
+
+def preserve_stable_timestamps(
+    new_records: list[dict],
+    old_records: list[dict],
+) -> list[dict]:
+
+    old_by_id = {
+        item.get("source_id"): item
+        for item in old_records
+        if item.get("source_id")
+    }
+
+    current_time = now_iso()
+
+    result: list[dict] = []
+
+    for item in new_records:
+
+        old = old_by_id.get(
+            item.get("source_id")
+        )
+
+        if (
+            old
+            and content_signature(old)
+            == content_signature(item)
+        ):
+
+            item["collected_at"] = (
+                old.get("collected_at")
+                or current_time
+            )
+
+        else:
+
+            item["collected_at"] = (
+                current_time
+            )
+
+        result.append(
+            item
+        )
+
+    return result
+
+
+def write_meta_success(
+    record_count: int,
 ) -> None:
 
-    RAW_OUTPUT_FILE.parent.mkdir(
-        parents=True,
-        exist_ok=True,
+    previous = load_meta()
+
+    timestamp = now_iso()
+
+    meta = {
+        "source":
+            "bigc",
+
+        "status":
+            "fresh",
+
+        "last_attempt_at":
+            timestamp,
+
+        "last_success_at":
+            timestamp,
+
+        "record_count":
+            record_count,
+
+        "last_error":
+            None,
+
+        "previous_status":
+            previous.get("status"),
+    }
+
+    save_json(
+        META_FILE,
+        meta,
     )
 
-    with RAW_OUTPUT_FILE.open(
-        "w",
-        encoding="utf-8",
-    ) as file:
 
-        json.dump(
-            records,
-            file,
-            ensure_ascii=False,
-            indent=2,
-        )
+def write_meta_failure(
+    error: Exception,
+    record_count: int,
+) -> None:
 
-    print()
-    print(
-        "💾 Saved raw data:",
-        RAW_OUTPUT_FILE
+    previous = load_meta()
+
+    meta = {
+        "source":
+            "bigc",
+
+        "status":
+            "stale",
+
+        "last_attempt_at":
+            now_iso(),
+
+        "last_success_at":
+            previous.get(
+                "last_success_at"
+            ),
+
+        "record_count":
+            record_count,
+
+        "last_error":
+            str(error),
+
+        "previous_status":
+            previous.get("status"),
+    }
+
+    save_json(
+        META_FILE,
+        meta,
     )
 
 
 def main() -> None:
 
-    print(
-        "=" * 60
-    )
+    print("=" * 60)
 
     print(
-        "PrachinLife - Big C Raw Collector V5"
+        "PrachinLife - "
+        "Big C Raw Collector V5.1"
     )
 
-    print(
-        "=" * 60
+    print("=" * 60)
+
+    existing = load_json_list(
+        RAW_OUTPUT_FILE
     )
 
     try:
 
-        records = collect_bigc_raw()
+        new_records = (
+            collect_bigc_raw()
+        )
 
-        if not records:
+        if not new_records:
 
-            print()
-            print(
-                "⚠️ No Big C campaigns found."
+            raise RuntimeError(
+                "No valid Big C "
+                "campaigns found"
             )
-            print(
-                "Existing raw file preserved."
+
+        records = (
+            preserve_stable_timestamps(
+                new_records,
+                existing,
             )
+        )
 
-            return
+        save_json(
+            RAW_OUTPUT_FILE,
+            records,
+        )
 
-        save_raw(
-            records
+        write_meta_success(
+            len(records)
         )
 
         print()
         print(
-            "✅ Big C Raw Collector V5 completed"
+            "💾 Raw data saved"
         )
+
         print(
-            f"📦 Raw records = "
+            f"📦 Records = "
             f"{len(records)}"
+        )
+
+        print(
+            "🟢 Source status = fresh"
+        )
+
+        print()
+        print(
+            "FINAL RESULT: PASS"
         )
 
     except Exception as error:
 
-        print()
-        print(
-            "❌ Big C Raw Collector V5 failed:"
+        write_meta_failure(
+            error,
+            len(existing),
         )
-        print(error)
+
         print()
         print(
-            "Existing raw file preserved."
+            "⚠️ Big C collection failed:"
+        )
+
+        print(error)
+
+        print()
+        print(
+            "Existing raw data preserved."
+        )
+
+        print(
+            f"📦 Preserved records = "
+            f"{len(existing)}"
+        )
+
+        print(
+            "🟡 Source status = stale"
+        )
+
+        # ตั้งใจ exit 0:
+        # source ล้มไม่ควรทำให้
+        # multi-source pipeline ทั้งระบบล้ม
+        print()
+        print(
+            "FINAL RESULT: STALE_OK"
         )
 
 

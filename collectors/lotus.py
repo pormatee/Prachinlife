@@ -2,24 +2,13 @@ from __future__ import annotations
 
 import hashlib
 import json
+import time
 from datetime import datetime
 from pathlib import Path
 from urllib.parse import parse_qs, unquote, urlparse
 
 import requests
 from bs4 import BeautifulSoup
-
-
-# =========================================================
-# PrachinLife
-# Lotus's Raw Collector V1
-#
-# Responsibility:
-# - Collect promotion cards from My Lotus's official page
-# - Extract title and original image URL
-# - Preserve source-page provenance
-# - Do not invent detail URLs, prices, dates, or locations
-# =========================================================
 
 
 SOURCE_URL = "https://my.lotuss.com/promotions/th"
@@ -33,22 +22,36 @@ RAW_OUTPUT_FILE = (
     / "lotus.json"
 )
 
+META_FILE = (
+    PROJECT_ROOT
+    / "data"
+    / "meta"
+    / "lotus.json"
+)
 
-HEADERS = {
-    "User-Agent": (
+
+USER_AGENTS = [
+    (
         "Mozilla/5.0 (Linux; Android 13) "
         "AppleWebKit/537.36 "
         "(KHTML, like Gecko) "
         "Chrome/120.0.0.0 Mobile Safari/537.36"
     ),
-    "Accept-Language":
-        "th-TH,th;q=0.9,en;q=0.8",
-}
+    (
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+        "AppleWebKit/537.36 "
+        "(KHTML, like Gecko) "
+        "Chrome/126.0.0.0 Safari/537.36"
+    ),
+]
 
 
-# =========================================================
-# HELPERS
-# =========================================================
+def now_iso() -> str:
+    return (
+        datetime.now()
+        .astimezone()
+        .isoformat()
+    )
 
 
 def clean_text(
@@ -79,6 +82,174 @@ def make_source_id(
     return f"lotus-{digest}"
 
 
+def load_json_list(
+    path: Path,
+) -> list[dict]:
+
+    if not path.exists():
+        return []
+
+    try:
+
+        with path.open(
+            "r",
+            encoding="utf-8",
+        ) as file:
+
+            data = json.load(file)
+
+        if isinstance(data, list):
+            return data
+
+    except Exception:
+        pass
+
+    return []
+
+
+def load_meta() -> dict:
+
+    if not META_FILE.exists():
+        return {}
+
+    try:
+
+        with META_FILE.open(
+            "r",
+            encoding="utf-8",
+        ) as file:
+
+            data = json.load(file)
+
+        if isinstance(data, dict):
+            return data
+
+    except Exception:
+        pass
+
+    return {}
+
+
+def save_json(
+    path: Path,
+    data,
+) -> None:
+
+    path.parent.mkdir(
+        parents=True,
+        exist_ok=True,
+    )
+
+    with path.open(
+        "w",
+        encoding="utf-8",
+    ) as file:
+
+        json.dump(
+            data,
+            file,
+            ensure_ascii=False,
+            indent=2,
+        )
+
+
+def build_headers(
+    user_agent: str,
+) -> dict:
+
+    return {
+        "User-Agent":
+            user_agent,
+
+        "Accept":
+            (
+                "text/html,application/xhtml+xml,"
+                "application/xml;q=0.9,image/avif,"
+                "image/webp,*/*;q=0.8"
+            ),
+
+        "Accept-Language":
+            "th-TH,th;q=0.9,en;q=0.8",
+
+        "Cache-Control":
+            "no-cache",
+
+        "Pragma":
+            "no-cache",
+    }
+
+
+def download_page() -> str:
+
+    last_error: Exception | None = None
+
+    session = requests.Session()
+
+    for attempt in range(
+        1,
+        4,
+    ):
+
+        user_agent = USER_AGENTS[
+            (attempt - 1)
+            % len(USER_AGENTS)
+        ]
+
+        print(
+            f"🌐 Lotus's fetch attempt "
+            f"{attempt}/3"
+        )
+
+        try:
+
+            response = session.get(
+                SOURCE_URL,
+                headers=build_headers(
+                    user_agent
+                ),
+                timeout=30,
+                allow_redirects=True,
+            )
+
+            print(
+                "HTTP STATUS =",
+                response.status_code,
+            )
+
+            print(
+                "FINAL URL =",
+                response.url,
+            )
+
+            if response.status_code == 200:
+
+                print(
+                    f"✅ Lotus's page downloaded "
+                    f"({len(response.text)} chars)"
+                )
+
+                return response.text
+
+            last_error = RuntimeError(
+                f"HTTP {response.status_code}"
+            )
+
+        except Exception as error:
+
+            last_error = error
+
+        if attempt < 3:
+
+            time.sleep(
+                attempt * 2
+            )
+
+    raise RuntimeError(
+        f"Lotus's download failed: "
+        f"{last_error}"
+    )
+
+
 def extract_original_image_url(
     src: str | None,
 ) -> str:
@@ -88,9 +259,9 @@ def extract_original_image_url(
 
     src = src.strip()
 
-    # Next.js image proxy:
-    # /_next/image?url=<encoded-original-url>&w=640&q=75
-    if src.startswith("/_next/image"):
+    if src.startswith(
+        "/_next/image"
+    ):
 
         parsed = urlparse(
             src
@@ -110,51 +281,13 @@ def extract_original_image_url(
                 values[0]
             )
 
-    if src.startswith(
-        "http://"
-    ) or src.startswith(
-        "https://"
+    if (
+        src.startswith("http://")
+        or src.startswith("https://")
     ):
         return src
 
     return ""
-
-
-# =========================================================
-# DOWNLOAD
-# =========================================================
-
-
-def download_page() -> str:
-
-    print(
-        "🌐 Loading Lotus's promotions..."
-    )
-
-    response = requests.get(
-        SOURCE_URL,
-        headers=HEADERS,
-        timeout=30,
-    )
-
-    response.raise_for_status()
-
-    print(
-        f"✅ Lotus's page downloaded "
-        f"({len(response.text)} chars)"
-    )
-
-    print(
-        "FINAL URL:",
-        response.url,
-    )
-
-    return response.text
-
-
-# =========================================================
-# CARD EXTRACTION
-# =========================================================
 
 
 def get_card_title(card) -> str:
@@ -169,7 +302,6 @@ def get_card_title(card) -> str:
 
         if alt:
             return alt
-
 
     detail = card.select_one(
         ".detail"
@@ -186,7 +318,6 @@ def get_card_title(card) -> str:
 
         if text:
             return text
-
 
     return clean_text(
         card.get_text(
@@ -208,8 +339,10 @@ def get_card_image(card) -> str:
         or ""
     )
 
-    return extract_original_image_url(
-        src
+    return (
+        extract_original_image_url(
+            src
+        )
     )
 
 
@@ -221,12 +354,12 @@ def is_valid_card(
     if not title:
         return False
 
+    if not image_url:
+        return False
+
     if len(
         title.strip()
     ) < 4:
-        return False
-
-    if not image_url:
         return False
 
     bad_titles = {
@@ -243,18 +376,13 @@ def is_valid_card(
         .lower()
     )
 
-    if normalized in {
-        item.lower()
-        for item in bad_titles
-    }:
-        return False
-
-    return True
-
-
-# =========================================================
-# CLASSIFICATION HINT
-# =========================================================
+    return (
+        normalized
+        not in {
+            item.lower()
+            for item in bad_titles
+        }
+    )
 
 
 def classify_raw_type(
@@ -262,8 +390,7 @@ def classify_raw_type(
 ) -> str:
 
     normalized = (
-        title
-        .lower()
+        title.lower()
     )
 
     if (
@@ -281,11 +408,6 @@ def classify_raw_type(
         return "member_offer"
 
     return "campaign"
-
-
-# =========================================================
-# COLLECT
-# =========================================================
 
 
 def collect_lotus_raw() -> list[dict]:
@@ -310,13 +432,6 @@ def collect_lotus_raw() -> list[dict]:
 
     seen_ids: set[str] = set()
 
-    collected_at = (
-        datetime.now()
-        .astimezone()
-        .isoformat()
-    )
-
-
     for card in cards:
 
         title = get_card_title(
@@ -333,76 +448,47 @@ def collect_lotus_raw() -> list[dict]:
         ):
             continue
 
-
         source_id = make_source_id(
             title,
             image_url,
         )
 
-
         if source_id in seen_ids:
             continue
-
 
         seen_ids.add(
             source_id
         )
 
-
-        record = {
-
-            "source_id":
-                source_id,
-
-            "source_provider":
-                "lotus",
-
-            "source_page":
-                SOURCE_URL,
-
-            "title":
-                title,
-
-            "image_url":
-                image_url,
-
-            "destination_url":
-                None,
-
-            "raw_type":
-                classify_raw_type(
-                    title
-                ),
-
-            "collected_at":
-                collected_at,
-        }
-
-
         records.append(
-            record
+            {
+                "source_id":
+                    source_id,
+
+                "source_provider":
+                    "lotus",
+
+                "source_page":
+                    SOURCE_URL,
+
+                "title":
+                    title,
+
+                "image_url":
+                    image_url,
+
+                "destination_url":
+                    None,
+
+                "raw_type":
+                    classify_raw_type(
+                        title
+                    ),
+
+                "collected_at":
+                    None,
+            }
         )
-
-
-        print()
-
-        print(
-            "RAW:",
-            title
-        )
-
-        print(
-            "TYPE:",
-            record["raw_type"]
-        )
-
-        print(
-            "IMAGE:",
-            image_url
-        )
-
-
-    print()
 
     print(
         f"✅ Found {len(records)} "
@@ -412,111 +498,254 @@ def collect_lotus_raw() -> list[dict]:
     return records
 
 
-# =========================================================
-# SAVE
-# =========================================================
+def content_signature(
+    item: dict,
+) -> tuple:
 
-
-def save_raw(
-    records: list[dict],
-) -> None:
-
-    RAW_OUTPUT_FILE.parent.mkdir(
-        parents=True,
-        exist_ok=True,
+    return (
+        item.get("source_id"),
+        item.get("title"),
+        item.get("image_url"),
+        item.get("destination_url"),
+        item.get("raw_type"),
     )
 
-    with RAW_OUTPUT_FILE.open(
-        "w",
-        encoding="utf-8",
-    ) as file:
 
-        json.dump(
-            records,
-            file,
-            ensure_ascii=False,
-            indent=2,
+def preserve_stable_timestamps(
+    new_records: list[dict],
+    old_records: list[dict],
+) -> list[dict]:
+
+    old_by_id = {
+        item.get("source_id"): item
+        for item in old_records
+        if item.get("source_id")
+    }
+
+    current_time = now_iso()
+
+    result: list[dict] = []
+
+    for item in new_records:
+
+        source_id = item.get(
+            "source_id"
         )
 
-    print()
+        old = old_by_id.get(
+            source_id
+        )
 
-    print(
-        "💾 Saved raw data:",
-        RAW_OUTPUT_FILE
+        if old:
+
+            item["collected_at"] = (
+                old.get("collected_at")
+                or current_time
+            )
+
+        else:
+
+            item["collected_at"] = (
+                current_time
+            )
+
+        result.append(
+            item
+        )
+
+    return result
+
+def write_meta_success(
+    record_count: int,
+) -> None:
+
+    previous = load_meta()
+
+    timestamp = now_iso()
+
+    meta = {
+        "source":
+            "lotus",
+
+        "status":
+            "fresh",
+
+        "last_attempt_at":
+            timestamp,
+
+        "last_success_at":
+            timestamp,
+
+        "record_count":
+            record_count,
+
+        "last_error":
+            None,
+
+        "previous_status":
+            previous.get("status"),
+    }
+
+    save_json(
+        META_FILE,
+        meta,
     )
 
 
-# =========================================================
-# MAIN
-# =========================================================
+def write_meta_failure(
+    error: Exception,
+    record_count: int,
+) -> None:
+
+    previous = load_meta()
+
+    meta = {
+        "source":
+            "lotus",
+
+        "status":
+            "stale",
+
+        "last_attempt_at":
+            now_iso(),
+
+        "last_success_at":
+            previous.get(
+                "last_success_at"
+            ),
+
+        "record_count":
+            record_count,
+
+        "last_error":
+            str(error),
+
+        "previous_status":
+            previous.get("status"),
+    }
+
+    save_json(
+        META_FILE,
+        meta,
+    )
 
 
 def main() -> None:
 
-    print(
-        "=" * 60
-    )
+    print("=" * 60)
 
     print(
-        "PrachinLife - Lotus's Raw Collector V1"
+        "PrachinLife - "
+        "Lotus's Raw Collector V1.1"
     )
 
-    print(
-        "=" * 60
-    )
+    print("=" * 60)
 
+    existing = load_json_list(
+        RAW_OUTPUT_FILE
+    )
 
     try:
 
-        records = collect_lotus_raw()
-
-
-        if not records:
-
-            print()
-
-            print(
-                "⚠️ No Lotus's promotions found."
-            )
-
-            print(
-                "Existing raw file preserved."
-            )
-
-            return
-
-
-        save_raw(
-            records
+        new_records = (
+            collect_lotus_raw()
         )
 
+        if not new_records:
+
+            raise RuntimeError(
+                "No valid Lotus's "
+                "promotion records found"
+            )
+
+        records = (
+            preserve_stable_timestamps(
+                new_records,
+                existing,
+            )
+        )
+
+        save_json(
+            RAW_OUTPUT_FILE,
+            records,
+        )
+
+        write_meta_success(
+            len(records)
+        )
+
+        counts: dict[str, int] = {}
+
+        for item in records:
+
+            raw_type = (
+                item.get("raw_type")
+                or "unknown"
+            )
+
+            counts[raw_type] = (
+                counts.get(
+                    raw_type,
+                    0,
+                )
+                + 1
+            )
 
         print()
-
         print(
-            "✅ Lotus's Raw Collector V1 completed"
+            "💾 Raw data saved"
         )
 
         print(
-            f"📦 Raw records = "
+            f"📦 Records = "
             f"{len(records)}"
         )
 
+        print(
+            "Types =",
+            counts,
+        )
+
+        print(
+            "🟢 Source status = fresh"
+        )
+
+        print()
+        print(
+            "FINAL RESULT: PASS"
+        )
 
     except Exception as error:
 
-        print()
+        write_meta_failure(
+            error,
+            len(existing),
+        )
 
+        print()
         print(
-            "❌ Lotus's Raw Collector V1 failed:"
+            "⚠️ Lotus's collection failed:"
         )
 
         print(error)
 
         print()
+        print(
+            "Existing raw data preserved."
+        )
 
         print(
-            "Existing raw file preserved."
+            f"📦 Preserved records = "
+            f"{len(existing)}"
+        )
+
+        print(
+            "🟡 Source status = stale"
+        )
+
+        print()
+        print(
+            "FINAL RESULT: STALE_OK"
         )
 
 
