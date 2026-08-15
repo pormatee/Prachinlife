@@ -2,972 +2,760 @@
 <html lang="th">
 
 <head>
+  <meta charset="UTF-8">
 
-<meta charset="UTF-8">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
-<meta
-name="viewport"
-content="width=device-width, initial-scale=1.0"
->
+  <meta
+    name="theme-color"
+    content="#f7f8f4"
+  >
 
-<meta
-name="theme-color"
-content="#071521"
->
+  <title>
+    PrachinLife | ชีวิตปราจีน ง่ายขึ้นทุกวัน
+  </title>
 
-<title>
-โปรปราจีน | โปรโมชั่นและกิจกรรมในปราจีนบุรี
-</title>
+  <meta
+    name="description"
+    content="PrachinLife ผู้ช่วยชีวิตประจำวันสำหรับคนปราจีนบุรี ช่วยค้นหาโปรโมชั่น สิ่งน่าสนใจ และข้อมูลใกล้ตัวได้ง่ายขึ้น"
+  >
 
-<meta
-name="description"
-content="รวมโปรโมชั่น ห้าง ร้านค้า และกิจกรรมในจังหวัดปราจีนบุรี อัปเดตอัตโนมัติ"
->
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
 
-<link
-rel="preconnect"
-href="https://fonts.googleapis.com"
->
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
 
-<link
-rel="preconnect"
-href="https://fonts.gstatic.com"
-crossorigin
->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
 
-<link
-href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;500;600;700;800&display=swap"
-rel="stylesheet"
->
-
-<link
-rel="stylesheet"
-href="style.css"
->
-
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
 </head>
 
 
 <body>
 
+  <!-- ==================================================
+  HEADER
+  ================================================== -->
 
-<!-- =====================================
-HEADER
-===================================== -->
+  <header class="site-header">
 
-<header class="header">
+    <div class="container header-inner">
 
-<div class="container header-inner">
+      <a
+        href="#top"
+        class="brand"
+        aria-label="PrachinLife หน้าแรก"
+      >
 
+        <div class="brand-mark">
+          P
+        </div>
 
-<a
-href="#"
-class="brand"
->
+        <div class="brand-copy">
+          <strong>PrachinLife</strong>
+          <span>ชีวิตปราจีน ง่ายขึ้นทุกวัน</span>
+        </div>
 
-<div class="brand-icon">
-ป
-</div>
+      </a>
 
 
-<div class="brand-text">
+      <nav class="desktop-nav">
 
-<strong>
-โปรปราจีน
-</strong>
+        <a href="#top">
+          หน้าแรก
+        </a>
 
-<span>
-Prachinburi Local Deals
-</span>
+        <a href="#deals">
+          ดีล
+        </a>
 
-</div>
+        <a href="#explore">
+          สำรวจ
+        </a>
 
-</a>
+        <a href="#about">
+          เกี่ยวกับ
+        </a>
 
+      </nav>
 
 
-<nav class="desktop-nav">
+      <button
+        id="refreshBtn"
+        class="refresh-button"
+        type="button"
+        title="อัปเดตข้อมูล"
+        aria-label="อัปเดตข้อมูล"
+      >
+        ↻
+      </button>
 
-<a href="#promotions">
-โปรโมชั่น
-</a>
+    </div>
 
-<a href="#stores">
-ห้างและร้าน
-</a>
+  </header>
 
-<a href="#events">
-กิจกรรม
-</a>
 
-<a href="#about">
-เกี่ยวกับเรา
-</a>
+  <main id="top">
 
-</nav>
+    <!-- ==================================================
+    HERO
+    ================================================== -->
 
+    <section class="hero">
 
+      <div class="container hero-inner">
 
-<div class="header-actions">
+        <div class="hero-badge">
+          LOCAL EVERYDAY ASSISTANT
+        </div>
 
-<button
-id="refreshBtn"
-class="header-icon"
-type="button"
-title="อัปเดตข้อมูล"
->
+        <h1>
+          ชีวิตปราจีน
+          <span>ง่ายขึ้นทุกวัน</span>
+        </h1>
 
-↻
+        <p class="hero-description">
+          ช่วยคุณค้นหาสิ่งที่น่าสนใจในปราจีนบุรี
+          ให้เร็วขึ้น คุ้มขึ้น และไม่ต้องเปิดหลายเว็บเพื่อหาเอง
+        </p>
 
-</button>
 
+        <div class="search-panel">
 
-<button
-id="themeBtn"
-class="header-icon"
-type="button"
-title="เปลี่ยนธีม"
->
+          <div class="search-row">
 
-☾
+            <div class="search-field">
 
-</button>
+              <span
+                class="search-icon"
+                aria-hidden="true"
+              >
+                ⌕
+              </span>
 
-</div>
+              <input
+                id="searchInput"
+                type="search"
+                placeholder="วันนี้กำลังหาอะไร?"
+                autocomplete="off"
+                aria-label="ค้นหา"
+              >
 
+            </div>
 
-</div>
+            <button
+              id="searchBtn"
+              class="primary-button"
+              type="button"
+            >
+              ค้นหา
+            </button>
 
-</header>
+          </div>
 
 
+          <div class="search-hints">
 
+            <button
+              type="button"
+              class="hint-chip"
+              data-search="Big C"
+            >
+              Big C
+            </button>
 
-<!-- =====================================
-HERO
-===================================== -->
+            <button
+              type="button"
+              class="hint-chip"
+              data-search="แคมเปญ"
+            >
+              แคมเปญ
+            </button>
 
-<section class="hero">
+            <button
+              type="button"
+              class="hint-chip"
+              data-search=""
+            >
+              ดูทั้งหมด
+            </button>
 
-<div class="container hero-layout">
+          </div>
 
+        </div>
 
-<div class="hero-content">
 
+        <div class="hero-trust">
 
-<div class="live-label">
+          <span class="status-dot"></span>
 
-<span class="live-dot"></span>
+          <span>
+            ข้อมูลจากแหล่งต้นทางและอัปเดตอัตโนมัติ
+          </span>
 
-ข้อมูลโปรโมชั่นอัปเดตอัตโนมัติ
+        </div>
 
-</div>
+      </div>
 
+    </section>
 
 
-<h1>
+    <!-- ==================================================
+    TODAY / DEALS
+    ================================================== -->
 
-โปรดี ๆ ใน
-<span>ปราจีนบุรี</span>
+    <section
+      id="deals"
+      class="section"
+    >
 
-<br>
+      <div class="container">
 
-หาได้ง่ายกว่าเดิม
+        <div class="section-heading">
 
-</h1>
+          <div>
 
+            <span class="eyebrow">
+              TODAY
+            </span>
 
+            <h2>
+              วันนี้มีอะไรน่าสนใจ
+            </h2>
 
-<p class="hero-description">
+            <p>
+              สิ่งที่ระบบรวบรวมล่าสุดจากแหล่งข้อมูลที่ตรวจสอบได้
+            </p>
 
-รวมโปรโมชั่นจากห้างและร้านค้า
-ช่วยให้คุณค้นหาโปรลดราคา
-โปรใกล้หมด และกิจกรรมที่น่าสนใจ
-ในพื้นที่ปราจีนบุรีได้จากที่เดียว
+          </div>
 
-</p>
 
+          <div
+            id="resultCount"
+            class="result-count"
+          >
+            กำลังโหลด...
+          </div>
 
+        </div>
 
 
-<!-- SEARCH -->
+        <div
+          id="promotionList"
+          class="promotion-grid"
+        >
 
-<div class="search-box">
+          <div class="skeleton-card"></div>
+          <div class="skeleton-card"></div>
+          <div class="skeleton-card"></div>
 
+        </div>
 
-<div class="search-icon">
-⌕
-</div>
 
+        <div
+          id="emptyState"
+          class="empty-state hidden"
+        >
 
-<input
-id="searchInput"
-type="search"
-placeholder="ค้นหาโปรโมชั่น ห้าง สินค้า หรือสาขา..."
-autocomplete="off"
->
+          <div class="empty-icon">
+            🔎
+          </div>
 
+          <h3>
+            ยังไม่พบสิ่งที่ค้นหา
+          </h3>
 
-<button
-id="searchBtn"
-type="button"
->
+          <p>
+            ลองใช้คำค้นอื่น หรือกลับมาดูข้อมูลทั้งหมด
+          </p>
 
-ค้นหา
+          <button
+            id="resetBtn"
+            class="secondary-button"
+            type="button"
+          >
+            ดูทั้งหมด
+          </button>
 
-</button>
+        </div>
 
 
-</div>
+        <div class="section-footer">
 
+          <button
+            id="loadMoreBtn"
+            class="secondary-button hidden"
+            type="button"
+          >
+            ดูเพิ่มเติม
+          </button>
 
+        </div>
 
+      </div>
 
-<!-- QUICK FILTER -->
+    </section>
 
-<div class="quick-actions">
 
+    <!-- ==================================================
+    QUICK DECISIONS
+    ================================================== -->
 
-<button
-type="button"
-data-quick="all"
->
+    <section class="section soft-section">
 
-✨ โปรทั้งหมด
+      <div class="container">
 
-</button>
+        <div class="section-heading compact">
 
+          <div>
 
-<button
-type="button"
-data-quick="discount"
->
+            <span class="eyebrow">
+              QUICK FIND
+            </span>
 
-🔥 ลดเกิน 30%
+            <h2>
+              หาแบบเร็ว
+            </h2>
 
-</button>
+          </div>
 
+        </div>
 
-<button
-type="button"
-data-quick="urgent"
->
 
-⏰ ใกล้หมด
+        <div class="quick-grid">
 
-</button>
+          <button
+            class="quick-card"
+            type="button"
+            data-quick="all"
+          >
 
+            <span class="quick-icon">
+              ✨
+            </span>
 
-<button
-type="button"
-data-quick="bigc"
->
+            <strong>
+              ดูทั้งหมด
+            </strong>
 
-🔴 Big C
+            <span>
+              ดูข้อมูลล่าสุดทั้งหมด
+            </span>
 
-</button>
+          </button>
 
 
-</div>
+          <button
+            class="quick-card"
+            type="button"
+            data-quick="bigc"
+          >
 
+            <span class="quick-icon">
+              🛒
+            </span>
 
-</div>
+            <strong>
+              Big C
+            </strong>
 
+            <span>
+              ดูแคมเปญจาก Big C
+            </span>
 
+          </button>
 
 
-<!-- HERO DASHBOARD -->
+          <button
+            class="quick-card"
+            type="button"
+            data-quick="latest"
+          >
 
-<div class="hero-dashboard">
+            <span class="quick-icon">
+              🆕
+            </span>
 
+            <strong>
+              ล่าสุด
+            </strong>
 
-<div class="dashboard-header">
+            <span>
+              ดูข้อมูลที่เพิ่งอัปเดต
+            </span>
 
+          </button>
 
-<div>
+        </div>
 
-<span>
-อัปเดตล่าสุด
-</span>
+      </div>
 
-<strong id="lastUpdate">
-กำลังโหลด...
-</strong>
+    </section>
 
-</div>
 
+    <!-- ==================================================
+    EXPLORE
+    ================================================== -->
 
-<div class="online-status">
+    <section
+      id="explore"
+      class="section"
+    >
 
-<span></span>
+      <div class="container">
 
-LIVE
+        <div class="section-heading">
 
-</div>
+          <div>
 
+            <span class="eyebrow">
+              EXPLORE PRACHINLIFE
+            </span>
 
-</div>
+            <h2>
+              สำรวจ PrachinLife
+            </h2>
 
+            <p>
+              เราจะค่อย ๆ เพิ่มข้อมูลที่ช่วยชีวิตประจำวันของคนปราจีนบุรี
+            </p>
 
+          </div>
 
+        </div>
 
-<div class="big-stat">
 
-<span>
-โปรโมชั่นในระบบ
-</span>
+        <div class="explore-grid">
 
-<strong id="heroDealCount">
-0
-</strong>
+          <article class="explore-card active">
 
-<small>
-รายการ
-</small>
+            <div class="explore-icon">
+              🛒
+            </div>
 
-</div>
+            <div>
 
+              <div class="explore-title-row">
 
+                <h3>
+                  Deals
+                </h3>
 
+                <span class="status-badge active">
+                  ใช้งานได้
+                </span>
 
-<div class="dashboard-grid">
+              </div>
 
+              <p>
+                โปรโมชั่นและแคมเปญที่น่าสนใจ
+                จากแหล่งข้อมูลจริง
+              </p>
 
-<div>
+            </div>
 
-<strong id="heroStoreCount">
-0
-</strong>
+          </article>
 
-<span>
-ร้าน / ห้าง
-</span>
 
-</div>
+          <article class="explore-card">
 
+            <div class="explore-icon">
+              🍜
+            </div>
 
-<div>
+            <div>
 
-<strong id="heroAvgDiscount">
-0%
-</strong>
+              <div class="explore-title-row">
 
-<span>
-ส่วนลดเฉลี่ย
-</span>
+                <h3>
+                  Eat
+                </h3>
 
-</div>
+                <span class="status-badge">
+                  เร็ว ๆ นี้
+                </span>
 
+              </div>
 
-</div>
+              <p>
+                ร้านอาหาร ของกิน และตัวเลือกใกล้ตัว
+              </p>
 
+            </div>
 
+          </article>
 
-<p class="dashboard-note">
 
-ข้อมูลโปรโมชั่นและสาขาที่ร่วมรายการ
-อาจมีการเปลี่ยนแปลง
-โปรดตรวจสอบกับร้านค้าก่อนซื้อ
+          <article class="explore-card">
 
-</p>
+            <div class="explore-icon">
+              📍
+            </div>
 
+            <div>
 
-</div>
+              <div class="explore-title-row">
 
+                <h3>
+                  Go
+                </h3>
 
-</div>
+                <span class="status-badge">
+                  เร็ว ๆ นี้
+                </span>
 
-</section>
+              </div>
 
+              <p>
+                สถานที่ กิจกรรม และสิ่งน่าสนใจในปราจีนบุรี
+              </p>
 
+            </div>
 
+          </article>
 
-<!-- =====================================
-STORE FILTER
-===================================== -->
 
-<section
-id="stores"
-class="container store-section"
->
+          <article class="explore-card">
 
+            <div class="explore-icon">
+              🔧
+            </div>
 
-<div class="section-title">
+            <div>
 
+              <div class="explore-title-row">
 
-<div>
+                <h3>
+                  Services
+                </h3>
 
-<span class="section-label">
-LOCAL DEALS
-</span>
+                <span class="status-badge">
+                  เร็ว ๆ นี้
+                </span>
 
+              </div>
 
-<h2>
-เลือกโปรโมชั่นตามร้าน
-</h2>
+              <p>
+                บริการ ช่าง ร้านค้า และเรื่องใกล้ตัวที่ต้องใช้จริง
+              </p>
 
-</div>
+            </div>
 
+          </article>
 
-<div
-id="resultCount"
-class="result-count"
->
+        </div>
 
-0 รายการ
+      </div>
 
-</div>
+    </section>
 
 
-</div>
+    <!-- ==================================================
+    VALUE
+    ================================================== -->
 
+    <section
+      id="about"
+      class="section value-section"
+    >
 
+      <div class="container">
 
+        <div class="section-heading centered">
 
-<div
-id="storeTabs"
-class="store-tabs"
->
+          <div>
 
+            <span class="eyebrow">
+              WHY PRACHINLIFE
+            </span>
 
-<button
-class="store-tab active"
-data-store="ทั้งหมด"
-type="button"
->
+            <h2>
+              เราอยากช่วยให้เรื่องใกล้ตัวง่ายขึ้น
+            </h2>
 
-ทั้งหมด
+          </div>
 
-</button>
+        </div>
 
 
-<button
-class="store-tab"
-data-store="Big C"
-type="button"
->
+        <div class="value-grid">
 
-<span class="store-dot bigc"></span>
+          <article class="value-card">
 
-Big C
+            <div class="value-icon">
+              💰
+            </div>
 
-</button>
+            <h3>
+              ประหยัดเงิน
+            </h3>
 
+            <p>
+              รวมข้อมูลที่ช่วยให้คุณเห็นตัวเลือกที่คุ้มขึ้น
+            </p>
 
-<button
-class="store-tab"
-data-store="Lotus's"
-type="button"
->
+          </article>
 
-<span class="store-dot lotus"></span>
 
-Lotus's
+          <article class="value-card">
 
-</button>
+            <div class="value-icon">
+              ⏱
+            </div>
 
+            <h3>
+              ประหยัดเวลา
+            </h3>
 
-<button
-class="store-tab"
-data-store="CJ More"
-type="button"
->
+            <p>
+              ลดเวลาที่ต้องเปิดหลายเว็บหรือค้นหลายที่
+            </p>
 
-<span class="store-dot cj"></span>
+          </article>
 
-CJ More
 
-</button>
+          <article class="value-card">
 
+            <div class="value-icon">
+              🧠
+            </div>
 
-</div>
+            <h3>
+              ไม่ต้องคิดเยอะ
+            </h3>
 
+            <p>
+              ช่วยคัดสิ่งที่น่าสนใจให้คุณเริ่มตัดสินใจได้เร็วขึ้น
+            </p>
 
+          </article>
 
+        </div>
 
-<!-- STATS -->
+      </div>
 
-<div class="stats">
+    </section>
 
 
-<div class="stat">
+    <!-- ==================================================
+    DATA TRUST
+    ================================================== -->
 
-<div class="stat-icon">
-📦
-</div>
+    <section class="trust-section">
 
-<div>
+      <div class="container trust-card">
 
-<strong id="totalCount">
-0
-</strong>
+        <div>
 
-<span>
-โปรโมชั่น
-</span>
+          <span class="eyebrow">
+            DATA TRUST
+          </span>
 
-</div>
+          <h2>
+            ข้อมูลต้องมีที่มา
+          </h2>
 
-</div>
+          <p>
+            PrachinLife แสดงข้อมูลจากแหล่งต้นทาง
+            และจะไม่สร้างราคา โปรโมชั่น หรือรายละเอียดที่ไม่มีข้อมูลรองรับ
+          </p>
 
+        </div>
 
 
-<div class="stat">
+        <div class="trust-meta">
 
-<div class="stat-icon">
-🏪
-</div>
+          <div>
 
-<div>
+            <span>
+              อัปเดตล่าสุด
+            </span>
 
-<strong id="storeCount">
-0
-</strong>
+            <strong id="lastUpdate">
+              กำลังโหลด...
+            </strong>
 
-<span>
-ร้าน / ห้าง
-</span>
+          </div>
 
-</div>
+          <div>
 
-</div>
+            <span>
+              ข้อมูลในระบบ
+            </span>
 
+            <strong id="totalCount">
+              0 รายการ
+            </strong>
 
+          </div>
 
-<div class="stat">
+        </div>
 
-<div class="stat-icon">
-💰
-</div>
+      </div>
 
-<div>
+    </section>
 
-<strong id="discountCount">
-0%
-</strong>
+  </main>
 
-<span>
-ส่วนลดเฉลี่ย
-</span>
 
-</div>
+  <!-- ==================================================
+  FOOTER
+  ================================================== -->
 
-</div>
+  <footer class="site-footer">
 
+    <div class="container footer-inner">
 
+      <div>
 
-<div class="stat">
+        <strong>
+          PrachinLife
+        </strong>
 
-<div class="stat-icon">
-⚡
-</div>
+        <p>
+          Local Everyday Assistant for Prachinburi
+        </p>
 
-<div>
+      </div>
 
-<strong>
-Auto
-</strong>
 
-<span>
-อัปเดตข้อมูล
-</span>
+      <p class="footer-note">
+        โปรดตรวจสอบรายละเอียด เงื่อนไข และสาขาที่ร่วมรายการกับผู้ให้บริการต้นทางก่อนตัดสินใจ
+      </p>
 
-</div>
+    </div>
 
-</div>
+  </footer>
 
 
-</div>
+  <!-- ==================================================
+  TOAST
+  ================================================== -->
 
+  <div
+    id="toast"
+    class="toast"
+    role="status"
+    aria-live="polite"
+  ></div>
 
-</section>
 
-
-
-
-<!-- =====================================
-PROMOTIONS
-===================================== -->
-
-<section
-id="promotions"
-class="container promotions-section"
->
-
-
-<div class="promotion-toolbar">
-
-
-<div>
-
-<span class="section-label">
-LATEST
-</span>
-
-<h2>
-โปรโมชั่นล่าสุด
-</h2>
-
-<p>
-ข้อมูลที่ระบบรวบรวมล่าสุด
-</p>
-
-</div>
-
-
-
-
-<select
-id="sortSelect"
-class="sort-select"
->
-
-<option value="default">
-เรียงตามล่าสุด
-</option>
-
-<option value="discount">
-ส่วนลดมากที่สุด
-</option>
-
-<option value="price-low">
-ราคาต่ำสุด
-</option>
-
-<option value="store">
-เรียงตามร้าน
-</option>
-
-</select>
-
-
-</div>
-
-
-
-
-<div
-id="promotionList"
-class="promotion-grid"
->
-
-
-<div class="skeleton"></div>
-
-<div class="skeleton"></div>
-
-<div class="skeleton"></div>
-
-<div class="skeleton"></div>
-
-
-</div>
-
-
-
-
-<!-- EMPTY -->
-
-<div
-id="emptyState"
-class="empty-state hidden"
->
-
-
-<div class="empty-icon">
-🔍
-</div>
-
-
-<h3>
-ไม่พบโปรโมชั่น
-</h3>
-
-
-<p>
-ลองเปลี่ยนคำค้น
-หรือเลือกห้างอื่น
-</p>
-
-
-<button
-type="button"
-onclick="resetFilters()"
->
-
-ดูโปรโมชั่นทั้งหมด
-
-</button>
-
-
-</div>
-
-
-
-
-<div class="load-more-container">
-
-<button
-id="loadMoreBtn"
-class="load-more hidden"
-type="button"
->
-
-ดูโปรโมชั่นเพิ่มเติม ↓
-
-</button>
-
-</div>
-
-
-</section>
-
-
-
-
-<!-- =====================================
-EVENTS
-===================================== -->
-
-<section
-id="events"
-class="container event-section"
->
-
-
-<div class="event-card">
-
-
-<div class="event-content">
-
-
-<span class="event-label">
-
-COMING SOON
-
-</span>
-
-
-<h2>
-
-กิจกรรมและอีเวนต์
-ในปราจีนบุรี
-
-</h2>
-
-
-<p>
-
-ต่อไปเราจะรวบรวมกิจกรรมจากห้าง
-ตลาด ร้านอาหาร งานท้องถิ่น
-กิจกรรมสำหรับครอบครัว
-และโปรโมชั่นเฉพาะพื้นที่ไว้ตรงนี้
-
-</p>
-
-
-<button
-type="button"
-disabled
->
-
-เร็ว ๆ นี้
-
-</button>
-
-
-</div>
-
-
-
-<div class="event-graphic">
-
-🎪
-
-</div>
-
-
-</div>
-
-
-</section>
-
-
-
-
-<!-- =====================================
-ABOUT
-===================================== -->
-
-<section
-id="about"
-class="about-section"
->
-
-
-<div class="container about-grid">
-
-
-<div>
-
-
-<span class="section-label">
-
-ABOUT
-
-</span>
-
-
-<h2>
-
-ทำไมต้องโปรปราจีน?
-
-</h2>
-
-
-<p>
-
-เราอยากทำให้คนปราจีนบุรี
-ค้นหาโปรโมชั่นและกิจกรรมในพื้นที่
-ได้จากที่เดียว
-โดยไม่ต้องเปิดหลายเว็บไซต์
-หรือหลายแอป
-
-</p>
-
-
-</div>
-
-
-
-
-<div class="about-features">
-
-
-<div>
-
-<strong>
-🔎
-</strong>
-
-<span>
-ค้นหาง่าย
-</span>
-
-</div>
-
-
-<div>
-
-<strong>
-⚡
-</strong>
-
-<span>
-อัปเดตอัตโนมัติ
-</span>
-
-</div>
-
-
-<div>
-
-<strong>
-📍
-</strong>
-
-<span>
-เน้นปราจีนบุรี
-</span>
-
-</div>
-
-
-</div>
-
-
-</div>
-
-
-</section>
-
-
-
-
-<!-- =====================================
-FOOTER
-===================================== -->
-
-<footer>
-
-
-<div class="container footer-inner">
-
-
-<div>
-
-
-<strong class="footer-brand">
-
-โปรปราจีน
-
-</strong>
-
-
-<p>
-
-Prachinburi Local Deals Platform
-
-</p>
-
-
-</div>
-
-
-
-
-<div class="footer-right">
-
-
-<p>
-
-© 2026 PromoPrachin
-
-</p>
-
-
-<p>
-
-ข้อมูลโปรโมชั่นควรตรวจสอบกับร้านค้าอีกครั้ง
-
-</p>
-
-
-</div>
-
-
-</div>
-
-
-</footer>
-
-
-
-
-<!-- TOAST -->
-
-<div
-id="toast"
-class="toast hidden"
->
-
-</div>
-
-
-
-
-<script src="app.js"></script>
-
+  <script src="app.js"></script>
 
 </body>
 

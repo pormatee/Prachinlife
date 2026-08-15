@@ -1,1786 +1,1127 @@
 const DATA_URL = "promotions.json";
-const PAGE_SIZE = 8;
+const PAGE_SIZE = 6;
 
 let allPromotions = [];
 let filteredPromotions = [];
-
-let currentStore = "ทั้งหมด";
-let currentSearch = "";
 let currentPage = 1;
-let currentSort = "default";
+let currentSearch = "";
+let toastTimer = null;
 
 
 document.addEventListener(
-    "DOMContentLoaded",
-    init
+  "DOMContentLoaded",
+  init
 );
 
 
-async function init(){
-
-    bindEvents();
-
-    restoreTheme();
-
-    await loadPromotions();
-
+async function init() {
+  bindEvents();
+  await loadPromotions();
 }
-
 
 
 /* =====================================================
 EVENTS
 ===================================================== */
 
-function bindEvents(){
+function bindEvents() {
 
+  const searchInput =
+    document.getElementById("searchInput");
 
-    const searchInput =
-        document.getElementById("searchInput");
+  const searchBtn =
+    document.getElementById("searchBtn");
 
+  const refreshBtn =
+    document.getElementById("refreshBtn");
 
-    const searchBtn =
-        document.getElementById("searchBtn");
+  const resetBtn =
+    document.getElementById("resetBtn");
 
+  const loadMoreBtn =
+    document.getElementById("loadMoreBtn");
 
-    const storeTabs =
-        document.getElementById("storeTabs");
 
+  if (searchInput) {
 
-    const loadMoreBtn =
-        document.getElementById("loadMoreBtn");
+    searchInput.addEventListener(
+      "input",
+      event => {
 
-
-    const refreshBtn =
-        document.getElementById("refreshBtn");
-
-
-    const themeBtn =
-        document.getElementById("themeBtn");
-
-
-    const sortSelect =
-        document.getElementById("sortSelect");
-
-
-
-    if(searchInput){
-
-        searchInput.addEventListener(
-            "input",
-            event => {
-
-                currentSearch =
-                    event.target.value
-                    .trim()
-                    .toLowerCase();
-
-                currentPage = 1;
-
-                applyFilters();
-
-            }
-        );
-
-    }
-
-
-
-    if(searchBtn){
-
-        searchBtn.addEventListener(
-            "click",
-            () => {
-
-                currentSearch =
-                    searchInput.value
-                    .trim()
-                    .toLowerCase();
-
-                currentPage = 1;
-
-                applyFilters();
-
-            }
-        );
-
-    }
-
-
-
-    if(storeTabs){
-
-        storeTabs.addEventListener(
-            "click",
-            event => {
-
-                const button =
-                    event.target.closest(
-                        "[data-store]"
-                    );
-
-
-                if(!button){
-                    return;
-                }
-
-
-                currentStore =
-                    button.dataset.store;
-
-
-                currentPage = 1;
-
-
-                document
-                    .querySelectorAll(
-                        ".store-tab"
-                    )
-                    .forEach(
-                        item =>
-                            item.classList
-                            .remove("active")
-                    );
-
-
-                button.classList
-                    .add("active");
-
-
-                applyFilters();
-
-            }
-        );
-
-    }
-
-
-
-    document
-        .querySelectorAll(
-            "[data-quick]"
-        )
-        .forEach(
-            button => {
-
-                button.addEventListener(
-                    "click",
-                    () => {
-
-                        handleQuickFilter(
-                            button.dataset.quick
-                        );
-
-                    }
-                );
-
-            }
-        );
-
-
-
-    if(loadMoreBtn){
-
-        loadMoreBtn.addEventListener(
-            "click",
-            () => {
-
-                currentPage++;
-
-                renderPromotions();
-
-            }
-        );
-
-    }
-
-
-
-    if(refreshBtn){
-
-        refreshBtn.addEventListener(
-            "click",
-            async () => {
-
-                showToast(
-                    "กำลังอัปเดตข้อมูล..."
-                );
-
-                await loadPromotions(
-                    true
-                );
-
-            }
-        );
-
-    }
-
-
-
-    if(themeBtn){
-
-        themeBtn.addEventListener(
-            "click",
-            toggleTheme
-        );
-
-    }
-
-
-
-    if(sortSelect){
-
-        sortSelect.addEventListener(
-            "change",
-            event => {
-
-                currentSort =
-                    event.target.value;
-
-                currentPage = 1;
-
-                applySorting();
-
-                renderPromotions();
-
-            }
-        );
-
-    }
-
-}
-
-
-
-/* =====================================================
-LOAD DATA
-===================================================== */
-
-async function loadPromotions(
-    forceRefresh = false
-){
-
-    setLoading();
-
-
-    try{
-
-        const url =
-            forceRefresh
-            ? `${DATA_URL}?t=${Date.now()}`
-            : DATA_URL;
-
-
-        const response =
-            await fetch(
-                url,
-                {
-                    cache:"no-store"
-                }
-            );
-
-
-        if(!response.ok){
-
-            throw new Error(
-                `HTTP ${response.status}`
-            );
-
-        }
-
-
-        const data =
-            await response.json();
-
-
-        if(Array.isArray(data)){
-
-            allPromotions =
-                data;
-
-        }
-
-        else if(
-            data &&
-            Array.isArray(
-                data.promotions
-            )
-        ){
-
-            allPromotions =
-                data.promotions;
-
-        }
-
-        else{
-
-            allPromotions = [];
-
-        }
-
-
-        filteredPromotions =
-            [...allPromotions];
-
+        currentSearch =
+          event.target.value
+            .trim()
+            .toLowerCase();
 
         currentPage = 1;
 
-
-        applySorting();
-
-
-        renderAll();
+        applyFilters();
+      }
+    );
 
 
-        updateLastUpdate();
+    searchInput.addEventListener(
+      "keydown",
+      event => {
 
-
-        if(forceRefresh){
-
-            showToast(
-                "อัปเดตข้อมูลล่าสุดแล้ว"
-            );
-
+        if (event.key === "Enter") {
+          applySearchFromInput();
         }
-
-    }
-
-    catch(error){
-
-        console.error(
-            "โหลด promotions.json ไม่สำเร็จ",
-            error
-        );
+      }
+    );
+  }
 
 
-        allPromotions = [];
+  if (searchBtn) {
 
-        filteredPromotions = [];
+    searchBtn.addEventListener(
+      "click",
+      applySearchFromInput
+    );
+  }
 
 
-        renderAll();
+  if (refreshBtn) {
 
+    refreshBtn.addEventListener(
+      "click",
+      async () => {
 
         showToast(
-            "ไม่สามารถโหลดข้อมูลได้"
+          "กำลังโหลดข้อมูลล่าสุด..."
         );
 
-    }
+        await loadPromotions(
+          true
+        );
+      }
+    );
+  }
 
+
+  if (resetBtn) {
+
+    resetBtn.addEventListener(
+      "click",
+      resetSearch
+    );
+  }
+
+
+  if (loadMoreBtn) {
+
+    loadMoreBtn.addEventListener(
+      "click",
+      () => {
+
+        currentPage++;
+
+        renderPromotions();
+      }
+    );
+  }
+
+
+  document
+    .querySelectorAll("[data-search]")
+    .forEach(
+      button => {
+
+        button.addEventListener(
+          "click",
+          () => {
+
+            const value =
+              button.dataset.search || "";
+
+            setSearch(
+              value
+            );
+          }
+        );
+      }
+    );
+
+
+  document
+    .querySelectorAll("[data-quick]")
+    .forEach(
+      button => {
+
+        button.addEventListener(
+          "click",
+          () => {
+
+            handleQuickAction(
+              button.dataset.quick
+            );
+          }
+        );
+      }
+    );
 }
 
 
-
 /* =====================================================
-FILTER
+LOAD
 ===================================================== */
 
-function applyFilters(){
+async function loadPromotions(
+  forceRefresh = false
+) {
+
+  setLoading();
+
+  try {
+
+    const url =
+      forceRefresh
+        ? `${DATA_URL}?t=${Date.now()}`
+        : DATA_URL;
+
+
+    const response =
+      await fetch(
+        url,
+        {
+          cache: "no-store",
+        }
+      );
+
+
+    if (!response.ok) {
+
+      throw new Error(
+        `HTTP ${response.status}`
+      );
+    }
+
+
+    const data =
+      await response.json();
+
+
+    if (Array.isArray(data)) {
+
+      allPromotions =
+        normalizeClientData(
+          data
+        );
+    }
+
+    else if (
+      data
+      &&
+      Array.isArray(
+        data.promotions
+      )
+    ) {
+
+      allPromotions =
+        normalizeClientData(
+          data.promotions
+        );
+    }
+
+    else {
+
+      allPromotions = [];
+    }
+
+
+    allPromotions =
+      sortLatest(
+        allPromotions
+      );
+
 
     filteredPromotions =
-        allPromotions.filter(
-            promotion => {
-
-                const matchStore =
-                    currentStore ===
-                    "ทั้งหมด"
-                    ||
-                    promotion.store ===
-                    currentStore;
-
-
-                const searchableText =
-                    [
-                        promotion.product,
-                        promotion.store,
-                        promotion.branch,
-                        promotion.category,
-                        promotion.source
-                    ]
-                    .filter(Boolean)
-                    .join(" ")
-                    .toLowerCase();
-
-
-                const matchSearch =
-                    !currentSearch
-                    ||
-                    searchableText.includes(
-                        currentSearch
-                    );
-
-
-                return (
-                    matchStore &&
-                    matchSearch
-                );
-
-            }
-        );
+      [...allPromotions];
 
 
     currentPage = 1;
 
+    applyFilters();
 
-    applySorting();
+    updateMeta();
 
+
+    if (forceRefresh) {
+
+      showToast(
+        "โหลดข้อมูลล่าสุดแล้ว"
+      );
+    }
+  }
+
+  catch (error) {
+
+    console.error(
+      "PrachinLife load error:",
+      error
+    );
+
+    allPromotions = [];
+    filteredPromotions = [];
 
     renderAll();
 
+    setText(
+      "resultCount",
+      "โหลดข้อมูลไม่สำเร็จ"
+    );
+
+    showToast(
+      "ไม่สามารถโหลดข้อมูลได้"
+    );
+  }
 }
 
 
-
 /* =====================================================
-QUICK FILTER
+CLIENT NORMALIZATION
 ===================================================== */
 
-function handleQuickFilter(type){
+function normalizeClientData(data) {
+
+  return data
+    .filter(
+      item =>
+        item
+        &&
+        typeof item === "object"
+    )
+    .map(
+      item => {
+
+        const title =
+          item.title
+          || item.product
+          || "ไม่มีชื่อ";
+
+        const merchant =
+          item.merchant
+          || item.store
+          || "ไม่ระบุแหล่ง";
+
+        const imageUrl =
+          item.image_url
+          || item.image
+          || "";
+
+        const promotionType =
+          item.promotion_type
+          || "campaign";
+
+        return {
+          ...item,
+
+          title,
+          merchant,
+          image_url: imageUrl,
+          promotion_type:
+            promotionType,
+
+          source:
+            item.source
+            || merchant,
+
+          source_url:
+            item.source_url
+            || "",
+
+          verified:
+            item.verified === true,
+
+          location_scope:
+            item.location_scope
+            || "national",
+
+          country:
+            item.country
+            || "TH",
+
+          province:
+            item.province
+            || null,
+
+          district:
+            item.district
+            || null,
+
+          subdistrict:
+            item.subdistrict
+            || null,
+
+          branch_name:
+            item.branch_name
+            || null,
+        };
+      }
+    );
+}
 
 
-    if(type === "all"){
+/* =====================================================
+SEARCH
+===================================================== */
 
-        resetFilters();
+function applySearchFromInput() {
 
-        return;
+  const input =
+    document.getElementById(
+      "searchInput"
+    );
 
+  currentSearch =
+    input
+      ? input.value
+          .trim()
+          .toLowerCase()
+      : "";
+
+  currentPage = 1;
+
+  applyFilters();
+
+  scrollToDeals();
+}
+
+
+function setSearch(value) {
+
+  const input =
+    document.getElementById(
+      "searchInput"
+    );
+
+  if (input) {
+    input.value = value;
+  }
+
+  currentSearch =
+    value
+      .trim()
+      .toLowerCase();
+
+  currentPage = 1;
+
+  applyFilters();
+
+  scrollToDeals();
+}
+
+
+function resetSearch() {
+
+  const input =
+    document.getElementById(
+      "searchInput"
+    );
+
+  if (input) {
+    input.value = "";
+  }
+
+  currentSearch = "";
+  currentPage = 1;
+
+  applyFilters();
+}
+
+
+function applyFilters() {
+
+  if (!currentSearch) {
+
+    filteredPromotions =
+      [...allPromotions];
+  }
+
+  else {
+
+    filteredPromotions =
+      allPromotions.filter(
+        promotion => {
+
+          const searchableText = [
+            promotion.title,
+            promotion.merchant,
+            promotion.source,
+            promotion.promotion_type,
+            promotion.category,
+            promotion.branch,
+            promotion.source_type,
+            promotion.location_scope,
+            promotion.province,
+            promotion.district,
+            promotion.subdistrict,
+            promotion.branch_name,
+            getLocationLabel(
+              promotion
+            )
+          ]
+            .filter(Boolean)
+            .join(" ")
+            .toLowerCase();
+
+          return searchableText.includes(
+            currentSearch
+          );
+        }
+      );
+  }
+
+
+  filteredPromotions =
+    sortLatest(
+      filteredPromotions
+    );
+
+
+  renderAll();
+}
+
+
+/* =====================================================
+QUICK ACTIONS
+===================================================== */
+
+function handleQuickAction(type) {
+
+  if (type === "all") {
+
+    setSearch("");
+
+    return;
+  }
+
+
+  if (type === "bigc") {
+
+    setSearch("Big C");
+
+    return;
+  }
+
+
+  if (type === "latest") {
+
+    currentSearch = "";
+
+    const input =
+      document.getElementById(
+        "searchInput"
+      );
+
+    if (input) {
+      input.value = "";
     }
 
-
-
-    if(type === "discount"){
-
-        currentStore = "ทั้งหมด";
-
-        filteredPromotions =
-            allPromotions.filter(
-                promotion =>
-                    getDiscountPercent(
-                        promotion
-                    ) >= 30
-            );
-
-    }
-
-
-
-    if(type === "urgent"){
-
-        currentStore = "ทั้งหมด";
-
-        filteredPromotions =
-            allPromotions.filter(
-                promotion =>
-                    promotion.urgent ===
-                    true
-            );
-
-    }
-
-
-
-    if(type === "bigc"){
-
-        currentStore =
-            "Big C";
-
-
-        filteredPromotions =
-            allPromotions.filter(
-                promotion =>
-                    promotion.store ===
-                    "Big C"
-            );
-
-    }
-
+    filteredPromotions =
+      sortLatest(
+        [...allPromotions]
+      );
 
     currentPage = 1;
 
-
-    updateStoreButtons();
-
-
-    applySorting();
-
-
     renderAll();
 
+    scrollToDeals();
+  }
 }
-
 
 
 /* =====================================================
-RESET
+LOCATION
 ===================================================== */
 
-function resetFilters(){
+function getLocationLabel(
+  promotion
+) {
 
-    currentStore =
-        "ทั้งหมด";
-
-
-    currentSearch =
-        "";
-
-
-    currentPage =
-        1;
+  const scope =
+    promotion.location_scope
+    || "national";
 
 
-    currentSort =
-        "default";
+  if (scope === "national") {
+
+    return "ทั่วประเทศ";
+  }
 
 
-    const search =
-        document.getElementById(
-            "searchInput"
-        );
+  if (scope === "province") {
+
+    return promotion.province
+      || "ระดับจังหวัด";
+  }
 
 
-    if(search){
+  if (scope === "district") {
 
-        search.value = "";
+    const district =
+      promotion.district
+      || "";
 
-    }
+    const province =
+      promotion.province
+      || "";
 
-
-    const sort =
-        document.getElementById(
-            "sortSelect"
-        );
-
-
-    if(sort){
-
-        sort.value =
-            "default";
-
-    }
+    return [
+      district,
+      province
+    ]
+      .filter(Boolean)
+      .join(" · ");
+  }
 
 
-    filteredPromotions =
-        [...allPromotions];
+  if (scope === "branch") {
+
+    return (
+      promotion.branch_name
+      || [
+        promotion.district,
+        promotion.province
+      ]
+        .filter(Boolean)
+        .join(" · ")
+      || "เฉพาะสาขา"
+    );
+  }
 
 
-    updateStoreButtons();
-
-
-    renderAll();
-
+  return "ไม่ระบุพื้นที่";
 }
-
-
-window.resetFilters =
-    resetFilters;
-
 
 
 /* =====================================================
 SORT
 ===================================================== */
 
-function applySorting(){
+function sortLatest(data) {
 
+  return [...data].sort(
+    (a, b) => {
 
-    const data =
-        [...filteredPromotions];
-
-
-    if(currentSort === "discount"){
-
-        data.sort(
-            (a,b) =>
-                getDiscountPercent(b)
-                -
-                getDiscountPercent(a)
+      const timeA =
+        parseDateValue(
+          a.collected_at
         );
 
-    }
-
-
-
-    else if(
-        currentSort ===
-        "price-low"
-    ){
-
-        data.sort(
-            (a,b) => {
-
-                const priceA =
-                    getValidPrice(a);
-
-                const priceB =
-                    getValidPrice(b);
-
-
-                if(priceA === null){
-                    return 1;
-                }
-
-
-                if(priceB === null){
-                    return -1;
-                }
-
-
-                return (
-                    priceA -
-                    priceB
-                );
-
-            }
+      const timeB =
+        parseDateValue(
+          b.collected_at
         );
 
+      return timeB - timeA;
     }
-
-
-
-    else if(
-        currentSort ===
-        "store"
-    ){
-
-        data.sort(
-            (a,b) =>
-                String(a.store || "")
-                .localeCompare(
-                    String(
-                        b.store || ""
-                    ),
-                    "th"
-                )
-        );
-
-    }
-
-
-
-    filteredPromotions =
-        data;
-
+  );
 }
 
 
+function parseDateValue(value) {
 
-/* =====================================================
-RENDER ALL
-===================================================== */
+  if (!value) {
+    return 0;
+  }
 
-function renderAll(){
+  const date =
+    new Date(value);
 
-    renderStats();
+  const timestamp =
+    date.getTime();
 
-    renderPromotions();
-
+  return Number.isFinite(
+    timestamp
+  )
+    ? timestamp
+    : 0;
 }
 
 
-
 /* =====================================================
-STATS
+RENDER
 ===================================================== */
 
-function renderStats(){
+function renderAll() {
 
+  renderPromotions();
 
-    const total =
-        filteredPromotions.length;
-
-
-    const storeTotal =
-        new Set(
-            filteredPromotions
-            .map(
-                item =>
-                    item.store
-            )
-            .filter(Boolean)
-        ).size;
-
-
-
-    const discounts =
-        filteredPromotions
-        .map(
-            getDiscountPercent
-        )
-        .filter(
-            value =>
-                value > 0
-        );
-
-
-    const averageDiscount =
-        discounts.length
-        ?
-        Math.round(
-            discounts.reduce(
-                (sum,value) =>
-                    sum + value,
-                0
-            )
-            /
-            discounts.length
-        )
-        :
-        0;
-
-
-
-    setText(
-        "resultCount",
-        `${total} รายการ`
-    );
-
-
-    setText(
-        "totalCount",
-        total
-    );
-
-
-    setText(
-        "storeCount",
-        storeTotal
-    );
-
-
-    setText(
-        "discountCount",
-        `${averageDiscount}%`
-    );
-
-
-
-    setText(
-        "heroDealCount",
-        allPromotions.length
-    );
-
-
-    const allStores =
-        new Set(
-            allPromotions
-            .map(
-                item =>
-                    item.store
-            )
-            .filter(Boolean)
-        ).size;
-
-
-    setText(
-        "heroStoreCount",
-        allStores
-    );
-
-
-
-    const allDiscounts =
-        allPromotions
-        .map(
-            getDiscountPercent
-        )
-        .filter(
-            value =>
-                value > 0
-        );
-
-
-    const overallAverage =
-        allDiscounts.length
-        ?
-        Math.round(
-            allDiscounts.reduce(
-                (sum,value) =>
-                    sum + value,
-                0
-            )
-            /
-            allDiscounts.length
-        )
-        :
-        0;
-
-
-    setText(
-        "heroAvgDiscount",
-        `${overallAverage}%`
-    );
-
+  setText(
+    "resultCount",
+    `${filteredPromotions.length} รายการ`
+  );
 }
 
 
+function renderPromotions() {
 
-/* =====================================================
-PROMOTION CARDS
-===================================================== */
+  const list =
+    document.getElementById(
+      "promotionList"
+    );
 
-function renderPromotions(){
+  const emptyState =
+    document.getElementById(
+      "emptyState"
+    );
 
-
-    const container =
-        document.getElementById(
-            "promotionList"
-        );
-
-
-    const emptyState =
-        document.getElementById(
-            "emptyState"
-        );
+  const loadMoreBtn =
+    document.getElementById(
+      "loadMoreBtn"
+    );
 
 
-    const loadMore =
-        document.getElementById(
-            "loadMoreBtn"
-        );
+  if (!list) {
+    return;
+  }
 
 
-    if(!container){
-        return;
+  if (
+    filteredPromotions.length === 0
+  ) {
+
+    list.innerHTML = "";
+
+    if (emptyState) {
+      emptyState.classList.remove(
+        "hidden"
+      );
     }
 
-
-
-    if(
-        filteredPromotions
-        .length === 0
-    ){
-
-        container.innerHTML = "";
-
-
-        if(emptyState){
-
-            emptyState.classList
-                .remove("hidden");
-
-        }
-
-
-        if(loadMore){
-
-            loadMore.classList
-                .add("hidden");
-
-        }
-
-
-        return;
-
+    if (loadMoreBtn) {
+      loadMoreBtn.classList.add(
+        "hidden"
+      );
     }
 
+    return;
+  }
 
 
-    if(emptyState){
+  if (emptyState) {
+    emptyState.classList.add(
+      "hidden"
+    );
+  }
 
-        emptyState.classList
-            .add("hidden");
 
+  const visibleCount =
+    currentPage
+    * PAGE_SIZE;
+
+
+  const visibleItems =
+    filteredPromotions.slice(
+      0,
+      visibleCount
+    );
+
+
+  list.innerHTML =
+    visibleItems
+      .map(
+        renderPromotionCard
+      )
+      .join("");
+
+
+  if (loadMoreBtn) {
+
+    if (
+      visibleCount
+      < filteredPromotions.length
+    ) {
+
+      loadMoreBtn.classList.remove(
+        "hidden"
+      );
     }
 
+    else {
 
-
-    const visibleData =
-        filteredPromotions.slice(
-            0,
-            currentPage
-            *
-            PAGE_SIZE
-        );
-
-
-
-    container.innerHTML =
-        visibleData.map(
-            createPromotionCard
-        )
-        .join("");
-
-
-
-    if(loadMore){
-
-        const hasMore =
-            visibleData.length
-            <
-            filteredPromotions.length;
-
-
-        loadMore.classList
-            .toggle(
-                "hidden",
-                !hasMore
-            );
-
+      loadMoreBtn.classList.add(
+        "hidden"
+      );
     }
-
+  }
 }
 
 
+function renderPromotionCard(
+  promotion
+) {
 
-/* =====================================================
-CARD
-===================================================== */
+  const title =
+    escapeHtml(
+      promotion.title
+    );
 
-function createPromotionCard(
-    promotion
-){
+  const merchant =
+    escapeHtml(
+      promotion.merchant
+    );
 
+  const source =
+    escapeHtml(
+      promotion.source
+    );
 
-    const title =
-        escapeHtml(
-            promotion.product
-            ||
-            "โปรโมชั่น"
-        );
+  const locationLabel =
+    escapeHtml(
+      getLocationLabel(
+        promotion
+      )
+    );
 
-
-    const store =
-        escapeHtml(
-            promotion.store
-            ||
-            "ร้านค้า"
-        );
-
-
-    const branch =
-        escapeHtml(
-            promotion.branch
-            ||
-            "ตรวจสอบสาขาที่ร่วมรายการ"
-        );
-
-
-    const expiry =
-        escapeHtml(
-            promotion.expiry
-            ||
-            "ตรวจสอบรายละเอียด"
-        );
+  const category =
+    promotion.promotion_type ===
+    "product_deal"
+      ? "ดีลสินค้า"
+      : "แคมเปญโปรโมชั่น";
 
 
-    const image =
-        promotion.image
-        ?
-        escapeAttribute(
-            promotion.image
-        )
-        :
-        "";
+  const imageBlock =
+    promotion.image_url
+      ? `
+        <img
+          class="promotion-image"
+          src="${escapeAttribute(
+            promotion.image_url
+          )}"
+          alt="${title}"
+          loading="lazy"
+          onerror="this.parentElement.innerHTML='<div class=&quot;image-placeholder&quot;>🛒</div>'"
+        >
+      `
+      : `
+        <div class="image-placeholder">
+          🛒
+        </div>
+      `;
 
 
-    const discount =
-        getDiscountPercent(
-            promotion
-        );
+  const verifiedLabel =
+    promotion.verified
+      ? "✓ แหล่งข้อมูลต้นทาง"
+      : "ข้อมูลจากต้นทาง";
 
 
-    const priceHTML =
-        createPriceHTML(
-            promotion
-        );
-
-
-    const discountBadge =
-        discount > 0
-        ?
-        `
-        <span
-        class="badge discount-badge">
-        -${discount}%
-        </span>
-        `
-        :
-        "";
-
-
-    const urgentBadge =
-        promotion.urgent === true
-        ?
-        `
-        <span
-        class="badge expiry-badge">
-        ⏰ ใกล้หมด
-        </span>
-        `
-        :
-        "";
-
-
-    const sourceButton =
-        promotion.source_url
-        ?
-        `
+  const sourceButton =
+    promotion.source_url
+      ? `
         <a
-        class="source-btn"
-        href="${escapeAttribute(
+          class="source-button"
+          href="${escapeAttribute(
             promotion.source_url
-        )}"
-        target="_blank"
-        rel="noopener noreferrer">
-        ต้นทาง ↗
+          )}"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          ดูรายละเอียดต้นทาง
+          <span aria-hidden="true">→</span>
         </a>
-        `
-        :
-        "";
+      `
+      : `
+        <span class="source-button">
+          ยังไม่มีลิงก์ต้นทาง
+        </span>
+      `;
 
 
-    return `
+  return `
+    <article class="promotion-card">
 
-    <article class="promo-card">
+      <div class="promotion-image-wrap">
 
+        ${imageBlock}
 
-        <div class="promo-image">
+        <span class="source-pill">
+          ${merchant}
+        </span>
 
-
-            ${
-                image
-                ?
-                `
-                <img
-                src="${image}"
-                alt="${title}"
-                loading="lazy"
-                onerror="this.style.display='none'"
-                >
-                `
-                :
-                `
-                <div
-                style="
-                width:100%;
-                height:100%;
-                display:grid;
-                place-items:center;
-                font-size:52px;
-                background:#eef2f6;
-                ">
-                🛒
-                </div>
-                `
-            }
+      </div>
 
 
-            <span
-            class="badge store-badge">
+      <div class="promotion-body">
 
-            ${store}
+        <div class="promotion-meta">
 
-            </span>
+          <strong>
+            ${merchant}
+          </strong>
 
+          <span>
+            •
+          </span>
 
-            ${discountBadge}
-
-
-            ${urgentBadge}
-
+          <span>
+            ${escapeHtml(category)}
+          </span>
 
         </div>
 
 
-
-        <div class="promo-body">
-
-
-            <h3>
-            ${title}
-            </h3>
-
-
-            ${priceHTML}
-
-
-            <p class="branch">
-
-            📍 ${branch}
-
-            </p>
-
-
-            <div class="card-footer">
-
-
-                <span>
-
-                ${expiry}
-
-                </span>
-
-
-
-                <div class="card-actions">
-
-
-                    ${sourceButton}
-
-
-                    <button
-                    class="share-btn"
-                    type="button"
-                    onclick="sharePromotion(
-                    '${escapeAttribute(
-                        String(
-                            promotion.id
-                            ||
-                            ""
-                        )
-                    )}'
-                    )">
-
-                    แชร์ ↗
-
-                    </button>
-
-
-                </div>
-
-
-            </div>
-
-
+        <div class="promotion-location">
+          📍 ${locationLabel}
         </div>
 
+
+        <h3 class="promotion-title">
+          ${title}
+        </h3>
+
+
+        <p class="promotion-description">
+          ${escapeHtml(
+            verifiedLabel
+          )}
+          ·
+          ${source}
+        </p>
+
+
+        <div class="promotion-actions">
+          ${sourceButton}
+        </div>
+
+      </div>
 
     </article>
-
-    `;
-
+  `;
 }
 
 
-
 /* =====================================================
-PRICE
+META
 ===================================================== */
 
-function createPriceHTML(
-    promotion
-){
+function updateMeta() {
 
+  setText(
+    "totalCount",
+    `${allPromotions.length} รายการ`
+  );
 
-    const oldPrice =
-        Number(
-            promotion.old_price
-            ||
-            promotion.oldPrice
-            ||
-            0
-        );
 
-
-    const newPrice =
-        Number(
-            promotion.new_price
-            ||
-            promotion.newPrice
-            ||
-            0
-        );
-
-
-    /*
-    Collector Big C V1
-    อาจมีราคาเป็น 0
-    เพราะหน้าโปรโมชั่นต้นทาง
-    ไม่ได้เปิดเผยราคาสินค้ารายตัว
-    */
-
-
-    if(
-        newPrice <= 0
-    ){
-
-        return `
-
-        <div class="no-price">
-
-        🏷️ ดูรายละเอียดโปรโมชั่นจากต้นทาง
-
-        </div>
-
-        `;
-
-    }
-
-
-
-    const saved =
-        oldPrice > newPrice
-        ?
-        oldPrice - newPrice
-        :
-        0;
-
-
-
-    return `
-
-    <div class="price-row">
-
-
-        <span class="new-price">
-
-        ฿${formatNumber(
-            newPrice
-        )}
-
-        </span>
-
-
-        ${
-            oldPrice >
-            newPrice
-            ?
-            `
-            <span class="old-price">
-
-            ฿${formatNumber(
-                oldPrice
-            )}
-
-            </span>
-            `
-            :
-            ""
-        }
-
-
-        ${
-            saved > 0
-            ?
-            `
-            <span class="save-pill">
-
-            ประหยัด
-            ฿${formatNumber(
-                saved
-            )}
-
-            </span>
-            `
-            :
-            ""
-        }
-
-
-    </div>
-
-    `;
-
-}
-
-
-
-/* =====================================================
-SHARE
-===================================================== */
-
-function sharePromotion(id){
-
-
-    const promotion =
-        allPromotions.find(
-            item =>
-                String(item.id)
-                ===
-                String(id)
-        );
-
-
-    if(!promotion){
-        return;
-    }
-
-
-
-    let text =
-        `🔥 ${promotion.product || "โปรโมชั่น"}\n`
-        +
-        `🏪 ${promotion.store || ""}\n`;
-
-
-
-    const price =
-        getValidPrice(
-            promotion
-        );
-
-
-    if(price !== null){
-
-        text +=
-            `💰 ฿${formatNumber(price)}\n`;
-
-    }
-
-
-
-    if(promotion.branch){
-
-        text +=
-            `📍 ${promotion.branch}\n`;
-
-    }
-
-
-
-    if(promotion.source_url){
-
-        text +=
-            `${promotion.source_url}`;
-
-    }
-
-
-
-    if(
-        navigator.share
-    ){
-
-        navigator.share(
-            {
-                title:
-                    promotion.product
-                    ||
-                    "PromoPrachin",
-
-                text:text,
-
-                url:
-                    promotion.source_url
-                    ||
-                    location.href
-            }
-        )
-        .catch(
-            () => {}
-        );
-
-    }
-
-
-    else if(
-        navigator.clipboard
-    ){
-
-        navigator.clipboard
-            .writeText(text);
-
-
-        showToast(
-            "คัดลอกโปรโมชั่นแล้ว"
-        );
-
-    }
-
-
-    else{
-
-        showToast(
-            "อุปกรณ์นี้ยังไม่รองรับการแชร์"
-        );
-
-    }
-
-}
-
-
-window.sharePromotion =
-    sharePromotion;
-
-
-
-/* =====================================================
-HELPERS
-===================================================== */
-
-function getDiscountPercent(
-    promotion
-){
-
-
-    const oldPrice =
-        Number(
-            promotion.old_price
-            ||
-            promotion.oldPrice
-            ||
-            0
-        );
-
-
-    const newPrice =
-        Number(
-            promotion.new_price
-            ||
-            promotion.newPrice
-            ||
-            0
-        );
-
-
-    if(
-        oldPrice <= 0
-        ||
-        newPrice <= 0
-        ||
-        oldPrice <= newPrice
-    ){
-
-        return 0;
-
-    }
-
-
-    return Math.round(
-        (
-            (
-                oldPrice -
-                newPrice
-            )
-            /
-            oldPrice
-        )
-        *
-        100
+  const latest =
+    getLatestCollectedAt(
+      allPromotions
     );
 
+
+  setText(
+    "lastUpdate",
+    latest
+      ? formatThaiDateTime(
+          latest
+        )
+      : "ยังไม่มีข้อมูล"
+  );
 }
 
 
+function getLatestCollectedAt(data) {
 
-function getValidPrice(
-    promotion
-){
-
-
-    const value =
-        Number(
-            promotion.new_price
-            ||
-            promotion.newPrice
-            ||
-            0
-        );
-
-
-    if(value <= 0){
-
-        return null;
-
-    }
+  const dates =
+    data
+      .map(
+        item =>
+          item.collected_at
+      )
+      .filter(Boolean)
+      .map(
+        value =>
+          new Date(value)
+      )
+      .filter(
+        date =>
+          Number.isFinite(
+            date.getTime()
+          )
+      );
 
 
-    return value;
+  if (dates.length === 0) {
+    return null;
+  }
 
-}
 
-
-
-function formatNumber(
-    value
-){
-
-    return Number(
-        value || 0
+  return new Date(
+    Math.max(
+      ...dates.map(
+        date =>
+          date.getTime()
+      )
     )
-    .toLocaleString(
-        "th-TH"
-    );
-
+  );
 }
 
 
+function formatThaiDateTime(date) {
 
-function setText(
-    id,
-    value
-){
+  try {
 
-    const element =
-        document.getElementById(
-            id
-        );
+    return new Intl.DateTimeFormat(
+      "th-TH",
+      {
+        dateStyle: "medium",
+        timeStyle: "short",
+      }
+    ).format(date);
+  }
 
+  catch {
 
-    if(element){
-
-        element.textContent =
-            value;
-
-    }
-
+    return date.toLocaleString();
+  }
 }
-
-
-
-function updateLastUpdate(){
-
-
-    const now =
-        new Date();
-
-
-    setText(
-        "lastUpdate",
-        now.toLocaleString(
-            "th-TH",
-            {
-                dateStyle:"medium",
-                timeStyle:"short"
-            }
-        )
-    );
-
-}
-
-
-
-function updateStoreButtons(){
-
-
-    document
-        .querySelectorAll(
-            ".store-tab"
-        )
-        .forEach(
-            button => {
-
-                button.classList
-                    .toggle(
-                        "active",
-                        button.dataset.store
-                        ===
-                        currentStore
-                    );
-
-            }
-        );
-
-}
-
 
 
 /* =====================================================
 LOADING
 ===================================================== */
 
-function setLoading(){
+function setLoading() {
 
-
-    const container =
-        document.getElementById(
-            "promotionList"
-        );
-
-
-    if(!container){
-        return;
-    }
-
-
-    container.innerHTML = `
-
-        <div class="skeleton"></div>
-
-        <div class="skeleton"></div>
-
-        <div class="skeleton"></div>
-
-        <div class="skeleton"></div>
-
-    `;
-
-}
-
-
-
-/* =====================================================
-DARK MODE
-===================================================== */
-
-function toggleTheme(){
-
-
-    document.body
-        .classList
-        .toggle("dark");
-
-
-    const dark =
-        document.body
-        .classList
-        .contains("dark");
-
-
-    localStorage.setItem(
-        "promo-theme",
-        dark
-        ?
-        "dark"
-        :
-        "light"
+  const list =
+    document.getElementById(
+      "promotionList"
     );
 
+  if (list) {
 
-    const button =
-        document.getElementById(
-            "themeBtn"
-        );
+    list.innerHTML = `
+      <div class="skeleton-card"></div>
+      <div class="skeleton-card"></div>
+      <div class="skeleton-card"></div>
+    `;
+  }
 
 
-    if(button){
-
-        button.textContent =
-            dark
-            ?
-            "☀"
-            :
-            "☾";
-
-    }
-
+  setText(
+    "resultCount",
+    "กำลังโหลด..."
+  );
 }
-
-
-
-function restoreTheme(){
-
-
-    const dark =
-        localStorage.getItem(
-            "promo-theme"
-        )
-        ===
-        "dark";
-
-
-    document.body
-        .classList
-        .toggle(
-            "dark",
-            dark
-        );
-
-
-    const button =
-        document.getElementById(
-            "themeBtn"
-        );
-
-
-    if(button){
-
-        button.textContent =
-            dark
-            ?
-            "☀"
-            :
-            "☾";
-
-    }
-
-}
-
 
 
 /* =====================================================
-TOAST
+UI HELPERS
 ===================================================== */
 
-function showToast(
-    message
-){
+function scrollToDeals() {
+
+  const deals =
+    document.getElementById(
+      "deals"
+    );
+
+  if (deals) {
+
+    deals.scrollIntoView(
+      {
+        behavior: "smooth",
+        block: "start",
+      }
+    );
+  }
+}
 
 
-    const toast =
-        document.getElementById(
-            "toast"
-        );
+function setText(
+  id,
+  value
+) {
+
+  const element =
+    document.getElementById(id);
+
+  if (element) {
+    element.textContent = value;
+  }
+}
 
 
-    if(!toast){
-        return;
-    }
+function showToast(message) {
+
+  const toast =
+    document.getElementById(
+      "toast"
+    );
+
+  if (!toast) {
+    return;
+  }
 
 
-    toast.textContent =
-        message;
+  toast.textContent =
+    message;
 
 
-    toast.classList
-        .remove("hidden");
+  toast.classList.add(
+    "show"
+  );
 
+
+  if (toastTimer) {
 
     clearTimeout(
-        showToast.timer
+      toastTimer
     );
+  }
 
 
-    showToast.timer =
-        setTimeout(
-            () => {
+  toastTimer =
+    setTimeout(
+      () => {
 
-                toast.classList
-                    .add("hidden");
-
-            },
-            2600
+        toast.classList.remove(
+          "show"
         );
-
+      },
+      2200
+    );
 }
-
 
 
 /* =====================================================
-SECURITY
+SECURITY HELPERS
 ===================================================== */
 
-function escapeHtml(
-    value = ""
-){
+function escapeHtml(value) {
 
-    return String(value)
-
-        .replaceAll(
-            "&",
-            "&amp;"
-        )
-
-        .replaceAll(
-            "<",
-            "&lt;"
-        )
-
-        .replaceAll(
-            ">",
-            "&gt;"
-        )
-
-        .replaceAll(
-            '"',
-            "&quot;"
-        )
-
-        .replaceAll(
-            "'",
-            "&#039;"
-        );
-
+  return String(
+    value ?? ""
+  )
+    .replaceAll(
+      "&",
+      "&amp;"
+    )
+    .replaceAll(
+      "<",
+      "&lt;"
+    )
+    .replaceAll(
+      ">",
+      "&gt;"
+    )
+    .replaceAll(
+      '"',
+      "&quot;"
+    )
+    .replaceAll(
+      "'",
+      "&#039;"
+    );
 }
 
 
+function escapeAttribute(value) {
 
-function escapeAttribute(
-    value = ""
-){
-
-    return escapeHtml(
-        value
-    );
-
+  return escapeHtml(
+    value
+  );
 }

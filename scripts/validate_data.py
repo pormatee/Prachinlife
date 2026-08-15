@@ -17,10 +17,21 @@ REQUIRED_FIELDS = {
     "source",
     "verified",
     "collected_at",
+    "location_scope",
+    "country",
+}
+
+
+ALLOWED_LOCATION_SCOPES = {
+    "national",
+    "province",
+    "district",
+    "branch",
 }
 
 
 def load_data() -> list[dict]:
+
     with DATA_FILE.open(
         "r",
         encoding="utf-8",
@@ -35,7 +46,7 @@ def load_data() -> list[dict]:
     return data
 
 
-def validate_record(
+def validate_required_fields(
     item: dict,
     index: int,
 ) -> list[str]:
@@ -50,42 +61,265 @@ def validate_record(
 
     if missing:
         errors.append(
-            f"record {index}: missing fields {missing}"
+            f"record {index}: "
+            f"missing fields {missing}"
         )
 
-    if not item.get("id"):
+    for field in REQUIRED_FIELDS:
+
+        if field not in item:
+            continue
+
+        if field in {
+            "verified",
+        }:
+            continue
+
+        if item.get(field) in {
+            None,
+            "",
+        }:
+            errors.append(
+                f"record {index}: "
+                f"{field} is empty"
+            )
+
+    if item.get("verified") is not True:
         errors.append(
-            f"record {index}: id is empty"
+            f"record {index}: "
+            f"verified must be True"
         )
 
-    if not item.get("title"):
-        errors.append(
-            f"record {index}: title is empty"
-        )
+    return errors
 
-    if not item.get("merchant"):
-        errors.append(
-            f"record {index}: merchant is empty"
-        )
+
+def validate_identity(
+    item: dict,
+    index: int,
+) -> list[str]:
+
+    errors: list[str] = []
 
     if item.get("promotion_type") not in {
         "campaign",
         "product_deal",
+        "coupon",
+        "member_offer",
     }:
         errors.append(
-            f"record {index}: invalid promotion_type "
+            f"record {index}: "
+            f"invalid promotion_type "
             f"{item.get('promotion_type')!r}"
         )
 
-    if not item.get("source_url"):
+    return errors
+
+
+def validate_location(
+    item: dict,
+    index: int,
+) -> list[str]:
+
+    errors: list[str] = []
+
+    scope = item.get(
+        "location_scope"
+    )
+
+    country = item.get(
+        "country"
+    )
+
+    province = item.get(
+        "province"
+    )
+
+    district = item.get(
+        "district"
+    )
+
+    subdistrict = item.get(
+        "subdistrict"
+    )
+
+    branch_name = item.get(
+        "branch_name"
+    )
+
+
+    if (
+        scope
+        not in ALLOWED_LOCATION_SCOPES
+    ):
         errors.append(
-            f"record {index}: source_url is empty"
+            f"record {index}: "
+            f"invalid location_scope "
+            f"{scope!r}"
         )
 
-    if item.get("verified") is not True:
+        return errors
+
+
+    if country != "TH":
+
         errors.append(
-            f"record {index}: verified must be True"
+            f"record {index}: "
+            f"country must be 'TH'"
         )
+
+
+    if scope == "national":
+
+        local_values = {
+            "province":
+                province,
+
+            "district":
+                district,
+
+            "subdistrict":
+                subdistrict,
+
+            "branch_name":
+                branch_name,
+        }
+
+        populated = [
+            field
+            for field, value
+            in local_values.items()
+            if value
+        ]
+
+        if populated:
+
+            errors.append(
+                f"record {index}: "
+                f"national scope must not "
+                f"contain local fields "
+                f"{populated}"
+            )
+
+
+    elif scope == "province":
+
+        if not province:
+
+            errors.append(
+                f"record {index}: "
+                f"province scope "
+                f"requires province"
+            )
+
+        if district:
+
+            errors.append(
+                f"record {index}: "
+                f"province scope must not "
+                f"contain district"
+            )
+
+        if subdistrict:
+
+            errors.append(
+                f"record {index}: "
+                f"province scope must not "
+                f"contain subdistrict"
+            )
+
+        if branch_name:
+
+            errors.append(
+                f"record {index}: "
+                f"province scope must not "
+                f"contain branch_name"
+            )
+
+
+    elif scope == "district":
+
+        if not province:
+
+            errors.append(
+                f"record {index}: "
+                f"district scope "
+                f"requires province"
+            )
+
+        if not district:
+
+            errors.append(
+                f"record {index}: "
+                f"district scope "
+                f"requires district"
+            )
+
+        if branch_name:
+
+            errors.append(
+                f"record {index}: "
+                f"district scope must not "
+                f"contain branch_name"
+            )
+
+
+    elif scope == "branch":
+
+        if not province:
+
+            errors.append(
+                f"record {index}: "
+                f"branch scope "
+                f"requires province"
+            )
+
+        if not district:
+
+            errors.append(
+                f"record {index}: "
+                f"branch scope "
+                f"requires district"
+            )
+
+        if not branch_name:
+
+            errors.append(
+                f"record {index}: "
+                f"branch scope "
+                f"requires branch_name"
+            )
+
+
+    return errors
+
+
+def validate_record(
+    item: dict,
+    index: int,
+) -> list[str]:
+
+    errors: list[str] = []
+
+    errors.extend(
+        validate_required_fields(
+            item,
+            index,
+        )
+    )
+
+    errors.extend(
+        validate_identity(
+            item,
+            index,
+        )
+    )
+
+    errors.extend(
+        validate_location(
+            item,
+            index,
+        )
+    )
 
     return errors
 
@@ -93,7 +327,9 @@ def validate_record(
 def main() -> None:
 
     print("=" * 60)
-    print("PrachinLife Data Validator V1")
+    print(
+        "PrachinLife Data Validator V1.1"
+    )
     print("=" * 60)
 
     data = load_data()
@@ -101,6 +337,14 @@ def main() -> None:
     errors: list[str] = []
 
     ids: set[str] = set()
+
+    location_counts = {
+        "national": 0,
+        "province": 0,
+        "district": 0,
+        "branch": 0,
+    }
+
 
     for index, item in enumerate(
         data,
@@ -114,16 +358,33 @@ def main() -> None:
             )
         )
 
+
         item_id = item.get("id")
 
         if item_id:
 
             if item_id in ids:
+
                 errors.append(
-                    f"record {index}: duplicate id {item_id}"
+                    f"record {index}: "
+                    f"duplicate id {item_id}"
                 )
 
-            ids.add(item_id)
+            ids.add(
+                item_id
+            )
+
+
+        scope = item.get(
+            "location_scope"
+        )
+
+        if scope in location_counts:
+
+            location_counts[
+                scope
+            ] += 1
+
 
     print(
         f"Records = {len(data)}"
@@ -134,23 +395,40 @@ def main() -> None:
     )
 
     print(
+        "Location counts =",
+        location_counts,
+    )
+
+    print(
         f"Errors = {len(errors)}"
     )
+
 
     if errors:
 
         print()
 
         for error in errors:
+
             print(
                 "[FAIL]",
                 error,
             )
 
+        print()
+
+        print(
+            "FINAL RESULT: FAIL"
+        )
+
         raise SystemExit(1)
 
+
     print()
-    print("FINAL RESULT: PASS")
+
+    print(
+        "FINAL RESULT: PASS"
+    )
 
 
 if __name__ == "__main__":

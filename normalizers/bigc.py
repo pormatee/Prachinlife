@@ -17,13 +17,16 @@ NORMALIZED_FILE = (
     PROJECT_ROOT
     / "data"
     / "normalized"
-    / "promotions.json"
+    / "bigc.json"
 )
 
-FRONTEND_FILE = (
-    PROJECT_ROOT
-    / "promotions.json"
-)
+
+ALLOWED_LOCATION_SCOPES = {
+    "national",
+    "province",
+    "district",
+    "branch",
+}
 
 
 def load_raw() -> list[dict]:
@@ -40,8 +43,7 @@ def load_raw() -> list[dict]:
         list,
     ):
         raise ValueError(
-            "data/raw/bigc.json "
-            "must contain a JSON list"
+            "data/raw/bigc.json must contain a JSON list"
         )
 
     return data
@@ -76,11 +78,8 @@ def normalize_record(
         or ""
     ).strip()
 
-    return {
 
-        # =============================================
-        # Canonical PrachinLife fields
-        # =============================================
+    return {
 
         "id":
             source_id,
@@ -106,26 +105,37 @@ def normalize_record(
         "source_type":
             "official_promotion",
 
-        "location_scope":
-            "national",
-
-        "province":
-            None,
-
-        "branch_name":
-            None,
-
         "verified":
             True,
 
         "collected_at":
             collected_at,
 
+        # =================================================
+        # Location Schema V1
+        # =================================================
 
-        # =============================================
-        # Legacy compatibility fields
-        # Current app.js still reads these.
-        # =============================================
+        "location_scope":
+            "national",
+
+        "country":
+            "TH",
+
+        "province":
+            None,
+
+        "district":
+            None,
+
+        "subdistrict":
+            None,
+
+        "branch_name":
+            None,
+
+        # =================================================
+        # Frontend compatibility fields
+        # =================================================
 
         "store":
             "Big C",
@@ -143,10 +153,7 @@ def normalize_record(
             "ตรวจสอบรายละเอียดจาก Big C",
 
         "branch":
-            (
-                "Big C / "
-                "ตรวจสอบสาขาที่ร่วมรายการ"
-            ),
+            "Big C / ตรวจสอบสาขาที่ร่วมรายการ",
 
         "category":
             "แคมเปญโปรโมชั่น",
@@ -179,6 +186,8 @@ def validate_normalized(
             "source",
             "verified",
             "collected_at",
+            "location_scope",
+            "country",
         }
 
         missing = [
@@ -188,14 +197,17 @@ def validate_normalized(
         ]
 
         if missing:
+
             raise ValueError(
                 f"record {index}: "
                 f"missing values {missing}"
             )
 
+
         item_id = item["id"]
 
         if item_id in seen_ids:
+
             raise ValueError(
                 f"record {index}: "
                 f"duplicate id {item_id}"
@@ -204,6 +216,63 @@ def validate_normalized(
         seen_ids.add(
             item_id
         )
+
+
+        scope = item.get(
+            "location_scope"
+        )
+
+        if (
+            scope
+            not in ALLOWED_LOCATION_SCOPES
+        ):
+
+            raise ValueError(
+                f"record {index}: "
+                f"invalid location_scope "
+                f"{scope!r}"
+            )
+
+
+        if item.get("country") != "TH":
+
+            raise ValueError(
+                f"record {index}: "
+                f"country must be 'TH'"
+            )
+
+
+        if scope == "national":
+
+            local_fields = {
+                "province":
+                    item.get("province"),
+
+                "district":
+                    item.get("district"),
+
+                "subdistrict":
+                    item.get("subdistrict"),
+
+                "branch_name":
+                    item.get("branch_name"),
+            }
+
+            populated = [
+                field
+                for field, value
+                in local_fields.items()
+                if value
+            ]
+
+            if populated:
+
+                raise ValueError(
+                    f"record {index}: "
+                    f"national record must not "
+                    f"contain local fields "
+                    f"{populated}"
+                )
 
 
 def save_json(
@@ -231,19 +300,17 @@ def save_json(
 
 def main() -> None:
 
-    print(
-        "=" * 60
-    )
+    print("=" * 60)
 
     print(
-        "PrachinLife - Big C Normalizer V1"
+        "PrachinLife - Big C Normalizer V1.2"
     )
 
-    print(
-        "=" * 60
-    )
+    print("=" * 60)
+
 
     raw_records = load_raw()
+
 
     normalized = [
         normalize_record(
@@ -252,19 +319,17 @@ def main() -> None:
         for item in raw_records
     ]
 
+
     validate_normalized(
         normalized
     )
+
 
     save_json(
         NORMALIZED_FILE,
         normalized,
     )
 
-    save_json(
-        FRONTEND_FILE,
-        normalized,
-    )
 
     print(
         f"Raw records = "
@@ -277,16 +342,12 @@ def main() -> None:
     )
 
     print(
-        "Saved normalized:",
+        "Saved:",
         NORMALIZED_FILE,
     )
 
-    print(
-        "Saved frontend compatibility:",
-        FRONTEND_FILE,
-    )
-
     print()
+
     print(
         "FINAL RESULT: PASS"
     )
