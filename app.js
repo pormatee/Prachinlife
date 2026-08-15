@@ -7,6 +7,7 @@ let currentPage = 1;
 let currentSearch = "";
 let currentMerchant = "all";
 let currentType = "all";
+let currentSmart = "recommended";
 let toastTimer = null;
 
 
@@ -219,6 +220,30 @@ function bindEvents() {
         );
       }
     );
+
+  document
+    .querySelectorAll("[data-smart]")
+    .forEach(
+      button => {
+
+        button.addEventListener(
+          "click",
+          () => {
+
+            currentSmart =
+              button.dataset.smart
+              || "recommended";
+
+            currentPage = 1;
+
+            updateActiveSmartButtons();
+
+            applyFilters();
+          }
+        );
+      }
+    );
+
 }
 
 
@@ -500,6 +525,78 @@ function resetSearch() {
 }
 
 
+
+function updateActiveSmartButtons() {
+
+  document
+    .querySelectorAll("[data-smart]")
+    .forEach(
+      button => {
+
+        button.classList.toggle(
+          "active",
+          button.dataset.smart === currentSmart
+        );
+      }
+    );
+}
+
+
+function matchesSmartFilter(promotion) {
+
+  if (currentSmart === "recommended") {
+    return true;
+  }
+
+  if (currentSmart === "must_check") {
+    return getInterestingScore(promotion) >= 60;
+  }
+
+  if (currentSmart === "saving") {
+
+    return (
+      promotion.promotion_type === "coupon"
+      ||
+      promotion.promotion_type === "member_offer"
+      ||
+      promotion.promotion_type === "product_deal"
+      ||
+      /ส่วนลด|คุ้ม|คูปอง|\d+\s*บาท/.test(
+        String(promotion.title || "")
+      )
+    );
+  }
+
+  if (currentSmart === "benefits") {
+
+    return (
+      promotion.promotion_type === "coupon"
+      ||
+      promotion.promotion_type === "member_offer"
+    );
+  }
+
+  if (currentSmart === "catalogue") {
+    return isCataloguePromotion(promotion);
+  }
+
+  if (currentSmart === "activity") {
+
+    return (
+      promotion.promotion_type === "campaign"
+      &&
+      !isCataloguePromotion(promotion)
+    );
+  }
+
+  if (currentSmart === "latest") {
+    return true;
+  }
+
+  return true;
+}
+
+
 function applyFilters() {
 
   filteredPromotions =
@@ -537,29 +634,48 @@ function applyFilters() {
           currentType === "all" ||
           promotion.promotion_type === currentType;
 
+        const matchesSmart =
+          matchesSmartFilter(
+            promotion
+          );
+
         return (
           matchesSearch &&
           matchesMerchant &&
-          matchesType
+          matchesType &&
+          matchesSmart
         );
       }
     );
 
   const useSmartMix =
+    currentSmart === "recommended"
+    &&
     !currentSearch
     &&
     currentMerchant === "all"
     &&
     currentType === "all";
 
-  filteredPromotions =
-    useSmartMix
-      ? smartMixPromotions(
-          filteredPromotions
-        )
-      : sortLatest(
-          filteredPromotions
-        );
+  if (currentSmart === "latest") {
+
+    filteredPromotions =
+      sortLatest(
+        filteredPromotions
+      );
+  }
+
+  else {
+
+    filteredPromotions =
+      useSmartMix
+        ? smartMixPromotions(
+            filteredPromotions
+          )
+        : rankInteresting(
+            filteredPromotions
+          );
+  }
 
   currentPage = 1;
 
