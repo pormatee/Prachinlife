@@ -1624,3 +1624,94 @@ function escapeAttribute(value) {
     value
   );
 }
+
+
+/* =====================================================
+PROMOTION DISPLAY HELPERS
+===================================================== */
+
+function isCataloguePromotion(promotion) {
+
+  const url = String(
+    promotion.source_url || ""
+  ).toLowerCase();
+
+  const title = String(
+    promotion.title || ""
+  ).toLowerCase();
+
+  return (
+    url.includes("/catalog/") ||
+    url.includes("e-catalogue") ||
+    title.includes("แคตตาล็อก")
+  );
+}
+
+
+function getPromotionCategoryLabel(promotion) {
+
+  if (promotion.promotion_type === "coupon") {
+    return "สิทธิ์ส่วนลด";
+  }
+
+  if (promotion.promotion_type === "member_offer") {
+    return "สิทธิสมาชิก";
+  }
+
+  if (promotion.promotion_type === "product_deal") {
+    return "โปรโมชั่นสินค้า";
+  }
+
+  if (isCataloguePromotion(promotion)) {
+    return "แคตตาล็อกโปรโมชั่น";
+  }
+
+  return (
+    promotion.category ||
+    "แคมเปญโปรโมชั่น"
+  );
+}
+
+
+function getActionLabel(promotion) {
+
+  if (promotion.promotion_type === "coupon") {
+    return "ดูคูปอง";
+  }
+
+  if (promotion.promotion_type === "member_offer") {
+    return "ดูสิทธิสมาชิก";
+  }
+
+  if (promotion.promotion_type === "product_deal") {
+    return "ดูดีลสินค้า";
+  }
+
+  if (isCataloguePromotion(promotion)) {
+    return "เปิดแคตตาล็อก";
+  }
+
+  return "ดูรายละเอียด";
+}
+
+
+function getPromotionDescription(promotion) {
+
+  if (promotion.promotion_type === "coupon") {
+    return "คูปองหรือสิทธิ์ส่วนลดจากแหล่งต้นทาง กรุณาตรวจสอบเงื่อนไขก่อนใช้สิทธิ์";
+  }
+
+  if (promotion.promotion_type === "member_offer") {
+    return "สิทธิประโยชน์สำหรับสมาชิก ตรวจสอบรายละเอียดจากต้นทาง";
+  }
+
+  if (promotion.promotion_type === "product_deal") {
+    return "ดีลสินค้าจากแหล่งต้นทาง ราคาและเงื่อนไขอาจแตกต่างตามช่วงเวลา";
+  }
+
+  if (isCataloguePromotion(promotion)) {
+    return "แคตตาล็อกโปรโมชั่นจากร้านต้นทาง เปิดดูรายการล่าสุดได้จากต้นทาง";
+  }
+
+  return "แคมเปญจากแหล่งต้นทาง กรุณาตรวจสอบรายละเอียดและเงื่อนไข";
+}
