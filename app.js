@@ -732,10 +732,78 @@ function getPromotionTypeClass(promotion) {
 SORT
 ===================================================== */
 
+function getInterestingScore(promotion) {
+
+  let score = 0;
+
+  if (promotion.promotion_type === "coupon") {
+    score += 30;
+  }
+
+  else if (promotion.promotion_type === "member_offer") {
+    score += 20;
+  }
+
+  else if (promotion.promotion_type === "product_deal") {
+    score += 20;
+  }
+
+  else {
+    score += 10;
+  }
+
+
+  if (promotion.image_url) {
+    score += 5;
+  }
+
+
+  if (promotion.location_scope === "province") {
+    score += 40;
+  }
+
+  else if (promotion.location_scope === "district") {
+    score += 50;
+  }
+
+  else if (promotion.location_scope === "branch") {
+    score += 60;
+  }
+
+
+  return score;
+}
+
+
+function rankInteresting(data) {
+
+  return [...data].sort(
+    (a, b) => {
+
+      const scoreA =
+        getInterestingScore(a);
+
+      const scoreB =
+        getInterestingScore(b);
+
+      if (scoreB !== scoreA) {
+        return scoreB - scoreA;
+      }
+
+      return (
+        parseDateValue(b.collected_at)
+        -
+        parseDateValue(a.collected_at)
+      );
+    }
+  );
+}
+
+
 function smartMixPromotions(data) {
 
   const sorted =
-    sortLatest(data);
+    rankInteresting(data);
 
   const merchantBuckets =
     new Map();
