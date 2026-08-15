@@ -2,7 +2,6 @@ from __future__ import annotations
 
 import hashlib
 import json
-import re
 from datetime import datetime
 from pathlib import Path
 from urllib.parse import urljoin
@@ -12,98 +11,75 @@ from bs4 import BeautifulSoup
 
 
 # =========================================================
-# PromoPrachin
-# Big C Promotion Collector V3
+# PrachinLife
+# Big C Raw Collector V5
+#
+# Responsibility:
+# - Fetch Big C official promotion page
+# - Extract raw campaign records
+# - Save only to data/raw/bigc.json
+# - Never write normalized/promotions.json
+# - Never write frontend promotions.json
 # =========================================================
+
 
 SOURCE_URL = "https://corporate.bigc.co.th/promotions-bigc?lang=th"
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
-OUTPUT_FILE = PROJECT_ROOT / "promotions.json"
+RAW_OUTPUT_FILE = PROJECT_ROOT / "data" / "raw" / "bigc.json"
+
 
 HEADERS = {
     "User-Agent": (
         "Mozilla/5.0 (Linux; Android 13) "
         "AppleWebKit/537.36 "
         "(KHTML, like Gecko) "
-        "Chrome/120 Safari/537.36"
+        "Chrome/120.0.0.0 Mobile Safari/537.36"
     ),
     "Accept-Language": "th-TH,th;q=0.9,en;q=0.8",
 }
 
 
-# =========================================================
-# HELPERS
-# =========================================================
-
 def clean_text(value: str | None) -> str:
     if not value:
         return ""
 
-    return re.sub(
-        r"\s+",
-        " ",
-        value
+    return " ".join(
+        value.split()
     ).strip()
 
 
-def make_id(value: str) -> str:
-    digest = hashlib.sha256(
-        value.encode("utf-8")
-    ).hexdigest()[:16]
+def normalize_url(
+    url: str | None,
+) -> str:
 
-    return f"bigc-{digest}"
-
-
-def normalize_url(url: str) -> str:
     if not url:
         return ""
 
     return urljoin(
         SOURCE_URL,
-        url.strip()
+        url.strip(),
     )
 
 
-# =========================================================
-# LOAD EXISTING DATA
-# =========================================================
+def make_source_id(
+    source_url: str,
+    title: str,
+) -> str:
 
-def load_existing_promotions() -> list[dict]:
-    if not OUTPUT_FILE.exists():
-        return []
+    raw_value = (
+        f"{source_url}|{title}"
+    )
 
-    try:
-        with OUTPUT_FILE.open(
-            "r",
-            encoding="utf-8"
-        ) as file:
+    digest = hashlib.sha256(
+        raw_value.encode("utf-8")
+    ).hexdigest()[:16]
 
-            data = json.load(file)
+    return f"bigc-{digest}"
 
-            if isinstance(data, list):
-                return data
-
-            if isinstance(data, dict):
-                return data.get(
-                    "promotions",
-                    []
-                )
-
-    except Exception as error:
-        print(
-            "⚠️ Cannot read promotions.json:",
-            error
-        )
-
-    return []
-
-
-# =========================================================
-# DOWNLOAD BIG C PAGE
-# =========================================================
 
 def download_page() -> str:
+
     print(
         "🌐 Loading Big C promotions..."
     )
@@ -111,7 +87,7 @@ def download_page() -> str:
     response = requests.get(
         SOURCE_URL,
         headers=HEADERS,
-        timeout=30
+        timeout=30,
     )
 
     response.raise_for_status()
@@ -124,76 +100,40 @@ def download_page() -> str:
     return response.text
 
 
-# =========================================================
-# FILTER BAD TITLES
-# =========================================================
+def extract_title(card) -> str:
 
-def is_bad_title(title: str) -> bool:
-    if not title:
-        return True
-
-    normalized = title.strip().lower()
-
-    bad_titles = {
-        "ทั้งหมด",
-        "โปรโมชั่น",
-        "promotion",
-        "big c",
-        "บิ๊กซี",
-        "บิ๊กซีมินิ",
-        "ร้านยาเพรียว",
-        "บิ๊กซีพลาซ่า",
-        "ดูเพิ่มเติม",
-        "อ่านเพิ่มเติม",
-        "รายละเอียด",
-    }
-
-    if normalized in bad_titles:
-        return True
-
-    if len(normalized) < 5:
-        return True
-
-    return False
-
-
-# =========================================================
-# FIND TITLE
-# =========================================================
-
-def get_title(link) -> str:
-    title = clean_text(
-        link.get_text(
-            " ",
-            strip=True
-        )
-    )
-
-    image = link.find("img")
+    image = card.find("img")
 
     if image:
+
         alt = clean_text(
             image.get("alt")
         )
 
-        if alt and len(alt) > len(title):
-            title = alt
+        if alt:
+            return alt
 
-    title = re.sub(
-        r"\s*(ดูเพิ่มเติม|อ่านเพิ่มเติม)\s*$",
-        "",
-        title,
-        flags=re.IGNORECASE
+    text = clean_text(
+        card.get_text(
+            " ",
+            strip=True,
+        )
     )
 
-    return clean_text(title)
+    return (
+        text
+        .replace(
+            "ดูเพิ่มเติม",
+            "",
+        )
+        .strip()
+    )
 
 
-# =========================================================
-# IMAGE HELPERS
-# =========================================================
+def extract_image_url(card) -> str:
 
-def extract_image_from_tag(image) -> str:
+    image = card.find("img")
+
     if not image:
         return ""
 
@@ -202,14 +142,15 @@ def extract_image_from_tag(image) -> str:
         or image.get("data-src")
         or image.get("data-lazy-src")
         or image.get("data-original")
-        or image.get("data-image")
         or ""
     )
 
     if not raw_image:
         return ""
 
-    if raw_image.startswith("data:image"):
+    if raw_image.startswith(
+        "data:image"
+    ):
         return ""
 
     return normalize_url(
@@ -217,133 +158,11 @@ def extract_image_from_tag(image) -> str:
     )
 
 
-def get_image_url(link) -> str:
-    # -----------------------------------------------------
-    # 1) รูปใน link โดยตรง
-    # -----------------------------------------------------
-    image = link.find("img")
+def extract_destination_url(card) -> str:
 
-    image_url = extract_image_from_tag(
-        image
-    )
-
-    if image_url:
-        return image_url
-
-
-    # -----------------------------------------------------
-    # 2) parent
-    # -----------------------------------------------------
-    parent = link.parent
-
-    if parent:
-        image = parent.find("img")
-
-        image_url = extract_image_from_tag(
-            image
-        )
-
-        if image_url:
-            return image_url
-
-
-    # -----------------------------------------------------
-    # 3) grandparent
-    # -----------------------------------------------------
-    grandparent = (
-        parent.parent
-        if parent
-        else None
-    )
-
-    if grandparent:
-        image = grandparent.find("img")
-
-        image_url = extract_image_from_tag(
-            image
-        )
-
-        if image_url:
-            return image_url
-
-
-    # -----------------------------------------------------
-    # 4) great-grandparent
-    # -----------------------------------------------------
-    great_grandparent = (
-        grandparent.parent
-        if grandparent
-        else None
-    )
-
-    if great_grandparent:
-        image = great_grandparent.find("img")
-
-        image_url = extract_image_from_tag(
-            image
-        )
-
-        if image_url:
-            return image_url
-
-
-    # -----------------------------------------------------
-    # 5) previous sibling
-    # -----------------------------------------------------
-    sibling = link.find_previous("img")
-
-    image_url = extract_image_from_tag(
-        sibling
-    )
-
-    if image_url:
-        return image_url
-
-
-    return ""
-
-
-# =========================================================
-# FIND PROMOTION LINKS
-# =========================================================
-
-def is_promotion_url(url: str) -> bool:
-    if not url:
-        return False
-
-    lower = url.lower()
-
-    return (
-        "promotion" in lower
-        or "campaign" in lower
-        or "promo" in lower
-    )
-
-
-# =========================================================
-# COLLECT PROMOTIONS
-# =========================================================
-
-def collect_bigc_promotions() -> list[dict]:
-    html = download_page()
-
-    soup = BeautifulSoup(
-        html,
-        "html.parser"
-    )
-
-    promotions = []
-
-    seen_titles = set()
-    seen_urls = set()
-
-    links = soup.find_all(
+    links = card.find_all(
         "a",
-        href=True
-    )
-
-    print(
-        f"🔎 Found {len(links)} links"
+        href=True,
     )
 
     for link in links:
@@ -352,185 +171,205 @@ def collect_bigc_promotions() -> list[dict]:
             link.get("href")
         )
 
-        if not href:
-            continue
+        if (
+            "linebc.bigc.co.th/catalog/"
+            in href
+        ):
+            return normalize_url(
+                href
+            )
 
-        full_url = normalize_url(
-            href
+    for link in links:
+
+        href = clean_text(
+            link.get("href")
         )
 
-        if not is_promotion_url(
-            full_url
+        if href:
+            return normalize_url(
+                href
+            )
+
+    return ""
+
+
+def is_valid_raw_campaign(
+    title: str,
+    source_url: str,
+) -> bool:
+
+    if not title:
+        return False
+
+    if not source_url:
+        return False
+
+    bad_titles = {
+        "โปรโมชั่น",
+        "ดูเพิ่มเติม",
+        "ทั้งหมด",
+        "บิ๊กซี",
+        "big c",
+    }
+
+    if (
+        title.strip().lower()
+        in {
+            item.lower()
+            for item in bad_titles
+        }
+    ):
+        return False
+
+    return len(
+        title.strip()
+    ) >= 5
+
+
+def collect_bigc_raw() -> list[dict]:
+
+    html = download_page()
+
+    soup = BeautifulSoup(
+        html,
+        "html.parser",
+    )
+
+    cards = soup.select(
+        "div.promotion-box"
+    )
+
+    print(
+        f"🔎 Found {len(cards)} "
+        f"promotion cards"
+    )
+
+    raw_records: list[dict] = []
+
+    seen_urls: set[str] = set()
+
+    collected_at = (
+        datetime.now()
+        .astimezone()
+        .isoformat()
+    )
+
+    for card in cards:
+
+        title = extract_title(
+            card
+        )
+
+        source_url = (
+            extract_destination_url(
+                card
+            )
+        )
+
+        image_url = (
+            extract_image_url(
+                card
+            )
+        )
+
+        if not is_valid_raw_campaign(
+            title,
+            source_url,
         ):
             continue
 
-        title = get_title(
-            link
-        )
-
-        if is_bad_title(
-            title
-        ):
+        if source_url in seen_urls:
             continue
-
-        normalized_title = (
-            title
-            .strip()
-            .lower()
-        )
-
-        if normalized_title in seen_titles:
-            continue
-
-        if full_url in seen_urls:
-            continue
-
-        image_url = get_image_url(
-            link
-        )
-
-        seen_titles.add(
-            normalized_title
-        )
 
         seen_urls.add(
-            full_url
+            source_url
         )
 
-        promotion = {
-            "id": make_id(
-                full_url + title
-            ),
+        record = {
+            "source_id":
+                make_source_id(
+                    source_url,
+                    title,
+                ),
 
-            "store": "Big C",
+            "source_provider":
+                "bigc",
 
-            "product": title,
+            "source_page":
+                SOURCE_URL,
 
-            # -------------------------------------------------
-            # V3 ยังไม่เดาราคา
-            # -------------------------------------------------
+            "title":
+                title,
 
-            "old_price": 0,
-
-            "new_price": 0,
-
-            "expiry":
-                "ตรวจสอบรายละเอียดจาก Big C",
-
-            "branch":
-                "Big C / ตรวจสอบสาขาที่ร่วมรายการ",
-
-            "category":
-                "โปรโมชั่น",
-
-            "urgent":
-                False,
-
-            "image":
+            "image_url":
                 image_url,
 
-            "source_url":
-                full_url,
+            "destination_url":
+                source_url,
 
-            "source":
-                "Big C Official",
-
-            "source_type":
-                "official_promotion",
-
-            "verified":
-                True,
+            "raw_type":
+                "campaign",
 
             "collected_at":
-                datetime.now()
-                .astimezone()
-                .isoformat(),
+                collected_at,
         }
 
-        promotions.append(
-            promotion
+        raw_records.append(
+            record
         )
 
         print()
         print(
-            "PROMOTION:",
+            "RAW:",
             title
         )
-
         print(
             "URL:",
-            full_url
+            source_url
         )
-
         print(
             "IMAGE:",
             image_url
-            or
-            "NO IMAGE"
+            or "NO IMAGE"
         )
-
 
     print()
 
     print(
-        f"✅ Found {len(promotions)} "
-        f"clean Big C promotions"
+        f"✅ Found {len(raw_records)} "
+        f"clean raw Big C campaigns"
     )
 
-    return promotions
+    return raw_records
 
 
-# =========================================================
-# MERGE
-# =========================================================
-
-def merge_promotions(
-    existing: list[dict],
-    bigc_promotions: list[dict]
-) -> list[dict]:
-
-    other_stores = [
-        item
-        for item in existing
-        if item.get("store") != "Big C"
-    ]
-
-    return (
-        bigc_promotions
-        +
-        other_stores
-    )
-
-
-# =========================================================
-# SAVE
-# =========================================================
-
-def save_promotions(
-    promotions: list[dict]
+def save_raw(
+    records: list[dict],
 ) -> None:
 
-    with OUTPUT_FILE.open(
+    RAW_OUTPUT_FILE.parent.mkdir(
+        parents=True,
+        exist_ok=True,
+    )
+
+    with RAW_OUTPUT_FILE.open(
         "w",
-        encoding="utf-8"
+        encoding="utf-8",
     ) as file:
 
         json.dump(
-            promotions,
+            records,
             file,
             ensure_ascii=False,
-            indent=2
+            indent=2,
         )
 
+    print()
     print(
-        "💾 Saved:",
-        OUTPUT_FILE
+        "💾 Saved raw data:",
+        RAW_OUTPUT_FILE
     )
 
-
-# =========================================================
-# MAIN
-# =========================================================
 
 def main() -> None:
 
@@ -539,80 +378,52 @@ def main() -> None:
     )
 
     print(
-        "PromoPrachin - Big C Collector V3"
+        "PrachinLife - Big C Raw Collector V5"
     )
 
     print(
         "=" * 60
     )
 
-    existing = (
-        load_existing_promotions()
-    )
-
     try:
 
-        bigc_promotions = (
-            collect_bigc_promotions()
-        )
+        records = collect_bigc_raw()
 
-
-        # -------------------------------------------------
-        # ป้องกันข้อมูลเดิมหาย
-        # -------------------------------------------------
-
-        if not bigc_promotions:
+        if not records:
 
             print()
-
             print(
-                "⚠️ No Big C promotions found."
+                "⚠️ No Big C campaigns found."
             )
-
             print(
-                "Existing promotions.json preserved."
+                "Existing raw file preserved."
             )
 
             return
 
-
-        merged = merge_promotions(
-            existing,
-            bigc_promotions
+        save_raw(
+            records
         )
-
-
-        save_promotions(
-            merged
-        )
-
 
         print()
-
         print(
-            "✅ Big C Collector V3 completed"
+            "✅ Big C Raw Collector V5 completed"
         )
-
         print(
-            f"📦 Total records = "
-            f"{len(merged)}"
+            f"📦 Raw records = "
+            f"{len(records)}"
         )
-
 
     except Exception as error:
 
         print()
-
         print(
-            "❌ Big C Collector failed:"
+            "❌ Big C Raw Collector V5 failed:"
         )
-
         print(error)
-
         print()
-
         print(
-            "Existing promotions.json preserved."
+            "Existing raw file preserved."
         )
 
 
