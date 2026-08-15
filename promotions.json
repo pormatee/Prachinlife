@@ -1,0 +1,98 @@
+[
+  {
+    "id": "p001",
+    "store": "Lotus's",
+    "product": "ข้าวหอมมะลิ 5 กก.",
+    "old_price": 189,
+    "new_price": 149,
+    "expiry": "18 ส.ค. 69",
+    "branch": "Lotus's ปราจีนบุรี",
+    "category": "อาหาร",
+    "urgent": false,
+    "image": "https://images.unsplash.com/photo-1586201375761-83865001e31c?w=800"
+  },
+  {
+    "id": "p002",
+    "store": "Big C",
+    "product": "นมยูเอชที แพ็ค 12 กล่อง",
+    "old_price": 142,
+    "new_price": 99,
+    "expiry": "17 ส.ค. 69",
+    "branch": "Big C ปราจีนบุรี",
+    "category": "เครื่องดื่ม",
+    "urgent": true,
+    "image": "https://images.unsplash.com/photo-1550583724-b2692b85b150?w=800"
+  },
+  {
+    "id": "p003",
+    "store": "CJ More",
+    "product": "บะหมี่กึ่งสำเร็จรูป แพ็ค 10",
+    "old_price": 62,
+    "new_price": 49,
+    "expiry": "20 ส.ค. 69",
+    "branch": "CJ More โซน 304",
+    "category": "อาหาร",
+    "urgent": false,
+    "image": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=800"
+  },
+  {
+    "id": "p004",
+    "store": "Lotus's",
+    "product": "น้ำมันพืช 1 ลิตร",
+    "old_price": 68,
+    "new_price": 42,
+    "expiry": "16 ส.ค. 69",
+    "branch": "Lotus's ปราจีนบุรี",
+    "category": "อาหาร",
+    "urgent": true,
+    "image": "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=800"
+  },
+  {
+    "id": "p005",
+    "store": "Big C",
+    "product": "ผงซักฟอก 2.7 กก.",
+    "old_price": 199,
+    "new_price": 119,
+    "expiry": "21 ส.ค. 69",
+    "branch": "Big C ปราจีนบุรี",
+    "category": "ของใช้ในบ้าน",
+    "urgent": false,
+    "image": "https://images.unsplash.com/photo-1563453392212-326f5e854473?w=800"
+  },
+  {
+    "id": "p006",
+    "store": "CJ More",
+    "product": "ไข่ไก่ เบอร์ 2 แผง 30 ฟอง",
+    "old_price": 135,
+    "new_price": 109,
+    "expiry": "17 ส.ค. 69",
+    "branch": "CJ More โซน 304",
+    "category": "อาหารสด",
+    "urgent": true,
+    "image": "https://images.unsplash.com/photo-1506976785307-8732e854ad03?w=800"
+  },
+  {
+    "id": "p007",
+    "store": "Lotus's",
+    "product": "น้ำดื่มแพ็ค 6 ขวด",
+    "old_price": 59,
+    "new_price": 39,
+    "expiry": "23 ส.ค. 69",
+    "branch": "Lotus's กบินทร์บุรี",
+    "category": "เครื่องดื่ม",
+    "urgent": false,
+    "image": "https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=800"
+  },
+  {
+    "id": "p008",
+    "store": "Big C",
+    "product": "กาแฟสำเร็จรูป แพ็คประหยัด",
+    "old_price": 229,
+    "new_price": 159,
+    "expiry": "22 ส.ค. 69",
+    "branch": "Big C ปราจีนบุรี",
+    "category": "เครื่องดื่ม",
+    "urgent": false,
+    "image": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=800"
+  }
+]
