@@ -1,0 +1,712 @@
+[
+  {
+    "schema_version": "1.0",
+    "id": "lotus-4a61ddca3c674eff",
+    "content_type": "deal",
+    "original_type": "campaign",
+    "title": "ชวนบินฟรี ตะลุยปักกิ่ง",
+    "summary": "แคมเปญหรือโปรโมชั่นจาก Lotus's",
+    "category": "shopping",
+    "tags": [
+      "deal",
+      "lotuss",
+      "campaign",
+      "แคมเปญโปรโมชั่น",
+      "national"
+    ],
+    "provider": {
+      "name": "Lotus's",
+      "type": "merchant"
+    },
+    "location": {
+      "scope": "national",
+      "country": "TH",
+      "province": null,
+      "district": null,
+      "subdistrict": null,
+      "place_name": null
+    },
+    "source": {
+      "name": "My Lotus's Official",
+      "url": "https://my.lotuss.com/promotions/th",
+      "type": "official_promotion",
+      "verified": true
+    },
+    "image_url": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202606160650487246.webp",
+    "published_at": null,
+    "expires_at": null,
+    "collected_at": "2026-08-15T14:00:44.294306+07:00",
+    "metadata": {
+      "old_price": 0,
+      "new_price": 0,
+      "expiry_text": "ตรวจสอบรายละเอียดจาก Lotus's",
+      "urgent": false
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "id": "lotus-70f5075ca612dd7a",
+    "content_type": "deal",
+    "original_type": "coupon",
+    "title": "อย่าลืม!! เปิดแอปดู คูปองส่วนลดพิเศษ เฉพาะคุณ 1 ส.ค. 69 - 31 ส.ค. 69",
+    "summary": "คูปองหรือสิทธิ์ส่วนลดจาก Lotus's",
+    "category": "shopping",
+    "tags": [
+      "deal",
+      "lotuss",
+      "coupon",
+      "คูปอง",
+      "saving",
+      "national"
+    ],
+    "provider": {
+      "name": "Lotus's",
+      "type": "merchant"
+    },
+    "location": {
+      "scope": "national",
+      "country": "TH",
+      "province": null,
+      "district": null,
+      "subdistrict": null,
+      "place_name": null
+    },
+    "source": {
+      "name": "My Lotus's Official",
+      "url": "https://my.lotuss.com/promotions/th",
+      "type": "official_promotion",
+      "verified": true
+    },
+    "image_url": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202605250654037428.webp",
+    "published_at": null,
+    "expires_at": null,
+    "collected_at": "2026-08-15T14:00:44.294306+07:00",
+    "metadata": {
+      "old_price": 0,
+      "new_price": 0,
+      "expiry_text": "ตรวจสอบรายละเอียดจาก Lotus's",
+      "urgent": false
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "id": "lotus-cc2176ecbbc0d4f5",
+    "content_type": "deal",
+    "original_type": "member_offer",
+    "title": "สมัครสมาชิกใหม่มายโลตัส",
+    "summary": "สิทธิประโยชน์สำหรับสมาชิกจาก Lotus's",
+    "category": "shopping",
+    "tags": [
+      "deal",
+      "lotuss",
+      "member_offer",
+      "สิทธิสมาชิก",
+      "benefit",
+      "membership",
+      "national"
+    ],
+    "provider": {
+      "name": "Lotus's",
+      "type": "merchant"
+    },
+    "location": {
+      "scope": "national",
+      "country": "TH",
+      "province": null,
+      "district": null,
+      "subdistrict": null,
+      "place_name": null
+    },
+    "source": {
+      "name": "My Lotus's Official",
+      "url": "https://my.lotuss.com/promotions/th",
+      "type": "official_promotion",
+      "verified": true
+    },
+    "image_url": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202608030744402937.webp",
+    "published_at": null,
+    "expires_at": null,
+    "collected_at": "2026-08-15T14:00:44.294306+07:00",
+    "metadata": {
+      "old_price": 0,
+      "new_price": 0,
+      "expiry_text": "ตรวจสอบรายละเอียดจาก Lotus's",
+      "urgent": false
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "id": "lotus-f1f66745b0b667e1",
+    "content_type": "deal",
+    "original_type": "campaign",
+    "title": "Welcome Foreigner and Expat",
+    "summary": "แคมเปญหรือโปรโมชั่นจาก Lotus's",
+    "category": "shopping",
+    "tags": [
+      "deal",
+      "lotuss",
+      "campaign",
+      "แคมเปญโปรโมชั่น",
+      "national"
+    ],
+    "provider": {
+      "name": "Lotus's",
+      "type": "merchant"
+    },
+    "location": {
+      "scope": "national",
+      "country": "TH",
+      "province": null,
+      "district": null,
+      "subdistrict": null,
+      "place_name": null
+    },
+    "source": {
+      "name": "My Lotus's Official",
+      "url": "https://my.lotuss.com/promotions/th",
+      "type": "official_promotion",
+      "verified": true
+    },
+    "image_url": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202507140610124363.webp",
+    "published_at": null,
+    "expires_at": null,
+    "collected_at": "2026-08-15T14:00:44.294306+07:00",
+    "metadata": {
+      "old_price": 0,
+      "new_price": 0,
+      "expiry_text": "ตรวจสอบรายละเอียดจาก Lotus's",
+      "urgent": false
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "id": "lotus-c58792076285ec2b",
+    "content_type": "deal",
+    "original_type": "campaign",
+    "title": "เชื่อมต่อความคุ้ม เพิ่มความฟิน",
+    "summary": "แคมเปญหรือโปรโมชั่นจาก Lotus's",
+    "category": "shopping",
+    "tags": [
+      "deal",
+      "lotuss",
+      "campaign",
+      "แคมเปญโปรโมชั่น",
+      "national"
+    ],
+    "provider": {
+      "name": "Lotus's",
+      "type": "merchant"
+    },
+    "location": {
+      "scope": "national",
+      "country": "TH",
+      "province": null,
+      "district": null,
+      "subdistrict": null,
+      "place_name": null
+    },
+    "source": {
+      "name": "My Lotus's Official",
+      "url": "https://my.lotuss.com/promotions/th",
+      "type": "official_promotion",
+      "verified": true
+    },
+    "image_url": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/No.464-Aw-Line-connect-(CMS)-16_9.webp",
+    "published_at": null,
+    "expires_at": null,
+    "collected_at": "2026-08-15T14:00:44.294306+07:00",
+    "metadata": {
+      "old_price": 0,
+      "new_price": 0,
+      "expiry_text": "ตรวจสอบรายละเอียดจาก Lotus's",
+      "urgent": false
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "id": "lotus-462ef6ff56f48a58",
+    "content_type": "deal",
+    "original_type": "member_offer",
+    "title": "my Lotus's Kidz Club เติมความสุขให้ลูก เพิ่มความคุ้มให้พ่อแม่",
+    "summary": "สิทธิประโยชน์สำหรับสมาชิกจาก Lotus's",
+    "category": "shopping",
+    "tags": [
+      "deal",
+      "lotuss",
+      "member_offer",
+      "สิทธิสมาชิก",
+      "benefit",
+      "membership",
+      "national"
+    ],
+    "provider": {
+      "name": "Lotus's",
+      "type": "merchant"
+    },
+    "location": {
+      "scope": "national",
+      "country": "TH",
+      "province": null,
+      "district": null,
+      "subdistrict": null,
+      "place_name": null
+    },
+    "source": {
+      "name": "My Lotus's Official",
+      "url": "https://my.lotuss.com/promotions/th",
+      "type": "official_promotion",
+      "verified": true
+    },
+    "image_url": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202601260630060213.webp",
+    "published_at": null,
+    "expires_at": null,
+    "collected_at": "2026-08-15T14:00:44.294306+07:00",
+    "metadata": {
+      "old_price": 0,
+      "new_price": 0,
+      "expiry_text": "ตรวจสอบรายละเอียดจาก Lotus's",
+      "urgent": false
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "id": "lotus-c9e86649af42af3c",
+    "content_type": "deal",
+    "original_type": "campaign",
+    "title": "โอนคะแนนจากพันธมิตรชั้นนำเป็นโลตัสคอยน์ได้แล้ววันนี้",
+    "summary": "แคมเปญหรือโปรโมชั่นจาก Lotus's",
+    "category": "shopping",
+    "tags": [
+      "deal",
+      "lotuss",
+      "campaign",
+      "แคมเปญโปรโมชั่น",
+      "national"
+    ],
+    "provider": {
+      "name": "Lotus's",
+      "type": "merchant"
+    },
+    "location": {
+      "scope": "national",
+      "country": "TH",
+      "province": null,
+      "district": null,
+      "subdistrict": null,
+      "place_name": null
+    },
+    "source": {
+      "name": "My Lotus's Official",
+      "url": "https://my.lotuss.com/promotions/th",
+      "type": "official_promotion",
+      "verified": true
+    },
+    "image_url": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/AW_JUN25_06_re-size-coin-conversion-1.webp",
+    "published_at": null,
+    "expires_at": null,
+    "collected_at": "2026-08-15T14:00:44.294306+07:00",
+    "metadata": {
+      "old_price": 0,
+      "new_price": 0,
+      "expiry_text": "ตรวจสอบรายละเอียดจาก Lotus's",
+      "urgent": false
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "id": "lotus-7593c9625262bd78",
+    "content_type": "deal",
+    "original_type": "coupon",
+    "title": "สมัครเลยสมาชิกมายโลตัส ! รับคูปองส่วนลด 800 บาท",
+    "summary": "คูปองหรือสิทธิ์ส่วนลดจาก Lotus's",
+    "category": "shopping",
+    "tags": [
+      "deal",
+      "lotuss",
+      "coupon",
+      "คูปอง",
+      "saving",
+      "national"
+    ],
+    "provider": {
+      "name": "Lotus's",
+      "type": "merchant"
+    },
+    "location": {
+      "scope": "national",
+      "country": "TH",
+      "province": null,
+      "district": null,
+      "subdistrict": null,
+      "place_name": null
+    },
+    "source": {
+      "name": "My Lotus's Official",
+      "url": "https://my.lotuss.com/promotions/th",
+      "type": "official_promotion",
+      "verified": true
+    },
+    "image_url": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202601300633337529.webp",
+    "published_at": null,
+    "expires_at": null,
+    "collected_at": "2026-08-15T14:00:44.294306+07:00",
+    "metadata": {
+      "old_price": 0,
+      "new_price": 0,
+      "expiry_text": "ตรวจสอบรายละเอียดจาก Lotus's",
+      "urgent": false
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "id": "lotus-f261b702b0c80404",
+    "content_type": "deal",
+    "original_type": "campaign",
+    "title": "ท้าให้ลอง ไก่ย่างสูตรเชฟซีตรอง",
+    "summary": "แคมเปญหรือโปรโมชั่นจาก Lotus's",
+    "category": "shopping",
+    "tags": [
+      "deal",
+      "lotuss",
+      "campaign",
+      "แคมเปญโปรโมชั่น",
+      "national"
+    ],
+    "provider": {
+      "name": "Lotus's",
+      "type": "merchant"
+    },
+    "location": {
+      "scope": "national",
+      "country": "TH",
+      "province": null,
+      "district": null,
+      "subdistrict": null,
+      "place_name": null
+    },
+    "source": {
+      "name": "My Lotus's Official",
+      "url": "https://my.lotuss.com/promotions/th",
+      "type": "official_promotion",
+      "verified": true
+    },
+    "image_url": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202608140739106597.webp",
+    "published_at": null,
+    "expires_at": null,
+    "collected_at": "2026-08-15T14:00:44.294306+07:00",
+    "metadata": {
+      "old_price": 0,
+      "new_price": 0,
+      "expiry_text": "ตรวจสอบรายละเอียดจาก Lotus's",
+      "urgent": false
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "id": "lotus-2c69bb47de9b50d7",
+    "content_type": "deal",
+    "original_type": "campaign",
+    "title": "สุดคุ้ม 2 ต่อ ที่ Lotus’s กับ ผลิตภัณฑ์ Ensure Gold Advance Pro",
+    "summary": "แคมเปญหรือโปรโมชั่นจาก Lotus's",
+    "category": "shopping",
+    "tags": [
+      "deal",
+      "lotuss",
+      "campaign",
+      "แคมเปญโปรโมชั่น",
+      "national"
+    ],
+    "provider": {
+      "name": "Lotus's",
+      "type": "merchant"
+    },
+    "location": {
+      "scope": "national",
+      "country": "TH",
+      "province": null,
+      "district": null,
+      "subdistrict": null,
+      "place_name": null
+    },
+    "source": {
+      "name": "My Lotus's Official",
+      "url": "https://my.lotuss.com/promotions/th",
+      "type": "official_promotion",
+      "verified": true
+    },
+    "image_url": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202608140431457974.webp",
+    "published_at": null,
+    "expires_at": null,
+    "collected_at": "2026-08-15T14:00:44.294306+07:00",
+    "metadata": {
+      "old_price": 0,
+      "new_price": 0,
+      "expiry_text": "ตรวจสอบรายละเอียดจาก Lotus's",
+      "urgent": false
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "id": "lotus-8ef002a9aa2bcf05",
+    "content_type": "deal",
+    "original_type": "campaign",
+    "title": "ซื้อปุ๊บ ลุ้นปั๊บ กับแบรนด์ซุปไก่สกัด",
+    "summary": "แคมเปญหรือโปรโมชั่นจาก Lotus's",
+    "category": "shopping",
+    "tags": [
+      "deal",
+      "lotuss",
+      "campaign",
+      "แคมเปญโปรโมชั่น",
+      "national"
+    ],
+    "provider": {
+      "name": "Lotus's",
+      "type": "merchant"
+    },
+    "location": {
+      "scope": "national",
+      "country": "TH",
+      "province": null,
+      "district": null,
+      "subdistrict": null,
+      "place_name": null
+    },
+    "source": {
+      "name": "My Lotus's Official",
+      "url": "https://my.lotuss.com/promotions/th",
+      "type": "official_promotion",
+      "verified": true
+    },
+    "image_url": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202608031041447744.webp",
+    "published_at": null,
+    "expires_at": null,
+    "collected_at": "2026-08-15T14:00:44.294306+07:00",
+    "metadata": {
+      "old_price": 0,
+      "new_price": 0,
+      "expiry_text": "ตรวจสอบรายละเอียดจาก Lotus's",
+      "urgent": false
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "id": "lotus-b39768e1f5901e61",
+    "content_type": "deal",
+    "original_type": "campaign",
+    "title": "ซ่า…มหัศจรรย์ กับ โค้ก แฟนต้า",
+    "summary": "แคมเปญหรือโปรโมชั่นจาก Lotus's",
+    "category": "shopping",
+    "tags": [
+      "deal",
+      "lotuss",
+      "campaign",
+      "แคมเปญโปรโมชั่น",
+      "national"
+    ],
+    "provider": {
+      "name": "Lotus's",
+      "type": "merchant"
+    },
+    "location": {
+      "scope": "national",
+      "country": "TH",
+      "province": null,
+      "district": null,
+      "subdistrict": null,
+      "place_name": null
+    },
+    "source": {
+      "name": "My Lotus's Official",
+      "url": "https://my.lotuss.com/promotions/th",
+      "type": "official_promotion",
+      "verified": true
+    },
+    "image_url": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202608030952284136.webp",
+    "published_at": null,
+    "expires_at": null,
+    "collected_at": "2026-08-15T14:00:44.294306+07:00",
+    "metadata": {
+      "old_price": 0,
+      "new_price": 0,
+      "expiry_text": "ตรวจสอบรายละเอียดจาก Lotus's",
+      "urgent": false
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "id": "bigc-c466f61cb40a554f",
+    "content_type": "deal",
+    "original_type": "campaign",
+    "title": "ช้อปแบบตัวแม่ ช้อปเลยที่บิ๊กซี",
+    "summary": "แคมเปญหรือโปรโมชั่นจาก Big C",
+    "category": "shopping",
+    "tags": [
+      "deal",
+      "big c",
+      "campaign",
+      "แคมเปญโปรโมชั่น",
+      "national"
+    ],
+    "provider": {
+      "name": "Big C",
+      "type": "merchant"
+    },
+    "location": {
+      "scope": "national",
+      "country": "TH",
+      "province": null,
+      "district": null,
+      "subdistrict": null,
+      "place_name": null
+    },
+    "source": {
+      "name": "Big C Official",
+      "url": "https://linebc.bigc.co.th/catalog/e-catalogue-bro-8-2026?utm_source=Corp_BIG_C_Website&utm_medium=Corp_BIG_C_Website&utm_campaign=|PV:DMK|DA:20260326|AN:|OB:traffic|FM:Photo|",
+      "type": "official_promotion",
+      "verified": true
+    },
+    "image_url": "https://corporate.bigc.co.th/upload_file/promotion/260805105534_1BRO8@FINALPROOF4_c.jpg",
+    "published_at": null,
+    "expires_at": null,
+    "collected_at": "2026-08-15T13:59:12.330118+07:00",
+    "metadata": {
+      "old_price": 0,
+      "new_price": 0,
+      "expiry_text": "ตรวจสอบรายละเอียดจาก Big C",
+      "urgent": false
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "id": "bigc-9b4d327530281716",
+    "content_type": "deal",
+    "original_type": "campaign",
+    "title": "ช้อปแบบตัวแม่ ช้อปเลยที่บิ๊กซี foodplace",
+    "summary": "แคมเปญหรือโปรโมชั่นจาก Big C",
+    "category": "shopping",
+    "tags": [
+      "deal",
+      "big c",
+      "campaign",
+      "แคมเปญโปรโมชั่น",
+      "national"
+    ],
+    "provider": {
+      "name": "Big C",
+      "type": "merchant"
+    },
+    "location": {
+      "scope": "national",
+      "country": "TH",
+      "province": null,
+      "district": null,
+      "subdistrict": null,
+      "place_name": null
+    },
+    "source": {
+      "name": "Big C Official",
+      "url": "https://linebc.bigc.co.th/catalog/e-catalogue-foodplace-8-2026?utm_source=Corp_BIG_C_Website&utm_medium=Corp_BIG_C_Website&utm_campaign=|PV:DMK|DA:20260326|AN:|OB:traffic|FM:Photo|",
+      "type": "official_promotion",
+      "verified": true
+    },
+    "image_url": "https://corporate.bigc.co.th/upload_file/promotion/260805105656_1FP8-FINALPROOF2_c.jpg",
+    "published_at": null,
+    "expires_at": null,
+    "collected_at": "2026-08-15T13:59:12.330118+07:00",
+    "metadata": {
+      "old_price": 0,
+      "new_price": 0,
+      "expiry_text": "ตรวจสอบรายละเอียดจาก Big C",
+      "urgent": false
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "id": "bigc-3c4df90544b12701",
+    "content_type": "deal",
+    "original_type": "campaign",
+    "title": "ช้อปแบบตัวแม่ ช้อปเลยที่บิ๊กซี",
+    "summary": "แคมเปญหรือโปรโมชั่นจาก Big C",
+    "category": "shopping",
+    "tags": [
+      "deal",
+      "big c",
+      "campaign",
+      "แคมเปญโปรโมชั่น",
+      "national"
+    ],
+    "provider": {
+      "name": "Big C",
+      "type": "merchant"
+    },
+    "location": {
+      "scope": "national",
+      "country": "TH",
+      "province": null,
+      "district": null,
+      "subdistrict": null,
+      "place_name": null
+    },
+    "source": {
+      "name": "Big C Official",
+      "url": "https://linebc.bigc.co.th/catalog/e-catalogue-bmk-bro-8-2026?utm_source=Corp_BIG_C_Website&utm_medium=Corp_BIG_C_Website&utm_campaign=|PV:DMK|DA:20260326|AN:|OB:traffic|FM:Photo|",
+      "type": "official_promotion",
+      "verified": true
+    },
+    "image_url": "https://corporate.bigc.co.th/upload_file/promotion/260805105752_1BMK8FINALPROOF2_c.jpg",
+    "published_at": null,
+    "expires_at": null,
+    "collected_at": "2026-08-15T13:59:12.330118+07:00",
+    "metadata": {
+      "old_price": 0,
+      "new_price": 0,
+      "expiry_text": "ตรวจสอบรายละเอียดจาก Big C",
+      "urgent": false
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "id": "bigc-74aed2b02f6d6b1f",
+    "content_type": "deal",
+    "original_type": "campaign",
+    "title": "โปรโมชั่นหลากแบรนด์ ครองใจมหาชน",
+    "summary": "แคมเปญหรือโปรโมชั่นจาก Big C",
+    "category": "shopping",
+    "tags": [
+      "deal",
+      "big c",
+      "campaign",
+      "แคมเปญโปรโมชั่น",
+      "national"
+    ],
+    "provider": {
+      "name": "Big C",
+      "type": "merchant"
+    },
+    "location": {
+      "scope": "national",
+      "country": "TH",
+      "province": null,
+      "district": null,
+      "subdistrict": null,
+      "place_name": null
+    },
+    "source": {
+      "name": "Big C Official",
+      "url": "https://linebc.bigc.co.th/catalog/e-catalogue-oi-bro-8-2026?utm_source=Corp_BIG_C_Website&utm_medium=Corp_BIG_C_Website&utm_campaign=|PV:DMK|DA:20260806|AN:|OB:traffic|FM:Photo|",
+      "type": "official_promotion",
+      "verified": true
+    },
+    "image_url": "https://corporate.bigc.co.th/upload_file/promotion/260805105841_Oi1BRO8_c.jpg",
+    "published_at": null,
+    "expires_at": null,
+    "collected_at": "2026-08-15T13:59:12.330118+07:00",
+    "metadata": {
+      "old_price": 0,
+      "new_price": 0,
+      "expiry_text": "ตรวจสอบรายละเอียดจาก Big C",
+      "urgent": false
+    }
+  }
+]
