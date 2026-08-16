@@ -58,6 +58,13 @@ jobs:
         run: python scripts/merge_promotions.py
 
       # ==============================================
+      # BUILD PRACHINLIFE INDEX
+      # ==============================================
+
+      - name: Build PrachinLife common index
+        run: python scripts/build_prachinlife_index.py
+
+      # ==============================================
       # VALIDATE
       # ==============================================
 
@@ -84,11 +91,12 @@ jobs:
             data/raw \
             data/normalized \
             data/meta \
-            promotions.json
+            promotions.json \
+            prachinlife_index.json
 
           if git diff --cached --quiet; then
-            echo "No promotion changes"
+            echo "No PrachinLife data changes"
           else
-            git commit -m "Auto update PrachinLife promotions"
+            git commit -m "Auto update PrachinLife data"
             git push
           fi
