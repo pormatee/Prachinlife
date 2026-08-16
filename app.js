@@ -1,10 +1,8 @@
 const DATA_URL = "promotions.json";
 const INDEX_URL = "prachinlife_index.json";
-const VEGETARIAN_URL = "vegetarian_index.json";
 
 const PAGE_SIZE = 8;
 const EAT_PAGE_SIZE = 8;
-const VEGETARIAN_PAGE_SIZE = 8;
 const RECOMMENDED_LIMIT = 8;
 
 
@@ -15,9 +13,6 @@ let allContent = [];
 
 let allEatPlaces = [];
 let filteredEatPlaces = [];
-
-let allVegetarianPlaces = [];
-let filteredVegetarianPlaces = [];
 
 let currentPage = 1;
 
@@ -31,14 +26,9 @@ let currentEatType = "all";
 let currentEatArea = "all";
 let currentEatPage = 1;
 
-let currentVegetarianDiet = "all";
-let currentVegetarianProvince = "all";
-let currentVegetarianPage = 1;
-
 let currentMainCategory = "recommended";
 
 let userLocation = null;
-let vegetarianUserLocation = null;
 
 let toastTimer = null;
 
@@ -72,24 +62,17 @@ async function init() {
     await Promise.all([
       loadPromotions(),
       loadCommonIndex(),
-      loadVegetarianIndex(),
     ]);
 
     prepareEatPlaces();
 
-    prepareVegetarianPlaces();
-
     buildEatAreaFilters();
-
-    buildVegetarianProvinceFilters();
 
     updateMeta();
 
     applyFilters();
 
     applyEatFilters();
-
-    applyVegetarianFilters();
 
     setMainCategory(
       "recommended",
@@ -132,8 +115,6 @@ function bindEvents() {
   bindShoppingEvents();
 
   bindEatEvents();
-
-  bindVegetarianEvents();
 
   bindLoadMoreEvents();
 
@@ -213,24 +194,17 @@ function bindRefreshEvent() {
       await Promise.all([
         loadPromotions(true),
         loadCommonIndex(true),
-        loadVegetarianIndex(true),
       ]);
 
       prepareEatPlaces();
 
-      prepareVegetarianPlaces();
-
       buildEatAreaFilters();
-
-      buildVegetarianProvinceFilters();
 
       updateMeta();
 
       applyFilters();
 
       applyEatFilters();
-
-      applyVegetarianFilters();
 
       renderRecommended();
 
@@ -335,22 +309,6 @@ function setMainCategory(
     );
 
     applyEatFilters();
-  }
-
-
-  else if (
-    category === "vegetarian"
-  ) {
-
-    showElement(
-      "vegetarianOptions"
-    );
-
-    showElement(
-      "vegetarianResultSection"
-    );
-
-    applyVegetarianFilters();
   }
 
 
@@ -541,3 +499,178 @@ function bindShoppingEvents() {
 
             currentSmart =
               button.dataset.smart
+              || "recommended";
+
+            currentType =
+              "all";
+
+            currentPage =
+              1;
+
+            updateShoppingButtons();
+
+            applyFilters();
+
+            showShoppingResult();
+          }
+        );
+      }
+    );
+
+
+  document
+    .querySelectorAll(
+      "[data-type]"
+    )
+    .forEach(
+      button => {
+
+        button.addEventListener(
+          "click",
+          () => {
+
+            currentType =
+              button.dataset.type
+              || "all";
+
+            currentSmart =
+              "recommended";
+
+            currentPage =
+              1;
+
+            updateShoppingButtons();
+
+            applyFilters();
+
+            showShoppingResult();
+          }
+        );
+      }
+    );
+
+
+  document
+    .querySelectorAll(
+      "[data-merchant]"
+    )
+    .forEach(
+      button => {
+
+        button.addEventListener(
+          "click",
+          () => {
+
+            currentMerchant =
+              button.dataset.merchant
+              || "all";
+
+            currentPage =
+              1;
+
+            updateShoppingButtons();
+
+            applyFilters();
+
+            showShoppingResult();
+          }
+        );
+      }
+    );
+}
+
+
+function showShoppingResult() {
+
+  currentMainCategory =
+    "shopping";
+
+  updateMainCategoryButtons();
+
+  hideAllOptionGroups();
+
+  hideAllResultSections();
+
+  showElement(
+    "shoppingOptions"
+  );
+
+  showElement(
+    "shoppingResultSection"
+  );
+
+  scrollToResults();
+}
+
+
+function updateShoppingButtons() {
+
+  document
+    .querySelectorAll(
+      "[data-smart]"
+    )
+    .forEach(
+      button => {
+
+        button.classList.toggle(
+          "active",
+          (
+            currentType === "all"
+            &&
+            button.dataset.smart
+            === currentSmart
+          )
+        );
+      }
+    );
+
+
+  document
+    .querySelectorAll(
+      "[data-type]"
+    )
+    .forEach(
+      button => {
+
+        button.classList.toggle(
+          "active",
+          button.dataset.type
+          === currentType
+        );
+      }
+    );
+
+
+  document
+    .querySelectorAll(
+      "[data-merchant]"
+    )
+    .forEach(
+      button => {
+
+        button.classList.toggle(
+          "active",
+          button.dataset.merchant
+          === currentMerchant
+        );
+      }
+    );
+}
+
+
+/* =====================================================
+EAT EVENTS
+===================================================== */
+
+function bindEatEvents() {
+
+  document
+    .querySelectorAll(
+      "[data-eat-type]"
+    )
+    .forEach(
+      button => {
+
+        button.addEventListener(
+          "click",
+          () =>
