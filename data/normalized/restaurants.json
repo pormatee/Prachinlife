@@ -1,1 +1,2362 @@
-[]
+[
+  {
+    "schema_version": "1.0",
+    "id": "osm-node-10104800519",
+    "content_type": "eat",
+    "name": "Cafe Amazon",
+    "name_th": null,
+    "name_en": "Cafe Amazon",
+    "category": "cafe",
+    "category_label": "คาเฟ่",
+    "cuisine": [],
+    "opening_hours": "Mo-Su 06:00-18:00",
+    "location": {
+      "country": "TH",
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "street": null,
+      "house_number": null,
+      "postcode": null,
+      "latitude": 13.9981463,
+      "longitude": 101.2234316
+    },
+    "contact": {
+      "phone": null,
+      "website": null,
+      "facebook": null
+    },
+    "features": {
+      "takeaway": null,
+      "delivery": null,
+      "outdoor_seating": null,
+      "wheelchair": null,
+      "internet_access": null
+    },
+    "source": {
+      "name": "OpenStreetMap",
+      "type": "open_data",
+      "url": "https://www.openstreetmap.org/node/10104800519",
+      "verified": true
+    },
+    "collected_at": "2026-08-16T03:07:56.651191+00:00"
+  },
+  {
+    "schema_version": "1.0",
+    "id": "osm-node-6369552999",
+    "content_type": "eat",
+    "name": "Cafe Amazon",
+    "name_th": null,
+    "name_en": null,
+    "category": "cafe",
+    "category_label": "คาเฟ่",
+    "cuisine": [],
+    "opening_hours": null,
+    "location": {
+      "country": "TH",
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "street": null,
+      "house_number": null,
+      "postcode": null,
+      "latitude": 14.1513019,
+      "longitude": 101.3109747
+    },
+    "contact": {
+      "phone": null,
+      "website": null,
+      "facebook": null
+    },
+    "features": {
+      "takeaway": null,
+      "delivery": null,
+      "outdoor_seating": null,
+      "wheelchair": null,
+      "internet_access": null
+    },
+    "source": {
+      "name": "OpenStreetMap",
+      "type": "open_data",
+      "url": "https://www.openstreetmap.org/node/6369552999",
+      "verified": true
+    },
+    "collected_at": "2026-08-16T03:07:56.651191+00:00"
+  },
+  {
+    "schema_version": "1.0",
+    "id": "osm-node-2676351772",
+    "content_type": "eat",
+    "name": "Café Amazon",
+    "name_th": "คาเฟ่ อเมซอน",
+    "name_en": "Café Amazon",
+    "category": "cafe",
+    "category_label": "คาเฟ่",
+    "cuisine": [
+      "coffee_shop"
+    ],
+    "opening_hours": null,
+    "location": {
+      "country": "TH",
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "street": null,
+      "house_number": null,
+      "postcode": null,
+      "latitude": 14.1342611,
+      "longitude": 101.3775249
+    },
+    "contact": {
+      "phone": null,
+      "website": null,
+      "facebook": null
+    },
+    "features": {
+      "takeaway": null,
+      "delivery": null,
+      "outdoor_seating": null,
+      "wheelchair": null,
+      "internet_access": null
+    },
+    "source": {
+      "name": "OpenStreetMap",
+      "type": "open_data",
+      "url": "https://www.openstreetmap.org/node/2676351772",
+      "verified": true
+    },
+    "collected_at": "2026-08-16T03:07:56.651191+00:00"
+  },
+  {
+    "schema_version": "1.0",
+    "id": "osm-node-4750841828",
+    "content_type": "eat",
+    "name": "cho ka chua",
+    "name_th": null,
+    "name_en": "cho ka chua",
+    "category": "cafe",
+    "category_label": "คาเฟ่",
+    "cuisine": [
+      "thai"
+    ],
+    "opening_hours": null,
+    "location": {
+      "country": "TH",
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "street": null,
+      "house_number": null,
+      "postcode": null,
+      "latitude": 14.1198596,
+      "longitude": 101.3246913
+    },
+    "contact": {
+      "phone": null,
+      "website": null,
+      "facebook": null
+    },
+    "features": {
+      "takeaway": null,
+      "delivery": null,
+      "outdoor_seating": null,
+      "wheelchair": null,
+      "internet_access": "wlan"
+    },
+    "source": {
+      "name": "OpenStreetMap",
+      "type": "open_data",
+      "url": "https://www.openstreetmap.org/node/4750841828",
+      "verified": true
+    },
+    "collected_at": "2026-08-16T03:07:56.651191+00:00"
+  },
+  {
+    "schema_version": "1.0",
+    "id": "osm-node-2823924411",
+    "content_type": "eat",
+    "name": "Coffee shop",
+    "name_th": null,
+    "name_en": null,
+    "category": "cafe",
+    "category_label": "คาเฟ่",
+    "cuisine": [
+      "regional"
+    ],
+    "opening_hours": null,
+    "location": {
+      "country": "TH",
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "street": null,
+      "house_number": null,
+      "postcode": null,
+      "latitude": 14.2268013,
+      "longitude": 101.3860267
+    },
+    "contact": {
+      "phone": null,
+      "website": null,
+      "facebook": null
+    },
+    "features": {
+      "takeaway": null,
+      "delivery": null,
+      "outdoor_seating": null,
+      "wheelchair": null,
+      "internet_access": null
+    },
+    "source": {
+      "name": "OpenStreetMap",
+      "type": "open_data",
+      "url": "https://www.openstreetmap.org/node/2823924411",
+      "verified": true
+    },
+    "collected_at": "2026-08-16T03:07:56.651191+00:00"
+  },
+  {
+    "schema_version": "1.0",
+    "id": "osm-node-4841184021",
+    "content_type": "eat",
+    "name": "K'Bin Coffee",
+    "name_th": null,
+    "name_en": "K'Bin Coffee",
+    "category": "cafe",
+    "category_label": "คาเฟ่",
+    "cuisine": [
+      "coffee_shop"
+    ],
+    "opening_hours": null,
+    "location": {
+      "country": "TH",
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "street": null,
+      "house_number": null,
+      "postcode": null,
+      "latitude": 14.0925201,
+      "longitude": 101.8291513
+    },
+    "contact": {
+      "phone": "+66812555077",
+      "website": null,
+      "facebook": null
+    },
+    "features": {
+      "takeaway": null,
+      "delivery": null,
+      "outdoor_seating": null,
+      "wheelchair": null,
+      "internet_access": "wlan"
+    },
+    "source": {
+      "name": "OpenStreetMap",
+      "type": "open_data",
+      "url": "https://www.openstreetmap.org/node/4841184021",
+      "verified": true
+    },
+    "collected_at": "2026-08-16T03:07:56.651191+00:00"
+  },
+  {
+    "schema_version": "1.0",
+    "id": "osm-node-12756489327",
+    "content_type": "eat",
+    "name": "Lamin Coffee",
+    "name_th": null,
+    "name_en": null,
+    "category": "cafe",
+    "category_label": "คาเฟ่",
+    "cuisine": [],
+    "opening_hours": null,
+    "location": {
+      "country": "TH",
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "street": null,
+      "house_number": null,
+      "postcode": null,
+      "latitude": 13.9924869,
+      "longitude": 101.7252698
+    },
+    "contact": {
+      "phone": null,
+      "website": null,
+      "facebook": null
+    },
+    "features": {
+      "takeaway": null,
+      "delivery": null,
+      "outdoor_seating": null,
+      "wheelchair": null,
+      "internet_access": null
+    },
+    "source": {
+      "name": "OpenStreetMap",
+      "type": "open_data",
+      "url": "https://www.openstreetmap.org/node/12756489327",
+      "verified": true
+    },
+    "collected_at": "2026-08-16T03:07:56.651191+00:00"
+  },
+  {
+    "schema_version": "1.0",
+    "id": "osm-node-11648691807",
+    "content_type": "eat",
+    "name": "Teas & Trees",
+    "name_th": null,
+    "name_en": null,
+    "category": "cafe",
+    "category_label": "คาเฟ่",
+    "cuisine": [],
+    "opening_hours": null,
+    "location": {
+      "country": "TH",
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "street": null,
+      "house_number": null,
+      "postcode": null,
+      "latitude": 14.1307452,
+      "longitude": 101.4451647
+    },
+    "contact": {
+      "phone": null,
+      "website": null,
+      "facebook": null
+    },
+    "features": {
+      "takeaway": null,
+      "delivery": null,
+      "outdoor_seating": null,
+      "wheelchair": null,
+      "internet_access": null
+    },
+    "source": {
+      "name": "OpenStreetMap",
+      "type": "open_data",
+      "url": "https://www.openstreetmap.org/node/11648691807",
+      "verified": true
+    },
+    "collected_at": "2026-08-16T03:07:56.651191+00:00"
+  },
+  {
+    "schema_version": "1.0",
+    "id": "osm-node-9538872995",
+    "content_type": "eat",
+    "name": "กาแฟตัวหมี",
+    "name_th": null,
+    "name_en": null,
+    "category": "cafe",
+    "category_label": "คาเฟ่",
+    "cuisine": [
+      "ร้านกาแฟ",
+      "กาแฟโบราณ"
+    ],
+    "opening_hours": null,
+    "location": {
+      "country": "TH",
+      "province": "ปราจีนบุรี",
+      "district": "หนองโพรง",
+      "subdistrict": null,
+      "street": null,
+      "house_number": null,
+      "postcode": "25140",
+      "latitude": 13.9496111,
+      "longitude": 101.5055641
+    },
+    "contact": {
+      "phone": null,
+      "website": null,
+      "facebook": null
+    },
+    "features": {
+      "takeaway": null,
+      "delivery": null,
+      "outdoor_seating": null,
+      "wheelchair": null,
+      "internet_access": null
+    },
+    "source": {
+      "name": "OpenStreetMap",
+      "type": "open_data",
+      "url": "https://www.openstreetmap.org/node/9538872995",
+      "verified": true
+    },
+    "collected_at": "2026-08-16T03:07:56.651191+00:00"
+  },
+  {
+    "schema_version": "1.0",
+    "id": "osm-node-4036359329",
+    "content_type": "eat",
+    "name": "กาแฟสดบลูคอฟฟี่",
+    "name_th": null,
+    "name_en": "Blue Coffee",
+    "category": "cafe",
+    "category_label": "คาเฟ่",
+    "cuisine": [],
+    "opening_hours": null,
+    "location": {
+      "country": "TH",
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "street": null,
+      "house_number": null,
+      "postcode": null,
+      "latitude": 13.8757618,
+      "longitude": 101.5627755
+    },
+    "contact": {
+      "phone": null,
+      "website": null,
+      "facebook": null
+    },
+    "features": {
+      "takeaway": null,
+      "delivery": null,
+      "outdoor_seating": null,
+      "wheelchair": null,
+      "internet_access": "wlan"
+    },
+    "source": {
+      "name": "OpenStreetMap",
+      "type": "open_data",
+      "url": "https://www.openstreetmap.org/node/4036359329",
+      "verified": true
+    },
+    "collected_at": "2026-08-16T03:07:56.651191+00:00"
+  },
+  {
+    "schema_version": "1.0",
+    "id": "osm-way-431800572",
+    "content_type": "eat",
+    "name": "กาแฟสดบลูคอฟฟี่",
+    "name_th": null,
+    "name_en": "Blue Coffee",
+    "category": "cafe",
+    "category_label": "คาเฟ่",
+    "cuisine": [],
+    "opening_hours": "6:00 - 17:00",
+    "location": {
+      "country": "TH",
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "street": null,
+      "house_number": null,
+      "postcode": null,
+      "latitude": 13.8757602,
+      "longitude": 101.5628054
+    },
+    "contact": {
+      "phone": null,
+      "website": null,
+      "facebook": null
+    },
+    "features": {
+      "takeaway": null,
+      "delivery": null,
+      "outdoor_seating": null,
+      "wheelchair": null,
+      "internet_access": "wlan"
+    },
+    "source": {
+      "name": "OpenStreetMap",
+      "type": "open_data",
+      "url": "https://www.openstreetmap.org/way/431800572",
+      "verified": true
+    },
+    "collected_at": "2026-08-16T03:07:56.651191+00:00"
+  },
+  {
+    "schema_version": "1.0",
+    "id": "osm-node-12723499519",
+    "content_type": "eat",
+    "name": "ขุนเขาคาเฟ่",
+    "name_th": "ขุนเขาคาเฟ่",
+    "name_en": "Khunkhao Cafe",
+    "category": "cafe",
+    "category_label": "คาเฟ่",
+    "cuisine": [
+      "coffee_shop"
+    ],
+    "opening_hours": null,
+    "location": {
+      "country": "TH",
+      "province": "ปราจีนบุรี",
+      "district": "ประจันตคาม",
+      "subdistrict": "โพธิ์งาม",
+      "street": null,
+      "house_number": "121",
+      "postcode": "25130",
+      "latitude": 14.077714,
+      "longitude": 101.5126155
+    },
+    "contact": {
+      "phone": "+66 96 383 8183",
+      "website": "facebook.com/profile.php?id=61573536808719",
+      "facebook": null
+    },
+    "features": {
+      "takeaway": null,
+      "delivery": null,
+      "outdoor_seating": null,
+      "wheelchair": null,
+      "internet_access": null
+    },
+    "source": {
+      "name": "OpenStreetMap",
+      "type": "open_data",
+      "url": "https://www.openstreetmap.org/node/12723499519",
+      "verified": true
+    },
+    "collected_at": "2026-08-16T03:07:56.651191+00:00"
+  },
+  {
+    "schema_version": "1.0",
+    "id": "osm-node-12281368013",
+    "content_type": "eat",
+    "name": "คาเฟ่ อเมซอน",
+    "name_th": "คาเฟ่ อเมซอน",
+    "name_en": "Café Amazon",
+    "category": "cafe",
+    "category_label": "คาเฟ่",
+    "cuisine": [
+      "coffee_shop"
+    ],
+    "opening_hours": null,
+    "location": {
+      "country": "TH",
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "street": null,
+      "house_number": null,
+      "postcode": null,
+      "latitude": 14.1499387,
+      "longitude": 101.3064455
+    },
+    "contact": {
+      "phone": null,
+      "website": null,
+      "facebook": null
+    },
+    "features": {
+      "takeaway": "yes",
+      "delivery": null,
+      "outdoor_seating": null,
+      "wheelchair": null,
+      "internet_access": null
+    },
+    "source": {
+      "name": "OpenStreetMap",
+      "type": "open_data",
+      "url": "https://www.openstreetmap.org/node/12281368013",
+      "verified": true
+    },
+    "collected_at": "2026-08-16T03:07:56.651191+00:00"
+  },
+  {
+    "schema_version": "1.0",
+    "id": "osm-node-12535015655",
+    "content_type": "eat",
+    "name": "คาเฟ่ อเมซอน",
+    "name_th": "คาเฟ่ อเมซอน",
+    "name_en": "Café Amazon",
+    "category": "cafe",
+    "category_label": "คาเฟ่",
+    "cuisine": [
+      "coffee_shop"
+    ],
+    "opening_hours": null,
+    "location": {
+      "country": "TH",
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "street": null,
+      "house_number": null,
+      "postcode": null,
+      "latitude": 13.8964751,
+      "longitude": 101.599531
+    },
+    "contact": {
+      "phone": null,
+      "website": null,
+      "facebook": null
+    },
+    "features": {
+      "takeaway": "yes",
+      "delivery": null,
+      "outdoor_seating": null,
+      "wheelchair": null,
+      "internet_access": null
+    },
+    "source": {
+      "name": "OpenStreetMap",
+      "type": "open_data",
+      "url": "https://www.openstreetmap.org/node/12535015655",
+      "verified": true
+    },
+    "collected_at": "2026-08-16T03:07:56.651191+00:00"
+  },
+  {
+    "schema_version": "1.0",
+    "id": "osm-node-12535084238",
+    "content_type": "eat",
+    "name": "คาเฟ่ อเมซอน",
+    "name_th": "คาเฟ่ อเมซอน",
+    "name_en": "Café Amazon",
+    "category": "cafe",
+    "category_label": "คาเฟ่",
+    "cuisine": [
+      "coffee_shop"
+    ],
+    "opening_hours": null,
+    "location": {
+      "country": "TH",
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "street": null,
+      "house_number": null,
+      "postcode": null,
+      "latitude": 14.0162108,
+      "longitude": 101.7773389
+    },
+    "contact": {
+      "phone": null,
+      "website": null,
+      "facebook": null
+    },
+    "features": {
+      "takeaway": "yes",
+      "delivery": null,
+      "outdoor_seating": null,
+      "wheelchair": null,
+      "internet_access": null
+    },
+    "source": {
+      "name": "OpenStreetMap",
+      "type": "open_data",
+      "url": "https://www.openstreetmap.org/node/12535084238",
+      "verified": true
+    },
+    "collected_at": "2026-08-16T03:07:56.651191+00:00"
+  },
+  {
+    "schema_version": "1.0",
+    "id": "osm-node-12729633359",
+    "content_type": "eat",
+    "name": "คาเฟ่ อเมซอน",
+    "name_th": "คาเฟ่ อเมซอน",
+    "name_en": "Café Amazon",
+    "category": "cafe",
+    "category_label": "คาเฟ่",
+    "cuisine": [
+      "coffee_shop"
+    ],
+    "opening_hours": null,
+    "location": {
+      "country": "TH",
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "street": null,
+      "house_number": null,
+      "postcode": null,
+      "latitude": 14.0092435,
+      "longitude": 101.705088
+    },
+    "contact": {
+      "phone": null,
+      "website": null,
+      "facebook": null
+    },
+    "features": {
+      "takeaway": "yes",
+      "delivery": null,
+      "outdoor_seating": null,
+      "wheelchair": null,
+      "internet_access": null
+    },
+    "source": {
+      "name": "OpenStreetMap",
+      "type": "open_data",
+      "url": "https://www.openstreetmap.org/node/12729633359",
+      "verified": true
+    },
+    "collected_at": "2026-08-16T03:07:56.651191+00:00"
+  },
+  {
+    "schema_version": "1.0",
+    "id": "osm-node-12729755735",
+    "content_type": "eat",
+    "name": "คาเฟ่ อเมซอน",
+    "name_th": "คาเฟ่ อเมซอน",
+    "name_en": "Café Amazon",
+    "category": "cafe",
+    "category_label": "คาเฟ่",
+    "cuisine": [
+      "coffee_shop"
+    ],
+    "opening_hours": null,
+    "location": {
+      "country": "TH",
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "street": null,
+      "house_number": null,
+      "postcode": null,
+      "latitude": 14.0594056,
+      "longitude": 101.6035681
+    },
+    "contact": {
+      "phone": null,
+      "website": null,
+      "facebook": null
+    },
+    "features": {
+      "takeaway": "yes",
+      "delivery": null,
+      "outdoor_seating": null,
+      "wheelchair": null,
+      "internet_access": null
+    },
+    "source": {
+      "name": "OpenStreetMap",
+      "type": "open_data",
+      "url": "https://www.openstreetmap.org/node/12729755735",
+      "verified": true
+    },
+    "collected_at": "2026-08-16T03:07:56.651191+00:00"
+  },
+  {
+    "schema_version": "1.0",
+    "id": "osm-node-1609809894",
+    "content_type": "eat",
+    "name": "คาเฟ่ อเมซอน",
+    "name_th": null,
+    "name_en": "Cafe Amazon",
+    "category": "cafe",
+    "category_label": "คาเฟ่",
+    "cuisine": [
+      "coffee_shop"
+    ],
+    "opening_hours": null,
+    "location": {
+      "country": "TH",
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "street": null,
+      "house_number": null,
+      "postcode": null,
+      "latitude": 14.2160997,
+      "longitude": 101.8998552
+    },
+    "contact": {
+      "phone": null,
+      "website": null,
+      "facebook": null
+    },
+    "features": {
+      "takeaway": null,
+      "delivery": null,
+      "outdoor_seating": null,
+      "wheelchair": null,
+      "internet_access": null
+    },
+    "source": {
+      "name": "OpenStreetMap",
+      "type": "open_data",
+      "url": "https://www.openstreetmap.org/node/1609809894",
+      "verified": true
+    },
+    "collected_at": "2026-08-16T03:07:56.651191+00:00"
+  },
+  {
+    "schema_version": "1.0",
+    "id": "osm-node-4873907938",
+    "content_type": "eat",
+    "name": "คาเฟ่ อเมซอน",
+    "name_th": "คาเฟ่ อเมซอน",
+    "name_en": "Café Amazon",
+    "category": "cafe",
+    "category_label": "คาเฟ่",
+    "cuisine": [
+      "coffee_shop"
+    ],
+    "opening_hours": null,
+    "location": {
+      "country": "TH",
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "street": null,
+      "house_number": null,
+      "postcode": null,
+      "latitude": 13.978555,
+      "longitude": 101.7569822
+    },
+    "contact": {
+      "phone": null,
+      "website": null,
+      "facebook": null
+    },
+    "features": {
+      "takeaway": "yes",
+      "delivery": null,
+      "outdoor_seating": null,
+      "wheelchair": null,
+      "internet_access": "wlan"
+    },
+    "source": {
+      "name": "OpenStreetMap",
+      "type": "open_data",
+      "url": "https://www.openstreetmap.org/node/4873907938",
+      "verified": true
+    },
+    "collected_at": "2026-08-16T03:07:56.651191+00:00"
+  },
+  {
+    "schema_version": "1.0",
+    "id": "osm-node-5434366222",
+    "content_type": "eat",
+    "name": "คาเฟ่ อเมซอน",
+    "name_th": "คาเฟ่ อเมซอน",
+    "name_en": "Café Amazon",
+    "category": "cafe",
+    "category_label": "คาเฟ่",
+    "cuisine": [
+      "coffee_shop"
+    ],
+    "opening_hours": null,
+    "location": {
+      "country": "TH",
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "street": null,
+      "house_number": null,
+      "postcode": null,
+      "latitude": 13.9830599,
+      "longitude": 101.7754906
+    },
+    "contact": {
+      "phone": null,
+      "website": null,
+      "facebook": null
+    },
+    "features": {
+      "takeaway": "yes",
+      "delivery": null,
+      "outdoor_seating": null,
+      "wheelchair": null,
+      "internet_access": null
+    },
+    "source": {
+      "name": "OpenStreetMap",
+      "type": "open_data",
+      "url": "https://www.openstreetmap.org/node/5434366222",
+      "verified": true
+    },
+    "collected_at": "2026-08-16T03:07:56.651191+00:00"
+  },
+  {
+    "schema_version": "1.0",
+    "id": "osm-node-5434377523",
+    "content_type": "eat",
+    "name": "คาเฟ่ อเมซอน",
+    "name_th": "คาเฟ่ อเมซอน",
+    "name_en": "Café Amazon",
+    "category": "cafe",
+    "category_label": "คาเฟ่",
+    "cuisine": [
+      "coffee_shop"
+    ],
+    "opening_hours": "Mo-Su 07:00-20:00",
+    "location": {
+      "country": "TH",
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "street": null,
+      "house_number": null,
+      "postcode": null,
+      "latitude": 13.9799667,
+      "longitude": 101.7525653
+    },
+    "contact": {
+      "phone": null,
+      "website": null,
+      "facebook": null
+    },
+    "features": {
+      "takeaway": "yes",
+      "delivery": null,
+      "outdoor_seating": null,
+      "wheelchair": null,
+      "internet_access": "yes"
+    },
+    "source": {
+      "name": "OpenStreetMap",
+      "type": "open_data",
+      "url": "https://www.openstreetmap.org/node/5434377523",
+      "verified": true
+    },
+    "collected_at": "2026-08-16T03:07:56.651191+00:00"
+  },
+  {
+    "schema_version": "1.0",
+    "id": "osm-node-7999239610",
+    "content_type": "eat",
+    "name": "ทีทำการผู้ใหญ่บ้าน หมู่ 4",
+    "name_th": null,
+    "name_en": null,
+    "category": "cafe",
+    "category_label": "คาเฟ่",
+    "cuisine": [],
+    "opening_hours": null,
+    "location": {
+      "country": "TH",
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "street": null,
+      "house_number": null,
+      "postcode": null,
+      "latitude": 13.9683922,
+      "longitude": 101.5522523
+    },
+    "contact": {
+      "phone": null,
+      "website": null,
+      "facebook": null
+    },
+    "features": {
+      "takeaway": null,
+      "delivery": null,
+      "outdoor_seating": null,
+      "wheelchair": null,
+      "internet_access": null
+    },
+    "source": {
+      "name": "OpenStreetMap",
+      "type": "open_data",
+      "url": "https://www.openstreetmap.org/node/7999239610",
+      "verified": true
+    },
+    "collected_at": "2026-08-16T03:07:56.651191+00:00"
+  },
+  {
+    "schema_version": "1.0",
+    "id": "osm-node-8518228355",
+    "content_type": "eat",
+    "name": "ปาป๊า คอฟฟี่ Papa Coffee",
+    "name_th": null,
+    "name_en": null,
+    "category": "cafe",
+    "category_label": "คาเฟ่",
+    "cuisine": [
+      "coffee_shop"
+    ],
+    "opening_hours": null,
+    "location": {
+      "country": "TH",
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "street": null,
+      "house_number": null,
+      "postcode": null,
+      "latitude": 14.0660493,
+      "longitude": 101.8069557
+    },
+    "contact": {
+      "phone": null,
+      "website": null,
+      "facebook": null
+    },
+    "features": {
+      "takeaway": null,
+      "delivery": null,
+      "outdoor_seating": null,
+      "wheelchair": null,
+      "internet_access": null
+    },
+    "source": {
+      "name": "OpenStreetMap",
+      "type": "open_data",
+      "url": "https://www.openstreetmap.org/node/8518228355",
+      "verified": true
+    },
+    "collected_at": "2026-08-16T03:07:56.651191+00:00"
+  },
+  {
+    "schema_version": "1.0",
+    "id": "osm-node-13251429765",
+    "content_type": "eat",
+    "name": "ร้านชานมสด (กลอยกาแฟสด)",
+    "name_th": null,
+    "name_en": null,
+    "category": "cafe",
+    "category_label": "คาเฟ่",
+    "cuisine": [
+      "coffee_shop"
+    ],
+    "opening_hours": null,
+    "location": {
+      "country": "TH",
+      "province": "ปราจีนบุรี",
+      "district": "กบินทร์บุรี",
+      "subdistrict": "หนองกี่",
+      "street": null,
+      "house_number": null,
+      "postcode": "25110",
+      "latitude": 14.0654859,
+      "longitude": 101.80591
+    },
+    "contact": {
+      "phone": "+66876069815",
+      "website": null,
+      "facebook": null
+    },
+    "features": {
+      "takeaway": null,
+      "delivery": null,
+      "outdoor_seating": null,
+      "wheelchair": null,
+      "internet_access": null
+    },
+    "source": {
+      "name": "OpenStreetMap",
+      "type": "open_data",
+      "url": "https://www.openstreetmap.org/node/13251429765",
+      "verified": true
+    },
+    "collected_at": "2026-08-16T03:07:56.651191+00:00"
+  },
+  {
+    "schema_version": "1.0",
+    "id": "osm-node-7999239632",
+    "content_type": "eat",
+    "name": "โรงน้ำแข็ง",
+    "name_th": null,
+    "name_en": null,
+    "category": "cafe",
+    "category_label": "คาเฟ่",
+    "cuisine": [],
+    "opening_hours": null,
+    "location": {
+      "country": "TH",
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "street": null,
+      "house_number": null,
+      "postcode": null,
+      "latitude": 13.975032,
+      "longitude": 101.509933
+    },
+    "contact": {
+      "phone": null,
+      "website": null,
+      "facebook": null
+    },
+    "features": {
+      "takeaway": null,
+      "delivery": null,
+      "outdoor_seating": null,
+      "wheelchair": null,
+      "internet_access": null
+    },
+    "source": {
+      "name": "OpenStreetMap",
+      "type": "open_data",
+      "url": "https://www.openstreetmap.org/node/7999239632",
+      "verified": true
+    },
+    "collected_at": "2026-08-16T03:07:56.651191+00:00"
+  },
+  {
+    "schema_version": "1.0",
+    "id": "osm-node-6594614085",
+    "content_type": "eat",
+    "name": "Check in",
+    "name_th": null,
+    "name_en": null,
+    "category": "restaurant",
+    "category_label": "ร้านอาหาร",
+    "cuisine": [],
+    "opening_hours": null,
+    "location": {
+      "country": "TH",
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "street": null,
+      "house_number": null,
+      "postcode": null,
+      "latitude": 14.0564445,
+      "longitude": 101.3612059
+    },
+    "contact": {
+      "phone": null,
+      "website": null,
+      "facebook": null
+    },
+    "features": {
+      "takeaway": null,
+      "delivery": null,
+      "outdoor_seating": null,
+      "wheelchair": null,
+      "internet_access": null
+    },
+    "source": {
+      "name": "OpenStreetMap",
+      "type": "open_data",
+      "url": "https://www.openstreetmap.org/node/6594614085",
+      "verified": true
+    },
+    "collected_at": "2026-08-16T03:07:56.651191+00:00"
+  },
+  {
+    "schema_version": "1.0",
+    "id": "osm-node-8518228365",
+    "content_type": "eat",
+    "name": "Coffee & The Kitchen By บ้านสวนดอกไม้",
+    "name_th": null,
+    "name_en": null,
+    "category": "restaurant",
+    "category_label": "ร้านอาหาร",
+    "cuisine": [],
+    "opening_hours": null,
+    "location": {
+      "country": "TH",
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "street": null,
+      "house_number": null,
+      "postcode": null,
+      "latitude": 14.0054151,
+      "longitude": 101.7644167
+    },
+    "contact": {
+      "phone": null,
+      "website": null,
+      "facebook": null
+    },
+    "features": {
+      "takeaway": null,
+      "delivery": null,
+      "outdoor_seating": null,
+      "wheelchair": null,
+      "internet_access": null
+    },
+    "source": {
+      "name": "OpenStreetMap",
+      "type": "open_data",
+      "url": "https://www.openstreetmap.org/node/8518228365",
+      "verified": true
+    },
+    "collected_at": "2026-08-16T03:07:56.651191+00:00"
+  },
+  {
+    "schema_version": "1.0",
+    "id": "osm-node-11164355070",
+    "content_type": "eat",
+    "name": "Prachin Thai Food",
+    "name_th": null,
+    "name_en": null,
+    "category": "restaurant",
+    "category_label": "ร้านอาหาร",
+    "cuisine": [
+      "thai"
+    ],
+    "opening_hours": "Mo-Sa 10:30-20:00",
+    "location": {
+      "country": "TH",
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "street": null,
+      "house_number": null,
+      "postcode": null,
+      "latitude": 13.9052953,
+      "longitude": 101.5778169
+    },
+    "contact": {
+      "phone": "+66842825529",
+      "website": null,
+      "facebook": null
+    },
+    "features": {
+      "takeaway": null,
+      "delivery": null,
+      "outdoor_seating": null,
+      "wheelchair": null,
+      "internet_access": null
+    },
+    "source": {
+      "name": "OpenStreetMap",
+      "type": "open_data",
+      "url": "https://www.openstreetmap.org/node/11164355070",
+      "verified": true
+    },
+    "collected_at": "2026-08-16T03:07:56.651191+00:00"
+  },
+  {
+    "schema_version": "1.0",
+    "id": "osm-node-7836162676",
+    "content_type": "eat",
+    "name": "The Platoo Kitchen",
+    "name_th": null,
+    "name_en": null,
+    "category": "restaurant",
+    "category_label": "ร้านอาหาร",
+    "cuisine": [],
+    "opening_hours": "08:00-20:00",
+    "location": {
+      "country": "TH",
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "street": null,
+      "house_number": null,
+      "postcode": null,
+      "latitude": 14.1308452,
+      "longitude": 101.4685576
+    },
+    "contact": {
+      "phone": "+66868416818",
+      "website": "https://www.facebook.com/ThePlatooKitchen/",
+      "facebook": null
+    },
+    "features": {
+      "takeaway": null,
+      "delivery": null,
+      "outdoor_seating": null,
+      "wheelchair": null,
+      "internet_access": null
+    },
+    "source": {
+      "name": "OpenStreetMap",
+      "type": "open_data",
+      "url": "https://www.openstreetmap.org/node/7836162676",
+      "verified": true
+    },
+    "collected_at": "2026-08-16T03:07:56.651191+00:00"
+  },
+  {
+    "schema_version": "1.0",
+    "id": "osm-node-4943305721",
+    "content_type": "eat",
+    "name": "Verona",
+    "name_th": null,
+    "name_en": null,
+    "category": "restaurant",
+    "category_label": "ร้านอาหาร",
+    "cuisine": [],
+    "opening_hours": null,
+    "location": {
+      "country": "TH",
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "street": null,
+      "house_number": null,
+      "postcode": null,
+      "latitude": 14.2155093,
+      "longitude": 101.9005021
+    },
+    "contact": {
+      "phone": null,
+      "website": null,
+      "facebook": null
+    },
+    "features": {
+      "takeaway": null,
+      "delivery": null,
+      "outdoor_seating": null,
+      "wheelchair": "yes",
+      "internet_access": null
+    },
+    "source": {
+      "name": "OpenStreetMap",
+      "type": "open_data",
+      "url": "https://www.openstreetmap.org/node/4943305721",
+      "verified": true
+    },
+    "collected_at": "2026-08-16T03:07:56.651191+00:00"
+  },
+  {
+    "schema_version": "1.0",
+    "id": "osm-node-12863075914",
+    "content_type": "eat",
+    "name": "กู๊ดวิวบ้านสวนริมคลอง ปราจีนบุรี",
+    "name_th": null,
+    "name_en": null,
+    "category": "restaurant",
+    "category_label": "ร้านอาหาร",
+    "cuisine": [
+      "thai",
+      "regional"
+    ],
+    "opening_hours": null,
+    "location": {
+      "country": "TH",
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "street": null,
+      "house_number": null,
+      "postcode": null,
+      "latitude": 14.0694165,
+      "longitude": 101.9914583
+    },
+    "contact": {
+      "phone": null,
+      "website": "https://www.facebook.com/GoodViewPrachinBuri/",
+      "facebook": null
+    },
+    "features": {
+      "takeaway": null,
+      "delivery": null,
+      "outdoor_seating": null,
+      "wheelchair": null,
+      "internet_access": null
+    },
+    "source": {
+      "name": "OpenStreetMap",
+      "type": "open_data",
+      "url": "https://www.openstreetmap.org/node/12863075914",
+      "verified": true
+    },
+    "collected_at": "2026-08-16T03:07:56.651191+00:00"
+  },
+  {
+    "schema_version": "1.0",
+    "id": "osm-node-8487743496",
+    "content_type": "eat",
+    "name": "ก๋วยเตี๋ยวลิ้นวัว-เนื้อลาย นครสวรรค์-สาขากบินทร์บุรี",
+    "name_th": null,
+    "name_en": null,
+    "category": "restaurant",
+    "category_label": "ร้านอาหาร",
+    "cuisine": [],
+    "opening_hours": null,
+    "location": {
+      "country": "TH",
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "street": null,
+      "house_number": null,
+      "postcode": null,
+      "latitude": 14.0641184,
+      "longitude": 101.8054791
+    },
+    "contact": {
+      "phone": null,
+      "website": null,
+      "facebook": null
+    },
+    "features": {
+      "takeaway": null,
+      "delivery": null,
+      "outdoor_seating": null,
+      "wheelchair": null,
+      "internet_access": null
+    },
+    "source": {
+      "name": "OpenStreetMap",
+      "type": "open_data",
+      "url": "https://www.openstreetmap.org/node/8487743496",
+      "verified": true
+    },
+    "collected_at": "2026-08-16T03:07:56.651191+00:00"
+  },
+  {
+    "schema_version": "1.0",
+    "id": "osm-node-8477554774",
+    "content_type": "eat",
+    "name": "ก๋วยเตี๋ยวเป็ดโดนัท",
+    "name_th": null,
+    "name_en": null,
+    "category": "restaurant",
+    "category_label": "ร้านอาหาร",
+    "cuisine": [],
+    "opening_hours": null,
+    "location": {
+      "country": "TH",
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "street": null,
+      "house_number": null,
+      "postcode": null,
+      "latitude": 14.0651602,
+      "longitude": 101.8069401
+    },
+    "contact": {
+      "phone": null,
+      "website": null,
+      "facebook": null
+    },
+    "features": {
+      "takeaway": null,
+      "delivery": null,
+      "outdoor_seating": null,
+      "wheelchair": null,
+      "internet_access": null
+    },
+    "source": {
+      "name": "OpenStreetMap",
+      "type": "open_data",
+      "url": "https://www.openstreetmap.org/node/8477554774",
+      "verified": true
+    },
+    "collected_at": "2026-08-16T03:07:56.651191+00:00"
+  },
+  {
+    "schema_version": "1.0",
+    "id": "osm-node-8511009144",
+    "content_type": "eat",
+    "name": "ข้าวเหนียวนึ่ง เมืองนครพนม",
+    "name_th": null,
+    "name_en": null,
+    "category": "restaurant",
+    "category_label": "ร้านอาหาร",
+    "cuisine": [],
+    "opening_hours": null,
+    "location": {
+      "country": "TH",
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "street": null,
+      "house_number": null,
+      "postcode": null,
+      "latitude": 14.0633617,
+      "longitude": 101.8056382
+    },
+    "contact": {
+      "phone": null,
+      "website": null,
+      "facebook": null
+    },
+    "features": {
+      "takeaway": null,
+      "delivery": null,
+      "outdoor_seating": null,
+      "wheelchair": null,
+      "internet_access": null
+    },
+    "source": {
+      "name": "OpenStreetMap",
+      "type": "open_data",
+      "url": "https://www.openstreetmap.org/node/8511009144",
+      "verified": true
+    },
+    "collected_at": "2026-08-16T03:07:56.651191+00:00"
+  },
+  {
+    "schema_version": "1.0",
+    "id": "osm-node-8477554775",
+    "content_type": "eat",
+    "name": "ดินหวาน",
+    "name_th": null,
+    "name_en": null,
+    "category": "restaurant",
+    "category_label": "ร้านอาหาร",
+    "cuisine": [],
+    "opening_hours": null,
+    "location": {
+      "country": "TH",
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "street": null,
+      "house_number": null,
+      "postcode": null,
+      "latitude": 14.0660987,
+      "longitude": 101.8073965
+    },
+    "contact": {
+      "phone": null,
+      "website": null,
+      "facebook": null
+    },
+    "features": {
+      "takeaway": null,
+      "delivery": null,
+      "outdoor_seating": null,
+      "wheelchair": null,
+      "internet_access": null
+    },
+    "source": {
+      "name": "OpenStreetMap",
+      "type": "open_data",
+      "url": "https://www.openstreetmap.org/node/8477554775",
+      "verified": true
+    },
+    "collected_at": "2026-08-16T03:07:56.651191+00:00"
+  },
+  {
+    "schema_version": "1.0",
+    "id": "osm-node-8477529505",
+    "content_type": "eat",
+    "name": "ตั้งหย่งปัง",
+    "name_th": null,
+    "name_en": null,
+    "category": "restaurant",
+    "category_label": "ร้านอาหาร",
+    "cuisine": [],
+    "opening_hours": null,
+    "location": {
+      "country": "TH",
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "street": null,
+      "house_number": null,
+      "postcode": null,
+      "latitude": 14.0664777,
+      "longitude": 101.8076687
+    },
+    "contact": {
+      "phone": null,
+      "website": null,
+      "facebook": null
+    },
+    "features": {
+      "takeaway": null,
+      "delivery": null,
+      "outdoor_seating": null,
+      "wheelchair": null,
+      "internet_access": null
+    },
+    "source": {
+      "name": "OpenStreetMap",
+      "type": "open_data",
+      "url": "https://www.openstreetmap.org/node/8477529505",
+      "verified": true
+    },
+    "collected_at": "2026-08-16T03:07:56.651191+00:00"
+  },
+  {
+    "schema_version": "1.0",
+    "id": "osm-node-14087623913",
+    "content_type": "eat",
+    "name": "ตามสั่งตำแซ่บ",
+    "name_th": null,
+    "name_en": null,
+    "category": "restaurant",
+    "category_label": "ร้านอาหาร",
+    "cuisine": [
+      "thai",
+      "ส้มตำ"
+    ],
+    "opening_hours": "10.00-18.00 น.",
+    "location": {
+      "country": "TH",
+      "province": "ปราจีนบุรี",
+      "district": "เมือง",
+      "subdistrict": "ท่างาม",
+      "street": "หมู่บ้านเพชรไพบูลย์2",
+      "house_number": "50/8",
+      "postcode": "25000",
+      "latitude": 14.0534434,
+      "longitude": 101.390861
+    },
+    "contact": {
+      "phone": "66637358653",
+      "website": null,
+      "facebook": null
+    },
+    "features": {
+      "takeaway": null,
+      "delivery": null,
+      "outdoor_seating": null,
+      "wheelchair": null,
+      "internet_access": null
+    },
+    "source": {
+      "name": "OpenStreetMap",
+      "type": "open_data",
+      "url": "https://www.openstreetmap.org/node/14087623913",
+      "verified": true
+    },
+    "collected_at": "2026-08-16T03:07:56.651191+00:00"
+  },
+  {
+    "schema_version": "1.0",
+    "id": "osm-node-8459869506",
+    "content_type": "eat",
+    "name": "บุศบาจิ้มจุ่ม",
+    "name_th": null,
+    "name_en": null,
+    "category": "restaurant",
+    "category_label": "ร้านอาหาร",
+    "cuisine": [],
+    "opening_hours": null,
+    "location": {
+      "country": "TH",
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "street": null,
+      "house_number": null,
+      "postcode": null,
+      "latitude": 14.0643625,
+      "longitude": 101.8061805
+    },
+    "contact": {
+      "phone": null,
+      "website": null,
+      "facebook": null
+    },
+    "features": {
+      "takeaway": null,
+      "delivery": null,
+      "outdoor_seating": null,
+      "wheelchair": null,
+      "internet_access": null
+    },
+    "source": {
+      "name": "OpenStreetMap",
+      "type": "open_data",
+      "url": "https://www.openstreetmap.org/node/8459869506",
+      "verified": true
+    },
+    "collected_at": "2026-08-16T03:07:56.651191+00:00"
+  },
+  {
+    "schema_version": "1.0",
+    "id": "osm-node-4158649383",
+    "content_type": "eat",
+    "name": "บ้านส้มตำ",
+    "name_th": null,
+    "name_en": null,
+    "category": "restaurant",
+    "category_label": "ร้านอาหาร",
+    "cuisine": [],
+    "opening_hours": null,
+    "location": {
+      "country": "TH",
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "street": null,
+      "house_number": null,
+      "postcode": null,
+      "latitude": 14.1768741,
+      "longitude": 101.3530191
+    },
+    "contact": {
+      "phone": null,
+      "website": null,
+      "facebook": null
+    },
+    "features": {
+      "takeaway": null,
+      "delivery": null,
+      "outdoor_seating": null,
+      "wheelchair": null,
+      "internet_access": null
+    },
+    "source": {
+      "name": "OpenStreetMap",
+      "type": "open_data",
+      "url": "https://www.openstreetmap.org/node/4158649383",
+      "verified": true
+    },
+    "collected_at": "2026-08-16T03:07:56.651191+00:00"
+  },
+  {
+    "schema_version": "1.0",
+    "id": "osm-node-13955478384",
+    "content_type": "eat",
+    "name": "ปาล์มสวีทโฮม",
+    "name_th": "ปาล์มสวีทโฮม",
+    "name_en": "Palm Sweet Home",
+    "category": "restaurant",
+    "category_label": "ร้านอาหาร",
+    "cuisine": [],
+    "opening_hours": null,
+    "location": {
+      "country": "TH",
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "street": null,
+      "house_number": null,
+      "postcode": null,
+      "latitude": 13.9832206,
+      "longitude": 101.7681497
+    },
+    "contact": {
+      "phone": null,
+      "website": null,
+      "facebook": null
+    },
+    "features": {
+      "takeaway": null,
+      "delivery": null,
+      "outdoor_seating": null,
+      "wheelchair": null,
+      "internet_access": null
+    },
+    "source": {
+      "name": "OpenStreetMap",
+      "type": "open_data",
+      "url": "https://www.openstreetmap.org/node/13955478384",
+      "verified": true
+    },
+    "collected_at": "2026-08-16T03:07:56.651191+00:00"
+  },
+  {
+    "schema_version": "1.0",
+    "id": "osm-node-11425827233",
+    "content_type": "eat",
+    "name": "ร้านปลายจวัก",
+    "name_th": null,
+    "name_en": null,
+    "category": "restaurant",
+    "category_label": "ร้านอาหาร",
+    "cuisine": [],
+    "opening_hours": "Mo-Sa 10:00-21:00",
+    "location": {
+      "country": "TH",
+      "province": "ปราจีนบุรี",
+      "district": "Si Maha Phot District",
+      "subdistrict": null,
+      "street": "Tha Tum",
+      "house_number": null,
+      "postcode": "25140",
+      "latitude": 13.9056677,
+      "longitude": 101.577423
+    },
+    "contact": {
+      "phone": "+66 92 382 5259",
+      "website": null,
+      "facebook": "https://www.facebook.com/people/%E0%B8%A3%E0%B9%89%E0%B8%B2%E0%B8%99%E0%B8%9B%E0%B8%A5%E0%B8%B2%E0%B8%A2%E0%B8%88%E0%B8%A7%E0%B8%B1%E0%B8%81/100092553576841/"
+    },
+    "features": {
+      "takeaway": null,
+      "delivery": null,
+      "outdoor_seating": null,
+      "wheelchair": null,
+      "internet_access": null
+    },
+    "source": {
+      "name": "OpenStreetMap",
+      "type": "open_data",
+      "url": "https://www.openstreetmap.org/node/11425827233",
+      "verified": true
+    },
+    "collected_at": "2026-08-16T03:07:56.651191+00:00"
+  },
+  {
+    "schema_version": "1.0",
+    "id": "osm-node-8482167812",
+    "content_type": "eat",
+    "name": "ร้านป้าแอ๊ว อาหารตามสั่ง",
+    "name_th": null,
+    "name_en": null,
+    "category": "restaurant",
+    "category_label": "ร้านอาหาร",
+    "cuisine": [],
+    "opening_hours": null,
+    "location": {
+      "country": "TH",
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "street": null,
+      "house_number": null,
+      "postcode": null,
+      "latitude": 14.0648239,
+      "longitude": 101.8068303
+    },
+    "contact": {
+      "phone": null,
+      "website": null,
+      "facebook": null
+    },
+    "features": {
+      "takeaway": null,
+      "delivery": null,
+      "outdoor_seating": null,
+      "wheelchair": null,
+      "internet_access": null
+    },
+    "source": {
+      "name": "OpenStreetMap",
+      "type": "open_data",
+      "url": "https://www.openstreetmap.org/node/8482167812",
+      "verified": true
+    },
+    "collected_at": "2026-08-16T03:07:56.651191+00:00"
+  },
+  {
+    "schema_version": "1.0",
+    "id": "osm-node-8526925620",
+    "content_type": "eat",
+    "name": "ร้านศรีนุชข้าวต้มกุ๊ย",
+    "name_th": null,
+    "name_en": null,
+    "category": "restaurant",
+    "category_label": "ร้านอาหาร",
+    "cuisine": [],
+    "opening_hours": null,
+    "location": {
+      "country": "TH",
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "street": null,
+      "house_number": null,
+      "postcode": null,
+      "latitude": 14.0708667,
+      "longitude": 101.8118901
+    },
+    "contact": {
+      "phone": null,
+      "website": null,
+      "facebook": null
+    },
+    "features": {
+      "takeaway": null,
+      "delivery": null,
+      "outdoor_seating": null,
+      "wheelchair": null,
+      "internet_access": null
+    },
+    "source": {
+      "name": "OpenStreetMap",
+      "type": "open_data",
+      "url": "https://www.openstreetmap.org/node/8526925620",
+      "verified": true
+    },
+    "collected_at": "2026-08-16T03:07:56.651191+00:00"
+  },
+  {
+    "schema_version": "1.0",
+    "id": "osm-node-13706395637",
+    "content_type": "eat",
+    "name": "ร้านอาหารจีน จุ้ว เชียง เก๋อ 304",
+    "name_th": null,
+    "name_en": "Ju xiang ge chinese restaurant",
+    "category": "restaurant",
+    "category_label": "ร้านอาหาร",
+    "cuisine": [
+      "chinese"
+    ],
+    "opening_hours": null,
+    "location": {
+      "country": "TH",
+      "province": "ปราจีนบุรี",
+      "district": "ศรีมหาโพธิ",
+      "subdistrict": "ท่าตูม",
+      "street": null,
+      "house_number": null,
+      "postcode": "25140",
+      "latitude": 13.9173455,
+      "longitude": 101.5743212
+    },
+    "contact": {
+      "phone": null,
+      "website": null,
+      "facebook": null
+    },
+    "features": {
+      "takeaway": null,
+      "delivery": null,
+      "outdoor_seating": null,
+      "wheelchair": null,
+      "internet_access": null
+    },
+    "source": {
+      "name": "OpenStreetMap",
+      "type": "open_data",
+      "url": "https://www.openstreetmap.org/node/13706395637",
+      "verified": true
+    },
+    "collected_at": "2026-08-16T03:07:56.651191+00:00"
+  },
+  {
+    "schema_version": "1.0",
+    "id": "osm-node-7306657537",
+    "content_type": "eat",
+    "name": "ร้านอาโก",
+    "name_th": null,
+    "name_en": null,
+    "category": "restaurant",
+    "category_label": "ร้านอาหาร",
+    "cuisine": [],
+    "opening_hours": null,
+    "location": {
+      "country": "TH",
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "street": null,
+      "house_number": null,
+      "postcode": null,
+      "latitude": 13.9797738,
+      "longitude": 101.7528495
+    },
+    "contact": {
+      "phone": null,
+      "website": null,
+      "facebook": null
+    },
+    "features": {
+      "takeaway": null,
+      "delivery": null,
+      "outdoor_seating": null,
+      "wheelchair": null,
+      "internet_access": null
+    },
+    "source": {
+      "name": "OpenStreetMap",
+      "type": "open_data",
+      "url": "https://www.openstreetmap.org/node/7306657537",
+      "verified": true
+    },
+    "collected_at": "2026-08-16T03:07:56.651191+00:00"
+  },
+  {
+    "schema_version": "1.0",
+    "id": "osm-node-8477554771",
+    "content_type": "eat",
+    "name": "ร้านเซาะกราว",
+    "name_th": null,
+    "name_en": null,
+    "category": "restaurant",
+    "category_label": "ร้านอาหาร",
+    "cuisine": [],
+    "opening_hours": null,
+    "location": {
+      "country": "TH",
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "street": null,
+      "house_number": null,
+      "postcode": null,
+      "latitude": 14.0649819,
+      "longitude": 101.8132738
+    },
+    "contact": {
+      "phone": null,
+      "website": null,
+      "facebook": null
+    },
+    "features": {
+      "takeaway": null,
+      "delivery": null,
+      "outdoor_seating": null,
+      "wheelchair": null,
+      "internet_access": null
+    },
+    "source": {
+      "name": "OpenStreetMap",
+      "type": "open_data",
+      "url": "https://www.openstreetmap.org/node/8477554771",
+      "verified": true
+    },
+    "collected_at": "2026-08-16T03:07:56.651191+00:00"
+  },
+  {
+    "schema_version": "1.0",
+    "id": "osm-node-8526925621",
+    "content_type": "eat",
+    "name": "ร้านโกหยัด ข้าวต้มกุ๊ย",
+    "name_th": null,
+    "name_en": null,
+    "category": "restaurant",
+    "category_label": "ร้านอาหาร",
+    "cuisine": [],
+    "opening_hours": null,
+    "location": {
+      "country": "TH",
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "street": null,
+      "house_number": null,
+      "postcode": null,
+      "latitude": 14.0706968,
+      "longitude": 101.8116583
+    },
+    "contact": {
+      "phone": null,
+      "website": null,
+      "facebook": null
+    },
+    "features": {
+      "takeaway": null,
+      "delivery": null,
+      "outdoor_seating": null,
+      "wheelchair": null,
+      "internet_access": null
+    },
+    "source": {
+      "name": "OpenStreetMap",
+      "type": "open_data",
+      "url": "https://www.openstreetmap.org/node/8526925621",
+      "verified": true
+    },
+    "collected_at": "2026-08-16T03:07:56.651191+00:00"
+  },
+  {
+    "schema_version": "1.0",
+    "id": "osm-node-8477554772",
+    "content_type": "eat",
+    "name": "ลาบเป็ดยโส",
+    "name_th": null,
+    "name_en": null,
+    "category": "restaurant",
+    "category_label": "ร้านอาหาร",
+    "cuisine": [],
+    "opening_hours": null,
+    "location": {
+      "country": "TH",
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "street": null,
+      "house_number": null,
+      "postcode": null,
+      "latitude": 14.0656878,
+      "longitude": 101.8147554
+    },
+    "contact": {
+      "phone": null,
+      "website": null,
+      "facebook": null
+    },
+    "features": {
+      "takeaway": null,
+      "delivery": null,
+      "outdoor_seating": null,
+      "wheelchair": null,
+      "internet_access": null
+    },
+    "source": {
+      "name": "OpenStreetMap",
+      "type": "open_data",
+      "url": "https://www.openstreetmap.org/node/8477554772",
+      "verified": true
+    },
+    "collected_at": "2026-08-16T03:07:56.651191+00:00"
+  },
+  {
+    "schema_version": "1.0",
+    "id": "osm-node-4036092969",
+    "content_type": "eat",
+    "name": "สเต็กซอย 4 วังสำราญ",
+    "name_th": null,
+    "name_en": "Steak Soi 4 Wangsumran",
+    "category": "restaurant",
+    "category_label": "ร้านอาหาร",
+    "cuisine": [],
+    "opening_hours": "8:30-23:00",
+    "location": {
+      "country": "TH",
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "street": null,
+      "house_number": null,
+      "postcode": null,
+      "latitude": 13.9093811,
+      "longitude": 101.5784591
+    },
+    "contact": {
+      "phone": null,
+      "website": null,
+      "facebook": null
+    },
+    "features": {
+      "takeaway": null,
+      "delivery": null,
+      "outdoor_seating": null,
+      "wheelchair": null,
+      "internet_access": null
+    },
+    "source": {
+      "name": "OpenStreetMap",
+      "type": "open_data",
+      "url": "https://www.openstreetmap.org/node/4036092969",
+      "verified": true
+    },
+    "collected_at": "2026-08-16T03:07:56.651191+00:00"
+  },
+  {
+    "schema_version": "1.0",
+    "id": "osm-node-8477554773",
+    "content_type": "eat",
+    "name": "สเต็กบ้านน้ำพริก",
+    "name_th": null,
+    "name_en": null,
+    "category": "restaurant",
+    "category_label": "ร้านอาหาร",
+    "cuisine": [],
+    "opening_hours": null,
+    "location": {
+      "country": "TH",
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "street": null,
+      "house_number": null,
+      "postcode": null,
+      "latitude": 14.0644395,
+      "longitude": 101.8100869
+    },
+    "contact": {
+      "phone": null,
+      "website": null,
+      "facebook": null
+    },
+    "features": {
+      "takeaway": null,
+      "delivery": null,
+      "outdoor_seating": null,
+      "wheelchair": null,
+      "internet_access": null
+    },
+    "source": {
+      "name": "OpenStreetMap",
+      "type": "open_data",
+      "url": "https://www.openstreetmap.org/node/8477554773",
+      "verified": true
+    },
+    "collected_at": "2026-08-16T03:07:56.651191+00:00"
+  },
+  {
+    "schema_version": "1.0",
+    "id": "osm-way-518190355",
+    "content_type": "eat",
+    "name": "อาคารโรงอาหาร 1",
+    "name_th": "อาคารโรงอาหาร 1",
+    "name_en": null,
+    "category": "restaurant",
+    "category_label": "ร้านอาหาร",
+    "cuisine": [],
+    "opening_hours": null,
+    "location": {
+      "country": "TH",
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "street": null,
+      "house_number": null,
+      "postcode": null,
+      "latitude": 14.1598677,
+      "longitude": 101.3452317
+    },
+    "contact": {
+      "phone": null,
+      "website": null,
+      "facebook": null
+    },
+    "features": {
+      "takeaway": null,
+      "delivery": null,
+      "outdoor_seating": null,
+      "wheelchair": null,
+      "internet_access": null
+    },
+    "source": {
+      "name": "OpenStreetMap",
+      "type": "open_data",
+      "url": "https://www.openstreetmap.org/way/518190355",
+      "verified": true
+    },
+    "collected_at": "2026-08-16T03:07:56.651191+00:00"
+  },
+  {
+    "schema_version": "1.0",
+    "id": "osm-way-518190348",
+    "content_type": "eat",
+    "name": "อาคารโรงอาหาร 2",
+    "name_th": "อาคารโรงอาหาร 2",
+    "name_en": null,
+    "category": "restaurant",
+    "category_label": "ร้านอาหาร",
+    "cuisine": [],
+    "opening_hours": null,
+    "location": {
+      "country": "TH",
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "street": null,
+      "house_number": null,
+      "postcode": null,
+      "latitude": 14.1602046,
+      "longitude": 101.3453349
+    },
+    "contact": {
+      "phone": null,
+      "website": null,
+      "facebook": null
+    },
+    "features": {
+      "takeaway": null,
+      "delivery": null,
+      "outdoor_seating": null,
+      "wheelchair": null,
+      "internet_access": null
+    },
+    "source": {
+      "name": "OpenStreetMap",
+      "type": "open_data",
+      "url": "https://www.openstreetmap.org/way/518190348",
+      "verified": true
+    },
+    "collected_at": "2026-08-16T03:07:56.651191+00:00"
+  },
+  {
+    "schema_version": "1.0",
+    "id": "osm-node-6982014185",
+    "content_type": "eat",
+    "name": "เกศรา ส้มตำรสเด็ด กบินทร์บุรี",
+    "name_th": null,
+    "name_en": "Ketra Somtum Restaurant",
+    "category": "restaurant",
+    "category_label": "ร้านอาหาร",
+    "cuisine": [
+      "thai",
+      "local"
+    ],
+    "opening_hours": null,
+    "location": {
+      "country": "TH",
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "street": null,
+      "house_number": null,
+      "postcode": null,
+      "latitude": 13.9909837,
+      "longitude": 101.7225505
+    },
+    "contact": {
+      "phone": null,
+      "website": null,
+      "facebook": null
+    },
+    "features": {
+      "takeaway": null,
+      "delivery": null,
+      "outdoor_seating": null,
+      "wheelchair": null,
+      "internet_access": null
+    },
+    "source": {
+      "name": "OpenStreetMap",
+      "type": "open_data",
+      "url": "https://www.openstreetmap.org/node/6982014185",
+      "verified": true
+    },
+    "collected_at": "2026-08-16T03:07:56.651191+00:00"
+  },
+  {
+    "schema_version": "1.0",
+    "id": "osm-node-8511009142",
+    "content_type": "eat",
+    "name": "แมนหมูกระทะ",
+    "name_th": null,
+    "name_en": null,
+    "category": "restaurant",
+    "category_label": "ร้านอาหาร",
+    "cuisine": [],
+    "opening_hours": null,
+    "location": {
+      "country": "TH",
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "street": null,
+      "house_number": null,
+      "postcode": null,
+      "latitude": 14.0629925,
+      "longitude": 101.8057482
+    },
+    "contact": {
+      "phone": null,
+      "website": null,
+      "facebook": null
+    },
+    "features": {
+      "takeaway": null,
+      "delivery": null,
+      "outdoor_seating": null,
+      "wheelchair": null,
+      "internet_access": null
+    },
+    "source": {
+      "name": "OpenStreetMap",
+      "type": "open_data",
+      "url": "https://www.openstreetmap.org/node/8511009142",
+      "verified": true
+    },
+    "collected_at": "2026-08-16T03:07:56.651191+00:00"
+  },
+  {
+    "schema_version": "1.0",
+    "id": "osm-node-7008336988",
+    "content_type": "eat",
+    "name": "โกเดชพิศดาร",
+    "name_th": null,
+    "name_en": null,
+    "category": "restaurant",
+    "category_label": "ร้านอาหาร",
+    "cuisine": [
+      "thai"
+    ],
+    "opening_hours": "Mo-Su 12:00-00:00",
+    "location": {
+      "country": "TH",
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "street": "ซอยเจ้าสำอางค์",
+      "house_number": null,
+      "postcode": null,
+      "latitude": 14.0061739,
+      "longitude": 101.7022325
+    },
+    "contact": {
+      "phone": null,
+      "website": null,
+      "facebook": null
+    },
+    "features": {
+      "takeaway": null,
+      "delivery": null,
+      "outdoor_seating": null,
+      "wheelchair": null,
+      "internet_access": null
+    },
+    "source": {
+      "name": "OpenStreetMap",
+      "type": "open_data",
+      "url": "https://www.openstreetmap.org/node/7008336988",
+      "verified": true
+    },
+    "collected_at": "2026-08-16T03:07:56.651191+00:00"
+  }
+]
