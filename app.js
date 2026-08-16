@@ -42,6 +42,7 @@ document.addEventListener(
   init
 );
 
+
 async function init() {
 
   try {
@@ -63,17 +64,7 @@ async function init() {
       loadCommonIndex(),
     ]);
 
-    setText(
-      "recommendedResultCount",
-      `โหลดแล้ว: ${allContent.length} records`
-    );
-
     prepareEatPlaces();
-
-    setText(
-      "recommendedResultCount",
-      `Eat: ${allEatPlaces.length}`
-    );
 
     buildEatAreaFilters();
 
@@ -105,7 +96,6 @@ async function init() {
     );
   }
 }
-
 
 
 /* =====================================================
@@ -511,59 +501,17 @@ function bindShoppingEvents() {
               button.dataset.smart
               || "recommended";
 
-
-            /*
-            Smart filter selection resets
-            explicit promotion type.
-            */
-
             currentType =
               "all";
 
             currentPage =
               1;
 
+            updateShoppingButtons();
 
-function showShoppingResult() {
+            applyFilters();
 
-  currentMainCategory =
-    "shopping";
-
-  currentMerchant =
-    "all";
-
-  currentType =
-    "all";
-
-  currentSmart =
-    "recommended";
-
-  currentPage =
-    1;
-
-  updateMainCategoryButtons();
-
-  updateShoppingButtons();
-
-  applyFilters();
-
-  hideAllOptionGroups();
-
-  hideAllResultSections();
-
-  showElement(
-    "shoppingOptions"
-  );
-
-  showElement(
-    "shoppingResultSection"
-  );
-
-  scrollToResults();
-}
-            
-
-            
+            showShoppingResult();
           }
         );
       }
@@ -585,13 +533,11 @@ function showShoppingResult() {
               button.dataset.type
               || "all";
 
-
             currentSmart =
               "recommended";
 
             currentPage =
               1;
-
 
             updateShoppingButtons();
 
@@ -619,10 +565,8 @@ function showShoppingResult() {
               button.dataset.merchant
               || "all";
 
-
             currentPage =
               1;
-
 
             updateShoppingButtons();
 
@@ -1257,12 +1201,6 @@ function performSearch() {
   }
 
 
-  /*
-  Search is intentionally secondary in V1.
-  We use the existing search engine when available.
-  */
-
-
   if (
     !window.PrachinLifeSearch
     ||
@@ -1414,11 +1352,6 @@ function performSearch() {
     return;
   }
 
-
-  /*
-  Mixed or broad results:
-  recommended view is safer.
-  */
 
   currentMainCategory =
     "recommended";
@@ -2513,12 +2446,6 @@ function renderPromotions() {
     );
 
 
-  const emptyState =
-    document.getElementById(
-      "emptyState"
-    );
-
-
   const loadMoreBtn =
     document.getElementById(
       "loadMoreBtn"
@@ -2782,12 +2709,6 @@ function renderEatPlaces() {
   const list =
     document.getElementById(
       "eatList"
-    );
-
-
-  const emptyState =
-    document.getElementById(
-      "eatEmptyState"
     );
 
 
