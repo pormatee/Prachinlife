@@ -9,6 +9,10 @@ from typing import Any
 import requests
 
 
+# ============================================================
+# PATHS
+# ============================================================
+
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
 RAW_DIR = (
@@ -23,19 +27,20 @@ OUTPUT_FILE = (
 )
 
 
+# ============================================================
+# OVERPASS CONFIG
+# ============================================================
+
 OVERPASS_URL = (
     "https://overpass-api.de/api/interpreter"
 )
 
-
 USER_AGENT = (
-    "PrachinLife/1.0 "
+    "PrachinLife/1.1 "
     "(Prachinburi local information project)"
 )
 
-
 REQUEST_TIMEOUT = 120
-
 MAX_RETRIES = 3
 
 
@@ -48,6 +53,10 @@ AMENITIES = [
 ]
 
 
+# ============================================================
+# QUERY
+# ============================================================
+
 def build_query() -> str:
 
     amenity_regex = "|".join(
@@ -59,7 +68,7 @@ def build_query() -> str:
 
 area
   ["boundary"="administrative"]
-  ["name"="ปราจีนบุรี"]
+  ["ISO3166-2"="TH-25"]
   ->.searchArea;
 
 (
@@ -79,6 +88,44 @@ area
 out center tags;
 """
 
+
+def build_fallback_query() -> str:
+
+    amenity_regex = "|".join(
+        AMENITIES
+    )
+
+    return f"""
+[out:json][timeout:90];
+
+rel
+  ["boundary"="administrative"]
+  ["ISO3166-2"="TH-25"];
+
+map_to_area
+  ->.searchArea;
+
+(
+  node
+    ["amenity"~"^({amenity_regex})$"]
+    (area.searchArea);
+
+  way
+    ["amenity"~"^({amenity_regex})$"]
+    (area.searchArea);
+
+  relation
+    ["amenity"~"^({amenity_regex})$"]
+    (area.searchArea);
+);
+
+out center tags;
+"""
+
+
+# ============================================================
+# HTTP
+# ============================================================
 
 def fetch_overpass(
     query: str,
@@ -165,6 +212,10 @@ def fetch_overpass(
     ) from last_error
 
 
+# ============================================================
+# HELPERS
+# ============================================================
+
 def clean_text(
     value: Any,
 ) -> str | None:
@@ -201,7 +252,6 @@ def get_coordinates(
         lat is not None
         and lon is not None
     ):
-
         return (
             float(lat),
             float(lon),
@@ -228,14 +278,9 @@ def get_coordinates(
             center_lat is not None
             and center_lon is not None
         ):
-
             return (
-                float(
-                    center_lat
-                ),
-                float(
-                    center_lon
-                ),
+                float(center_lat),
+                float(center_lon),
             )
 
     return (
@@ -312,6 +357,10 @@ def build_address(
             ),
     }
 
+
+# ============================================================
+# NORMALIZE RAW OSM ELEMENT
+# ============================================================
 
 def normalize_element(
     element: dict[str, Any],
@@ -527,6 +576,10 @@ def normalize_element(
     }
 
 
+# ============================================================
+# VALIDATION
+# ============================================================
+
 def validate_records(
     records: list[dict[str, Any]],
 ) -> None:
@@ -571,6 +624,10 @@ def validate_records(
             )
 
 
+# ============================================================
+# SAVE
+# ============================================================
+
 def save_json(
     path: Path,
     records: list[dict[str, Any]],
@@ -594,21 +651,31 @@ def save_json(
         )
 
 
+# ============================================================
+# MAIN
+# ============================================================
+
 def main() -> None:
 
     print("=" * 60)
 
     print(
         "PrachinLife - "
-        "OpenStreetMap Eat Collector V1"
+        "OpenStreetMap Eat Collector V1.1"
     )
 
     print("=" * 60)
 
-    query = build_query()
+    print(
+        "Province ISO = TH-25"
+    )
+
+    print(
+        "Trying ISO3166-2 area query..."
+    )
 
     data = fetch_overpass(
-        query
+        build_query()
     )
 
     elements = data.get(
@@ -625,11 +692,39 @@ def main() -> None:
             "must be a list"
         )
 
-    collected_at = (
-        datetime
-        .astimezone(
-            datetime.now()
+    if len(elements) == 0:
+
+        print(
+            "Primary query returned "
+            "0 elements."
         )
+
+        print(
+            "Trying relation "
+            "map_to_area fallback..."
+        )
+
+        data = fetch_overpass(
+            build_fallback_query()
+        )
+
+        elements = data.get(
+            "elements",
+            []
+        )
+
+        if not isinstance(
+            elements,
+            list,
+        ):
+            raise ValueError(
+                "Fallback Overpass "
+                "elements must be a list"
+            )
+
+    collected_at = (
+        datetime.now()
+        .astimezone()
         .isoformat()
     )
 
@@ -652,7 +747,7 @@ def main() -> None:
             )
         )
 
-        if normalized:
+        if normalized is not None:
 
             records.append(
                 normalized
@@ -664,13 +759,9 @@ def main() -> None:
 
     records.sort(
         key=lambda item: (
-            item.get(
-                "name"
-            )
+            item.get("name")
             or "",
-            item.get(
-                "id"
-            )
+            item.get("id")
             or "",
         )
     )
@@ -686,7 +777,6 @@ def main() -> None:
     ] = {}
 
     named_count = 0
-
     coordinate_count = 0
 
     for item in records:
@@ -759,6 +849,14 @@ def main() -> None:
     )
 
     print()
+
+    if len(records) == 0:
+
+        print(
+            "WARNING: "
+            "No Eat records found "
+            "for TH-25"
+        )
 
     print(
         "FINAL RESULT: PASS"
