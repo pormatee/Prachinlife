@@ -40,7 +40,7 @@ COLLECTOR_NAME = (
     "PrachinLife Vegetarian Places Collector"
 )
 
-COLLECTOR_VERSION = "1.0"
+COLLECTOR_VERSION = "1.1"
 
 
 # ============================================================
@@ -52,7 +52,7 @@ OVERPASS_URL = (
 )
 
 USER_AGENT = (
-    "PrachinLife/1.0 "
+    "PrachinLife/1.1 "
     "(Vegetarian and vegan place discovery)"
 )
 
@@ -63,13 +63,6 @@ MAX_RETRIES = 3
 # ============================================================
 # PROVINCE CONFIG
 # ============================================================
-
-#
-# V1 starts with Prachinburi.
-#
-# Later we can add more provinces here without changing
-# the normal restaurant collector.
-#
 
 PROVINCES = {
     "ปราจีนบุรี": {
@@ -95,29 +88,6 @@ AMENITIES = [
     "food_court",
     "ice_cream",
 ]
-
-
-# ============================================================
-# DIET VALUES
-# ============================================================
-
-#
-# We preserve OSM values instead of converting them into
-# booleans because:
-#
-# yes  = offers suitable options
-# only = establishment is effectively dedicated to that diet
-# no   = does not offer it
-#
-# Other values may exist, so unknown values are preserved too.
-#
-
-KNOWN_DIET_VALUES = {
-    "yes",
-    "no",
-    "only",
-    "limited",
-}
 
 
 # ============================================================
@@ -166,7 +136,7 @@ def split_semicolon_values(
     if text is None:
         return []
 
-    values = []
+    values: list[str] = []
 
     for part in text.split(";"):
 
@@ -203,7 +173,6 @@ def get_coordinates(
         lat is not None
         and lon is not None
     ):
-
         return (
             float(lat),
             float(lon),
@@ -230,7 +199,6 @@ def get_coordinates(
             center_lat is not None
             and center_lon is not None
         ):
-
             return (
                 float(center_lat),
                 float(center_lon),
@@ -313,6 +281,46 @@ def build_address(
 
 
 # ============================================================
+# STATUS HELPERS
+# ============================================================
+
+def status_from_diet_value(
+    value: str | None,
+    cuisine_positive: bool,
+) -> str:
+
+    if value in {
+        "yes",
+        "only",
+        "limited",
+    }:
+        return "confirmed"
+
+    if value == "no":
+        return "not_available"
+
+    if cuisine_positive:
+        return "confirmed"
+
+    return "unknown"
+
+
+def is_displayable(
+    name: str | None,
+    latitude: float | None,
+    longitude: float | None,
+) -> bool:
+
+    return bool(
+        name
+        and
+        latitude is not None
+        and
+        longitude is not None
+    )
+
+
+# ============================================================
 # EVIDENCE DETECTION
 # ============================================================
 
@@ -355,9 +363,13 @@ def detect_dietary_evidence(
     )
 
 
-    vegetarian_evidence = []
+    vegetarian_evidence: list[
+        dict[str, Any]
+    ] = []
 
-    vegan_evidence = []
+    vegan_evidence: list[
+        dict[str, Any]
+    ] = []
 
 
     if vegetarian_tag is not None:
@@ -404,27 +416,19 @@ def detect_dietary_evidence(
         })
 
 
-    has_positive_vegetarian = (
-        vegetarian_tag
-        in {
-            "yes",
-            "only",
-            "limited",
-        }
-        or
-        cuisine_vegetarian
+    vegetarian_status = (
+        status_from_diet_value(
+            vegetarian_tag,
+            cuisine_vegetarian,
+        )
     )
 
 
-    has_positive_vegan = (
-        vegan_tag
-        in {
-            "yes",
-            "only",
-            "limited",
-        }
-        or
-        cuisine_vegan
+    vegan_status = (
+        status_from_diet_value(
+            vegan_tag,
+            cuisine_vegan,
+        )
     )
 
 
@@ -433,8 +437,12 @@ def detect_dietary_evidence(
             "value":
                 vegetarian_tag,
 
+            "status":
+                vegetarian_status,
+
             "positive":
-                has_positive_vegetarian,
+                vegetarian_status
+                == "confirmed",
 
             "evidence":
                 vegetarian_evidence,
@@ -444,22 +452,23 @@ def detect_dietary_evidence(
             "value":
                 vegan_tag,
 
+            "status":
+                vegan_status,
+
             "positive":
-                has_positive_vegan,
+                vegan_status
+                == "confirmed",
 
             "evidence":
                 vegan_evidence,
         },
 
-        #
-        # Important:
-        #
-        # PrachinLife does NOT infer Thai "Jay"
-        # from vegetarian or vegan.
-        #
         "jay": {
             "value":
                 None,
+
+            "status":
+                "unknown",
 
             "positive":
                 False,
@@ -663,10 +672,7 @@ def fetch_overpass(
             "application/json",
     }
 
-    last_error: (
-        Exception
-        | None
-    ) = None
+    last_error: Exception | None = None
 
 
     for attempt in range(
@@ -683,26 +689,22 @@ def fetch_overpass(
             )
 
 
-            response = (
-                requests.post(
-                    OVERPASS_URL,
-                    data={
-                        "data":
-                            query,
-                    },
-                    headers=headers,
-                    timeout=
-                        REQUEST_TIMEOUT,
-                )
+            response = requests.post(
+                OVERPASS_URL,
+                data={
+                    "data":
+                        query,
+                },
+                headers=headers,
+                timeout=
+                    REQUEST_TIMEOUT,
             )
 
 
             response.raise_for_status()
 
 
-            data = (
-                response.json()
-            )
+            data = response.json()
 
 
             if not isinstance(
@@ -859,6 +861,18 @@ def normalize_element(
                 "name:en"
             )
         )
+        or
+        clean_text(
+            tags.get(
+                "brand"
+            )
+        )
+        or
+        clean_text(
+            tags.get(
+                "operator"
+            )
+        )
     )
 
 
@@ -893,9 +907,18 @@ def normalize_element(
     )
 
 
+    displayable = (
+        is_displayable(
+            name,
+            latitude,
+            longitude,
+        )
+    )
+
+
     return {
         "schema_version":
-            "1.0",
+            "1.1",
 
         "id":
             f"osm-{element_type}-"
@@ -929,6 +952,26 @@ def normalize_element(
 
         "dietary":
             dietary,
+
+        "vegetarian_status":
+            dietary[
+                "vegetarian"
+            ][
+                "status"
+            ],
+
+        "vegan_status":
+            dietary[
+                "vegan"
+            ][
+                "status"
+            ],
+
+        "jay_status":
+            "unknown",
+
+        "displayable":
+            displayable,
 
         "location": {
             "country":
@@ -1038,15 +1081,6 @@ def normalize_element(
                 element_id,
         },
 
-        #
-        # Jay is intentionally unknown.
-        #
-        # Vegetarian/Vegan evidence must never be promoted
-        # to "Jay" automatically.
-        #
-        "jay_status":
-            "unknown",
-
         "owner_verified":
             False,
 
@@ -1122,24 +1156,6 @@ def validate_records(
             )
 
 
-        location = (
-            item.get(
-                "location"
-            )
-        )
-
-
-        if not isinstance(
-            location,
-            dict,
-        ):
-
-            raise ValueError(
-                f"{item_id}: "
-                "missing location"
-            )
-
-
         dietary = (
             item.get(
                 "dietary"
@@ -1167,6 +1183,67 @@ def validate_records(
             raise ValueError(
                 f"{item_id}: "
                 "missing dietary evidence"
+            )
+
+
+        if (
+            item.get(
+                "vegetarian_status"
+            )
+            not in {
+                "confirmed",
+                "not_available",
+                "unknown",
+            }
+        ):
+
+            raise ValueError(
+                f"{item_id}: "
+                "invalid vegetarian_status"
+            )
+
+
+        if (
+            item.get(
+                "vegan_status"
+            )
+            not in {
+                "confirmed",
+                "not_available",
+                "unknown",
+            }
+        ):
+
+            raise ValueError(
+                f"{item_id}: "
+                "invalid vegan_status"
+            )
+
+
+        if (
+            item.get(
+                "jay_status"
+            )
+            !=
+            "unknown"
+        ):
+
+            raise ValueError(
+                f"{item_id}: "
+                "Jay inference is prohibited"
+            )
+
+
+        if not isinstance(
+            item.get(
+                "displayable"
+            ),
+            bool,
+        ):
+
+            raise ValueError(
+                f"{item_id}: "
+                "displayable must be bool"
             )
 
 
@@ -1416,10 +1493,12 @@ def print_summary(
     ],
 ) -> None:
 
-    vegetarian_count = 0
-    vegan_count = 0
-    vegetarian_only_count = 0
-    vegan_only_count = 0
+    vegetarian_confirmed = 0
+    vegan_confirmed = 0
+
+    displayable_count = 0
+    hidden_count = 0
+
     coordinate_count = 0
 
 
@@ -1431,64 +1510,37 @@ def print_summary(
 
     for item in records:
 
-        dietary = (
+        if (
             item.get(
-                "dietary",
-                {}
+                "vegetarian_status"
             )
-        )
-
-
-        vegetarian = (
-            dietary.get(
-                "vegetarian",
-                {}
-            )
-        )
-
-
-        vegan = (
-            dietary.get(
-                "vegan",
-                {}
-            )
-        )
-
-
-        if vegetarian.get(
-            "positive"
+            ==
+            "confirmed"
         ):
 
-            vegetarian_count += 1
-
-
-        if vegan.get(
-            "positive"
-        ):
-
-            vegan_count += 1
+            vegetarian_confirmed += 1
 
 
         if (
-            vegetarian.get(
-                "value"
+            item.get(
+                "vegan_status"
             )
             ==
-            "only"
+            "confirmed"
         ):
 
-            vegetarian_only_count += 1
+            vegan_confirmed += 1
 
 
-        if (
-            vegan.get(
-                "value"
-            )
-            ==
-            "only"
+        if item.get(
+            "displayable"
         ):
 
-            vegan_only_count += 1
+            displayable_count += 1
+
+        else:
+
+            hidden_count += 1
 
 
         location = (
@@ -1552,26 +1604,26 @@ def print_summary(
 
 
     print(
-        "Vegetarian positive =",
-        vegetarian_count,
+        "Vegetarian confirmed =",
+        vegetarian_confirmed,
     )
 
 
     print(
-        "Vegan positive =",
-        vegan_count,
+        "Vegan confirmed =",
+        vegan_confirmed,
     )
 
 
     print(
-        "Vegetarian only =",
-        vegetarian_only_count,
+        "Displayable records =",
+        displayable_count,
     )
 
 
     print(
-        "Vegan only =",
-        vegan_only_count,
+        "Hidden raw records =",
+        hidden_count,
     )
 
 
@@ -1730,18 +1782,7 @@ def main() -> None:
 
         print(
             "No vegetarian/vegan "
-            "OSM evidence was found "
-            "in the active provinces."
-        )
-
-        print(
-            "This is not an error."
-        )
-
-        print(
-            "It means OSM currently "
-            "has no matching tagged "
-            "places for this query."
+            "OSM evidence found."
         )
 
 
