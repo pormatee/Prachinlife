@@ -42,33 +42,70 @@ document.addEventListener(
   init
 );
 
-
 async function init() {
 
-  bindEvents();
+  try {
 
-  await Promise.all([
-    loadPromotions(),
-    loadCommonIndex(),
-  ]);
+    setText(
+      "recommendedResultCount",
+      "กำลังเริ่มระบบ..."
+    );
 
-  prepareEatPlaces();
+    bindEvents();
 
-  buildEatAreaFilters();
+    setText(
+      "recommendedResultCount",
+      "กำลังโหลดข้อมูล..."
+    );
 
-  updateMeta();
+    await Promise.all([
+      loadPromotions(),
+      loadCommonIndex(),
+    ]);
 
-  applyFilters();
+    setText(
+      "recommendedResultCount",
+      `โหลดแล้ว: ${allContent.length} records`
+    );
 
-  applyEatFilters();
+    prepareEatPlaces();
 
-  setMainCategory(
-    "recommended",
-    false
-  );
+    setText(
+      "recommendedResultCount",
+      `Eat: ${allEatPlaces.length}`
+    );
 
-  renderRecommended();
+    buildEatAreaFilters();
+
+    updateMeta();
+
+    applyFilters();
+
+    applyEatFilters();
+
+    setMainCategory(
+      "recommended",
+      false
+    );
+
+    renderRecommended();
+
+  }
+
+  catch (error) {
+
+    console.error(
+      "PrachinLife INIT ERROR:",
+      error
+    );
+
+    setText(
+      "recommendedResultCount",
+      "ERROR: " + error.message
+    );
+  }
 }
+
 
 
 /* =====================================================
