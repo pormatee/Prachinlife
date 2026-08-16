@@ -37,105 +37,144 @@ jobs:
         run: python normalizers/restaurants.py
 
       # ==============================================
+      # BUILD COMMON INDEX
+      # ==============================================
+
+      - name: Build PrachinLife common index
+        run: python scripts/build_prachinlife_index.py
+
+      # ==============================================
       # SUMMARY
       # ==============================================
 
-      - name: Show Eat data summary
+      - name: Show Eat and common index summary
         run: |
           python - <<'PY'
           import json
           from collections import Counter
           from pathlib import Path
 
-          raw_path = Path(
-              "data/raw/restaurants_osm.json"
-          )
-
-          normalized_path = Path(
+          restaurants_path = Path(
               "data/normalized/restaurants.json"
           )
 
-          if not raw_path.exists():
-              raise SystemExit(
-                  "Missing raw Eat data"
-              )
+          index_path = Path(
+              "data/normalized/prachinlife_index.json"
+          )
 
-          if not normalized_path.exists():
+          frontend_index_path = Path(
+              "prachinlife_index.json"
+          )
+
+          if not restaurants_path.exists():
               raise SystemExit(
                   "Missing normalized Eat data"
               )
 
-          raw_data = json.loads(
-              raw_path.read_text(
+          if not index_path.exists():
+              raise SystemExit(
+                  "Missing normalized common index"
+              )
+
+          if not frontend_index_path.exists():
+              raise SystemExit(
+                  "Missing frontend common index"
+              )
+
+          restaurants = json.loads(
+              restaurants_path.read_text(
                   encoding="utf-8"
               )
           )
 
-          normalized_data = json.loads(
-              normalized_path.read_text(
+          index_data = json.loads(
+              index_path.read_text(
                   encoding="utf-8"
               )
           )
 
           print(
-              "Raw records =",
-              len(raw_data),
+              "Normalized Eat records =",
+              len(restaurants),
           )
 
-          print(
-              "Normalized records =",
-              len(normalized_data),
-          )
-
-          categories = Counter(
+          content_counts = Counter(
               item.get(
-                  "category",
+                  "content_type",
                   "unknown",
               )
               for item
-              in normalized_data
+              in index_data
           )
 
           print(
-              "Category counts =",
-              dict(categories),
+              "Total common index records =",
+              len(index_data),
+          )
+
+          print(
+              "Content counts =",
+              dict(content_counts),
+          )
+
+          eat_records = [
+              item
+              for item in index_data
+              if item.get("content_type") == "eat"
+          ]
+
+          print(
+              "Eat records in common index =",
+              len(eat_records),
           )
 
           print()
+          print("First 10 Eat records:")
 
-          print(
-              "First 10 normalized places:"
-          )
+          for item in eat_records[:10]:
+              location = item.get(
+                  "location",
+                  {},
+              )
 
-          for item in normalized_data[:10]:
               print(
                   "-",
-                  item.get("name"),
+                  item.get("title"),
                   "|",
                   item.get("category"),
                   "|",
-                  item.get("location", {}).get(
-                      "district"
-                  ),
+                  location.get("district"),
               )
+
+          if len(eat_records) != len(restaurants):
+              raise SystemExit(
+                  "Eat record count mismatch "
+                  "between restaurants.json "
+                  "and common index"
+              )
+
+          print()
+          print("FINAL RESULT: PASS")
           PY
 
       # ==============================================
       # COMMIT
       # ==============================================
 
-      - name: Commit Eat test data
+      - name: Commit Eat and common index data
         run: |
           git config user.name "PrachinLife Bot"
           git config user.email "bot@prachinlife.local"
 
           git add \
             data/raw/restaurants_osm.json \
-            data/normalized/restaurants.json
+            data/normalized/restaurants.json \
+            data/normalized/prachinlife_index.json \
+            prachinlife_index.json
 
           if git diff --cached --quiet; then
-            echo "No Eat data changes"
+            echo "No Eat or common index changes"
           else
-            git commit -m "Update PrachinLife Eat test data"
+            git commit -m "Update PrachinLife Eat and common index"
             git push
           fi
