@@ -1,1 +1,17 @@
-[]
+[
+  {
+    "id": "veg-001",
+    "title": "ร้านอาหารเจตัวอย่าง",
+    "content_type": "vegetarian",
+    "category": "jay",
+    "location": {
+      "district": "เมืองปราจีนบุรี",
+      "province": "ปราจีนบุรี",
+      "latitude": 14.05,
+      "longitude": 101.37
+    },
+    "metadata": {
+      "category_label": "อาหารเจ"
+    }
+  }
+]
