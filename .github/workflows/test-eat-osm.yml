@@ -1,0 +1,81 @@
+name: Test PrachinLife Eat OSM
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  test-eat-osm:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Collect PrachinLife Eat data from OSM
+        run: python collectors/restaurants_osm.py
+
+      - name: Show collector summary
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          path = Path("data/raw/restaurants_osm.json")
+
+          if not path.exists():
+              raise SystemExit(
+                  "restaurants_osm.json was not created"
+              )
+
+          data = json.loads(
+              path.read_text(
+                  encoding="utf-8"
+              )
+          )
+
+          print("Total records =", len(data))
+
+          named = [
+              item
+              for item in data
+              if item.get("name")
+          ]
+
+          print("Named records =", len(named))
+
+          print()
+          print("First 10 named places:")
+
+          for item in named[:10]:
+              print(
+                  "-",
+                  item.get("name"),
+                  "|",
+                  item.get("amenity"),
+              )
+          PY
+
+      - name: Commit Eat raw test data
+        run: |
+          git config user.name "PrachinLife Bot"
+          git config user.email "bot@prachinlife.local"
+
+          git add data/raw/restaurants_osm.json
+
+          if git diff --cached --quiet; then
+            echo "No Eat data changes"
+          else
+            git commit -m "Test PrachinLife Eat OSM data"
+            git push
+          fi
