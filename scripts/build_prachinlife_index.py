@@ -5,6 +5,10 @@ from pathlib import Path
 from typing import Any
 
 
+# ============================================================
+# CONFIG
+# ============================================================
+
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
 NORMALIZED_DIR = (
@@ -18,6 +22,11 @@ PROMOTIONS_FILE = (
     / "promotions.json"
 )
 
+RESTAURANTS_FILE = (
+    NORMALIZED_DIR
+    / "restaurants.json"
+)
+
 OUTPUT_FILE = (
     NORMALIZED_DIR
     / "prachinlife_index.json"
@@ -29,30 +38,49 @@ FRONTEND_FILE = (
 )
 
 
-SCHEMA_VERSION = "1.0"
+SCHEMA_VERSION = "1.1"
 
+
+# ============================================================
+# LOAD
+# ============================================================
 
 def load_json_list(
     path: Path,
+    required: bool = True,
 ) -> list[dict[str, Any]]:
 
     if not path.exists():
-        raise FileNotFoundError(
-            f"Missing source file: {path}"
+
+        if required:
+            raise FileNotFoundError(
+                f"Missing source file: {path}"
+            )
+
+        print(
+            f"Optional source not found: {path.name}"
         )
+
+        return []
 
     with path.open(
         "r",
         encoding="utf-8",
     ) as file:
+
         data = json.load(file)
 
-    if not isinstance(data, list):
+    if not isinstance(
+        data,
+        list,
+    ):
         raise ValueError(
             f"{path} must contain a JSON list"
         )
 
-    records: list[dict[str, Any]] = []
+    records: list[
+        dict[str, Any]
+    ] = []
 
     for index, item in enumerate(
         data,
@@ -64,14 +92,20 @@ def load_json_list(
             dict,
         ):
             raise ValueError(
-                f"{path.name} record {index} "
-                "must be an object"
+                f"{path.name} record "
+                f"{index} must be an object"
             )
 
-        records.append(item)
+        records.append(
+            item
+        )
 
     return records
 
+
+# ============================================================
+# TEXT HELPERS
+# ============================================================
 
 def clean_text(
     value: Any,
@@ -80,7 +114,9 @@ def clean_text(
     if value is None:
         return None
 
-    text = str(value).strip()
+    text = str(
+        value
+    ).strip()
 
     if not text:
         return None
@@ -92,7 +128,9 @@ def normalize_tag(
     value: Any,
 ) -> str | None:
 
-    text = clean_text(value)
+    text = clean_text(
+        value
+    )
 
     if not text:
         return None
@@ -100,33 +138,50 @@ def normalize_tag(
     return (
         text
         .lower()
-        .replace("'", "")
-        .replace("’", "")
+        .replace(
+            "'",
+            "",
+        )
+        .replace(
+            "’",
+            "",
+        )
         .strip()
     )
 
 
-def build_tags(
+def add_tag(
+    tags: list[str],
+    value: Any,
+) -> None:
+
+    normalized = normalize_tag(
+        value
+    )
+
+    if (
+        normalized
+        and normalized not in tags
+    ):
+        tags.append(
+            normalized
+        )
+
+
+# ============================================================
+# DEAL TAGS
+# ============================================================
+
+def build_deal_tags(
     promotion: dict[str, Any],
 ) -> list[str]:
 
     tags: list[str] = []
 
-    def add(value: Any) -> None:
-
-        normalized = normalize_tag(
-            value
-        )
-
-        if (
-            normalized
-            and normalized not in tags
-        ):
-            tags.append(
-                normalized
-            )
-
-    add("deal")
+    add_tag(
+        tags,
+        "deal",
+    )
 
     merchant = promotion.get(
         "merchant"
@@ -140,68 +195,162 @@ def build_tags(
         "category"
     )
 
-    add(merchant)
-    add(promotion_type)
-    add(category)
+    add_tag(
+        tags,
+        merchant,
+    )
+
+    add_tag(
+        tags,
+        promotion_type,
+    )
+
+    add_tag(
+        tags,
+        category,
+    )
+
+    merchant_text = (
+        clean_text(
+            merchant
+        )
+        or ""
+    ).lower()
+
+    if "lotus" in merchant_text:
+
+        add_tag(
+            tags,
+            "lotus",
+        )
+
+        add_tag(
+            tags,
+            "โลตัส",
+        )
+
+    if "big c" in merchant_text:
+
+        add_tag(
+            tags,
+            "bigc",
+        )
+
+        add_tag(
+            tags,
+            "บิ๊กซี",
+        )
 
     if (
         promotion_type
         == "coupon"
     ):
-        add("saving")
-        add("coupon")
+
+        add_tag(
+            tags,
+            "saving",
+        )
+
+        add_tag(
+            tags,
+            "coupon",
+        )
+
+        add_tag(
+            tags,
+            "คูปอง",
+        )
 
     elif (
         promotion_type
         == "member_offer"
     ):
-        add("benefit")
-        add("membership")
+
+        add_tag(
+            tags,
+            "benefit",
+        )
+
+        add_tag(
+            tags,
+            "membership",
+        )
+
+        add_tag(
+            tags,
+            "สมาชิก",
+        )
 
     elif (
         promotion_type
         == "product_deal"
     ):
-        add("saving")
-        add("product")
+
+        add_tag(
+            tags,
+            "saving",
+        )
+
+        add_tag(
+            tags,
+            "product",
+        )
 
     else:
-        add("campaign")
 
-    location_scope = promotion.get(
-        "location_scope"
+        add_tag(
+            tags,
+            "campaign",
+        )
+
+        add_tag(
+            tags,
+            "แคมเปญ",
+        )
+
+    add_tag(
+        tags,
+        promotion.get(
+            "location_scope"
+        ),
     )
 
-    add(location_scope)
-
-    add(
+    add_tag(
+        tags,
         promotion.get(
             "province"
-        )
+        ),
     )
 
-    add(
+    add_tag(
+        tags,
         promotion.get(
             "district"
-        )
+        ),
     )
 
-    add(
+    add_tag(
+        tags,
         promotion.get(
             "subdistrict"
-        )
+        ),
     )
 
-    add(
+    add_tag(
+        tags,
         promotion.get(
             "branch_name"
-        )
+        ),
     )
 
     return tags
 
 
-def build_summary(
+# ============================================================
+# DEAL HELPERS
+# ============================================================
+
+def build_deal_summary(
     promotion: dict[str, Any],
 ) -> str:
 
@@ -219,9 +368,13 @@ def build_summary(
         or "แหล่งต้นทาง"
     )
 
-    if promotion_type == "coupon":
+    if (
+        promotion_type
+        == "coupon"
+    ):
+
         return (
-            f"คูปองหรือสิทธิ์ส่วนลดจาก "
+            "คูปองหรือสิทธิ์ส่วนลดจาก "
             f"{merchant}"
         )
 
@@ -229,8 +382,9 @@ def build_summary(
         promotion_type
         == "member_offer"
     ):
+
         return (
-            f"สิทธิประโยชน์สำหรับสมาชิกจาก "
+            "สิทธิประโยชน์สำหรับสมาชิกจาก "
             f"{merchant}"
         )
 
@@ -238,133 +392,136 @@ def build_summary(
         promotion_type
         == "product_deal"
     ):
+
         return (
-            f"ดีลสินค้าจาก "
+            "ดีลสินค้าจาก "
             f"{merchant}"
         )
 
     return (
-        f"แคมเปญหรือโปรโมชั่นจาก "
+        "แคมเปญหรือโปรโมชั่นจาก "
         f"{merchant}"
     )
 
 
-def map_category(
-    promotion: dict[str, Any],
-) -> str:
-
-    promotion_type = (
-        promotion.get(
-            "promotion_type"
-        )
-        or "campaign"
-    )
-
-    if promotion_type == "coupon":
-        return "shopping"
-
-    if (
-        promotion_type
-        == "member_offer"
-    ):
-        return "shopping"
-
-    if (
-        promotion_type
-        == "product_deal"
-    ):
-        return "shopping"
-
-    return "shopping"
-
-
-def build_location(
+def build_deal_location(
     promotion: dict[str, Any],
 ) -> dict[str, Any]:
 
     return {
-        "scope": (
+        "scope":
+            (
+                promotion.get(
+                    "location_scope"
+                )
+                or "national"
+            ),
+
+        "country":
+            (
+                promotion.get(
+                    "country"
+                )
+                or "TH"
+            ),
+
+        "province":
             promotion.get(
-                "location_scope"
-            )
-            or "national"
-        ),
-        "country": (
+                "province"
+            ),
+
+        "district":
             promotion.get(
-                "country"
-            )
-            or "TH"
-        ),
-        "province": promotion.get(
-            "province"
-        ),
-        "district": promotion.get(
-            "district"
-        ),
-        "subdistrict": promotion.get(
-            "subdistrict"
-        ),
-        "place_name": (
+                "district"
+            ),
+
+        "subdistrict":
             promotion.get(
-                "branch_name"
-            )
-            or None
-        ),
+                "subdistrict"
+            ),
+
+        "place_name":
+            (
+                promotion.get(
+                    "branch_name"
+                )
+                or None
+            ),
+
+        "latitude":
+            None,
+
+        "longitude":
+            None,
     }
 
 
-def build_source(
+def build_deal_source(
     promotion: dict[str, Any],
 ) -> dict[str, Any]:
 
     return {
-        "name": (
-            promotion.get(
-                "source"
-            )
-            or promotion.get(
-                "merchant"
-            )
-            or "Unknown"
-        ),
-        "url": (
-            promotion.get(
-                "source_url"
-            )
-            or None
-        ),
-        "type": (
-            promotion.get(
-                "source_type"
-            )
-            or "unknown"
-        ),
-        "verified": (
-            promotion.get(
-                "verified"
-            )
-            is True
-        ),
+        "name":
+            (
+                promotion.get(
+                    "source"
+                )
+                or promotion.get(
+                    "merchant"
+                )
+                or "Unknown"
+            ),
+
+        "url":
+            (
+                promotion.get(
+                    "source_url"
+                )
+                or None
+            ),
+
+        "type":
+            (
+                promotion.get(
+                    "source_type"
+                )
+                or "unknown"
+            ),
+
+        "verified":
+            (
+                promotion.get(
+                    "verified"
+                )
+                is True
+            ),
     }
 
 
-def build_provider(
+def build_deal_provider(
     promotion: dict[str, Any],
 ) -> dict[str, Any]:
 
     return {
-        "name": (
-            promotion.get(
-                "merchant"
-            )
-            or promotion.get(
-                "store"
-            )
-            or "Unknown"
-        ),
-        "type": "merchant",
+        "name":
+            (
+                promotion.get(
+                    "merchant"
+                )
+                or promotion.get(
+                    "store"
+                )
+                or "Unknown"
+            ),
+
+        "type":
+            "merchant",
     }
 
+
+# ============================================================
+# MAP DEAL
+# ============================================================
 
 def map_promotion(
     promotion: dict[str, Any],
@@ -399,59 +556,61 @@ def map_promotion(
         "schema_version":
             SCHEMA_VERSION,
 
-        "id": item_id,
+        "id":
+            item_id,
 
         "content_type":
             "deal",
 
-        "original_type": (
-            promotion.get(
-                "promotion_type"
-            )
-            or "campaign"
-        ),
+        "original_type":
+            (
+                promotion.get(
+                    "promotion_type"
+                )
+                or "campaign"
+            ),
 
-        "title": title,
+        "title":
+            title,
 
         "summary":
-            build_summary(
+            build_deal_summary(
                 promotion
             ),
 
         "category":
-            map_category(
-                promotion
-            ),
+            "shopping",
 
         "tags":
-            build_tags(
+            build_deal_tags(
                 promotion
             ),
 
         "provider":
-            build_provider(
+            build_deal_provider(
                 promotion
             ),
 
         "location":
-            build_location(
+            build_deal_location(
                 promotion
             ),
 
         "source":
-            build_source(
+            build_deal_source(
                 promotion
             ),
 
-        "image_url": (
-            promotion.get(
-                "image_url"
-            )
-            or promotion.get(
-                "image"
-            )
-            or None
-        ),
+        "image_url":
+            (
+                promotion.get(
+                    "image_url"
+                )
+                or promotion.get(
+                    "image"
+                )
+                or None
+            ),
 
         "published_at":
             promotion.get(
@@ -485,13 +644,509 @@ def map_promotion(
                 ),
 
             "urgent":
-                promotion.get(
-                    "urgent"
-                )
-                is True,
+                (
+                    promotion.get(
+                        "urgent"
+                    )
+                    is True
+                ),
         },
     }
 
+
+# ============================================================
+# EAT TAGS
+# ============================================================
+
+def build_eat_tags(
+    restaurant: dict[str, Any],
+) -> list[str]:
+
+    tags: list[str] = []
+
+    add_tag(
+        tags,
+        "eat",
+    )
+
+    add_tag(
+        tags,
+        "อาหาร",
+    )
+
+    add_tag(
+        tags,
+        restaurant.get(
+            "category"
+        ),
+    )
+
+    add_tag(
+        tags,
+        restaurant.get(
+            "category_label"
+        ),
+    )
+
+    category = clean_text(
+        restaurant.get(
+            "category"
+        )
+    )
+
+    if category == "cafe":
+
+        add_tag(
+            tags,
+            "coffee",
+        )
+
+        add_tag(
+            tags,
+            "กาแฟ",
+        )
+
+        add_tag(
+            tags,
+            "คาเฟ่",
+        )
+
+    elif category == "restaurant":
+
+        add_tag(
+            tags,
+            "restaurant",
+        )
+
+        add_tag(
+            tags,
+            "ร้านอาหาร",
+        )
+
+    elif category == "fast_food":
+
+        add_tag(
+            tags,
+            "fast food",
+        )
+
+        add_tag(
+            tags,
+            "อาหารจานด่วน",
+        )
+
+    elif category == "food_court":
+
+        add_tag(
+            tags,
+            "food court",
+        )
+
+        add_tag(
+            tags,
+            "ศูนย์อาหาร",
+        )
+
+    elif category == "ice_cream":
+
+        add_tag(
+            tags,
+            "ice cream",
+        )
+
+        add_tag(
+            tags,
+            "ไอศกรีม",
+        )
+
+    cuisine = restaurant.get(
+        "cuisine"
+    )
+
+    if isinstance(
+        cuisine,
+        list,
+    ):
+
+        for item in cuisine:
+
+            add_tag(
+                tags,
+                item,
+            )
+
+    location = restaurant.get(
+        "location"
+    )
+
+    if isinstance(
+        location,
+        dict,
+    ):
+
+        add_tag(
+            tags,
+            location.get(
+                "province"
+            ),
+        )
+
+        add_tag(
+            tags,
+            location.get(
+                "district"
+            ),
+        )
+
+        add_tag(
+            tags,
+            location.get(
+                "subdistrict"
+            ),
+        )
+
+    return tags
+
+
+# ============================================================
+# EAT SUMMARY
+# ============================================================
+
+def build_eat_summary(
+    restaurant: dict[str, Any],
+) -> str:
+
+    category_label = (
+        clean_text(
+            restaurant.get(
+                "category_label"
+            )
+        )
+        or "ร้านอาหารและเครื่องดื่ม"
+    )
+
+    location = restaurant.get(
+        "location"
+    )
+
+    district = None
+
+    if isinstance(
+        location,
+        dict,
+    ):
+
+        district = clean_text(
+            location.get(
+                "district"
+            )
+        )
+
+    if district:
+
+        return (
+            f"{category_label}ในพื้นที่"
+            f"{district} จังหวัดปราจีนบุรี"
+        )
+
+    return (
+        f"{category_label}"
+        "ในจังหวัดปราจีนบุรี"
+    )
+
+
+# ============================================================
+# EAT LOCATION
+# ============================================================
+
+def build_eat_location(
+    restaurant: dict[str, Any],
+) -> dict[str, Any]:
+
+    source_location = restaurant.get(
+        "location"
+    )
+
+    if not isinstance(
+        source_location,
+        dict,
+    ):
+
+        source_location = {}
+
+    return {
+        "scope":
+            "place",
+
+        "country":
+            (
+                source_location.get(
+                    "country"
+                )
+                or "TH"
+            ),
+
+        "province":
+            (
+                source_location.get(
+                    "province"
+                )
+                or "ปราจีนบุรี"
+            ),
+
+        "district":
+            source_location.get(
+                "district"
+            ),
+
+        "subdistrict":
+            source_location.get(
+                "subdistrict"
+            ),
+
+        "place_name":
+            restaurant.get(
+                "name"
+            ),
+
+        "street":
+            source_location.get(
+                "street"
+            ),
+
+        "house_number":
+            source_location.get(
+                "house_number"
+            ),
+
+        "postcode":
+            source_location.get(
+                "postcode"
+            ),
+
+        "latitude":
+            source_location.get(
+                "latitude"
+            ),
+
+        "longitude":
+            source_location.get(
+                "longitude"
+            ),
+    }
+
+
+# ============================================================
+# MAP EAT
+# ============================================================
+
+def map_restaurant(
+    restaurant: dict[str, Any],
+) -> dict[str, Any]:
+
+    item_id = clean_text(
+        restaurant.get(
+            "id"
+        )
+    )
+
+    name = clean_text(
+        restaurant.get(
+            "name"
+        )
+    )
+
+    if not item_id:
+
+        raise ValueError(
+            "Eat record missing id"
+        )
+
+    if not name:
+
+        raise ValueError(
+            f"{item_id}: missing name"
+        )
+
+    source = restaurant.get(
+        "source"
+    )
+
+    if not isinstance(
+        source,
+        dict,
+    ):
+
+        source = {}
+
+    contact = restaurant.get(
+        "contact"
+    )
+
+    if not isinstance(
+        contact,
+        dict,
+    ):
+
+        contact = {}
+
+    features = restaurant.get(
+        "features"
+    )
+
+    if not isinstance(
+        features,
+        dict,
+    ):
+
+        features = {}
+
+    cuisine = restaurant.get(
+        "cuisine"
+    )
+
+    if not isinstance(
+        cuisine,
+        list,
+    ):
+
+        cuisine = []
+
+    return {
+        "schema_version":
+            SCHEMA_VERSION,
+
+        "id":
+            item_id,
+
+        "content_type":
+            "eat",
+
+        "original_type":
+            (
+                restaurant.get(
+                    "category"
+                )
+                or "restaurant"
+            ),
+
+        "title":
+            name,
+
+        "summary":
+            build_eat_summary(
+                restaurant
+            ),
+
+        "category":
+            (
+                restaurant.get(
+                    "category"
+                )
+                or "restaurant"
+            ),
+
+        "tags":
+            build_eat_tags(
+                restaurant
+            ),
+
+        "provider": {
+            "name":
+                name,
+
+            "type":
+                "place",
+        },
+
+        "location":
+            build_eat_location(
+                restaurant
+            ),
+
+        "source": {
+            "name":
+                (
+                    source.get(
+                        "name"
+                    )
+                    or "OpenStreetMap"
+                ),
+
+            "url":
+                source.get(
+                    "url"
+                ),
+
+            "type":
+                (
+                    source.get(
+                        "type"
+                    )
+                    or "open_data"
+                ),
+
+            "verified":
+                (
+                    source.get(
+                        "verified"
+                    )
+                    is True
+                ),
+        },
+
+        "image_url":
+            restaurant.get(
+                "image_url"
+            ),
+
+        "published_at":
+            None,
+
+        "expires_at":
+            None,
+
+        "collected_at":
+            restaurant.get(
+                "collected_at"
+            ),
+
+        "metadata": {
+            "name_th":
+                restaurant.get(
+                    "name_th"
+                ),
+
+            "name_en":
+                restaurant.get(
+                    "name_en"
+                ),
+
+            "category_label":
+                restaurant.get(
+                    "category_label"
+                ),
+
+            "cuisine":
+                cuisine,
+
+            "opening_hours":
+                restaurant.get(
+                    "opening_hours"
+                ),
+
+            "contact":
+                contact,
+
+            "features":
+                features,
+        },
+    }
+
+
+# ============================================================
+# VALIDATE COMMON INDEX
+# ============================================================
 
 def validate_index(
     records: list[
@@ -503,6 +1158,7 @@ def validate_index(
 
     allowed_content_types = {
         "deal",
+        "eat",
         "place",
         "service",
         "event",
@@ -514,14 +1170,18 @@ def validate_index(
         start=1,
     ):
 
-        item_id = item.get("id")
+        item_id = item.get(
+            "id"
+        )
 
         if not item_id:
+
             raise ValueError(
                 f"record {index}: missing id"
             )
 
         if item_id in seen_ids:
+
             raise ValueError(
                 f"record {index}: "
                 f"duplicate id {item_id}"
@@ -539,48 +1199,19 @@ def validate_index(
             content_type
             not in allowed_content_types
         ):
+
             raise ValueError(
                 f"{item_id}: invalid "
                 f"content_type "
                 f"{content_type}"
             )
 
-        if not item.get("title"):
+        if not item.get(
+            "title"
+        ):
+
             raise ValueError(
                 f"{item_id}: missing title"
-            )
-
-        source = item.get(
-            "source"
-        )
-
-        if not isinstance(
-            source,
-            dict,
-        ):
-            raise ValueError(
-                f"{item_id}: invalid source"
-            )
-
-        if source.get(
-            "verified"
-        ) is not True:
-            raise ValueError(
-                f"{item_id}: "
-                "source must be verified"
-            )
-
-        location = item.get(
-            "location"
-        )
-
-        if not isinstance(
-            location,
-            dict,
-        ):
-            raise ValueError(
-                f"{item_id}: "
-                "invalid location"
             )
 
         tags = item.get(
@@ -591,11 +1222,79 @@ def validate_index(
             tags,
             list,
         ):
+
             raise ValueError(
-                f"{item_id}: tags must "
-                "be a list"
+                f"{item_id}: "
+                "tags must be a list"
             )
 
+        provider = item.get(
+            "provider"
+        )
+
+        if not isinstance(
+            provider,
+            dict,
+        ):
+
+            raise ValueError(
+                f"{item_id}: "
+                "invalid provider"
+            )
+
+        location = item.get(
+            "location"
+        )
+
+        if not isinstance(
+            location,
+            dict,
+        ):
+
+            raise ValueError(
+                f"{item_id}: "
+                "invalid location"
+            )
+
+        source = item.get(
+            "source"
+        )
+
+        if not isinstance(
+            source,
+            dict,
+        ):
+
+            raise ValueError(
+                f"{item_id}: "
+                "invalid source"
+            )
+
+        if not source.get(
+            "name"
+        ):
+
+            raise ValueError(
+                f"{item_id}: "
+                "source name missing"
+            )
+
+        if (
+            source.get(
+                "verified"
+            )
+            is not True
+        ):
+
+            raise ValueError(
+                f"{item_id}: "
+                "source must be verified"
+            )
+
+
+# ============================================================
+# SAVE
+# ============================================================
 
 def save_json(
     path: Path,
@@ -622,46 +1321,99 @@ def save_json(
         )
 
 
+# ============================================================
+# MAIN
+# ============================================================
+
 def main() -> None:
 
-    print("=" * 60)
+    print("=" * 64)
 
     print(
         "PrachinLife - "
-        "Common Content Index V1"
+        "Common Content Index V1.1"
     )
 
-    print("=" * 60)
+    print("=" * 64)
+
+    # --------------------------------------------------------
+    # LOAD DEALS
+    # --------------------------------------------------------
 
     promotions = load_json_list(
-        PROMOTIONS_FILE
+        PROMOTIONS_FILE,
+        required=True,
     )
 
     print(
-        "Loaded promotions:",
+        "Loaded promotions =",
         len(promotions),
     )
 
-    index_records = [
-        map_promotion(
-            promotion
+    # --------------------------------------------------------
+    # LOAD EAT
+    # --------------------------------------------------------
+
+    restaurants = load_json_list(
+        RESTAURANTS_FILE,
+        required=False,
+    )
+
+    print(
+        "Loaded Eat records =",
+        len(restaurants),
+    )
+
+    # --------------------------------------------------------
+    # MAP
+    # --------------------------------------------------------
+
+    index_records: list[
+        dict[str, Any]
+    ] = []
+
+    for promotion in promotions:
+
+        index_records.append(
+            map_promotion(
+                promotion
+            )
         )
-        for promotion
-        in promotions
-    ]
+
+    for restaurant in restaurants:
+
+        index_records.append(
+            map_restaurant(
+                restaurant
+            )
+        )
+
+    # --------------------------------------------------------
+    # SORT
+    # --------------------------------------------------------
 
     index_records.sort(
         key=lambda item:
-            item.get(
-                "collected_at"
-            )
-            or "",
+            (
+                item.get(
+                    "collected_at"
+                )
+                or ""
+            ),
         reverse=True,
     )
+
+    # --------------------------------------------------------
+    # VALIDATE
+    # --------------------------------------------------------
 
     validate_index(
         index_records
     )
+
+    # --------------------------------------------------------
+    # SAVE
+    # --------------------------------------------------------
 
     save_json(
         OUTPUT_FILE,
@@ -673,7 +1425,16 @@ def main() -> None:
         index_records,
     )
 
+    # --------------------------------------------------------
+    # SUMMARY
+    # --------------------------------------------------------
+
     content_counts: dict[
+        str,
+        int,
+    ] = {}
+
+    category_counts: dict[
         str,
         int,
     ] = {}
@@ -697,6 +1458,21 @@ def main() -> None:
             + 1
         )
 
+        category_key = (
+            f"{content_type}:"
+            f"{item.get('category') or 'unknown'}"
+        )
+
+        category_counts[
+            category_key
+        ] = (
+            category_counts.get(
+                category_key,
+                0,
+            )
+            + 1
+        )
+
     print()
 
     print(
@@ -710,6 +1486,13 @@ def main() -> None:
     )
 
     print(
+        "Category counts =",
+        category_counts,
+    )
+
+    print()
+
+    print(
         "Saved normalized:",
         OUTPUT_FILE,
     )
@@ -720,6 +1503,11 @@ def main() -> None:
     )
 
     print()
+
+    print(
+        "SCHEMA VERSION =",
+        SCHEMA_VERSION,
+    )
 
     print(
         "FINAL RESULT: PASS"
