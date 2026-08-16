@@ -1,3 +1,10 @@
+document.addEventListener("DOMContentLoaded", () => {
+  const el = document.getElementById("recommendedResultCount");
+  if (el) {
+    el.textContent = "APP.JS ทำงานแล้ว";
+  }
+});
+
 const DATA_URL = "promotions.json";
 const INDEX_URL = "prachinlife_index.json";
 
