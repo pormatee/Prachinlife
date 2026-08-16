@@ -524,11 +524,46 @@ function bindShoppingEvents() {
               1;
 
 
-            updateShoppingButtons();
+function showShoppingResult() {
 
-            applyFilters();
+  currentMainCategory =
+    "shopping";
 
-            showShoppingResult();
+  currentMerchant =
+    "all";
+
+  currentType =
+    "all";
+
+  currentSmart =
+    "recommended";
+
+  currentPage =
+    1;
+
+  updateMainCategoryButtons();
+
+  updateShoppingButtons();
+
+  applyFilters();
+
+  hideAllOptionGroups();
+
+  hideAllResultSections();
+
+  showElement(
+    "shoppingOptions"
+  );
+
+  showElement(
+    "shoppingResultSection"
+  );
+
+  scrollToResults();
+}
+            
+
+            
           }
         );
       }
