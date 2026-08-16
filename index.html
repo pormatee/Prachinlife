@@ -20,7 +20,7 @@
 
   <meta
     name="description"
-    content="PrachinLife ผู้ช่วยชีวิตประจำวันสำหรับคนปราจีนบุรี ช่วยค้นหาโปรโมชั่น ร้านอาหาร คาเฟ่ สิ่งน่าสนใจ และข้อมูลใกล้ตัวได้ง่ายขึ้น"
+    content="PrachinLife ผู้ช่วยชีวิตประจำวันสำหรับคนปราจีนบุรี ช่วยหาเรื่องช้อป ร้านอาหาร คาเฟ่ สถานที่ และบริการใกล้ตัวได้ง่ายขึ้น"
   >
 
   <link
@@ -80,16 +80,12 @@
           หน้าแรก
         </a>
 
-        <a href="#deals">
-          ดีล
+        <a href="#controlCenter">
+          หาอะไร
         </a>
 
-        <a href="#eat">
-          กินอะไรดี
-        </a>
-
-        <a href="#explore">
-          สำรวจ
+        <a href="#results">
+          ผลลัพธ์
         </a>
 
         <a href="#about">
@@ -134,8 +130,9 @@
         </h1>
 
         <p class="hero-description">
-          ช่วยคุณค้นหาสิ่งที่น่าสนใจในปราจีนบุรี
-          ให้เร็วขึ้น คุ้มขึ้น และไม่ต้องเปิดหลายเว็บเพื่อหาเอง
+          อยากกินอะไร ซื้ออะไรคุ้ม ไปไหนดี
+          หรือกำลังหาบริการใกล้ตัว
+          PrachinLife ช่วยให้หาได้ง่ายขึ้นในที่เดียว
         </p>
 
 
@@ -155,7 +152,7 @@
               <input
                 id="searchInput"
                 type="search"
-                placeholder="วันนี้กำลังหาอะไร?"
+                placeholder="พิมพ์สิ่งที่กำลังหา..."
                 autocomplete="off"
                 aria-label="ค้นหา"
               >
@@ -172,35 +169,6 @@
 
           </div>
 
-
-          <div class="search-hints">
-
-            <button
-              type="button"
-              class="hint-chip"
-              data-search="Big C"
-            >
-              Big C
-            </button>
-
-            <button
-              type="button"
-              class="hint-chip"
-              data-search="คูปอง"
-            >
-              คูปอง
-            </button>
-
-            <button
-              type="button"
-              class="hint-chip"
-              data-search=""
-            >
-              ดูทั้งหมด
-            </button>
-
-          </div>
-
         </div>
 
 
@@ -209,7 +177,7 @@
           <span class="status-dot"></span>
 
           <span>
-            ข้อมูลจากแหล่งต้นทางและอัปเดตอัตโนมัติ
+            ข้อมูลจากแหล่งต้นทางและข้อมูลเปิดที่ตรวจสอบย้อนกลับได้
           </span>
 
         </div>
@@ -220,90 +188,315 @@
 
 
     <!-- ==================================================
-    TODAY / DEALS
+    CONTROL CENTER
     ================================================== -->
 
     <section
-      id="deals"
-      class="section"
+      id="controlCenter"
+      class="section soft-section"
     >
 
       <div class="container">
 
-        <div class="section-heading">
+        <div class="section-heading compact">
 
           <div>
 
             <span class="eyebrow">
-              TODAY
+              PRACHINLIFE
             </span>
 
             <h2>
-              วันนี้มีอะไรน่าสนใจ
+              วันนี้อยากหาอะไร?
             </h2>
 
             <p>
-              สิ่งที่ระบบรวบรวมล่าสุดจากแหล่งข้อมูลที่ตรวจสอบได้
+              เลือกสิ่งที่ต้องการ แล้ว PrachinLife
+              จะพาไปยังข้อมูลที่เกี่ยวข้องให้
             </p>
 
           </div>
 
+        </div>
 
-          <div
-            id="resultCount"
-            class="result-count"
+
+        <!-- ============================================
+        MAIN CATEGORY
+        ============================================= -->
+
+        <div
+          id="mainCategoryFilters"
+          class="control-main-grid"
+        >
+
+          <button
+            type="button"
+            class="control-main-button active"
+            data-main-category="recommended"
           >
-            กำลังโหลด...
+
+            <span class="control-main-icon">
+              ✨
+            </span>
+
+            <span class="control-main-copy">
+
+              <strong>
+                แนะนำ
+              </strong>
+
+              <small>
+                มีอะไรน่าสนใจ
+              </small>
+
+            </span>
+
+          </button>
+
+
+          <button
+            type="button"
+            class="control-main-button"
+            data-main-category="shopping"
+          >
+
+            <span class="control-main-icon">
+              🛒
+            </span>
+
+            <span class="control-main-copy">
+
+              <strong>
+                ช้อปคุ้ม
+              </strong>
+
+              <small>
+                โปร คูปอง และสิทธิ์
+              </small>
+
+            </span>
+
+          </button>
+
+
+          <button
+            type="button"
+            class="control-main-button"
+            data-main-category="eat"
+          >
+
+            <span class="control-main-icon">
+              🍜
+            </span>
+
+            <span class="control-main-copy">
+
+              <strong>
+                กินอะไร
+              </strong>
+
+              <small>
+                ร้านอาหารและคาเฟ่
+              </small>
+
+            </span>
+
+          </button>
+
+
+          <button
+            type="button"
+            class="control-main-button"
+            data-main-category="go"
+          >
+
+            <span class="control-main-icon">
+              📍
+            </span>
+
+            <span class="control-main-copy">
+
+              <strong>
+                เที่ยวไหนดี
+              </strong>
+
+              <small>
+                สถานที่และกิจกรรม
+              </small>
+
+            </span>
+
+          </button>
+
+
+          <button
+            type="button"
+            class="control-main-button"
+            data-main-category="services"
+          >
+
+            <span class="control-main-icon">
+              🔧
+            </span>
+
+            <span class="control-main-copy">
+
+              <strong>
+                บริการใกล้ตัว
+              </strong>
+
+              <small>
+                ร้านและบริการที่ต้องใช้
+              </small>
+
+            </span>
+
+          </button>
+
+        </div>
+
+
+        <!-- ============================================
+        RECOMMENDED OPTIONS
+        ============================================= -->
+
+        <div
+          id="recommendedOptions"
+          class="control-options"
+        >
+
+          <div class="control-group">
+
+            <span class="filter-label">
+              เลือกแบบเร็ว
+            </span>
+
+            <div class="filter-buttons">
+
+              <button
+                type="button"
+                class="filter-button active"
+                data-recommended-action="all"
+              >
+                ✨ ทั้งหมด
+              </button>
+
+              <button
+                type="button"
+                class="filter-button"
+                data-recommended-action="shopping"
+              >
+                🛒 ช้อปคุ้ม
+              </button>
+
+              <button
+                type="button"
+                class="filter-button"
+                data-recommended-action="eat"
+              >
+                🍜 กินอะไร
+              </button>
+
+              <button
+                type="button"
+                class="filter-button"
+                data-recommended-action="latest"
+              >
+                🆕 ล่าสุด
+              </button>
+
+            </div>
+
           </div>
 
         </div>
 
 
-        <div class="smart-filters">
+        <!-- ============================================
+        SHOPPING OPTIONS
+        ============================================= -->
 
-          <button type="button" class="filter-button active" data-smart="recommended">
-            ✨ แนะนำ
-          </button>
+        <div
+          id="shoppingOptions"
+          class="control-options hidden"
+        >
 
-          <button type="button" class="filter-button" data-smart="must_check">
-            🔥 ควรเช็ก
-          </button>
+          <div class="control-group">
 
-          <button type="button" class="filter-button" data-smart="saving">
-            💰 ช่วยประหยัด
-          </button>
+            <span class="filter-label">
+              อยากดูอะไร
+            </span>
 
-          <button type="button" class="filter-button" data-smart="benefits">
-            🎟️ คูปอง & สิทธิ์
-          </button>
+            <div class="filter-buttons">
 
-          <button type="button" class="filter-button" data-smart="catalogue">
-            📖 แคตตาล็อก
-          </button>
+              <button
+                type="button"
+                class="filter-button active"
+                data-smart="recommended"
+              >
+                ทั้งหมด
+              </button>
 
-          <button type="button" class="filter-button" data-smart="activity">
-            🎁 กิจกรรม
-          </button>
+              <button
+                type="button"
+                class="filter-button"
+                data-smart="saving"
+              >
+                💰 ช่วยประหยัด
+              </button>
 
-          <button type="button" class="filter-button" data-smart="latest">
-            🆕 ล่าสุด
-          </button>
+              <button
+                type="button"
+                class="filter-button"
+                data-type="coupon"
+              >
+                🎟️ คูปอง
+              </button>
 
-        </div>
+              <button
+                type="button"
+                class="filter-button"
+                data-type="member_offer"
+              >
+                👤 สิทธิสมาชิก
+              </button>
+
+              <button
+                type="button"
+                class="filter-button"
+                data-smart="catalogue"
+              >
+                📖 แคตตาล็อก
+              </button>
+
+              <button
+                type="button"
+                class="filter-button"
+                data-smart="activity"
+              >
+                🎁 โปรโมชั่น/กิจกรรม
+              </button>
+
+              <button
+                type="button"
+                class="filter-button"
+                data-smart="latest"
+              >
+                🆕 ล่าสุด
+              </button>
+
+            </div>
+
+          </div>
 
 
-        <div class="deal-filters">
-
-          <div class="filter-group">
+          <div class="control-group">
 
             <span class="filter-label">
               ร้าน
             </span>
 
-            <div
-              id="merchantFilters"
-              class="filter-buttons"
-            >
+            <div class="filter-buttons">
 
               <button
                 type="button"
@@ -333,166 +526,25 @@
 
           </div>
 
-
-          <div class="filter-group">
-
-            <span class="filter-label">
-              ประเภท
-            </span>
-
-            <div
-              id="typeFilters"
-              class="filter-buttons"
-            >
-
-              <button
-                type="button"
-                class="filter-button active"
-                data-type="all"
-              >
-                ทั้งหมด
-              </button>
-
-              <button
-                type="button"
-                class="filter-button"
-                data-type="campaign"
-              >
-                แคมเปญ
-              </button>
-
-              <button
-                type="button"
-                class="filter-button"
-                data-type="coupon"
-              >
-                คูปอง
-              </button>
-
-              <button
-                type="button"
-                class="filter-button"
-                data-type="member_offer"
-              >
-                สิทธิสมาชิก
-              </button>
-
-            </div>
-
-          </div>
-
         </div>
 
+
+        <!-- ============================================
+        EAT OPTIONS
+        ============================================= -->
 
         <div
-          id="promotionList"
-          class="promotion-grid"
+          id="eatOptions"
+          class="control-options hidden"
         >
 
-          <div class="skeleton-card"></div>
-          <div class="skeleton-card"></div>
-          <div class="skeleton-card"></div>
-
-        </div>
-
-
-        <div
-          id="emptyState"
-          class="empty-state hidden"
-        >
-
-          <div class="empty-icon">
-            🔎
-          </div>
-
-          <h3>
-            ยังไม่พบสิ่งที่ค้นหา
-          </h3>
-
-          <p>
-            ลองใช้คำค้นอื่น หรือกลับมาดูข้อมูลทั้งหมด
-          </p>
-
-          <button
-            id="resetBtn"
-            class="secondary-button"
-            type="button"
-          >
-            ดูทั้งหมด
-          </button>
-
-        </div>
-
-
-        <div class="section-footer">
-
-          <button
-            id="loadMoreBtn"
-            class="secondary-button hidden"
-            type="button"
-          >
-            ดูเพิ่มเติม
-          </button>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- ==================================================
-    EAT
-    ================================================== -->
-
-    <section
-      id="eat"
-      class="section soft-section"
-    >
-
-      <div class="container">
-
-        <div class="section-heading">
-
-          <div>
-
-            <span class="eyebrow">
-              EAT PRACHINBURI
-            </span>
-
-            <h2>
-              กินอะไรดี
-            </h2>
-
-            <p>
-              ร้านอาหารและคาเฟ่ในจังหวัดปราจีนบุรี
-              จากข้อมูลที่มีแหล่งอ้างอิง
-            </p>
-
-          </div>
-
-          <div
-            id="eatResultCount"
-            class="result-count"
-          >
-            กำลังโหลด...
-          </div>
-
-        </div>
-
-
-        <div class="deal-filters">
-
-          <div class="filter-group">
+          <div class="control-group">
 
             <span class="filter-label">
-              ประเภท
+              อยากกินแบบไหน
             </span>
 
-            <div
-              id="eatFilters"
-              class="filter-buttons"
-            >
+            <div class="filter-buttons">
 
               <button
                 type="button"
@@ -522,50 +574,123 @@
 
           </div>
 
-        </div>
 
+          <div class="control-group">
 
-        <div
-          id="eatList"
-          class="promotion-grid"
-        >
+            <span class="filter-label">
+              ระยะทาง
+            </span>
 
-          <div class="skeleton-card"></div>
-          <div class="skeleton-card"></div>
-          <div class="skeleton-card"></div>
+            <div class="filter-buttons">
 
-        </div>
+              <button
+                id="nearMeBtn"
+                type="button"
+                class="filter-button"
+              >
+                📍 ใกล้ฉัน
+              </button>
 
+            </div>
 
-        <div
-          id="eatEmptyState"
-          class="empty-state hidden"
-        >
+            <p
+              id="nearMeStatus"
+              class="control-note"
+            >
+              PrachinLife จะขอตำแหน่งเมื่อคุณกด “ใกล้ฉัน” เท่านั้น
+            </p>
 
-          <div class="empty-icon">
-            🍽️
           </div>
 
-          <h3>
-            ยังไม่พบร้านในหมวดนี้
-          </h3>
 
-          <p>
-            ลองเลือกประเภทอื่น หรือดูร้านทั้งหมด
-          </p>
+          <div class="control-group">
+
+            <span class="filter-label">
+              พื้นที่
+            </span>
+
+            <div
+              id="eatAreaFilters"
+              class="filter-buttons"
+            >
+
+              <button
+                type="button"
+                class="filter-button active"
+                data-eat-area="all"
+              >
+                ทุกพื้นที่
+              </button>
+
+            </div>
+
+          </div>
 
         </div>
 
 
-        <div class="section-footer">
+        <!-- ============================================
+        GO PLACEHOLDER
+        ============================================= -->
 
-          <button
-            id="eatLoadMoreBtn"
-            class="secondary-button hidden"
-            type="button"
-          >
-            ดูร้านเพิ่มเติม
-          </button>
+        <div
+          id="goOptions"
+          class="control-options hidden"
+        >
+
+          <div class="coming-soon-panel">
+
+            <span class="coming-soon-icon">
+              📍
+            </span>
+
+            <div>
+
+              <strong>
+                เที่ยวไหนดี
+              </strong>
+
+              <p>
+                กำลังเตรียมข้อมูลสถานที่ท่องเที่ยว
+                กิจกรรม และที่น่าแวะในปราจีนบุรี
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- ============================================
+        SERVICES PLACEHOLDER
+        ============================================= -->
+
+        <div
+          id="servicesOptions"
+          class="control-options hidden"
+        >
+
+          <div class="coming-soon-panel">
+
+            <span class="coming-soon-icon">
+              🔧
+            </span>
+
+            <div>
+
+              <strong>
+                บริการใกล้ตัว
+              </strong>
+
+              <p>
+                กำลังเตรียมข้อมูลร้านและบริการ
+                ที่คนปราจีนบุรีต้องใช้ในชีวิตประจำวัน
+              </p>
+
+            </div>
+
+          </div>
 
         </div>
 
@@ -575,130 +700,283 @@
 
 
     <!-- ==================================================
-    QUICK DECISIONS
-    ================================================== -->
-
-    <section class="section">
-
-      <div class="container">
-
-        <div class="section-heading compact">
-
-          <div>
-
-            <span class="eyebrow">
-              QUICK FIND
-            </span>
-
-            <h2>
-              หาแบบเร็ว
-            </h2>
-
-          </div>
-
-        </div>
-
-
-        <div class="quick-grid">
-
-          <button
-            class="quick-card"
-            type="button"
-            data-quick="all"
-          >
-
-            <span class="quick-icon">
-              ✨
-            </span>
-
-            <strong>
-              ดูดีลทั้งหมด
-            </strong>
-
-            <span>
-              ดูข้อมูลโปรโมชั่นล่าสุด
-            </span>
-
-          </button>
-
-
-          <button
-            class="quick-card"
-            type="button"
-            data-quick="bigc"
-          >
-
-            <span class="quick-icon">
-              🛒
-            </span>
-
-            <strong>
-              Big C
-            </strong>
-
-            <span>
-              ดูแคมเปญจาก Big C
-            </span>
-
-          </button>
-
-
-          <button
-            class="quick-card"
-            type="button"
-            data-quick="eat"
-          >
-
-            <span class="quick-icon">
-              🍜
-            </span>
-
-            <strong>
-              กินอะไรดี
-            </strong>
-
-            <span>
-              ดูร้านอาหารและคาเฟ่
-            </span>
-
-          </button>
-
-
-          <button
-            class="quick-card"
-            type="button"
-            data-quick="latest"
-          >
-
-            <span class="quick-icon">
-              🆕
-            </span>
-
-            <strong>
-              ล่าสุด
-            </strong>
-
-            <span>
-              ดูข้อมูลที่เพิ่งอัปเดต
-            </span>
-
-          </button>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- ==================================================
-    EXPLORE
+    RESULTS
     ================================================== -->
 
     <section
-      id="explore"
+      id="results"
       class="section"
     >
+
+      <div class="container">
+
+        <!-- ============================================
+        RECOMMENDED RESULT
+        ============================================= -->
+
+        <div
+          id="recommendedResultSection"
+        >
+
+          <div class="section-heading">
+
+            <div>
+
+              <span class="eyebrow">
+                TODAY
+              </span>
+
+              <h2>
+                วันนี้มีอะไรน่าสนใจ
+              </h2>
+
+              <p>
+                ข้อมูลล่าสุดที่ PrachinLife
+                มีอยู่ในระบบ
+              </p>
+
+            </div>
+
+            <div
+              id="recommendedResultCount"
+              class="result-count"
+            >
+              กำลังโหลด...
+            </div>
+
+          </div>
+
+
+          <div
+            id="recommendedList"
+            class="promotion-grid"
+          >
+          </div>
+
+        </div>
+
+
+        <!-- ============================================
+        SHOPPING RESULT
+        ============================================= -->
+
+        <div
+          id="shoppingResultSection"
+          class="hidden"
+        >
+
+          <div class="section-heading">
+
+            <div>
+
+              <span class="eyebrow">
+                SMART SHOPPING
+              </span>
+
+              <h2>
+                ช้อปคุ้ม
+              </h2>
+
+              <p>
+                โปรโมชั่น คูปอง สิทธิสมาชิก
+                และข้อมูลที่อาจช่วยให้ซื้อของคุ้มขึ้น
+              </p>
+
+            </div>
+
+            <div
+              id="resultCount"
+              class="result-count"
+            >
+              กำลังโหลด...
+            </div>
+
+          </div>
+
+
+          <div
+            id="promotionList"
+            class="promotion-grid"
+          >
+
+            <div class="skeleton-card"></div>
+            <div class="skeleton-card"></div>
+            <div class="skeleton-card"></div>
+
+          </div>
+
+
+          <div
+            id="emptyState"
+            class="empty-state hidden"
+          >
+
+            <div class="empty-icon">
+              🔎
+            </div>
+
+            <h3>
+              ยังไม่พบข้อมูลที่เลือก
+            </h3>
+
+            <p>
+              ลองเปลี่ยนประเภทหรือร้าน
+            </p>
+
+            <button
+              id="resetBtn"
+              class="secondary-button"
+              type="button"
+            >
+              ดูทั้งหมด
+            </button>
+
+          </div>
+
+
+          <div class="section-footer">
+
+            <button
+              id="loadMoreBtn"
+              class="secondary-button hidden"
+              type="button"
+            >
+              ดูเพิ่มเติม
+            </button>
+
+          </div>
+
+        </div>
+
+
+        <!-- ============================================
+        EAT RESULT
+        ============================================= -->
+
+        <div
+          id="eatResultSection"
+          class="hidden"
+        >
+
+          <div class="section-heading">
+
+            <div>
+
+              <span class="eyebrow">
+                EAT PRACHINBURI
+              </span>
+
+              <h2>
+                กินอะไร
+              </h2>
+
+              <p>
+                ร้านอาหารและคาเฟ่ในจังหวัดปราจีนบุรี
+              </p>
+
+            </div>
+
+            <div
+              id="eatResultCount"
+              class="result-count"
+            >
+              กำลังโหลด...
+            </div>
+
+          </div>
+
+
+          <div
+            id="eatList"
+            class="promotion-grid"
+          >
+
+            <div class="skeleton-card"></div>
+            <div class="skeleton-card"></div>
+            <div class="skeleton-card"></div>
+
+          </div>
+
+
+          <div
+            id="eatEmptyState"
+            class="empty-state hidden"
+          >
+
+            <div class="empty-icon">
+              🍽️
+            </div>
+
+            <h3>
+              ยังไม่พบร้านตามตัวเลือกนี้
+            </h3>
+
+            <p>
+              ลองเลือกประเภทหรือพื้นที่อื่น
+            </p>
+
+          </div>
+
+
+          <div class="section-footer">
+
+            <button
+              id="eatLoadMoreBtn"
+              class="secondary-button hidden"
+              type="button"
+            >
+              ดูร้านเพิ่มเติม
+            </button>
+
+          </div>
+
+        </div>
+
+
+        <!-- ============================================
+        COMING SOON RESULT
+        ============================================= -->
+
+        <div
+          id="comingSoonResultSection"
+          class="hidden"
+        >
+
+          <div class="empty-state coming-result">
+
+            <div
+              id="comingSoonResultIcon"
+              class="empty-icon"
+            >
+              📍
+            </div>
+
+            <h3
+              id="comingSoonResultTitle"
+            >
+              กำลังเตรียมข้อมูล
+            </h3>
+
+            <p
+              id="comingSoonResultDescription"
+            >
+              PrachinLife จะเพิ่มข้อมูลในหมวดนี้เร็ว ๆ นี้
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ==================================================
+    EXPLORE / ROADMAP
+    ================================================== -->
+
+    <section class="section soft-section">
 
       <div class="container">
 
@@ -707,16 +985,12 @@
           <div>
 
             <span class="eyebrow">
-              EXPLORE PRACHINLIFE
+              PRACHINLIFE TODAY
             </span>
 
             <h2>
-              สำรวจ PrachinLife
+              ข้อมูลที่ใช้งานได้ตอนนี้
             </h2>
-
-            <p>
-              เราจะค่อย ๆ เพิ่มข้อมูลที่ช่วยชีวิตประจำวันของคนปราจีนบุรี
-            </p>
 
           </div>
 
@@ -736,7 +1010,7 @@
               <div class="explore-title-row">
 
                 <h3>
-                  Deals
+                  ช้อปคุ้ม
                 </h3>
 
                 <span class="status-badge active">
@@ -746,8 +1020,7 @@
               </div>
 
               <p>
-                โปรโมชั่นและแคมเปญที่น่าสนใจ
-                จากแหล่งข้อมูลจริง
+                โปรโมชั่น คูปอง และสิทธิสมาชิก
               </p>
 
             </div>
@@ -766,7 +1039,7 @@
               <div class="explore-title-row">
 
                 <h3>
-                  Eat
+                  กินอะไร
                 </h3>
 
                 <span class="status-badge active">
@@ -776,7 +1049,7 @@
               </div>
 
               <p>
-                ร้านอาหารและคาเฟ่ในจังหวัดปราจีนบุรี
+                ร้านอาหารและคาเฟ่ในปราจีนบุรี
               </p>
 
             </div>
@@ -795,7 +1068,7 @@
               <div class="explore-title-row">
 
                 <h3>
-                  Go
+                  เที่ยวไหนดี
                 </h3>
 
                 <span class="status-badge">
@@ -805,7 +1078,7 @@
               </div>
 
               <p>
-                สถานที่ กิจกรรม และสิ่งน่าสนใจในปราจีนบุรี
+                สถานที่ท่องเที่ยวและกิจกรรม
               </p>
 
             </div>
@@ -824,7 +1097,7 @@
               <div class="explore-title-row">
 
                 <h3>
-                  Services
+                  บริการใกล้ตัว
                 </h3>
 
                 <span class="status-badge">
@@ -834,7 +1107,7 @@
               </div>
 
               <p>
-                บริการ ช่าง ร้านค้า และเรื่องใกล้ตัวที่ต้องใช้จริง
+                ร้าน ช่าง และบริการที่ต้องใช้จริง
               </p>
 
             </div>
@@ -868,7 +1141,7 @@
             </span>
 
             <h2>
-              เราอยากช่วยให้เรื่องใกล้ตัวง่ายขึ้น
+              เรื่องใกล้ตัว ควรหาได้ง่าย
             </h2>
 
           </div>
@@ -889,7 +1162,7 @@
             </h3>
 
             <p>
-              รวมข้อมูลที่ช่วยให้คุณเห็นตัวเลือกที่คุ้มขึ้น
+              เห็นตัวเลือกและสิทธิ์ที่อาจช่วยให้คุ้มขึ้น
             </p>
 
           </article>
@@ -906,7 +1179,7 @@
             </h3>
 
             <p>
-              ลดเวลาที่ต้องเปิดหลายเว็บหรือค้นหลายที่
+              ลดการเปิดหลายเว็บเพื่อค้นข้อมูลเรื่องเดียวกัน
             </p>
 
           </article>
@@ -923,7 +1196,7 @@
             </h3>
 
             <p>
-              ช่วยคัดสิ่งที่น่าสนใจให้คุณเริ่มตัดสินใจได้เร็วขึ้น
+              เลือกสิ่งที่ต้องการแล้วดูข้อมูลที่เกี่ยวข้องได้ทันที
             </p>
 
           </article>
@@ -954,8 +1227,9 @@
           </h2>
 
           <p>
-            PrachinLife แสดงข้อมูลจากแหล่งต้นทาง
-            และจะไม่สร้างราคา โปรโมชั่น หรือรายละเอียดที่ไม่มีข้อมูลรองรับ
+            PrachinLife ใช้ข้อมูลจากแหล่งต้นทาง
+            และข้อมูลเปิดที่ตรวจสอบย้อนกลับได้
+            โดยไม่สร้างรายละเอียดขึ้นเองเมื่อไม่มีข้อมูลรองรับ
           </p>
 
         </div>
@@ -975,6 +1249,7 @@
 
           </div>
 
+
           <div>
 
             <span>
@@ -982,7 +1257,7 @@
             </span>
 
             <strong id="totalCount">
-              0 รายการ
+              กำลังโหลด...
             </strong>
 
           </div>
@@ -1018,7 +1293,7 @@
 
 
       <p class="footer-note">
-        โปรดตรวจสอบรายละเอียด เวลาเปิดบริการ
+        โปรดตรวจสอบรายละเอียด ราคา เวลาเปิดบริการ
         เงื่อนไข และข้อมูลล่าสุดกับแหล่งต้นทางก่อนตัดสินใจ
       </p>
 
