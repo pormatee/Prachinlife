@@ -1592,8 +1592,24 @@
     aria-live="polite"
   ></div>
 
-  <script src="search.js?v=20260816-1"></script>
-  <script src="app.js?v=20260816-1"></script>
+<script>
+  document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+      const el = document.getElementById(
+        "recommendedResultCount"
+      );
+
+      if (el) {
+        el.textContent = "HTML/JS TEST ผ่าน";
+      }
+    }
+  );
+</script>
+
+<script src="search.js?v=20260816-1"></script>
+<script src="app.js?v=20260816-2"></script>
+  
 
 </body>
 
