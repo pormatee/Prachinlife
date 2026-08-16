@@ -20,7 +20,7 @@
 
   <meta
     name="description"
-    content="PrachinLife ผู้ช่วยชีวิตประจำวันสำหรับคนปราจีนบุรี ช่วยค้นหาโปรโมชั่น สิ่งน่าสนใจ และข้อมูลใกล้ตัวได้ง่ายขึ้น"
+    content="PrachinLife ผู้ช่วยชีวิตประจำวันสำหรับคนปราจีนบุรี ช่วยค้นหาโปรโมชั่น ร้านอาหาร คาเฟ่ สิ่งน่าสนใจ และข้อมูลใกล้ตัวได้ง่ายขึ้น"
   >
 
   <link
@@ -82,6 +82,10 @@
 
         <a href="#deals">
           ดีล
+        </a>
+
+        <a href="#eat">
+          กินอะไรดี
         </a>
 
         <a href="#explore">
@@ -182,9 +186,9 @@
             <button
               type="button"
               class="hint-chip"
-              data-search="แคมเปญ"
+              data-search="คูปอง"
             >
-              แคมเปญ
+              คูปอง
             </button>
 
             <button
@@ -438,10 +442,143 @@
 
 
     <!-- ==================================================
+    EAT
+    ================================================== -->
+
+    <section
+      id="eat"
+      class="section soft-section"
+    >
+
+      <div class="container">
+
+        <div class="section-heading">
+
+          <div>
+
+            <span class="eyebrow">
+              EAT PRACHINBURI
+            </span>
+
+            <h2>
+              กินอะไรดี
+            </h2>
+
+            <p>
+              ร้านอาหารและคาเฟ่ในจังหวัดปราจีนบุรี
+              จากข้อมูลที่มีแหล่งอ้างอิง
+            </p>
+
+          </div>
+
+          <div
+            id="eatResultCount"
+            class="result-count"
+          >
+            กำลังโหลด...
+          </div>
+
+        </div>
+
+
+        <div class="deal-filters">
+
+          <div class="filter-group">
+
+            <span class="filter-label">
+              ประเภท
+            </span>
+
+            <div
+              id="eatFilters"
+              class="filter-buttons"
+            >
+
+              <button
+                type="button"
+                class="filter-button active"
+                data-eat-type="all"
+              >
+                ทั้งหมด
+              </button>
+
+              <button
+                type="button"
+                class="filter-button"
+                data-eat-type="restaurant"
+              >
+                🍜 ร้านอาหาร
+              </button>
+
+              <button
+                type="button"
+                class="filter-button"
+                data-eat-type="cafe"
+              >
+                ☕ คาเฟ่
+              </button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div
+          id="eatList"
+          class="promotion-grid"
+        >
+
+          <div class="skeleton-card"></div>
+          <div class="skeleton-card"></div>
+          <div class="skeleton-card"></div>
+
+        </div>
+
+
+        <div
+          id="eatEmptyState"
+          class="empty-state hidden"
+        >
+
+          <div class="empty-icon">
+            🍽️
+          </div>
+
+          <h3>
+            ยังไม่พบร้านในหมวดนี้
+          </h3>
+
+          <p>
+            ลองเลือกประเภทอื่น หรือดูร้านทั้งหมด
+          </p>
+
+        </div>
+
+
+        <div class="section-footer">
+
+          <button
+            id="eatLoadMoreBtn"
+            class="secondary-button hidden"
+            type="button"
+          >
+            ดูร้านเพิ่มเติม
+          </button>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ==================================================
     QUICK DECISIONS
     ================================================== -->
 
-    <section class="section soft-section">
+    <section class="section">
 
       <div class="container">
 
@@ -475,11 +612,11 @@
             </span>
 
             <strong>
-              ดูทั้งหมด
+              ดูดีลทั้งหมด
             </strong>
 
             <span>
-              ดูข้อมูลล่าสุดทั้งหมด
+              ดูข้อมูลโปรโมชั่นล่าสุด
             </span>
 
           </button>
@@ -501,6 +638,27 @@
 
             <span>
               ดูแคมเปญจาก Big C
+            </span>
+
+          </button>
+
+
+          <button
+            class="quick-card"
+            type="button"
+            data-quick="eat"
+          >
+
+            <span class="quick-icon">
+              🍜
+            </span>
+
+            <strong>
+              กินอะไรดี
+            </strong>
+
+            <span>
+              ดูร้านอาหารและคาเฟ่
             </span>
 
           </button>
@@ -597,7 +755,7 @@
           </article>
 
 
-          <article class="explore-card">
+          <article class="explore-card active">
 
             <div class="explore-icon">
               🍜
@@ -611,14 +769,14 @@
                   Eat
                 </h3>
 
-                <span class="status-badge">
-                  เร็ว ๆ นี้
+                <span class="status-badge active">
+                  ใช้งานได้
                 </span>
 
               </div>
 
               <p>
-                ร้านอาหาร ของกิน และตัวเลือกใกล้ตัว
+                ร้านอาหารและคาเฟ่ในจังหวัดปราจีนบุรี
               </p>
 
             </div>
@@ -860,7 +1018,8 @@
 
 
       <p class="footer-note">
-        โปรดตรวจสอบรายละเอียด เงื่อนไข และสาขาที่ร่วมรายการกับผู้ให้บริการต้นทางก่อนตัดสินใจ
+        โปรดตรวจสอบรายละเอียด เวลาเปิดบริการ
+        เงื่อนไข และข้อมูลล่าสุดกับแหล่งต้นทางก่อนตัดสินใจ
       </p>
 
     </div>
@@ -879,8 +1038,9 @@
     aria-live="polite"
   ></div>
 
-<script src="search.js"></script>
-<script src="app.js"></script>
+
+  <script src="search.js"></script>
+  <script src="app.js"></script>
 
 </body>
 
