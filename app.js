@@ -20,7 +20,6 @@ Part 1/3
 CONFIG
 ===================================================== */
 
-const INDEX_URL = "prachinlife_index.json";
 const DATA_URL = "promotions.json";
 const INDEX_URL = "prachinlife_index.json";
 
