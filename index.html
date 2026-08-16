@@ -20,7 +20,7 @@
 
   <meta
     name="description"
-    content="PrachinLife ผู้ช่วยชีวิตประจำวันสำหรับคนปราจีนบุรี ช่วยหาเรื่องช้อป ร้านอาหาร คาเฟ่ สถานที่ และบริการใกล้ตัวได้ง่ายขึ้น"
+    content="PrachinLife ผู้ช่วยชีวิตประจำวันสำหรับคนปราจีนบุรี ช่วยหาเรื่องช้อป ร้านอาหาร คาเฟ่ อาหารเจ มังสวิรัติ Vegan สถานที่ และบริการใกล้ตัวได้ง่ายขึ้น"
   >
 
   <link
@@ -44,7 +44,6 @@
     href="style.css"
   >
 </head>
-
 
 <body>
 
@@ -73,7 +72,6 @@
 
       </a>
 
-
       <nav class="desktop-nav">
 
         <a href="#top">
@@ -93,7 +91,6 @@
         </a>
 
       </nav>
-
 
       <button
         id="refreshBtn"
@@ -134,7 +131,6 @@
           หรือกำลังหาบริการใกล้ตัว
           PrachinLife ช่วยให้หาได้ง่ายขึ้นในที่เดียว
         </p>
-
 
         <div class="hero-trust">
 
@@ -268,6 +264,33 @@
           </button>
 
 
+          <!-- VEGETARIAN / VEGAN / JAY -->
+
+          <button
+            type="button"
+            class="control-main-button"
+            data-main-category="vegetarian"
+          >
+
+            <span class="control-main-icon">
+              🥬
+            </span>
+
+            <span class="control-main-copy">
+
+              <strong>
+                หาอาหารเจ
+              </strong>
+
+              <small>
+                เจ / มังสวิรัติ / Vegan
+              </small>
+
+            </span>
+
+          </button>
+
+
           <button
             type="button"
             class="control-main-button"
@@ -359,6 +382,14 @@
                 data-recommended-action="eat"
               >
                 🍜 กินอะไร
+              </button>
+
+              <button
+                type="button"
+                class="filter-button"
+                data-recommended-action="vegetarian"
+              >
+                🥬 หาอาหารเจ
               </button>
 
               <button
@@ -594,6 +625,120 @@
 
 
         <!-- ============================================
+        VEGETARIAN OPTIONS
+        ============================================= -->
+
+        <div
+          id="vegetarianOptions"
+          class="control-options hidden"
+        >
+
+          <div class="control-group">
+
+            <span class="filter-label">
+              ต้องการหาแบบไหน
+            </span>
+
+            <div class="filter-buttons">
+
+              <button
+                type="button"
+                class="filter-button active"
+                data-vegetarian-type="all"
+              >
+                ทั้งหมด
+              </button>
+
+              <button
+                type="button"
+                class="filter-button"
+                data-vegetarian-type="jay"
+              >
+                🥬 อาหารเจ
+              </button>
+
+              <button
+                type="button"
+                class="filter-button"
+                data-vegetarian-type="vegetarian"
+              >
+                🌱 มังสวิรัติ
+              </button>
+
+              <button
+                type="button"
+                class="filter-button"
+                data-vegetarian-type="vegan"
+              >
+                🌿 Vegan
+              </button>
+
+            </div>
+
+            <p class="control-note">
+              PrachinLife แยก “อาหารเจ”, “มังสวิรัติ”
+              และ “Vegan” ตามข้อมูลที่ยืนยันได้
+              โดยไม่ถือว่าเป็นประเภทเดียวกันโดยอัตโนมัติ
+            </p>
+
+          </div>
+
+
+          <div class="control-group">
+
+            <span class="filter-label">
+              ระยะทาง
+            </span>
+
+            <div class="filter-buttons">
+
+              <button
+                id="vegetarianNearMeBtn"
+                type="button"
+                class="filter-button"
+              >
+                📍 ใกล้ฉัน
+              </button>
+
+            </div>
+
+            <p
+              id="vegetarianNearMeStatus"
+              class="control-note"
+            >
+              PrachinLife จะขอตำแหน่งเมื่อคุณกด “ใกล้ฉัน” เท่านั้น
+            </p>
+
+          </div>
+
+
+          <div class="control-group">
+
+            <span class="filter-label">
+              จังหวัด
+            </span>
+
+            <div
+              id="vegetarianProvinceFilters"
+              class="filter-buttons"
+            >
+
+              <button
+                type="button"
+                class="filter-button active"
+                data-vegetarian-province="all"
+              >
+                ทุกจังหวัด
+              </button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- ============================================
         GO PLACEHOLDER
         ============================================= -->
 
@@ -736,13 +881,12 @@
 
       <div class="container">
 
+
         <!-- ============================================
         RECOMMENDED RESULT
         ============================================= -->
 
-        <div
-          id="recommendedResultSection"
-        >
+        <div id="recommendedResultSection">
 
           <div class="section-heading">
 
@@ -962,6 +1106,87 @@
 
 
         <!-- ============================================
+        VEGETARIAN RESULT
+        ============================================= -->
+
+        <div
+          id="vegetarianResultSection"
+          class="hidden"
+        >
+
+          <div class="section-heading">
+
+            <div>
+
+              <span class="eyebrow">
+                VEGETARIAN / VEGAN / JAY
+              </span>
+
+              <h2>
+                🥬 หาอาหารเจ
+              </h2>
+
+              <p>
+                ค้นหาร้านที่มีข้อมูลยืนยันเรื่องอาหารเจ
+                มังสวิรัติ หรือ Vegan
+              </p>
+
+            </div>
+
+            <div
+              id="vegetarianResultCount"
+              class="result-count"
+            >
+              กำลังโหลด...
+            </div>
+
+          </div>
+
+
+          <div
+            id="vegetarianList"
+            class="promotion-grid"
+          >
+          </div>
+
+
+          <div
+            id="vegetarianEmptyState"
+            class="empty-state hidden"
+          >
+
+            <div class="empty-icon">
+              🥬
+            </div>
+
+            <h3>
+              ยังไม่มีร้านที่ยืนยันข้อมูลในตัวเลือกนี้
+            </h3>
+
+            <p>
+              PrachinLife จะแสดงเฉพาะข้อมูลที่มีหลักฐานรองรับ
+              และจะไม่เดาว่า Vegetarian หรือ Vegan คืออาหารเจ
+            </p>
+
+          </div>
+
+
+          <div class="section-footer">
+
+            <button
+              id="vegetarianLoadMoreBtn"
+              class="secondary-button hidden"
+              type="button"
+            >
+              ดูร้านเพิ่มเติม
+            </button>
+
+          </div>
+
+        </div>
+
+
+        <!-- ============================================
         COMING SOON RESULT
         ============================================= -->
 
@@ -979,15 +1204,11 @@
               📍
             </div>
 
-            <h3
-              id="comingSoonResultTitle"
-            >
+            <h3 id="comingSoonResultTitle">
               กำลังเตรียมข้อมูล
             </h3>
 
-            <p
-              id="comingSoonResultDescription"
-            >
+            <p id="comingSoonResultDescription">
               PrachinLife จะเพิ่มข้อมูลในหมวดนี้เร็ว ๆ นี้
             </p>
 
@@ -1001,7 +1222,7 @@
 
 
     <!-- ==================================================
-    EXPLORE / ROADMAP
+    EXPLORE
     ================================================== -->
 
     <section class="section soft-section">
@@ -1078,6 +1299,36 @@
 
               <p>
                 ร้านอาหารและคาเฟ่ในปราจีนบุรี
+              </p>
+
+            </div>
+
+          </article>
+
+
+          <article class="explore-card active">
+
+            <div class="explore-icon">
+              🥬
+            </div>
+
+            <div>
+
+              <div class="explore-title-row">
+
+                <h3>
+                  หาอาหารเจ
+                </h3>
+
+                <span class="status-badge active">
+                  ระบบพร้อม
+                </span>
+
+              </div>
+
+              <p>
+                อาหารเจ มังสวิรัติ และ Vegan
+                จากข้อมูลที่ยืนยันได้
               </p>
 
             </div>
