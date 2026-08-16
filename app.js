@@ -1,13 +1,17 @@
 const DATA_URL = "promotions.json";
+const INDEX_URL = "prachinlife_index.json";
 const PAGE_SIZE = 8;
 
 let allPromotions = [];
+let allContent = [];
 let filteredPromotions = [];
+
 let currentPage = 1;
 let currentSearch = "";
 let currentMerchant = "all";
 let currentType = "all";
 let currentSmart = "recommended";
+
 let toastTimer = null;
 
 
@@ -18,8 +22,14 @@ document.addEventListener(
 
 
 async function init() {
+
   bindEvents();
+
   await loadPromotions();
+
+  await loadCommonIndex();
+
+  applyFilters();
 }
 
 
@@ -30,19 +40,29 @@ EVENTS
 function bindEvents() {
 
   const searchInput =
-    document.getElementById("searchInput");
+    document.getElementById(
+      "searchInput"
+    );
 
   const searchBtn =
-    document.getElementById("searchBtn");
+    document.getElementById(
+      "searchBtn"
+    );
 
   const refreshBtn =
-    document.getElementById("refreshBtn");
+    document.getElementById(
+      "refreshBtn"
+    );
 
   const resetBtn =
-    document.getElementById("resetBtn");
+    document.getElementById(
+      "resetBtn"
+    );
 
   const loadMoreBtn =
-    document.getElementById("loadMoreBtn");
+    document.getElementById(
+      "loadMoreBtn"
+    );
 
 
   if (searchInput) {
@@ -68,6 +88,7 @@ function bindEvents() {
       event => {
 
         if (event.key === "Enter") {
+
           applySearchFromInput();
         }
       }
@@ -96,6 +117,16 @@ function bindEvents() {
 
         await loadPromotions(
           true
+        );
+
+        await loadCommonIndex(
+          true
+        );
+
+        applyFilters();
+
+        showToast(
+          "โหลดข้อมูลล่าสุดแล้ว"
         );
       }
     );
@@ -126,7 +157,9 @@ function bindEvents() {
 
 
   document
-    .querySelectorAll("[data-search]")
+    .querySelectorAll(
+      "[data-search]"
+    )
     .forEach(
       button => {
 
@@ -135,7 +168,8 @@ function bindEvents() {
           () => {
 
             const value =
-              button.dataset.search || "";
+              button.dataset.search
+              || "";
 
             setSearch(
               value
@@ -147,7 +181,9 @@ function bindEvents() {
 
 
   document
-    .querySelectorAll("[data-quick]")
+    .querySelectorAll(
+      "[data-quick]"
+    )
     .forEach(
       button => {
 
@@ -162,8 +198,12 @@ function bindEvents() {
         );
       }
     );
+
+
   document
-    .querySelectorAll("[data-merchant]")
+    .querySelectorAll(
+      "[data-merchant]"
+    )
     .forEach(
       button => {
 
@@ -175,11 +215,11 @@ function bindEvents() {
               button.dataset.merchant
               || "all";
 
-            // เมื่อเปลี่ยนร้าน ให้เริ่มจากทุกประเภท
-            // ป้องกัน filter เดิมค้างจนดูเหมือนไม่มีข้อมูล
-            currentType = "all";
+            currentType =
+              "all";
 
-            currentPage = 1;
+            currentPage =
+              1;
 
             updateActiveFilterButtons(
               "merchant"
@@ -197,7 +237,9 @@ function bindEvents() {
 
 
   document
-    .querySelectorAll("[data-type]")
+    .querySelectorAll(
+      "[data-type]"
+    )
     .forEach(
       button => {
 
@@ -209,7 +251,8 @@ function bindEvents() {
               button.dataset.type
               || "all";
 
-            currentPage = 1;
+            currentPage =
+              1;
 
             updateActiveFilterButtons(
               "type"
@@ -221,8 +264,11 @@ function bindEvents() {
       }
     );
 
+
   document
-    .querySelectorAll("[data-smart]")
+    .querySelectorAll(
+      "[data-smart]"
+    )
     .forEach(
       button => {
 
@@ -234,7 +280,8 @@ function bindEvents() {
               button.dataset.smart
               || "recommended";
 
-            currentPage = 1;
+            currentPage =
+              1;
 
             updateActiveSmartButtons();
 
@@ -243,12 +290,11 @@ function bindEvents() {
         );
       }
     );
-
 }
 
 
 /* =====================================================
-LOAD
+LOAD PROMOTIONS
 ===================================================== */
 
 async function loadPromotions(
@@ -334,7 +380,7 @@ async function loadPromotions(
     if (forceRefresh) {
 
       showToast(
-        "โหลดข้อมูลล่าสุดแล้ว"
+        "โหลดข้อมูลโปรโมชั่นล่าสุดแล้ว"
       );
     }
   }
@@ -342,7 +388,7 @@ async function loadPromotions(
   catch (error) {
 
     console.error(
-      "PrachinLife load error:",
+      "PrachinLife promotion load error:",
       error
     );
 
@@ -357,8 +403,79 @@ async function loadPromotions(
     );
 
     showToast(
-      "ไม่สามารถโหลดข้อมูลได้"
+      "ไม่สามารถโหลดข้อมูลโปรโมชั่นได้"
     );
+  }
+}
+
+
+/* =====================================================
+LOAD COMMON INDEX
+===================================================== */
+
+async function loadCommonIndex(
+  forceRefresh = false
+) {
+
+  try {
+
+    const url =
+      forceRefresh
+        ? `${INDEX_URL}?t=${Date.now()}`
+        : INDEX_URL;
+
+
+    const response =
+      await fetch(
+        url,
+        {
+          cache: "no-store",
+        }
+      );
+
+
+    if (!response.ok) {
+
+      throw new Error(
+        `HTTP ${response.status}`
+      );
+    }
+
+
+    const data =
+      await response.json();
+
+
+    if (Array.isArray(data)) {
+
+      allContent = data;
+
+    } else {
+
+      allContent = [];
+    }
+
+
+    console.log(
+      "PrachinLife common index loaded:",
+      allContent.length
+    );
+  }
+
+  catch (error) {
+
+    console.warn(
+      "PrachinLife common index unavailable:",
+      error
+    );
+
+
+    /*
+    Search Engine failure must never
+    break the existing Deals experience.
+    */
+
+    allContent = [];
   }
 }
 
@@ -384,26 +501,35 @@ function normalizeClientData(data) {
           || item.product
           || "ไม่มีชื่อ";
 
+
         const merchant =
           item.merchant
           || item.store
           || "ไม่ระบุแหล่ง";
+
 
         const imageUrl =
           item.image_url
           || item.image
           || "";
 
+
         const promotionType =
           item.promotion_type
           || "campaign";
 
+
         return {
+
           ...item,
 
           title,
+
           merchant,
-          image_url: imageUrl,
+
+          image_url:
+            imageUrl,
+
           promotion_type:
             promotionType,
 
@@ -416,7 +542,8 @@ function normalizeClientData(data) {
             || "",
 
           verified:
-            item.verified === true,
+            item.verified
+            === true,
 
           location_scope:
             item.location_scope
@@ -458,12 +585,14 @@ function applySearchFromInput() {
       "searchInput"
     );
 
+
   currentSearch =
     input
       ? input.value
           .trim()
           .toLowerCase()
       : "";
+
 
   currentPage = 1;
 
@@ -480,14 +609,21 @@ function setSearch(value) {
       "searchInput"
     );
 
+
   if (input) {
-    input.value = value;
+
+    input.value =
+      value;
   }
 
+
   currentSearch =
-    value
+    String(
+      value || ""
+    )
       .trim()
       .toLowerCase();
+
 
   currentPage = 1;
 
@@ -504,14 +640,19 @@ function resetSearch() {
       "searchInput"
     );
 
+
   if (input) {
+
     input.value = "";
   }
+
 
   currentSearch = "";
   currentMerchant = "all";
   currentType = "all";
+  currentSmart = "recommended";
   currentPage = 1;
+
 
   updateActiveFilterButtons(
     "merchant"
@@ -521,143 +662,328 @@ function resetSearch() {
     "type"
   );
 
+  updateActiveSmartButtons();
+
   applyFilters();
 }
 
 
+/* =====================================================
+SMART FILTER
+===================================================== */
 
 function updateActiveSmartButtons() {
 
   document
-    .querySelectorAll("[data-smart]")
+    .querySelectorAll(
+      "[data-smart]"
+    )
     .forEach(
       button => {
 
         button.classList.toggle(
           "active",
-          button.dataset.smart === currentSmart
+          button.dataset.smart
+          === currentSmart
         );
       }
     );
 }
 
 
-function matchesSmartFilter(promotion) {
+function matchesSmartFilter(
+  promotion
+) {
 
-  if (currentSmart === "recommended") {
+  if (
+    currentSmart
+    === "recommended"
+  ) {
+
     return true;
   }
 
-  if (currentSmart === "must_check") {
-    return getInterestingScore(promotion) >= 60;
-  }
 
-  if (currentSmart === "saving") {
+  if (
+    currentSmart
+    === "must_check"
+  ) {
 
     return (
-      promotion.promotion_type === "coupon"
+      getInterestingScore(
+        promotion
+      )
+      >= 60
+    );
+  }
+
+
+  if (
+    currentSmart
+    === "saving"
+  ) {
+
+    return (
+      promotion.promotion_type
+        === "coupon"
       ||
-      promotion.promotion_type === "member_offer"
+      promotion.promotion_type
+        === "member_offer"
       ||
-      promotion.promotion_type === "product_deal"
+      promotion.promotion_type
+        === "product_deal"
       ||
       /ส่วนลด|คุ้ม|คูปอง|\d+\s*บาท/.test(
-        String(promotion.title || "")
+        String(
+          promotion.title
+          || ""
+        )
       )
     );
   }
 
-  if (currentSmart === "benefits") {
+
+  if (
+    currentSmart
+    === "benefits"
+  ) {
 
     return (
-      promotion.promotion_type === "coupon"
+      promotion.promotion_type
+        === "coupon"
       ||
-      promotion.promotion_type === "member_offer"
+      promotion.promotion_type
+        === "member_offer"
     );
   }
 
-  if (currentSmart === "catalogue") {
-    return isCataloguePromotion(promotion);
+
+  if (
+    currentSmart
+    === "catalogue"
+  ) {
+
+    return isCataloguePromotion(
+      promotion
+    );
   }
 
-  if (currentSmart === "activity") {
+
+  if (
+    currentSmart
+    === "activity"
+  ) {
 
     return (
-      promotion.promotion_type === "campaign"
+      promotion.promotion_type
+        === "campaign"
       &&
-      !isCataloguePromotion(promotion)
+      !isCataloguePromotion(
+        promotion
+      )
     );
   }
 
-  if (currentSmart === "latest") {
+
+  if (
+    currentSmart
+    === "latest"
+  ) {
+
     return true;
   }
+
 
   return true;
 }
 
 
+/* =====================================================
+FILTER ENGINE
+===================================================== */
+
 function applyFilters() {
+
+  let searchMatchIds =
+    null;
+
+
+  /*
+  Use PrachinLife Search Engine when:
+  1. User entered a query.
+  2. Common index is available.
+  3. search.js loaded successfully.
+
+  If any part is unavailable,
+  PrachinLife falls back to the
+  original text search.
+  */
+
+  if (
+    currentSearch
+    &&
+    allContent.length > 0
+    &&
+    window.PrachinLifeSearch
+    &&
+    typeof (
+      window.PrachinLifeSearch.search
+    ) === "function"
+  ) {
+
+    const searchResult =
+      window.PrachinLifeSearch.search(
+        allContent,
+        currentSearch,
+        {
+          limit: 200,
+        }
+      );
+
+
+    searchMatchIds =
+      new Set(
+        searchResult.items
+          .filter(
+            item =>
+              item.content_type
+              === "deal"
+          )
+          .map(
+            item =>
+              item.id
+          )
+      );
+
+
+    console.log(
+      "PrachinLife Search:",
+      {
+        query:
+          currentSearch,
+
+        intents:
+          searchResult.intents,
+
+        provider:
+          searchResult.provider,
+
+        matches:
+          searchMatchIds.size,
+      }
+    );
+  }
+
 
   filteredPromotions =
     allPromotions.filter(
       promotion => {
 
         const searchableText = [
+
           promotion.title,
+
           promotion.merchant,
+
           promotion.source,
+
           promotion.promotion_type,
+
           promotion.category,
+
           promotion.branch,
+
           promotion.source_type,
+
           promotion.location_scope,
+
           promotion.province,
+
           promotion.district,
+
           promotion.subdistrict,
+
           promotion.branch_name,
-          getLocationLabel(promotion)
+
+          getLocationLabel(
+            promotion
+          )
+
         ]
           .filter(Boolean)
           .join(" ")
           .toLowerCase();
 
+
         const matchesSearch =
-          !currentSearch ||
-          searchableText.includes(currentSearch);
+          !currentSearch
+          ||
+          (
+            searchMatchIds
+            !== null
+
+              ? searchMatchIds.has(
+                  promotion.id
+                )
+
+              : searchableText.includes(
+                  currentSearch
+                )
+          );
+
 
         const matchesMerchant =
-          currentMerchant === "all" ||
-          promotion.merchant === currentMerchant;
+          currentMerchant
+            === "all"
+          ||
+          promotion.merchant
+            === currentMerchant;
+
 
         const matchesType =
-          currentType === "all" ||
-          promotion.promotion_type === currentType;
+          currentType
+            === "all"
+          ||
+          promotion.promotion_type
+            === currentType;
+
 
         const matchesSmart =
           matchesSmartFilter(
             promotion
           );
 
+
         return (
-          matchesSearch &&
-          matchesMerchant &&
-          matchesType &&
+          matchesSearch
+          &&
+          matchesMerchant
+          &&
+          matchesType
+          &&
           matchesSmart
         );
       }
     );
 
+
   const useSmartMix =
-    currentSmart === "recommended"
+    currentSmart
+      === "recommended"
     &&
     !currentSearch
     &&
-    currentMerchant === "all"
+    currentMerchant
+      === "all"
     &&
-    currentType === "all";
+    currentType
+      === "all";
 
-  if (currentSmart === "latest") {
+
+  if (
+    currentSmart
+    === "latest"
+  ) {
 
     filteredPromotions =
       sortLatest(
@@ -669,13 +995,16 @@ function applyFilters() {
 
     filteredPromotions =
       useSmartMix
+
         ? smartMixPromotions(
             filteredPromotions
           )
+
         : rankInteresting(
             filteredPromotions
           );
   }
+
 
   currentPage = 1;
 
@@ -683,33 +1012,52 @@ function applyFilters() {
 }
 
 
-function updateActiveFilterButtons(filterType) {
+/* =====================================================
+FILTER BUTTONS
+===================================================== */
 
-  if (filterType === "merchant") {
+function updateActiveFilterButtons(
+  filterType
+) {
+
+  if (
+    filterType
+    === "merchant"
+  ) {
 
     document
-      .querySelectorAll("[data-merchant]")
+      .querySelectorAll(
+        "[data-merchant]"
+      )
       .forEach(
         button => {
 
           button.classList.toggle(
             "active",
-            button.dataset.merchant === currentMerchant
+            button.dataset.merchant
+              === currentMerchant
           );
         }
       );
   }
 
-  if (filterType === "type") {
+
+  if (
+    filterType
+    === "type"
+  ) {
 
     document
-      .querySelectorAll("[data-type]")
+      .querySelectorAll(
+        "[data-type]"
+      )
       .forEach(
         button => {
 
           button.classList.toggle(
             "active",
-            button.dataset.type === currentType
+            button.dataset.type
+              === currentType
           );
         }
       );
@@ -723,7 +1071,14 @@ QUICK ACTIONS
 
 function handleQuickAction(type) {
 
-  if (type === "all") {
+  if (
+    type === "all"
+  ) {
+
+    currentSmart =
+      "recommended";
+
+    updateActiveSmartButtons();
 
     setSearch("");
 
@@ -731,35 +1086,42 @@ function handleQuickAction(type) {
   }
 
 
-  if (type === "bigc") {
+  if (
+    type === "bigc"
+  ) {
 
-    setSearch("Big C");
+    setSearch(
+      "Big C"
+    );
 
     return;
   }
 
 
-  if (type === "latest") {
+  if (
+    type === "latest"
+  ) {
 
     currentSearch = "";
+
+    currentSmart =
+      "latest";
 
     const input =
       document.getElementById(
         "searchInput"
       );
 
+
     if (input) {
+
       input.value = "";
     }
 
-    filteredPromotions =
-      sortLatest(
-        [...allPromotions]
-      );
 
-    currentPage = 1;
+    updateActiveSmartButtons();
 
-    renderAll();
+    applyFilters();
 
     scrollToDeals();
   }
@@ -779,28 +1141,38 @@ function getLocationLabel(
     || "national";
 
 
-  if (scope === "national") {
+  if (
+    scope === "national"
+  ) {
 
     return "ทั่วประเทศ";
   }
 
 
-  if (scope === "province") {
+  if (
+    scope === "province"
+  ) {
 
-    return promotion.province
-      || "ระดับจังหวัด";
+    return (
+      promotion.province
+      || "ระดับจังหวัด"
+    );
   }
 
 
-  if (scope === "district") {
+  if (
+    scope === "district"
+  ) {
 
     const district =
       promotion.district
       || "";
 
+
     const province =
       promotion.province
       || "";
+
 
     return [
       district,
@@ -811,17 +1183,21 @@ function getLocationLabel(
   }
 
 
-  if (scope === "branch") {
+  if (
+    scope === "branch"
+  ) {
 
     return (
       promotion.branch_name
-      || [
+      ||
+      [
         promotion.district,
         promotion.province
       ]
         .filter(Boolean)
         .join(" · ")
-      || "เฉพาะสาขา"
+      ||
+      "เฉพาะสาขา"
     );
   }
 
@@ -830,192 +1206,396 @@ function getLocationLabel(
 }
 
 
-function getPromotionTypeLabel(promotion) {
+/* =====================================================
+PROMOTION TYPE
+===================================================== */
 
-  if (promotion.promotion_type === "coupon") {
+function getPromotionTypeLabel(
+  promotion
+) {
+
+  if (
+    promotion.promotion_type
+    === "coupon"
+  ) {
+
     return "คูปอง";
   }
 
-  if (promotion.promotion_type === "member_offer") {
+
+  if (
+    promotion.promotion_type
+    === "member_offer"
+  ) {
+
     return "สิทธิสมาชิก";
   }
 
-  if (promotion.promotion_type === "product_deal") {
+
+  if (
+    promotion.promotion_type
+    === "product_deal"
+  ) {
+
     return "ดีลสินค้า";
   }
+
 
   return "แคมเปญ";
 }
 
 
-function getPromotionTypeClass(promotion) {
+function getPromotionTypeClass(
+  promotion
+) {
 
-  if (promotion.promotion_type === "coupon") {
+  if (
+    promotion.promotion_type
+    === "coupon"
+  ) {
+
     return "coupon";
   }
 
-  if (promotion.promotion_type === "member_offer") {
+
+  if (
+    promotion.promotion_type
+    === "member_offer"
+  ) {
+
     return "member-offer";
   }
+
 
   return "campaign";
 }
 
 
 /* =====================================================
-SORT
+INTERESTING SCORE
 ===================================================== */
 
-function getInterestingScore(promotion) {
+function getInterestingScore(
+  promotion
+) {
 
   let score = 0;
 
-  if (promotion.promotion_type === "coupon") {
+
+  if (
+    promotion.promotion_type
+    === "coupon"
+  ) {
+
     score += 40;
   }
 
-  else if (promotion.promotion_type === "member_offer") {
+  else if (
+    promotion.promotion_type
+    === "member_offer"
+  ) {
+
     score += 25;
   }
 
-  else if (promotion.promotion_type === "product_deal") {
+  else if (
+    promotion.promotion_type
+    === "product_deal"
+  ) {
+
     score += 35;
   }
 
   else {
+
     score += 10;
   }
 
-  if (isCataloguePromotion(promotion)) {
+
+  if (
+    isCataloguePromotion(
+      promotion
+    )
+  ) {
+
     score += 20;
   }
 
-  if (promotion.verified === true) {
+
+  if (
+    promotion.verified
+    === true
+  ) {
+
     score += 10;
   }
 
-  if (promotion.image_url) {
+
+  if (
+    promotion.image_url
+  ) {
+
     score += 5;
   }
 
-  const oldPrice = Number(
-    promotion.old_price || 0
-  );
 
-  const newPrice = Number(
-    promotion.new_price || 0
-  );
+  const oldPrice =
+    Number(
+      promotion.old_price
+      || 0
+    );
+
+
+  const newPrice =
+    Number(
+      promotion.new_price
+      || 0
+    );
+
 
   if (
-    oldPrice > 0 &&
-    newPrice > 0 &&
+    oldPrice > 0
+    &&
+    newPrice > 0
+    &&
     newPrice < oldPrice
   ) {
+
     score += 30;
   }
 
-  const title = String(
-    promotion.title || ""
-  );
+
+  const title =
+    String(
+      promotion.title
+      || ""
+    );
+
 
   if (
-    /\d+\s*บาท/.test(title) ||
-    /ส่วนลด/.test(title)
+    /\d+\s*บาท/.test(
+      title
+    )
+    ||
+    /ส่วนลด/.test(
+      title
+    )
   ) {
+
     score += 15;
   }
 
-  if (promotion.location_scope === "province") {
+
+  if (
+    promotion.location_scope
+    === "province"
+  ) {
+
     score += 40;
   }
 
-  else if (promotion.location_scope === "district") {
+  else if (
+    promotion.location_scope
+    === "district"
+  ) {
+
     score += 50;
   }
 
-  else if (promotion.location_scope === "branch") {
+  else if (
+    promotion.location_scope
+    === "branch"
+  ) {
+
     score += 60;
   }
+
 
   return score;
 }
 
 
-function getSmartLabel(promotion) {
+function getSmartLabel(
+  promotion
+) {
 
   const score =
-    getInterestingScore(promotion);
+    getInterestingScore(
+      promotion
+    );
 
-  if (score >= 60) {
+
+  if (
+    score >= 60
+  ) {
+
     return "🔥 ควรเช็ก";
   }
 
-  if (score >= 35) {
+
+  if (
+    score >= 35
+  ) {
+
     return "✨ น่าสนใจ";
   }
+
 
   return "ℹ️ ดูรายละเอียด";
 }
 
 
-function getSmartReason(promotion) {
+function getSmartReason(
+  promotion
+) {
 
-  const title = String(
-    promotion.title || ""
-  );
+  const title =
+    String(
+      promotion.title
+      || ""
+    );
 
-  if (promotion.promotion_type === "coupon") {
 
-    if (/\d+\s*บาท/.test(title)) {
-      return "มีมูลค่าส่วนลดระบุชัด เหมาะสำหรับเช็กสิทธิ์ก่อนซื้อ";
+  if (
+    promotion.promotion_type
+    === "coupon"
+  ) {
+
+    if (
+      /\d+\s*บาท/.test(
+        title
+      )
+    ) {
+
+      return (
+        "มีมูลค่าส่วนลดระบุชัด "
+        +
+        "เหมาะสำหรับเช็กสิทธิ์ก่อนซื้อ"
+      );
     }
 
-    return "คูปองที่อาจช่วยประหยัด ควรเช็กก่อนซื้อ";
+
+    return (
+      "คูปองที่อาจช่วยประหยัด "
+      +
+      "ควรเช็กก่อนซื้อ"
+    );
   }
 
-  if (promotion.promotion_type === "member_offer") {
-    return "สิทธิสมาชิกที่อาจช่วยเพิ่มความคุ้มค่า";
+
+  if (
+    promotion.promotion_type
+    === "member_offer"
+  ) {
+
+    return (
+      "สิทธิสมาชิกที่อาจช่วยเพิ่มความคุ้มค่า"
+    );
   }
 
-  if (promotion.promotion_type === "product_deal") {
-    return "ดีลสินค้าที่มีข้อมูลราคา เหมาะสำหรับเปรียบเทียบก่อนซื้อ";
+
+  if (
+    promotion.promotion_type
+    === "product_deal"
+  ) {
+
+    return (
+      "ดีลสินค้าที่มีข้อมูลราคา "
+      +
+      "เหมาะสำหรับเปรียบเทียบก่อนซื้อ"
+    );
   }
 
-  if (isCataloguePromotion(promotion)) {
-    return "เปิดดูรายการโปรโมชั่นจากแคตตาล็อกต้นทางก่อนซื้อของ";
+
+  if (
+    isCataloguePromotion(
+      promotion
+    )
+  ) {
+
+    return (
+      "เปิดดูรายการโปรโมชั่นจาก"
+      +
+      "แคตตาล็อกต้นทางก่อนซื้อของ"
+    );
   }
 
-  if (/ลุ้น|ชิง|บินฟรี|รางวัล/.test(title)) {
-    return "กิจกรรมหรือลุ้นรางวัล เหมาะกับคนที่สนใจร่วมแคมเปญ";
+
+  if (
+    /ลุ้น|ชิง|บินฟรี|รางวัล/.test(
+      title
+    )
+  ) {
+
+    return (
+      "กิจกรรมหรือลุ้นรางวัล "
+      +
+      "เหมาะกับคนที่สนใจร่วมแคมเปญ"
+    );
   }
 
-  if (/ส่วนลด|คุ้ม|คูปอง/.test(title)) {
-    return "มีข้อความเกี่ยวกับสิทธิ์หรือความคุ้มค่า ควรเปิดดูรายละเอียด";
+
+  if (
+    /ส่วนลด|คุ้ม|คูปอง/.test(
+      title
+    )
+  ) {
+
+    return (
+      "มีข้อความเกี่ยวกับสิทธิ์หรือ"
+      +
+      "ความคุ้มค่า ควรเปิดดูรายละเอียด"
+    );
   }
 
-  return "แคมเปญจากแหล่งต้นทางที่อาจน่าสนใจ";
+
+  return (
+    "แคมเปญจากแหล่งต้นทางที่อาจน่าสนใจ"
+  );
 }
 
 
+/* =====================================================
+RANKING
+===================================================== */
+
 function rankInteresting(data) {
 
-  return [...data].sort(
+  return [
+    ...data
+  ].sort(
     (a, b) => {
 
       const scoreA =
-        getInterestingScore(a);
+        getInterestingScore(
+          a
+        );
+
 
       const scoreB =
-        getInterestingScore(b);
+        getInterestingScore(
+          b
+        );
 
-      if (scoreB !== scoreA) {
-        return scoreB - scoreA;
+
+      if (
+        scoreB !== scoreA
+      ) {
+
+        return (
+          scoreB - scoreA
+        );
       }
 
+
       return (
-        parseDateValue(b.collected_at)
+        parseDateValue(
+          b.collected_at
+        )
         -
-        parseDateValue(a.collected_at)
+        parseDateValue(
+          a.collected_at
+        )
       );
     }
   );
@@ -1025,53 +1605,87 @@ function rankInteresting(data) {
 function smartMixPromotions(data) {
 
   const sorted =
-    rankInteresting(data);
+    rankInteresting(
+      data
+    );
+
 
   const merchantBuckets =
     new Map();
 
-  for (const item of sorted) {
+
+  for (
+    const item
+    of sorted
+  ) {
 
     const merchant =
       item.merchant
       || "Unknown";
 
-    if (!merchantBuckets.has(merchant)) {
+
+    if (
+      !merchantBuckets.has(
+        merchant
+      )
+    ) {
+
       merchantBuckets.set(
         merchant,
         []
       );
     }
 
+
     merchantBuckets
-      .get(merchant)
-      .push(item);
+      .get(
+        merchant
+      )
+      .push(
+        item
+      );
   }
 
 
   const merchants =
-    [...merchantBuckets.keys()];
+    [
+      ...merchantBuckets.keys()
+    ];
 
 
   const selectedTypeCounts = {
+
     campaign: 0,
+
     coupon: 0,
+
     member_offer: 0,
+
     product_deal: 0,
+
   };
 
 
   const result = [];
 
 
-  function takeBestItem(bucket) {
+  function takeBestItem(
+    bucket
+  ) {
 
-    if (!bucket.length) {
+    if (
+      !bucket.length
+    ) {
+
       return null;
     }
 
+
     let bestIndex = 0;
-    let bestCount = Infinity;
+
+    let bestCount =
+      Infinity;
+
 
     for (
       let i = 0;
@@ -1080,17 +1694,27 @@ function smartMixPromotions(data) {
     ) {
 
       const type =
-        bucket[i].promotion_type
+        bucket[i]
+          .promotion_type
         || "campaign";
 
+
       const count =
-        selectedTypeCounts[type]
+        selectedTypeCounts[
+          type
+        ]
         ?? 0;
 
-      if (count < bestCount) {
 
-        bestCount = count;
-        bestIndex = i;
+      if (
+        count < bestCount
+      ) {
+
+        bestCount =
+          count;
+
+        bestIndex =
+          i;
       }
     }
 
@@ -1106,9 +1730,14 @@ function smartMixPromotions(data) {
       item.promotion_type
       || "campaign";
 
-    selectedTypeCounts[type] =
+
+    selectedTypeCounts[
+      type
+    ] =
       (
-        selectedTypeCounts[type]
+        selectedTypeCounts[
+          type
+        ]
         ?? 0
       )
       + 1;
@@ -1118,22 +1747,35 @@ function smartMixPromotions(data) {
   }
 
 
-  let remaining = sorted.length;
+  let remaining =
+    sorted.length;
 
 
-  while (remaining > 0) {
+  while (
+    remaining > 0
+  ) {
 
-    let addedThisRound = false;
+    let addedThisRound =
+      false;
 
 
-    for (const merchant of merchants) {
+    for (
+      const merchant
+      of merchants
+    ) {
 
       const bucket =
         merchantBuckets.get(
           merchant
         );
 
-      if (!bucket || !bucket.length) {
+
+      if (
+        !bucket
+        ||
+        !bucket.length
+      ) {
+
         continue;
       }
 
@@ -1146,16 +1788,22 @@ function smartMixPromotions(data) {
 
       if (item) {
 
-        result.push(item);
+        result.push(
+          item
+        );
 
         remaining--;
 
-        addedThisRound = true;
+        addedThisRound =
+          true;
       }
     }
 
 
-    if (!addedThisRound) {
+    if (
+      !addedThisRound
+    ) {
+
       break;
     }
   }
@@ -1167,7 +1815,9 @@ function smartMixPromotions(data) {
 
 function sortLatest(data) {
 
-  return [...data].sort(
+  return [
+    ...data
+  ].sort(
     (a, b) => {
 
       const timeA =
@@ -1175,12 +1825,16 @@ function sortLatest(data) {
           a.collected_at
         );
 
+
       const timeB =
         parseDateValue(
           b.collected_at
         );
 
-      return timeB - timeA;
+
+      return (
+        timeB - timeA
+      );
     }
   );
 }
@@ -1189,14 +1843,20 @@ function sortLatest(data) {
 function parseDateValue(value) {
 
   if (!value) {
+
     return 0;
   }
 
+
   const date =
-    new Date(value);
+    new Date(
+      value
+    );
+
 
   const timestamp =
     date.getTime();
+
 
   return Number.isFinite(
     timestamp
@@ -1214,6 +1874,7 @@ function renderAll() {
 
   renderPromotions();
 
+
   setText(
     "resultCount",
     `${filteredPromotions.length} รายการ`
@@ -1228,10 +1889,12 @@ function renderPromotions() {
       "promotionList"
     );
 
+
   const emptyState =
     document.getElementById(
       "emptyState"
     );
+
 
   const loadMoreBtn =
     document.getElementById(
@@ -1240,33 +1903,41 @@ function renderPromotions() {
 
 
   if (!list) {
+
     return;
   }
 
 
   if (
-    filteredPromotions.length === 0
+    filteredPromotions.length
+    === 0
   ) {
 
     list.innerHTML = "";
 
+
     if (emptyState) {
+
       emptyState.classList.remove(
         "hidden"
       );
     }
 
+
     if (loadMoreBtn) {
+
       loadMoreBtn.classList.add(
         "hidden"
       );
     }
+
 
     return;
   }
 
 
   if (emptyState) {
+
     emptyState.classList.add(
       "hidden"
     );
@@ -1275,7 +1946,8 @@ function renderPromotions() {
 
   const visibleCount =
     currentPage
-    * PAGE_SIZE;
+    *
+    PAGE_SIZE;
 
 
   const visibleItems =
@@ -1297,15 +1969,15 @@ function renderPromotions() {
 
     if (
       visibleCount
-      < filteredPromotions.length
+      <
+      filteredPromotions.length
     ) {
 
       loadMoreBtn.classList.remove(
         "hidden"
       );
-    }
 
-    else {
+    } else {
 
       loadMoreBtn.classList.add(
         "hidden"
@@ -1324,15 +1996,18 @@ function renderPromotionCard(
       promotion.title
     );
 
+
   const merchant =
     escapeHtml(
       promotion.merchant
     );
 
+
   const source =
     escapeHtml(
       promotion.source
     );
+
 
   const locationLabel =
     escapeHtml(
@@ -1341,12 +2016,14 @@ function renderPromotionCard(
       )
     );
 
+
   const category =
     escapeHtml(
       getPromotionCategoryLabel(
         promotion
       )
     );
+
 
   const typeLabel =
     escapeHtml(
@@ -1355,12 +2032,14 @@ function renderPromotionCard(
       )
     );
 
+
   const typeClass =
     escapeHtml(
       getPromotionTypeClass(
         promotion
       )
     );
+
 
   const smartLabel =
     escapeHtml(
@@ -1369,12 +2048,14 @@ function renderPromotionCard(
       )
     );
 
+
   const smartReason =
     escapeHtml(
       getSmartReason(
         promotion
       )
     );
+
 
   const description =
     escapeHtml(
@@ -1383,12 +2064,14 @@ function renderPromotionCard(
       )
     );
 
+
   const actionLabel =
     escapeHtml(
       getActionLabel(
         promotion
       )
     );
+
 
   const imageBlock =
     promotion.image_url
@@ -1409,10 +2092,12 @@ function renderPromotionCard(
         </div>
       `;
 
+
   const verifiedLabel =
     promotion.verified
       ? "✓ ข้อมูลจากแหล่งต้นทาง"
       : "ข้อมูลจากต้นทาง";
+
 
   const sourceButton =
     promotion.source_url
@@ -1434,6 +2119,7 @@ function renderPromotionCard(
           ยังไม่มีลิงก์ต้นทาง
         </span>
       `;
+
 
   return `
     <article class="promotion-card">
@@ -1479,11 +2165,15 @@ function renderPromotionCard(
         </h3>
 
         <p class="promotion-description">
+
           <strong>
             ${smartLabel}
           </strong>
+
           ·
+
           ${smartReason}
+
         </p>
 
         <p class="promotion-description">
@@ -1491,15 +2181,21 @@ function renderPromotionCard(
         </p>
 
         <p class="promotion-description">
+
           ${escapeHtml(
             verifiedLabel
           )}
+
           ·
+
           ${source}
+
         </p>
 
         <div class="promotion-actions">
+
           ${sourceButton}
+
         </div>
 
       </div>
@@ -1529,6 +2225,7 @@ function updateMeta() {
 
   setText(
     "lastUpdate",
+
     latest
       ? formatThaiDateTime(
           latest
@@ -1538,7 +2235,9 @@ function updateMeta() {
 }
 
 
-function getLatestCollectedAt(data) {
+function getLatestCollectedAt(
+  data
+) {
 
   const dates =
     data
@@ -1549,7 +2248,9 @@ function getLatestCollectedAt(data) {
       .filter(Boolean)
       .map(
         value =>
-          new Date(value)
+          new Date(
+            value
+          )
       )
       .filter(
         date =>
@@ -1559,7 +2260,10 @@ function getLatestCollectedAt(data) {
       );
 
 
-  if (dates.length === 0) {
+  if (
+    dates.length === 0
+  ) {
+
     return null;
   }
 
@@ -1575,20 +2279,26 @@ function getLatestCollectedAt(data) {
 }
 
 
-function formatThaiDateTime(date) {
+function formatThaiDateTime(
+  date
+) {
 
   try {
 
     return new Intl.DateTimeFormat(
       "th-TH",
       {
-        dateStyle: "medium",
-        timeStyle: "short",
-      }
-    ).format(date);
-  }
+        dateStyle:
+          "medium",
 
-  catch {
+        timeStyle:
+          "short",
+      }
+    ).format(
+      date
+    );
+
+  } catch {
 
     return date.toLocaleString();
   }
@@ -1605,6 +2315,7 @@ function setLoading() {
     document.getElementById(
       "promotionList"
     );
+
 
   if (list) {
 
@@ -1634,12 +2345,16 @@ function scrollToDeals() {
       "deals"
     );
 
+
   if (deals) {
 
     deals.scrollIntoView(
       {
-        behavior: "smooth",
-        block: "start",
+        behavior:
+          "smooth",
+
+        block:
+          "start",
       }
     );
   }
@@ -1652,10 +2367,15 @@ function setText(
 ) {
 
   const element =
-    document.getElementById(id);
+    document.getElementById(
+      id
+    );
+
 
   if (element) {
-    element.textContent = value;
+
+    element.textContent =
+      value;
   }
 }
 
@@ -1667,7 +2387,9 @@ function showToast(message) {
       "toast"
     );
 
+
   if (!toast) {
+
     return;
   }
 
@@ -1746,88 +2468,196 @@ function escapeAttribute(value) {
 PROMOTION DISPLAY HELPERS
 ===================================================== */
 
-function isCataloguePromotion(promotion) {
+function isCataloguePromotion(
+  promotion
+) {
 
-  const url = String(
-    promotion.source_url || ""
-  ).toLowerCase();
+  const url =
+    String(
+      promotion.source_url
+      || ""
+    )
+      .toLowerCase();
 
-  const title = String(
-    promotion.title || ""
-  ).toLowerCase();
+
+  const title =
+    String(
+      promotion.title
+      || ""
+    )
+      .toLowerCase();
+
 
   return (
-    url.includes("/catalog/") ||
-    url.includes("e-catalogue") ||
-    title.includes("แคตตาล็อก")
+    url.includes(
+      "/catalog/"
+    )
+    ||
+    url.includes(
+      "e-catalogue"
+    )
+    ||
+    title.includes(
+      "แคตตาล็อก"
+    )
   );
 }
 
 
-function getPromotionCategoryLabel(promotion) {
+function getPromotionCategoryLabel(
+  promotion
+) {
 
-  if (promotion.promotion_type === "coupon") {
+  if (
+    promotion.promotion_type
+    === "coupon"
+  ) {
+
     return "สิทธิ์ส่วนลด";
   }
 
-  if (promotion.promotion_type === "member_offer") {
+
+  if (
+    promotion.promotion_type
+    === "member_offer"
+  ) {
+
     return "สิทธิสมาชิก";
   }
 
-  if (promotion.promotion_type === "product_deal") {
+
+  if (
+    promotion.promotion_type
+    === "product_deal"
+  ) {
+
     return "โปรโมชั่นสินค้า";
   }
 
-  if (isCataloguePromotion(promotion)) {
+
+  if (
+    isCataloguePromotion(
+      promotion
+    )
+  ) {
+
     return "แคตตาล็อกโปรโมชั่น";
   }
 
+
   return (
-    promotion.category ||
+    promotion.category
+    ||
     "แคมเปญโปรโมชั่น"
   );
 }
 
 
-function getActionLabel(promotion) {
+function getActionLabel(
+  promotion
+) {
 
-  if (promotion.promotion_type === "coupon") {
+  if (
+    promotion.promotion_type
+    === "coupon"
+  ) {
+
     return "ดูคูปอง";
   }
 
-  if (promotion.promotion_type === "member_offer") {
+
+  if (
+    promotion.promotion_type
+    === "member_offer"
+  ) {
+
     return "ดูสิทธิสมาชิก";
   }
 
-  if (promotion.promotion_type === "product_deal") {
+
+  if (
+    promotion.promotion_type
+    === "product_deal"
+  ) {
+
     return "ดูดีลสินค้า";
   }
 
-  if (isCataloguePromotion(promotion)) {
+
+  if (
+    isCataloguePromotion(
+      promotion
+    )
+  ) {
+
     return "เปิดแคตตาล็อก";
   }
+
 
   return "ดูรายละเอียด";
 }
 
 
-function getPromotionDescription(promotion) {
+function getPromotionDescription(
+  promotion
+) {
 
-  if (promotion.promotion_type === "coupon") {
-    return "คูปองหรือสิทธิ์ส่วนลดจากแหล่งต้นทาง กรุณาตรวจสอบเงื่อนไขก่อนใช้สิทธิ์";
+  if (
+    promotion.promotion_type
+    === "coupon"
+  ) {
+
+    return (
+      "คูปองหรือสิทธิ์ส่วนลดจากแหล่งต้นทาง "
+      +
+      "กรุณาตรวจสอบเงื่อนไขก่อนใช้สิทธิ์"
+    );
   }
 
-  if (promotion.promotion_type === "member_offer") {
-    return "สิทธิประโยชน์สำหรับสมาชิก ตรวจสอบรายละเอียดจากต้นทาง";
+
+  if (
+    promotion.promotion_type
+    === "member_offer"
+  ) {
+
+    return (
+      "สิทธิประโยชน์สำหรับสมาชิก "
+      +
+      "ตรวจสอบรายละเอียดจากต้นทาง"
+    );
   }
 
-  if (promotion.promotion_type === "product_deal") {
-    return "ดีลสินค้าจากแหล่งต้นทาง ราคาและเงื่อนไขอาจแตกต่างตามช่วงเวลา";
+
+  if (
+    promotion.promotion_type
+    === "product_deal"
+  ) {
+
+    return (
+      "ดีลสินค้าจากแหล่งต้นทาง "
+      +
+      "ราคาและเงื่อนไขอาจแตกต่างตามช่วงเวลา"
+    );
   }
 
-  if (isCataloguePromotion(promotion)) {
-    return "แคตตาล็อกโปรโมชั่นจากร้านต้นทาง เปิดดูรายการล่าสุดได้จากต้นทาง";
+
+  if (
+    isCataloguePromotion(
+      promotion
+    )
+  ) {
+
+    return (
+      "แคตตาล็อกโปรโมชั่นจากร้านต้นทาง "
+      +
+      "เปิดดูรายการล่าสุดได้จากต้นทาง"
+    );
   }
 
-  return "แคมเปญจากแหล่งต้นทาง กรุณาตรวจสอบรายละเอียดและเงื่อนไข";
+
+  return (
+    "แคมเปญจากแหล่งต้นทาง "
+    +
+    "กรุณาตรวจสอบรายละเอียดและเงื่อนไข"
+  );
 }
