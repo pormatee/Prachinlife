@@ -33,7 +33,7 @@
       "osm_type": "node",
       "osm_id": 10105753017
     },
-    "collected_at": "2026-08-16T04:10:43.152584+00:00",
+    "collected_at": "2026-08-16T04:16:30.803573+00:00",
     "raw_tags": {
       "amenity": "restaurant",
       "diet:vegetarian": "yes"
@@ -73,7 +73,7 @@
       "osm_type": "node",
       "osm_id": 4608186474
     },
-    "collected_at": "2026-08-16T04:10:43.152584+00:00",
+    "collected_at": "2026-08-16T04:16:30.803573+00:00",
     "raw_tags": {
       "amenity": "restaurant"
     }
@@ -112,7 +112,7 @@
       "osm_type": "node",
       "osm_id": 475003150
     },
-    "collected_at": "2026-08-16T04:10:43.152584+00:00",
+    "collected_at": "2026-08-16T04:16:30.803573+00:00",
     "raw_tags": {
       "amenity": "restaurant"
     }
@@ -151,7 +151,7 @@
       "osm_type": "node",
       "osm_id": 475004894
     },
-    "collected_at": "2026-08-16T04:10:43.152584+00:00",
+    "collected_at": "2026-08-16T04:16:30.803573+00:00",
     "raw_tags": {
       "amenity": "restaurant",
       "cuisine": "noodle",
@@ -192,7 +192,7 @@
       "osm_type": "node",
       "osm_id": 475004896
     },
-    "collected_at": "2026-08-16T04:10:43.152584+00:00",
+    "collected_at": "2026-08-16T04:16:30.803573+00:00",
     "raw_tags": {
       "amenity": "restaurant"
     }
@@ -231,7 +231,7 @@
       "osm_type": "node",
       "osm_id": 6484629888
     },
-    "collected_at": "2026-08-16T04:10:43.152584+00:00",
+    "collected_at": "2026-08-16T04:16:30.803573+00:00",
     "raw_tags": {
       "amenity": "cafe"
     }
@@ -270,7 +270,7 @@
       "osm_type": "node",
       "osm_id": 7306657529
     },
-    "collected_at": "2026-08-16T04:10:43.152584+00:00",
+    "collected_at": "2026-08-16T04:16:30.803573+00:00",
     "raw_tags": {
       "amenity": "food_court"
     }
@@ -309,7 +309,7 @@
       "osm_type": "node",
       "osm_id": 7306657536
     },
-    "collected_at": "2026-08-16T04:10:43.152584+00:00",
+    "collected_at": "2026-08-16T04:16:30.803573+00:00",
     "raw_tags": {
       "amenity": "food_court"
     }
@@ -348,7 +348,7 @@
       "osm_type": "node",
       "osm_id": 7712592300
     },
-    "collected_at": "2026-08-16T04:10:43.152584+00:00",
+    "collected_at": "2026-08-16T04:16:30.803573+00:00",
     "raw_tags": {
       "amenity": "restaurant",
       "name:ru": "Кафе на озере"
@@ -388,7 +388,7 @@
       "osm_type": "node",
       "osm_id": 10104800519
     },
-    "collected_at": "2026-08-16T04:10:43.152584+00:00",
+    "collected_at": "2026-08-16T04:16:30.803573+00:00",
     "raw_tags": {
       "amenity": "cafe",
       "name:en": "Cafe Amazon",
@@ -429,7 +429,7 @@
       "osm_type": "node",
       "osm_id": 6369552999
     },
-    "collected_at": "2026-08-16T04:10:43.152584+00:00",
+    "collected_at": "2026-08-16T04:16:30.803573+00:00",
     "raw_tags": {
       "amenity": "cafe",
       "name": "Cafe Amazon"
@@ -469,7 +469,7 @@
       "osm_type": "node",
       "osm_id": 2676351772
     },
-    "collected_at": "2026-08-16T04:10:43.152584+00:00",
+    "collected_at": "2026-08-16T04:16:30.803573+00:00",
     "raw_tags": {
       "amenity": "cafe",
       "brand": "Café Amazon",
@@ -516,7 +516,7 @@
       "osm_type": "node",
       "osm_id": 6594614085
     },
-    "collected_at": "2026-08-16T04:10:43.152584+00:00",
+    "collected_at": "2026-08-16T04:16:30.803573+00:00",
     "raw_tags": {
       "amenity": "restaurant",
       "name": "Check in"
@@ -556,7 +556,7 @@
       "osm_type": "node",
       "osm_id": 8518228365
     },
-    "collected_at": "2026-08-16T04:10:43.152584+00:00",
+    "collected_at": "2026-08-16T04:16:30.803573+00:00",
     "raw_tags": {
       "amenity": "restaurant",
       "name": "Coffee & The Kitchen By บ้านสวนดอกไม้"
@@ -596,7 +596,7 @@
       "osm_type": "node",
       "osm_id": 2823924411
     },
-    "collected_at": "2026-08-16T04:10:43.152584+00:00",
+    "collected_at": "2026-08-16T04:16:30.803573+00:00",
     "raw_tags": {
       "amenity": "cafe",
       "cuisine": "regional",
@@ -638,7 +638,7 @@
       "osm_type": "node",
       "osm_id": 4841184021
     },
-    "collected_at": "2026-08-16T04:10:43.152584+00:00",
+    "collected_at": "2026-08-16T04:16:30.803573+00:00",
     "raw_tags": {
       "amenity": "cafe",
       "cuisine": "coffee_shop",
@@ -681,7 +681,7 @@
       "osm_type": "node",
       "osm_id": 12756489327
     },
-    "collected_at": "2026-08-16T04:10:43.152584+00:00",
+    "collected_at": "2026-08-16T04:16:30.803573+00:00",
     "raw_tags": {
       "amenity": "cafe",
       "name": "Lamin Coffee"
@@ -721,7 +721,7 @@
       "osm_type": "node",
       "osm_id": 11164355070
     },
-    "collected_at": "2026-08-16T04:10:43.152584+00:00",
+    "collected_at": "2026-08-16T04:16:30.803573+00:00",
     "raw_tags": {
       "amenity": "restaurant",
       "cuisine": "thai",
@@ -764,7 +764,7 @@
       "osm_type": "node",
       "osm_id": 11648691807
     },
-    "collected_at": "2026-08-16T04:10:43.152584+00:00",
+    "collected_at": "2026-08-16T04:16:30.803573+00:00",
     "raw_tags": {
       "amenity": "cafe",
       "name": "Teas & Trees"
@@ -804,7 +804,7 @@
       "osm_type": "node",
       "osm_id": 7836162676
     },
-    "collected_at": "2026-08-16T04:10:43.152584+00:00",
+    "collected_at": "2026-08-16T04:16:30.803573+00:00",
     "raw_tags": {
       "amenity": "restaurant",
       "name": "The Platoo Kitchen",
@@ -847,7 +847,7 @@
       "osm_type": "node",
       "osm_id": 4943305721
     },
-    "collected_at": "2026-08-16T04:10:43.152584+00:00",
+    "collected_at": "2026-08-16T04:16:30.803573+00:00",
     "raw_tags": {
       "amenity": "restaurant",
       "name": "Verona",
@@ -891,7 +891,7 @@
       "osm_type": "node",
       "osm_id": 4750841828
     },
-    "collected_at": "2026-08-16T04:10:43.152584+00:00",
+    "collected_at": "2026-08-16T04:16:30.803573+00:00",
     "raw_tags": {
       "amenity": "cafe",
       "cuisine": "thai",
@@ -933,7 +933,7 @@
       "osm_type": "node",
       "osm_id": 9538872995
     },
-    "collected_at": "2026-08-16T04:10:43.152584+00:00",
+    "collected_at": "2026-08-16T04:16:30.803573+00:00",
     "raw_tags": {
       "addr:city": "หนองโพรง",
       "addr:postcode": "25140",
@@ -976,7 +976,7 @@
       "osm_type": "node",
       "osm_id": 4036359329
     },
-    "collected_at": "2026-08-16T04:10:43.152584+00:00",
+    "collected_at": "2026-08-16T04:16:30.803573+00:00",
     "raw_tags": {
       "amenity": "cafe",
       "internet_access": "wlan",
@@ -1019,7 +1019,7 @@
       "osm_type": "way",
       "osm_id": 431800572
     },
-    "collected_at": "2026-08-16T04:10:43.152584+00:00",
+    "collected_at": "2026-08-16T04:16:30.803573+00:00",
     "raw_tags": {
       "amenity": "cafe",
       "building": "yes",
@@ -1064,7 +1064,7 @@
       "osm_type": "node",
       "osm_id": 12863075914
     },
-    "collected_at": "2026-08-16T04:10:43.152584+00:00",
+    "collected_at": "2026-08-16T04:16:30.803573+00:00",
     "raw_tags": {
       "amenity": "restaurant",
       "cuisine": "thai;regional",
@@ -1106,7 +1106,7 @@
       "osm_type": "node",
       "osm_id": 8487743496
     },
-    "collected_at": "2026-08-16T04:10:43.152584+00:00",
+    "collected_at": "2026-08-16T04:16:30.803573+00:00",
     "raw_tags": {
       "amenity": "restaurant",
       "name": "ก๋วยเตี๋ยวลิ้นวัว-เนื้อลาย นครสวรรค์-สาขากบินทร์บุรี"
@@ -1146,7 +1146,7 @@
       "osm_type": "node",
       "osm_id": 8477554774
     },
-    "collected_at": "2026-08-16T04:10:43.152584+00:00",
+    "collected_at": "2026-08-16T04:16:30.803573+00:00",
     "raw_tags": {
       "amenity": "restaurant",
       "name": "ก๋วยเตี๋ยวเป็ดโดนัท"
@@ -1186,7 +1186,7 @@
       "osm_type": "node",
       "osm_id": 12723499519
     },
-    "collected_at": "2026-08-16T04:10:43.152584+00:00",
+    "collected_at": "2026-08-16T04:16:30.803573+00:00",
     "raw_tags": {
       "addr:district": "ประจันตคาม",
       "addr:housenumber": "121",
@@ -1237,7 +1237,7 @@
       "osm_type": "node",
       "osm_id": 8511009144
     },
-    "collected_at": "2026-08-16T04:10:43.152584+00:00",
+    "collected_at": "2026-08-16T04:16:30.803573+00:00",
     "raw_tags": {
       "amenity": "restaurant",
       "name": "ข้าวเหนียวนึ่ง เมืองนครพนม"
@@ -1277,7 +1277,7 @@
       "osm_type": "node",
       "osm_id": 12281368013
     },
-    "collected_at": "2026-08-16T04:10:43.152584+00:00",
+    "collected_at": "2026-08-16T04:16:30.803573+00:00",
     "raw_tags": {
       "amenity": "cafe",
       "brand": "คาเฟ่ อเมซอน",
@@ -1325,7 +1325,7 @@
       "osm_type": "node",
       "osm_id": 12535015655
     },
-    "collected_at": "2026-08-16T04:10:43.152584+00:00",
+    "collected_at": "2026-08-16T04:16:30.803573+00:00",
     "raw_tags": {
       "amenity": "cafe",
       "brand": "คาเฟ่ อเมซอน",
@@ -1373,7 +1373,7 @@
       "osm_type": "node",
       "osm_id": 12535084238
     },
-    "collected_at": "2026-08-16T04:10:43.152584+00:00",
+    "collected_at": "2026-08-16T04:16:30.803573+00:00",
     "raw_tags": {
       "amenity": "cafe",
       "brand": "คาเฟ่ อเมซอน",
@@ -1421,7 +1421,7 @@
       "osm_type": "node",
       "osm_id": 12729633359
     },
-    "collected_at": "2026-08-16T04:10:43.152584+00:00",
+    "collected_at": "2026-08-16T04:16:30.803573+00:00",
     "raw_tags": {
       "amenity": "cafe",
       "brand": "คาเฟ่ อเมซอน",
@@ -1469,7 +1469,7 @@
       "osm_type": "node",
       "osm_id": 12729755735
     },
-    "collected_at": "2026-08-16T04:10:43.152584+00:00",
+    "collected_at": "2026-08-16T04:16:30.803573+00:00",
     "raw_tags": {
       "amenity": "cafe",
       "brand": "คาเฟ่ อเมซอน",
@@ -1517,7 +1517,7 @@
       "osm_type": "node",
       "osm_id": 1609809894
     },
-    "collected_at": "2026-08-16T04:10:43.152584+00:00",
+    "collected_at": "2026-08-16T04:16:30.803573+00:00",
     "raw_tags": {
       "amenity": "cafe",
       "cuisine": "coffee_shop",
@@ -1560,7 +1560,7 @@
       "osm_type": "node",
       "osm_id": 4873907938
     },
-    "collected_at": "2026-08-16T04:10:43.152584+00:00",
+    "collected_at": "2026-08-16T04:16:30.803573+00:00",
     "raw_tags": {
       "amenity": "cafe",
       "brand": "คาเฟ่ อเมซอน",
@@ -1609,7 +1609,7 @@
       "osm_type": "node",
       "osm_id": 5434366222
     },
-    "collected_at": "2026-08-16T04:10:43.152584+00:00",
+    "collected_at": "2026-08-16T04:16:30.803573+00:00",
     "raw_tags": {
       "amenity": "cafe",
       "brand": "คาเฟ่ อเมซอน",
@@ -1657,7 +1657,7 @@
       "osm_type": "node",
       "osm_id": 5434377523
     },
-    "collected_at": "2026-08-16T04:10:43.152584+00:00",
+    "collected_at": "2026-08-16T04:16:30.803573+00:00",
     "raw_tags": {
       "amenity": "cafe",
       "brand": "คาเฟ่ อเมซอน",
@@ -1707,7 +1707,7 @@
       "osm_type": "node",
       "osm_id": 8477554775
     },
-    "collected_at": "2026-08-16T04:10:43.152584+00:00",
+    "collected_at": "2026-08-16T04:16:30.803573+00:00",
     "raw_tags": {
       "amenity": "restaurant",
       "name": "ดินหวาน"
@@ -1747,7 +1747,7 @@
       "osm_type": "node",
       "osm_id": 8477529505
     },
-    "collected_at": "2026-08-16T04:10:43.152584+00:00",
+    "collected_at": "2026-08-16T04:16:30.803573+00:00",
     "raw_tags": {
       "amenity": "restaurant",
       "name": "ตั้งหย่งปัง"
@@ -1787,7 +1787,7 @@
       "osm_type": "node",
       "osm_id": 14087623913
     },
-    "collected_at": "2026-08-16T04:10:43.152584+00:00",
+    "collected_at": "2026-08-16T04:16:30.803573+00:00",
     "raw_tags": {
       "addr:district": "เมือง",
       "addr:housenumber": "50/8",
@@ -1837,7 +1837,7 @@
       "osm_type": "node",
       "osm_id": 7999239610
     },
-    "collected_at": "2026-08-16T04:10:43.152584+00:00",
+    "collected_at": "2026-08-16T04:16:30.803573+00:00",
     "raw_tags": {
       "amenity": "cafe",
       "name": "ทีทำการผู้ใหญ่บ้าน หมู่ 4"
@@ -1877,7 +1877,7 @@
       "osm_type": "node",
       "osm_id": 8459869506
     },
-    "collected_at": "2026-08-16T04:10:43.152584+00:00",
+    "collected_at": "2026-08-16T04:16:30.803573+00:00",
     "raw_tags": {
       "amenity": "restaurant",
       "name": "บุศบาจิ้มจุ่ม"
@@ -1917,7 +1917,7 @@
       "osm_type": "node",
       "osm_id": 4158649383
     },
-    "collected_at": "2026-08-16T04:10:43.152584+00:00",
+    "collected_at": "2026-08-16T04:16:30.803573+00:00",
     "raw_tags": {
       "amenity": "restaurant",
       "name": "บ้านส้มตำ"
@@ -1957,7 +1957,7 @@
       "osm_type": "node",
       "osm_id": 8518228355
     },
-    "collected_at": "2026-08-16T04:10:43.152584+00:00",
+    "collected_at": "2026-08-16T04:16:30.803573+00:00",
     "raw_tags": {
       "amenity": "cafe",
       "cuisine": "coffee_shop",
@@ -1998,7 +1998,7 @@
       "osm_type": "node",
       "osm_id": 13955478384
     },
-    "collected_at": "2026-08-16T04:10:43.152584+00:00",
+    "collected_at": "2026-08-16T04:16:30.803573+00:00",
     "raw_tags": {
       "amenity": "restaurant",
       "name": "ปาล์มสวีทโฮม",
@@ -2041,7 +2041,7 @@
       "osm_type": "node",
       "osm_id": 13251429765
     },
-    "collected_at": "2026-08-16T04:10:43.152584+00:00",
+    "collected_at": "2026-08-16T04:16:30.803573+00:00",
     "raw_tags": {
       "addr:district": "กบินทร์บุรี",
       "addr:place": "ตลาดสดอุดมสุขกบินทร์บุรี",
@@ -2088,7 +2088,7 @@
       "osm_type": "node",
       "osm_id": 11425827233
     },
-    "collected_at": "2026-08-16T04:10:43.152584+00:00",
+    "collected_at": "2026-08-16T04:16:30.803573+00:00",
     "raw_tags": {
       "addr:city": "Si Maha Phot District",
       "addr:postcode": "25140",
@@ -2138,7 +2138,7 @@
       "osm_type": "node",
       "osm_id": 8482167812
     },
-    "collected_at": "2026-08-16T04:10:43.152584+00:00",
+    "collected_at": "2026-08-16T04:16:30.803573+00:00",
     "raw_tags": {
       "amenity": "restaurant",
       "name": "ร้านป้าแอ๊ว อาหารตามสั่ง"
@@ -2178,7 +2178,7 @@
       "osm_type": "node",
       "osm_id": 8526925620
     },
-    "collected_at": "2026-08-16T04:10:43.152584+00:00",
+    "collected_at": "2026-08-16T04:16:30.803573+00:00",
     "raw_tags": {
       "amenity": "restaurant",
       "name": "ร้านศรีนุชข้าวต้มกุ๊ย"
@@ -2218,7 +2218,7 @@
       "osm_type": "node",
       "osm_id": 13706395637
     },
-    "collected_at": "2026-08-16T04:10:43.152584+00:00",
+    "collected_at": "2026-08-16T04:16:30.803573+00:00",
     "raw_tags": {
       "addr:district": "ศรีมหาโพธิ",
       "addr:postcode": "25140",
@@ -2264,7 +2264,7 @@
       "osm_type": "node",
       "osm_id": 7306657537
     },
-    "collected_at": "2026-08-16T04:10:43.152584+00:00",
+    "collected_at": "2026-08-16T04:16:30.803573+00:00",
     "raw_tags": {
       "amenity": "restaurant",
       "name": "ร้านอาโก"
@@ -2304,7 +2304,7 @@
       "osm_type": "node",
       "osm_id": 8477554771
     },
-    "collected_at": "2026-08-16T04:10:43.152584+00:00",
+    "collected_at": "2026-08-16T04:16:30.803573+00:00",
     "raw_tags": {
       "amenity": "restaurant",
       "name": "ร้านเซาะกราว"
@@ -2344,7 +2344,7 @@
       "osm_type": "node",
       "osm_id": 8526925621
     },
-    "collected_at": "2026-08-16T04:10:43.152584+00:00",
+    "collected_at": "2026-08-16T04:16:30.803573+00:00",
     "raw_tags": {
       "amenity": "restaurant",
       "name": "ร้านโกหยัด ข้าวต้มกุ๊ย"
@@ -2384,7 +2384,7 @@
       "osm_type": "node",
       "osm_id": 8477554772
     },
-    "collected_at": "2026-08-16T04:10:43.152584+00:00",
+    "collected_at": "2026-08-16T04:16:30.803573+00:00",
     "raw_tags": {
       "amenity": "restaurant",
       "name": "ลาบเป็ดยโส"
@@ -2424,7 +2424,7 @@
       "osm_type": "node",
       "osm_id": 4036092969
     },
-    "collected_at": "2026-08-16T04:10:43.152584+00:00",
+    "collected_at": "2026-08-16T04:16:30.803573+00:00",
     "raw_tags": {
       "amenity": "restaurant",
       "name": "สเต็กซอย 4 วังสำราญ",
@@ -2466,7 +2466,7 @@
       "osm_type": "node",
       "osm_id": 8477554773
     },
-    "collected_at": "2026-08-16T04:10:43.152584+00:00",
+    "collected_at": "2026-08-16T04:16:30.803573+00:00",
     "raw_tags": {
       "amenity": "restaurant",
       "name": "สเต็กบ้านน้ำพริก"
@@ -2506,7 +2506,7 @@
       "osm_type": "way",
       "osm_id": 518190355
     },
-    "collected_at": "2026-08-16T04:10:43.152584+00:00",
+    "collected_at": "2026-08-16T04:16:30.803573+00:00",
     "raw_tags": {
       "amenity": "restaurant",
       "building": "yes",
@@ -2549,7 +2549,7 @@
       "osm_type": "way",
       "osm_id": 518190348
     },
-    "collected_at": "2026-08-16T04:10:43.152584+00:00",
+    "collected_at": "2026-08-16T04:16:30.803573+00:00",
     "raw_tags": {
       "amenity": "restaurant",
       "building": "yes",
@@ -2592,7 +2592,7 @@
       "osm_type": "node",
       "osm_id": 6982014185
     },
-    "collected_at": "2026-08-16T04:10:43.152584+00:00",
+    "collected_at": "2026-08-16T04:16:30.803573+00:00",
     "raw_tags": {
       "amenity": "restaurant",
       "cuisine": "thai;local",
@@ -2634,7 +2634,7 @@
       "osm_type": "node",
       "osm_id": 8511009142
     },
-    "collected_at": "2026-08-16T04:10:43.152584+00:00",
+    "collected_at": "2026-08-16T04:16:30.803573+00:00",
     "raw_tags": {
       "amenity": "restaurant",
       "name": "แมนหมูกระทะ"
@@ -2674,7 +2674,7 @@
       "osm_type": "node",
       "osm_id": 7008336988
     },
-    "collected_at": "2026-08-16T04:10:43.152584+00:00",
+    "collected_at": "2026-08-16T04:16:30.803573+00:00",
     "raw_tags": {
       "addr:street": "ซอยเจ้าสำอางค์",
       "amenity": "restaurant",
@@ -2717,7 +2717,7 @@
       "osm_type": "node",
       "osm_id": 7999239632
     },
-    "collected_at": "2026-08-16T04:10:43.152584+00:00",
+    "collected_at": "2026-08-16T04:16:30.803573+00:00",
     "raw_tags": {
       "amenity": "cafe",
       "name": "โรงน้ำแข็ง"
