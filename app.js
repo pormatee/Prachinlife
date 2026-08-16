@@ -21,7 +21,6 @@ CONFIG
 ===================================================== */
 
 const INDEX_URL = "prachinlife_index.json";
-const VEGETARIAN_URL = "vegetarian_index.json";
 const DATA_URL = "promotions.json";
 const INDEX_URL = "prachinlife_index.json";
 
@@ -41,7 +40,7 @@ let allContent = [];
 
 let allEatPlaces = [];
 let filteredEatPlaces = [];
-let allVegetarianPlaces = [];
+
 
 let currentPage = 1;
 let currentEatPage = 1;
@@ -80,11 +79,10 @@ async function init() {
     );
 
     bindEvents();
-
+    
     await Promise.all([
       loadPromotions(),
       loadCommonIndex(),
-      loadVegetarianIndex(),
     ]);
     
     prepareEatPlaces();
