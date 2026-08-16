@@ -1,0 +1,67 @@
+name: Test PrachinLife Vegetarian Places
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  test-vegetarian-places:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests
+
+      - name: Run vegetarian places collector
+        run: |
+          python collectors/vegetarian_places.py
+
+      - name: Show collected data summary
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          path = Path("data/raw/vegetarian_places.json")
+
+          if not path.exists():
+              raise SystemExit("vegetarian_places.json not found")
+
+          data = json.loads(path.read_text(encoding="utf-8"))
+
+          print("TOTAL =", len(data))
+
+          for item in data[:20]:
+              print(
+                  item.get("name"),
+                  "|",
+                  item.get("location", {}).get("province"),
+                  "| vegetarian =",
+                  item.get("dietary", {})
+                      .get("vegetarian", {})
+                      .get("value"),
+                  "| vegan =",
+                  item.get("dietary", {})
+                      .get("vegan", {})
+                      .get("value"),
+              )
+          PY
+
+      - name: Upload result artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: vegetarian-places-data
+          path: data/raw/vegetarian_places.json
+          
