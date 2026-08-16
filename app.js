@@ -49,14 +49,14 @@ async function init() {
 
     setText(
       "recommendedResultCount",
-      "กำลังเริ่มระบบ..."
+      "STEP 1"
     );
 
     bindEvents();
 
     setText(
       "recommendedResultCount",
-      "กำลังโหลดข้อมูล..."
+      "STEP 2"
     );
 
     await Promise.all([
@@ -64,9 +64,19 @@ async function init() {
       loadCommonIndex(),
     ]);
 
+    setText(
+      "recommendedResultCount",
+      "STEP 3"
+    );
+
     prepareEatPlaces();
 
     buildEatAreaFilters();
+
+    setText(
+      "recommendedResultCount",
+      "STEP 4"
+    );
 
     updateMeta();
 
@@ -74,12 +84,22 @@ async function init() {
 
     applyEatFilters();
 
+    setText(
+      "recommendedResultCount",
+      "STEP 5"
+    );
+
     setMainCategory(
       "recommended",
       false
     );
 
     renderRecommended();
+
+    setText(
+      "recommendedResultCount",
+      "STEP 6"
+    );
 
   }
 
@@ -96,6 +116,7 @@ async function init() {
     );
   }
 }
+
 
 
 /* =====================================================
