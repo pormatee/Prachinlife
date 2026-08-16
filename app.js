@@ -1,16 +1,24 @@
 const DATA_URL = "promotions.json";
 const INDEX_URL = "prachinlife_index.json";
+
 const PAGE_SIZE = 8;
+const EAT_PAGE_SIZE = 8;
 
 let allPromotions = [];
 let allContent = [];
 let filteredPromotions = [];
+
+let allEatPlaces = [];
+let filteredEatPlaces = [];
 
 let currentPage = 1;
 let currentSearch = "";
 let currentMerchant = "all";
 let currentType = "all";
 let currentSmart = "recommended";
+
+let currentEatType = "all";
+let currentEatPage = 1;
 
 let toastTimer = null;
 
@@ -25,11 +33,15 @@ async function init() {
 
   bindEvents();
 
-  await loadPromotions();
+  await Promise.all([
+    loadPromotions(),
+    loadCommonIndex(),
+  ]);
 
-  await loadCommonIndex();
+  prepareEatPlaces();
 
   applyFilters();
+  applyEatFilters();
 }
 
 
@@ -62,6 +74,11 @@ function bindEvents() {
   const loadMoreBtn =
     document.getElementById(
       "loadMoreBtn"
+    );
+
+  const eatLoadMoreBtn =
+    document.getElementById(
+      "eatLoadMoreBtn"
     );
 
 
@@ -115,15 +132,15 @@ function bindEvents() {
           "กำลังโหลดข้อมูลล่าสุด..."
         );
 
-        await loadPromotions(
-          true
-        );
+        await Promise.all([
+          loadPromotions(true),
+          loadCommonIndex(true),
+        ]);
 
-        await loadCommonIndex(
-          true
-        );
+        prepareEatPlaces();
 
         applyFilters();
+        applyEatFilters();
 
         showToast(
           "โหลดข้อมูลล่าสุดแล้ว"
@@ -151,6 +168,20 @@ function bindEvents() {
         currentPage++;
 
         renderPromotions();
+      }
+    );
+  }
+
+
+  if (eatLoadMoreBtn) {
+
+    eatLoadMoreBtn.addEventListener(
+      "click",
+      () => {
+
+        currentEatPage++;
+
+        renderEatPlaces();
       }
     );
   }
@@ -290,6 +321,33 @@ function bindEvents() {
         );
       }
     );
+
+
+  document
+    .querySelectorAll(
+      "[data-eat-type]"
+    )
+    .forEach(
+      button => {
+
+        button.addEventListener(
+          "click",
+          () => {
+
+            currentEatType =
+              button.dataset.eatType
+              || "all";
+
+            currentEatPage =
+              1;
+
+            updateActiveEatButtons();
+
+            applyEatFilters();
+          }
+        );
+      }
+    );
 }
 
 
@@ -372,17 +430,7 @@ async function loadPromotions(
 
     currentPage = 1;
 
-    applyFilters();
-
     updateMeta();
-
-
-    if (forceRefresh) {
-
-      showToast(
-        "โหลดข้อมูลโปรโมชั่นล่าสุดแล้ว"
-      );
-    }
   }
 
   catch (error) {
@@ -469,14 +517,35 @@ async function loadCommonIndex(
       error
     );
 
-
-    /*
-    Search Engine failure must never
-    break the existing Deals experience.
-    */
-
     allContent = [];
   }
+}
+
+
+/* =====================================================
+PREPARE EAT
+===================================================== */
+
+function prepareEatPlaces() {
+
+  allEatPlaces =
+    allContent.filter(
+      item =>
+        item
+        &&
+        item.content_type
+          === "eat"
+    );
+
+  filteredEatPlaces =
+    [...allEatPlaces];
+
+  currentEatPage = 1;
+
+  setText(
+    "eatResultCount",
+    `${allEatPlaces.length} ร้าน`
+  );
 }
 
 
@@ -808,17 +877,6 @@ function applyFilters() {
     null;
 
 
-  /*
-  Use PrachinLife Search Engine when:
-  1. User entered a query.
-  2. Common index is available.
-  3. search.js loaded successfully.
-
-  If any part is unavailable,
-  PrachinLife falls back to the
-  original text search.
-  */
-
   if (
     currentSearch
     &&
@@ -854,24 +912,6 @@ function applyFilters() {
               item.id
           )
       );
-
-
-    console.log(
-      "PrachinLife Search:",
-      {
-        query:
-          currentSearch,
-
-        intents:
-          searchResult.intents,
-
-        provider:
-          searchResult.provider,
-
-        matches:
-          searchMatchIds.size,
-      }
-    );
   }
 
 
@@ -1099,6 +1139,27 @@ function handleQuickAction(type) {
 
 
   if (
+    type === "eat"
+  ) {
+
+    const eatSection =
+      document.getElementById(
+        "eat"
+      );
+
+    if (eatSection) {
+
+      eatSection.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+
+    return;
+  }
+
+
+  if (
     type === "latest"
   ) {
 
@@ -1106,6 +1167,7 @@ function handleQuickAction(type) {
 
     currentSmart =
       "latest";
+
 
     const input =
       document.getElementById(
@@ -1867,7 +1929,7 @@ function parseDateValue(value) {
 
 
 /* =====================================================
-RENDER
+RENDER DEALS
 ===================================================== */
 
 function renderAll() {
@@ -1967,22 +2029,11 @@ function renderPromotions() {
 
   if (loadMoreBtn) {
 
-    if (
-      visibleCount
-      <
-      filteredPromotions.length
-    ) {
-
-      loadMoreBtn.classList.remove(
-        "hidden"
-      );
-
-    } else {
-
-      loadMoreBtn.classList.add(
-        "hidden"
-      );
-    }
+    loadMoreBtn.classList.toggle(
+      "hidden",
+      visibleCount >=
+        filteredPromotions.length
+    );
   }
 }
 
@@ -2202,6 +2253,569 @@ function renderPromotionCard(
 
     </article>
   `;
+}
+
+
+/* =====================================================
+EAT FILTER
+===================================================== */
+
+function applyEatFilters() {
+
+  filteredEatPlaces =
+    allEatPlaces.filter(
+      place => {
+
+        if (
+          currentEatType === "all"
+        ) {
+
+          return true;
+        }
+
+
+        return (
+          place.category
+            === currentEatType
+          ||
+          place.original_type
+            === currentEatType
+        );
+      }
+    );
+
+
+  filteredEatPlaces.sort(
+    (a, b) => {
+
+      const districtA =
+        String(
+          a.location?.district
+          || ""
+        );
+
+
+      const districtB =
+        String(
+          b.location?.district
+          || ""
+        );
+
+
+      const districtCompare =
+        districtA.localeCompare(
+          districtB,
+          "th"
+        );
+
+
+      if (
+        districtCompare !== 0
+      ) {
+
+        return districtCompare;
+      }
+
+
+      return String(
+        a.title || ""
+      ).localeCompare(
+        String(
+          b.title || ""
+        ),
+        "th"
+      );
+    }
+  );
+
+
+  currentEatPage = 1;
+
+
+  setText(
+    "eatResultCount",
+    `${filteredEatPlaces.length} ร้าน`
+  );
+
+
+  renderEatPlaces();
+}
+
+
+function updateActiveEatButtons() {
+
+  document
+    .querySelectorAll(
+      "[data-eat-type]"
+    )
+    .forEach(
+      button => {
+
+        button.classList.toggle(
+          "active",
+          button.dataset.eatType
+          === currentEatType
+        );
+      }
+    );
+}
+
+
+/* =====================================================
+RENDER EAT
+===================================================== */
+
+function renderEatPlaces() {
+
+  const list =
+    document.getElementById(
+      "eatList"
+    );
+
+
+  const emptyState =
+    document.getElementById(
+      "eatEmptyState"
+    );
+
+
+  const loadMoreBtn =
+    document.getElementById(
+      "eatLoadMoreBtn"
+    );
+
+
+  if (!list) {
+
+    return;
+  }
+
+
+  if (
+    filteredEatPlaces.length
+    === 0
+  ) {
+
+    list.innerHTML = "";
+
+
+    if (emptyState) {
+
+      emptyState.classList.remove(
+        "hidden"
+      );
+    }
+
+
+    if (loadMoreBtn) {
+
+      loadMoreBtn.classList.add(
+        "hidden"
+      );
+    }
+
+
+    return;
+  }
+
+
+  if (emptyState) {
+
+    emptyState.classList.add(
+      "hidden"
+    );
+  }
+
+
+  const visibleCount =
+    currentEatPage
+    *
+    EAT_PAGE_SIZE;
+
+
+  const visiblePlaces =
+    filteredEatPlaces.slice(
+      0,
+      visibleCount
+    );
+
+
+  list.innerHTML =
+    visiblePlaces
+      .map(
+        renderEatCard
+      )
+      .join("");
+
+
+  if (loadMoreBtn) {
+
+    loadMoreBtn.classList.toggle(
+      "hidden",
+      visibleCount >=
+        filteredEatPlaces.length
+    );
+  }
+}
+
+
+function renderEatCard(place) {
+
+  const title =
+    escapeHtml(
+      place.title
+      || "ไม่ระบุชื่อ"
+    );
+
+
+  const categoryLabel =
+    getEatCategoryLabel(
+      place
+    );
+
+
+  const locationLabel =
+    getEatLocationLabel(
+      place
+    );
+
+
+  const openingHours =
+    place.metadata?.opening_hours
+      ? escapeHtml(
+          place.metadata.opening_hours
+        )
+      : "";
+
+
+  const cuisine =
+    Array.isArray(
+      place.metadata?.cuisine
+    )
+      ? place.metadata.cuisine
+          .filter(Boolean)
+          .join(", ")
+      : "";
+
+
+  const mapUrl =
+    buildEatMapUrl(
+      place
+    );
+
+
+  const mapButton =
+    mapUrl
+      ? `
+        <a
+          class="source-button"
+          href="${escapeAttribute(
+            mapUrl
+          )}"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          เปิดแผนที่
+          <span aria-hidden="true">→</span>
+        </a>
+      `
+      : "";
+
+
+  const detailRows = [];
+
+
+  if (locationLabel) {
+
+    detailRows.push(
+      `📍 ${escapeHtml(
+        locationLabel
+      )}`
+    );
+  }
+
+
+  if (openingHours) {
+
+    detailRows.push(
+      `🕒 ${openingHours}`
+    );
+  }
+
+
+  if (cuisine) {
+
+    detailRows.push(
+      `🍽️ ${escapeHtml(
+        cuisine
+      )}`
+    );
+  }
+
+
+  return `
+    <article class="promotion-card eat-card">
+
+      <div class="promotion-image-wrap eat-image-wrap">
+
+        <div class="image-placeholder eat-placeholder">
+          ${
+            place.category === "cafe"
+              ? "☕"
+              : "🍜"
+          }
+        </div>
+
+        <span class="source-pill">
+          ${escapeHtml(
+            categoryLabel
+          )}
+        </span>
+
+      </div>
+
+      <div class="promotion-body">
+
+        <div class="promotion-meta">
+
+          <strong>
+            PrachinLife Eat
+          </strong>
+
+          <span>
+            •
+          </span>
+
+          <span>
+            ${escapeHtml(
+              categoryLabel
+            )}
+          </span>
+
+        </div>
+
+        <h3 class="promotion-title">
+          ${title}
+        </h3>
+
+        ${
+          detailRows.length
+            ? `
+              <p class="promotion-description">
+                ${detailRows.join("<br>")}
+              </p>
+            `
+            : ""
+        }
+
+        <p class="promotion-description">
+          ข้อมูลสถานที่จากแหล่งข้อมูลเปิด
+          โปรดตรวจสอบข้อมูลล่าสุดก่อนเดินทาง
+        </p>
+
+        ${
+          mapButton
+            ? `
+              <div class="promotion-actions">
+                ${mapButton}
+              </div>
+            `
+            : ""
+        }
+
+      </div>
+
+    </article>
+  `;
+}
+
+
+/* =====================================================
+EAT HELPERS
+===================================================== */
+
+function getEatCategoryLabel(
+  place
+) {
+
+  const label =
+    place.metadata
+    ?.category_label;
+
+
+  if (label) {
+
+    return String(
+      label
+    );
+  }
+
+
+  if (
+    place.category === "cafe"
+  ) {
+
+    return "คาเฟ่";
+  }
+
+
+  if (
+    place.category === "restaurant"
+  ) {
+
+    return "ร้านอาหาร";
+  }
+
+
+  if (
+    place.category === "fast_food"
+  ) {
+
+    return "อาหารจานด่วน";
+  }
+
+
+  if (
+    place.category === "food_court"
+  ) {
+
+    return "ศูนย์อาหาร";
+  }
+
+
+  if (
+    place.category === "ice_cream"
+  ) {
+
+    return "ไอศกรีม";
+  }
+
+
+  return "ร้านอาหารและเครื่องดื่ม";
+}
+
+
+function getEatLocationLabel(
+  place
+) {
+
+  const location =
+    place.location
+    || {};
+
+
+  const parts = [
+
+    location.place_name
+    &&
+    location.place_name
+      !== place.title
+      ? location.place_name
+      : null,
+
+    location.subdistrict,
+
+    location.district,
+
+    location.province,
+
+  ]
+    .filter(Boolean);
+
+
+  const uniqueParts =
+    [
+      ...new Set(
+        parts
+      )
+    ];
+
+
+  if (
+    uniqueParts.length === 0
+  ) {
+
+    return "จังหวัดปราจีนบุรี";
+  }
+
+
+  return uniqueParts.join(
+    " · "
+  );
+}
+
+
+function buildEatMapUrl(
+  place
+) {
+
+  const latitude =
+    Number(
+      place.location
+      ?.latitude
+    );
+
+
+  const longitude =
+    Number(
+      place.location
+      ?.longitude
+    );
+
+
+  if (
+    Number.isFinite(
+      latitude
+    )
+    &&
+    Number.isFinite(
+      longitude
+    )
+  ) {
+
+    return (
+      "https://www.google.com/maps/search/"
+      +
+      "?api=1&query="
+      +
+      encodeURIComponent(
+        `${latitude},${longitude}`
+      )
+    );
+  }
+
+
+  const title =
+    String(
+      place.title
+      || ""
+    ).trim();
+
+
+  if (!title) {
+
+    return "";
+  }
+
+
+  const query =
+    [
+      title,
+      "ปราจีนบุรี",
+    ]
+      .filter(Boolean)
+      .join(" ");
+
+
+  return (
+    "https://www.google.com/maps/search/"
+    +
+    "?api=1&query="
+    +
+    encodeURIComponent(
+      query
+    )
+  );
 }
 
 
