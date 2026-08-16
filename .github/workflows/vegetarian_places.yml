@@ -27,7 +27,9 @@ jobs:
       - name: Run vegetarian places collector
         run: |
           python collectors/vegetarian_places.py
-
+      - name: Build vegetarian index
+        run: |
+          python scripts/build_vegetarian_index.py
       - name: Show collected data summary
         run: |
           python - <<'PY'
