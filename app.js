@@ -343,7 +343,21 @@ function setMainCategory(
 
     applyEatFilters();
   }
+else if (category === "vegetarian") {
 
+  showElement(
+    "vegetarianOptions"
+  );
+
+  showElement(
+    "vegetarianResultSection"
+  );
+
+  setText(
+    "vegetarianResultCount",
+    "0 ร้าน"
+  );
+}
 
   else if (category === "go") {
 
@@ -3681,6 +3695,7 @@ function hideAllOptionGroups() {
     "recommendedOptions",
     "shoppingOptions",
     "eatOptions",
+    "vegetarianOptions",
     "goOptions",
     "servicesOptions",
   ]
@@ -3696,6 +3711,7 @@ function hideAllResultSections() {
     "recommendedResultSection",
     "shoppingResultSection",
     "eatResultSection",
+    "vegetarianResultSection", 
     "comingSoonResultSection",
   ]
     .forEach(
