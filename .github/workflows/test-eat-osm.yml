@@ -22,60 +22,120 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
+      # ==============================================
+      # COLLECT
+      # ==============================================
+
       - name: Collect PrachinLife Eat data from OSM
         run: python collectors/restaurants_osm.py
 
-      - name: Show collector summary
+      # ==============================================
+      # NORMALIZE
+      # ==============================================
+
+      - name: Normalize PrachinLife Eat data
+        run: python normalizers/restaurants.py
+
+      # ==============================================
+      # SUMMARY
+      # ==============================================
+
+      - name: Show Eat data summary
         run: |
           python - <<'PY'
           import json
+          from collections import Counter
           from pathlib import Path
 
-          path = Path("data/raw/restaurants_osm.json")
+          raw_path = Path(
+              "data/raw/restaurants_osm.json"
+          )
 
-          if not path.exists():
+          normalized_path = Path(
+              "data/normalized/restaurants.json"
+          )
+
+          if not raw_path.exists():
               raise SystemExit(
-                  "restaurants_osm.json was not created"
+                  "Missing raw Eat data"
               )
 
-          data = json.loads(
-              path.read_text(
+          if not normalized_path.exists():
+              raise SystemExit(
+                  "Missing normalized Eat data"
+              )
+
+          raw_data = json.loads(
+              raw_path.read_text(
                   encoding="utf-8"
               )
           )
 
-          print("Total records =", len(data))
+          normalized_data = json.loads(
+              normalized_path.read_text(
+                  encoding="utf-8"
+              )
+          )
 
-          named = [
-              item
-              for item in data
-              if item.get("name")
-          ]
+          print(
+              "Raw records =",
+              len(raw_data),
+          )
 
-          print("Named records =", len(named))
+          print(
+              "Normalized records =",
+              len(normalized_data),
+          )
+
+          categories = Counter(
+              item.get(
+                  "category",
+                  "unknown",
+              )
+              for item
+              in normalized_data
+          )
+
+          print(
+              "Category counts =",
+              dict(categories),
+          )
 
           print()
-          print("First 10 named places:")
 
-          for item in named[:10]:
+          print(
+              "First 10 normalized places:"
+          )
+
+          for item in normalized_data[:10]:
               print(
                   "-",
                   item.get("name"),
                   "|",
-                  item.get("amenity"),
+                  item.get("category"),
+                  "|",
+                  item.get("location", {}).get(
+                      "district"
+                  ),
               )
           PY
 
-      - name: Commit Eat raw test data
+      # ==============================================
+      # COMMIT
+      # ==============================================
+
+      - name: Commit Eat test data
         run: |
           git config user.name "PrachinLife Bot"
           git config user.email "bot@prachinlife.local"
 
-          git add data/raw/restaurants_osm.json
+          git add \
+            data/raw/restaurants_osm.json \
+            data/normalized/restaurants.json
 
           if git diff --cached --quiet; then
             echo "No Eat data changes"
           else
-            git commit -m "Test PrachinLife Eat OSM data"
+            git commit -m "Update PrachinLife Eat test data"
             git push
           fi
