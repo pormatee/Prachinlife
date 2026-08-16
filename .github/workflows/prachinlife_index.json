@@ -1,0 +1,102 @@
+name: Update PrachinLife Promotions
+
+on:
+  workflow_dispatch:
+
+  schedule:
+    # 23:00 UTC = 06:00 Thailand
+    - cron: "0 23 * * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: prachinlife-promotions
+  cancel-in-progress: false
+
+jobs:
+  update-promotions:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      # ==============================================
+      # COLLECT
+      # ==============================================
+
+      - name: Collect Big C
+        run: python collectors/bigc.py
+
+      - name: Collect Lotus
+        run: python collectors/lotus.py
+
+      # ==============================================
+      # NORMALIZE
+      # ==============================================
+
+      - name: Normalize Big C
+        run: python normalizers/bigc.py
+
+      - name: Normalize Lotus
+        run: python normalizers/lotus.py
+
+      # ==============================================
+      # MERGE
+      # ==============================================
+
+      - name: Merge promotions
+        run: python scripts/merge_promotions.py
+
+      # ==============================================
+      # BUILD PRACHINLIFE INDEX
+      # ==============================================
+
+      - name: Build PrachinLife common index
+        run: python scripts/build_prachinlife_index.py
+
+      # ==============================================
+      # VALIDATE
+      # ==============================================
+
+      - name: Validate promotion data
+        run: python scripts/validate_data.py
+
+      # ==============================================
+      # SOURCE HEALTH
+      # ==============================================
+
+      - name: Build source health
+        run: python scripts/build_source_health.py
+
+      # ==============================================
+      # COMMIT
+      # ==============================================
+
+      - name: Commit updated data
+        run: |
+          git config user.name "PrachinLife Bot"
+          git config user.email "bot@prachinlife.local"
+
+          git add \
+            data/raw \
+            data/normalized \
+            data/meta \
+            promotions.json \
+            prachinlife_index.json
+
+          if git diff --cached --quiet; then
+            echo "No PrachinLife data changes"
+          else
+            git commit -m "Auto update PrachinLife data"
+            git push
+          fi
