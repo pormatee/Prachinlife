@@ -3,25 +3,39 @@ const INDEX_URL = "prachinlife_index.json";
 
 const PAGE_SIZE = 8;
 const EAT_PAGE_SIZE = 8;
+const RECOMMENDED_LIMIT = 8;
+
 
 let allPromotions = [];
-let allContent = [];
 let filteredPromotions = [];
+
+let allContent = [];
 
 let allEatPlaces = [];
 let filteredEatPlaces = [];
 
 let currentPage = 1;
+
 let currentSearch = "";
+
 let currentMerchant = "all";
 let currentType = "all";
 let currentSmart = "recommended";
 
 let currentEatType = "all";
+let currentEatArea = "all";
 let currentEatPage = 1;
+
+let currentMainCategory = "recommended";
+
+let userLocation = null;
 
 let toastTimer = null;
 
+
+/* =====================================================
+START
+===================================================== */
 
 document.addEventListener(
   "DOMContentLoaded",
@@ -40,8 +54,20 @@ async function init() {
 
   prepareEatPlaces();
 
+  buildEatAreaFilters();
+
+  updateMeta();
+
   applyFilters();
+
   applyEatFilters();
+
+  setMainCategory(
+    "recommended",
+    false
+  );
+
+  renderRecommended();
 }
 
 
@@ -50,6 +76,30 @@ EVENTS
 ===================================================== */
 
 function bindEvents() {
+
+  bindSearchEvents();
+
+  bindRefreshEvent();
+
+  bindMainCategoryEvents();
+
+  bindRecommendedEvents();
+
+  bindShoppingEvents();
+
+  bindEatEvents();
+
+  bindLoadMoreEvents();
+
+  bindResetEvent();
+}
+
+
+/* =====================================================
+SEARCH EVENTS
+===================================================== */
+
+function bindSearchEvents() {
 
   const searchInput =
     document.getElementById(
@@ -61,52 +111,18 @@ function bindEvents() {
       "searchBtn"
     );
 
-  const refreshBtn =
-    document.getElementById(
-      "refreshBtn"
-    );
-
-  const resetBtn =
-    document.getElementById(
-      "resetBtn"
-    );
-
-  const loadMoreBtn =
-    document.getElementById(
-      "loadMoreBtn"
-    );
-
-  const eatLoadMoreBtn =
-    document.getElementById(
-      "eatLoadMoreBtn"
-    );
-
 
   if (searchInput) {
-
-    searchInput.addEventListener(
-      "input",
-      event => {
-
-        currentSearch =
-          event.target.value
-            .trim()
-            .toLowerCase();
-
-        currentPage = 1;
-
-        applyFilters();
-      }
-    );
-
 
     searchInput.addEventListener(
       "keydown",
       event => {
 
-        if (event.key === "Enter") {
+        if (
+          event.key === "Enter"
+        ) {
 
-          applySearchFromInput();
+          performSearch();
         }
       }
     );
@@ -117,46 +133,679 @@ function bindEvents() {
 
     searchBtn.addEventListener(
       "click",
-      applySearchFromInput
+      performSearch
     );
+  }
+}
+
+
+/* =====================================================
+REFRESH
+===================================================== */
+
+function bindRefreshEvent() {
+
+  const refreshBtn =
+    document.getElementById(
+      "refreshBtn"
+    );
+
+
+  if (!refreshBtn) {
+    return;
   }
 
 
-  if (refreshBtn) {
+  refreshBtn.addEventListener(
+    "click",
+    async () => {
 
-    refreshBtn.addEventListener(
-      "click",
-      async () => {
+      showToast(
+        "กำลังโหลดข้อมูลล่าสุด..."
+      );
 
-        showToast(
-          "กำลังโหลดข้อมูลล่าสุด..."
-        );
+      await Promise.all([
+        loadPromotions(true),
+        loadCommonIndex(true),
+      ]);
 
-        await Promise.all([
-          loadPromotions(true),
-          loadCommonIndex(true),
-        ]);
+      prepareEatPlaces();
 
-        prepareEatPlaces();
+      buildEatAreaFilters();
 
-        applyFilters();
-        applyEatFilters();
+      updateMeta();
 
-        showToast(
-          "โหลดข้อมูลล่าสุดแล้ว"
+      applyFilters();
+
+      applyEatFilters();
+
+      renderRecommended();
+
+      showToast(
+        "โหลดข้อมูลล่าสุดแล้ว"
+      );
+    }
+  );
+}
+
+
+/* =====================================================
+MAIN CATEGORY
+===================================================== */
+
+function bindMainCategoryEvents() {
+
+  document
+    .querySelectorAll(
+      "[data-main-category]"
+    )
+    .forEach(
+      button => {
+
+        button.addEventListener(
+          "click",
+          () => {
+
+            const category =
+              button.dataset.mainCategory
+              || "recommended";
+
+            setMainCategory(
+              category,
+              true
+            );
+          }
         );
       }
     );
+}
+
+
+function setMainCategory(
+  category,
+  scrollToResult = true
+) {
+
+  currentMainCategory =
+    category;
+
+
+  updateMainCategoryButtons();
+
+  hideAllOptionGroups();
+
+  hideAllResultSections();
+
+
+  if (
+    category === "recommended"
+  ) {
+
+    showElement(
+      "recommendedOptions"
+    );
+
+    showElement(
+      "recommendedResultSection"
+    );
+
+    renderRecommended();
   }
 
 
-  if (resetBtn) {
+  else if (
+    category === "shopping"
+  ) {
 
-    resetBtn.addEventListener(
-      "click",
-      resetSearch
+    showElement(
+      "shoppingOptions"
+    );
+
+    showElement(
+      "shoppingResultSection"
+    );
+
+    applyFilters();
+  }
+
+
+  else if (
+    category === "eat"
+  ) {
+
+    showElement(
+      "eatOptions"
+    );
+
+    showElement(
+      "eatResultSection"
+    );
+
+    applyEatFilters();
+  }
+
+
+  else if (
+    category === "go"
+  ) {
+
+    showElement(
+      "goOptions"
+    );
+
+    showElement(
+      "comingSoonResultSection"
+    );
+
+    setComingSoonContent(
+      "📍",
+      "เที่ยวไหนดี",
+      "กำลังเตรียมข้อมูลสถานที่ท่องเที่ยว กิจกรรม และที่น่าแวะในปราจีนบุรี"
     );
   }
+
+
+  else if (
+    category === "services"
+  ) {
+
+    showElement(
+      "servicesOptions"
+    );
+
+    showElement(
+      "comingSoonResultSection"
+    );
+
+    setComingSoonContent(
+      "🔧",
+      "บริการใกล้ตัว",
+      "กำลังเตรียมข้อมูลร้าน ช่าง และบริการที่ใช้ในชีวิตประจำวัน"
+    );
+  }
+
+
+  if (scrollToResult) {
+
+    scrollToResults();
+  }
+}
+
+
+function updateMainCategoryButtons() {
+
+  document
+    .querySelectorAll(
+      "[data-main-category]"
+    )
+    .forEach(
+      button => {
+
+        button.classList.toggle(
+          "active",
+          button.dataset.mainCategory
+          === currentMainCategory
+        );
+      }
+    );
+}
+
+
+/* =====================================================
+RECOMMENDED
+===================================================== */
+
+function bindRecommendedEvents() {
+
+  document
+    .querySelectorAll(
+      "[data-recommended-action]"
+    )
+    .forEach(
+      button => {
+
+        button.addEventListener(
+          "click",
+          () => {
+
+            const action =
+              button.dataset
+                .recommendedAction
+              || "all";
+
+
+            updateRecommendedButtons(
+              action
+            );
+
+
+            if (
+              action === "shopping"
+            ) {
+
+              setMainCategory(
+                "shopping",
+                true
+              );
+
+              return;
+            }
+
+
+            if (
+              action === "eat"
+            ) {
+
+              setMainCategory(
+                "eat",
+                true
+              );
+
+              return;
+            }
+
+
+            if (
+              action === "latest"
+            ) {
+
+              renderRecommended(
+                "latest"
+              );
+
+              scrollToResults();
+
+              return;
+            }
+
+
+            renderRecommended(
+              "all"
+            );
+
+            scrollToResults();
+          }
+        );
+      }
+    );
+}
+
+
+function updateRecommendedButtons(
+  action
+) {
+
+  document
+    .querySelectorAll(
+      "[data-recommended-action]"
+    )
+    .forEach(
+      button => {
+
+        button.classList.toggle(
+          "active",
+          button.dataset
+            .recommendedAction
+          === action
+        );
+      }
+    );
+}
+
+
+/* =====================================================
+SHOPPING EVENTS
+===================================================== */
+
+function bindShoppingEvents() {
+
+  document
+    .querySelectorAll(
+      "[data-smart]"
+    )
+    .forEach(
+      button => {
+
+        button.addEventListener(
+          "click",
+          () => {
+
+            currentSmart =
+              button.dataset.smart
+              || "recommended";
+
+
+            /*
+            Smart filter selection resets
+            explicit promotion type.
+            */
+
+            currentType =
+              "all";
+
+            currentPage =
+              1;
+
+
+            updateShoppingButtons();
+
+            applyFilters();
+
+            showShoppingResult();
+          }
+        );
+      }
+    );
+
+
+  document
+    .querySelectorAll(
+      "[data-type]"
+    )
+    .forEach(
+      button => {
+
+        button.addEventListener(
+          "click",
+          () => {
+
+            currentType =
+              button.dataset.type
+              || "all";
+
+
+            currentSmart =
+              "recommended";
+
+            currentPage =
+              1;
+
+
+            updateShoppingButtons();
+
+            applyFilters();
+
+            showShoppingResult();
+          }
+        );
+      }
+    );
+
+
+  document
+    .querySelectorAll(
+      "[data-merchant]"
+    )
+    .forEach(
+      button => {
+
+        button.addEventListener(
+          "click",
+          () => {
+
+            currentMerchant =
+              button.dataset.merchant
+              || "all";
+
+
+            currentPage =
+              1;
+
+
+            updateShoppingButtons();
+
+            applyFilters();
+
+            showShoppingResult();
+          }
+        );
+      }
+    );
+}
+
+
+function showShoppingResult() {
+
+  currentMainCategory =
+    "shopping";
+
+  updateMainCategoryButtons();
+
+  hideAllOptionGroups();
+
+  hideAllResultSections();
+
+  showElement(
+    "shoppingOptions"
+  );
+
+  showElement(
+    "shoppingResultSection"
+  );
+
+  scrollToResults();
+}
+
+
+function updateShoppingButtons() {
+
+  document
+    .querySelectorAll(
+      "[data-smart]"
+    )
+    .forEach(
+      button => {
+
+        button.classList.toggle(
+          "active",
+          (
+            currentType === "all"
+            &&
+            button.dataset.smart
+            === currentSmart
+          )
+        );
+      }
+    );
+
+
+  document
+    .querySelectorAll(
+      "[data-type]"
+    )
+    .forEach(
+      button => {
+
+        button.classList.toggle(
+          "active",
+          button.dataset.type
+          === currentType
+        );
+      }
+    );
+
+
+  document
+    .querySelectorAll(
+      "[data-merchant]"
+    )
+    .forEach(
+      button => {
+
+        button.classList.toggle(
+          "active",
+          button.dataset.merchant
+          === currentMerchant
+        );
+      }
+    );
+}
+
+
+/* =====================================================
+EAT EVENTS
+===================================================== */
+
+function bindEatEvents() {
+
+  document
+    .querySelectorAll(
+      "[data-eat-type]"
+    )
+    .forEach(
+      button => {
+
+        button.addEventListener(
+          "click",
+          () => {
+
+            currentEatType =
+              button.dataset.eatType
+              || "all";
+
+            currentEatPage =
+              1;
+
+            updateEatButtons();
+
+            applyEatFilters();
+
+            showEatResult();
+          }
+        );
+      }
+    );
+
+
+  const nearMeBtn =
+    document.getElementById(
+      "nearMeBtn"
+    );
+
+
+  if (nearMeBtn) {
+
+    nearMeBtn.addEventListener(
+      "click",
+      activateNearMe
+    );
+  }
+}
+
+
+function bindDynamicEatAreaEvents() {
+
+  document
+    .querySelectorAll(
+      "[data-eat-area]"
+    )
+    .forEach(
+      button => {
+
+        button.addEventListener(
+          "click",
+          () => {
+
+            currentEatArea =
+              button.dataset.eatArea
+              || "all";
+
+            currentEatPage =
+              1;
+
+            userLocation =
+              null;
+
+            updateNearMeState(
+              false
+            );
+
+            updateEatButtons();
+
+            applyEatFilters();
+
+            showEatResult();
+          }
+        );
+      }
+    );
+}
+
+
+function showEatResult() {
+
+  currentMainCategory =
+    "eat";
+
+  updateMainCategoryButtons();
+
+  hideAllOptionGroups();
+
+  hideAllResultSections();
+
+  showElement(
+    "eatOptions"
+  );
+
+  showElement(
+    "eatResultSection"
+  );
+
+  scrollToResults();
+}
+
+
+function updateEatButtons() {
+
+  document
+    .querySelectorAll(
+      "[data-eat-type]"
+    )
+    .forEach(
+      button => {
+
+        button.classList.toggle(
+          "active",
+          button.dataset.eatType
+          === currentEatType
+        );
+      }
+    );
+
+
+  document
+    .querySelectorAll(
+      "[data-eat-area]"
+    )
+    .forEach(
+      button => {
+
+        button.classList.toggle(
+          "active",
+          button.dataset.eatArea
+          === currentEatArea
+        );
+      }
+    );
+}
+
+
+/* =====================================================
+LOAD MORE
+===================================================== */
+
+function bindLoadMoreEvents() {
+
+  const loadMoreBtn =
+    document.getElementById(
+      "loadMoreBtn"
+    );
+
+
+  const eatLoadMoreBtn =
+    document.getElementById(
+      "eatLoadMoreBtn"
+    );
 
 
   if (loadMoreBtn) {
@@ -185,169 +834,51 @@ function bindEvents() {
       }
     );
   }
+}
 
 
-  document
-    .querySelectorAll(
-      "[data-search]"
-    )
-    .forEach(
-      button => {
+/* =====================================================
+RESET
+===================================================== */
 
-        button.addEventListener(
-          "click",
-          () => {
+function bindResetEvent() {
 
-            const value =
-              button.dataset.search
-              || "";
-
-            setSearch(
-              value
-            );
-          }
-        );
-      }
+  const resetBtn =
+    document.getElementById(
+      "resetBtn"
     );
 
 
-  document
-    .querySelectorAll(
-      "[data-quick]"
-    )
-    .forEach(
-      button => {
-
-        button.addEventListener(
-          "click",
-          () => {
-
-            handleQuickAction(
-              button.dataset.quick
-            );
-          }
-        );
-      }
-    );
+  if (!resetBtn) {
+    return;
+  }
 
 
-  document
-    .querySelectorAll(
-      "[data-merchant]"
-    )
-    .forEach(
-      button => {
-
-        button.addEventListener(
-          "click",
-          () => {
-
-            currentMerchant =
-              button.dataset.merchant
-              || "all";
-
-            currentType =
-              "all";
-
-            currentPage =
-              1;
-
-            updateActiveFilterButtons(
-              "merchant"
-            );
-
-            updateActiveFilterButtons(
-              "type"
-            );
-
-            applyFilters();
-          }
-        );
-      }
-    );
+  resetBtn.addEventListener(
+    "click",
+    resetShoppingFilters
+  );
+}
 
 
-  document
-    .querySelectorAll(
-      "[data-type]"
-    )
-    .forEach(
-      button => {
+function resetShoppingFilters() {
 
-        button.addEventListener(
-          "click",
-          () => {
+  currentMerchant =
+    "all";
 
-            currentType =
-              button.dataset.type
-              || "all";
+  currentType =
+    "all";
 
-            currentPage =
-              1;
+  currentSmart =
+    "recommended";
 
-            updateActiveFilterButtons(
-              "type"
-            );
-
-            applyFilters();
-          }
-        );
-      }
-    );
+  currentPage =
+    1;
 
 
-  document
-    .querySelectorAll(
-      "[data-smart]"
-    )
-    .forEach(
-      button => {
+  updateShoppingButtons();
 
-        button.addEventListener(
-          "click",
-          () => {
-
-            currentSmart =
-              button.dataset.smart
-              || "recommended";
-
-            currentPage =
-              1;
-
-            updateActiveSmartButtons();
-
-            applyFilters();
-          }
-        );
-      }
-    );
-
-
-  document
-    .querySelectorAll(
-      "[data-eat-type]"
-    )
-    .forEach(
-      button => {
-
-        button.addEventListener(
-          "click",
-          () => {
-
-            currentEatType =
-              button.dataset.eatType
-              || "all";
-
-            currentEatPage =
-              1;
-
-            updateActiveEatButtons();
-
-            applyEatFilters();
-          }
-        );
-      }
-    );
+  applyFilters();
 }
 
 
@@ -358,8 +889,6 @@ LOAD PROMOTIONS
 async function loadPromotions(
   forceRefresh = false
 ) {
-
-  setLoading();
 
   try {
 
@@ -381,7 +910,7 @@ async function loadPromotions(
     if (!response.ok) {
 
       throw new Error(
-        `HTTP ${response.status}`
+        `Promotion HTTP ${response.status}`
       );
     }
 
@@ -393,7 +922,7 @@ async function loadPromotions(
     if (Array.isArray(data)) {
 
       allPromotions =
-        normalizeClientData(
+        normalizePromotionData(
           data
         );
     }
@@ -407,7 +936,7 @@ async function loadPromotions(
     ) {
 
       allPromotions =
-        normalizeClientData(
+        normalizePromotionData(
           data.promotions
         );
     }
@@ -422,16 +951,8 @@ async function loadPromotions(
       sortLatest(
         allPromotions
       );
-
-
-    filteredPromotions =
-      [...allPromotions];
-
-
-    currentPage = 1;
-
-    updateMeta();
   }
+
 
   catch (error) {
 
@@ -440,18 +961,14 @@ async function loadPromotions(
       error
     );
 
+
     allPromotions = [];
     filteredPromotions = [];
 
-    renderAll();
 
     setText(
       "resultCount",
       "โหลดข้อมูลไม่สำเร็จ"
-    );
-
-    showToast(
-      "ไม่สามารถโหลดข้อมูลโปรโมชั่นได้"
     );
   }
 }
@@ -485,7 +1002,7 @@ async function loadCommonIndex(
     if (!response.ok) {
 
       throw new Error(
-        `HTTP ${response.status}`
+        `Common index HTTP ${response.status}`
       );
     }
 
@@ -494,28 +1011,32 @@ async function loadCommonIndex(
       await response.json();
 
 
-    if (Array.isArray(data)) {
+    if (!Array.isArray(data)) {
 
-      allContent = data;
-
-    } else {
-
-      allContent = [];
+      throw new Error(
+        "Common index must be an array"
+      );
     }
 
 
+    allContent =
+      data;
+
+
     console.log(
-      "PrachinLife common index loaded:",
+      "PrachinLife common index:",
       allContent.length
     );
   }
 
+
   catch (error) {
 
-    console.warn(
-      "PrachinLife common index unavailable:",
+    console.error(
+      "PrachinLife common index error:",
       error
     );
+
 
     allContent = [];
   }
@@ -523,37 +1044,12 @@ async function loadCommonIndex(
 
 
 /* =====================================================
-PREPARE EAT
+NORMALIZE PROMOTION
 ===================================================== */
 
-function prepareEatPlaces() {
-
-  allEatPlaces =
-    allContent.filter(
-      item =>
-        item
-        &&
-        item.content_type
-          === "eat"
-    );
-
-  filteredEatPlaces =
-    [...allEatPlaces];
-
-  currentEatPage = 1;
-
-  setText(
-    "eatResultCount",
-    `${allEatPlaces.length} ร้าน`
-  );
-}
-
-
-/* =====================================================
-CLIENT NORMALIZATION
-===================================================== */
-
-function normalizeClientData(data) {
+function normalizePromotionData(
+  data
+) {
 
   return data
     .filter(
@@ -577,17 +1073,6 @@ function normalizeClientData(data) {
           || "ไม่ระบุแหล่ง";
 
 
-        const imageUrl =
-          item.image_url
-          || item.image
-          || "";
-
-
-        const promotionType =
-          item.promotion_type
-          || "campaign";
-
-
         return {
 
           ...item,
@@ -597,10 +1082,13 @@ function normalizeClientData(data) {
           merchant,
 
           image_url:
-            imageUrl,
+            item.image_url
+            || item.image
+            || "",
 
           promotion_type:
-            promotionType,
+            item.promotion_type
+            || "campaign",
 
           source:
             item.source
@@ -644,119 +1132,324 @@ function normalizeClientData(data) {
 
 
 /* =====================================================
-SEARCH
+PREPARE EAT
 ===================================================== */
 
-function applySearchFromInput() {
+function prepareEatPlaces() {
 
-  const input =
-    document.getElementById(
-      "searchInput"
+  allEatPlaces =
+    allContent.filter(
+      item =>
+        item
+        &&
+        item.content_type
+        === "eat"
     );
 
 
-  currentSearch =
-    input
-      ? input.value
-          .trim()
-          .toLowerCase()
-      : "";
+  filteredEatPlaces =
+    [...allEatPlaces];
 
 
-  currentPage = 1;
-
-  applyFilters();
-
-  scrollToDeals();
-}
-
-
-function setSearch(value) {
-
-  const input =
-    document.getElementById(
-      "searchInput"
-    );
-
-
-  if (input) {
-
-    input.value =
-      value;
-  }
-
-
-  currentSearch =
-    String(
-      value || ""
-    )
-      .trim()
-      .toLowerCase();
-
-
-  currentPage = 1;
-
-  applyFilters();
-
-  scrollToDeals();
-}
-
-
-function resetSearch() {
-
-  const input =
-    document.getElementById(
-      "searchInput"
-    );
-
-
-  if (input) {
-
-    input.value = "";
-  }
-
-
-  currentSearch = "";
-  currentMerchant = "all";
-  currentType = "all";
-  currentSmart = "recommended";
-  currentPage = 1;
-
-
-  updateActiveFilterButtons(
-    "merchant"
-  );
-
-  updateActiveFilterButtons(
-    "type"
-  );
-
-  updateActiveSmartButtons();
-
-  applyFilters();
+  currentEatPage =
+    1;
 }
 
 
 /* =====================================================
-SMART FILTER
+GLOBAL SEARCH
 ===================================================== */
 
-function updateActiveSmartButtons() {
+function performSearch() {
 
-  document
-    .querySelectorAll(
-      "[data-smart]"
-    )
-    .forEach(
-      button => {
+  const input =
+    document.getElementById(
+      "searchInput"
+    );
 
-        button.classList.toggle(
-          "active",
-          button.dataset.smart
-          === currentSmart
+
+  const query =
+    input
+      ? input.value
+          .trim()
+      : "";
+
+
+  if (!query) {
+
+    showToast(
+      "พิมพ์สิ่งที่ต้องการค้นหาก่อน"
+    );
+
+    return;
+  }
+
+
+  /*
+  Search is intentionally secondary in V1.
+  We use the existing search engine when available.
+  */
+
+
+  if (
+    !window.PrachinLifeSearch
+    ||
+    typeof (
+      window.PrachinLifeSearch.search
+    ) !== "function"
+  ) {
+
+    showToast(
+      "ระบบค้นหายังไม่พร้อม"
+    );
+
+    return;
+  }
+
+
+  const result =
+    window.PrachinLifeSearch.search(
+      allContent,
+      query,
+      {
+        limit: 100,
+      }
+    );
+
+
+  const dealIds =
+    new Set(
+      result.items
+        .filter(
+          item =>
+            item.content_type
+            === "deal"
+        )
+        .map(
+          item =>
+            item.id
+        )
+    );
+
+
+  const eatIds =
+    new Set(
+      result.items
+        .filter(
+          item =>
+            item.content_type
+            === "eat"
+        )
+        .map(
+          item =>
+            item.id
+        )
+    );
+
+
+  if (
+    dealIds.size > 0
+    &&
+    eatIds.size === 0
+  ) {
+
+    currentMainCategory =
+      "shopping";
+
+    filteredPromotions =
+      allPromotions.filter(
+        item =>
+          dealIds.has(
+            item.id
+          )
+      );
+
+
+    currentPage = 1;
+
+
+    updateMainCategoryButtons();
+
+    hideAllOptionGroups();
+
+    hideAllResultSections();
+
+    showElement(
+      "shoppingOptions"
+    );
+
+    showElement(
+      "shoppingResultSection"
+    );
+
+    renderPromotions();
+
+    setText(
+      "resultCount",
+      `${filteredPromotions.length} รายการ`
+    );
+
+    scrollToResults();
+
+    return;
+  }
+
+
+  if (
+    eatIds.size > 0
+    &&
+    dealIds.size === 0
+  ) {
+
+    currentMainCategory =
+      "eat";
+
+    filteredEatPlaces =
+      allEatPlaces.filter(
+        item =>
+          eatIds.has(
+            item.id
+          )
+      );
+
+
+    currentEatPage = 1;
+
+
+    updateMainCategoryButtons();
+
+    hideAllOptionGroups();
+
+    hideAllResultSections();
+
+    showElement(
+      "eatOptions"
+    );
+
+    showElement(
+      "eatResultSection"
+    );
+
+    renderEatPlaces();
+
+    setText(
+      "eatResultCount",
+      `${filteredEatPlaces.length} ร้าน`
+    );
+
+    scrollToResults();
+
+    return;
+  }
+
+
+  /*
+  Mixed or broad results:
+  recommended view is safer.
+  */
+
+  currentMainCategory =
+    "recommended";
+
+  updateMainCategoryButtons();
+
+  hideAllOptionGroups();
+
+  hideAllResultSections();
+
+  showElement(
+    "recommendedOptions"
+  );
+
+  showElement(
+    "recommendedResultSection"
+  );
+
+
+  renderRecommendedSearch(
+    result.items
+  );
+
+
+  scrollToResults();
+}
+
+
+/* =====================================================
+SHOPPING FILTER ENGINE
+===================================================== */
+
+function applyFilters() {
+
+  filteredPromotions =
+    allPromotions.filter(
+      promotion => {
+
+        const matchesMerchant =
+          currentMerchant
+          === "all"
+          ||
+          promotion.merchant
+          === currentMerchant;
+
+
+        const matchesType =
+          currentType
+          === "all"
+          ||
+          promotion.promotion_type
+          === currentType;
+
+
+        const matchesSmart =
+          matchesSmartFilter(
+            promotion
+          );
+
+
+        return (
+          matchesMerchant
+          &&
+          matchesType
+          &&
+          matchesSmart
         );
       }
     );
+
+
+  if (
+    currentSmart
+    === "latest"
+  ) {
+
+    filteredPromotions =
+      sortLatest(
+        filteredPromotions
+      );
+  }
+
+
+  else {
+
+    filteredPromotions =
+      rankInteresting(
+        filteredPromotions
+      );
+  }
+
+
+  currentPage =
+    1;
+
+
+  renderPromotions();
+
+
+  setText(
+    "resultCount",
+    `${filteredPromotions.length} รายการ`
+  );
 }
 
 
@@ -775,54 +1468,31 @@ function matchesSmartFilter(
 
   if (
     currentSmart
-    === "must_check"
-  ) {
-
-    return (
-      getInterestingScore(
-        promotion
-      )
-      >= 60
-    );
-  }
-
-
-  if (
-    currentSmart
     === "saving"
   ) {
 
     return (
       promotion.promotion_type
-        === "coupon"
+      === "coupon"
+
       ||
+
       promotion.promotion_type
-        === "member_offer"
+      === "member_offer"
+
       ||
+
       promotion.promotion_type
-        === "product_deal"
+      === "product_deal"
+
       ||
+
       /ส่วนลด|คุ้ม|คูปอง|\d+\s*บาท/.test(
         String(
           promotion.title
           || ""
         )
       )
-    );
-  }
-
-
-  if (
-    currentSmart
-    === "benefits"
-  ) {
-
-    return (
-      promotion.promotion_type
-        === "coupon"
-      ||
-      promotion.promotion_type
-        === "member_offer"
     );
   }
 
@@ -845,7 +1515,7 @@ function matchesSmartFilter(
 
     return (
       promotion.promotion_type
-        === "campaign"
+      === "campaign"
       &&
       !isCataloguePromotion(
         promotion
@@ -868,473 +1538,7 @@ function matchesSmartFilter(
 
 
 /* =====================================================
-FILTER ENGINE
-===================================================== */
-
-function applyFilters() {
-
-  let searchMatchIds =
-    null;
-
-
-  if (
-    currentSearch
-    &&
-    allContent.length > 0
-    &&
-    window.PrachinLifeSearch
-    &&
-    typeof (
-      window.PrachinLifeSearch.search
-    ) === "function"
-  ) {
-
-    const searchResult =
-      window.PrachinLifeSearch.search(
-        allContent,
-        currentSearch,
-        {
-          limit: 200,
-        }
-      );
-
-
-    searchMatchIds =
-      new Set(
-        searchResult.items
-          .filter(
-            item =>
-              item.content_type
-              === "deal"
-          )
-          .map(
-            item =>
-              item.id
-          )
-      );
-  }
-
-
-  filteredPromotions =
-    allPromotions.filter(
-      promotion => {
-
-        const searchableText = [
-
-          promotion.title,
-
-          promotion.merchant,
-
-          promotion.source,
-
-          promotion.promotion_type,
-
-          promotion.category,
-
-          promotion.branch,
-
-          promotion.source_type,
-
-          promotion.location_scope,
-
-          promotion.province,
-
-          promotion.district,
-
-          promotion.subdistrict,
-
-          promotion.branch_name,
-
-          getLocationLabel(
-            promotion
-          )
-
-        ]
-          .filter(Boolean)
-          .join(" ")
-          .toLowerCase();
-
-
-        const matchesSearch =
-          !currentSearch
-          ||
-          (
-            searchMatchIds
-            !== null
-
-              ? searchMatchIds.has(
-                  promotion.id
-                )
-
-              : searchableText.includes(
-                  currentSearch
-                )
-          );
-
-
-        const matchesMerchant =
-          currentMerchant
-            === "all"
-          ||
-          promotion.merchant
-            === currentMerchant;
-
-
-        const matchesType =
-          currentType
-            === "all"
-          ||
-          promotion.promotion_type
-            === currentType;
-
-
-        const matchesSmart =
-          matchesSmartFilter(
-            promotion
-          );
-
-
-        return (
-          matchesSearch
-          &&
-          matchesMerchant
-          &&
-          matchesType
-          &&
-          matchesSmart
-        );
-      }
-    );
-
-
-  const useSmartMix =
-    currentSmart
-      === "recommended"
-    &&
-    !currentSearch
-    &&
-    currentMerchant
-      === "all"
-    &&
-    currentType
-      === "all";
-
-
-  if (
-    currentSmart
-    === "latest"
-  ) {
-
-    filteredPromotions =
-      sortLatest(
-        filteredPromotions
-      );
-  }
-
-  else {
-
-    filteredPromotions =
-      useSmartMix
-
-        ? smartMixPromotions(
-            filteredPromotions
-          )
-
-        : rankInteresting(
-            filteredPromotions
-          );
-  }
-
-
-  currentPage = 1;
-
-  renderAll();
-}
-
-
-/* =====================================================
-FILTER BUTTONS
-===================================================== */
-
-function updateActiveFilterButtons(
-  filterType
-) {
-
-  if (
-    filterType
-    === "merchant"
-  ) {
-
-    document
-      .querySelectorAll(
-        "[data-merchant]"
-      )
-      .forEach(
-        button => {
-
-          button.classList.toggle(
-            "active",
-            button.dataset.merchant
-              === currentMerchant
-          );
-        }
-      );
-  }
-
-
-  if (
-    filterType
-    === "type"
-  ) {
-
-    document
-      .querySelectorAll(
-        "[data-type]"
-      )
-      .forEach(
-        button => {
-
-          button.classList.toggle(
-            "active",
-            button.dataset.type
-              === currentType
-          );
-        }
-      );
-  }
-}
-
-
-/* =====================================================
-QUICK ACTIONS
-===================================================== */
-
-function handleQuickAction(type) {
-
-  if (
-    type === "all"
-  ) {
-
-    currentSmart =
-      "recommended";
-
-    updateActiveSmartButtons();
-
-    setSearch("");
-
-    return;
-  }
-
-
-  if (
-    type === "bigc"
-  ) {
-
-    setSearch(
-      "Big C"
-    );
-
-    return;
-  }
-
-
-  if (
-    type === "eat"
-  ) {
-
-    const eatSection =
-      document.getElementById(
-        "eat"
-      );
-
-    if (eatSection) {
-
-      eatSection.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
-    }
-
-    return;
-  }
-
-
-  if (
-    type === "latest"
-  ) {
-
-    currentSearch = "";
-
-    currentSmart =
-      "latest";
-
-
-    const input =
-      document.getElementById(
-        "searchInput"
-      );
-
-
-    if (input) {
-
-      input.value = "";
-    }
-
-
-    updateActiveSmartButtons();
-
-    applyFilters();
-
-    scrollToDeals();
-  }
-}
-
-
-/* =====================================================
-LOCATION
-===================================================== */
-
-function getLocationLabel(
-  promotion
-) {
-
-  const scope =
-    promotion.location_scope
-    || "national";
-
-
-  if (
-    scope === "national"
-  ) {
-
-    return "ทั่วประเทศ";
-  }
-
-
-  if (
-    scope === "province"
-  ) {
-
-    return (
-      promotion.province
-      || "ระดับจังหวัด"
-    );
-  }
-
-
-  if (
-    scope === "district"
-  ) {
-
-    const district =
-      promotion.district
-      || "";
-
-
-    const province =
-      promotion.province
-      || "";
-
-
-    return [
-      district,
-      province
-    ]
-      .filter(Boolean)
-      .join(" · ");
-  }
-
-
-  if (
-    scope === "branch"
-  ) {
-
-    return (
-      promotion.branch_name
-      ||
-      [
-        promotion.district,
-        promotion.province
-      ]
-        .filter(Boolean)
-        .join(" · ")
-      ||
-      "เฉพาะสาขา"
-    );
-  }
-
-
-  return "ไม่ระบุพื้นที่";
-}
-
-
-/* =====================================================
-PROMOTION TYPE
-===================================================== */
-
-function getPromotionTypeLabel(
-  promotion
-) {
-
-  if (
-    promotion.promotion_type
-    === "coupon"
-  ) {
-
-    return "คูปอง";
-  }
-
-
-  if (
-    promotion.promotion_type
-    === "member_offer"
-  ) {
-
-    return "สิทธิสมาชิก";
-  }
-
-
-  if (
-    promotion.promotion_type
-    === "product_deal"
-  ) {
-
-    return "ดีลสินค้า";
-  }
-
-
-  return "แคมเปญ";
-}
-
-
-function getPromotionTypeClass(
-  promotion
-) {
-
-  if (
-    promotion.promotion_type
-    === "coupon"
-  ) {
-
-    return "coupon";
-  }
-
-
-  if (
-    promotion.promotion_type
-    === "member_offer"
-  ) {
-
-    return "member-offer";
-  }
-
-
-  return "campaign";
-}
-
-
-/* =====================================================
-INTERESTING SCORE
+SHOPPING RANKING
 ===================================================== */
 
 function getInterestingScore(
@@ -1352,6 +1556,7 @@ function getInterestingScore(
     score += 40;
   }
 
+
   else if (
     promotion.promotion_type
     === "member_offer"
@@ -1360,6 +1565,7 @@ function getInterestingScore(
     score += 25;
   }
 
+
   else if (
     promotion.promotion_type
     === "product_deal"
@@ -1367,6 +1573,7 @@ function getInterestingScore(
 
     score += 35;
   }
+
 
   else {
 
@@ -1427,20 +1634,12 @@ function getInterestingScore(
   }
 
 
-  const title =
-    String(
-      promotion.title
-      || ""
-    );
-
-
   if (
-    /\d+\s*บาท/.test(
-      title
-    )
-    ||
-    /ส่วนลด/.test(
-      title
+    /\d+\s*บาท|ส่วนลด/.test(
+      String(
+        promotion.title
+        || ""
+      )
     )
   ) {
 
@@ -1448,205 +1647,30 @@ function getInterestingScore(
   }
 
 
-  if (
-    promotion.location_scope
-    === "province"
-  ) {
-
-    score += 40;
-  }
-
-  else if (
-    promotion.location_scope
-    === "district"
-  ) {
-
-    score += 50;
-  }
-
-  else if (
-    promotion.location_scope
-    === "branch"
-  ) {
-
-    score += 60;
-  }
-
-
   return score;
 }
 
 
-function getSmartLabel(
-  promotion
+function rankInteresting(
+  data
 ) {
-
-  const score =
-    getInterestingScore(
-      promotion
-    );
-
-
-  if (
-    score >= 60
-  ) {
-
-    return "🔥 ควรเช็ก";
-  }
-
-
-  if (
-    score >= 35
-  ) {
-
-    return "✨ น่าสนใจ";
-  }
-
-
-  return "ℹ️ ดูรายละเอียด";
-}
-
-
-function getSmartReason(
-  promotion
-) {
-
-  const title =
-    String(
-      promotion.title
-      || ""
-    );
-
-
-  if (
-    promotion.promotion_type
-    === "coupon"
-  ) {
-
-    if (
-      /\d+\s*บาท/.test(
-        title
-      )
-    ) {
-
-      return (
-        "มีมูลค่าส่วนลดระบุชัด "
-        +
-        "เหมาะสำหรับเช็กสิทธิ์ก่อนซื้อ"
-      );
-    }
-
-
-    return (
-      "คูปองที่อาจช่วยประหยัด "
-      +
-      "ควรเช็กก่อนซื้อ"
-    );
-  }
-
-
-  if (
-    promotion.promotion_type
-    === "member_offer"
-  ) {
-
-    return (
-      "สิทธิสมาชิกที่อาจช่วยเพิ่มความคุ้มค่า"
-    );
-  }
-
-
-  if (
-    promotion.promotion_type
-    === "product_deal"
-  ) {
-
-    return (
-      "ดีลสินค้าที่มีข้อมูลราคา "
-      +
-      "เหมาะสำหรับเปรียบเทียบก่อนซื้อ"
-    );
-  }
-
-
-  if (
-    isCataloguePromotion(
-      promotion
-    )
-  ) {
-
-    return (
-      "เปิดดูรายการโปรโมชั่นจาก"
-      +
-      "แคตตาล็อกต้นทางก่อนซื้อของ"
-    );
-  }
-
-
-  if (
-    /ลุ้น|ชิง|บินฟรี|รางวัล/.test(
-      title
-    )
-  ) {
-
-    return (
-      "กิจกรรมหรือลุ้นรางวัล "
-      +
-      "เหมาะกับคนที่สนใจร่วมแคมเปญ"
-    );
-  }
-
-
-  if (
-    /ส่วนลด|คุ้ม|คูปอง/.test(
-      title
-    )
-  ) {
-
-    return (
-      "มีข้อความเกี่ยวกับสิทธิ์หรือ"
-      +
-      "ความคุ้มค่า ควรเปิดดูรายละเอียด"
-    );
-  }
-
-
-  return (
-    "แคมเปญจากแหล่งต้นทางที่อาจน่าสนใจ"
-  );
-}
-
-
-/* =====================================================
-RANKING
-===================================================== */
-
-function rankInteresting(data) {
 
   return [
     ...data
   ].sort(
     (a, b) => {
 
-      const scoreA =
-        getInterestingScore(
-          a
-        );
-
-
-      const scoreB =
-        getInterestingScore(
-          b
-        );
+      const scoreDiff =
+        getInterestingScore(b)
+        -
+        getInterestingScore(a);
 
 
       if (
-        scoreB !== scoreA
+        scoreDiff !== 0
       ) {
 
-        return (
-          scoreB - scoreA
-        );
+        return scoreDiff;
       }
 
 
@@ -1664,285 +1688,750 @@ function rankInteresting(data) {
 }
 
 
-function smartMixPromotions(data) {
+/* =====================================================
+EAT FILTER ENGINE
+===================================================== */
 
-  const sorted =
-    rankInteresting(
-      data
+function applyEatFilters() {
+
+  filteredEatPlaces =
+    allEatPlaces.filter(
+      place => {
+
+        const matchesType =
+          currentEatType
+          === "all"
+          ||
+          place.category
+          === currentEatType
+          ||
+          place.original_type
+          === currentEatType;
+
+
+        const area =
+          getEatAreaValue(
+            place
+          );
+
+
+        const matchesArea =
+          currentEatArea
+          === "all"
+          ||
+          area
+          === currentEatArea;
+
+
+        return (
+          matchesType
+          &&
+          matchesArea
+        );
+      }
     );
 
 
-  const merchantBuckets =
-    new Map();
+  if (userLocation) {
+
+    filteredEatPlaces =
+      filteredEatPlaces
+        .map(
+          place => {
+
+            const distance =
+              calculatePlaceDistance(
+                place
+              );
 
 
-  for (
-    const item
-    of sorted
-  ) {
+            return {
 
-    const merchant =
-      item.merchant
-      || "Unknown";
+              ...place,
 
+              _distance:
+                distance,
+            };
+          }
+        )
+        .sort(
+          (a, b) => {
 
-    if (
-      !merchantBuckets.has(
-        merchant
-      )
-    ) {
-
-      merchantBuckets.set(
-        merchant,
-        []
-      );
-    }
+            const distanceA =
+              Number.isFinite(
+                a._distance
+              )
+                ? a._distance
+                : Infinity;
 
 
-    merchantBuckets
-      .get(
-        merchant
-      )
-      .push(
-        item
-      );
+            const distanceB =
+              Number.isFinite(
+                b._distance
+              )
+                ? b._distance
+                : Infinity;
+
+
+            return (
+              distanceA
+              -
+              distanceB
+            );
+          }
+        );
   }
 
 
-  const merchants =
-    [
-      ...merchantBuckets.keys()
-    ];
+  else {
 
+    filteredEatPlaces.sort(
+      (a, b) => {
 
-  const selectedTypeCounts = {
-
-    campaign: 0,
-
-    coupon: 0,
-
-    member_offer: 0,
-
-    product_deal: 0,
-
-  };
-
-
-  const result = [];
-
-
-  function takeBestItem(
-    bucket
-  ) {
-
-    if (
-      !bucket.length
-    ) {
-
-      return null;
-    }
-
-
-    let bestIndex = 0;
-
-    let bestCount =
-      Infinity;
-
-
-    for (
-      let i = 0;
-      i < bucket.length;
-      i++
-    ) {
-
-      const type =
-        bucket[i]
-          .promotion_type
-        || "campaign";
-
-
-      const count =
-        selectedTypeCounts[
-          type
-        ]
-        ?? 0;
-
-
-      if (
-        count < bestCount
-      ) {
-
-        bestCount =
-          count;
-
-        bestIndex =
-          i;
+        return String(
+          a.title
+          || ""
+        ).localeCompare(
+          String(
+            b.title
+            || ""
+          ),
+          "th"
+        );
       }
-    }
-
-
-    const [item] =
-      bucket.splice(
-        bestIndex,
-        1
-      );
-
-
-    const type =
-      item.promotion_type
-      || "campaign";
-
-
-    selectedTypeCounts[
-      type
-    ] =
-      (
-        selectedTypeCounts[
-          type
-        ]
-        ?? 0
-      )
-      + 1;
-
-
-    return item;
+    );
   }
 
 
-  let remaining =
-    sorted.length;
+  currentEatPage =
+    1;
 
 
-  while (
-    remaining > 0
-  ) {
-
-    let addedThisRound =
-      false;
+  renderEatPlaces();
 
 
-    for (
-      const merchant
-      of merchants
-    ) {
-
-      const bucket =
-        merchantBuckets.get(
-          merchant
-        );
-
-
-      if (
-        !bucket
-        ||
-        !bucket.length
-      ) {
-
-        continue;
-      }
-
-
-      const item =
-        takeBestItem(
-          bucket
-        );
-
-
-      if (item) {
-
-        result.push(
-          item
-        );
-
-        remaining--;
-
-        addedThisRound =
-          true;
-      }
-    }
-
-
-    if (
-      !addedThisRound
-    ) {
-
-      break;
-    }
-  }
-
-
-  return result;
-}
-
-
-function sortLatest(data) {
-
-  return [
-    ...data
-  ].sort(
-    (a, b) => {
-
-      const timeA =
-        parseDateValue(
-          a.collected_at
-        );
-
-
-      const timeB =
-        parseDateValue(
-          b.collected_at
-        );
-
-
-      return (
-        timeB - timeA
-      );
-    }
+  setText(
+    "eatResultCount",
+    `${filteredEatPlaces.length} ร้าน`
   );
-}
-
-
-function parseDateValue(value) {
-
-  if (!value) {
-
-    return 0;
-  }
-
-
-  const date =
-    new Date(
-      value
-    );
-
-
-  const timestamp =
-    date.getTime();
-
-
-  return Number.isFinite(
-    timestamp
-  )
-    ? timestamp
-    : 0;
 }
 
 
 /* =====================================================
-RENDER DEALS
+EAT AREAS
 ===================================================== */
 
-function renderAll() {
+function getEatAreaValue(
+  place
+) {
 
-  renderPromotions();
+  const location =
+    place.location
+    || {};
 
 
-  setText(
-    "resultCount",
-    `${filteredPromotions.length} รายการ`
+  return (
+    location.district
+    ||
+    location.subdistrict
+    ||
+    "ไม่ระบุพื้นที่"
   );
 }
 
+
+function buildEatAreaFilters() {
+
+  const container =
+    document.getElementById(
+      "eatAreaFilters"
+    );
+
+
+  if (!container) {
+    return;
+  }
+
+
+  const areas =
+    [
+      ...new Set(
+        allEatPlaces
+          .map(
+            getEatAreaValue
+          )
+          .filter(
+            area =>
+              area
+              &&
+              area !==
+              "ไม่ระบุพื้นที่"
+          )
+      )
+    ]
+      .sort(
+        (a, b) =>
+          String(a)
+            .localeCompare(
+              String(b),
+              "th"
+            )
+      );
+
+
+  const buttons = [
+
+    `
+      <button
+        type="button"
+        class="filter-button active"
+        data-eat-area="all"
+      >
+        ทุกพื้นที่
+      </button>
+    `
+
+  ];
+
+
+  for (
+    const area
+    of areas
+  ) {
+
+    buttons.push(
+      `
+        <button
+          type="button"
+          class="filter-button"
+          data-eat-area="${escapeAttribute(area)}"
+        >
+          ${escapeHtml(area)}
+        </button>
+      `
+    );
+  }
+
+
+  container.innerHTML =
+    buttons.join("");
+
+
+  bindDynamicEatAreaEvents();
+
+  updateEatButtons();
+}
+
+
+/* =====================================================
+NEAR ME
+===================================================== */
+
+function activateNearMe() {
+
+  if (
+    !navigator.geolocation
+  ) {
+
+    setText(
+      "nearMeStatus",
+      "อุปกรณ์นี้ไม่รองรับการใช้ตำแหน่ง"
+    );
+
+    return;
+  }
+
+
+  setText(
+    "nearMeStatus",
+    "กำลังขอตำแหน่งของคุณ..."
+  );
+
+
+  navigator.geolocation
+    .getCurrentPosition(
+
+      position => {
+
+        userLocation = {
+
+          latitude:
+            position.coords
+              .latitude,
+
+          longitude:
+            position.coords
+              .longitude,
+        };
+
+
+        currentEatArea =
+          "all";
+
+        currentEatPage =
+          1;
+
+
+        updateNearMeState(
+          true
+        );
+
+
+        setText(
+          "nearMeStatus",
+          "กำลังเรียงร้านจากใกล้ไปไกล"
+        );
+
+
+        updateEatButtons();
+
+        applyEatFilters();
+
+        showEatResult();
+      },
+
+
+      error => {
+
+        console.warn(
+          "Geolocation error:",
+          error
+        );
+
+
+        userLocation =
+          null;
+
+
+        updateNearMeState(
+          false
+        );
+
+
+        if (
+          error.code === 1
+        ) {
+
+          setText(
+            "nearMeStatus",
+            "ไม่ได้รับอนุญาตให้ใช้ตำแหน่ง"
+          );
+        }
+
+
+        else {
+
+          setText(
+            "nearMeStatus",
+            "ไม่สามารถหาตำแหน่งได้ในขณะนี้"
+          );
+        }
+      },
+
+
+      {
+        enableHighAccuracy:
+          false,
+
+        timeout:
+          10000,
+
+        maximumAge:
+          300000,
+      }
+    );
+}
+
+
+function updateNearMeState(
+  active
+) {
+
+  const button =
+    document.getElementById(
+      "nearMeBtn"
+    );
+
+
+  if (button) {
+
+    button.classList.toggle(
+      "active",
+      active
+    );
+  }
+}
+
+
+/* =====================================================
+DISTANCE
+===================================================== */
+
+function calculatePlaceDistance(
+  place
+) {
+
+  if (!userLocation) {
+    return null;
+  }
+
+
+  const latitude =
+    Number(
+      place.location
+      ?.latitude
+    );
+
+
+  const longitude =
+    Number(
+      place.location
+      ?.longitude
+    );
+
+
+  if (
+    !Number.isFinite(
+      latitude
+    )
+    ||
+    !Number.isFinite(
+      longitude
+    )
+  ) {
+
+    return null;
+  }
+
+
+  return haversineDistance(
+    userLocation.latitude,
+    userLocation.longitude,
+    latitude,
+    longitude
+  );
+}
+
+
+function haversineDistance(
+  lat1,
+  lon1,
+  lat2,
+  lon2
+) {
+
+  const earthRadiusKm =
+    6371;
+
+
+  const toRadians =
+    value =>
+      value
+      *
+      Math.PI
+      /
+      180;
+
+
+  const dLat =
+    toRadians(
+      lat2 - lat1
+    );
+
+
+  const dLon =
+    toRadians(
+      lon2 - lon1
+    );
+
+
+  const a =
+    Math.sin(
+      dLat / 2
+    )
+    ** 2
+
+    +
+
+    Math.cos(
+      toRadians(lat1)
+    )
+
+    *
+
+    Math.cos(
+      toRadians(lat2)
+    )
+
+    *
+
+    Math.sin(
+      dLon / 2
+    )
+    ** 2;
+
+
+  const c =
+    2
+    *
+    Math.atan2(
+      Math.sqrt(a),
+      Math.sqrt(
+        1 - a
+      )
+    );
+
+
+  return (
+    earthRadiusKm
+    *
+    c
+  );
+}
+
+
+/* =====================================================
+RECOMMENDED RESULT
+===================================================== */
+
+function renderRecommended(
+  mode = "all"
+) {
+
+  const list =
+    document.getElementById(
+      "recommendedList"
+    );
+
+
+  if (!list) {
+    return;
+  }
+
+
+  const dealItems =
+    rankInteresting(
+      allPromotions
+    )
+      .slice(
+        0,
+        4
+      )
+      .map(
+        item => ({
+          kind:
+            "deal",
+
+          item,
+        })
+      );
+
+
+  const eatItems =
+    [...allEatPlaces]
+      .sort(
+        (a, b) =>
+          String(
+            a.title
+            || ""
+          )
+            .localeCompare(
+              String(
+                b.title
+                || ""
+              ),
+              "th"
+            )
+      )
+      .slice(
+        0,
+        4
+      )
+      .map(
+        item => ({
+          kind:
+            "eat",
+
+          item,
+        })
+      );
+
+
+  let items =
+    [
+      ...dealItems,
+      ...eatItems,
+    ];
+
+
+  if (
+    mode === "latest"
+  ) {
+
+    items.sort(
+      (a, b) => {
+
+        return (
+          parseDateValue(
+            b.item
+              .collected_at
+          )
+          -
+          parseDateValue(
+            a.item
+              .collected_at
+          )
+        );
+      }
+    );
+  }
+
+
+  items =
+    items.slice(
+      0,
+      RECOMMENDED_LIMIT
+    );
+
+
+  list.innerHTML =
+    items
+      .map(
+        entry => {
+
+          if (
+            entry.kind
+            === "deal"
+          ) {
+
+            return renderPromotionCard(
+              entry.item
+            );
+          }
+
+
+          return renderEatCard(
+            entry.item
+          );
+        }
+      )
+      .join("");
+
+
+  setText(
+    "recommendedResultCount",
+    `${items.length} รายการ`
+  );
+}
+
+
+function renderRecommendedSearch(
+  items
+) {
+
+  const list =
+    document.getElementById(
+      "recommendedList"
+    );
+
+
+  if (!list) {
+    return;
+  }
+
+
+  const visible =
+    items.slice(
+      0,
+      RECOMMENDED_LIMIT
+    );
+
+
+  if (
+    visible.length === 0
+  ) {
+
+    list.innerHTML = `
+      <div class="empty-state">
+        <div class="empty-icon">
+          🔎
+        </div>
+
+        <h3>
+          ยังไม่พบข้อมูล
+        </h3>
+
+        <p>
+          ลองใช้คำค้นอื่น
+          หรือเลือกจากหมวดด้านบน
+        </p>
+      </div>
+    `;
+
+
+    setText(
+      "recommendedResultCount",
+      "0 รายการ"
+    );
+
+
+    return;
+  }
+
+
+  list.innerHTML =
+    visible
+      .map(
+        item => {
+
+          if (
+            item.content_type
+            === "deal"
+          ) {
+
+            const sourcePromotion =
+              allPromotions.find(
+                promotion =>
+                  promotion.id
+                  === item.id
+              );
+
+
+            return sourcePromotion
+              ? renderPromotionCard(
+                  sourcePromotion
+                )
+              : "";
+          }
+
+
+          if (
+            item.content_type
+            === "eat"
+          ) {
+
+            return renderEatCard(
+              item
+            );
+          }
+
+
+          return "";
+        }
+      )
+      .join("");
+
+
+  setText(
+    "recommendedResultCount",
+    `${visible.length} รายการ`
+  );
+}
+
+
+/* =====================================================
+RENDER SHOPPING
+===================================================== */
 
 function renderPromotions() {
 
@@ -1965,7 +2454,6 @@ function renderPromotions() {
 
 
   if (!list) {
-
     return;
   }
 
@@ -1975,18 +2463,18 @@ function renderPromotions() {
     === 0
   ) {
 
-    list.innerHTML = "";
+    list.innerHTML =
+      "";
 
 
-    if (emptyState) {
-
-      emptyState.classList.remove(
-        "hidden"
-      );
-    }
+    showElement(
+      "emptyState"
+    );
 
 
-    if (loadMoreBtn) {
+    if (
+      loadMoreBtn
+    ) {
 
       loadMoreBtn.classList.add(
         "hidden"
@@ -1998,12 +2486,9 @@ function renderPromotions() {
   }
 
 
-  if (emptyState) {
-
-    emptyState.classList.add(
-      "hidden"
-    );
-  }
+  hideElement(
+    "emptyState"
+  );
 
 
   const visibleCount =
@@ -2027,16 +2512,23 @@ function renderPromotions() {
       .join("");
 
 
-  if (loadMoreBtn) {
+  if (
+    loadMoreBtn
+  ) {
 
     loadMoreBtn.classList.toggle(
       "hidden",
-      visibleCount >=
-        filteredPromotions.length
+      visibleCount
+      >=
+      filteredPromotions.length
     );
   }
 }
 
+
+/* =====================================================
+SHOPPING CARD
+===================================================== */
 
 function renderPromotionCard(
   promotion
@@ -2051,20 +2543,6 @@ function renderPromotionCard(
   const merchant =
     escapeHtml(
       promotion.merchant
-    );
-
-
-  const source =
-    escapeHtml(
-      promotion.source
-    );
-
-
-  const locationLabel =
-    escapeHtml(
-      getLocationLabel(
-        promotion
-      )
     );
 
 
@@ -2084,17 +2562,9 @@ function renderPromotionCard(
     );
 
 
-  const typeClass =
+  const locationLabel =
     escapeHtml(
-      getPromotionTypeClass(
-        promotion
-      )
-    );
-
-
-  const smartLabel =
-    escapeHtml(
-      getSmartLabel(
+      getPromotionLocationLabel(
         promotion
       )
     );
@@ -2102,23 +2572,7 @@ function renderPromotionCard(
 
   const smartReason =
     escapeHtml(
-      getSmartReason(
-        promotion
-      )
-    );
-
-
-  const description =
-    escapeHtml(
-      getPromotionDescription(
-        promotion
-      )
-    );
-
-
-  const actionLabel =
-    escapeHtml(
-      getActionLabel(
+      getPromotionReason(
         promotion
       )
     );
@@ -2144,12 +2598,6 @@ function renderPromotionCard(
       `;
 
 
-  const verifiedLabel =
-    promotion.verified
-      ? "✓ ข้อมูลจากแหล่งต้นทาง"
-      : "ข้อมูลจากต้นทาง";
-
-
   const sourceButton =
     promotion.source_url
       ? `
@@ -2161,15 +2609,17 @@ function renderPromotionCard(
           target="_blank"
           rel="noopener noreferrer"
         >
-          ${actionLabel}
-          <span aria-hidden="true">→</span>
+          ${escapeHtml(
+            getActionLabel(
+              promotion
+            )
+          )}
+          <span aria-hidden="true">
+            →
+          </span>
         </a>
       `
-      : `
-        <span class="source-button">
-          ยังไม่มีลิงก์ต้นทาง
-        </span>
-      `;
+      : "";
 
 
   return `
@@ -2184,6 +2634,7 @@ function renderPromotionCard(
         </span>
 
       </div>
+
 
       <div class="promotion-body">
 
@@ -2203,161 +2654,50 @@ function renderPromotionCard(
 
         </div>
 
-        <div class="promotion-type-badge ${typeClass}">
+
+        <div class="promotion-type-badge">
           ${typeLabel}
         </div>
+
 
         <div class="promotion-location">
           📍 ${locationLabel}
         </div>
 
+
         <h3 class="promotion-title">
           ${title}
         </h3>
 
+
         <p class="promotion-description">
-
-          <strong>
-            ${smartLabel}
-          </strong>
-
-          ·
-
           ${smartReason}
-
         </p>
+
 
         <p class="promotion-description">
-          ${description}
+          ${
+            promotion.verified
+              ? "✓ ข้อมูลจากแหล่งต้นทาง"
+              : "ข้อมูลจากต้นทาง"
+          }
         </p>
 
-        <p class="promotion-description">
 
-          ${escapeHtml(
-            verifiedLabel
-          )}
-
-          ·
-
-          ${source}
-
-        </p>
-
-        <div class="promotion-actions">
-
-          ${sourceButton}
-
-        </div>
+        ${
+          sourceButton
+            ? `
+              <div class="promotion-actions">
+                ${sourceButton}
+              </div>
+            `
+            : ""
+        }
 
       </div>
 
     </article>
   `;
-}
-
-
-/* =====================================================
-EAT FILTER
-===================================================== */
-
-function applyEatFilters() {
-
-  filteredEatPlaces =
-    allEatPlaces.filter(
-      place => {
-
-        if (
-          currentEatType === "all"
-        ) {
-
-          return true;
-        }
-
-
-        return (
-          place.category
-            === currentEatType
-          ||
-          place.original_type
-            === currentEatType
-        );
-      }
-    );
-
-
-  filteredEatPlaces.sort(
-    (a, b) => {
-
-      const districtA =
-        String(
-          a.location?.district
-          || ""
-        );
-
-
-      const districtB =
-        String(
-          b.location?.district
-          || ""
-        );
-
-
-      const districtCompare =
-        districtA.localeCompare(
-          districtB,
-          "th"
-        );
-
-
-      if (
-        districtCompare !== 0
-      ) {
-
-        return districtCompare;
-      }
-
-
-      return String(
-        a.title || ""
-      ).localeCompare(
-        String(
-          b.title || ""
-        ),
-        "th"
-      );
-    }
-  );
-
-
-  currentEatPage = 1;
-
-
-  setText(
-    "eatResultCount",
-    `${filteredEatPlaces.length} ร้าน`
-  );
-
-
-  renderEatPlaces();
-}
-
-
-function updateActiveEatButtons() {
-
-  document
-    .querySelectorAll(
-      "[data-eat-type]"
-    )
-    .forEach(
-      button => {
-
-        button.classList.toggle(
-          "active",
-          button.dataset.eatType
-          === currentEatType
-        );
-      }
-    );
 }
 
 
@@ -2386,7 +2726,6 @@ function renderEatPlaces() {
 
 
   if (!list) {
-
     return;
   }
 
@@ -2396,18 +2735,18 @@ function renderEatPlaces() {
     === 0
   ) {
 
-    list.innerHTML = "";
+    list.innerHTML =
+      "";
 
 
-    if (emptyState) {
-
-      emptyState.classList.remove(
-        "hidden"
-      );
-    }
+    showElement(
+      "eatEmptyState"
+    );
 
 
-    if (loadMoreBtn) {
+    if (
+      loadMoreBtn
+    ) {
 
       loadMoreBtn.classList.add(
         "hidden"
@@ -2419,12 +2758,9 @@ function renderEatPlaces() {
   }
 
 
-  if (emptyState) {
-
-    emptyState.classList.add(
-      "hidden"
-    );
-  }
+  hideElement(
+    "eatEmptyState"
+  );
 
 
   const visibleCount =
@@ -2433,7 +2769,7 @@ function renderEatPlaces() {
     EAT_PAGE_SIZE;
 
 
-  const visiblePlaces =
+  const visibleItems =
     filteredEatPlaces.slice(
       0,
       visibleCount
@@ -2441,25 +2777,34 @@ function renderEatPlaces() {
 
 
   list.innerHTML =
-    visiblePlaces
+    visibleItems
       .map(
         renderEatCard
       )
       .join("");
 
 
-  if (loadMoreBtn) {
+  if (
+    loadMoreBtn
+  ) {
 
     loadMoreBtn.classList.toggle(
       "hidden",
-      visibleCount >=
-        filteredEatPlaces.length
+      visibleCount
+      >=
+      filteredEatPlaces.length
     );
   }
 }
 
 
-function renderEatCard(place) {
+/* =====================================================
+EAT CARD
+===================================================== */
+
+function renderEatCard(
+  place
+) {
 
   const title =
     escapeHtml(
@@ -2468,34 +2813,20 @@ function renderEatCard(place) {
     );
 
 
-  const categoryLabel =
-    getEatCategoryLabel(
-      place
+  const category =
+    escapeHtml(
+      getEatCategoryLabel(
+        place
+      )
     );
 
 
-  const locationLabel =
-    getEatLocationLabel(
-      place
+  const location =
+    escapeHtml(
+      getEatLocationLabel(
+        place
+      )
     );
-
-
-  const openingHours =
-    place.metadata?.opening_hours
-      ? escapeHtml(
-          place.metadata.opening_hours
-        )
-      : "";
-
-
-  const cuisine =
-    Array.isArray(
-      place.metadata?.cuisine
-    )
-      ? place.metadata.cuisine
-          .filter(Boolean)
-          .join(", ")
-      : "";
 
 
   const mapUrl =
@@ -2504,53 +2835,36 @@ function renderEatCard(place) {
     );
 
 
-  const mapButton =
-    mapUrl
-      ? `
-        <a
-          class="source-button"
-          href="${escapeAttribute(
-            mapUrl
-          )}"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          เปิดแผนที่
-          <span aria-hidden="true">→</span>
-        </a>
-      `
+  const distance =
+    Number.isFinite(
+      place._distance
+    )
+      ? formatDistance(
+          place._distance
+        )
       : "";
 
 
-  const detailRows = [];
+  const openingHours =
+    place.metadata
+    ?.opening_hours
+      ? escapeHtml(
+          place.metadata
+            .opening_hours
+        )
+      : "";
 
 
-  if (locationLabel) {
-
-    detailRows.push(
-      `📍 ${escapeHtml(
-        locationLabel
-      )}`
-    );
-  }
-
-
-  if (openingHours) {
-
-    detailRows.push(
-      `🕒 ${openingHours}`
-    );
-  }
-
-
-  if (cuisine) {
-
-    detailRows.push(
-      `🍽️ ${escapeHtml(
-        cuisine
-      )}`
-    );
-  }
+  const cuisine =
+    Array.isArray(
+      place.metadata
+      ?.cuisine
+    )
+      ? place.metadata
+          .cuisine
+          .filter(Boolean)
+          .join(", ")
+      : "";
 
 
   return `
@@ -2560,64 +2874,107 @@ function renderEatCard(place) {
 
         <div class="image-placeholder eat-placeholder">
           ${
-            place.category === "cafe"
+            place.category
+            === "cafe"
               ? "☕"
               : "🍜"
           }
         </div>
 
+
         <span class="source-pill">
-          ${escapeHtml(
-            categoryLabel
-          )}
+          ${category}
         </span>
 
       </div>
+
 
       <div class="promotion-body">
 
         <div class="promotion-meta">
 
           <strong>
-            PrachinLife Eat
+            ${category}
           </strong>
 
-          <span>
-            •
-          </span>
+          ${
+            distance
+              ? `
+                <span>
+                  •
+                </span>
 
-          <span>
-            ${escapeHtml(
-              categoryLabel
-            )}
-          </span>
+                <span>
+                  📍 ${escapeHtml(
+                    distance
+                  )}
+                </span>
+              `
+              : ""
+          }
 
         </div>
+
 
         <h3 class="promotion-title">
           ${title}
         </h3>
 
+
+        <p class="promotion-description">
+          📍 ${location}
+        </p>
+
+
         ${
-          detailRows.length
+          openingHours
             ? `
               <p class="promotion-description">
-                ${detailRows.join("<br>")}
+                🕒 ${openingHours}
               </p>
             `
             : ""
         }
 
+
+        ${
+          cuisine
+            ? `
+              <p class="promotion-description">
+                🍽️ ${escapeHtml(
+                  cuisine
+                )}
+              </p>
+            `
+            : ""
+        }
+
+
         <p class="promotion-description">
-          ข้อมูลสถานที่จากแหล่งข้อมูลเปิด
+          ข้อมูลสถานที่จาก OpenStreetMap
           โปรดตรวจสอบข้อมูลล่าสุดก่อนเดินทาง
         </p>
 
+
         ${
-          mapButton
+          mapUrl
             ? `
               <div class="promotion-actions">
-                ${mapButton}
+
+                <a
+                  class="source-button"
+                  href="${escapeAttribute(
+                    mapUrl
+                  )}"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  เปิดแผนที่
+                  <span aria-hidden="true">
+                    →
+                  </span>
+                </a>
+
               </div>
             `
             : ""
@@ -2651,47 +3008,33 @@ function getEatCategoryLabel(
   }
 
 
-  if (
-    place.category === "cafe"
-  ) {
+  const mapping = {
 
-    return "คาเฟ่";
-  }
+    restaurant:
+      "ร้านอาหาร",
 
+    cafe:
+      "คาเฟ่",
 
-  if (
-    place.category === "restaurant"
-  ) {
+    fast_food:
+      "อาหารจานด่วน",
 
-    return "ร้านอาหาร";
-  }
+    food_court:
+      "ศูนย์อาหาร",
 
+    ice_cream:
+      "ไอศกรีม",
 
-  if (
-    place.category === "fast_food"
-  ) {
-
-    return "อาหารจานด่วน";
-  }
+  };
 
 
-  if (
-    place.category === "food_court"
-  ) {
-
-    return "ศูนย์อาหาร";
-  }
-
-
-  if (
-    place.category === "ice_cream"
-  ) {
-
-    return "ไอศกรีม";
-  }
-
-
-  return "ร้านอาหารและเครื่องดื่ม";
+  return (
+    mapping[
+      place.category
+    ]
+    ||
+    "อาหารและเครื่องดื่ม"
+  );
 }
 
 
@@ -2706,13 +3049,6 @@ function getEatLocationLabel(
 
   const parts = [
 
-    location.place_name
-    &&
-    location.place_name
-      !== place.title
-      ? location.place_name
-      : null,
-
     location.subdistrict,
 
     location.district,
@@ -2723,7 +3059,7 @@ function getEatLocationLabel(
     .filter(Boolean);
 
 
-  const uniqueParts =
+  const unique =
     [
       ...new Set(
         parts
@@ -2732,14 +3068,15 @@ function getEatLocationLabel(
 
 
   if (
-    uniqueParts.length === 0
+    unique.length
+    === 0
   ) {
 
     return "จังหวัดปราจีนบุรี";
   }
 
 
-  return uniqueParts.join(
+  return unique.join(
     " · "
   );
 }
@@ -2793,18 +3130,8 @@ function buildEatMapUrl(
 
 
   if (!title) {
-
     return "";
   }
-
-
-  const query =
-    [
-      title,
-      "ปราจีนบุรี",
-    ]
-      .filter(Boolean)
-      .join(" ");
 
 
   return (
@@ -2813,274 +3140,303 @@ function buildEatMapUrl(
     "?api=1&query="
     +
     encodeURIComponent(
-      query
+      `${title} ปราจีนบุรี`
     )
   );
 }
 
 
-/* =====================================================
-META
-===================================================== */
-
-function updateMeta() {
-
-  setText(
-    "totalCount",
-    `${allPromotions.length} รายการ`
-  );
-
-
-  const latest =
-    getLatestCollectedAt(
-      allPromotions
-    );
-
-
-  setText(
-    "lastUpdate",
-
-    latest
-      ? formatThaiDateTime(
-          latest
-        )
-      : "ยังไม่มีข้อมูล"
-  );
-}
-
-
-function getLatestCollectedAt(
-  data
+function formatDistance(
+  distanceKm
 ) {
 
-  const dates =
-    data
-      .map(
-        item =>
-          item.collected_at
-      )
-      .filter(Boolean)
-      .map(
-        value =>
-          new Date(
-            value
-          )
-      )
-      .filter(
-        date =>
-          Number.isFinite(
-            date.getTime()
-          )
-      );
+  if (
+    distanceKm < 1
+  ) {
+
+    return (
+      `${Math.round(
+        distanceKm * 1000
+      )} ม.`
+    );
+  }
 
 
   if (
-    dates.length === 0
+    distanceKm < 10
   ) {
 
-    return null;
+    return (
+      `${distanceKm.toFixed(
+        1
+      )} กม.`
+    );
   }
 
 
-  return new Date(
-    Math.max(
-      ...dates.map(
-        date =>
-          date.getTime()
-      )
-    )
+  return (
+    `${Math.round(
+      distanceKm
+    )} กม.`
   );
 }
 
 
-function formatThaiDateTime(
-  date
+/* =====================================================
+PROMOTION HELPERS
+===================================================== */
+
+function getPromotionTypeLabel(
+  promotion
 ) {
 
-  try {
+  if (
+    promotion.promotion_type
+    === "coupon"
+  ) {
 
-    return new Intl.DateTimeFormat(
-      "th-TH",
-      {
-        dateStyle:
-          "medium",
-
-        timeStyle:
-          "short",
-      }
-    ).format(
-      date
-    );
-
-  } catch {
-
-    return date.toLocaleString();
-  }
-}
-
-
-/* =====================================================
-LOADING
-===================================================== */
-
-function setLoading() {
-
-  const list =
-    document.getElementById(
-      "promotionList"
-    );
-
-
-  if (list) {
-
-    list.innerHTML = `
-      <div class="skeleton-card"></div>
-      <div class="skeleton-card"></div>
-      <div class="skeleton-card"></div>
-    `;
+    return "คูปอง";
   }
 
 
-  setText(
-    "resultCount",
-    "กำลังโหลด..."
-  );
-}
+  if (
+    promotion.promotion_type
+    === "member_offer"
+  ) {
 
-
-/* =====================================================
-UI HELPERS
-===================================================== */
-
-function scrollToDeals() {
-
-  const deals =
-    document.getElementById(
-      "deals"
-    );
-
-
-  if (deals) {
-
-    deals.scrollIntoView(
-      {
-        behavior:
-          "smooth",
-
-        block:
-          "start",
-      }
-    );
+    return "สิทธิสมาชิก";
   }
+
+
+  if (
+    promotion.promotion_type
+    === "product_deal"
+  ) {
+
+    return "ดีลสินค้า";
+  }
+
+
+  if (
+    isCataloguePromotion(
+      promotion
+    )
+  ) {
+
+    return "แคตตาล็อก";
+  }
+
+
+  return "โปรโมชั่น";
 }
 
 
-function setText(
-  id,
-  value
+function getPromotionCategoryLabel(
+  promotion
 ) {
 
-  const element =
-    document.getElementById(
-      id
-    );
+  if (
+    promotion.promotion_type
+    === "coupon"
+  ) {
 
-
-  if (element) {
-
-    element.textContent =
-      value;
-  }
-}
-
-
-function showToast(message) {
-
-  const toast =
-    document.getElementById(
-      "toast"
-    );
-
-
-  if (!toast) {
-
-    return;
+    return "ช่วยประหยัด";
   }
 
 
-  toast.textContent =
-    message;
+  if (
+    promotion.promotion_type
+    === "member_offer"
+  ) {
 
-
-  toast.classList.add(
-    "show"
-  );
-
-
-  if (toastTimer) {
-
-    clearTimeout(
-      toastTimer
-    );
+    return "สิทธิสมาชิก";
   }
 
 
-  toastTimer =
-    setTimeout(
-      () => {
-
-        toast.classList.remove(
-          "show"
-        );
-      },
-      2200
-    );
-}
-
-
-/* =====================================================
-SECURITY HELPERS
-===================================================== */
-
-function escapeHtml(value) {
-
-  return String(
-    value ?? ""
-  )
-    .replaceAll(
-      "&",
-      "&amp;"
+  if (
+    isCataloguePromotion(
+      promotion
     )
-    .replaceAll(
-      "<",
-      "&lt;"
-    )
-    .replaceAll(
-      ">",
-      "&gt;"
-    )
-    .replaceAll(
-      '"',
-      "&quot;"
-    )
-    .replaceAll(
-      "'",
-      "&#039;"
-    );
-}
+  ) {
+
+    return "แคตตาล็อก";
+  }
 
 
-function escapeAttribute(value) {
-
-  return escapeHtml(
-    value
+  return (
+    promotion.category
+    ||
+    "โปรโมชั่น"
   );
 }
 
 
-/* =====================================================
-PROMOTION DISPLAY HELPERS
-===================================================== */
+function getPromotionReason(
+  promotion
+) {
+
+  const title =
+    String(
+      promotion.title
+      || ""
+    );
+
+
+  if (
+    promotion.promotion_type
+    === "coupon"
+  ) {
+
+    return (
+      "คูปองหรือสิทธิ์ส่วนลด "
+      +
+      "ควรตรวจสอบเงื่อนไขก่อนใช้"
+    );
+  }
+
+
+  if (
+    promotion.promotion_type
+    === "member_offer"
+  ) {
+
+    return (
+      "สิทธิสำหรับสมาชิก "
+      +
+      "ที่อาจช่วยเพิ่มความคุ้มค่า"
+    );
+  }
+
+
+  if (
+    isCataloguePromotion(
+      promotion
+    )
+  ) {
+
+    return (
+      "เปิดดูรายการโปรโมชั่น "
+      +
+      "จากแคตตาล็อกต้นทาง"
+    );
+  }
+
+
+  if (
+    /ลุ้น|ชิง|รางวัล|บินฟรี/.test(
+      title
+    )
+  ) {
+
+    return (
+      "กิจกรรมหรือแคมเปญ "
+      +
+      "สำหรับผู้ที่สนใจเข้าร่วม"
+    );
+  }
+
+
+  return (
+    "โปรโมชั่นจากแหล่งต้นทาง "
+    +
+    "กรุณาตรวจสอบรายละเอียด"
+  );
+}
+
+
+function getPromotionLocationLabel(
+  promotion
+) {
+
+  const scope =
+    promotion.location_scope
+    || "national";
+
+
+  if (
+    scope === "national"
+  ) {
+
+    return "ทั่วประเทศ";
+  }
+
+
+  if (
+    scope === "province"
+  ) {
+
+    return (
+      promotion.province
+      ||
+      "ระดับจังหวัด"
+    );
+  }
+
+
+  if (
+    scope === "district"
+  ) {
+
+    return [
+      promotion.district,
+      promotion.province,
+    ]
+      .filter(Boolean)
+      .join(" · ");
+  }
+
+
+  if (
+    scope === "branch"
+  ) {
+
+    return (
+      promotion.branch_name
+      ||
+      "เฉพาะสาขา"
+    );
+  }
+
+
+  return "ไม่ระบุพื้นที่";
+}
+
+
+function getActionLabel(
+  promotion
+) {
+
+  if (
+    promotion.promotion_type
+    === "coupon"
+  ) {
+
+    return "ดูคูปอง";
+  }
+
+
+  if (
+    promotion.promotion_type
+    === "member_offer"
+  ) {
+
+    return "ดูสิทธิสมาชิก";
+  }
+
+
+  if (
+    isCataloguePromotion(
+      promotion
+    )
+  ) {
+
+    return "เปิดแคตตาล็อก";
+  }
+
+
+  return "ดูรายละเอียด";
+}
+
 
 function isCataloguePromotion(
   promotion
@@ -3118,160 +3474,410 @@ function isCataloguePromotion(
 }
 
 
-function getPromotionCategoryLabel(
-  promotion
+/* =====================================================
+DATE
+===================================================== */
+
+function sortLatest(
+  data
 ) {
 
-  if (
-    promotion.promotion_type
-    === "coupon"
-  ) {
+  return [
+    ...data
+  ].sort(
+    (a, b) => {
 
-    return "สิทธิ์ส่วนลด";
-  }
-
-
-  if (
-    promotion.promotion_type
-    === "member_offer"
-  ) {
-
-    return "สิทธิสมาชิก";
-  }
-
-
-  if (
-    promotion.promotion_type
-    === "product_deal"
-  ) {
-
-    return "โปรโมชั่นสินค้า";
-  }
-
-
-  if (
-    isCataloguePromotion(
-      promotion
-    )
-  ) {
-
-    return "แคตตาล็อกโปรโมชั่น";
-  }
-
-
-  return (
-    promotion.category
-    ||
-    "แคมเปญโปรโมชั่น"
+      return (
+        parseDateValue(
+          b.collected_at
+        )
+        -
+        parseDateValue(
+          a.collected_at
+        )
+      );
+    }
   );
 }
 
 
-function getActionLabel(
-  promotion
+function parseDateValue(
+  value
 ) {
 
-  if (
-    promotion.promotion_type
-    === "coupon"
-  ) {
-
-    return "ดูคูปอง";
+  if (!value) {
+    return 0;
   }
 
 
-  if (
-    promotion.promotion_type
-    === "member_offer"
-  ) {
-
-    return "ดูสิทธิสมาชิก";
-  }
+  const date =
+    new Date(
+      value
+    );
 
 
-  if (
-    promotion.promotion_type
-    === "product_deal"
-  ) {
-
-    return "ดูดีลสินค้า";
-  }
+  const timestamp =
+    date.getTime();
 
 
-  if (
-    isCataloguePromotion(
-      promotion
-    )
-  ) {
-
-    return "เปิดแคตตาล็อก";
-  }
-
-
-  return "ดูรายละเอียด";
+  return Number.isFinite(
+    timestamp
+  )
+    ? timestamp
+    : 0;
 }
 
 
-function getPromotionDescription(
-  promotion
+/* =====================================================
+META
+===================================================== */
+
+function updateMeta() {
+
+  const total =
+    allContent.length
+    > 0
+      ? allContent.length
+      : allPromotions.length;
+
+
+  setText(
+    "totalCount",
+    `${total} รายการ`
+  );
+
+
+  const sourceData =
+    allContent.length
+    > 0
+      ? allContent
+      : allPromotions;
+
+
+  const dates =
+    sourceData
+      .map(
+        item =>
+          item.collected_at
+      )
+      .filter(Boolean)
+      .map(
+        value =>
+          new Date(
+            value
+          )
+      )
+      .filter(
+        date =>
+          Number.isFinite(
+            date.getTime()
+          )
+      );
+
+
+  if (
+    dates.length === 0
+  ) {
+
+    setText(
+      "lastUpdate",
+      "ยังไม่มีข้อมูล"
+    );
+
+    return;
+  }
+
+
+  const latest =
+    new Date(
+      Math.max(
+        ...dates.map(
+          date =>
+            date.getTime()
+        )
+      )
+    );
+
+
+  try {
+
+    setText(
+      "lastUpdate",
+
+      new Intl.DateTimeFormat(
+        "th-TH",
+        {
+          dateStyle:
+            "medium",
+
+          timeStyle:
+            "short",
+        }
+      ).format(
+        latest
+      )
+    );
+  }
+
+
+  catch {
+
+    setText(
+      "lastUpdate",
+      latest.toLocaleString()
+    );
+  }
+}
+
+
+/* =====================================================
+COMING SOON
+===================================================== */
+
+function setComingSoonContent(
+  icon,
+  title,
+  description
 ) {
 
+  setText(
+    "comingSoonResultIcon",
+    icon
+  );
+
+
+  setText(
+    "comingSoonResultTitle",
+    title
+  );
+
+
+  setText(
+    "comingSoonResultDescription",
+    description
+  );
+}
+
+
+/* =====================================================
+SHOW / HIDE
+===================================================== */
+
+function hideAllOptionGroups() {
+
+  [
+    "recommendedOptions",
+    "shoppingOptions",
+    "eatOptions",
+    "goOptions",
+    "servicesOptions",
+  ]
+    .forEach(
+      hideElement
+    );
+}
+
+
+function hideAllResultSections() {
+
+  [
+    "recommendedResultSection",
+    "shoppingResultSection",
+    "eatResultSection",
+    "comingSoonResultSection",
+  ]
+    .forEach(
+      hideElement
+    );
+}
+
+
+function showElement(
+  id
+) {
+
+  const element =
+    document.getElementById(
+      id
+    );
+
+
+  if (element) {
+
+    element.classList.remove(
+      "hidden"
+    );
+  }
+}
+
+
+function hideElement(
+  id
+) {
+
+  const element =
+    document.getElementById(
+      id
+    );
+
+
+  if (element) {
+
+    element.classList.add(
+      "hidden"
+    );
+  }
+}
+
+
+/* =====================================================
+SCROLL
+===================================================== */
+
+function scrollToResults() {
+
+  const section =
+    document.getElementById(
+      "results"
+    );
+
+
+  if (!section) {
+    return;
+  }
+
+
+  setTimeout(
+    () => {
+
+      section.scrollIntoView(
+        {
+          behavior:
+            "smooth",
+
+          block:
+            "start",
+        }
+      );
+    },
+    50
+  );
+}
+
+
+/* =====================================================
+TEXT
+===================================================== */
+
+function setText(
+  id,
+  value
+) {
+
+  const element =
+    document.getElementById(
+      id
+    );
+
+
+  if (element) {
+
+    element.textContent =
+      value;
+  }
+}
+
+
+/* =====================================================
+TOAST
+===================================================== */
+
+function showToast(
+  message
+) {
+
+  const toast =
+    document.getElementById(
+      "toast"
+    );
+
+
+  if (!toast) {
+    return;
+  }
+
+
+  toast.textContent =
+    message;
+
+
+  toast.classList.add(
+    "show"
+  );
+
+
   if (
-    promotion.promotion_type
-    === "coupon"
+    toastTimer
   ) {
 
-    return (
-      "คูปองหรือสิทธิ์ส่วนลดจากแหล่งต้นทาง "
-      +
-      "กรุณาตรวจสอบเงื่อนไขก่อนใช้สิทธิ์"
+    clearTimeout(
+      toastTimer
     );
   }
 
 
-  if (
-    promotion.promotion_type
-    === "member_offer"
-  ) {
+  toastTimer =
+    setTimeout(
+      () => {
 
-    return (
-      "สิทธิประโยชน์สำหรับสมาชิก "
-      +
-      "ตรวจสอบรายละเอียดจากต้นทาง"
+        toast.classList.remove(
+          "show"
+        );
+      },
+      2200
     );
-  }
+}
 
 
-  if (
-    promotion.promotion_type
-    === "product_deal"
-  ) {
+/* =====================================================
+SECURITY
+===================================================== */
 
-    return (
-      "ดีลสินค้าจากแหล่งต้นทาง "
-      +
-      "ราคาและเงื่อนไขอาจแตกต่างตามช่วงเวลา"
-    );
-  }
+function escapeHtml(
+  value
+) {
 
-
-  if (
-    isCataloguePromotion(
-      promotion
+  return String(
+    value ?? ""
+  )
+    .replaceAll(
+      "&",
+      "&amp;"
     )
-  ) {
-
-    return (
-      "แคตตาล็อกโปรโมชั่นจากร้านต้นทาง "
-      +
-      "เปิดดูรายการล่าสุดได้จากต้นทาง"
+    .replaceAll(
+      "<",
+      "&lt;"
+    )
+    .replaceAll(
+      ">",
+      "&gt;"
+    )
+    .replaceAll(
+      '"',
+      "&quot;"
+    )
+    .replaceAll(
+      "'",
+      "&#039;"
     );
-  }
+}
 
 
-  return (
-    "แคมเปญจากแหล่งต้นทาง "
-    +
-    "กรุณาตรวจสอบรายละเอียดและเงื่อนไข"
+function escapeAttribute(
+  value
+) {
+
+  return escapeHtml(
+    value
   );
 }
