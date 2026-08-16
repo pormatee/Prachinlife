@@ -20,6 +20,8 @@ Part 1/3
 CONFIG
 ===================================================== */
 
+const INDEX_URL = "prachinlife_index.json";
+const VEGETARIAN_URL = "vegetarian_index.json";
 const DATA_URL = "promotions.json";
 const INDEX_URL = "prachinlife_index.json";
 
@@ -39,6 +41,7 @@ let allContent = [];
 
 let allEatPlaces = [];
 let filteredEatPlaces = [];
+let allVegetarianPlaces = [];
 
 let currentPage = 1;
 let currentEatPage = 1;
@@ -81,8 +84,9 @@ async function init() {
     await Promise.all([
       loadPromotions(),
       loadCommonIndex(),
+      loadVegetarianIndex(),
     ]);
-
+    
     prepareEatPlaces();
 
     buildEatAreaFilters();
@@ -1095,6 +1099,87 @@ async function loadCommonIndex(
     allContent = [];
   }
 }
+
+/* =====================================================
+LOAD VEGETARIAN INDEX
+===================================================== */
+
+async function loadVegetarianIndex(
+  forceRefresh = false
+) {
+
+  try {
+
+    const url =
+      forceRefresh
+        ? `${VEGETARIAN_URL}?t=${Date.now()}`
+        : VEGETARIAN_URL;
+
+
+    const response =
+      await fetch(
+        url,
+        {
+          cache: "no-store",
+        }
+      );
+
+
+    if (!response.ok) {
+
+      throw new Error(
+        `Vegetarian index HTTP ${response.status}`
+      );
+    }
+
+
+    const data =
+      await response.json();
+
+
+    if (!Array.isArray(data)) {
+
+      throw new Error(
+        "Vegetarian index must be an array"
+      );
+    }
+
+
+    allVegetarianPlaces =
+      data;
+
+
+    setText(
+      "vegetarianResultCount",
+      `${allVegetarianPlaces.length} ร้าน`
+    );
+
+
+    console.log(
+      "PrachinLife vegetarian index:",
+      allVegetarianPlaces.length
+    );
+
+  }
+
+  catch (error) {
+
+    console.error(
+      "PrachinLife vegetarian index error:",
+      error
+    );
+
+
+    allVegetarianPlaces = [];
+
+
+    setText(
+      "vegetarianResultCount",
+      "0 ร้าน"
+    );
+  }
+}
+
 
 
 /* =====================================================
