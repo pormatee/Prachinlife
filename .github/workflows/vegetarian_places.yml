@@ -27,37 +27,51 @@ jobs:
       - name: Run vegetarian places collector
         run: |
           python collectors/vegetarian_places.py
+
       - name: Build vegetarian index
         run: |
           python scripts/build_vegetarian_index.py
+
       - name: Show collected data summary
         run: |
           python - <<'PY'
           import json
           from pathlib import Path
 
-          path = Path("data/raw/vegetarian_places.json")
+          raw_path = Path("data/raw/vegetarian_places.json")
+          index_path = Path("vegetarian_index.json")
 
-          if not path.exists():
+          if not raw_path.exists():
               raise SystemExit("vegetarian_places.json not found")
 
-          data = json.loads(path.read_text(encoding="utf-8"))
+          if not index_path.exists():
+              raise SystemExit("vegetarian_index.json not found")
 
-          print("TOTAL =", len(data))
+          raw_data = json.loads(
+              raw_path.read_text(encoding="utf-8")
+          )
 
-          for item in data[:20]:
+          index_data = json.loads(
+              index_path.read_text(encoding="utf-8")
+          )
+
+          print("RAW TOTAL =", len(raw_data))
+          print("INDEX TOTAL =", len(index_data))
+
+          print()
+          print("PUBLISHED PLACES")
+
+          for item in index_data[:20]:
               print(
-                  item.get("name"),
+                  item.get("title"),
                   "|",
                   item.get("location", {}).get("province"),
                   "| vegetarian =",
-                  item.get("dietary", {})
-                      .get("vegetarian", {})
-                      .get("value"),
+                  item.get("dietary", {}).get("vegetarian_status"),
                   "| vegan =",
-                  item.get("dietary", {})
-                      .get("vegan", {})
-                      .get("value"),
+                  item.get("dietary", {}).get("vegan_status"),
+                  "| jay =",
+                  item.get("dietary", {}).get("jay_status"),
               )
           PY
 
@@ -68,4 +82,3 @@ jobs:
           path: |
             data/raw/vegetarian_places.json
             vegetarian_index.json
-          
