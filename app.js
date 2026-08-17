@@ -2,17 +2,15 @@
 
 /* =====================================================
 PRACHINLIFE
-app.js - Stable Rebuild
-Part 1/3
+app.js - Stable Rebuild + Vegetarian
 
 รองรับ:
 - แนะนำ
 - ช้อปคุ้ม
 - กินอะไร
+- เจ / มังสวิรัติ
 - ค้นหา
 - ใกล้ฉัน
-
-ยังไม่เพิ่ม Vegetarian ในรอบนี้
 ===================================================== */
 
 
@@ -41,7 +39,10 @@ let allContent = [];
 
 let allEatPlaces = [];
 let filteredEatPlaces = [];
+
 let allVegetarianPlaces = [];
+let filteredVegetarianPlaces = [];
+
 
 let currentPage = 1;
 let currentEatPage = 1;
@@ -53,6 +54,8 @@ let currentSmart = "recommended";
 
 let currentEatType = "all";
 let currentEatArea = "all";
+
+let currentVegetarianProvince = "all";
 
 let currentMainCategory = "recommended";
 
@@ -80,18 +83,26 @@ async function init() {
       "กำลังโหลดข้อมูล..."
     );
 
+
     bindEvents();
 
+
     await Promise.all([
-     loadPromotions(),
-     loadCommonIndex(),
-     loadVegetarianIndex(),
+      loadPromotions(),
+      loadCommonIndex(),
+      loadVegetarianIndex(),
     ]);
-    
-    
+
+
     prepareEatPlaces();
 
+    prepareVegetarianPlaces();
+
+
     buildEatAreaFilters();
+
+    buildVegetarianProvinceFilters();
+
 
     updateMeta();
 
@@ -99,10 +110,14 @@ async function init() {
 
     applyEatFilters();
 
+    applyVegetarianFilters();
+
+
     setMainCategory(
       "recommended",
       false
     );
+
 
     renderRecommended();
 
@@ -114,6 +129,7 @@ async function init() {
       "PrachinLife INIT ERROR:",
       error
     );
+
 
     setText(
       "recommendedResultCount",
@@ -141,6 +157,8 @@ function bindEvents() {
 
   bindEatEvents();
 
+  bindVegetarianEvents();
+
   bindLoadMoreEvents();
 
   bindResetEvent();
@@ -157,6 +175,7 @@ function bindSearchEvents() {
     document.getElementById(
       "searchInput"
     );
+
 
   const searchBtn =
     document.getElementById(
@@ -217,15 +236,23 @@ function bindRefreshEvent() {
           "กำลังโหลดข้อมูลล่าสุด..."
         );
 
+
         await Promise.all([
-          loadPromotions(),
-          loadCommonIndex(),
-          loadVegetarianIndex(),
-         ]);
+          loadPromotions(true),
+          loadCommonIndex(true),
+          loadVegetarianIndex(true),
+        ]);
+
 
         prepareEatPlaces();
 
+        prepareVegetarianPlaces();
+
+
         buildEatAreaFilters();
+
+        buildVegetarianProvinceFilters();
+
 
         updateMeta();
 
@@ -233,7 +260,16 @@ function bindRefreshEvent() {
 
         applyEatFilters();
 
-        renderRecommended();
+        applyVegetarianFilters();
+
+
+        if (
+          currentMainCategory ===
+          "recommended"
+        ) {
+
+          renderRecommended();
+        }
 
 
         showToast(
@@ -308,7 +344,10 @@ function setMainCategory(
   hideAllResultSections();
 
 
-  if (category === "recommended") {
+  if (
+    category ===
+    "recommended"
+  ) {
 
     showElement(
       "recommendedOptions"
@@ -322,7 +361,10 @@ function setMainCategory(
   }
 
 
-  else if (category === "shopping") {
+  else if (
+    category ===
+    "shopping"
+  ) {
 
     showElement(
       "shoppingOptions"
@@ -336,7 +378,10 @@ function setMainCategory(
   }
 
 
-  else if (category === "eat") {
+  else if (
+    category ===
+    "eat"
+  ) {
 
     showElement(
       "eatOptions"
@@ -349,23 +394,28 @@ function setMainCategory(
     applyEatFilters();
   }
 
-else if (category === "vegetarian") {
 
-  showElement(
-    "vegetarianOptions"
-  );
+  else if (
+    category ===
+    "vegetarian"
+  ) {
 
-  showElement(
-    "vegetarianResultSection"
-  );
+    showElement(
+      "vegetarianOptions"
+    );
 
-  setText(
-    "vegetarianResultCount",
-    `${allVegetarianPlaces.length} ร้าน`
-  );
-  renderVegetarianPlaces();
-}
-  else if (category === "go") {
+    showElement(
+      "vegetarianResultSection"
+    );
+
+    applyVegetarianFilters();
+  }
+
+
+  else if (
+    category ===
+    "go"
+  ) {
 
     showElement(
       "goOptions"
@@ -379,12 +429,15 @@ else if (category === "vegetarian") {
     setComingSoonContent(
       "📍",
       "เที่ยวไหนดี",
-      "กำลังเตรียมข้อมูลสถานที่ท่องเที่ยว กิจกรรม และที่น่าแวะในปราจีนบุรี"
+      "กำลังเตรียมข้อมูลสถานที่ท่องเที่ยว กิจกรรม และที่น่าแวะ"
     );
   }
 
 
-  else if (category === "services") {
+  else if (
+    category ===
+    "services"
+  ) {
 
     showElement(
       "servicesOptions"
@@ -456,7 +509,10 @@ function bindRecommendedEvents() {
             );
 
 
-            if (action === "shopping") {
+            if (
+              action ===
+              "shopping"
+            ) {
 
               setMainCategory(
                 "shopping",
@@ -467,7 +523,10 @@ function bindRecommendedEvents() {
             }
 
 
-            if (action === "eat") {
+            if (
+              action ===
+              "eat"
+            ) {
 
               setMainCategory(
                 "eat",
@@ -478,7 +537,24 @@ function bindRecommendedEvents() {
             }
 
 
-            if (action === "latest") {
+            if (
+              action ===
+              "vegetarian"
+            ) {
+
+              setMainCategory(
+                "vegetarian",
+                true
+              );
+
+              return;
+            }
+
+
+            if (
+              action ===
+              "latest"
+            ) {
 
               renderRecommended(
                 "latest"
@@ -852,6 +928,118 @@ function updateEatButtons() {
 
 
 /* =====================================================
+VEGETARIAN EVENTS
+===================================================== */
+
+function bindVegetarianEvents() {
+
+  const nearMeBtn =
+    document.getElementById(
+      "vegetarianNearMeBtn"
+    );
+
+
+  if (nearMeBtn) {
+
+    nearMeBtn.addEventListener(
+      "click",
+      activateVegetarianNearMe
+    );
+  }
+
+
+  bindDynamicVegetarianProvinceEvents();
+}
+
+
+function bindDynamicVegetarianProvinceEvents() {
+
+  document
+    .querySelectorAll(
+      "[data-vegetarian-province]"
+    )
+    .forEach(
+      button => {
+
+        button.addEventListener(
+          "click",
+          () => {
+
+            currentVegetarianProvince =
+              button.dataset
+                .vegetarianProvince
+              || "all";
+
+            currentVegetarianPage = 1;
+
+            userLocation = null;
+
+
+            updateVegetarianNearMeState(
+              false
+            );
+
+
+            updateVegetarianProvinceButtons();
+
+            applyVegetarianFilters();
+
+            showVegetarianResult();
+          }
+        );
+      }
+    );
+}
+
+
+function showVegetarianResult() {
+
+  currentMainCategory =
+    "vegetarian";
+
+
+  updateMainCategoryButtons();
+
+  hideAllOptionGroups();
+
+  hideAllResultSections();
+
+
+  showElement(
+    "vegetarianOptions"
+  );
+
+  showElement(
+    "vegetarianResultSection"
+  );
+
+
+  scrollToResults();
+}
+
+
+function updateVegetarianProvinceButtons() {
+
+  document
+    .querySelectorAll(
+      "[data-vegetarian-province]"
+    )
+    .forEach(
+      button => {
+
+        button.classList.toggle(
+          "active",
+          button.dataset
+            .vegetarianProvince
+            ===
+            currentVegetarianProvince
+        );
+      }
+    );
+}
+
+
+/* =====================================================
 LOAD MORE
 ===================================================== */
 
@@ -862,9 +1050,16 @@ function bindLoadMoreEvents() {
       "loadMoreBtn"
     );
 
+
   const eatLoadMoreBtn =
     document.getElementById(
       "eatLoadMoreBtn"
+    );
+
+
+  const vegetarianLoadMoreBtn =
+    document.getElementById(
+      "vegetarianLoadMoreBtn"
     );
 
 
@@ -891,6 +1086,20 @@ function bindLoadMoreEvents() {
         currentEatPage++;
 
         renderEatPlaces();
+      }
+    );
+  }
+
+
+  if (vegetarianLoadMoreBtn) {
+
+    vegetarianLoadMoreBtn.addEventListener(
+      "click",
+      () => {
+
+        currentVegetarianPage++;
+
+        renderVegetarianPlaces();
       }
     );
   }
@@ -941,7 +1150,7 @@ function resetShoppingFilters() {
 
 /* =====================================================
 END PART 1
-===================================================== 
+===================================================== */
 /* =====================================================
 LOAD PROMOTIONS
 ===================================================== */
@@ -1102,6 +1311,7 @@ async function loadCommonIndex(
   }
 }
 
+
 /* =====================================================
 LOAD VEGETARIAN INDEX
 ===================================================== */
@@ -1148,13 +1358,12 @@ async function loadVegetarianIndex(
 
 
     allVegetarianPlaces =
-      data;
-
-
-    setText(
-      "vegetarianResultCount",
-      `${allVegetarianPlaces.length} ร้าน`
-    );
+      data.filter(
+        item =>
+          item
+          &&
+          typeof item === "object"
+      );
 
 
     console.log(
@@ -1174,14 +1383,15 @@ async function loadVegetarianIndex(
 
     allVegetarianPlaces = [];
 
+    filteredVegetarianPlaces = [];
+
 
     setText(
       "vegetarianResultCount",
-      "0 ร้าน"
+      "โหลดข้อมูลไม่สำเร็จ"
     );
   }
 }
-
 
 
 /* =====================================================
@@ -1297,6 +1507,20 @@ function prepareEatPlaces() {
 
 
 /* =====================================================
+PREPARE VEGETARIAN
+===================================================== */
+
+function prepareVegetarianPlaces() {
+
+  filteredVegetarianPlaces =
+    [...allVegetarianPlaces];
+
+
+  currentVegetarianPage = 1;
+}
+
+
+/* =====================================================
 GLOBAL SEARCH
 ===================================================== */
 
@@ -1319,6 +1543,87 @@ function performSearch() {
     showToast(
       "พิมพ์สิ่งที่ต้องการค้นหาก่อน"
     );
+
+    return;
+  }
+
+
+  const normalizedQuery =
+    query.toLowerCase();
+
+
+  const vegetarianMatches =
+    allVegetarianPlaces.filter(
+      place => {
+
+        const text = [
+          place.title,
+          place.location?.subdistrict,
+          place.location?.district,
+          place.location?.province,
+          ...(Array.isArray(
+            place.food_types
+          )
+            ? place.food_types
+            : [])
+        ]
+          .filter(Boolean)
+          .join(" ")
+          .toLowerCase();
+
+
+        return text.includes(
+          normalizedQuery
+        );
+      }
+    );
+
+
+  if (
+    vegetarianMatches.length > 0
+    &&
+    /เจ|มังสวิรัติ|vegetarian|vegan/i.test(
+      query
+    )
+  ) {
+
+    currentMainCategory =
+      "vegetarian";
+
+
+    filteredVegetarianPlaces =
+      vegetarianMatches;
+
+
+    currentVegetarianPage = 1;
+
+
+    updateMainCategoryButtons();
+
+    hideAllOptionGroups();
+
+    hideAllResultSections();
+
+
+    showElement(
+      "vegetarianOptions"
+    );
+
+    showElement(
+      "vegetarianResultSection"
+    );
+
+
+    renderVegetarianPlaces();
+
+
+    setText(
+      "vegetarianResultCount",
+      `${filteredVegetarianPlaces.length} ร้าน`
+    );
+
+
+    scrollToResults();
 
     return;
   }
@@ -1594,8 +1899,8 @@ function matchesSmartFilter(
 ) {
 
   if (
-    currentSmart
-      === "recommended"
+    currentSmart ===
+    "recommended"
   ) {
 
     return true;
@@ -1603,8 +1908,8 @@ function matchesSmartFilter(
 
 
   if (
-    currentSmart
-      === "saving"
+    currentSmart ===
+    "saving"
   ) {
 
     return (
@@ -1634,8 +1939,8 @@ function matchesSmartFilter(
 
 
   if (
-    currentSmart
-      === "catalogue"
+    currentSmart ===
+    "catalogue"
   ) {
 
     return isCataloguePromotion(
@@ -1645,8 +1950,8 @@ function matchesSmartFilter(
 
 
   if (
-    currentSmart
-      === "activity"
+    currentSmart ===
+    "activity"
   ) {
 
     return (
@@ -1657,15 +1962,6 @@ function matchesSmartFilter(
         promotion
       )
     );
-  }
-
-
-  if (
-    currentSmart
-      === "latest"
-  ) {
-
-    return true;
   }
 
 
@@ -1692,7 +1988,6 @@ function getInterestingScore(
     score += 40;
   }
 
-
   else if (
     promotion.promotion_type
       === "member_offer"
@@ -1701,7 +1996,6 @@ function getInterestingScore(
     score += 25;
   }
 
-
   else if (
     promotion.promotion_type
       === "product_deal"
@@ -1709,7 +2003,6 @@ function getInterestingScore(
 
     score += 35;
   }
-
 
   else {
 
@@ -1744,45 +2037,6 @@ function getInterestingScore(
   }
 
 
-  const oldPrice =
-    Number(
-      promotion.old_price
-      || 0
-    );
-
-
-  const newPrice =
-    Number(
-      promotion.new_price
-      || 0
-    );
-
-
-  if (
-    oldPrice > 0
-    &&
-    newPrice > 0
-    &&
-    newPrice < oldPrice
-  ) {
-
-    score += 30;
-  }
-
-
-  if (
-    /\d+\s*บาท|ส่วนลด/.test(
-      String(
-        promotion.title
-        || ""
-      )
-    )
-  ) {
-
-    score += 15;
-  }
-
-
   return score;
 }
 
@@ -1802,9 +2056,7 @@ function rankInteresting(
         getInterestingScore(a);
 
 
-      if (
-        scoreDiff !== 0
-      ) {
+      if (scoreDiff !== 0) {
 
         return scoreDiff;
       }
@@ -1871,67 +2123,24 @@ function applyEatFilters() {
     filteredEatPlaces =
       filteredEatPlaces
         .map(
-          place => {
+          place => ({
+            ...place,
 
-            const distance =
+            _distance:
               calculatePlaceDistance(
                 place
-              );
-
-
-            return {
-
-              ...place,
-
-              _distance:
-                distance,
-            };
-          }
+              ),
+          })
         )
         .sort(
-          (a, b) => {
-
-            const distanceA =
-              Number.isFinite(
-                a._distance
-              )
-                ? a._distance
-                : Infinity;
-
-
-            const distanceB =
-              Number.isFinite(
-                b._distance
-              )
-                ? b._distance
-                : Infinity;
-
-
-            return (
-              distanceA
-              -
-              distanceB
-            );
-          }
+          compareDistance
         );
   }
 
   else {
 
     filteredEatPlaces.sort(
-      (a, b) => {
-
-        return String(
-          a.title
-          || ""
-        ).localeCompare(
-          String(
-            b.title
-            || ""
-          ),
-          "th"
-        );
-      }
+      compareTitle
     );
   }
 
@@ -1945,6 +2154,139 @@ function applyEatFilters() {
   setText(
     "eatResultCount",
     `${filteredEatPlaces.length} ร้าน`
+  );
+}
+
+
+/* =====================================================
+VEGETARIAN FILTER ENGINE
+===================================================== */
+
+function applyVegetarianFilters() {
+
+  filteredVegetarianPlaces =
+    allVegetarianPlaces.filter(
+      place => {
+
+        if (
+          currentVegetarianProvince
+          === "all"
+        ) {
+
+          return true;
+        }
+
+
+        return (
+          getVegetarianProvince(
+            place
+          )
+          ===
+          currentVegetarianProvince
+        );
+      }
+    );
+
+
+  if (userLocation) {
+
+    filteredVegetarianPlaces =
+      filteredVegetarianPlaces
+        .map(
+          place => ({
+            ...place,
+
+            _distance:
+              calculatePlaceDistance(
+                place
+              ),
+          })
+        )
+        .sort(
+          compareDistance
+        );
+  }
+
+  else {
+
+    filteredVegetarianPlaces.sort(
+      compareTitle
+    );
+  }
+
+
+  currentVegetarianPage = 1;
+
+
+  renderVegetarianPlaces();
+
+
+  setText(
+    "vegetarianResultCount",
+    `${filteredVegetarianPlaces.length} ร้าน`
+  );
+}
+
+
+/* =====================================================
+SORT HELPERS
+===================================================== */
+
+function compareTitle(
+  a,
+  b
+) {
+
+  return String(
+    a.title
+    || ""
+  ).localeCompare(
+    String(
+      b.title
+      || ""
+    ),
+    "th"
+  );
+}
+
+
+function compareDistance(
+  a,
+  b
+) {
+
+  const distanceA =
+    Number.isFinite(
+      a._distance
+    )
+      ? a._distance
+      : Infinity;
+
+
+  const distanceB =
+    Number.isFinite(
+      b._distance
+    )
+      ? b._distance
+      : Infinity;
+
+
+  if (
+    distanceA !==
+    distanceB
+  ) {
+
+    return (
+      distanceA
+      -
+      distanceB
+    );
+  }
+
+
+  return compareTitle(
+    a,
+    b
   );
 }
 
@@ -1998,7 +2340,7 @@ function buildEatAreaFilters() {
               area
               &&
               area !==
-                "ไม่ระบุพื้นที่"
+              "ไม่ระบุพื้นที่"
           )
       )
     ]
@@ -2057,116 +2399,139 @@ function buildEatAreaFilters() {
 
 
 /* =====================================================
-NEAR ME
+VEGETARIAN PROVINCES
 ===================================================== */
 
-function activateNearMe() {
+function getVegetarianProvince(
+  place
+) {
 
-  if (
-    !navigator.geolocation
-  ) {
+  return (
+    place.location
+      ?.province
+    ||
+    ""
+  );
+}
 
-    setText(
-      "nearMeStatus",
-      "อุปกรณ์นี้ไม่รองรับการใช้ตำแหน่ง"
+
+function buildVegetarianProvinceFilters() {
+
+  const container =
+    document.getElementById(
+      "vegetarianProvinceFilters"
     );
+
+
+  if (!container) {
 
     return;
   }
 
 
-  setText(
-    "nearMeStatus",
-    "กำลังขอตำแหน่งของคุณ..."
-  );
+  const provinces =
+    [
+      ...new Set(
+        allVegetarianPlaces
+          .map(
+            getVegetarianProvince
+          )
+          .filter(Boolean)
+      )
+    ]
+      .sort(
+        (a, b) =>
+          String(a)
+            .localeCompare(
+              String(b),
+              "th"
+            )
+      );
 
 
-  navigator.geolocation
-    .getCurrentPosition(
+  const buttons = [
 
-      position => {
+    `
+      <button
+        type="button"
+        class="filter-button active"
+        data-vegetarian-province="all"
+      >
+        ทุกจังหวัด
+      </button>
+    `
 
-        userLocation = {
-
-          latitude:
-            position.coords.latitude,
-
-          longitude:
-            position.coords.longitude,
-        };
-
-
-        currentEatArea = "all";
-
-        currentEatPage = 1;
+  ];
 
 
-        updateNearMeState(
-          true
-        );
+  for (
+    const province
+    of provinces
+  ) {
 
-
-        setText(
-          "nearMeStatus",
-          "กำลังเรียงร้านจากใกล้ไปไกล"
-        );
-
-
-        updateEatButtons();
-
-        applyEatFilters();
-
-        showEatResult();
-      },
-
-
-      error => {
-
-        console.warn(
-          "Geolocation error:",
-          error
-        );
-
-
-        userLocation = null;
-
-
-        updateNearMeState(
-          false
-        );
-
-
-        if (
-          error.code === 1
-        ) {
-
-          setText(
-            "nearMeStatus",
-            "ไม่ได้รับอนุญาตให้ใช้ตำแหน่ง"
-          );
-        }
-
-        else {
-
-          setText(
-            "nearMeStatus",
-            "ไม่สามารถหาตำแหน่งได้ในขณะนี้"
-          );
-        }
-      },
-
-
-      {
-        enableHighAccuracy:
-          false,
-
-        timeout:
-          10000,
-
-        maximumAge:
-          300000,
-      }
+    buttons.push(
+      `
+        <button
+          type="button"
+          class="filter-button"
+          data-vegetarian-province="${escapeAttribute(province)}"
+        >
+          ${escapeHtml(province)}
+        </button>
+      `
     );
+  }
+
+
+  container.innerHTML =
+    buttons.join("");
+
+
+  bindDynamicVegetarianProvinceEvents();
+
+  updateVegetarianProvinceButtons();
+}
+
+
+/* =====================================================
+NEAR ME - EAT
+===================================================== */
+
+function activateNearMe() {
+
+  requestUserLocation(
+    position => {
+
+      userLocation =
+        position;
+
+
+      currentEatArea =
+        "all";
+
+      currentEatPage = 1;
+
+
+      updateNearMeState(
+        true
+      );
+
+
+      setText(
+        "nearMeStatus",
+        "กำลังเรียงร้านจากใกล้ไปไกล"
+      );
+
+
+      updateEatButtons();
+
+      applyEatFilters();
+
+      showEatResult();
+    },
+
+    "nearMeStatus"
+  );
 }
 
 
@@ -2187,6 +2552,157 @@ function updateNearMeState(
       active
     );
   }
+}
+
+
+/* =====================================================
+NEAR ME - VEGETARIAN
+===================================================== */
+
+function activateVegetarianNearMe() {
+
+  requestUserLocation(
+    position => {
+
+      userLocation =
+        position;
+
+
+      currentVegetarianProvince =
+        "all";
+
+      currentVegetarianPage = 1;
+
+
+      updateVegetarianNearMeState(
+        true
+      );
+
+
+      setText(
+        "vegetarianNearMeStatus",
+        "กำลังเรียงร้านเจ / มังสวิรัติจากใกล้ไปไกล"
+      );
+
+
+      updateVegetarianProvinceButtons();
+
+      applyVegetarianFilters();
+
+      showVegetarianResult();
+    },
+
+    "vegetarianNearMeStatus"
+  );
+}
+
+
+function updateVegetarianNearMeState(
+  active
+) {
+
+  const button =
+    document.getElementById(
+      "vegetarianNearMeBtn"
+    );
+
+
+  if (button) {
+
+    button.classList.toggle(
+      "active",
+      active
+    );
+  }
+}
+
+
+/* =====================================================
+REQUEST GEOLOCATION
+===================================================== */
+
+function requestUserLocation(
+  onSuccess,
+  statusId
+) {
+
+  if (
+    !navigator.geolocation
+  ) {
+
+    setText(
+      statusId,
+      "อุปกรณ์นี้ไม่รองรับการใช้ตำแหน่ง"
+    );
+
+    return;
+  }
+
+
+  setText(
+    statusId,
+    "กำลังขอตำแหน่งของคุณ..."
+  );
+
+
+  navigator.geolocation
+    .getCurrentPosition(
+
+      position => {
+
+        onSuccess({
+
+          latitude:
+            position.coords.latitude,
+
+          longitude:
+            position.coords.longitude,
+        });
+      },
+
+
+      error => {
+
+        console.warn(
+          "Geolocation error:",
+          error
+        );
+
+
+        userLocation = null;
+
+
+        if (
+          error.code === 1
+        ) {
+
+          setText(
+            statusId,
+            "ไม่ได้รับอนุญาตให้ใช้ตำแหน่ง"
+          );
+        }
+
+        else {
+
+          setText(
+            statusId,
+            "ไม่สามารถหาตำแหน่งได้ในขณะนี้"
+          );
+        }
+      },
+
+
+      {
+        enableHighAccuracy:
+          false,
+
+        timeout:
+          10000,
+
+        maximumAge:
+          300000,
+      }
+    );
 }
 
 
@@ -2362,18 +2878,7 @@ function renderRecommended(
   const eatItems =
     [...allEatPlaces]
       .sort(
-        (a, b) =>
-          String(
-            a.title
-            || ""
-          )
-            .localeCompare(
-              String(
-                b.title
-                || ""
-              ),
-              "th"
-            )
+        compareTitle
       )
       .slice(
         0,
@@ -2396,7 +2901,8 @@ function renderRecommended(
 
 
   if (
-    mode === "latest"
+    mode ===
+    "latest"
   ) {
 
     items.sort(
@@ -2431,7 +2937,8 @@ function renderRecommended(
         entry => {
 
           if (
-            entry.kind === "deal"
+            entry.kind ===
+            "deal"
           ) {
 
             return renderPromotionCard(
@@ -2713,7 +3220,6 @@ function renderPromotionCard(
           )}"
           alt="${title}"
           loading="lazy"
-          onerror="this.parentElement.innerHTML='<div class=&quot;image-placeholder&quot;>🛒</div>'"
         >
       `
       : `
@@ -2739,10 +3245,7 @@ function renderPromotionCard(
               promotion
             )
           )}
-
-          <span aria-hidden="true">
-            →
-          </span>
+          →
         </a>
       `
       : "";
@@ -2770,9 +3273,7 @@ function renderPromotionCard(
             ${merchant}
           </strong>
 
-          <span>
-            •
-          </span>
+          <span>•</span>
 
           <span>
             ${category}
@@ -2798,15 +3299,6 @@ function renderPromotionCard(
 
         <p class="promotion-description">
           ${smartReason}
-        </p>
-
-
-        <p class="promotion-description">
-          ${
-            promotion.verified
-              ? "✓ ข้อมูลจากแหล่งต้นทาง"
-              : "ข้อมูลจากต้นทาง"
-          }
         </p>
 
 
@@ -2912,6 +3404,12 @@ function renderEatPlaces() {
     );
   }
 }
+
+
+/* =====================================================
+RENDER VEGETARIAN
+===================================================== */
+
 function renderVegetarianPlaces() {
 
   const list =
@@ -2919,120 +3417,6 @@ function renderVegetarianPlaces() {
       "vegetarianList"
     );
 
-  if (!list) {
-    return;
-  }
-
-
-  if (
-    allVegetarianPlaces.length === 0
-  ) {
-
-    list.innerHTML = "";
-
-    showElement(
-      "vegetarianEmptyState"
-    );
-
-    return;
-  }
-
-
-  hideElement(
-    "vegetarianEmptyState"
-  );
-
-
-  list.innerHTML =
-    allVegetarianPlaces
-      .map(
-        place => {
-
-          const title =
-            escapeHtml(
-              place.title
-              || "ไม่ระบุชื่อร้าน"
-            );
-
-
-          const foodTypes =
-            Array.isArray(
-              place.food_types
-            )
-              ? place.food_types
-              : [
-                  place.category
-                ].filter(Boolean);
-
-
-          const foodTypeLabel =
-            foodTypes
-              .map(
-                type => {
-
-                  if (type === "jay") {
-                    return "เจ";
-                  }
-
-                  if (type === "vegetarian") {
-                    return "มังสวิรัติ";
-                  }
-
-                  if (type === "vegan") {
-                    return "Vegan";
-                  }
-
-                  return type;
-                }
-              )
-              .join(" · ");
-
-
-          const location =
-            [
-              place.location?.subdistrict,
-              place.location?.district,
-              place.location?.province
-            ]
-              .filter(Boolean)
-              .join(" · ");
-
-
-          const openingHours =
-            place.metadata?.opening_hours
-            || "";
-
-
-          const mapUrl =
-            buildEatMapUrl(
-              place
-            );
-
-
-          return `
-            <article class="promotion-card eat-card">
-
-              <div class="promotion-image-wrap eat-image-wrap">
-
-                <div class="image-placeholder eat-placeholder">
-                  🥬
-                </div>
-
-                <span class="source-pill">
-                  ${escapeHtml(
-                    foodTypeLabel
-                    || "อาหารเจ / มังสวิรัติ"
-                  )}
-                </span>
-
-
-
-  function renderVegetarianPlaces() {
-
-  const list =
-    document.getElementById(
-      "vegetarianList"
-    );
 
   const loadMoreBtn =
     document.getElementById(
@@ -3041,25 +3425,31 @@ function renderVegetarianPlaces() {
 
 
   if (!list) {
+
     return;
   }
 
 
   if (
-    allVegetarianPlaces.length === 0
+    filteredVegetarianPlaces.length
+      === 0
   ) {
 
     list.innerHTML = "";
+
 
     showElement(
       "vegetarianEmptyState"
     );
 
+
     if (loadMoreBtn) {
+
       loadMoreBtn.classList.add(
         "hidden"
       );
     }
+
 
     return;
   }
@@ -3077,7 +3467,7 @@ function renderVegetarianPlaces() {
 
 
   const visibleItems =
-    allVegetarianPlaces.slice(
+    filteredVegetarianPlaces.slice(
       0,
       visibleCount
     );
@@ -3086,161 +3476,7 @@ function renderVegetarianPlaces() {
   list.innerHTML =
     visibleItems
       .map(
-        place => {
-
-          const title =
-            escapeHtml(
-              place.title
-              || "ไม่ระบุชื่อร้าน"
-            );
-
-
-          const foodTypes =
-            Array.isArray(
-              place.food_types
-            )
-              ? place.food_types
-              : [];
-
-
-          const foodTypeLabel =
-            foodTypes
-              .map(
-                type => {
-
-                  if (type === "jay") {
-                    return "เจ";
-                  }
-
-                  if (type === "vegetarian") {
-                    return "มังสวิรัติ";
-                  }
-
-                  if (type === "vegan") {
-                    return "Vegan";
-                  }
-
-                  return type;
-                }
-              )
-              .join(" · ");
-
-
-          const location =
-            [
-              place.location?.subdistrict,
-              place.location?.district,
-              place.location?.province
-            ]
-              .filter(Boolean)
-              .join(" · ");
-
-
-          const openingHours =
-            place.metadata?.opening_hours
-            || "";
-
-
-          const mapUrl =
-            buildEatMapUrl(
-              place
-            );
-
-
-          return `
-            <article class="promotion-card eat-card">
-
-              <div class="promotion-image-wrap eat-image-wrap">
-
-                <div class="image-placeholder eat-placeholder">
-                  🥬
-                </div>
-
-                <span class="source-pill">
-                  ${escapeHtml(
-                    foodTypeLabel
-                    || "Vegetarian"
-                  )}
-                </span>
-
-              </div>
-
-
-              <div class="promotion-body">
-
-                <h3 class="promotion-title">
-                  ${title}
-                </h3>
-
-
-                ${
-                  foodTypeLabel
-                    ? `
-                      <p class="promotion-description">
-                        🥬 ${escapeHtml(
-                          foodTypeLabel
-                        )}
-                      </p>
-                    `
-                    : ""
-                }
-
-
-                ${
-                  location
-                    ? `
-                      <p class="promotion-description">
-                        📍 ${escapeHtml(
-                          location
-                        )}
-                      </p>
-                    `
-                    : ""
-                }
-
-
-                ${
-                  openingHours
-                    ? `
-                      <p class="promotion-description">
-                        🕒 ${escapeHtml(
-                          openingHours
-                        )}
-                      </p>
-                    `
-                    : ""
-                }
-
-
-                ${
-                  mapUrl
-                    ? `
-                      <div class="promotion-actions">
-
-                        <a
-                          class="source-button"
-                          href="${escapeAttribute(
-                            mapUrl
-                          )}"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          เปิดแผนที่
-                          <span aria-hidden="true">
-                            →
-                          </span>
-                        </a>
-
-                      </div>
-                    `
-                    : ""
-                }
-
-              </div>
-
-            </article>
-          `;
-        }
+        renderVegetarianCard
       )
       .join("");
 
@@ -3251,10 +3487,181 @@ function renderVegetarianPlaces() {
       "hidden",
       visibleCount
       >=
-      allVegetarianPlaces.length
+      filteredVegetarianPlaces.length
     );
   }
 }
+
+
+/* =====================================================
+VEGETARIAN CARD
+===================================================== */
+
+function renderVegetarianCard(
+  place
+) {
+
+  const title =
+    escapeHtml(
+      place.title
+      || "ไม่ระบุชื่อร้าน"
+    );
+
+
+  const location =
+    escapeHtml(
+      getVegetarianLocationLabel(
+        place
+      )
+    );
+
+
+  const distance =
+    Number.isFinite(
+      place._distance
+    )
+      ? formatDistance(
+          place._distance
+        )
+      : "";
+
+
+  const openingHours =
+    place.metadata
+      ?.opening_hours
+      ? escapeHtml(
+          place.metadata
+            .opening_hours
+        )
+      : "";
+
+
+  const mapUrl =
+    buildEatMapUrl(
+      place
+    );
+
+
+  const sourceUrl =
+    place.source_url
+    ||
+    place.metadata
+      ?.source_url
+    ||
+    "";
+
+
+  return `
+    <article class="promotion-card eat-card">
+
+      <div class="promotion-image-wrap eat-image-wrap">
+
+        <div class="image-placeholder eat-placeholder">
+          🥬
+        </div>
+
+
+        <span class="source-pill">
+          เจ / มังสวิรัติ
+        </span>
+
+      </div>
+
+
+      <div class="promotion-body">
+
+        ${
+          distance
+            ? `
+              <div class="promotion-meta">
+                <strong>
+                  📍 ${escapeHtml(
+                    distance
+                  )}
+                </strong>
+              </div>
+            `
+            : ""
+        }
+
+
+        <h3 class="promotion-title">
+          ${title}
+        </h3>
+
+
+        <p class="promotion-description">
+          🥬 เจ / มังสวิรัติ
+        </p>
+
+
+        <p class="promotion-description">
+          📍 ${location}
+        </p>
+
+
+        ${
+          openingHours
+            ? `
+              <p class="promotion-description">
+                🕒 ${openingHours}
+              </p>
+            `
+            : ""
+        }
+
+
+        <p class="promotion-description">
+          ข้อมูลจาก OpenStreetMap
+          โปรดตรวจสอบรายละเอียดล่าสุดกับร้านก่อนเดินทาง
+        </p>
+
+
+        <div class="promotion-actions">
+
+          ${
+            mapUrl
+              ? `
+                <a
+                  class="source-button"
+                  href="${escapeAttribute(
+                    mapUrl
+                  )}"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  เปิดแผนที่ →
+                </a>
+              `
+              : ""
+          }
+
+
+          ${
+            sourceUrl
+              ? `
+                <a
+                  class="source-button"
+                  href="${escapeAttribute(
+                    sourceUrl
+                  )}"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  ดูแหล่งข้อมูล →
+                </a>
+              `
+              : ""
+          }
+
+        </div>
+
+      </div>
+
+    </article>
+  `;
+}
+
 
 /* =====================================================
 EAT CARD
@@ -3313,18 +3720,6 @@ function renderEatCard(
       : "";
 
 
-  const cuisine =
-    Array.isArray(
-      place.metadata
-        ?.cuisine
-    )
-      ? place.metadata
-          .cuisine
-          .filter(Boolean)
-          .join(", ")
-      : "";
-
-
   return `
     <article class="promotion-card eat-card">
 
@@ -3357,10 +3752,7 @@ function renderEatCard(
           ${
             distance
               ? `
-                <span>
-                  •
-                </span>
-
+                <span>•</span>
                 <span>
                   📍 ${escapeHtml(
                     distance
@@ -3395,25 +3787,6 @@ function renderEatCard(
 
 
         ${
-          cuisine
-            ? `
-              <p class="promotion-description">
-                🍽️ ${escapeHtml(
-                  cuisine
-                )}
-              </p>
-            `
-            : ""
-        }
-
-
-        <p class="promotion-description">
-          ข้อมูลสถานที่จาก OpenStreetMap
-          โปรดตรวจสอบข้อมูลล่าสุดก่อนเดินทาง
-        </p>
-
-
-        ${
           mapUrl
             ? `
               <div class="promotion-actions">
@@ -3426,11 +3799,7 @@ function renderEatCard(
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  เปิดแผนที่
-
-                  <span aria-hidden="true">
-                    →
-                  </span>
+                  เปิดแผนที่ →
                 </a>
 
               </div>
@@ -3479,9 +3848,6 @@ function getEatCategoryLabel(
 
     food_court:
       "ศูนย์อาหาร",
-
-    ice_cream:
-      "ไอศกรีม",
   };
 
 
@@ -3527,7 +3893,7 @@ function getEatLocationLabel(
     unique.length === 0
   ) {
 
-    return "จังหวัดปราจีนบุรี";
+    return "ไม่ระบุพื้นที่";
   }
 
 
@@ -3536,6 +3902,82 @@ function getEatLocationLabel(
   );
 }
 
+
+/* =====================================================
+VEGETARIAN LOCATION
+===================================================== */
+
+function getVegetarianLocationLabel(
+  place
+) {
+
+  const location =
+    place.location
+    || {};
+
+
+  const parts = [
+
+    location.subdistrict,
+
+    location.district,
+
+    location.province,
+
+  ]
+    .filter(Boolean);
+
+
+  const unique = [
+    ...new Set(
+      parts
+    )
+  ];
+
+
+  if (
+    unique.length > 0
+  ) {
+
+    return unique.join(
+      " · "
+    );
+  }
+
+
+  const latitude =
+    Number(
+      location.latitude
+    );
+
+
+  const longitude =
+    Number(
+      location.longitude
+    );
+
+
+  if (
+    Number.isFinite(
+      latitude
+    )
+    &&
+    Number.isFinite(
+      longitude
+    )
+  ) {
+
+    return "ดูตำแหน่งจากแผนที่";
+  }
+
+
+  return "ไม่ระบุพื้นที่";
+}
+
+
+/* =====================================================
+MAP
+===================================================== */
 
 function buildEatMapUrl(
   place
@@ -3596,11 +4038,15 @@ function buildEatMapUrl(
     "?api=1&query="
     +
     encodeURIComponent(
-      `${title} ปราจีนบุรี`
+      title
     )
   );
 }
 
+
+/* =====================================================
+DISTANCE FORMAT
+===================================================== */
 
 function formatDistance(
   distanceKm
@@ -3731,13 +4177,6 @@ function getPromotionReason(
   promotion
 ) {
 
-  const title =
-    String(
-      promotion.title
-      || ""
-    );
-
-
   if (
     promotion.promotion_type
       === "coupon"
@@ -3774,20 +4213,6 @@ function getPromotionReason(
       "เปิดดูรายการโปรโมชั่น "
       +
       "จากแคตตาล็อกต้นทาง"
-    );
-  }
-
-
-  if (
-    /ลุ้น|ชิง|รางวัล|บินฟรี/.test(
-      title
-    )
-  ) {
-
-    return (
-      "กิจกรรมหรือแคมเปญ "
-      +
-      "สำหรับผู้ที่สนใจเข้าร่วม"
     );
   }
 
@@ -3992,9 +4417,9 @@ META
 function updateMeta() {
 
   const total =
-    allContent.length > 0
-      ? allContent.length
-      : allPromotions.length;
+    allContent.length
+    +
+    allVegetarianPlaces.length;
 
 
   setText(
@@ -4003,10 +4428,10 @@ function updateMeta() {
   );
 
 
-  const sourceData =
-    allContent.length > 0
-      ? allContent
-      : allPromotions;
+  const sourceData = [
+    ...allContent,
+    ...allVegetarianPlaces,
+  ];
 
 
   const dates =
@@ -4140,7 +4565,7 @@ function hideAllResultSections() {
     "recommendedResultSection",
     "shoppingResultSection",
     "eatResultSection",
-    "vegetarianResultSection", 
+    "vegetarianResultSection",
     "comingSoonResultSection",
   ]
     .forEach(
