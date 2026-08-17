@@ -2921,6 +2921,7 @@ function renderVegetarianPlaces() {
     return;
   }
 
+
   if (
     allVegetarianPlaces.length === 0
   ) {
@@ -2934,58 +2935,178 @@ function renderVegetarianPlaces() {
     return;
   }
 
+
   hideElement(
     "vegetarianEmptyState"
   );
 
+
   list.innerHTML =
     allVegetarianPlaces
       .map(
-        place => `
-          <article class="promotion-card">
+        place => {
 
-            <div class="promotion-image-wrap">
+          const title =
+            escapeHtml(
+              place.title
+              || "ไม่ระบุชื่อร้าน"
+            );
 
-              <div class="image-placeholder">
-                🥬
+
+          const foodTypes =
+            Array.isArray(
+              place.food_types
+            )
+              ? place.food_types
+              : [
+                  place.category
+                ].filter(Boolean);
+
+
+          const foodTypeLabel =
+            foodTypes
+              .map(
+                type => {
+
+                  if (type === "jay") {
+                    return "เจ";
+                  }
+
+                  if (type === "vegetarian") {
+                    return "มังสวิรัติ";
+                  }
+
+                  if (type === "vegan") {
+                    return "Vegan";
+                  }
+
+                  return type;
+                }
+              )
+              .join(" · ");
+
+
+          const location =
+            [
+              place.location?.subdistrict,
+              place.location?.district,
+              place.location?.province
+            ]
+              .filter(Boolean)
+              .join(" · ");
+
+
+          const openingHours =
+            place.metadata?.opening_hours
+            || "";
+
+
+          const mapUrl =
+            buildEatMapUrl(
+              place
+            );
+
+
+          return `
+            <article class="promotion-card eat-card">
+
+              <div class="promotion-image-wrap eat-image-wrap">
+
+                <div class="image-placeholder eat-placeholder">
+                  🥬
+                </div>
+
+                <span class="source-pill">
+                  ${escapeHtml(
+                    foodTypeLabel
+                    || "อาหารเจ / มังสวิรัติ"
+                  )}
+                </span>
+
               </div>
 
-              <span class="source-pill">
-                ${escapeHtml(
-                  place.metadata?.category_label
-                  || "อาหารเจ"
-                )}
-              </span>
 
-            </div>
+              <div class="promotion-body">
 
-            <div class="promotion-body">
+                <h3 class="promotion-title">
+                  ${title}
+                </h3>
 
-              <h3 class="promotion-title">
-                ${escapeHtml(
-                  place.title
-                  || "ไม่ระบุชื่อร้าน"
-                )}
-              </h3>
 
-              <p class="promotion-description">
-                📍 ${escapeHtml(
-                  [
-                    place.location?.district,
-                    place.location?.province
-                  ]
-                    .filter(Boolean)
-                    .join(" · ")
-                )}
-              </p>
+                ${
+                  foodTypeLabel
+                    ? `
+                      <p class="promotion-description">
+                        🥬 ${escapeHtml(
+                          foodTypeLabel
+                        )}
+                      </p>
+                    `
+                    : ""
+                }
 
-            </div>
 
-          </article>
-        `
+                ${
+                  location
+                    ? `
+                      <p class="promotion-description">
+                        📍 ${escapeHtml(
+                          location
+                        )}
+                      </p>
+                    `
+                    : ""
+                }
+
+
+                ${
+                  openingHours
+                    ? `
+                      <p class="promotion-description">
+                        🕒 ${escapeHtml(
+                          openingHours
+                        )}
+                      </p>
+                    `
+                    : ""
+                }
+
+
+                ${
+                  mapUrl
+                    ? `
+                      <div class="promotion-actions">
+
+                        <a
+                          class="source-button"
+                          href="${escapeAttribute(
+                            mapUrl
+                          )}"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          เปิดแผนที่
+
+                          <span aria-hidden="true">
+                            →
+                          </span>
+                        </a>
+
+                      </div>
+                    `
+                    : ""
+                }
+
+              </div>
+
+            </article>
+          `;
+        }
       )
       .join("");
 }
+
+  
 
 /* =====================================================
 EAT CARD
