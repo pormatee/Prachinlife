@@ -361,6 +361,7 @@ else if (category === "vegetarian") {
     "vegetarianResultCount",
     `${allVegetarianPlaces.length} ร้าน`
   );
+  renderVegetarianPlaces();
 }
   else if (category === "go") {
 
