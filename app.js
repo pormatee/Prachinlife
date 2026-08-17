@@ -344,6 +344,7 @@ function setMainCategory(
 
     applyEatFilters();
   }
+
 else if (category === "vegetarian") {
 
   showElement(
@@ -356,10 +357,9 @@ else if (category === "vegetarian") {
 
   setText(
     "vegetarianResultCount",
-    "0 ร้าน"
+    `${allVegetarianPlaces.length} ร้าน`
   );
 }
-
   else if (category === "go") {
 
     showElement(
