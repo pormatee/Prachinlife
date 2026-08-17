@@ -26,6 +26,7 @@ const VEGETARIAN_URL = "vegetarian_index.json";
 
 const PAGE_SIZE = 8;
 const EAT_PAGE_SIZE = 8;
+const VEGETARIAN_PAGE_SIZE = 8;
 const RECOMMENDED_LIMIT = 8;
 
 
@@ -44,6 +45,7 @@ let allVegetarianPlaces = [];
 
 let currentPage = 1;
 let currentEatPage = 1;
+let currentVegetarianPage = 1;
 
 let currentMerchant = "all";
 let currentType = "all";
@@ -3023,6 +3025,144 @@ function renderVegetarianPlaces() {
                   )}
                 </span>
 
+
+
+  function renderVegetarianPlaces() {
+
+  const list =
+    document.getElementById(
+      "vegetarianList"
+    );
+
+  const loadMoreBtn =
+    document.getElementById(
+      "vegetarianLoadMoreBtn"
+    );
+
+
+  if (!list) {
+    return;
+  }
+
+
+  if (
+    allVegetarianPlaces.length === 0
+  ) {
+
+    list.innerHTML = "";
+
+    showElement(
+      "vegetarianEmptyState"
+    );
+
+    if (loadMoreBtn) {
+      loadMoreBtn.classList.add(
+        "hidden"
+      );
+    }
+
+    return;
+  }
+
+
+  hideElement(
+    "vegetarianEmptyState"
+  );
+
+
+  const visibleCount =
+    currentVegetarianPage
+    *
+    VEGETARIAN_PAGE_SIZE;
+
+
+  const visibleItems =
+    allVegetarianPlaces.slice(
+      0,
+      visibleCount
+    );
+
+
+  list.innerHTML =
+    visibleItems
+      .map(
+        place => {
+
+          const title =
+            escapeHtml(
+              place.title
+              || "ไม่ระบุชื่อร้าน"
+            );
+
+
+          const foodTypes =
+            Array.isArray(
+              place.food_types
+            )
+              ? place.food_types
+              : [];
+
+
+          const foodTypeLabel =
+            foodTypes
+              .map(
+                type => {
+
+                  if (type === "jay") {
+                    return "เจ";
+                  }
+
+                  if (type === "vegetarian") {
+                    return "มังสวิรัติ";
+                  }
+
+                  if (type === "vegan") {
+                    return "Vegan";
+                  }
+
+                  return type;
+                }
+              )
+              .join(" · ");
+
+
+          const location =
+            [
+              place.location?.subdistrict,
+              place.location?.district,
+              place.location?.province
+            ]
+              .filter(Boolean)
+              .join(" · ");
+
+
+          const openingHours =
+            place.metadata?.opening_hours
+            || "";
+
+
+          const mapUrl =
+            buildEatMapUrl(
+              place
+            );
+
+
+          return `
+            <article class="promotion-card eat-card">
+
+              <div class="promotion-image-wrap eat-image-wrap">
+
+                <div class="image-placeholder eat-placeholder">
+                  🥬
+                </div>
+
+                <span class="source-pill">
+                  ${escapeHtml(
+                    foodTypeLabel
+                    || "Vegetarian"
+                  )}
+                </span>
+
               </div>
 
 
@@ -3086,7 +3226,6 @@ function renderVegetarianPlaces() {
                           rel="noopener noreferrer"
                         >
                           เปิดแผนที่
-
                           <span aria-hidden="true">
                             →
                           </span>
@@ -3104,9 +3243,18 @@ function renderVegetarianPlaces() {
         }
       )
       .join("");
-}
 
-  
+
+  if (loadMoreBtn) {
+
+    loadMoreBtn.classList.toggle(
+      "hidden",
+      visibleCount
+      >=
+      allVegetarianPlaces.length
+    );
+  }
+}
 
 /* =====================================================
 EAT CARD
