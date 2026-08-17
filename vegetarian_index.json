@@ -1,43 +1,18 @@
 [
   {
-    "id": "veg-sunsi-prachin",
-    "title": "ซั่นสี่ อาหารเจ",
+    "id": "veg-001",
+    "title": "ชื่อร้าน",
     "content_type": "vegetarian",
     "category": "jay",
-    "food_types": [
-      "jay",
-      "vegan"
-    ],
+    "food_types": ["jay", "vegan"],
     "location": {
-      "subdistrict": "หน้าเมือง",
-      "district": "เมืองปราจีนบุรี",
-      "province": "ปราจีนบุรี"
+      "district": "อำเภอ",
+      "province": "จังหวัด",
+      "latitude": 0,
+      "longitude": 0
     },
     "metadata": {
-      "category_label": "อาหารเจ",
-      "opening_hours": "06:00–15:00 (หยุดวันอาทิตย์)",
-      "source_name": "Facebook / Google Maps"
-    }
-  },
-  {
-    "id": "veg-amita-vegan",
-    "title": "AMITA VEGAN",
-    "content_type": "vegetarian",
-    "category": "vegan",
-    "food_types": [
-      "jay",
-      "vegan"
-    ],
-    "location": {
-      "subdistrict": "ท่าตูม",
-      "district": "ศรีมหาโพธิ",
-      "province": "ปราจีนบุรี"
-    },
-    "metadata": {
-      "category_label": "อาหารเจ / Vegan",
-      "opening_hours": "09:00–17:00",
-      "phone": "080-465-3226",
-      "source_name": "Wongnai / Google Maps"
+      "category_label": "อาหารเจ"
     }
   }
 ]
