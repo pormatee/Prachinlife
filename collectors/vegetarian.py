@@ -10,7 +10,15 @@ import requests
 
 # ============================================================
 # PRACHINLIFE
-# Vegetarian Collector V2 Clean
+# Vegetarian Collector V3
+#
+# Strategy
+# - Strict vegetarian / vegan only
+# - Thailand split into 8 bounding-box regions
+# - Multiple Overpass endpoints
+# - Retry + fail-safe
+# - Deduplicate before write
+# - Never overwrite existing index if all requests fail
 # ============================================================
 
 
@@ -20,7 +28,7 @@ import requests
 
 OUTPUT_FILE = Path("vegetarian_index.json")
 
-REQUEST_TIMEOUT = 45
+REQUEST_TIMEOUT = 40
 
 MAX_RETRIES = 2
 
@@ -34,97 +42,49 @@ OVERPASS_ENDPOINTS = [
 
 
 # ============================================================
-# THAILAND PROVINCES
+# THAILAND REGIONS
+#
+# bbox format:
+# south, west, north, east
+#
+# intentionally slightly overlapping
+# deduplicate by OSM ID afterwards
 # ============================================================
 
-PROVINCES = [
-    "กรุงเทพมหานคร",
-    "กระบี่",
-    "กาญจนบุรี",
-    "กาฬสินธุ์",
-    "กำแพงเพชร",
-    "ขอนแก่น",
-    "จันทบุรี",
-    "ฉะเชิงเทรา",
-    "ชลบุรี",
-    "ชัยนาท",
-    "ชัยภูมิ",
-    "ชุมพร",
-    "เชียงราย",
-    "เชียงใหม่",
-    "ตรัง",
-    "ตราด",
-    "ตาก",
-    "นครนายก",
-    "นครปฐม",
-    "นครพนม",
-    "นครราชสีมา",
-    "นครศรีธรรมราช",
-    "นครสวรรค์",
-    "นนทบุรี",
-    "นราธิวาส",
-    "น่าน",
-    "บึงกาฬ",
-    "บุรีรัมย์",
-    "ปทุมธานี",
-    "ประจวบคีรีขันธ์",
-    "ปราจีนบุรี",
-    "ปัตตานี",
-    "พระนครศรีอยุธยา",
-    "พะเยา",
-    "พังงา",
-    "พัทลุง",
-    "พิจิตร",
-    "พิษณุโลก",
-    "เพชรบุรี",
-    "เพชรบูรณ์",
-    "แพร่",
-    "ภูเก็ต",
-    "มหาสารคาม",
-    "มุกดาหาร",
-    "แม่ฮ่องสอน",
-    "ยโสธร",
-    "ยะลา",
-    "ร้อยเอ็ด",
-    "ระนอง",
-    "ระยอง",
-    "ราชบุรี",
-    "ลพบุรี",
-    "ลำปาง",
-    "ลำพูน",
-    "เลย",
-    "ศรีสะเกษ",
-    "สกลนคร",
-    "สงขลา",
-    "สตูล",
-    "สมุทรปราการ",
-    "สมุทรสงคราม",
-    "สมุทรสาคร",
-    "สระแก้ว",
-    "สระบุรี",
-    "สิงห์บุรี",
-    "สุโขทัย",
-    "สุพรรณบุรี",
-    "สุราษฎร์ธานี",
-    "สุรินทร์",
-    "สุราษฎร์ธานี",
-    "หนองคาย",
-    "หนองบัวลำภู",
-    "อ่างทอง",
-    "อำนาจเจริญ",
-    "อุดรธานี",
-    "อุตรดิตถ์",
-    "อุทัยธานี",
-    "อุบลราชธานี",
+REGIONS = [
+    {
+        "name": "North-West",
+        "bbox": (17.0, 97.2, 20.6, 101.8),
+    },
+    {
+        "name": "North-East",
+        "bbox": (17.0, 101.5, 20.6, 105.8),
+    },
+    {
+        "name": "Upper-Central-West",
+        "bbox": (14.5, 97.2, 17.3, 101.8),
+    },
+    {
+        "name": "Upper-Central-East",
+        "bbox": (14.5, 101.5, 17.3, 105.8),
+    },
+    {
+        "name": "Lower-Central-West",
+        "bbox": (11.5, 97.2, 14.8, 101.8),
+    },
+    {
+        "name": "Lower-Central-East",
+        "bbox": (11.5, 101.5, 14.8, 105.8),
+    },
+    {
+        "name": "South-Upper",
+        "bbox": (8.0, 97.0, 11.8, 103.5),
+    },
+    {
+        "name": "South-Lower",
+        "bbox": (5.4, 97.0, 8.3, 103.5),
+    },
 ]
-
-
-# ลบจังหวัดซ้ำโดยรักษาลำดับเดิม
-PROVINCES = list(
-    dict.fromkeys(
-        PROVINCES
-    )
-)
 
 
 # ============================================================
@@ -167,7 +127,7 @@ def get_coordinates(element):
 
 
 # ============================================================
-# FOOD TYPE
+# STRICT FOOD TYPE
 # ============================================================
 
 def get_food_types(tags):
@@ -181,10 +141,8 @@ def get_food_types(tags):
         tags.get("diet:vegan")
     )
 
-    # สำคัญ:
-    # ใช้เฉพาะ ONLY
-    # ไม่ใช้ YES เพราะอาจเป็นร้านทั่วไป
-    # ที่มีเพียงบางเมนู
+    # Strict only:
+    # "yes" is NOT enough for PrachinLife
     if vegetarian_value == "only":
         food_types.append(
             "vegetarian"
@@ -260,51 +218,36 @@ def build_location(
     tags,
     latitude,
     longitude,
-    province,
 ):
     return {
         "subdistrict": (
             clean_text(
-                tags.get(
-                    "addr:subdistrict"
-                )
+                tags.get("addr:subdistrict")
             )
             or
             clean_text(
-                tags.get(
-                    "addr:suburb"
-                )
+                tags.get("addr:suburb")
             )
         ),
 
         "district": (
             clean_text(
-                tags.get(
-                    "addr:district"
-                )
+                tags.get("addr:district")
             )
             or
             clean_text(
-                tags.get(
-                    "addr:city"
-                )
+                tags.get("addr:city")
             )
         ),
 
         "province": (
             clean_text(
-                tags.get(
-                    "addr:province"
-                )
+                tags.get("addr:province")
             )
             or
             clean_text(
-                tags.get(
-                    "addr:state"
-                )
+                tags.get("addr:state")
             )
-            or
-            province
         ),
 
         "country": "TH",
@@ -319,26 +262,22 @@ def build_location(
 # QUERY
 # ============================================================
 
-def build_query(province):
-    return f"""
-[out:json][timeout:30];
+def build_query(bbox):
+    south, west, north, east = bbox
 
-area
-  ["boundary"="administrative"]
-  ["admin_level"="4"]
-  ["name:th"="{province}"]
-  ->.province;
+    return f"""
+[out:json][timeout:25];
 
 (
   nwr
     ["amenity"~"restaurant|cafe|fast_food"]
     ["diet:vegetarian"="only"]
-    (area.province);
+    ({south},{west},{north},{east});
 
   nwr
     ["amenity"~"restaurant|cafe|fast_food"]
     ["diet:vegan"="only"]
-    (area.province);
+    ({south},{west},{north},{east});
 );
 
 out center tags;
@@ -346,20 +285,23 @@ out center tags;
 
 
 # ============================================================
-# FETCH ONE PROVINCE
+# FETCH REGION
 # ============================================================
 
-def fetch_province(province):
+def fetch_region(region):
+    region_name = region["name"]
+
     query = build_query(
-        province
+        region["bbox"]
     )
 
     print()
     print(
-        f"[FETCH] {province}"
+        f"[FETCH] {region_name}"
     )
 
     last_error = None
+
 
     for endpoint in OVERPASS_ENDPOINTS:
 
@@ -378,35 +320,47 @@ def fetch_province(province):
                     f"  attempt  = {attempt}"
                 )
 
+
                 response = requests.post(
                     endpoint,
+
                     data={
                         "data": query,
                     },
+
                     headers={
                         "User-Agent":
-                            "PrachinLife-VegetarianCollector/2.0"
+                            "PrachinLife-VegetarianCollector/3.0"
                     },
-                    timeout=REQUEST_TIMEOUT,
+
+                    timeout=
+                        REQUEST_TIMEOUT,
                 )
+
 
                 response.raise_for_status()
 
+
                 data = response.json()
+
 
                 elements = data.get(
                     "elements",
                     [],
                 )
 
+
                 print(
-                    f"  received = {len(elements)}"
+                    f"  received = "
+                    f"{len(elements)}"
                 )
+
 
                 return (
                     elements,
                     True,
                 )
+
 
             except (
                 requests.RequestException,
@@ -415,17 +369,20 @@ def fetch_province(province):
 
                 last_error = error
 
+
                 print(
                     "  failed =",
                     str(error),
                 )
 
+
                 time.sleep(2)
 
 
     print(
-        f"[SKIP] {province}"
+        f"[SKIP] {region_name}"
     )
+
 
     if last_error:
 
@@ -433,6 +390,7 @@ def fetch_province(province):
             "  last error =",
             str(last_error),
         )
+
 
     return (
         [],
@@ -444,14 +402,12 @@ def fetch_province(province):
 # NORMALIZE
 # ============================================================
 
-def normalize_element(
-    element,
-    province,
-):
+def normalize_element(element):
     tags = (
         element.get("tags")
         or {}
     )
+
 
     title = (
         clean_text(
@@ -467,7 +423,8 @@ def normalize_element(
         )
     )
 
-    # ไม่มีชื่อ ไม่เอา
+
+    # No usable shop name
     if not title:
         return None
 
@@ -476,7 +433,8 @@ def normalize_element(
         tags
     )
 
-    # ต้องเป็น only จริง
+
+    # Must satisfy strict "only"
     if not food_types:
         return None
 
@@ -488,9 +446,19 @@ def normalize_element(
     )
 
 
+    # PrachinLife needs coordinates
+    # for Near Me
+    if (
+        latitude is None
+        or longitude is None
+    ):
+        return None
+
+
     element_type = (
         element.get("type")
     )
+
 
     osm_id = (
         element.get("id")
@@ -505,11 +473,9 @@ def normalize_element(
     )
 
 
-    opening_hours = (
-        clean_text(
-            tags.get(
-                "opening_hours"
-            )
+    opening_hours = clean_text(
+        tags.get(
+            "opening_hours"
         )
     )
 
@@ -544,13 +510,12 @@ def normalize_element(
     )
 
 
-    cuisine_raw = (
-        clean_text(
-            tags.get(
-                "cuisine"
-            )
+    cuisine_raw = clean_text(
+        tags.get(
+            "cuisine"
         )
     )
+
 
     cuisine = []
 
@@ -587,7 +552,6 @@ def normalize_element(
                 tags,
                 latitude,
                 longitude,
-                province,
             ),
 
         "metadata": {
@@ -649,17 +613,13 @@ def normalize_element(
 # BUILD RECORDS
 # ============================================================
 
-def build_records(
-    province,
-    elements,
-):
+def build_records(elements):
     records = []
 
     for element in elements:
 
         record = normalize_element(
-            element,
-            province,
+            element
         )
 
         if record:
@@ -675,15 +635,13 @@ def build_records(
 # DEDUPLICATE
 # ============================================================
 
-def deduplicate_records(
-    records,
-):
+def deduplicate_records(records):
     unique = {}
 
     for record in records:
 
-        record_id = record.get(
-            "id"
+        record_id = (
+            record.get("id")
         )
 
         if not record_id:
@@ -692,6 +650,7 @@ def deduplicate_records(
         unique[
             record_id
         ] = record
+
 
     return list(
         unique.values()
@@ -705,6 +664,7 @@ def deduplicate_records(
 def sort_records(records):
     return sorted(
         records,
+
         key=lambda item: (
             str(
                 item
@@ -734,7 +694,9 @@ def sort_records(records):
 
 def load_existing_records():
     if not OUTPUT_FILE.exists():
+
         return []
+
 
     try:
 
@@ -747,6 +709,7 @@ def load_existing_records():
                 file
             )
 
+
         if isinstance(
             data,
             list,
@@ -754,12 +717,14 @@ def load_existing_records():
 
             return data
 
+
     except Exception as error:
 
         print(
-            "[WARN] Cannot read existing index:",
+            "[WARN] Existing index read error:",
             error,
         )
+
 
     return []
 
@@ -781,9 +746,13 @@ def write_index(records):
             indent=2,
         )
 
-        file.write("\n")
+        file.write(
+            "\n"
+        )
+
 
     print()
+
     print(
         f"Saved {len(records)} places "
         f"to {OUTPUT_FILE}"
@@ -796,8 +765,8 @@ def write_index(records):
 
 def print_summary(
     records,
-    successful_provinces,
-    failed_provinces,
+    success_count,
+    failed_count,
 ):
     vegetarian_count = sum(
         "vegetarian"
@@ -824,6 +793,7 @@ def print_summary(
 
 
     print()
+
     print("=" * 60)
 
     print(
@@ -833,17 +803,17 @@ def print_summary(
     print("-" * 60)
 
     print(
-        "Successful provinces =",
-        successful_provinces,
+        "Successful regions =",
+        success_count,
     )
 
     print(
-        "Failed provinces =",
-        failed_provinces,
+        "Failed regions =",
+        failed_count,
     )
 
     print(
-        "Total places =",
+        "Total strict places =",
         len(records),
     )
 
@@ -869,29 +839,29 @@ def main():
 
     print(
         "PrachinLife "
-        "Vegetarian Collector V2 Clean"
+        "Vegetarian Collector V3"
     )
 
     print("=" * 60)
 
     print(
-        "Policy:"
+        "Strict policy:"
     )
 
     print(
-        "- diet:vegetarian=only"
+        "- vegetarian=only"
     )
 
     print(
-        "- diet:vegan=only"
+        "- vegan=only"
     )
 
     print(
-        "- restaurant / cafe / fast_food only"
+        "- no food court"
     )
 
     print(
-        "- query province by province"
+        "- 8 Thailand regions"
     )
 
     print("=" * 60)
@@ -904,48 +874,55 @@ def main():
 
     all_records = []
 
-    successful_provinces = 0
+    success_count = 0
 
-    failed_provinces = 0
+    failed_count = 0
 
 
-    for index, province in enumerate(
-        PROVINCES,
+    total_regions = len(
+        REGIONS
+    )
+
+
+    for index, region in enumerate(
+        REGIONS,
         start=1,
     ):
 
         print()
+
         print(
-            f"[{index}/{len(PROVINCES)}]"
+            f"[{index}/{total_regions}] "
+            f"{region['name']}"
         )
 
 
         elements, success = (
-            fetch_province(
-                province
+            fetch_region(
+                region
             )
         )
 
 
         if not success:
 
-            failed_provinces += 1
+            failed_count += 1
 
             continue
 
 
-        successful_provinces += 1
+        success_count += 1
 
 
         records = build_records(
-            province,
-            elements,
+            elements
         )
 
 
         print(
-            f"[FOUND] {province} "
-            f"= {len(records)}"
+            f"[FOUND] "
+            f"{region['name']} = "
+            f"{len(records)}"
         )
 
 
@@ -975,21 +952,17 @@ def main():
 
     print_summary(
         all_records,
-        successful_provinces,
-        failed_provinces,
+        success_count,
+        failed_count,
     )
 
 
     # ========================================================
-    # SAFETY
-    #
-    # ถ้า Overpass ล้มทั้งหมด
-    # ห้ามเขียน [] ทับ index เดิม
+    # SAFETY 1
+    # all requests failed
     # ========================================================
 
-    if (
-        successful_provinces == 0
-    ):
+    if success_count == 0:
 
         print()
 
@@ -998,37 +971,38 @@ def main():
         )
 
         print(
-            "No province was fetched successfully."
+            "All Overpass regions failed."
         )
 
         print(
-            f"Existing index preserved "
-            f"({len(existing_records)} records)."
+            f"Existing index preserved: "
+            f"{len(existing_records)} places"
         )
 
         return
 
 
-    # ถ้าอย่างน้อยมี request สำเร็จ
-    # แต่ไม่มีร้าน only จริง ๆ
-    # ให้เตือนก่อน
-    if (
-        len(all_records) == 0
-    ):
+    # ========================================================
+    # SAFETY 2
+    # requests succeeded but nothing strict found
+    # ========================================================
+
+    if len(all_records) == 0:
 
         print()
 
         print(
-            "[WARNING]"
+            "[ABORT WRITE]"
         )
 
         print(
             "No strict vegetarian / vegan "
-            "places were found."
+            "places found."
         )
 
         print(
-            "Existing index preserved."
+            f"Existing index preserved: "
+            f"{len(existing_records)} places"
         )
 
         return
@@ -1040,6 +1014,7 @@ def main():
 
 
     print()
+
     print(
         "DONE"
     )
