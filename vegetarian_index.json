@@ -1,18 +1,1 @@
-[
-  {
-    "id": "veg-001",
-    "title": "ชื่อร้าน",
-    "content_type": "vegetarian",
-    "category": "jay",
-    "food_types": ["jay", "vegan"],
-    "location": {
-      "district": "อำเภอ",
-      "province": "จังหวัด",
-      "latitude": 0,
-      "longitude": 0
-    },
-    "metadata": {
-      "category_label": "อาหารเจ"
-    }
-  }
-]
+[]
