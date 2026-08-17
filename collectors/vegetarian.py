@@ -34,13 +34,13 @@ area
 
 (
   nwr
-    ["amenity"~"restaurant|cafe|fast_food|food_court"]
-    ["diet:vegetarian"~"yes|only"]
+    ["amenity"~"restaurant|cafe|fast_food"]
+    ["diet:vegetarian"="only"]
     (area.thailand);
 
   nwr
-    ["amenity"~"restaurant|cafe|fast_food|food_court"]
-    ["diet:vegan"~"yes|only"]
+    ["amenity"~"restaurant|cafe|fast_food"]
+    ["diet:vegan"="only"]
     (area.thailand);
 );
 
@@ -95,10 +95,10 @@ def map_food_types(tags):
         tags.get("diet:vegan")
     )
 
-    if vegetarian_value in {"yes", "only"}:
+    if vegetarian_value == "only":
         food_types.append("vegetarian")
 
-    if vegan_value in {"yes", "only"}:
+    if vegan_value == "only":
         food_types.append("vegan")
 
     return food_types
