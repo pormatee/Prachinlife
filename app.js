@@ -79,11 +79,13 @@ async function init() {
     );
 
     bindEvents();
-    
+
     await Promise.all([
-      loadPromotions(),
-      loadCommonIndex(),
+     loadPromotions(),
+     loadCommonIndex(),
+     loadVegetarianIndex(),
     ]);
+    
     
     prepareEatPlaces();
 
