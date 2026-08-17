@@ -2909,7 +2909,82 @@ function renderEatPlaces() {
     );
   }
 }
+function renderVegetarianPlaces() {
 
+  const list =
+    document.getElementById(
+      "vegetarianList"
+    );
+
+  if (!list) {
+    return;
+  }
+
+  if (
+    allVegetarianPlaces.length === 0
+  ) {
+
+    list.innerHTML = "";
+
+    showElement(
+      "vegetarianEmptyState"
+    );
+
+    return;
+  }
+
+  hideElement(
+    "vegetarianEmptyState"
+  );
+
+  list.innerHTML =
+    allVegetarianPlaces
+      .map(
+        place => `
+          <article class="promotion-card">
+
+            <div class="promotion-image-wrap">
+
+              <div class="image-placeholder">
+                🥬
+              </div>
+
+              <span class="source-pill">
+                ${escapeHtml(
+                  place.metadata?.category_label
+                  || "อาหารเจ"
+                )}
+              </span>
+
+            </div>
+
+            <div class="promotion-body">
+
+              <h3 class="promotion-title">
+                ${escapeHtml(
+                  place.title
+                  || "ไม่ระบุชื่อร้าน"
+                )}
+              </h3>
+
+              <p class="promotion-description">
+                📍 ${escapeHtml(
+                  [
+                    place.location?.district,
+                    place.location?.province
+                  ]
+                    .filter(Boolean)
+                    .join(" · ")
+                )}
+              </p>
+
+            </div>
+
+          </article>
+        `
+      )
+      .join("");
+}
 
 /* =====================================================
 EAT CARD
