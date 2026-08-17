@@ -40,7 +40,7 @@ let allContent = [];
 
 let allEatPlaces = [];
 let filteredEatPlaces = [];
-
+let allVegetarianPlaces = [];
 
 let currentPage = 1;
 let currentEatPage = 1;
