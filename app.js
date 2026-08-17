@@ -22,6 +22,7 @@ CONFIG
 
 const DATA_URL = "promotions.json";
 const INDEX_URL = "prachinlife_index.json";
+const VEGETARIAN_URL = "vegetarian_index.json";
 
 const PAGE_SIZE = 8;
 const EAT_PAGE_SIZE = 8;
