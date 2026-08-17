@@ -212,12 +212,11 @@ function bindRefreshEvent() {
           "กำลังโหลดข้อมูลล่าสุด..."
         );
 
-
         await Promise.all([
-          loadPromotions(true),
-          loadCommonIndex(true),
-        ]);
-
+          loadPromotions(),
+          loadCommonIndex(),
+          loadVegetarianIndex(),
+         ]);
 
         prepareEatPlaces();
 
