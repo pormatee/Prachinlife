@@ -59,7 +59,6 @@ let currentType = "all";
 let currentSmart = "recommended";
 
 let currentEatType = "all";
-let currentEatArea = "all";
 
 let currentVegetarianProvince = "all";
 
@@ -115,7 +114,6 @@ async function init() {
     prepareGoPlaces();
 
 
-    buildEatAreaFilters();
 
     buildVegetarianProvinceFilters();
 
@@ -268,8 +266,7 @@ function bindRefreshEvent() {
         prepareGoPlaces();
 
 
-        buildEatAreaFilters();
-
+    
         buildVegetarianProvinceFilters();
 
 
@@ -878,44 +875,6 @@ function bindEatEvents() {
 }
 
 
-function bindDynamicEatAreaEvents() {
-
-  document
-    .querySelectorAll(
-      "[data-eat-area]"
-    )
-    .forEach(
-      button => {
-
-        button.addEventListener(
-          "click",
-          () => {
-
-            currentEatArea =
-              button.dataset.eatArea
-              || "all";
-
-            currentEatPage = 1;
-
-            userLocation = null;
-
-
-            updateNearMeState(
-              false
-            );
-
-            updateEatButtons();
-
-            applyEatFilters();
-
-            showEatResult();
-          }
-        );
-      }
-    );
-}
-
-
 function showEatResult() {
 
   currentMainCategory =
@@ -960,20 +919,7 @@ function updateEatButtons() {
     );
 
 
-  document
-    .querySelectorAll(
-      "[data-eat-area]"
-    )
-    .forEach(
-      button => {
 
-        button.classList.toggle(
-          "active",
-          button.dataset.eatArea
-            === currentEatArea
-        );
-      }
-    );
 }
 
 
@@ -2301,24 +2247,7 @@ function applyEatFilters() {
             === currentEatType;
 
 
-        const area =
-          getEatAreaValue(
-            place
-          );
-
-
-        const matchesArea =
-          currentEatArea === "all"
-          ||
-          area
-            === currentEatArea;
-
-
-        return (
-          matchesType
-          &&
-          matchesArea
-        );
+        return matchesType;
       }
     );
 
@@ -2400,144 +2329,6 @@ SORT HELPERS
 EAT AREAS
 ===================================================== */
 
-function getEatAreaValue(
-  place
-) {
-
-  const location =
-    place.location
-    || {};
-
-
-  return (
-    location.district
-    ||
-    location.subdistrict
-    ||
-    "ไม่ระบุพื้นที่"
-  );
-}
-
-
-function buildEatAreaFilters() {
-
-  const container =
-    document.getElementById(
-      "eatAreaFilters"
-    );
-
-
-  if (!container) {
-
-    return;
-  }
-
-
-  const areas =
-    [
-      ...new Set(
-        allEatPlaces
-          .map(
-            getEatAreaValue
-          )
-          .filter(
-            area =>
-              area
-              &&
-              area !==
-              "ไม่ระบุพื้นที่"
-          )
-      )
-    ]
-      .sort(
-        (a, b) =>
-          String(a)
-            .localeCompare(
-              String(b),
-              "th"
-            )
-      );
-
-
-  const buttons = [
-
-    `
-      <button
-        type="button"
-        class="filter-button active"
-        data-eat-area="all"
-      >
-        ทุกพื้นที่
-      </button>
-    `
-
-  ];
-
-
-  for (
-    const area
-    of areas
-  ) {
-
-    buttons.push(
-      `
-        <button
-          type="button"
-          class="filter-button"
-          data-eat-area="${window.PrachinLife.core.escapeAttribute(area)}"
-        >
-          ${window.PrachinLife.core.escapeHtml(area)}
-        </button>
-      `
-    );
-  }
-
-
-  container.innerHTML =
-    buttons.join("");
-
-
-  bindDynamicEatAreaEvents();
-
-  updateEatButtons();
-}
-
-
-/* =====================================================
-VEGETARIAN PROVINCES
-===================================================== */
-
-
-
-function buildVegetarianProvinceFilters() {
-
-  const container =
-    document.getElementById(
-      "vegetarianProvinceFilters"
-    );
-
-  if (!container) {
-    return;
-  }
-
-  const provinces =
-    window.PrachinLife.modules.vegetarian.getProvinces(
-      primaryVegetarianPlaces
-    );
-
-  container.innerHTML =
-    window.PrachinLife.modules.vegetarian.buildProvinceButtonsHtml(
-      provinces
-    );
-
-  bindDynamicVegetarianProvinceEvents();
-
-  window.PrachinLife.modules.vegetarian.updateProvinceButtons(
-    currentVegetarianProvince
-  );
-}
-
-
 /* =====================================================
 NEAR ME - EAT
 ===================================================== */
@@ -2550,9 +2341,6 @@ function activateNearMe() {
       userLocation =
         position;
 
-
-      currentEatArea =
-        "all";
 
       currentEatPage = 1;
 
