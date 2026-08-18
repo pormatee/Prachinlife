@@ -59,15 +59,19 @@
         href="#top"
         class="brand"
         aria-label="PrachinLife หน้าแรก"
+        data-site-aria-label="home"
       >
 
-        <div class="brand-mark">
+        <div
+          class="brand-mark"
+          data-site-mark
+        >
           P
         </div>
 
         <div class="brand-copy">
-          <strong>PrachinLife</strong>
-          <span>ชีวิตปราจีน ง่ายขึ้นทุกวัน</span>
+          <strong data-site-name>PrachinLife</strong>
+          <span data-site-tagline>ชีวิตปราจีน ง่ายขึ้นทุกวัน</span>
         </div>
 
       </a>
@@ -122,14 +126,16 @@
         </div>
 
         <h1>
-          ชีวิตปราจีน
-          <span>ง่ายขึ้นทุกวัน</span>
+          ชีวิตใน
+          <span data-site-province>ปราจีนบุรี</span>
+          ง่ายขึ้นทุกวัน
         </h1>
 
         <p class="hero-description">
-          อยากกินอะไร ซื้ออะไรคุ้ม ไปไหนดี
-          หรือกำลังหาบริการใกล้ตัว
-          PrachinLife ช่วยให้หาได้ง่ายขึ้นในที่เดียว
+          กินอะไร ซื้ออะไรคุ้ม ไปไหนดี
+          หาร้านเจ หรือหาบริการใกล้ตัว
+          <strong data-site-name>PrachinLife</strong>
+          ช่วยรวมสิ่งที่ต้องใช้ไว้ให้หาได้ง่ายขึ้น
         </p>
 
         <div class="hero-trust">
@@ -137,10 +143,47 @@
           <span class="status-dot"></span>
 
           <span>
-            ข้อมูลจากแหล่งต้นทางและข้อมูลเปิดที่ตรวจสอบย้อนกลับได้
+            ข้อมูลมีแหล่งที่มา ตรวจสอบย้อนกลับได้
+            และค้นหาตามพื้นที่ได้
           </span>
 
         </div>
+
+        <div class="hero-search">
+
+          <div class="search-row">
+
+            <div class="search-field">
+
+              <span
+                class="search-icon"
+                aria-hidden="true"
+              >
+                🔎
+              </span>
+
+              <input
+                id="searchInput"
+                type="search"
+                placeholder="ค้นหาร้าน อาหารเจ โปรโมชั่น สถานที่ หรือจังหวัด..."
+                autocomplete="off"
+                aria-label="ค้นหา"
+              >
+
+            </div>
+
+            <button
+              id="searchBtn"
+              class="primary-button"
+              type="button"
+            >
+              ค้นหา
+            </button>
+
+          </div>
+
+        </div>
+
 
       </div>
 
@@ -163,16 +206,16 @@
           <div>
 
             <span class="eyebrow">
-              PRACHINLIFE
+              EXPLORE YOUR DAY
             </span>
 
             <h2>
-              วันนี้อยากหาอะไร?
+              วันนี้อยากทำอะไร?
             </h2>
 
             <p>
-              เลือกสิ่งที่ต้องการ แล้ว PrachinLife
-              จะพาไปยังข้อมูลที่เกี่ยวข้องให้
+              เลือกเรื่องที่ต้องการ
+              แล้วเราจะช่วยพาไปยังข้อมูลที่เกี่ยวข้อง
             </p>
 
           </div>
@@ -206,7 +249,7 @@
               </strong>
 
               <small>
-                มีอะไรน่าสนใจ
+                วันนี้มีอะไรน่าสนใจ
               </small>
 
             </span>
@@ -227,11 +270,11 @@
             <span class="control-main-copy">
 
               <strong>
-                ช้อปคุ้ม
+                ช้อป
               </strong>
 
               <small>
-                โปร คูปอง และสิทธิ์
+                โปรและสิทธิ์คุ้ม
               </small>
 
             </span>
@@ -252,7 +295,7 @@
             <span class="control-main-copy">
 
               <strong>
-                กินอะไร
+                กิน
               </strong>
 
               <small>
@@ -279,11 +322,11 @@
             <span class="control-main-copy">
 
               <strong>
-                หาอาหารเจ
+                เจ / มังสวิรัติ
               </strong>
 
               <small>
-                เจ / มังสวิรัติ / Vegan
+                ค้นทั่วไทยและใกล้ฉัน
               </small>
 
             </span>
@@ -304,7 +347,7 @@
             <span class="control-main-copy">
 
               <strong>
-                เที่ยวไหนดี
+                เที่ยว
               </strong>
 
               <small>
@@ -329,11 +372,11 @@
             <span class="control-main-copy">
 
               <strong>
-                บริการใกล้ตัว
+                บริการ
               </strong>
 
               <small>
-                ร้านและบริการที่ต้องใช้
+                สิ่งที่ต้องใช้ใกล้ตัว
               </small>
 
             </span>
@@ -592,7 +635,8 @@
               id="nearMeStatus"
               class="control-note"
             >
-              PrachinLife จะขอตำแหน่งเมื่อคุณกด “ใกล้ฉัน” เท่านั้น
+              <span data-site-name>PrachinLife</span>
+              จะขอตำแหน่งเมื่อคุณกด “ใกล้ฉัน” เท่านั้น
             </p>
 
           </div>
@@ -672,7 +716,8 @@
               id="vegetarianNearMeStatus"
               class="control-note"
             >
-              PrachinLife จะขอตำแหน่งเมื่อคุณกด “ใกล้ฉัน” เท่านั้น
+              <span data-site-name>PrachinLife</span>
+              จะขอตำแหน่งเมื่อคุณกด “ใกล้ฉัน” เท่านั้น
             </p>
 
           </div>
@@ -727,7 +772,8 @@
 
               <p>
                 กำลังเตรียมข้อมูลสถานที่ท่องเที่ยว
-                กิจกรรม และที่น่าแวะในปราจีนบุรี
+                กิจกรรม และที่น่าแวะใน
+                <span data-site-province>ปราจีนบุรี</span>
               </p>
 
             </div>
@@ -760,7 +806,9 @@
 
               <p>
                 กำลังเตรียมข้อมูลร้านและบริการ
-                ที่คนปราจีนบุรีต้องใช้ในชีวิตประจำวัน
+                ที่คนใน
+                <span data-site-province>ปราจีนบุรี</span>
+                ต้องใช้ในชีวิตประจำวัน
               </p>
 
             </div>
@@ -770,66 +818,6 @@
         </div>
 
 
-        <!-- ============================================
-        SECONDARY SEARCH
-        ============================================= -->
-
-        <div class="control-search">
-
-          <div class="control-search-heading">
-
-            <span class="control-search-icon">
-              🔎
-            </span>
-
-            <div>
-
-              <strong>
-                หาอย่างอื่น
-              </strong>
-
-              <p>
-                ถ้ายังไม่เจอจากตัวเลือกด้านบน
-                ลองพิมพ์สิ่งที่ต้องการ
-              </p>
-
-            </div>
-
-          </div>
-
-
-          <div class="search-row">
-
-            <div class="search-field">
-
-              <span
-                class="search-icon"
-                aria-hidden="true"
-              >
-                ⌕
-              </span>
-
-              <input
-                id="searchInput"
-                type="search"
-                placeholder="เช่น ร้านกาแฟ ร้านอาหาร โปรโมชั่น..."
-                autocomplete="off"
-                aria-label="ค้นหา"
-              >
-
-            </div>
-
-            <button
-              id="searchBtn"
-              class="primary-button"
-              type="button"
-            >
-              ค้นหา
-            </button>
-
-          </div>
-
-        </div>
 
       </div>
 
@@ -867,7 +855,8 @@
               </h2>
 
               <p>
-                ข้อมูลล่าสุดที่ PrachinLife
+                ข้อมูลล่าสุดที่
+                <span data-site-name>PrachinLife</span>
                 มีอยู่ในระบบ
               </p>
 
@@ -1001,7 +990,7 @@
             <div>
 
               <span class="eyebrow">
-                EAT PRACHINBURI
+                EAT LOCAL
               </span>
 
               <h2>
@@ -1009,7 +998,8 @@
               </h2>
 
               <p>
-                ร้านอาหารและคาเฟ่ในจังหวัดปราจีนบุรี
+                ร้านอาหารและคาเฟ่ใน
+                <span data-site-province>ปราจีนบุรี</span>
               </p>
 
             </div>
@@ -1089,12 +1079,12 @@
               </span>
 
               <h2>
-                🥬 หาอาหารเจ
+                🥬 เจ / มังสวิรัติ
               </h2>
 
               <p>
-                ค้นหาร้านที่มีข้อมูลยืนยันเรื่องอาหารเจ
-                มังสวิรัติ หรือ Vegan
+                ค้นหาร้านทั่วประเทศไทย
+                เลือกจังหวัดล่วงหน้า หรือหาร้านใกล้ฉัน
               </p>
 
             </div>
@@ -1130,8 +1120,8 @@
             </h3>
 
             <p>
-              PrachinLife จะแสดงเฉพาะข้อมูลที่มีหลักฐานรองรับ
-              และจะไม่เดาว่า Vegetarian หรือ Vegan คืออาหารเจ
+              ระบบจะแสดงข้อมูลตามหลักฐานที่มี
+              และแยกร้านเฉพาะทางออกจากร้านที่มีเพียงตัวเลือกมังสวิรัติ
             </p>
 
           </div>
@@ -1146,6 +1136,70 @@
             >
               ดูร้านเพิ่มเติม
             </button>
+
+          </div>
+
+        </div>
+
+
+        <!-- ============================================
+        GO RESULT
+        ============================================= -->
+
+        <div
+          id="goResultSection"
+          class="hidden"
+        >
+
+          <div class="section-heading">
+
+            <div>
+
+              <span class="eyebrow">
+                EXPLORE LOCAL
+              </span>
+
+              <h2>
+                เที่ยว / สถานที่น่าแวะ
+              </h2>
+
+              <p>
+                สถานที่ที่มีข้อมูลรองรับใน
+                <span data-site-province>ปราจีนบุรี</span>
+              </p>
+
+            </div>
+
+            <div
+              id="goResultCount"
+              class="result-count"
+            >
+              0 สถานที่
+            </div>
+
+          </div>
+
+          <div
+            id="goList"
+            class="promotion-grid"
+          ></div>
+
+          <div
+            id="goEmptyState"
+            class="empty-state hidden"
+          >
+
+            <div class="empty-icon">
+              📍
+            </div>
+
+            <h3>
+              ยังไม่มีสถานที่ที่ผ่านเกณฑ์ในตอนนี้
+            </h3>
+
+            <p>
+              ระบบจะแสดงเฉพาะสถานที่ที่มีหลักฐานรองรับเพียงพอ
+            </p>
 
           </div>
 
@@ -1175,7 +1229,8 @@
             </h3>
 
             <p id="comingSoonResultDescription">
-              PrachinLife จะเพิ่มข้อมูลในหมวดนี้เร็ว ๆ นี้
+              <span data-site-name>PrachinLife</span>
+              จะเพิ่มข้อมูลในหมวดนี้เร็ว ๆ นี้
             </p>
 
           </div>
@@ -1195,169 +1250,43 @@
 
       <div class="container">
 
-        <div class="section-heading">
+        <div class="section-heading compact">
 
           <div>
 
             <span class="eyebrow">
-              PRACHINLIFE TODAY
+              AVAILABLE NOW
             </span>
 
             <h2>
-              ข้อมูลที่ใช้งานได้ตอนนี้
+              ตอนนี้ใช้ทำอะไรได้บ้าง
             </h2>
 
           </div>
 
         </div>
 
+        <div class="availability-strip">
 
-        <div class="explore-grid">
+          <span class="availability-item active">
+            🛒 ช้อป
+          </span>
 
-          <article class="explore-card active">
+          <span class="availability-item active">
+            🍜 กิน
+          </span>
 
-            <div class="explore-icon">
-              🛒
-            </div>
+          <span class="availability-item active">
+            🥬 เจ / มังสวิรัติ
+          </span>
 
-            <div>
+          <span class="availability-item">
+            📍 เที่ยว · เร็ว ๆ นี้
+          </span>
 
-              <div class="explore-title-row">
-
-                <h3>
-                  ช้อปคุ้ม
-                </h3>
-
-                <span class="status-badge active">
-                  ใช้งานได้
-                </span>
-
-              </div>
-
-              <p>
-                โปรโมชั่น คูปอง และสิทธิสมาชิก
-              </p>
-
-            </div>
-
-          </article>
-
-
-          <article class="explore-card active">
-
-            <div class="explore-icon">
-              🍜
-            </div>
-
-            <div>
-
-              <div class="explore-title-row">
-
-                <h3>
-                  กินอะไร
-                </h3>
-
-                <span class="status-badge active">
-                  ใช้งานได้
-                </span>
-
-              </div>
-
-              <p>
-                ร้านอาหารและคาเฟ่ในปราจีนบุรี
-              </p>
-
-            </div>
-
-          </article>
-
-
-          <article class="explore-card active">
-
-            <div class="explore-icon">
-              🥬
-            </div>
-
-            <div>
-
-              <div class="explore-title-row">
-
-                <h3>
-                  หาอาหารเจ
-                </h3>
-
-                <span class="status-badge active">
-                  ระบบพร้อม
-                </span>
-
-              </div>
-
-              <p>
-                อาหารเจ มังสวิรัติ และ Vegan
-                จากข้อมูลที่ยืนยันได้
-              </p>
-
-            </div>
-
-          </article>
-
-
-          <article class="explore-card">
-
-            <div class="explore-icon">
-              📍
-            </div>
-
-            <div>
-
-              <div class="explore-title-row">
-
-                <h3>
-                  เที่ยวไหนดี
-                </h3>
-
-                <span class="status-badge">
-                  เร็ว ๆ นี้
-                </span>
-
-              </div>
-
-              <p>
-                สถานที่ท่องเที่ยวและกิจกรรม
-              </p>
-
-            </div>
-
-          </article>
-
-
-          <article class="explore-card">
-
-            <div class="explore-icon">
-              🔧
-            </div>
-
-            <div>
-
-              <div class="explore-title-row">
-
-                <h3>
-                  บริการใกล้ตัว
-                </h3>
-
-                <span class="status-badge">
-                  เร็ว ๆ นี้
-                </span>
-
-              </div>
-
-              <p>
-                ร้าน ช่าง และบริการที่ต้องใช้จริง
-              </p>
-
-            </div>
-
-          </article>
+          <span class="availability-item">
+            🔧 บริการ · เร็ว ๆ นี้
+          </span>
 
         </div>
 
@@ -1382,7 +1311,7 @@
           <div>
 
             <span class="eyebrow">
-              WHY PRACHINLIFE
+              WHY LOCAL LIFE
             </span>
 
             <h2>
@@ -1472,8 +1401,8 @@
           </h2>
 
           <p>
-            PrachinLife ใช้ข้อมูลจากแหล่งต้นทาง
-            และข้อมูลเปิดที่ตรวจสอบย้อนกลับได้
+            <span data-site-name>PrachinLife</span>
+            ใช้ข้อมูลจากแหล่งต้นทางและข้อมูลเปิดที่ตรวจสอบย้อนกลับได้
             โดยไม่สร้างรายละเอียดขึ้นเองเมื่อไม่มีข้อมูลรองรับ
           </p>
 
@@ -1526,11 +1455,11 @@
 
       <div>
 
-        <strong>
+        <strong data-site-name>
           PrachinLife
         </strong>
 
-        <p>
+        <p data-site-description>
           Local Everyday Assistant for Prachinburi
         </p>
 
@@ -1559,6 +1488,13 @@
   ></div>
  
   <script src="search.js?v=20260816-1"></script>
+  <script src="js/core/site-config.js?v=20260818-1"></script>
+  <script src="js/core/local-context.js?v=20260818-1"></script>
+  <script src="js/core/location.js?v=20260818-1"></script>
+  <script src="js/core/utils.js?v=20260818-1"></script>
+  <script src="js/ui/dom.js?v=20260818-1"></script>
+  <script src="js/modules/vegetarian.js?v=20260818-1"></script>
+  <script src="js/modules/go.js?v=20260818-1"></script>
   <script src="app.js?v=20260817-1"></script>
 </body>
 

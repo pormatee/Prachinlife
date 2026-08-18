@@ -2408,3 +2408,176 @@ VERY SMALL MOBILE
   }
 
 }
+
+/* =====================================================
+NEW INDEX V1
+HERO + PRIMARY SEARCH
+===================================================== */
+
+.hero {
+  padding-top: 64px;
+  padding-bottom: 56px;
+}
+
+.hero-inner {
+  max-width: 920px;
+}
+
+.hero h1 {
+  max-width: 760px;
+  margin-bottom: 18px;
+}
+
+.hero-description {
+  max-width: 760px;
+  font-size: 1.08rem;
+  line-height: 1.8;
+}
+
+.hero-trust {
+  margin-top: 18px;
+}
+
+.hero-search {
+  margin-top: 28px;
+  max-width: 760px;
+}
+
+.hero-search .search-row {
+  display: flex;
+  gap: 12px;
+  align-items: stretch;
+}
+
+.hero-search .search-field {
+  flex: 1;
+  min-height: 58px;
+}
+
+.hero-search .search-field input {
+  width: 100%;
+  min-height: 58px;
+  font-size: 1rem;
+}
+
+.hero-search .primary-button {
+  min-height: 58px;
+  padding-left: 28px;
+  padding-right: 28px;
+}
+
+@media (max-width: 720px) {
+  .hero {
+    padding-top: 44px;
+    padding-bottom: 40px;
+  }
+
+  .hero-search .search-row {
+    flex-direction: column;
+  }
+
+  .hero-search .primary-button {
+    width: 100%;
+  }
+}
+
+/* =====================================================
+NEW INDEX V1
+MAIN ACTION GRID
+===================================================== */
+
+#mainCategoryFilters.control-main-grid {
+  gap: 14px;
+}
+
+#mainCategoryFilters .control-main-button {
+  min-height: 104px;
+  padding: 20px;
+  align-items: flex-start;
+}
+
+#mainCategoryFilters .control-main-icon {
+  font-size: 1.6rem;
+}
+
+#mainCategoryFilters .control-main-copy strong {
+  font-size: 1.02rem;
+}
+
+#mainCategoryFilters .control-main-copy small {
+  margin-top: 4px;
+  line-height: 1.45;
+}
+
+@media (min-width: 721px) {
+  #mainCategoryFilters.control-main-grid {
+    grid-template-columns:
+      repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 720px) {
+  #mainCategoryFilters.control-main-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  #mainCategoryFilters .control-main-button {
+    min-height: 96px;
+    padding: 16px;
+  }
+}
+
+/* =====================================================
+NEW INDEX V1
+AVAILABILITY STRIP
+===================================================== */
+
+.availability-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.availability-item {
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  padding: 8px 14px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 999px;
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
+
+.availability-item.active {
+  opacity: 1;
+  font-weight: 600;
+}
+
+@media (max-width: 720px) {
+  .availability-strip {
+    gap: 8px;
+  }
+
+  .availability-item {
+    font-size: 0.84rem;
+  }
+}
+
+/* =====================================================
+VEGETARIAN TRUST TIER
+===================================================== */
+
+.vegetarian-tier {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  margin-top: 4px;
+  padding: 5px 9px;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  background: rgba(0, 0, 0, 0.045);
+}

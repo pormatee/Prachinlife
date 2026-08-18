@@ -1,4 +1,26 @@
+# Python
 __pycache__/
 *.py[cod]
 .venv/
 venv/
+
+# Backups / checkpoints
+backups/
+data/archive/
+data/checkpoints/
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.swp
+*~
+
+# Logs
+*.log
+
+# OS / editor metadata
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

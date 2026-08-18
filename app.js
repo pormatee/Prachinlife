@@ -21,6 +21,7 @@ CONFIG
 const DATA_URL = "promotions.json";
 const INDEX_URL = "prachinlife_index.json";
 const VEGETARIAN_URL = "vegetarian_index.json";
+const GO_URL = "go_index.json";
 
 const PAGE_SIZE = 8;
 const EAT_PAGE_SIZE = 8;
@@ -41,7 +42,12 @@ let allEatPlaces = [];
 let filteredEatPlaces = [];
 
 let allVegetarianPlaces = [];
+let primaryVegetarianPlaces = [];
 let filteredVegetarianPlaces = [];
+
+let allGoPlaces = [];
+let primaryGoPlaces = [];
+let filteredGoPlaces = [];
 
 
 let currentPage = 1;
@@ -56,6 +62,8 @@ let currentEatType = "all";
 let currentEatArea = "all";
 
 let currentVegetarianProvince = "all";
+
+let currentLocalProvince = "";
 
 let currentMainCategory = "recommended";
 
@@ -78,7 +86,12 @@ async function init() {
 
   try {
 
-    setText(
+    window.PrachinLife.context.apply();
+
+    currentLocalProvince =
+      window.PrachinLife.context.getCurrentProvince();
+
+    window.PrachinLife.ui.setText(
       "recommendedResultCount",
       "กำลังโหลดข้อมูล..."
     );
@@ -91,12 +104,15 @@ async function init() {
       loadPromotions(),
       loadCommonIndex(),
       loadVegetarianIndex(),
+      loadGoIndex(),
     ]);
 
 
     prepareEatPlaces();
 
     prepareVegetarianPlaces();
+
+    prepareGoPlaces();
 
 
     buildEatAreaFilters();
@@ -131,7 +147,7 @@ async function init() {
     );
 
 
-    setText(
+    window.PrachinLife.ui.setText(
       "recommendedResultCount",
       "เกิดข้อผิดพลาดในการโหลดข้อมูล"
     );
@@ -241,12 +257,15 @@ function bindRefreshEvent() {
           loadPromotions(true),
           loadCommonIndex(true),
           loadVegetarianIndex(true),
+          loadGoIndex(true),
         ]);
 
 
         prepareEatPlaces();
 
         prepareVegetarianPlaces();
+
+        prepareGoPlaces();
 
 
         buildEatAreaFilters();
@@ -269,6 +288,21 @@ function bindRefreshEvent() {
         ) {
 
           renderRecommended();
+        }
+
+        else if (
+          currentMainCategory ===
+          "go"
+        ) {
+
+          if (
+            primaryGoPlaces.length > 0
+          ) {
+            filteredGoPlaces =
+              [...primaryGoPlaces];
+
+            renderGoPlaces();
+          }
         }
 
 
@@ -349,11 +383,11 @@ function setMainCategory(
     "recommended"
   ) {
 
-    showElement(
+    window.PrachinLife.ui.showElement(
       "recommendedOptions"
     );
 
-    showElement(
+    window.PrachinLife.ui.showElement(
       "recommendedResultSection"
     );
 
@@ -366,11 +400,11 @@ function setMainCategory(
     "shopping"
   ) {
 
-    showElement(
+    window.PrachinLife.ui.showElement(
       "shoppingOptions"
     );
 
-    showElement(
+    window.PrachinLife.ui.showElement(
       "shoppingResultSection"
     );
 
@@ -383,11 +417,11 @@ function setMainCategory(
     "eat"
   ) {
 
-    showElement(
+    window.PrachinLife.ui.showElement(
       "eatOptions"
     );
 
-    showElement(
+    window.PrachinLife.ui.showElement(
       "eatResultSection"
     );
 
@@ -400,11 +434,11 @@ function setMainCategory(
     "vegetarian"
   ) {
 
-    showElement(
+    window.PrachinLife.ui.showElement(
       "vegetarianOptions"
     );
 
-    showElement(
+    window.PrachinLife.ui.showElement(
       "vegetarianResultSection"
     );
 
@@ -417,11 +451,11 @@ function setMainCategory(
     "go"
   ) {
 
-    showElement(
+    window.PrachinLife.ui.showElement(
       "goOptions"
     );
 
-    showElement(
+    window.PrachinLife.ui.showElement(
       "comingSoonResultSection"
     );
 
@@ -439,11 +473,11 @@ function setMainCategory(
     "services"
   ) {
 
-    showElement(
+    window.PrachinLife.ui.showElement(
       "servicesOptions"
     );
 
-    showElement(
+    window.PrachinLife.ui.showElement(
       "comingSoonResultSection"
     );
 
@@ -711,11 +745,11 @@ function showShoppingResult() {
   hideAllResultSections();
 
 
-  showElement(
+  window.PrachinLife.ui.showElement(
     "shoppingOptions"
   );
 
-  showElement(
+  window.PrachinLife.ui.showElement(
     "shoppingResultSection"
   );
 
@@ -879,11 +913,11 @@ function showEatResult() {
   hideAllResultSections();
 
 
-  showElement(
+  window.PrachinLife.ui.showElement(
     "eatOptions"
   );
 
-  showElement(
+  window.PrachinLife.ui.showElement(
     "eatResultSection"
   );
 
@@ -931,64 +965,45 @@ function updateEatButtons() {
 VEGETARIAN EVENTS
 ===================================================== */
 
+function handleVegetarianProvinceSelect(
+  province
+) {
+
+  currentVegetarianProvince =
+    province;
+
+  currentVegetarianPage = 1;
+
+  userLocation = null;
+
+  window.PrachinLife.modules.vegetarian.updateNearMeState(
+    false
+  );
+
+  window.PrachinLife.modules.vegetarian.updateProvinceButtons(
+    currentVegetarianProvince
+  );
+
+  applyVegetarianFilters();
+
+  showVegetarianResult();
+}
+
+
 function bindVegetarianEvents() {
 
-  const nearMeBtn =
-    document.getElementById(
-      "vegetarianNearMeBtn"
-    );
-
-
-  if (nearMeBtn) {
-
-    nearMeBtn.addEventListener(
-      "click",
-      activateVegetarianNearMe
-    );
-  }
-
-
-  bindDynamicVegetarianProvinceEvents();
+  window.PrachinLife.modules.vegetarian.bindMainEvents(
+    activateVegetarianNearMe,
+    handleVegetarianProvinceSelect
+  );
 }
 
 
 function bindDynamicVegetarianProvinceEvents() {
 
-  document
-    .querySelectorAll(
-      "[data-vegetarian-province]"
-    )
-    .forEach(
-      button => {
-
-        button.addEventListener(
-          "click",
-          () => {
-
-            currentVegetarianProvince =
-              button.dataset
-                .vegetarianProvince
-              || "all";
-
-            currentVegetarianPage = 1;
-
-            userLocation = null;
-
-
-            updateVegetarianNearMeState(
-              false
-            );
-
-
-            updateVegetarianProvinceButtons();
-
-            applyVegetarianFilters();
-
-            showVegetarianResult();
-          }
-        );
-      }
-    );
+  window.PrachinLife.modules.vegetarian.bindProvinceEvents(
+    handleVegetarianProvinceSelect
+  );
 }
 
 
@@ -1005,11 +1020,11 @@ function showVegetarianResult() {
   hideAllResultSections();
 
 
-  showElement(
+  window.PrachinLife.ui.showElement(
     "vegetarianOptions"
   );
 
-  showElement(
+  window.PrachinLife.ui.showElement(
     "vegetarianResultSection"
   );
 
@@ -1017,26 +1032,6 @@ function showVegetarianResult() {
   scrollToResults();
 }
 
-
-function updateVegetarianProvinceButtons() {
-
-  document
-    .querySelectorAll(
-      "[data-vegetarian-province]"
-    )
-    .forEach(
-      button => {
-
-        button.classList.toggle(
-          "active",
-          button.dataset
-            .vegetarianProvince
-            ===
-            currentVegetarianProvince
-        );
-      }
-    );
-}
 
 
 /* =====================================================
@@ -1236,7 +1231,7 @@ async function loadPromotions(
     filteredPromotions = [];
 
 
-    setText(
+    window.PrachinLife.ui.setText(
       "resultCount",
       "โหลดข้อมูลไม่สำเร็จ"
     );
@@ -1308,6 +1303,72 @@ async function loadCommonIndex(
 
 
     allContent = [];
+  }
+}
+
+
+/* =====================================================
+LOAD GO INDEX
+===================================================== */
+
+async function loadGoIndex(
+  forceRefresh = false
+) {
+
+  try {
+
+    const url =
+      forceRefresh
+        ? `${GO_URL}?t=${Date.now()}`
+        : GO_URL;
+
+    const response =
+      await fetch(
+        url,
+        {
+          cache: "no-store",
+        }
+      );
+
+    if (!response.ok) {
+      throw new Error(
+        `Go index HTTP ${response.status}`
+      );
+    }
+
+    const data =
+      await response.json();
+
+    if (!Array.isArray(data)) {
+      throw new Error(
+        "Go index must be an array"
+      );
+    }
+
+    allGoPlaces =
+      data.filter(
+        item =>
+          item
+          &&
+          typeof item === "object"
+      );
+
+    console.log(
+      "PrachinLife go index:",
+      allGoPlaces.length
+    );
+  }
+
+  catch (error) {
+
+    console.error(
+      "PrachinLife go index error:",
+      error
+    );
+
+    allGoPlaces = [];
+    primaryGoPlaces = [];
+    filteredGoPlaces = [];
   }
 }
 
@@ -1386,7 +1447,7 @@ async function loadVegetarianIndex(
     filteredVegetarianPlaces = [];
 
 
-    setText(
+    window.PrachinLife.ui.setText(
       "vegetarianResultCount",
       "โหลดข้อมูลไม่สำเร็จ"
     );
@@ -1490,11 +1551,25 @@ function prepareEatPlaces() {
 
   allEatPlaces =
     allContent.filter(
-      item =>
-        item
-        &&
-        item.content_type
-          === "eat"
+      item => {
+        if (
+          !item
+          ||
+          item.content_type !== "eat"
+        ) {
+          return false;
+        }
+
+        const province =
+          item.location?.province
+          || "";
+
+        return (
+          !currentLocalProvince
+          ||
+          province === currentLocalProvince
+        );
+      }
     );
 
 
@@ -1512,11 +1587,53 @@ PREPARE VEGETARIAN
 
 function prepareVegetarianPlaces() {
 
+  primaryVegetarianPlaces =
+    allVegetarianPlaces.filter(
+      place =>
+        place?.metadata
+          ?.show_in_primary_directory
+        === true
+    );
+
   filteredVegetarianPlaces =
-    [...allVegetarianPlaces];
+    [...primaryVegetarianPlaces];
 
 
   currentVegetarianPage = 1;
+}
+
+
+/* =====================================================
+PREPARE GO
+===================================================== */
+
+function prepareGoPlaces() {
+
+  primaryGoPlaces =
+    window.PrachinLife.modules.go.getPrimaryPlaces(
+      allGoPlaces,
+      currentLocalProvince
+    );
+
+  filteredGoPlaces =
+    [...primaryGoPlaces];
+}
+
+
+/* =====================================================
+RENDER GO
+===================================================== */
+
+function renderGoPlaces() {
+
+  window.PrachinLife.modules.go.renderPlaces(
+    filteredGoPlaces
+  );
+
+  window.PrachinLife.ui.setText(
+    "goResultCount",
+    `${filteredGoPlaces.length} สถานที่`
+  );
 }
 
 
@@ -1552,8 +1669,18 @@ function performSearch() {
     query.toLowerCase();
 
 
+  const isVegetarianIntent =
+    /เจ|มังสวิรัติ|vegetarian|vegan/i.test(
+      query
+    );
+
+  const vegetarianSearchSource =
+    isVegetarianIntent
+      ? primaryVegetarianPlaces
+      : allVegetarianPlaces;
+
   const vegetarianMatches =
-    allVegetarianPlaces.filter(
+    vegetarianSearchSource.filter(
       place => {
 
         const text = [
@@ -1571,7 +1698,6 @@ function performSearch() {
           .join(" ")
           .toLowerCase();
 
-
         return text.includes(
           normalizedQuery
         );
@@ -1582,9 +1708,7 @@ function performSearch() {
   if (
     vegetarianMatches.length > 0
     &&
-    /เจ|มังสวิรัติ|vegetarian|vegan/i.test(
-      query
-    )
+    isVegetarianIntent
   ) {
 
     currentMainCategory =
@@ -1605,11 +1729,11 @@ function performSearch() {
     hideAllResultSections();
 
 
-    showElement(
+    window.PrachinLife.ui.showElement(
       "vegetarianOptions"
     );
 
-    showElement(
+    window.PrachinLife.ui.showElement(
       "vegetarianResultSection"
     );
 
@@ -1617,11 +1741,63 @@ function performSearch() {
     renderVegetarianPlaces();
 
 
-    setText(
+    window.PrachinLife.ui.setText(
       "vegetarianResultCount",
       `${filteredVegetarianPlaces.length} ร้าน`
     );
 
+
+    scrollToResults();
+
+    return;
+  }
+
+
+  const goMatches =
+    primaryGoPlaces.filter(
+      place => {
+        const text = [
+          place.title,
+          place.category,
+          place.metadata?.category_label,
+          place.location?.district,
+          place.location?.province,
+        ]
+          .filter(Boolean)
+          .join(" ")
+          .toLowerCase();
+
+        return text.includes(
+          normalizedQuery
+        );
+      }
+    );
+
+  if (
+    goMatches.length > 0
+  ) {
+
+    currentMainCategory =
+      "go";
+
+    filteredGoPlaces =
+      goMatches;
+
+    updateMainCategoryButtons();
+
+    hideAllOptionGroups();
+
+    hideAllResultSections();
+
+    window.PrachinLife.ui.showElement(
+      "goOptions"
+    );
+
+    window.PrachinLife.ui.showElement(
+      "goResultSection"
+    );
+
+    renderGoPlaces();
 
     scrollToResults();
 
@@ -1702,6 +1878,11 @@ function performSearch() {
           dealIds.has(
             item.id
           )
+          &&
+          window.PrachinLife.core.matchesLocalScope(
+            item,
+            currentLocalProvince
+          )
       );
 
 
@@ -1715,11 +1896,11 @@ function performSearch() {
     hideAllResultSections();
 
 
-    showElement(
+    window.PrachinLife.ui.showElement(
       "shoppingOptions"
     );
 
-    showElement(
+    window.PrachinLife.ui.showElement(
       "shoppingResultSection"
     );
 
@@ -1727,7 +1908,7 @@ function performSearch() {
     renderPromotions();
 
 
-    setText(
+    window.PrachinLife.ui.setText(
       "resultCount",
       `${filteredPromotions.length} รายการ`
     );
@@ -1768,11 +1949,11 @@ function performSearch() {
     hideAllResultSections();
 
 
-    showElement(
+    window.PrachinLife.ui.showElement(
       "eatOptions"
     );
 
-    showElement(
+    window.PrachinLife.ui.showElement(
       "eatResultSection"
     );
 
@@ -1780,7 +1961,7 @@ function performSearch() {
     renderEatPlaces();
 
 
-    setText(
+    window.PrachinLife.ui.setText(
       "eatResultCount",
       `${filteredEatPlaces.length} ร้าน`
     );
@@ -1803,11 +1984,11 @@ function performSearch() {
   hideAllResultSections();
 
 
-  showElement(
+  window.PrachinLife.ui.showElement(
     "recommendedOptions"
   );
 
-  showElement(
+  window.PrachinLife.ui.showElement(
     "recommendedResultSection"
   );
 
@@ -1850,6 +2031,12 @@ function applyFilters() {
             promotion
           );
 
+        const matchesLocal =
+          window.PrachinLife.core.matchesLocalScope(
+            promotion,
+            currentLocalProvince
+          );
+
 
         return (
           matchesMerchant
@@ -1857,6 +2044,8 @@ function applyFilters() {
           matchesType
           &&
           matchesSmart
+          &&
+          matchesLocal
         );
       }
     );
@@ -1887,7 +2076,7 @@ function applyFilters() {
   renderPromotions();
 
 
-  setText(
+  window.PrachinLife.ui.setText(
     "resultCount",
     `${filteredPromotions.length} รายการ`
   );
@@ -2133,14 +2322,14 @@ function applyEatFilters() {
           })
         )
         .sort(
-          compareDistance
+          window.PrachinLife.core.compareDistance
         );
   }
 
   else {
 
     filteredEatPlaces.sort(
-      compareTitle
+      window.PrachinLife.core.compareTitle
     );
   }
 
@@ -2151,7 +2340,7 @@ function applyEatFilters() {
   renderEatPlaces();
 
 
-  setText(
+  window.PrachinLife.ui.setText(
     "eatResultCount",
     `${filteredEatPlaces.length} ร้าน`
   );
@@ -2162,66 +2351,24 @@ function applyEatFilters() {
 VEGETARIAN FILTER ENGINE
 ===================================================== */
 
+
 function applyVegetarianFilters() {
 
   filteredVegetarianPlaces =
-    allVegetarianPlaces.filter(
-      place => {
-
-        if (
-          currentVegetarianProvince
-          === "all"
-        ) {
-
-          return true;
-        }
-
-
-        return (
-          getVegetarianProvince(
-            place
-          )
-          ===
-          currentVegetarianProvince
-        );
-      }
+    window.PrachinLife.modules.vegetarian.filterAndSortPlaces(
+      primaryVegetarianPlaces,
+      currentVegetarianProvince,
+      userLocation,
+      calculatePlaceDistance,
+      window.PrachinLife.core.compareDistance,
+      window.PrachinLife.core.compareTitle
     );
-
-
-  if (userLocation) {
-
-    filteredVegetarianPlaces =
-      filteredVegetarianPlaces
-        .map(
-          place => ({
-            ...place,
-
-            _distance:
-              calculatePlaceDistance(
-                place
-              ),
-          })
-        )
-        .sort(
-          compareDistance
-        );
-  }
-
-  else {
-
-    filteredVegetarianPlaces.sort(
-      compareTitle
-    );
-  }
-
 
   currentVegetarianPage = 1;
 
-
   renderVegetarianPlaces();
 
-
-  setText(
+  window.PrachinLife.ui.setText(
     "vegetarianResultCount",
     `${filteredVegetarianPlaces.length} ร้าน`
   );
@@ -2231,64 +2378,6 @@ function applyVegetarianFilters() {
 /* =====================================================
 SORT HELPERS
 ===================================================== */
-
-function compareTitle(
-  a,
-  b
-) {
-
-  return String(
-    a.title
-    || ""
-  ).localeCompare(
-    String(
-      b.title
-      || ""
-    ),
-    "th"
-  );
-}
-
-
-function compareDistance(
-  a,
-  b
-) {
-
-  const distanceA =
-    Number.isFinite(
-      a._distance
-    )
-      ? a._distance
-      : Infinity;
-
-
-  const distanceB =
-    Number.isFinite(
-      b._distance
-    )
-      ? b._distance
-      : Infinity;
-
-
-  if (
-    distanceA !==
-    distanceB
-  ) {
-
-    return (
-      distanceA
-      -
-      distanceB
-    );
-  }
-
-
-  return compareTitle(
-    a,
-    b
-  );
-}
 
 
 /* =====================================================
@@ -2379,9 +2468,9 @@ function buildEatAreaFilters() {
         <button
           type="button"
           class="filter-button"
-          data-eat-area="${escapeAttribute(area)}"
+          data-eat-area="${window.PrachinLife.core.escapeAttribute(area)}"
         >
-          ${escapeHtml(area)}
+          ${window.PrachinLife.core.escapeHtml(area)}
         </button>
       `
     );
@@ -2402,17 +2491,6 @@ function buildEatAreaFilters() {
 VEGETARIAN PROVINCES
 ===================================================== */
 
-function getVegetarianProvince(
-  place
-) {
-
-  return (
-    place.location
-      ?.province
-    ||
-    ""
-  );
-}
 
 
 function buildVegetarianProvinceFilters() {
@@ -2422,74 +2500,25 @@ function buildVegetarianProvinceFilters() {
       "vegetarianProvinceFilters"
     );
 
-
   if (!container) {
-
     return;
   }
 
-
   const provinces =
-    [
-      ...new Set(
-        allVegetarianPlaces
-          .map(
-            getVegetarianProvince
-          )
-          .filter(Boolean)
-      )
-    ]
-      .sort(
-        (a, b) =>
-          String(a)
-            .localeCompare(
-              String(b),
-              "th"
-            )
-      );
-
-
-  const buttons = [
-
-    `
-      <button
-        type="button"
-        class="filter-button active"
-        data-vegetarian-province="all"
-      >
-        ทุกจังหวัด
-      </button>
-    `
-
-  ];
-
-
-  for (
-    const province
-    of provinces
-  ) {
-
-    buttons.push(
-      `
-        <button
-          type="button"
-          class="filter-button"
-          data-vegetarian-province="${escapeAttribute(province)}"
-        >
-          ${escapeHtml(province)}
-        </button>
-      `
+    window.PrachinLife.modules.vegetarian.getProvinces(
+      primaryVegetarianPlaces
     );
-  }
-
 
   container.innerHTML =
-    buttons.join("");
-
+    window.PrachinLife.modules.vegetarian.buildProvinceButtonsHtml(
+      provinces
+    );
 
   bindDynamicVegetarianProvinceEvents();
 
-  updateVegetarianProvinceButtons();
+  window.PrachinLife.modules.vegetarian.updateProvinceButtons(
+    currentVegetarianProvince
+  );
 }
 
 
@@ -2517,7 +2546,7 @@ function activateNearMe() {
       );
 
 
-      setText(
+      window.PrachinLife.ui.setText(
         "nearMeStatus",
         "กำลังเรียงร้านจากใกล้ไปไกล"
       );
@@ -2574,18 +2603,20 @@ function activateVegetarianNearMe() {
       currentVegetarianPage = 1;
 
 
-      updateVegetarianNearMeState(
+      window.PrachinLife.modules.vegetarian.updateNearMeState(
         true
       );
 
 
-      setText(
+      window.PrachinLife.ui.setText(
         "vegetarianNearMeStatus",
         "กำลังเรียงร้านเจ / มังสวิรัติจากใกล้ไปไกล"
       );
 
 
-      updateVegetarianProvinceButtons();
+      window.PrachinLife.modules.vegetarian.updateProvinceButtons(
+  currentVegetarianProvince
+);
 
       applyVegetarianFilters();
 
@@ -2596,25 +2627,6 @@ function activateVegetarianNearMe() {
   );
 }
 
-
-function updateVegetarianNearMeState(
-  active
-) {
-
-  const button =
-    document.getElementById(
-      "vegetarianNearMeBtn"
-    );
-
-
-  if (button) {
-
-    button.classList.toggle(
-      "active",
-      active
-    );
-  }
-}
 
 
 /* =====================================================
@@ -2630,7 +2642,7 @@ function requestUserLocation(
     !navigator.geolocation
   ) {
 
-    setText(
+    window.PrachinLife.ui.setText(
       statusId,
       "อุปกรณ์นี้ไม่รองรับการใช้ตำแหน่ง"
     );
@@ -2639,7 +2651,7 @@ function requestUserLocation(
   }
 
 
-  setText(
+  window.PrachinLife.ui.setText(
     statusId,
     "กำลังขอตำแหน่งของคุณ..."
   );
@@ -2676,7 +2688,7 @@ function requestUserLocation(
           error.code === 1
         ) {
 
-          setText(
+          window.PrachinLife.ui.setText(
             statusId,
             "ไม่ได้รับอนุญาตให้ใช้ตำแหน่ง"
           );
@@ -2684,7 +2696,7 @@ function requestUserLocation(
 
         else {
 
-          setText(
+          window.PrachinLife.ui.setText(
             statusId,
             "ไม่สามารถหาตำแหน่งได้ในขณะนี้"
           );
@@ -2748,7 +2760,7 @@ function calculatePlaceDistance(
   }
 
 
-  return haversineDistance(
+  return window.PrachinLife.core.haversineDistance(
     userLocation.latitude,
     userLocation.longitude,
     latitude,
@@ -2756,82 +2768,6 @@ function calculatePlaceDistance(
   );
 }
 
-
-function haversineDistance(
-  lat1,
-  lon1,
-  lat2,
-  lon2
-) {
-
-  const earthRadiusKm =
-    6371;
-
-
-  const toRadians =
-    value =>
-      value
-      *
-      Math.PI
-      /
-      180;
-
-
-  const dLat =
-    toRadians(
-      lat2 - lat1
-    );
-
-
-  const dLon =
-    toRadians(
-      lon2 - lon1
-    );
-
-
-  const a =
-    Math.sin(
-      dLat / 2
-    )
-    ** 2
-
-    +
-
-    Math.cos(
-      toRadians(lat1)
-    )
-
-    *
-
-    Math.cos(
-      toRadians(lat2)
-    )
-
-    *
-
-    Math.sin(
-      dLon / 2
-    )
-    ** 2;
-
-
-  const c =
-    2
-    *
-    Math.atan2(
-      Math.sqrt(a),
-      Math.sqrt(
-        1 - a
-      )
-    );
-
-
-  return (
-    earthRadiusKm
-    *
-    c
-  );
-}
 
 
 /* =====================================================
@@ -2859,7 +2795,13 @@ function renderRecommended(
 
   const dealItems =
     rankInteresting(
-      allPromotions
+      allPromotions.filter(
+        promotion =>
+          window.PrachinLife.core.matchesLocalScope(
+            promotion,
+            currentLocalProvince
+          )
+      )
     )
       .slice(
         0,
@@ -2878,7 +2820,7 @@ function renderRecommended(
   const eatItems =
     [...allEatPlaces]
       .sort(
-        compareTitle
+        window.PrachinLife.core.compareTitle
       )
       .slice(
         0,
@@ -2955,7 +2897,7 @@ function renderRecommended(
       .join("");
 
 
-  setText(
+  window.PrachinLife.ui.setText(
     "recommendedResultCount",
     `${items.length} รายการ`
   );
@@ -3009,7 +2951,7 @@ function renderRecommendedSearch(
     `;
 
 
-    setText(
+    window.PrachinLife.ui.setText(
       "recommendedResultCount",
       "0 รายการ"
     );
@@ -3062,7 +3004,7 @@ function renderRecommendedSearch(
       .join("");
 
 
-  setText(
+  window.PrachinLife.ui.setText(
     "recommendedResultCount",
     `${visible.length} รายการ`
   );
@@ -3101,7 +3043,7 @@ function renderPromotions() {
     list.innerHTML = "";
 
 
-    showElement(
+    window.PrachinLife.ui.showElement(
       "emptyState"
     );
 
@@ -3118,7 +3060,7 @@ function renderPromotions() {
   }
 
 
-  hideElement(
+  window.PrachinLife.ui.hideElement(
     "emptyState"
   );
 
@@ -3165,21 +3107,21 @@ function renderPromotionCard(
 ) {
 
   const title =
-    escapeHtml(
+    window.PrachinLife.core.escapeHtml(
       promotion.title
       || "ไม่มีชื่อ"
     );
 
 
   const merchant =
-    escapeHtml(
+    window.PrachinLife.core.escapeHtml(
       promotion.merchant
       || "ไม่ระบุแหล่ง"
     );
 
 
   const category =
-    escapeHtml(
+    window.PrachinLife.core.escapeHtml(
       getPromotionCategoryLabel(
         promotion
       )
@@ -3187,7 +3129,7 @@ function renderPromotionCard(
 
 
   const typeLabel =
-    escapeHtml(
+    window.PrachinLife.core.escapeHtml(
       getPromotionTypeLabel(
         promotion
       )
@@ -3195,7 +3137,7 @@ function renderPromotionCard(
 
 
   const locationLabel =
-    escapeHtml(
+    window.PrachinLife.core.escapeHtml(
       getPromotionLocationLabel(
         promotion
       )
@@ -3203,7 +3145,7 @@ function renderPromotionCard(
 
 
   const smartReason =
-    escapeHtml(
+    window.PrachinLife.core.escapeHtml(
       getPromotionReason(
         promotion
       )
@@ -3215,7 +3157,7 @@ function renderPromotionCard(
       ? `
         <img
           class="promotion-image"
-          src="${escapeAttribute(
+          src="${window.PrachinLife.core.escapeAttribute(
             promotion.image_url
           )}"
           alt="${title}"
@@ -3234,13 +3176,13 @@ function renderPromotionCard(
       ? `
         <a
           class="source-button"
-          href="${escapeAttribute(
+          href="${window.PrachinLife.core.escapeAttribute(
             promotion.source_url
           )}"
           target="_blank"
           rel="noopener noreferrer"
         >
-          ${escapeHtml(
+          ${window.PrachinLife.core.escapeHtml(
             getActionLabel(
               promotion
             )
@@ -3351,7 +3293,7 @@ function renderEatPlaces() {
     list.innerHTML = "";
 
 
-    showElement(
+    window.PrachinLife.ui.showElement(
       "eatEmptyState"
     );
 
@@ -3368,7 +3310,7 @@ function renderEatPlaces() {
   }
 
 
-  hideElement(
+  window.PrachinLife.ui.hideElement(
     "eatEmptyState"
   );
 
@@ -3410,256 +3352,14 @@ function renderEatPlaces() {
 RENDER VEGETARIAN
 ===================================================== */
 
+
 function renderVegetarianPlaces() {
 
-  const list =
-    document.getElementById(
-      "vegetarianList"
-    );
-
-
-  const loadMoreBtn =
-    document.getElementById(
-      "vegetarianLoadMoreBtn"
-    );
-
-
-  if (!list) {
-
-    return;
-  }
-
-
-  if (
-    filteredVegetarianPlaces.length
-      === 0
-  ) {
-
-    list.innerHTML = "";
-
-
-    showElement(
-      "vegetarianEmptyState"
-    );
-
-
-    if (loadMoreBtn) {
-
-      loadMoreBtn.classList.add(
-        "hidden"
-      );
-    }
-
-
-    return;
-  }
-
-
-  hideElement(
-    "vegetarianEmptyState"
+  window.PrachinLife.modules.vegetarian.renderPlaces(
+    filteredVegetarianPlaces,
+    currentVegetarianPage,
+    VEGETARIAN_PAGE_SIZE
   );
-
-
-  const visibleCount =
-    currentVegetarianPage
-    *
-    VEGETARIAN_PAGE_SIZE;
-
-
-  const visibleItems =
-    filteredVegetarianPlaces.slice(
-      0,
-      visibleCount
-    );
-
-
-  list.innerHTML =
-    visibleItems
-      .map(
-        renderVegetarianCard
-      )
-      .join("");
-
-
-  if (loadMoreBtn) {
-
-    loadMoreBtn.classList.toggle(
-      "hidden",
-      visibleCount
-      >=
-      filteredVegetarianPlaces.length
-    );
-  }
-}
-
-
-/* =====================================================
-VEGETARIAN CARD
-===================================================== */
-
-function renderVegetarianCard(
-  place
-) {
-
-  const title =
-    escapeHtml(
-      place.title
-      || "ไม่ระบุชื่อร้าน"
-    );
-
-
-  const location =
-    escapeHtml(
-      getVegetarianLocationLabel(
-        place
-      )
-    );
-
-
-  const distance =
-    Number.isFinite(
-      place._distance
-    )
-      ? formatDistance(
-          place._distance
-        )
-      : "";
-
-
-  const openingHours =
-    place.metadata
-      ?.opening_hours
-      ? escapeHtml(
-          place.metadata
-            .opening_hours
-        )
-      : "";
-
-
-  const mapUrl =
-    buildEatMapUrl(
-      place
-    );
-
-
-  const sourceUrl =
-    place.source_url
-    ||
-    place.metadata
-      ?.source_url
-    ||
-    "";
-
-
-  return `
-    <article class="promotion-card eat-card">
-
-      <div class="promotion-image-wrap eat-image-wrap">
-
-        <div class="image-placeholder eat-placeholder">
-          🥬
-        </div>
-
-
-        <span class="source-pill">
-          เจ / มังสวิรัติ
-        </span>
-
-      </div>
-
-
-      <div class="promotion-body">
-
-        ${
-          distance
-            ? `
-              <div class="promotion-meta">
-                <strong>
-                  📍 ${escapeHtml(
-                    distance
-                  )}
-                </strong>
-              </div>
-            `
-            : ""
-        }
-
-
-        <h3 class="promotion-title">
-          ${title}
-        </h3>
-
-
-        <p class="promotion-description">
-          🥬 เจ / มังสวิรัติ
-        </p>
-
-
-        <p class="promotion-description">
-          📍 ${location}
-        </p>
-
-
-        ${
-          openingHours
-            ? `
-              <p class="promotion-description">
-                🕒 ${openingHours}
-              </p>
-            `
-            : ""
-        }
-
-
-        <p class="promotion-description">
-          ข้อมูลจาก OpenStreetMap
-          โปรดตรวจสอบรายละเอียดล่าสุดกับร้านก่อนเดินทาง
-        </p>
-
-
-        <div class="promotion-actions">
-
-          ${
-            mapUrl
-              ? `
-                <a
-                  class="source-button"
-                  href="${escapeAttribute(
-                    mapUrl
-                  )}"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  เปิดแผนที่ →
-                </a>
-              `
-              : ""
-          }
-
-
-          ${
-            sourceUrl
-              ? `
-                <a
-                  class="source-button"
-                  href="${escapeAttribute(
-                    sourceUrl
-                  )}"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  ดูแหล่งข้อมูล →
-                </a>
-              `
-              : ""
-          }
-
-        </div>
-
-      </div>
-
-    </article>
-  `;
 }
 
 
@@ -3672,14 +3372,14 @@ function renderEatCard(
 ) {
 
   const title =
-    escapeHtml(
+    window.PrachinLife.core.escapeHtml(
       place.title
       || "ไม่ระบุชื่อ"
     );
 
 
   const category =
-    escapeHtml(
+    window.PrachinLife.core.escapeHtml(
       getEatCategoryLabel(
         place
       )
@@ -3687,7 +3387,7 @@ function renderEatCard(
 
 
   const location =
-    escapeHtml(
+    window.PrachinLife.core.escapeHtml(
       getEatLocationLabel(
         place
       )
@@ -3695,7 +3395,7 @@ function renderEatCard(
 
 
   const mapUrl =
-    buildEatMapUrl(
+    window.PrachinLife.core.buildMapUrl(
       place
     );
 
@@ -3704,7 +3404,7 @@ function renderEatCard(
     Number.isFinite(
       place._distance
     )
-      ? formatDistance(
+      ? window.PrachinLife.core.formatDistance(
           place._distance
         )
       : "";
@@ -3713,7 +3413,7 @@ function renderEatCard(
   const openingHours =
     place.metadata
       ?.opening_hours
-      ? escapeHtml(
+      ? window.PrachinLife.core.escapeHtml(
           place.metadata
             .opening_hours
         )
@@ -3754,7 +3454,7 @@ function renderEatCard(
               ? `
                 <span>•</span>
                 <span>
-                  📍 ${escapeHtml(
+                  📍 ${window.PrachinLife.core.escapeHtml(
                     distance
                   )}
                 </span>
@@ -3793,7 +3493,7 @@ function renderEatCard(
 
                 <a
                   class="source-button"
-                  href="${escapeAttribute(
+                  href="${window.PrachinLife.core.escapeAttribute(
                     mapUrl
                   )}"
                   target="_blank"
@@ -3907,181 +3607,15 @@ function getEatLocationLabel(
 VEGETARIAN LOCATION
 ===================================================== */
 
-function getVegetarianLocationLabel(
-  place
-) {
-
-  const location =
-    place.location
-    || {};
-
-
-  const parts = [
-
-    location.subdistrict,
-
-    location.district,
-
-    location.province,
-
-  ]
-    .filter(Boolean);
-
-
-  const unique = [
-    ...new Set(
-      parts
-    )
-  ];
-
-
-  if (
-    unique.length > 0
-  ) {
-
-    return unique.join(
-      " · "
-    );
-  }
-
-
-  const latitude =
-    Number(
-      location.latitude
-    );
-
-
-  const longitude =
-    Number(
-      location.longitude
-    );
-
-
-  if (
-    Number.isFinite(
-      latitude
-    )
-    &&
-    Number.isFinite(
-      longitude
-    )
-  ) {
-
-    return "ดูตำแหน่งจากแผนที่";
-  }
-
-
-  return "ไม่ระบุพื้นที่";
-}
-
 
 /* =====================================================
 MAP
 ===================================================== */
 
-function buildEatMapUrl(
-  place
-) {
-
-  const latitude =
-    Number(
-      place.location
-        ?.latitude
-    );
-
-
-  const longitude =
-    Number(
-      place.location
-        ?.longitude
-    );
-
-
-  if (
-    Number.isFinite(
-      latitude
-    )
-    &&
-    Number.isFinite(
-      longitude
-    )
-  ) {
-
-    return (
-      "https://www.google.com/maps/search/"
-      +
-      "?api=1&query="
-      +
-      encodeURIComponent(
-        `${latitude},${longitude}`
-      )
-    );
-  }
-
-
-  const title =
-    String(
-      place.title
-      || ""
-    ).trim();
-
-
-  if (!title) {
-
-    return "";
-  }
-
-
-  return (
-    "https://www.google.com/maps/search/"
-    +
-    "?api=1&query="
-    +
-    encodeURIComponent(
-      title
-    )
-  );
-}
-
 
 /* =====================================================
 DISTANCE FORMAT
 ===================================================== */
-
-function formatDistance(
-  distanceKm
-) {
-
-  if (
-    distanceKm < 1
-  ) {
-
-    return (
-      `${Math.round(
-        distanceKm * 1000
-      )} ม.`
-    );
-  }
-
-
-  if (
-    distanceKm < 10
-  ) {
-
-    return (
-      `${distanceKm.toFixed(
-        1
-      )} กม.`
-    );
-  }
-
-
-  return (
-    `${Math.round(
-      distanceKm
-    )} กม.`
-  );
-}
 
 
 /* =====================================================
@@ -4422,7 +3956,7 @@ function updateMeta() {
     allVegetarianPlaces.length;
 
 
-  setText(
+  window.PrachinLife.ui.setText(
     "totalCount",
     `${total} รายการ`
   );
@@ -4459,7 +3993,7 @@ function updateMeta() {
     dates.length === 0
   ) {
 
-    setText(
+    window.PrachinLife.ui.setText(
       "lastUpdate",
       "ยังไม่มีข้อมูล"
     );
@@ -4481,7 +4015,7 @@ function updateMeta() {
 
   try {
 
-    setText(
+    window.PrachinLife.ui.setText(
       "lastUpdate",
 
       new Intl.DateTimeFormat(
@@ -4502,7 +4036,7 @@ function updateMeta() {
 
   catch {
 
-    setText(
+    window.PrachinLife.ui.setText(
       "lastUpdate",
       latest.toLocaleString()
     );
@@ -4520,19 +4054,19 @@ function setComingSoonContent(
   description
 ) {
 
-  setText(
+  window.PrachinLife.ui.setText(
     "comingSoonResultIcon",
     icon
   );
 
 
-  setText(
+  window.PrachinLife.ui.setText(
     "comingSoonResultTitle",
     title
   );
 
 
-  setText(
+  window.PrachinLife.ui.setText(
     "comingSoonResultDescription",
     description
   );
@@ -4554,7 +4088,7 @@ function hideAllOptionGroups() {
     "servicesOptions",
   ]
     .forEach(
-      hideElement
+      window.PrachinLife.ui.hideElement
     );
 }
 
@@ -4569,46 +4103,8 @@ function hideAllResultSections() {
     "comingSoonResultSection",
   ]
     .forEach(
-      hideElement
+      window.PrachinLife.ui.hideElement
     );
-}
-
-
-function showElement(
-  id
-) {
-
-  const element =
-    document.getElementById(
-      id
-    );
-
-
-  if (element) {
-
-    element.classList.remove(
-      "hidden"
-    );
-  }
-}
-
-
-function hideElement(
-  id
-) {
-
-  const element =
-    document.getElementById(
-      id
-    );
-
-
-  if (element) {
-
-    element.classList.add(
-      "hidden"
-    );
-  }
 }
 
 
@@ -4651,25 +4147,6 @@ function scrollToResults() {
 /* =====================================================
 TEXT
 ===================================================== */
-
-function setText(
-  id,
-  value
-) {
-
-  const element =
-    document.getElementById(
-      id
-    );
-
-
-  if (element) {
-
-    element.textContent =
-      value;
-  }
-}
-
 
 /* =====================================================
 TOAST
@@ -4724,45 +4201,6 @@ function showToast(
 /* =====================================================
 SECURITY
 ===================================================== */
-
-function escapeHtml(
-  value
-) {
-
-  return String(
-    value ?? ""
-  )
-    .replaceAll(
-      "&",
-      "&amp;"
-    )
-    .replaceAll(
-      "<",
-      "&lt;"
-    )
-    .replaceAll(
-      ">",
-      "&gt;"
-    )
-    .replaceAll(
-      '"',
-      "&quot;"
-    )
-    .replaceAll(
-      "'",
-      "&#039;"
-    );
-}
-
-
-function escapeAttribute(
-  value
-) {
-
-  return escapeHtml(
-    value
-  );
-}
 
 
 /* =====================================================
