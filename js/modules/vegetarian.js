@@ -28,26 +28,6 @@ window.PrachinLife.modules.vegetarian.updateNearMeState = function (
   }
 };
 
-window.PrachinLife.modules.vegetarian.updateProvinceButtons = function (
-  currentProvince
-) {
-  document
-    .querySelectorAll(
-      "[data-vegetarian-province]"
-    )
-    .forEach(
-      button => {
-        button.classList.toggle(
-          "active",
-          button.dataset
-            .vegetarianProvince
-            ===
-            currentProvince
-        );
-      }
-    );
-};
-
 window.PrachinLife.modules.vegetarian.getProvinces = function (
   places
 ) {
@@ -66,38 +46,6 @@ window.PrachinLife.modules.vegetarian.getProvinces = function (
         "th"
       )
   );
-};
-
-window.PrachinLife.modules.vegetarian.buildProvinceButtonsHtml = function (
-  provinces
-) {
-  const buttons = [
-    `
-      <button
-        type="button"
-        class="filter-button active"
-        data-vegetarian-province="all"
-      >
-        ทุกจังหวัด
-      </button>
-    `
-  ];
-
-  for (const province of provinces || []) {
-    buttons.push(
-      `
-        <button
-          type="button"
-          class="filter-button"
-          data-vegetarian-province="${window.PrachinLife.core.escapeAttribute(province)}"
-        >
-          ${window.PrachinLife.core.escapeHtml(province)}
-        </button>
-      `
-    );
-  }
-
-  return buttons.join("");
 };
 
 window.PrachinLife.modules.vegetarian.filterAndSortPlaces = function (
@@ -151,32 +99,27 @@ window.PrachinLife.modules.vegetarian.filterAndSortPlaces = function (
 window.PrachinLife.modules.vegetarian.bindProvinceEvents = function (
   onProvinceSelect
 ) {
-  document
-    .querySelectorAll(
-      "[data-vegetarian-province]"
-    )
-    .forEach(
-      button => {
-        button.addEventListener(
-          "click",
-          () => {
-            const province =
-              button.dataset
-                .vegetarianProvince
-              || "all";
-
-            if (
-              typeof onProvinceSelect
-              === "function"
-            ) {
-              onProvinceSelect(
-                province
-              );
-            }
-          }
-        );
-      }
+  const select =
+    document.getElementById(
+      "vegetarianProvinceSelect"
     );
+
+  if (
+    !select
+    ||
+    typeof onProvinceSelect !== "function"
+  ) {
+    return;
+  }
+
+  select.addEventListener(
+    "change",
+    () => {
+      onProvinceSelect(
+        select.value || "all"
+      );
+    }
+  );
 };
 
 window.PrachinLife.modules.vegetarian.bindMainEvents = function (

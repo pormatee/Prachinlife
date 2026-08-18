@@ -942,9 +942,15 @@ function handleVegetarianProvinceSelect(
     false
   );
 
-  window.PrachinLife.modules.vegetarian.updateProvinceButtons(
-    currentVegetarianProvince
-  );
+  const provinceSelect =
+    document.getElementById(
+      "vegetarianProvinceSelect"
+    );
+
+  if (provinceSelect) {
+    provinceSelect.value =
+      currentVegetarianProvince;
+  }
 
   applyVegetarianFilters();
 
@@ -2330,6 +2336,41 @@ EAT AREAS
 ===================================================== */
 
 /* =====================================================
+VEGETARIAN PROVINCES
+===================================================== */
+
+function buildVegetarianProvinceFilters() {
+
+  const select =
+    document.getElementById(
+      "vegetarianProvinceSelect"
+    );
+
+  if (!select) {
+    return;
+  }
+
+  const provinces =
+    window.PrachinLife.modules.vegetarian.getProvinces(
+      primaryVegetarianPlaces
+    );
+
+  select.innerHTML =
+    '<option value="all">ทุกจังหวัด</option>'
+    +
+    provinces
+      .map(
+        province =>
+          `<option value="${window.PrachinLife.core.escapeAttribute(province)}">${window.PrachinLife.core.escapeHtml(province)}</option>`
+      )
+      .join("");
+
+  select.value =
+    currentVegetarianProvince;
+}
+
+
+/* =====================================================
 NEAR ME - EAT
 ===================================================== */
 
@@ -2418,9 +2459,15 @@ function activateVegetarianNearMe() {
       );
 
 
-      window.PrachinLife.modules.vegetarian.updateProvinceButtons(
-  currentVegetarianProvince
-);
+      const provinceSelect =
+      document.getElementById(
+        "vegetarianProvinceSelect"
+      );
+
+    if (provinceSelect) {
+      provinceSelect.value =
+        currentVegetarianProvince;
+    }
 
       applyVegetarianFilters();
 
