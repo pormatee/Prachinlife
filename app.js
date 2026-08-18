@@ -4116,6 +4116,7 @@ function hideAllResultSections() {
     "shoppingResultSection",
     "eatResultSection",
     "vegetarianResultSection",
+    "goResultSection",
     "comingSoonResultSection",
   ]
     .forEach(
