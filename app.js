@@ -455,16 +455,32 @@ function setMainCategory(
       "goOptions"
     );
 
-    window.PrachinLife.ui.showElement(
-      "comingSoonResultSection"
-    );
+    if (
+      primaryGoPlaces.length > 0
+    ) {
 
+      filteredGoPlaces =
+        [...primaryGoPlaces];
 
-    setComingSoonContent(
-      "📍",
-      "เที่ยวไหนดี",
-      "กำลังเตรียมข้อมูลสถานที่ท่องเที่ยว กิจกรรม และที่น่าแวะ"
-    );
+      window.PrachinLife.ui.showElement(
+        "goResultSection"
+      );
+
+      renderGoPlaces();
+    }
+
+    else {
+
+      window.PrachinLife.ui.showElement(
+        "comingSoonResultSection"
+      );
+
+      setComingSoonContent(
+        "📍",
+        "เที่ยวไหนดี",
+        "กำลังเตรียมข้อมูลสถานที่ท่องเที่ยว กิจกรรม และที่น่าแวะ"
+      );
+    }
   }
 
 
