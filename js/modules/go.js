@@ -69,6 +69,11 @@ window.PrachinLife.modules.go.renderCard = function (
     ||
     "";
 
+  const distanceText =
+    Number.isFinite(place?._distance)
+      ? `${place._distance.toFixed(1)} กม.`
+      : "";
+
   return `
     <article class="promotion-card eat-card">
 
@@ -96,6 +101,7 @@ window.PrachinLife.modules.go.renderCard = function (
               place
             )
           )}
+          ${distanceText ? ` · ${distanceText}` : ""}
         </p>
 
         <p class="promotion-description">

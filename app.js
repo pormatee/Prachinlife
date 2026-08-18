@@ -173,6 +173,8 @@ function bindEvents() {
 
   bindVegetarianEvents();
 
+  bindGoEvents();
+
   bindLoadMoreEvents();
 
   bindResetEvent();
@@ -2478,6 +2480,74 @@ function activateVegetarianNearMe() {
   );
 }
 
+
+
+/* =====================================================
+GO NEAR ME
+===================================================== */
+
+function bindGoEvents() {
+
+  const button =
+    document.getElementById(
+      "goNearMeBtn"
+    );
+
+  if (button) {
+    button.addEventListener(
+      "click",
+      activateGoNearMe
+    );
+  }
+}
+
+
+function activateGoNearMe() {
+
+  requestUserLocation(
+    position => {
+
+      userLocation =
+        position;
+
+      filteredGoPlaces =
+        primaryGoPlaces
+          .map(
+            place => ({
+              ...place,
+
+              _distance:
+                calculatePlaceDistance(
+                  place
+                ),
+            })
+          )
+          .sort(
+            window.PrachinLife.core.compareDistance
+          );
+
+      const button =
+        document.getElementById(
+          "goNearMeBtn"
+        );
+
+      if (button) {
+        button.classList.add(
+          "active"
+        );
+      }
+
+      window.PrachinLife.ui.setText(
+        "goNearMeStatus",
+        "กำลังเรียงสถานที่จากใกล้ไปไกล"
+      );
+
+      renderGoPlaces();
+
+    },
+    "goNearMeStatus"
+  );
+}
 
 
 /* =====================================================
