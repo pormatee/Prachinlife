@@ -2623,3 +2623,34 @@ COMPACT MOBILE HERO
   }
 
 }
+
+/* =====================================================
+PRACHINLIFE LOGO V1
+===================================================== */
+
+.brand-logo-mark {
+  width: 52px;
+  height: 52px;
+  padding: 0;
+  overflow: hidden;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: none;
+}
+
+.brand-logo-image {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+  object-position: center;
+}
+
+@media (max-width: 640px) {
+
+  .brand-logo-mark {
+    width: 46px;
+    height: 46px;
+  }
+
+}
