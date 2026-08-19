@@ -2559,6 +2559,37 @@ function bindGoEvents() {
 
 function activateGoNearMe() {
 
+  if (userLocation) {
+
+    userLocation = null;
+
+    filteredGoPlaces =
+      [...primaryGoPlaces];
+
+    const button =
+      document.getElementById(
+        "goNearMeBtn"
+      );
+
+    if (button) {
+      button.classList.remove(
+        "active"
+      );
+
+      button.textContent =
+        "📍 ใกล้ฉัน";
+    }
+
+    window.PrachinLife.ui.setText(
+      "goNearMeStatus",
+      "กด “ใกล้ฉัน” เพื่อเรียงสถานที่ตามระยะทาง"
+    );
+
+    renderGoPlaces();
+
+    return;
+  }
+
   requestUserLocation(
     position => {
 
@@ -2590,6 +2621,9 @@ function activateGoNearMe() {
         button.classList.add(
           "active"
         );
+
+        button.textContent =
+          "✓ ใกล้ฉัน";
       }
 
       window.PrachinLife.ui.setText(
