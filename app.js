@@ -2378,26 +2378,46 @@ NEAR ME - EAT
 
 function activateNearMe() {
 
+  if (userLocation) {
+
+    userLocation = null;
+
+    currentEatPage = 1;
+
+    updateNearMeState(
+      false
+    );
+
+    window.PrachinLife.ui.setText(
+      "nearMeStatus",
+      "กด “ใกล้ฉัน” เพื่อเรียงร้านตามระยะทาง"
+    );
+
+    updateEatButtons();
+
+    applyEatFilters();
+
+    showEatResult();
+
+    return;
+  }
+
   requestUserLocation(
     position => {
 
       userLocation =
         position;
 
-
       currentEatPage = 1;
-
 
       updateNearMeState(
         true
       );
 
-
       window.PrachinLife.ui.setText(
         "nearMeStatus",
         "กำลังเรียงร้านจากใกล้ไปไกล"
       );
-
 
       updateEatButtons();
 
@@ -2427,6 +2447,11 @@ function updateNearMeState(
       "active",
       active
     );
+
+    button.textContent =
+      active
+        ? "✓ ใกล้ฉัน"
+        : "📍 ใกล้ฉัน";
   }
 }
 
