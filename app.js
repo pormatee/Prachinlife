@@ -2791,6 +2791,8 @@ function renderRecommended(
   mode = "all"
 ) {
 
+  renderRecommendedDealRail();
+
   const list =
     document.getElementById(
       "recommendedList"
@@ -2886,23 +2888,7 @@ function renderRecommended(
   list.innerHTML =
     items
       .map(
-        entry => {
-
-          if (
-            entry.kind ===
-            "deal"
-          ) {
-
-            return renderPromotionCard(
-              entry.item
-            );
-          }
-
-
-          return renderEatCard(
-            entry.item
-          );
-        }
+        renderRecommendedDetailedCard
       )
       .join("");
 
@@ -2912,6 +2898,418 @@ function renderRecommended(
     `${items.length} รายการ`
   );
 }
+
+/* =====================================================
+RECOMMENDED DEAL RAIL - INDEX V1 STEP 2
+===================================================== */
+
+function renderRecommendedDealRail() {
+
+  const rail =
+    document.getElementById(
+      "recommendedDealRail"
+    );
+
+  if (!rail) {
+    return;
+  }
+
+  const deals =
+    rankInteresting(
+      allPromotions
+    )
+      .slice(
+        0,
+        8
+      );
+
+  if (deals.length === 0) {
+
+    rail.innerHTML = `
+      <div class="recommended-deal-empty">
+        ยังไม่มีดีลหรือโปรโมชั่นในขณะนี้
+      </div>
+    `;
+
+    return;
+  }
+
+  rail.innerHTML =
+    deals
+      .map(
+        renderCompactDealCard
+      )
+      .join("");
+}
+
+/* =====================================================
+INDEX V1 STEP 2.1 - COMPACT DEAL CARD
+Presentation only
+===================================================== */
+
+function renderCompactDealCard(
+  promotion
+) {
+
+  const title =
+    window.PrachinLife.core.escapeHtml(
+      promotion.title
+      || promotion.product
+      || "โปรโมชั่น"
+    );
+
+  const merchant =
+    window.PrachinLife.core.escapeHtml(
+      promotion.merchant
+      || promotion.store
+      || promotion.source
+      || "โปรโมชั่น"
+    );
+
+  const typeLabel =
+    window.PrachinLife.core.escapeHtml(
+      getPromotionTypeLabel(
+        promotion
+      )
+    );
+
+  const actionLabel =
+    window.PrachinLife.core.escapeHtml(
+      getActionLabel(
+        promotion
+      )
+    );
+
+  const image =
+    promotion.image_url
+    || promotion.image
+    || "";
+
+  const imageBlock =
+    image
+      ? `
+        <img
+          class="compact-deal-image"
+          src="${window.PrachinLife.core.escapeAttribute(image)}"
+          alt="${title}"
+          loading="lazy"
+          onerror="this.parentElement.innerHTML='<div class=&quot;compact-deal-placeholder&quot;>🛍️</div>'"
+        >
+      `
+      : `
+        <div class="compact-deal-placeholder">
+          🛍️
+        </div>
+      `;
+
+  const sourceButton =
+    promotion.source_url
+      ? `
+        <a
+          class="compact-deal-button"
+          href="${window.PrachinLife.core.escapeAttribute(promotion.source_url)}"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          ${actionLabel}
+          <span aria-hidden="true">→</span>
+        </a>
+      `
+      : "";
+
+  return `
+    <article class="compact-deal-card">
+
+      <div class="compact-deal-image-wrap">
+        ${imageBlock}
+
+        <span class="compact-deal-merchant">
+          ${merchant}
+        </span>
+      </div>
+
+      <div class="compact-deal-body">
+
+        <div class="compact-deal-type">
+          ${typeLabel}
+        </div>
+
+        <h4 class="compact-deal-title">
+          ${title}
+        </h4>
+
+        ${
+          sourceButton
+            ? `
+              <div class="compact-deal-actions">
+                ${sourceButton}
+              </div>
+            `
+            : ""
+        }
+
+      </div>
+
+    </article>
+  `;
+}
+
+
+/* =====================================================
+INDEX V1 STEP 2.1 - RECOMMENDED DETAILED CARD
+Presentation only
+===================================================== */
+
+function renderRecommendedDetailedCard(
+  entry
+) {
+
+  if (!entry || !entry.item) {
+    return "";
+  }
+
+  if (entry.kind === "deal") {
+
+    const promotion =
+      entry.item;
+
+    const title =
+      window.PrachinLife.core.escapeHtml(
+        promotion.title
+        || promotion.product
+        || "โปรโมชั่น"
+      );
+
+    const merchant =
+      window.PrachinLife.core.escapeHtml(
+        promotion.merchant
+        || promotion.store
+        || promotion.source
+        || "โปรโมชั่น"
+      );
+
+    const location =
+      window.PrachinLife.core.escapeHtml(
+        getPromotionLocationLabel(
+          promotion
+        )
+      );
+
+    const reason =
+      window.PrachinLife.core.escapeHtml(
+        getPromotionReason(
+          promotion
+        )
+      );
+
+    const image =
+      promotion.image_url
+      || promotion.image
+      || "";
+
+    const imageBlock =
+      image
+        ? `
+          <img
+            class="recommended-detail-image"
+            src="${window.PrachinLife.core.escapeAttribute(image)}"
+            alt="${title}"
+            loading="lazy"
+            onerror="this.parentElement.innerHTML='<div class=&quot;recommended-detail-placeholder&quot;>🛍️</div>'"
+          >
+        `
+        : `
+          <div class="recommended-detail-placeholder">
+            🛍️
+          </div>
+        `;
+
+    const action =
+      promotion.source_url
+        ? `
+          <a
+            class="recommended-detail-button"
+            href="${window.PrachinLife.core.escapeAttribute(promotion.source_url)}"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            ${window.PrachinLife.core.escapeHtml(getActionLabel(promotion))}
+            <span aria-hidden="true">→</span>
+          </a>
+        `
+        : "";
+
+    return `
+      <article class="recommended-detail-card">
+
+        <div class="recommended-detail-media">
+          ${imageBlock}
+        </div>
+
+        <div class="recommended-detail-body">
+
+          <div class="recommended-detail-kicker">
+            ${merchant}
+          </div>
+
+          <h3>
+            ${title}
+          </h3>
+
+          <div class="recommended-detail-meta">
+            <span>
+              📍 ${location}
+            </span>
+
+            ${
+              promotion.verified
+                ? `
+                  <span>
+                    ✓ จากแหล่งต้นทาง
+                  </span>
+                `
+                : ""
+            }
+          </div>
+
+          ${
+            reason
+              ? `
+                <p>
+                  ${reason}
+                </p>
+              `
+              : ""
+          }
+
+          ${
+            action
+              ? `
+                <div class="recommended-detail-actions">
+                  ${action}
+                </div>
+              `
+              : ""
+          }
+
+        </div>
+
+      </article>
+    `;
+  }
+
+  const place =
+    entry.item;
+
+  const title =
+    window.PrachinLife.core.escapeHtml(
+      place.title
+      || "ไม่ระบุชื่อ"
+    );
+
+  const category =
+    window.PrachinLife.core.escapeHtml(
+      getEatCategoryLabel(
+        place
+      )
+    );
+
+  const location =
+    window.PrachinLife.core.escapeHtml(
+      getEatLocationLabel(
+        place
+      )
+    );
+
+  const mapUrl =
+    window.PrachinLife.core.buildMapUrl(
+      place
+    );
+
+  const distance =
+    Number.isFinite(
+      place._distance
+    )
+      ? window.PrachinLife.core.formatDistance(
+          place._distance
+        )
+      : "";
+
+  return `
+    <article class="recommended-detail-card">
+
+      <div class="recommended-detail-media">
+
+        <div class="recommended-detail-placeholder recommended-place-placeholder">
+          ${
+            place.category === "cafe"
+              ? "☕"
+              : "🍜"
+          }
+        </div>
+
+      </div>
+
+      <div class="recommended-detail-body">
+
+        <div class="recommended-detail-kicker">
+          ${category}
+        </div>
+
+        <h3>
+          ${title}
+        </h3>
+
+        <div class="recommended-detail-meta">
+
+          <span>
+            📍 ${location}
+          </span>
+
+          ${
+            distance
+              ? `
+                <span>
+                  ${window.PrachinLife.core.escapeHtml(distance)}
+                </span>
+              `
+              : ""
+          }
+
+        </div>
+
+        <p>
+          ร้านอาหารและสถานที่ที่ PrachinLife
+          มีข้อมูลอยู่ในระบบ
+        </p>
+
+        ${
+          mapUrl
+            ? `
+              <div class="recommended-detail-actions">
+
+                <a
+                  class="recommended-detail-button"
+                  href="${window.PrachinLife.core.escapeAttribute(mapUrl)}"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  เปิดแผนที่
+                  <span aria-hidden="true">→</span>
+                </a>
+
+              </div>
+            `
+            : ""
+        }
+
+      </div>
+
+    </article>
+  `;
+}
+
+
 
 
 function renderRecommendedSearch(
