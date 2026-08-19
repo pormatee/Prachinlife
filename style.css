@@ -2654,3 +2654,23 @@ PRACHINLIFE LOGO V1
   }
 
 }
+
+/* =====================================================
+PRACHINLIFE ICON V1 - HEADER CROP
+===================================================== */
+
+.brand-logo-image {
+  width: 165%;
+  height: 165%;
+  max-width: none;
+  object-fit: contain;
+  object-position: center;
+}
+
+
+.brand-logo-mark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
