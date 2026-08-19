@@ -105,6 +105,11 @@ window.PrachinLife.modules.vegetarian.updateNearMeState = function (
       "active",
       active
     );
+
+    button.textContent =
+      active
+        ? "✓ ใกล้ฉัน"
+        : "📍 ใกล้ฉัน";
   }
 };
 

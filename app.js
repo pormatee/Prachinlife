@@ -2462,31 +2462,25 @@ NEAR ME - VEGETARIAN
 
 function activateVegetarianNearMe() {
 
-  requestUserLocation(
-    position => {
+  if (userLocation) {
 
-      userLocation =
-        position;
+    userLocation = null;
 
+    currentVegetarianProvince =
+      "all";
 
-      currentVegetarianProvince =
-        "all";
+    currentVegetarianPage = 1;
 
-      currentVegetarianPage = 1;
+    window.PrachinLife.modules.vegetarian.updateNearMeState(
+      false
+    );
 
+    window.PrachinLife.ui.setText(
+      "vegetarianNearMeStatus",
+      "กด “ใกล้ฉัน” เพื่อเรียงร้านตามระยะทาง"
+    );
 
-      window.PrachinLife.modules.vegetarian.updateNearMeState(
-        true
-      );
-
-
-      window.PrachinLife.ui.setText(
-        "vegetarianNearMeStatus",
-        "กำลังเรียงร้านเจ / มังสวิรัติจากใกล้ไปไกล"
-      );
-
-
-      const provinceSelect =
+    const provinceSelect =
       document.getElementById(
         "vegetarianProvinceSelect"
       );
@@ -2496,6 +2490,43 @@ function activateVegetarianNearMe() {
         currentVegetarianProvince;
     }
 
+    applyVegetarianFilters();
+
+    showVegetarianResult();
+
+    return;
+  }
+
+  requestUserLocation(
+    position => {
+
+      userLocation =
+        position;
+
+      currentVegetarianProvince =
+        "all";
+
+      currentVegetarianPage = 1;
+
+      window.PrachinLife.modules.vegetarian.updateNearMeState(
+        true
+      );
+
+      window.PrachinLife.ui.setText(
+        "vegetarianNearMeStatus",
+        "กำลังเรียงร้านเจ / มังสวิรัติจากใกล้ไปไกล"
+      );
+
+      const provinceSelect =
+        document.getElementById(
+          "vegetarianProvinceSelect"
+        );
+
+      if (provinceSelect) {
+        provinceSelect.value =
+          currentVegetarianProvince;
+      }
+
       applyVegetarianFilters();
 
       showVegetarianResult();
@@ -2504,7 +2535,6 @@ function activateVegetarianNearMe() {
     "vegetarianNearMeStatus"
   );
 }
-
 
 
 /* =====================================================
