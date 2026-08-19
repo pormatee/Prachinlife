@@ -2662,3 +2662,39 @@ PRACHINLIFE LOGO V1
 }
 
 
+
+/* =====================================================
+INDEX V1 VISUAL STEP 2
+MOBILE HEADER BALANCE
+===================================================== */
+
+@media (max-width: 640px) {
+
+  .header-inner {
+    min-height: 62px;
+    gap: 10px;
+  }
+
+  .brand {
+    gap: 9px;
+  }
+
+  .brand-logo-mark {
+    width: 40px;
+    height: 40px;
+    border-radius: 11px;
+  }
+
+  .brand-copy strong {
+    font-size: 0.96rem;
+    line-height: 1.15;
+  }
+
+  .refresh-button {
+    width: 40px;
+    height: 40px;
+    font-size: 1.05rem;
+  }
+
+}
+
