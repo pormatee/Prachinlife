@@ -4404,3 +4404,90 @@ User-facing card status and actions
   }
 
 }
+
+
+/* =====================================================
+VEGETARIAN V1 UI - STEP 2.3
+Mobile polish
+===================================================== */
+
+@media (max-width: 720px) {
+
+  #vegetarianOptions {
+    padding:
+      14px;
+  }
+
+  #vegetarianOptions .control-group {
+    margin-bottom:
+      14px;
+  }
+
+  #vegetarianOptions .control-group:last-child {
+    margin-bottom:
+      0;
+  }
+
+  #vegetarianNearMeBtn {
+    width:
+      100%;
+
+    min-height:
+      44px;
+
+    justify-content:
+      center;
+  }
+
+  #vegetarianProvinceSelect {
+    width:
+      100%;
+
+    min-height:
+      44px;
+  }
+
+  #vegetarianNearMeStatus {
+    margin-top:
+      8px;
+
+    line-height:
+      1.45;
+  }
+
+  #vegetarianResultSection .section-heading {
+    gap:
+      8px;
+  }
+
+  .vegetarian-card .promotion-body {
+    padding:
+      16px;
+  }
+
+  .vegetarian-card .promotion-title {
+    line-height:
+      1.35;
+  }
+
+  .vegetarian-card .promotion-description {
+    line-height:
+      1.5;
+  }
+
+  .vegetarian-card .promotion-actions {
+    padding-top:
+      14px;
+  }
+
+}
+
+
+@media (max-width: 420px) {
+
+  .vegetarian-card .vegetarian-actions {
+    grid-template-columns:
+      1fr;
+  }
+
+}

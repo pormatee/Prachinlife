@@ -1419,7 +1419,7 @@ async function loadVegetarianIndex(
 
     window.PrachinLife.ui.setText(
       "vegetarianResultCount",
-      "โหลดข้อมูลไม่สำเร็จ"
+      "ไม่สามารถโหลดข้อมูลร้านได้"
     );
   }
 }
