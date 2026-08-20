@@ -23250,5 +23250,40 @@
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/6237636685",
     "collected_at": "2026-08-18T03:22:15.952974+00:00"
+  },
+  {
+    "id": "web-chachoengsao-jay-railway-station",
+    "title": "กับข้าวเจ หน้าสถานีรถไฟ",
+    "content_type": "vegetarian",
+    "food_types": [
+      "vegetarian"
+    ],
+    "location": {
+      "province": "ฉะเชิงเทรา",
+      "district": "เมืองฉะเชิงเทรา",
+      "subdistrict": "หน้าเมือง",
+      "country": "TH",
+      "latitude": 13.6945262,
+      "longitude": 101.0606514
+    },
+    "metadata": {
+      "display_tier": "dedicated",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "evidence_reason": "firsthand_local_confirmation",
+      "diet_vegetarian": null,
+      "diet_vegan": null,
+      "opening_hours": null,
+      "phone": null,
+      "website": null,
+      "verification_source": "user_firsthand",
+      "coordinate_source": "address_level_web_match",
+      "coordinate_precision": "address",
+      "coordinate_verified": true
+    },
+    "source": "Wongnai",
+    "source_url": "https://www.wongnai.com/restaurants?categories=27&domain=1&page.number=1&page.size=10&regions=1766&rerank=false",
+    "collected_at": "2026-08-20T03:01:22.393199+00:00"
   }
 ]
