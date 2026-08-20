@@ -1,13 +1,27 @@
 from __future__ import annotations
 
+import argparse
 import json
 from collections import Counter
 from pathlib import Path
 
 
-CANDIDATE_FILE = Path(
+DEFAULT_CANDIDATE_FILE = Path(
     "data/candidates/vegetarian_candidates.json"
 )
+
+
+def parse_args():
+    parser = argparse.ArgumentParser(
+        description="Validate PrachinLife vegetarian candidates"
+    )
+
+    parser.add_argument(
+        "--input",
+        default=str(DEFAULT_CANDIDATE_FILE),
+    )
+
+    return parser.parse_args()
 
 
 ALLOWED_TIERS = {
@@ -17,14 +31,14 @@ ALLOWED_TIERS = {
 }
 
 
-def load_candidates():
-    if not CANDIDATE_FILE.exists():
+def load_candidates(path):
+    if not path.exists():
         raise SystemExit(
-            f"ERROR: file not found: {CANDIDATE_FILE}"
+            f"ERROR: file not found: {path}"
         )
 
     data = json.loads(
-        CANDIDATE_FILE.read_text(
+        path.read_text(
             encoding="utf-8"
         )
     )
@@ -127,7 +141,15 @@ def validate_candidate(item, index):
 
 
 def main():
-    candidates = load_candidates()
+    args = parse_args()
+
+    candidate_file = Path(
+        args.input
+    )
+
+    candidates = load_candidates(
+        candidate_file
+    )
 
     all_errors = []
 
@@ -146,6 +168,7 @@ def main():
     print("VEGETARIAN CANDIDATE VALIDATION")
     print("=" * 60)
 
+    print("INPUT =", candidate_file)
     print("TOTAL =", len(candidates))
 
     tiers = Counter(
