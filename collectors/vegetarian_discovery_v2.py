@@ -1,16 +1,14 @@
 from __future__ import annotations
 
+import argparse
 import json
+import re
 import time
 from datetime import datetime, timezone
 from pathlib import Path
 
 import requests
 
-
-OUTPUT_FILE = Path(
-    "data/test/chachoengsao_vegetarian_discovery_v2.json"
-)
 
 REQUEST_TIMEOUT = 45
 MAX_RETRIES = 2
@@ -20,7 +18,36 @@ OVERPASS_ENDPOINTS = [
     "https://overpass.kumi.systems/api/interpreter",
 ]
 
-PROVINCE = "ฉะเชิงเทรา"
+PROVINCE_CONFIG_FILE = Path(
+    "data/config/thailand_provinces.json"
+)
+
+
+def parse_args():
+    parser = argparse.ArgumentParser(
+        description="PrachinLife Vegetarian Discovery V2"
+    )
+
+    parser.add_argument(
+        "--province",
+        required=True,
+        help="Thai province name, e.g. ฉะเชิงเทรา",
+    )
+
+    return parser.parse_args()
+
+
+def build_output_file(province):
+    safe_name = (
+        province.strip()
+        .replace("/", "_")
+        .replace("\\", "_")
+        .replace(" ", "_")
+    )
+
+    return Path(
+        "data/test"
+    ) / f"{safe_name}_vegetarian_discovery_v2.json"
 
 
 def clean_text(value):
@@ -46,14 +73,55 @@ def get_coordinates(element):
         return None, None
 
 
-def build_query():
+def load_province_config(province):
+    if not PROVINCE_CONFIG_FILE.exists():
+        raise SystemExit(
+            f"ERROR: province config not found: "
+            f"{PROVINCE_CONFIG_FILE}"
+        )
+
+    data = json.loads(
+        PROVINCE_CONFIG_FILE.read_text(
+            encoding="utf-8"
+        )
+    )
+
+    config = data.get(province)
+
+    if not isinstance(config, dict):
+        raise SystemExit(
+            f"ERROR: province not configured: "
+            f"{province}"
+        )
+
+    bbox = config.get("bbox")
+    aliases = config.get("aliases") or []
+
+    if (
+        not isinstance(bbox, list)
+        or len(bbox) != 4
+    ):
+        raise SystemExit(
+            f"ERROR: invalid bbox for {province}"
+        )
+
+    return {
+        "aliases": aliases,
+        "bbox": bbox,
+    }
+
+
+def build_area_query(
+    name_field,
+    province_name,
+):
     return f"""
-[out:json][timeout:40];
+[out:json][timeout:30];
 
 area
   ["boundary"="administrative"]
   ["admin_level"="4"]
-  ["name:th"="{PROVINCE}"]
+  ["{name_field}"="{province_name}"]
   ->.province;
 
 (
@@ -69,12 +137,12 @@ area
 
   nwr
     ["amenity"~"restaurant|cafe|fast_food|food_court"]
-    ["name"~"เจ|มังสวิรัติ|vegetarian|vegan",i]
+    ["name"~"อาหารเจ|ร้านเจ|ข้าวเจ|โรงเจ|เจจริง|เจแท้|มังสวิรัติ|vegetarian|vegan",i]
     (area.province);
 
   nwr
     ["amenity"~"restaurant|cafe|fast_food|food_court"]
-    ["name:th"~"เจ|มังสวิรัติ",i]
+    ["name:th"~"อาหารเจ|ร้านเจ|ข้าวเจ|โรงเจ|เจจริง|เจแท้|มังสวิรัติ",i]
     (area.province);
 );
 
@@ -82,14 +150,66 @@ out center tags;
 """
 
 
-def fetch():
-    query = build_query()
+def split_bbox_2x2(bbox):
+    south, west, north, east = bbox
 
+    mid_lat = (south + north) / 2
+    mid_lon = (west + east) / 2
+
+    return [
+        [south, west, mid_lat, mid_lon],
+        [south, mid_lon, mid_lat, east],
+        [mid_lat, west, north, mid_lon],
+        [mid_lat, mid_lon, north, east],
+    ]
+
+
+def build_bbox_query(bbox):
+    south, west, north, east = bbox
+
+    return f"""
+[out:json][timeout:30];
+
+(
+  nwr
+    ["amenity"~"restaurant|cafe|fast_food|food_court"]
+    ["diet:vegetarian"~"yes|only"]
+    ({south},{west},{north},{east});
+
+  nwr
+    ["amenity"~"restaurant|cafe|fast_food|food_court"]
+    ["diet:vegan"~"yes|only"]
+    ({south},{west},{north},{east});
+
+  nwr
+    ["amenity"~"restaurant|cafe|fast_food|food_court"]
+    ["name"~"อาหารเจ|ร้านเจ|ข้าวเจ|โรงเจ|เจจริง|เจแท้|มังสวิรัติ|vegetarian|vegan",i]
+    ({south},{west},{north},{east});
+
+  nwr
+    ["amenity"~"restaurant|cafe|fast_food|food_court"]
+    ["name:th"~"อาหารเจ|ร้านเจ|ข้าวเจ|โรงเจ|เจจริง|เจแท้|มังสวิรัติ",i]
+    ({south},{west},{north},{east});
+);
+
+out center tags;
+"""
+
+
+def fetch_query(
+    query,
+    label,
+):
     for endpoint in OVERPASS_ENDPOINTS:
-        for attempt in range(1, MAX_RETRIES + 1):
+        for attempt in range(
+            1,
+            MAX_RETRIES + 1,
+        ):
             try:
                 print(
-                    f"[FETCH] {endpoint} attempt={attempt}"
+                    f"[FETCH] {label}"
+                    f" | {endpoint}"
+                    f" | attempt={attempt}"
                 )
 
                 response = requests.post(
@@ -98,7 +218,8 @@ def fetch():
                     timeout=REQUEST_TIMEOUT,
                     headers={
                         "User-Agent":
-                            "PrachinLife-VegetarianDiscoveryV2/1.0"
+                            "PrachinLife-"
+                            "VegetarianDiscoveryV2/2.0"
                     },
                 )
 
@@ -125,10 +246,117 @@ def fetch():
 
                 print(
                     "FAILED =",
-                    error,
+                    type(error).__name__,
+                    str(error),
                 )
 
                 time.sleep(2)
+
+    return []
+
+
+def fetch(province):
+    config = load_province_config(
+        province
+    )
+
+    # 1. Thai OSM area name
+    elements = fetch_query(
+        build_area_query(
+            "name:th",
+            province,
+        ),
+        "area:name:th",
+    )
+
+    if elements:
+        print(
+            "DISCOVERY METHOD = area:name:th"
+        )
+        return elements
+
+    # 2. English/alternate aliases
+    for alias in config["aliases"]:
+        elements = fetch_query(
+            build_area_query(
+                "name",
+                alias,
+            ),
+            f"area:alias:{alias}",
+        )
+
+        if elements:
+            print(
+                "DISCOVERY METHOD =",
+                f"area:alias:{alias}",
+            )
+            return elements
+
+    # 3. Bounding-box grid fallback
+    all_elements = []
+
+    grid_boxes = split_bbox_2x2(
+        config["bbox"]
+    )
+
+    for index, bbox in enumerate(
+        grid_boxes,
+        start=1,
+    ):
+        elements = fetch_query(
+            build_bbox_query(
+                bbox
+            ),
+            f"bbox-grid-{index}",
+        )
+
+        if elements:
+            all_elements.extend(
+                elements
+            )
+
+    if all_elements:
+        unique = {}
+
+        for element in all_elements:
+            element_type = element.get("type")
+            element_id = element.get("id")
+
+            key = (
+                element_type,
+                element_id,
+            )
+
+            unique[key] = element
+
+        merged = list(
+            unique.values()
+        )
+
+        print(
+            "DISCOVERY METHOD = bbox-grid"
+        )
+
+        print(
+            "GRID RAW =",
+            len(all_elements),
+        )
+
+        print(
+            "GRID UNIQUE =",
+            len(merged),
+        )
+
+        return merged
+
+    print(
+        "DISCOVERY METHOD = none"
+    )
+
+    print(
+        "WARNING: 0 results does not mean "
+        "the province has no vegetarian places."
+    )
 
     return []
 
@@ -150,14 +378,34 @@ def classify(tags):
 
     name_lower = (name or "").lower()
 
-    keyword_match = any(
+    strong_keywords = [
+        "อาหารเจ",
+        "ข้าวเจ",
+        "โรงเจ",
+        "เจจริง",
+        "เจแท้",
+        "มังสวิรัติ",
+        "vegetarian",
+        "vegan",
+    ]
+
+    strong_match = any(
         keyword in name_lower
-        for keyword in [
-            "เจ",
-            "มังสวิรัติ",
-            "vegetarian",
-            "vegan",
-        ]
+        for keyword in strong_keywords
+    )
+
+    # "ร้านเจ" ต้องเป็นความหมายอาหารเจจริง
+    # ไม่ให้จับคำอย่าง ร้านเจ๊ / เจ้า / เจริญ
+    jay_shop_match = bool(
+        re.search(
+            r"ร้าน\s*เจ(?![่้๊๋า-ูเ-์])",
+            name_lower,
+        )
+    )
+
+    keyword_match = (
+        strong_match
+        or jay_shop_match
     )
 
     if vegetarian == "only" or vegan == "only":
@@ -181,7 +429,7 @@ def classify(tags):
     )
 
 
-def normalize(element):
+def normalize(element, province):
     tags = element.get("tags") or {}
 
     (
@@ -193,6 +441,9 @@ def normalize(element):
     ) = classify(tags)
 
     if not name:
+        return None
+
+    if tier == "unknown":
         return None
 
     lat, lon = get_coordinates(element)
@@ -219,7 +470,7 @@ def normalize(element):
             if yes
         ],
         "location": {
-            "province": PROVINCE,
+            "province": province,
             "district":
                 clean_text(tags.get("addr:district"))
                 or clean_text(tags.get("addr:city")),
@@ -260,12 +511,27 @@ def normalize(element):
 
 
 def main():
-    elements = fetch()
+    args = parse_args()
+
+    province = args.province.strip()
+
+    if not province:
+        raise SystemExit(
+            "ERROR: province must not be empty"
+        )
+
+    output_file = build_output_file(
+        province
+    )
+
+    elements = fetch(
+        province
+    )
 
     records = []
 
     for element in elements:
-        record = normalize(element)
+        record = normalize(element, province)
 
         if record:
             records.append(record)
@@ -277,12 +543,12 @@ def main():
 
     records = list(unique.values())
 
-    OUTPUT_FILE.parent.mkdir(
+    output_file.parent.mkdir(
         parents=True,
         exist_ok=True,
     )
 
-    OUTPUT_FILE.write_text(
+    output_file.write_text(
         json.dumps(
             records,
             ensure_ascii=False,
@@ -296,7 +562,7 @@ def main():
     print("=" * 60)
     print("VEGETARIAN DISCOVERY V2")
     print("=" * 60)
-    print("Province =", PROVINCE)
+    print("Province =", province)
     print("Total =", len(records))
 
     tiers = {}
@@ -322,7 +588,7 @@ def main():
         )
 
     print()
-    print("Saved =", OUTPUT_FILE)
+    print("Saved =", output_file)
 
 
 if __name__ == "__main__":
