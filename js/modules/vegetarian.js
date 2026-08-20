@@ -330,13 +330,56 @@ window.PrachinLife.modules.vegetarian.getLocationLabel = function (
   return "ไม่ระบุพื้นที่";
 };
 
+window.PrachinLife.modules.vegetarian.getUserStatus = function (
+  place
+) {
+  const metadata =
+    place?.metadata || {};
+
+  const displayTier =
+    metadata.display_tier || "";
+
+  const verified =
+    metadata.verified === true;
+
+  if (
+    displayTier === "dedicated"
+    &&
+    verified
+  ) {
+    return {
+      label: "มีหลักฐานว่าเป็นร้านเจ / มังสวิรัติ",
+      className: "is-confirmed",
+    };
+  }
+
+  if (displayTier === "dedicated") {
+    return {
+      label: "พบข้อมูลว่าเป็นร้านเจ / มังสวิรัติ",
+      className: "is-found",
+    };
+  }
+
+  if (displayTier === "named_candidate") {
+    return {
+      label: "พบข้อมูลที่บ่งชี้ว่าเกี่ยวกับเจ / มังสวิรัติ",
+      className: "is-candidate",
+    };
+  }
+
+  return {
+    label: "มีข้อมูลอาหารเจ / มังสวิรัติ",
+    className: "is-found",
+  };
+};
+
+
 window.PrachinLife.modules.vegetarian.renderCard = function (
   place
 ) {
   const title =
     window.PrachinLife.core.escapeHtml(
-      place?.title
-      || "ไม่ระบุชื่อร้าน"
+      place?.title || "ไม่ระบุชื่อร้าน"
     );
 
   const location =
@@ -347,46 +390,56 @@ window.PrachinLife.modules.vegetarian.renderCard = function (
     );
 
   const distance =
-    Number.isFinite(
-      place?._distance
-    )
+    Number.isFinite(place?._distance)
       ? window.PrachinLife.core.formatDistance(
           place._distance
         )
       : "";
 
+  const openingHoursRaw =
+    place?.metadata?.opening_hours || "";
+
   const openingHours =
-    place?.metadata?.opening_hours
+    openingHoursRaw
       ? window.PrachinLife.core.escapeHtml(
-          place.metadata.opening_hours
+          openingHoursRaw
         )
       : "";
 
-  const displayTier =
-    place?.metadata?.display_tier
-    || "";
-
-  const tierLabel =
-    displayTier === "dedicated"
-      ? "✓ ร้านเฉพาะทาง"
-      : displayTier === "named_candidate"
-        ? "◌ พบจากชื่อร้าน"
-        : "";
+  const status =
+    window.PrachinLife.modules.vegetarian.getUserStatus(
+      place
+    );
 
   const mapUrl =
     window.PrachinLife.core.buildMapUrl(
       place
     );
 
+  const phoneRaw =
+    place?.metadata?.phone || "";
+
+  const phoneHref =
+    String(phoneRaw).replace(
+      /[^+\d]/g,
+      ""
+    );
+
+  const websiteUrl =
+    place?.metadata?.website || "";
+
+  const sourceName =
+    window.PrachinLife.core.escapeHtml(
+      place?.source || "แหล่งข้อมูลสาธารณะ"
+    );
+
   const sourceUrl =
     place?.source_url
-    ||
-    place?.metadata?.source_url
-    ||
-    "";
+    || place?.metadata?.source_url
+    || "";
 
   return `
-    <article class="promotion-card eat-card">
+    <article class="promotion-card eat-card vegetarian-card">
 
       <div class="promotion-image-wrap eat-image-wrap">
 
@@ -411,6 +464,7 @@ window.PrachinLife.modules.vegetarian.renderCard = function (
                     distance
                   )}
                 </strong>
+                <span>จากตำแหน่งของคุณ</span>
               </div>
             `
             : ""
@@ -421,22 +475,6 @@ window.PrachinLife.modules.vegetarian.renderCard = function (
         </h3>
 
         <p class="promotion-description">
-          🥬 เจ / มังสวิรัติ
-        </p>
-
-        ${
-          tierLabel
-            ? `
-              <p class="promotion-description vegetarian-tier">
-                ${window.PrachinLife.core.escapeHtml(
-                  tierLabel
-                )}
-              </p>
-            `
-            : ""
-        }
-
-        <p class="promotion-description">
           📍 ${location}
         </p>
 
@@ -444,18 +482,28 @@ window.PrachinLife.modules.vegetarian.renderCard = function (
           openingHours
             ? `
               <p class="promotion-description">
-                🕒 ${openingHours}
+                🕒 เวลาเปิด: ${openingHours}
               </p>
             `
             : ""
         }
 
-        <p class="promotion-description">
-          ข้อมูลจาก OpenStreetMap
-          โปรดตรวจสอบรายละเอียดล่าสุดกับร้านก่อนเดินทาง
+        <p
+          class="vegetarian-status ${window.PrachinLife.core.escapeAttribute(
+            status.className
+          )}"
+        >
+          ${window.PrachinLife.core.escapeHtml(
+            status.label
+          )}
         </p>
 
-        <div class="promotion-actions">
+        <p class="promotion-description vegetarian-data-note">
+          แหล่งข้อมูล: ${sourceName}
+          · ควรตรวจสอบรายละเอียดล่าสุดก่อนเดินทาง
+        </p>
+
+        <div class="promotion-actions vegetarian-actions">
 
           ${
             mapUrl
@@ -468,7 +516,39 @@ window.PrachinLife.modules.vegetarian.renderCard = function (
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  เปิดแผนที่ →
+                  📍 เปิดแผนที่
+                </a>
+              `
+              : ""
+          }
+
+          ${
+            phoneHref
+              ? `
+                <a
+                  class="source-button"
+                  href="tel:${window.PrachinLife.core.escapeAttribute(
+                    phoneHref
+                  )}"
+                >
+                  📞 โทร
+                </a>
+              `
+              : ""
+          }
+
+          ${
+            websiteUrl
+              ? `
+                <a
+                  class="source-button"
+                  href="${window.PrachinLife.core.escapeAttribute(
+                    websiteUrl
+                  )}"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  🌐 เว็บไซต์
                 </a>
               `
               : ""
@@ -478,14 +558,14 @@ window.PrachinLife.modules.vegetarian.renderCard = function (
             sourceUrl
               ? `
                 <a
-                  class="source-button"
+                  class="source-button vegetarian-source-link"
                   href="${window.PrachinLife.core.escapeAttribute(
                     sourceUrl
                   )}"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  ดูแหล่งข้อมูล →
+                  ดูแหล่งข้อมูล
                 </a>
               `
               : ""
@@ -498,6 +578,7 @@ window.PrachinLife.modules.vegetarian.renderCard = function (
     </article>
   `;
 };
+
 
 window.PrachinLife.modules.vegetarian.renderPlaces = function (
   places,

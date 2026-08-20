@@ -4303,3 +4303,104 @@ MODERN LIFESTYLE TAGLINE FINAL
   }
 
 }
+
+
+/* =====================================================
+VEGETARIAN V1 UI - STEP 1
+User-facing card status and actions
+===================================================== */
+
+.vegetarian-status {
+  width: fit-content;
+  margin:
+    4px 0
+    2px;
+
+  padding:
+    6px 10px;
+
+  border-radius:
+    999px;
+
+  font-size:
+    0.82rem;
+
+  font-weight:
+    650;
+
+  line-height:
+    1.35;
+
+  background:
+    rgba(47, 111, 78, 0.08);
+
+  color:
+    var(--brand-dark);
+}
+
+
+.vegetarian-status.is-candidate {
+  background:
+    rgba(120, 120, 120, 0.08);
+
+  color:
+    var(--muted);
+}
+
+
+.vegetarian-data-note {
+  margin-top:
+    8px;
+
+  font-size:
+    0.82rem;
+
+  line-height:
+    1.5;
+}
+
+
+.vegetarian-actions {
+  display:
+    grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap:
+    8px;
+}
+
+
+.vegetarian-actions .source-button {
+  width:
+    100%;
+
+  min-width:
+    0;
+
+  padding-left:
+    10px;
+
+  padding-right:
+    10px;
+
+  text-align:
+    center;
+}
+
+
+.vegetarian-source-link {
+  font-size:
+    0.84rem;
+}
+
+
+@media (max-width: 420px) {
+
+  .vegetarian-actions {
+    grid-template-columns:
+      1fr;
+  }
+
+}
