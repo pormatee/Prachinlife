@@ -3,15 +3,42 @@ from __future__ import annotations
 import argparse
 import json
 import re
+import sys
 import time
 from datetime import datetime, timezone
 from pathlib import Path
 
+PROJECT_ROOT = (
+    Path(__file__)
+    .resolve()
+    .parent
+    .parent
+)
+
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(
+        0,
+        str(PROJECT_ROOT),
+    )
+
 import requests
+
+from scripts.place_discovery_location import (
+    get_province_config,
+    split_bbox,
+)
+
+from scripts.place_discovery_osm import (
+    fetch_overpass_query,
+    fetch_bbox_grid,
+)
 
 
 REQUEST_TIMEOUT = 45
 MAX_RETRIES = 2
+
+SLEEP_BETWEEN_GRID_REQUESTS = 1.5
+RATE_LIMIT_BACKOFF_SECONDS = 8
 
 OVERPASS_ENDPOINTS = [
     "https://overpass-api.de/api/interpreter",
@@ -74,40 +101,15 @@ def get_coordinates(element):
 
 
 def load_province_config(province):
-    if not PROVINCE_CONFIG_FILE.exists():
-        raise SystemExit(
-            f"ERROR: province config not found: "
-            f"{PROVINCE_CONFIG_FILE}"
-        )
-
-    data = json.loads(
-        PROVINCE_CONFIG_FILE.read_text(
-            encoding="utf-8"
-        )
+    config = get_province_config(
+        province
     )
 
-    config = data.get(province)
-
-    if not isinstance(config, dict):
-        raise SystemExit(
-            f"ERROR: province not configured: "
-            f"{province}"
-        )
-
-    bbox = config.get("bbox")
-    aliases = config.get("aliases") or []
-
-    if (
-        not isinstance(bbox, list)
-        or len(bbox) != 4
-    ):
-        raise SystemExit(
-            f"ERROR: invalid bbox for {province}"
-        )
-
     return {
-        "aliases": aliases,
-        "bbox": bbox,
+        "aliases":
+            config["aliases"],
+        "bbox":
+            config["bbox"],
     }
 
 
@@ -150,20 +152,6 @@ out center tags;
 """
 
 
-def split_bbox_2x2(bbox):
-    south, west, north, east = bbox
-
-    mid_lat = (south + north) / 2
-    mid_lon = (west + east) / 2
-
-    return [
-        [south, west, mid_lat, mid_lon],
-        [south, mid_lon, mid_lat, east],
-        [mid_lat, west, north, mid_lon],
-        [mid_lat, mid_lon, north, east],
-    ]
-
-
 def build_bbox_query(bbox):
     south, west, north, east = bbox
 
@@ -196,77 +184,32 @@ out center tags;
 """
 
 
-def fetch_query(
-    query,
-    label,
-):
-    for endpoint in OVERPASS_ENDPOINTS:
-        for attempt in range(
-            1,
-            MAX_RETRIES + 1,
-        ):
-            try:
-                print(
-                    f"[FETCH] {label}"
-                    f" | {endpoint}"
-                    f" | attempt={attempt}"
-                )
-
-                response = requests.post(
-                    endpoint,
-                    data={"data": query},
-                    timeout=REQUEST_TIMEOUT,
-                    headers={
-                        "User-Agent":
-                            "PrachinLife-"
-                            "VegetarianDiscoveryV2/2.0"
-                    },
-                )
-
-                response.raise_for_status()
-
-                data = response.json()
-
-                elements = data.get(
-                    "elements",
-                    [],
-                )
-
-                print(
-                    "RECEIVED =",
-                    len(elements),
-                )
-
-                return elements
-
-            except (
-                requests.RequestException,
-                ValueError,
-            ) as error:
-
-                print(
-                    "FAILED =",
-                    type(error).__name__,
-                    str(error),
-                )
-
-                time.sleep(2)
-
-    return []
-
-
 def fetch(province):
     config = load_province_config(
         province
     )
 
+    common_kwargs = {
+        "endpoints":
+            OVERPASS_ENDPOINTS,
+        "timeout":
+            REQUEST_TIMEOUT,
+        "max_retries":
+            MAX_RETRIES,
+        "rate_limit_backoff_seconds":
+            RATE_LIMIT_BACKOFF_SECONDS,
+        "user_agent":
+            "PrachinLife-VegetarianDiscoveryV2/3.0",
+    }
+
     # 1. Thai OSM area name
-    elements = fetch_query(
+    elements, success = fetch_overpass_query(
         build_area_query(
             "name:th",
             province,
         ),
         "area:name:th",
+        **common_kwargs,
     )
 
     if elements:
@@ -275,14 +218,15 @@ def fetch(province):
         )
         return elements
 
-    # 2. English/alternate aliases
+    # 2. English / alternate aliases
     for alias in config["aliases"]:
-        elements = fetch_query(
+        elements, success = fetch_overpass_query(
             build_area_query(
                 "name",
                 alias,
             ),
             f"area:alias:{alias}",
+            **common_kwargs,
         )
 
         if elements:
@@ -292,75 +236,64 @@ def fetch(province):
             )
             return elements
 
-    # 3. Bounding-box grid fallback
-    all_elements = []
-
-    grid_boxes = split_bbox_2x2(
-        config["bbox"]
+    # 3. BBox/Grid fallback through shared OSM Core
+    grid_boxes = split_bbox(
+        config["bbox"],
+        rows=2,
+        cols=2,
     )
 
-    for index, bbox in enumerate(
+    result = fetch_bbox_grid(
         grid_boxes,
-        start=1,
-    ):
-        elements = fetch_query(
-            build_bbox_query(
-                bbox
-            ),
-            f"bbox-grid-{index}",
-        )
-
-        if elements:
-            all_elements.extend(
-                elements
-            )
-
-    if all_elements:
-        unique = {}
-
-        for element in all_elements:
-            element_type = element.get("type")
-            element_id = element.get("id")
-
-            key = (
-                element_type,
-                element_id,
-            )
-
-            unique[key] = element
-
-        merged = list(
-            unique.values()
-        )
-
-        print(
-            "DISCOVERY METHOD = bbox-grid"
-        )
-
-        print(
-            "GRID RAW =",
-            len(all_elements),
-        )
-
-        print(
-            "GRID UNIQUE =",
-            len(merged),
-        )
-
-        return merged
+        build_bbox_query,
+        sleep_between_requests=
+            SLEEP_BETWEEN_GRID_REQUESTS,
+        **common_kwargs,
+    )
 
     print(
+        "DISCOVERY METHOD = bbox-grid"
+        if result.completed_requests > 0
+        else
         "DISCOVERY METHOD = none"
     )
 
     print(
-        "WARNING: 0 results does not mean "
-        "the province has no vegetarian places."
+        "GRID UNIQUE =",
+        len(result.elements),
     )
 
-    return []
+    print(
+        "GRID COMPLETED =",
+        result.completed_requests,
+    )
 
+    print(
+        "GRID FAILED =",
+        result.failed_requests,
+    )
 
+    print(
+        "COVERAGE COMPLETE =",
+        result.coverage_complete,
+    )
+
+    if not result.coverage_complete:
+        print(
+            "WARNING: discovery coverage is incomplete"
+        )
+
+    if (
+        result.completed_requests == 0
+        and
+        not result.elements
+    ):
+        print(
+            "WARNING: provider failed for all grids; "
+            "0 results must not be interpreted as no places."
+        )
+
+    return result.elements
 def classify(tags):
     name = (
         clean_text(tags.get("name:th"))
