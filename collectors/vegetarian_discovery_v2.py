@@ -33,12 +33,24 @@ from scripts.place_discovery_osm import (
     fetch_bbox_grid,
 )
 
+from scripts.place_discovery_categories import (
+    get_category_config,
+    get_osm_amenity_regex,
+    get_query_keyword_regex,
+)
+
 
 REQUEST_TIMEOUT = 45
 MAX_RETRIES = 2
 
 SLEEP_BETWEEN_GRID_REQUESTS = 1.5
 RATE_LIMIT_BACKOFF_SECONDS = 8
+
+CATEGORY = "vegetarian"
+
+CATEGORY_CONFIG = get_category_config(
+    CATEGORY
+)
 
 OVERPASS_ENDPOINTS = [
     "https://overpass-api.de/api/interpreter",
@@ -117,6 +129,25 @@ def build_area_query(
     name_field,
     province_name,
 ):
+    amenity_regex = (
+        get_osm_amenity_regex(
+            CATEGORY
+        )
+    )
+
+    keyword_regex = (
+        get_query_keyword_regex(
+            CATEGORY
+        )
+    )
+
+    thai_keyword_regex = (
+        get_query_keyword_regex(
+            CATEGORY,
+            thai_only=True,
+        )
+    )
+
     return f"""
 [out:json][timeout:30];
 
@@ -128,23 +159,23 @@ area
 
 (
   nwr
-    ["amenity"~"restaurant|cafe|fast_food|food_court"]
+    ["amenity"~"{amenity_regex}"]
     ["diet:vegetarian"~"yes|only"]
     (area.province);
 
   nwr
-    ["amenity"~"restaurant|cafe|fast_food|food_court"]
+    ["amenity"~"{amenity_regex}"]
     ["diet:vegan"~"yes|only"]
     (area.province);
 
   nwr
-    ["amenity"~"restaurant|cafe|fast_food|food_court"]
-    ["name"~"อาหารเจ|ร้านเจ|ข้าวเจ|โรงเจ|เจจริง|เจแท้|มังสวิรัติ|vegetarian|vegan",i]
+    ["amenity"~"{amenity_regex}"]
+    ["name"~"{keyword_regex}",i]
     (area.province);
 
   nwr
-    ["amenity"~"restaurant|cafe|fast_food|food_court"]
-    ["name:th"~"อาหารเจ|ร้านเจ|ข้าวเจ|โรงเจ|เจจริง|เจแท้|มังสวิรัติ",i]
+    ["amenity"~"{amenity_regex}"]
+    ["name:th"~"{thai_keyword_regex}",i]
     (area.province);
 );
 
@@ -155,28 +186,47 @@ out center tags;
 def build_bbox_query(bbox):
     south, west, north, east = bbox
 
+    amenity_regex = (
+        get_osm_amenity_regex(
+            CATEGORY
+        )
+    )
+
+    keyword_regex = (
+        get_query_keyword_regex(
+            CATEGORY
+        )
+    )
+
+    thai_keyword_regex = (
+        get_query_keyword_regex(
+            CATEGORY,
+            thai_only=True,
+        )
+    )
+
     return f"""
 [out:json][timeout:30];
 
 (
   nwr
-    ["amenity"~"restaurant|cafe|fast_food|food_court"]
+    ["amenity"~"{amenity_regex}"]
     ["diet:vegetarian"~"yes|only"]
     ({south},{west},{north},{east});
 
   nwr
-    ["amenity"~"restaurant|cafe|fast_food|food_court"]
+    ["amenity"~"{amenity_regex}"]
     ["diet:vegan"~"yes|only"]
     ({south},{west},{north},{east});
 
   nwr
-    ["amenity"~"restaurant|cafe|fast_food|food_court"]
-    ["name"~"อาหารเจ|ร้านเจ|ข้าวเจ|โรงเจ|เจจริง|เจแท้|มังสวิรัติ|vegetarian|vegan",i]
+    ["amenity"~"{amenity_regex}"]
+    ["name"~"{keyword_regex}",i]
     ({south},{west},{north},{east});
 
   nwr
-    ["amenity"~"restaurant|cafe|fast_food|food_court"]
-    ["name:th"~"อาหารเจ|ร้านเจ|ข้าวเจ|โรงเจ|เจจริง|เจแท้|มังสวิรัติ",i]
+    ["amenity"~"{amenity_regex}"]
+    ["name:th"~"{thai_keyword_regex}",i]
     ({south},{west},{north},{east});
 );
 
@@ -296,9 +346,15 @@ def fetch(province):
     return result.elements
 def classify(tags):
     name = (
-        clean_text(tags.get("name:th"))
-        or clean_text(tags.get("name"))
-        or clean_text(tags.get("brand"))
+        clean_text(
+            tags.get("name:th")
+        )
+        or clean_text(
+            tags.get("name")
+        )
+        or clean_text(
+            tags.get("brand")
+        )
     )
 
     vegetarian = clean_text(
@@ -309,49 +365,113 @@ def classify(tags):
         tags.get("diet:vegan")
     )
 
-    name_lower = (name or "").lower()
+    name_lower = (
+        name or ""
+    ).lower()
 
-    strong_keywords = [
-        "อาหารเจ",
-        "ข้าวเจ",
-        "โรงเจ",
-        "เจจริง",
-        "เจแท้",
-        "มังสวิรัติ",
-        "vegetarian",
-        "vegan",
-    ]
+    keywords = (
+        CATEGORY_CONFIG.get(
+            "keywords"
+        )
+        or {}
+    )
+
+    classification = (
+        CATEGORY_CONFIG.get(
+            "classification"
+        )
+        or {}
+    )
+
+    tiers = (
+        classification.get(
+            "tiers"
+        )
+        or {}
+    )
+
+    strong_keywords = (
+        keywords.get(
+            "strong"
+        )
+        or []
+    )
 
     strong_match = any(
-        keyword in name_lower
-        for keyword in strong_keywords
+        keyword.lower()
+        in name_lower
+        for keyword
+        in strong_keywords
     )
 
-    # "ร้านเจ" ต้องเป็นความหมายอาหารเจจริง
-    # ไม่ให้จับคำอย่าง ร้านเจ๊ / เจ้า / เจริญ
+    jay_regex = (
+        keywords.get(
+            "jay_shop_regex"
+        )
+        or ""
+    )
+
     jay_shop_match = bool(
         re.search(
-            r"ร้าน\s*เจ(?![่้๊๋า-ูเ-์])",
+            jay_regex,
             name_lower,
         )
-    )
+    ) if jay_regex else False
 
     keyword_match = (
         strong_match
         or jay_shop_match
     )
 
-    if vegetarian == "only" or vegan == "only":
-        tier = "dedicated"
+    dedicated_values = set(
+        classification.get(
+            "dedicated_values",
+            [],
+        )
+    )
+
+    option_values = set(
+        classification.get(
+            "option_values",
+            [],
+        )
+    )
+
+    if (
+        vegetarian
+        in dedicated_values
+        or
+        vegan
+        in dedicated_values
+    ):
+        tier = tiers.get(
+            "dedicated",
+            "dedicated",
+        )
 
     elif keyword_match:
-        tier = "named_candidate"
+        tier = tiers.get(
+            "keyword",
+            "named_candidate",
+        )
 
-    elif vegetarian == "yes" or vegan == "yes":
-        tier = "option_available"
+    elif (
+        vegetarian
+        in option_values
+        or
+        vegan
+        in option_values
+    ):
+        tier = tiers.get(
+            "option",
+            "option_available",
+        )
 
     else:
-        tier = "unknown"
+        tier = tiers.get(
+            "unknown",
+            "unknown",
+        )
 
     return (
         name,

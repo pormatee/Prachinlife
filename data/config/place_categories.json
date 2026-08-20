@@ -1,0 +1,85 @@
+{
+  "vegetarian": {
+    "content_type": "vegetarian",
+
+    "osm": {
+      "amenities": [
+        "restaurant",
+        "cafe",
+        "fast_food",
+        "food_court"
+      ],
+
+      "diet_tags": [
+        {
+          "key": "diet:vegetarian",
+          "values": [
+            "yes",
+            "only"
+          ]
+        },
+        {
+          "key": "diet:vegan",
+          "values": [
+            "yes",
+            "only"
+          ]
+        }
+      ]
+    },
+
+    "keywords": {
+      "strong": [
+        "อาหารเจ",
+        "ข้าวเจ",
+        "โรงเจ",
+        "เจจริง",
+        "เจแท้",
+        "มังสวิรัติ",
+        "vegetarian",
+        "vegan"
+      ],
+
+      "thai_query": [
+        "อาหารเจ",
+        "ร้านเจ",
+        "ข้าวเจ",
+        "โรงเจ",
+        "เจจริง",
+        "เจแท้",
+        "มังสวิรัติ"
+      ],
+
+      "all_query": [
+        "อาหารเจ",
+        "ร้านเจ",
+        "ข้าวเจ",
+        "โรงเจ",
+        "เจจริง",
+        "เจแท้",
+        "มังสวิรัติ",
+        "vegetarian",
+        "vegan"
+      ],
+
+      "jay_shop_regex": "ร้าน\\s*เจ(?![่้๊๋า-ูเ-์])"
+    },
+
+    "classification": {
+      "dedicated_values": [
+        "only"
+      ],
+
+      "option_values": [
+        "yes"
+      ],
+
+      "tiers": {
+        "dedicated": "dedicated",
+        "keyword": "named_candidate",
+        "option": "option_available",
+        "unknown": "unknown"
+      }
+    }
+  }
+}

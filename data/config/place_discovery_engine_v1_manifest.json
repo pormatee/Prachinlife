@@ -1,0 +1,48 @@
+{
+  "manifest": "PrachinLife Place Discovery Engine V1 Freeze Manifest",
+  "version": "1.0",
+  "status": "frozen_v1",
+
+  "core_components": [
+    "location",
+    "osm",
+    "categories",
+    "merge_policy",
+    "identity",
+    "candidates",
+    "verification"
+  ],
+
+  "required_regression_tests": [
+    "scripts/test_place_discovery_location.py",
+    "scripts/test_place_discovery_osm.py",
+    "scripts/test_place_discovery_categories.py",
+    "scripts/test_place_discovery_merge_policy.py",
+    "scripts/test_place_discovery_identity.py",
+    "scripts/test_place_discovery_candidates.py",
+    "scripts/test_place_discovery_verification.py",
+    "scripts/test_place_discovery_e2e.py"
+  ],
+
+  "architecture_rules": {
+    "single_discovery_engine": true,
+    "category_driven": true,
+    "province_forks_forbidden": true,
+    "provider_zero_results_do_not_mean_no_places": true,
+    "incomplete_coverage_must_be_explicit": true,
+    "unverified_candidates_must_not_enter_primary": true,
+    "duplicate_check_required_before_merge": true,
+    "coordinates_required_for_primary_near_me": true,
+    "ai_may_not_bypass_merge_policy": true,
+    "ai_may_not_disable_regression_tests": true
+  },
+
+  "reference_category": "vegetarian",
+
+  "next_categories": [
+    "eat",
+    "go",
+    "hotel",
+    "service"
+  ]
+}
