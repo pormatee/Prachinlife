@@ -1559,17 +1559,49 @@ function prepareVegetarianPlaces() {
 
   primaryVegetarianPlaces =
     allVegetarianPlaces.filter(
-      place =>
-        place?.metadata
-          ?.show_in_primary_directory
-        === true
+      place => {
+
+        const metadata =
+          place?.metadata || {};
+
+        const displayTier =
+          metadata.display_tier || "";
+
+        const isPrimary =
+          metadata.show_in_primary_directory
+          === true;
+
+        const isDedicated =
+          displayTier === "dedicated";
+
+        const isNamedCandidate =
+          displayTier === "named_candidate";
+
+        return (
+          metadata.needs_review !== true
+          &&
+          (
+            isPrimary
+            ||
+            isDedicated
+            ||
+            isNamedCandidate
+          )
+        );
+      }
     );
 
   filteredVegetarianPlaces =
     [...primaryVegetarianPlaces];
 
-
   currentVegetarianPage = 1;
+
+  console.log(
+    "PrachinLife vegetarian primary directory:",
+    primaryVegetarianPlaces.length,
+    "/",
+    allVegetarianPlaces.length
+  );
 }
 
 

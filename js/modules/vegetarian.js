@@ -127,9 +127,11 @@ window.PrachinLife.modules.vegetarian.filterAndSortPlaces = function (
   compareDistance,
   compareTitle
 ) {
+
   let result =
     (places || []).filter(
       place => {
+
         if (currentProvince === "all") {
           return true;
         }
@@ -145,22 +147,89 @@ window.PrachinLife.modules.vegetarian.filterAndSortPlaces = function (
     );
 
   if (userLocation) {
-    result = result
-      .map(
-        place => ({
-          ...place,
-          _distance:
-            calculateDistance(place),
-        })
-      )
-      .sort(
-        compareDistance
-      );
+
+    result =
+      result
+        .map(
+          place => ({
+            ...place,
+            _distance:
+              calculateDistance(place),
+          })
+        )
+        .sort(
+          compareDistance
+        );
   }
 
   else {
+
+    const getQualityScore = place => {
+
+      const metadata =
+        place?.metadata || {};
+
+      let score = 0;
+
+      if (
+        metadata.show_in_primary_directory
+        === true
+      ) {
+        score += 100;
+      }
+
+      if (
+        metadata.display_tier
+        === "dedicated"
+      ) {
+        score += 80;
+      }
+
+      else if (
+        metadata.display_tier
+        === "named_candidate"
+      ) {
+        score += 50;
+      }
+
+      else if (
+        metadata.display_tier
+        === "option_available"
+      ) {
+        score += 20;
+      }
+
+      if (
+        metadata.diet_vegetarian
+        === "yes"
+      ) {
+        score += 20;
+      }
+
+      if (
+        metadata.diet_vegan
+        === "yes"
+      ) {
+        score += 20;
+      }
+
+      return score;
+    };
+
     result.sort(
-      compareTitle
+      (a, b) => {
+
+        const scoreDiff =
+          getQualityScore(b)
+          -
+          getQualityScore(a);
+
+        if (scoreDiff !== 0) {
+          return scoreDiff;
+        }
+
+        return compareTitle(a, b);
+      }
     );
   }
 
