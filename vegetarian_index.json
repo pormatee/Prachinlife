@@ -23285,5 +23285,47 @@
     "source": "Wongnai",
     "source_url": "https://www.wongnai.com/restaurants?categories=27&domain=1&page.number=1&page.size=10&regions=1766&rerank=false",
     "collected_at": "2026-08-20T03:01:22.393199+00:00"
+  },
+  {
+    "id": "web-prachinburi-sansi-jay",
+    "title": "อาหารเจ ซั่นสี่",
+    "content_type": "vegetarian",
+    "food_types": [
+      "vegetarian"
+    ],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": "เมืองปราจีนบุรี",
+      "subdistrict": "หน้าเมือง",
+      "country": "TH",
+      "latitude": 14.05236,
+      "longitude": 101.36833
+    },
+    "metadata": {
+      "display_tier": "dedicated",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "evidence_reason": "verified_year_round_jay_restaurant_listing",
+      "diet_vegetarian": null,
+      "diet_vegan": null,
+      "opening_hours": null,
+      "phone": [
+        "0821389588",
+        "0903853130"
+      ],
+      "website": null,
+      "address": "114 ถนนราษฎร์ดำริ ตำบลหน้าเมือง อำเภอเมืองปราจีนบุรี จังหวัดปราจีนบุรี",
+      "opening_hours_text": "จันทร์-เสาร์ 06:00-15:00; อาทิตย์ 09:00-17:00",
+      "verification_status": "verified_market_level",
+      "coordinate_source": "verified_market_reference",
+      "coordinate_precision": "market",
+      "coordinate_verified": true,
+      "location_reference": "ตลาดเทศบาลเมืองปราจีนบุรี (ตลาดล่าง)",
+      "verification_source": "web_evidence_plus_local_confirmation"
+    },
+    "source": "Wongnai",
+    "source_url": "https://www.wongnai.com/restaurants/1975749Hk-%E0%B8%AD%E0%B8%B2%E0%B8%AB%E0%B8%B2%E0%B8%A3%E0%B9%80%E0%B8%88-%E0%B8%8B%E0%B8%B1%E0%B9%88%E0%B8%99%E0%B8%AA%E0%B8%B5%E0%B9%88-%E0%B9%80%E0%B8%A1%E0%B8%B7%E0%B8%AD%E0%B8%87%E0%B8%9B%E0%B8%A3%E0%B8%B2%E0%B8%88%E0%B8%B5%E0%B8%99%E0%B8%9A%E0%B8%B8%E0%B8%A3%E0%B8%B5",
+    "collected_at": "2026-08-20T10:27:35.159250+00:00"
   }
 ]

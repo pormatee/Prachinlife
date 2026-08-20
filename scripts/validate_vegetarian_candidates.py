@@ -79,15 +79,26 @@ def validate_candidate(item, index):
         )
 
     source_url = item.get("source_url")
+    source_ref = item.get("source_ref")
 
-    if (
-        not isinstance(source_url, str)
-        or not source_url.startswith(
+    has_valid_url = (
+        isinstance(source_url, str)
+        and source_url.startswith(
             ("http://", "https://")
         )
+    )
+
+    has_source_ref = (
+        isinstance(source_ref, str)
+        and bool(source_ref.strip())
+    )
+
+    if not (
+        has_valid_url
+        or has_source_ref
     ):
         errors.append(
-            f"#{index}: invalid source_url"
+            f"#{index}: missing source evidence"
         )
 
     tier = metadata.get("display_tier")
