@@ -3810,13 +3810,11 @@ EAT CARD
 function renderEatCard(
   place
 ) {
-
   const title =
     window.PrachinLife.core.escapeHtml(
-      place.title
-      || "ไม่ระบุชื่อ"
+      place?.title
+      || "ไม่ระบุชื่อร้าน"
     );
-
 
   const category =
     window.PrachinLife.core.escapeHtml(
@@ -3825,7 +3823,6 @@ function renderEatCard(
       )
     );
 
-
   const location =
     window.PrachinLife.core.escapeHtml(
       getEatLocationLabel(
@@ -3833,46 +3830,110 @@ function renderEatCard(
       )
     );
 
-
   const mapUrl =
     window.PrachinLife.core.buildMapUrl(
       place
     );
 
-
   const distance =
     Number.isFinite(
-      place._distance
+      place?._distance
     )
       ? window.PrachinLife.core.formatDistance(
           place._distance
         )
       : "";
 
+  const openingHoursRaw =
+    place?.metadata?.opening_hours
+    || "";
 
   const openingHours =
-    place.metadata
-      ?.opening_hours
+    openingHoursRaw
       ? window.PrachinLife.core.escapeHtml(
-          place.metadata
-            .opening_hours
+          openingHoursRaw
         )
       : "";
 
+  const contact =
+    place?.metadata?.contact
+    || {};
+
+  const phoneRaw =
+    contact.phone
+    || "";
+
+  const phoneHref =
+    String(phoneRaw)
+      .replace(
+        /[^+\d]/g,
+        ""
+      );
+
+  let websiteUrl =
+    contact.website
+    || "";
+
+  if (
+    websiteUrl
+    &&
+    !/^https?:\/\//i.test(
+      websiteUrl
+    )
+  ) {
+    websiteUrl =
+      `https://${websiteUrl}`;
+  }
+
+  let facebookUrl =
+    contact.facebook
+    || "";
+
+  if (
+    facebookUrl
+    &&
+    !/^https?:\/\//i.test(
+      facebookUrl
+    )
+  ) {
+    facebookUrl =
+      `https://${facebookUrl}`;
+  }
+
+  const source =
+    place?.source
+    || {};
+
+  const sourceName =
+    window.PrachinLife.core.escapeHtml(
+      source?.name
+      || "แหล่งข้อมูลสาธารณะ"
+    );
+
+  const sourceUrl =
+    source?.url
+    || "";
+
+  const sourceVerified =
+    source?.verified === true;
+
+  const statusLabel =
+    sourceVerified
+      ? "มีข้อมูลตำแหน่งร้านจากแหล่งข้อมูลสาธารณะ"
+      : "พบข้อมูลตำแหน่งร้าน";
 
   return `
-    <article class="promotion-card eat-card">
+    <article class="promotion-card eat-card eat-v1-card">
 
       <div class="promotion-image-wrap eat-image-wrap">
 
         <div class="image-placeholder eat-placeholder">
           ${
-            place.category === "cafe"
+            place?.category === "cafe"
               ? "☕"
               : "🍜"
           }
         </div>
-
 
         <span class="source-pill">
           ${category}
@@ -3880,57 +3941,60 @@ function renderEatCard(
 
       </div>
 
-
       <div class="promotion-body">
 
-        <div class="promotion-meta">
-
-          <strong>
-            ${category}
-          </strong>
-
-          ${
-            distance
-              ? `
-                <span>•</span>
-                <span>
+        ${
+          distance
+            ? `
+              <div class="promotion-meta">
+                <strong>
                   📍 ${window.PrachinLife.core.escapeHtml(
                     distance
                   )}
+                </strong>
+
+                <span>
+                  จากตำแหน่งของคุณ
                 </span>
-              `
-              : ""
-          }
-
-        </div>
-
+              </div>
+            `
+            : ""
+        }
 
         <h3 class="promotion-title">
           ${title}
         </h3>
 
-
         <p class="promotion-description">
           📍 ${location}
         </p>
-
 
         ${
           openingHours
             ? `
               <p class="promotion-description">
-                🕒 ${openingHours}
+                🕒 เวลาเปิด: ${openingHours}
               </p>
             `
             : ""
         }
 
+        <p class="eat-v1-status">
+          ${window.PrachinLife.core.escapeHtml(
+            statusLabel
+          )}
+        </p>
 
-        ${
-          mapUrl
-            ? `
-              <div class="promotion-actions">
+        <p class="promotion-description eat-v1-data-note">
+          แหล่งข้อมูล: ${sourceName}
+          · ควรตรวจสอบรายละเอียดล่าสุดก่อนเดินทาง
+        </p>
 
+        <div class="promotion-actions eat-v1-actions">
+
+          ${
+            mapUrl
+              ? `
                 <a
                   class="source-button"
                   href="${window.PrachinLife.core.escapeAttribute(
@@ -3939,13 +4003,79 @@ function renderEatCard(
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  เปิดแผนที่ →
+                  📍 เปิดแผนที่
                 </a>
+              `
+              : ""
+          }
 
-              </div>
-            `
-            : ""
-        }
+          ${
+            phoneHref
+              ? `
+                <a
+                  class="source-button"
+                  href="tel:${window.PrachinLife.core.escapeAttribute(
+                    phoneHref
+                  )}"
+                >
+                  📞 โทร
+                </a>
+              `
+              : ""
+          }
+
+          ${
+            websiteUrl
+              ? `
+                <a
+                  class="source-button"
+                  href="${window.PrachinLife.core.escapeAttribute(
+                    websiteUrl
+                  )}"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  🌐 เว็บไซต์
+                </a>
+              `
+              : ""
+          }
+
+          ${
+            facebookUrl
+              ? `
+                <a
+                  class="source-button"
+                  href="${window.PrachinLife.core.escapeAttribute(
+                    facebookUrl
+                  )}"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Facebook
+                </a>
+              `
+              : ""
+          }
+
+          ${
+            sourceUrl
+              ? `
+                <a
+                  class="source-button eat-v1-source-link"
+                  href="${window.PrachinLife.core.escapeAttribute(
+                    sourceUrl
+                  )}"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  ดูแหล่งข้อมูล
+                </a>
+              `
+              : ""
+          }
+
+        </div>
 
       </div>
 
