@@ -33,6 +33,7 @@ from .repository import _distance_km as _canonical_distance_km
 
 
 SQLITE_SCHEMA_VERSION = "2.0-packet10"
+MIGRATION_SCHEMA_VERSION = "1.0-packet13"
 
 
 def _iso(value: datetime) -> str:
@@ -138,6 +139,15 @@ CREATE TABLE IF NOT EXISTS place_revisions (
     created_at TEXT NOT NULL
 );
 CREATE INDEX IF NOT EXISTS idx_place_revisions_place ON place_revisions(place_id);
+CREATE TABLE IF NOT EXISTS migration_imports (
+    import_key TEXT PRIMARY KEY,
+    source_file TEXT NOT NULL,
+    source_record_id TEXT NOT NULL,
+    candidate_key TEXT NOT NULL,
+    place_id TEXT NOT NULL REFERENCES places(place_id) ON DELETE RESTRICT,
+    imported_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+CREATE INDEX IF NOT EXISTS idx_migration_imports_place ON migration_imports(place_id);
 """
 
 
@@ -185,6 +195,10 @@ class SQLitePlaceRepository(_SQLiteBase):
         self._connection.execute(
             "INSERT OR REPLACE INTO platform_meta(key, value) VALUES('schema_version', ?)",
             (SQLITE_SCHEMA_VERSION,),
+        )
+        self._connection.execute(
+            "INSERT OR REPLACE INTO platform_meta(key, value) VALUES('migration_schema_version', ?)",
+            (MIGRATION_SCHEMA_VERSION,),
         )
         self._connection.commit()
 
@@ -327,6 +341,112 @@ class SQLitePlaceRepository(_SQLiteBase):
             if "place_revisions.revision_id" in message or "unique" in message:
                 raise ValueError("duplicate revision_id") from exc
             raise
+
+    def list_migration_import_keys(self) -> frozenset[str]:
+        rows = self._connection.execute("SELECT import_key FROM migration_imports").fetchall()
+        return frozenset(str(row["import_key"]) for row in rows)
+
+    def migration_import_count(self) -> int:
+        row = self._connection.execute("SELECT COUNT(*) AS n FROM migration_imports").fetchone()
+        return int(row["n"])
+
+    def canonical_place_count(self) -> int:
+        row = self._connection.execute("SELECT COUNT(*) AS n FROM places").fetchone()
+        return int(row["n"])
+
+    def evidence_count(self) -> int:
+        row = self._connection.execute("SELECT COUNT(*) AS n FROM place_evidence").fetchone()
+        return int(row["n"])
+
+    def commit_migration_batch(self, places, evidence, ledger) -> None:
+        """Atomically persist one controlled migration batch.
+
+        No helper that auto-commits is called here: either all places, evidence,
+        and ledger entries land together, or SQLite rolls the whole batch back.
+        """
+        place_rows = []
+        for place in places:
+            location = place.location
+            place_rows.append((
+                place.identity.place_id,
+                place.canonical_name,
+                location.latitude if location else None,
+                location.longitude if location else None,
+                place.address_text,
+                place.province,
+                _dump(tuple(place.categories)),
+                place.phone,
+                place.website,
+                place.lifecycle.value,
+                _iso(place.created_at),
+                _iso(place.updated_at),
+            ))
+        evidence_rows = [(
+            item.evidence_id,
+            item.place_id,
+            item.source.source_type.value,
+            item.source.source_name,
+            item.source.source_record_id,
+            item.source.source_url,
+            _iso(item.source.observed_at),
+            item.kind.value,
+            item.field_name,
+            _dump(item.value),
+            item.status.value,
+            _iso(item.observed_at),
+            _dump(dict(item.metadata)),
+        ) for item in evidence]
+        ledger_rows = [(
+            item.import_key,
+            item.source_file,
+            item.source_record_id,
+            item.candidate_key,
+            item.place_id,
+        ) for item in ledger]
+
+        try:
+            with self._connection:
+                self._connection.executemany(
+                    """
+                    INSERT INTO places(
+                        place_id, canonical_name, latitude, longitude, address_text, province,
+                        categories_json, phone, website, lifecycle, created_at, updated_at
+                    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                    ON CONFLICT(place_id) DO UPDATE SET
+                        canonical_name=excluded.canonical_name,
+                        latitude=excluded.latitude,
+                        longitude=excluded.longitude,
+                        address_text=COALESCE(places.address_text, excluded.address_text),
+                        province=COALESCE(places.province, excluded.province),
+                        categories_json=excluded.categories_json,
+                        phone=COALESCE(places.phone, excluded.phone),
+                        website=COALESCE(places.website, excluded.website),
+                        lifecycle=places.lifecycle,
+                        created_at=places.created_at,
+                        updated_at=excluded.updated_at
+                    """,
+                    place_rows,
+                )
+                self._connection.executemany(
+                    """
+                    INSERT INTO place_evidence(
+                        evidence_id, place_id, source_type, source_name, source_record_id,
+                        source_url, source_observed_at, kind, field_name, value_json,
+                        status, observed_at, metadata_json
+                    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                    """,
+                    evidence_rows,
+                )
+                self._connection.executemany(
+                    """
+                    INSERT INTO migration_imports(
+                        import_key, source_file, source_record_id, candidate_key, place_id
+                    ) VALUES (?, ?, ?, ?, ?)
+                    """,
+                    ledger_rows,
+                )
+        except sqlite3.IntegrityError as exc:
+            raise ValueError("controlled migration batch failed atomically") from exc
 
     def list_revisions(self, place_id: str) -> tuple[PlaceRevision, ...]:
         rows = self._connection.execute(
