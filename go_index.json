@@ -1269,5 +1269,104 @@
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/way/518190349",
     "collected_at": "2026-08-18T12:38:23.373940+00:00"
+  },
+  {
+    "id": "official-go-1",
+    "title": "พิพิธภัณฑสถานแห่งชาติปราจีนบุรี",
+    "content_type": "go",
+    "category": "attraction",
+    "tags": [],
+    "location": {
+      "subdistrict": "หน้าเมือง",
+      "district": "เมืองปราจีนบุรี",
+      "province": "ปราจีนบุรี",
+      "country": "TH",
+      "latitude": 14.047306,
+      "longitude": 101.37467
+    },
+    "metadata": {
+      "category_label": "พิพิธภัณฑ์ / ประวัติศาสตร์",
+      "opening_hours": null,
+      "phone": null,
+      "website": null,
+      "fee": null,
+      "source_name": "กรมศิลปากร",
+      "verified": true,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "evidence_status": "official_confirmed",
+      "coordinate_status": "confirmed"
+    },
+    "source": "กรมศิลปากร",
+    "source_url": "https://www.finearts.go.th/prachinburimuseum/contact",
+    "collected_at": null
+  },
+  {
+    "id": "official-go-2",
+    "title": "โบราณสถานสระมรกต",
+    "content_type": "go",
+    "category": "attraction",
+    "tags": [],
+    "location": {
+      "subdistrict": "โคกไทย",
+      "district": "ศรีมโหสถ",
+      "province": "ปราจีนบุรี",
+      "country": "TH",
+      "latitude": 13.863657,
+      "longitude": 101.424075
+    },
+    "metadata": {
+      "category_label": "โบราณสถาน / ประวัติศาสตร์",
+      "opening_hours": null,
+      "phone": null,
+      "website": null,
+      "fee": null,
+      "source_name": "กรมศิลปากร",
+      "verified": true,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "evidence_status": "official_confirmed",
+      "coordinate_status": "confirmed"
+    },
+    "source": "กรมศิลปากร",
+    "source_url": "https://finearts.go.th/prachinburimuseum/view/47629",
+    "collected_at": null
+  },
+  {
+    "id": "official-go-3",
+    "title": "เมืองโบราณศรีมโหสถ",
+    "content_type": "go",
+    "category": "attraction",
+    "tags": [],
+    "location": {
+      "subdistrict": null,
+      "district": "ศรีมโหสถ",
+      "province": "ปราจีนบุรี",
+      "country": "TH",
+      "latitude": 13.895284,
+      "longitude": 101.413708
+    },
+    "metadata": {
+      "category_label": "เมืองโบราณ / ประวัติศาสตร์",
+      "opening_hours": null,
+      "phone": null,
+      "website": null,
+      "fee": null,
+      "source_name": "กรมศิลปากร",
+      "verified": true,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "evidence_status": "official_confirmed",
+      "coordinate_status": "confirmed"
+    },
+    "source": "กรมศิลปากร",
+    "source_url": "https://www.finearts.go.th/prachinburimuseum/view/7942",
+    "collected_at": null
   }
 ]

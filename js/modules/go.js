@@ -43,12 +43,37 @@ window.PrachinLife.modules.go.getPrimaryPlaces = function (
   );
 };
 
+window.PrachinLife.modules.go.getLocationLabel = function (
+  place
+) {
+  const location =
+    place?.location || {};
+
+  const parts = [
+    location.subdistrict,
+    location.district,
+    location.province,
+  ].filter(Boolean);
+
+  const unique = [
+    ...new Set(parts)
+  ];
+
+  if (unique.length > 0) {
+    return unique.join(" · ");
+  }
+
+  return "ไม่ระบุพื้นที่";
+};
+
+
 window.PrachinLife.modules.go.renderCard = function (
   place
 ) {
   const title =
     window.PrachinLife.core.escapeHtml(
-      place?.title || "ไม่ระบุชื่อสถานที่"
+      place?.title
+      || "ไม่ระบุชื่อสถานที่"
     );
 
   const categoryLabel =
@@ -57,30 +82,61 @@ window.PrachinLife.modules.go.renderCard = function (
       || "สถานที่น่าสนใจ"
     );
 
+  const location =
+    window.PrachinLife.core.escapeHtml(
+      window.PrachinLife.modules.go.getLocationLabel(
+        place
+      )
+    );
+
+  const distance =
+    Number.isFinite(
+      place?._distance
+    )
+      ? window.PrachinLife.core.formatDistance(
+          place._distance
+        )
+      : "";
+
+  const openingHours =
+    place?.metadata?.opening_hours
+      ? window.PrachinLife.core.escapeHtml(
+          place.metadata.opening_hours
+        )
+      : "";
+
+  const verified =
+    place?.metadata?.verified === true;
+
+  const statusLabel =
+    verified
+      ? "มีข้อมูลสถานที่ที่ผ่านการยืนยันแหล่งข้อมูล"
+      : "มีข้อมูลสถานที่จากแหล่งข้อมูลสาธารณะ";
+
   const mapUrl =
     window.PrachinLife.core.buildMapUrl(
       place
     );
 
+  const sourceName =
+    window.PrachinLife.core.escapeHtml(
+      place?.metadata?.source_name
+      || place?.source
+      || "แหล่งข้อมูลสาธารณะ"
+    );
+
   const sourceUrl =
     place?.source_url
-    ||
-    place?.metadata?.source_url
-    ||
-    "";
-
-  const distanceText =
-    Number.isFinite(place?._distance)
-      ? `${place._distance.toFixed(1)} กม.`
-      : "";
+    || place?.metadata?.source_url
+    || "";
 
   return `
-    <article class="promotion-card eat-card">
+    <article class="promotion-card eat-card go-v1-card">
 
       <div class="promotion-image-wrap eat-image-wrap">
 
         <div class="image-placeholder eat-placeholder">
-          📍
+          🗺️
         </div>
 
         <span class="source-pill">
@@ -91,25 +147,53 @@ window.PrachinLife.modules.go.renderCard = function (
 
       <div class="promotion-body">
 
+        ${
+          distance
+            ? `
+              <div class="promotion-meta">
+                <strong>
+                  📍 ${window.PrachinLife.core.escapeHtml(
+                    distance
+                  )}
+                </strong>
+                <span>
+                  จากตำแหน่งของคุณ
+                </span>
+              </div>
+            `
+            : ""
+        }
+
         <h3 class="promotion-title">
           ${title}
         </h3>
 
         <p class="promotion-description">
-          📍 ${window.PrachinLife.core.escapeHtml(
-            window.PrachinLife.modules.go.getProvince(
-              place
-            )
+          📍 ${location}
+        </p>
+
+        ${
+          openingHours
+            ? `
+              <p class="promotion-description">
+                🕒 เวลาเปิด: ${openingHours}
+              </p>
+            `
+            : ""
+        }
+
+        <p class="go-v1-status">
+          ${window.PrachinLife.core.escapeHtml(
+            statusLabel
           )}
-          ${distanceText ? ` · ${distanceText}` : ""}
         </p>
 
-        <p class="promotion-description">
-          ข้อมูลจาก OpenStreetMap
-          โปรดตรวจสอบข้อมูลล่าสุดก่อนเดินทาง
+        <p class="promotion-description go-v1-data-note">
+          แหล่งข้อมูล: ${sourceName}
+          · ควรตรวจสอบรายละเอียดล่าสุดก่อนเดินทาง
         </p>
 
-        <div class="promotion-actions">
+        <div class="promotion-actions go-v1-actions">
 
           ${
             mapUrl
@@ -122,7 +206,7 @@ window.PrachinLife.modules.go.renderCard = function (
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  เปิดแผนที่ →
+                  📍 เปิดแผนที่
                 </a>
               `
               : ""
@@ -132,14 +216,14 @@ window.PrachinLife.modules.go.renderCard = function (
             sourceUrl
               ? `
                 <a
-                  class="source-button"
+                  class="source-button go-v1-source-link"
                   href="${window.PrachinLife.core.escapeAttribute(
                     sourceUrl
                   )}"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  ดูแหล่งข้อมูล →
+                  ดูแหล่งข้อมูล
                 </a>
               `
               : ""
@@ -152,6 +236,7 @@ window.PrachinLife.modules.go.renderCard = function (
     </article>
   `;
 };
+
 
 window.PrachinLife.modules.go.renderPlaces = function (
   places

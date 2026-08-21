@@ -1,0 +1,47 @@
+{
+  "name": "PrachinLife Go V1",
+  "version": "1.0",
+  "status": "frozen",
+  "reference_category_source": [
+    "PrachinLife Vegetarian V1",
+    "PrachinLife Eat V1"
+  ],
+  "engine_dependency": "PrachinLife Place Discovery Engine V1",
+  "engine_tag": "prachinlife-place-discovery-v1",
+  "scope": {
+    "category": "go",
+    "primary_ux": "near_me",
+    "production_records": 44,
+    "primary_places": 6,
+    "official_enrichment_records": 3,
+    "mobile_ready": true
+  },
+  "user_facing_contract": {
+    "title": true,
+    "category": true,
+    "province_or_location": true,
+    "distance_when_near_me_active": true,
+    "opening_hours_when_available": true,
+    "data_status": true,
+    "map_action": true,
+    "source_link": true
+  },
+  "quality_gates": {
+    "go_production_data_contract": "pass",
+    "go_ui_contract": "pass",
+    "near_me_browser_test": "pass",
+    "map_action_browser_test": "pass",
+    "place_discovery_v1_regression": "pass",
+    "frozen_engine_integrity": "pass",
+    "vegetarian_v1_integrity": "pass",
+    "eat_v1_integrity": "pass",
+    "mobile_ui": "pass"
+  },
+  "frozen_boundaries": [
+    "Place Discovery Engine V1 core",
+    "Vegetarian V1",
+    "Eat V1",
+    "Go V1 production qualification policy"
+  ],
+  "next_category": "service"
+}
