@@ -111,6 +111,28 @@ class TestV2MigrationAudit(unittest.TestCase):
         self.assertEqual(r.total_records, 0)
         self.assertEqual(r.to_dict()["summary"]["files_audited"], 0)
 
+    def test_17_auto_discovery_ignores_nested_history_and_candidates(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = self.write_json(tmp, "vegetarian_index.json", [])
+            self.write_json(tmp, "backups/vegetarian_index_old.json", [])
+            self.write_json(tmp, "data/archive/go_index.json", [])
+            self.write_json(tmp, "data/candidates/service_index.json", [])
+            self.assertEqual(discover_v1_place_json(tmp), (root,))
+
+    def test_18_audit_reports_actual_top_level_keys_for_mapping_diagnostics(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            p = self.write_json(
+                tmp,
+                "vegetarian_index.json",
+                [
+                    {"name": "A", "province_th": "ชลบุรี", "diet_type": "vegetarian"},
+                    {"name": "B", "province_th": "ระยอง", "diet_type": "vegan"},
+                ],
+            )
+            f = audit_v1_files([p]).files[0]
+            self.assertEqual(f.top_level_keys["province_th"], 2)
+            self.assertEqual(f.top_level_keys["diet_type"], 2)
+
 
 if __name__ == "__main__":
     unittest.main()

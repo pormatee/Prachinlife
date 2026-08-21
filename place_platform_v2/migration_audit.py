@@ -34,6 +34,7 @@ class FileAudit:
     invalid_reasons: Mapping[str, int]
     provinces: Mapping[str, int]
     categories: Mapping[str, int]
+    top_level_keys: Mapping[str, int]
 
 
 @dataclass(frozen=True)
@@ -78,13 +79,21 @@ class MigrationAuditReport:
         }
 
 
-def _audit_items(path: str, items: Sequence[V1ImportItem]) -> FileAudit:
+def _audit_items(
+    path: str,
+    items: Sequence[V1ImportItem],
+    records: Sequence[Mapping[str, object]],
+) -> FileAudit:
     invalid_reasons: Counter[str] = Counter()
     provinces: Counter[str] = Counter()
     categories: Counter[str] = Counter()
     missing_location = 0
     missing_province = 0
     missing_categories = 0
+    top_level_keys: Counter[str] = Counter()
+
+    for record in records:
+        top_level_keys.update(str(key) for key in record.keys())
 
     for item in items:
         if item.disposition == MigrationDisposition.INVALID:
@@ -116,6 +125,7 @@ def _audit_items(path: str, items: Sequence[V1ImportItem]) -> FileAudit:
         invalid_reasons=dict(sorted(invalid_reasons.items())),
         provinces=dict(sorted(provinces.items())),
         categories=dict(sorted(categories.items())),
+        top_level_keys=dict(sorted(top_level_keys.items())),
     )
 
 
@@ -135,7 +145,7 @@ def audit_v1_files(paths: Iterable[str | Path]) -> MigrationAuditReport:
             unreadable[label] = str(exc)
             continue
 
-        file_results.append(_audit_items(label, report.items))
+        file_results.append(_audit_items(label, report.items, records))
         for item in report.items:
             if item.disposition != MigrationDisposition.READY or item.observation is None:
                 continue
@@ -155,19 +165,17 @@ def audit_v1_files(paths: Iterable[str | Path]) -> MigrationAuditReport:
 def discover_v1_place_json(root: str | Path = ".") -> tuple[Path, ...]:
     """Find likely V1 place datasets conservatively.
 
-    Discovery is intentionally limited to index-like JSON names and excludes
-    V2/build/vendor directories. Files are still validated by load_v1_json during
-    audit, so an unrelated JSON file is reported as unreadable/unsupported rather
-    than mutated or imported.
+    Auto-discovery is deliberately limited to index-like JSON files directly
+    under the repository root. Historical backups, archives, candidates, test
+    fixtures, generated/normalized copies, and workflow files must be supplied
+    explicitly if an operator wants to audit them. This keeps the default audit
+    aligned with the currently published V1 datasets instead of inflating counts
+    with historical copies.
     """
     root_path = Path(root)
-    excluded_parts = {".git", "node_modules", "place_platform_v2", "tests_v2"}
-    candidates: list[Path] = []
-    for path in root_path.rglob("*.json"):
-        if any(part in excluded_parts for part in path.parts):
-            continue
-        name = path.name.lower()
-        if "index" not in name:
-            continue
-        candidates.append(path)
+    candidates = [
+        path
+        for path in root_path.glob("*.json")
+        if path.is_file() and "index" in path.name.lower()
+    ]
     return tuple(sorted(candidates, key=lambda p: str(p)))

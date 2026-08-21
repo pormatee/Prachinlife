@@ -38,6 +38,9 @@ def main() -> int:
             f"invalid={item['invalid']} missing_location={item['missing_location']} "
             f"missing_province={item['missing_province']} missing_categories={item['missing_categories']}"
         )
+        key_counts = item.get("top_level_keys", {})
+        keys = sorted(key_counts, key=lambda key: (-key_counts[key], key))[:20]
+        print("  keys=" + ",".join(f"{key}:{key_counts[key]}" for key in keys))
     if payload["unreadable_files"]:
         print("===== UNREADABLE / UNSUPPORTED =====")
         for path, reason in payload["unreadable_files"].items():
