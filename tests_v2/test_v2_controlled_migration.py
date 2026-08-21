@@ -2,6 +2,8 @@ from __future__ import annotations
 
 import json
 import sqlite3
+import subprocess
+import sys
 import tempfile
 import unittest
 from pathlib import Path
@@ -194,6 +196,18 @@ class TestControlledMigration(unittest.TestCase):
         from scripts.migrate_v1_to_v2_sqlite import parser
         args = parser().parse_args([])
         self.assertFalse(args.commit)
+
+    def test_18_runner_bootstraps_repo_root_when_executed_directly(self):
+        script = Path(__file__).resolve().parents[1] / "scripts" / "migrate_v1_to_v2_sqlite.py"
+        result = subprocess.run(
+            [sys.executable, str(script), "--help"],
+            cwd=self.root,
+            text=True,
+            capture_output=True,
+            check=False,
+        )
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertIn("usage:", result.stdout.lower())
 
 
 if __name__ == "__main__":
