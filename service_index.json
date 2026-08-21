@@ -1,0 +1,3632 @@
+[
+  {
+    "id": "osm-node-4791106122",
+    "title": "สว่างโอสถ",
+    "content_type": "service",
+    "category": "pharmacy",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 13.5544969,
+      "longitude": 101.1230238
+    },
+    "metadata": {
+      "category_label": "ร้านยา",
+      "opening_hours": null,
+      "phone": null,
+      "website": null,
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/node/4791106122",
+    "collected_at": "2026-08-21T05:30:26.666095+00:00"
+  },
+  {
+    "id": "osm-node-13922863337",
+    "title": "ภูวราคลินิก แพทย์แผนจีน",
+    "content_type": "service",
+    "category": "clinic",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 13.9223507,
+      "longitude": 101.5707098
+    },
+    "metadata": {
+      "category_label": "คลินิก",
+      "opening_hours": "Tu-Su 10:00-20:00",
+      "phone": null,
+      "website": "https://www.facebook.com/share/18siXBQMVQ/?mibextid=wwXIfr",
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/node/13922863337",
+    "collected_at": "2026-08-21T05:33:22.435139+00:00"
+  },
+  {
+    "id": "osm-node-7041312966",
+    "title": "โรงพยาบาลส่งเสริมสุขภาพตำบล เมืองเก่า",
+    "content_type": "service",
+    "category": "clinic",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 14.0208777,
+      "longitude": 101.7799612
+    },
+    "metadata": {
+      "category_label": "คลินิก",
+      "opening_hours": null,
+      "phone": null,
+      "website": null,
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/node/7041312966",
+    "collected_at": "2026-08-21T05:33:22.437197+00:00"
+  },
+  {
+    "id": "osm-node-370478612",
+    "title": "PT",
+    "content_type": "service",
+    "category": "fuel",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 13.740859,
+      "longitude": 101.4858755
+    },
+    "metadata": {
+      "category_label": "ปั๊มน้ำมัน",
+      "opening_hours": null,
+      "phone": null,
+      "website": "https://www.pttplc.com",
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/node/370478612",
+    "collected_at": "2026-08-21T05:34:13.194888+00:00"
+  },
+  {
+    "id": "osm-node-667237945",
+    "title": "ป.ต.ท.",
+    "content_type": "service",
+    "category": "fuel",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 13.9985526,
+      "longitude": 101.2230834
+    },
+    "metadata": {
+      "category_label": "ปั๊มน้ำมัน",
+      "opening_hours": null,
+      "phone": null,
+      "website": "www.pttplc.com",
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/node/667237945",
+    "collected_at": "2026-08-21T05:34:13.195061+00:00"
+  },
+  {
+    "id": "osm-node-1241591062",
+    "title": "NGV",
+    "content_type": "service",
+    "category": "fuel",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 13.6586849,
+      "longitude": 101.1451733
+    },
+    "metadata": {
+      "category_label": "ปั๊มน้ำมัน",
+      "opening_hours": null,
+      "phone": null,
+      "website": null,
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/node/1241591062",
+    "collected_at": "2026-08-21T05:34:13.195199+00:00"
+  },
+  {
+    "id": "osm-node-1609815251",
+    "title": "เชลล์",
+    "content_type": "service",
+    "category": "fuel",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 13.6836272,
+      "longitude": 101.4123885
+    },
+    "metadata": {
+      "category_label": "ปั๊มน้ำมัน",
+      "opening_hours": null,
+      "phone": null,
+      "website": "https://www.shell.co.th/",
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/node/1609815251",
+    "collected_at": "2026-08-21T05:34:13.195312+00:00"
+  },
+  {
+    "id": "osm-node-1691604909",
+    "title": "ปตท.วัฒนาคาร์แคร์",
+    "content_type": "service",
+    "category": "fuel",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 13.6618972,
+      "longitude": 101.1004015
+    },
+    "metadata": {
+      "category_label": "ปั๊มน้ำมัน",
+      "opening_hours": null,
+      "phone": null,
+      "website": null,
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/node/1691604909",
+    "collected_at": "2026-08-21T05:34:13.195421+00:00"
+  },
+  {
+    "id": "osm-node-1905321429",
+    "title": "LPG",
+    "content_type": "service",
+    "category": "fuel",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 13.6164929,
+      "longitude": 101.3108537
+    },
+    "metadata": {
+      "category_label": "ปั๊มน้ำมัน",
+      "opening_hours": null,
+      "phone": null,
+      "website": null,
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/node/1905321429",
+    "collected_at": "2026-08-21T05:34:13.195688+00:00"
+  },
+  {
+    "id": "osm-node-2629947426",
+    "title": "บางจาก",
+    "content_type": "service",
+    "category": "fuel",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 13.7161909,
+      "longitude": 101.4650183
+    },
+    "metadata": {
+      "category_label": "ปั๊มน้ำมัน",
+      "opening_hours": null,
+      "phone": null,
+      "website": "https://www.bangchak.co.th",
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/node/2629947426",
+    "collected_at": "2026-08-21T05:34:13.195808+00:00"
+  },
+  {
+    "id": "osm-node-2629947427",
+    "title": "PT",
+    "content_type": "service",
+    "category": "fuel",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 13.6822294,
+      "longitude": 101.4091162
+    },
+    "metadata": {
+      "category_label": "ปั๊มน้ำมัน",
+      "opening_hours": null,
+      "phone": null,
+      "website": null,
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/node/2629947427",
+    "collected_at": "2026-08-21T05:34:13.195920+00:00"
+  },
+  {
+    "id": "osm-node-2640779921",
+    "title": "บางจาก",
+    "content_type": "service",
+    "category": "fuel",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 13.6596709,
+      "longitude": 101.1258499
+    },
+    "metadata": {
+      "category_label": "ปั๊มน้ำมัน",
+      "opening_hours": null,
+      "phone": null,
+      "website": "https://www.bangchak.co.th/",
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/node/2640779921",
+    "collected_at": "2026-08-21T05:34:13.196029+00:00"
+  },
+  {
+    "id": "osm-node-2676347590",
+    "title": "PT",
+    "content_type": "service",
+    "category": "fuel",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 13.6400952,
+      "longitude": 101.2958552
+    },
+    "metadata": {
+      "category_label": "ปั๊มน้ำมัน",
+      "opening_hours": null,
+      "phone": null,
+      "website": null,
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/node/2676347590",
+    "collected_at": "2026-08-21T05:34:13.196231+00:00"
+  },
+  {
+    "id": "osm-node-2676347595",
+    "title": "PT",
+    "content_type": "service",
+    "category": "fuel",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 13.6904747,
+      "longitude": 101.2659492
+    },
+    "metadata": {
+      "category_label": "ปั๊มน้ำมัน",
+      "opening_hours": null,
+      "phone": null,
+      "website": null,
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/node/2676347595",
+    "collected_at": "2026-08-21T05:34:13.196365+00:00"
+  },
+  {
+    "id": "osm-node-2676347600",
+    "title": "ป.ต.ท.",
+    "content_type": "service",
+    "category": "fuel",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 13.7310053,
+      "longitude": 101.3337499
+    },
+    "metadata": {
+      "category_label": "ปั๊มน้ำมัน",
+      "opening_hours": null,
+      "phone": null,
+      "website": "www.pttplc.com",
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/node/2676347600",
+    "collected_at": "2026-08-21T05:34:13.196500+00:00"
+  },
+  {
+    "id": "osm-node-2676347601",
+    "title": "ป.ต.ท.",
+    "content_type": "service",
+    "category": "fuel",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 13.7539334,
+      "longitude": 101.3697837
+    },
+    "metadata": {
+      "category_label": "ปั๊มน้ำมัน",
+      "opening_hours": null,
+      "phone": null,
+      "website": "www.pttplc.com",
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/node/2676347601",
+    "collected_at": "2026-08-21T05:34:13.196616+00:00"
+  },
+  {
+    "id": "osm-node-3418083392",
+    "title": "PTT",
+    "content_type": "service",
+    "category": "fuel",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 13.6612485,
+      "longitude": 101.1186146
+    },
+    "metadata": {
+      "category_label": "ปั๊มน้ำมัน",
+      "opening_hours": null,
+      "phone": null,
+      "website": null,
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/node/3418083392",
+    "collected_at": "2026-08-21T05:34:13.196740+00:00"
+  },
+  {
+    "id": "osm-node-3504743739",
+    "title": "Unique Gas",
+    "content_type": "service",
+    "category": "fuel",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 13.8658419,
+      "longitude": 101.4185714
+    },
+    "metadata": {
+      "category_label": "ปั๊มน้ำมัน",
+      "opening_hours": null,
+      "phone": null,
+      "website": null,
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/node/3504743739",
+    "collected_at": "2026-08-21T05:34:13.197942+00:00"
+  },
+  {
+    "id": "osm-node-4036101216",
+    "title": "สถานีบริการแก๊สแอลพีจี (บ.ลลิตาภัทรา จำกัด)",
+    "content_type": "service",
+    "category": "fuel",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 13.8760631,
+      "longitude": 101.5629169
+    },
+    "metadata": {
+      "category_label": "ปั๊มน้ำมัน",
+      "opening_hours": null,
+      "phone": null,
+      "website": null,
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/node/4036101216",
+    "collected_at": "2026-08-21T05:34:13.198095+00:00"
+  },
+  {
+    "id": "osm-node-4234962670",
+    "title": "PT",
+    "content_type": "service",
+    "category": "fuel",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 13.6254705,
+      "longitude": 101.1081407
+    },
+    "metadata": {
+      "category_label": "ปั๊มน้ำมัน",
+      "opening_hours": null,
+      "phone": null,
+      "website": null,
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/node/4234962670",
+    "collected_at": "2026-08-21T05:34:13.198223+00:00"
+  },
+  {
+    "id": "osm-node-4234962671",
+    "title": "PTT",
+    "content_type": "service",
+    "category": "fuel",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 13.6142704,
+      "longitude": 101.1126321
+    },
+    "metadata": {
+      "category_label": "ปั๊มน้ำมัน",
+      "opening_hours": null,
+      "phone": null,
+      "website": null,
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/node/4234962671",
+    "collected_at": "2026-08-21T05:34:13.198373+00:00"
+  },
+  {
+    "id": "osm-node-4234962672",
+    "title": "Shell",
+    "content_type": "service",
+    "category": "fuel",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 13.6033619,
+      "longitude": 101.1168499
+    },
+    "metadata": {
+      "category_label": "ปั๊มน้ำมัน",
+      "opening_hours": null,
+      "phone": null,
+      "website": null,
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/node/4234962672",
+    "collected_at": "2026-08-21T05:34:13.198597+00:00"
+  },
+  {
+    "id": "osm-node-4345343819",
+    "title": "Shell",
+    "content_type": "service",
+    "category": "fuel",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 13.8975391,
+      "longitude": 101.5895968
+    },
+    "metadata": {
+      "category_label": "ปั๊มน้ำมัน",
+      "opening_hours": null,
+      "phone": null,
+      "website": null,
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/node/4345343819",
+    "collected_at": "2026-08-21T05:34:13.198733+00:00"
+  },
+  {
+    "id": "osm-node-4345349349",
+    "title": "Esso",
+    "content_type": "service",
+    "category": "fuel",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 13.9155817,
+      "longitude": 101.5744481
+    },
+    "metadata": {
+      "category_label": "ปั๊มน้ำมัน",
+      "opening_hours": null,
+      "phone": null,
+      "website": null,
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/node/4345349349",
+    "collected_at": "2026-08-21T05:34:13.198853+00:00"
+  },
+  {
+    "id": "osm-node-4873887053",
+    "title": "Shell Station",
+    "content_type": "service",
+    "category": "fuel",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 13.6631563,
+      "longitude": 101.101538
+    },
+    "metadata": {
+      "category_label": "ปั๊มน้ำมัน",
+      "opening_hours": null,
+      "phone": null,
+      "website": null,
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/node/4873887053",
+    "collected_at": "2026-08-21T05:34:13.198975+00:00"
+  },
+  {
+    "id": "osm-node-4873887054",
+    "title": "PT Station",
+    "content_type": "service",
+    "category": "fuel",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 13.6616897,
+      "longitude": 101.1642187
+    },
+    "metadata": {
+      "category_label": "ปั๊มน้ำมัน",
+      "opening_hours": null,
+      "phone": null,
+      "website": null,
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/node/4873887054",
+    "collected_at": "2026-08-21T05:34:13.199097+00:00"
+  },
+  {
+    "id": "osm-node-4873887056",
+    "title": "PT Station",
+    "content_type": "service",
+    "category": "fuel",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 13.7657105,
+      "longitude": 101.5188553
+    },
+    "metadata": {
+      "category_label": "ปั๊มน้ำมัน",
+      "opening_hours": null,
+      "phone": null,
+      "website": null,
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/node/4873887056",
+    "collected_at": "2026-08-21T05:34:13.199313+00:00"
+  },
+  {
+    "id": "osm-node-4873887057",
+    "title": "Petro Station",
+    "content_type": "service",
+    "category": "fuel",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 13.8881889,
+      "longitude": 101.5722778
+    },
+    "metadata": {
+      "category_label": "ปั๊มน้ำมัน",
+      "opening_hours": null,
+      "phone": null,
+      "website": null,
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/node/4873887057",
+    "collected_at": "2026-08-21T05:34:13.199485+00:00"
+  },
+  {
+    "id": "osm-node-4873907846",
+    "title": "PT LPG Station",
+    "content_type": "service",
+    "category": "fuel",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 13.6599647,
+      "longitude": 101.1239887
+    },
+    "metadata": {
+      "category_label": "ปั๊มน้ำมัน",
+      "opening_hours": null,
+      "phone": null,
+      "website": null,
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/node/4873907846",
+    "collected_at": "2026-08-21T05:34:13.199618+00:00"
+  },
+  {
+    "id": "osm-node-4873907847",
+    "title": "PTT / Jiffy Station",
+    "content_type": "service",
+    "category": "fuel",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 13.6660373,
+      "longitude": 101.1847033
+    },
+    "metadata": {
+      "category_label": "ปั๊มน้ำมัน",
+      "opening_hours": null,
+      "phone": null,
+      "website": null,
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/node/4873907847",
+    "collected_at": "2026-08-21T05:34:13.199740+00:00"
+  },
+  {
+    "id": "osm-node-4873907937",
+    "title": "PTT LPG Station",
+    "content_type": "service",
+    "category": "fuel",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 13.6674769,
+      "longitude": 101.1917091
+    },
+    "metadata": {
+      "category_label": "ปั๊มน้ำมัน",
+      "opening_hours": null,
+      "phone": null,
+      "website": null,
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/node/4873907937",
+    "collected_at": "2026-08-21T05:34:13.199859+00:00"
+  },
+  {
+    "id": "osm-node-5323879629",
+    "title": "Shell Station",
+    "content_type": "service",
+    "category": "fuel",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 13.7624792,
+      "longitude": 101.5128915
+    },
+    "metadata": {
+      "category_label": "ปั๊มน้ำมัน",
+      "opening_hours": null,
+      "phone": null,
+      "website": null,
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/node/5323879629",
+    "collected_at": "2026-08-21T05:34:13.200096+00:00"
+  },
+  {
+    "id": "osm-node-5323879724",
+    "title": "Caltex Station",
+    "content_type": "service",
+    "category": "fuel",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 13.6593652,
+      "longitude": 101.1222909
+    },
+    "metadata": {
+      "category_label": "ปั๊มน้ำมัน",
+      "opening_hours": null,
+      "phone": null,
+      "website": null,
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/node/5323879724",
+    "collected_at": "2026-08-21T05:34:13.200321+00:00"
+  },
+  {
+    "id": "osm-node-5434456621",
+    "title": "Bangchak Station",
+    "content_type": "service",
+    "category": "fuel",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 13.6731659,
+      "longitude": 101.2130031
+    },
+    "metadata": {
+      "category_label": "ปั๊มน้ำมัน",
+      "opening_hours": null,
+      "phone": null,
+      "website": null,
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/node/5434456621",
+    "collected_at": "2026-08-21T05:34:13.200479+00:00"
+  },
+  {
+    "id": "osm-node-5434456622",
+    "title": "ESSO LPG Station",
+    "content_type": "service",
+    "category": "fuel",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 13.6715825,
+      "longitude": 101.2091936
+    },
+    "metadata": {
+      "category_label": "ปั๊มน้ำมัน",
+      "opening_hours": null,
+      "phone": null,
+      "website": null,
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/node/5434456622",
+    "collected_at": "2026-08-21T05:34:13.200627+00:00"
+  },
+  {
+    "id": "osm-node-5549382249",
+    "title": "PT Station",
+    "content_type": "service",
+    "category": "fuel",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 13.6586482,
+      "longitude": 101.1440984
+    },
+    "metadata": {
+      "category_label": "ปั๊มน้ำมัน",
+      "opening_hours": null,
+      "phone": null,
+      "website": null,
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/node/5549382249",
+    "collected_at": "2026-08-21T05:34:13.201342+00:00"
+  },
+  {
+    "id": "osm-node-5549382250",
+    "title": "Shell Station",
+    "content_type": "service",
+    "category": "fuel",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 13.6702561,
+      "longitude": 101.2036682
+    },
+    "metadata": {
+      "category_label": "ปั๊มน้ำมัน",
+      "opening_hours": null,
+      "phone": null,
+      "website": null,
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/node/5549382250",
+    "collected_at": "2026-08-21T05:34:13.201471+00:00"
+  },
+  {
+    "id": "osm-node-5549403421",
+    "title": "Petro Station",
+    "content_type": "service",
+    "category": "fuel",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 13.8243723,
+      "longitude": 101.5476312
+    },
+    "metadata": {
+      "category_label": "ปั๊มน้ำมัน",
+      "opening_hours": null,
+      "phone": null,
+      "website": null,
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/node/5549403421",
+    "collected_at": "2026-08-21T05:34:13.201592+00:00"
+  },
+  {
+    "id": "osm-node-6275677485",
+    "title": "Shell",
+    "content_type": "service",
+    "category": "fuel",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 13.7784469,
+      "longitude": 101.5251811
+    },
+    "metadata": {
+      "category_label": "ปั๊มน้ำมัน",
+      "opening_hours": null,
+      "phone": null,
+      "website": null,
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/node/6275677485",
+    "collected_at": "2026-08-21T05:34:13.201710+00:00"
+  },
+  {
+    "id": "osm-node-12532835756",
+    "title": "PT",
+    "content_type": "service",
+    "category": "fuel",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 13.6770683,
+      "longitude": 101.4273484
+    },
+    "metadata": {
+      "category_label": "ปั๊มน้ำมัน",
+      "opening_hours": null,
+      "phone": null,
+      "website": null,
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/node/12532835756",
+    "collected_at": "2026-08-21T05:34:13.201892+00:00"
+  },
+  {
+    "id": "osm-node-12532874888",
+    "title": "Ptt",
+    "content_type": "service",
+    "category": "fuel",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 13.6646977,
+      "longitude": 101.4355759
+    },
+    "metadata": {
+      "category_label": "ปั๊มน้ำมัน",
+      "opening_hours": null,
+      "phone": null,
+      "website": null,
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/node/12532874888",
+    "collected_at": "2026-08-21T05:34:13.202019+00:00"
+  },
+  {
+    "id": "osm-node-12680192176",
+    "title": "Shell",
+    "content_type": "service",
+    "category": "fuel",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 13.5961267,
+      "longitude": 101.2990518
+    },
+    "metadata": {
+      "category_label": "ปั๊มน้ำมัน",
+      "opening_hours": null,
+      "phone": null,
+      "website": null,
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/node/12680192176",
+    "collected_at": "2026-08-21T05:34:13.202151+00:00"
+  },
+  {
+    "id": "osm-node-12680410513",
+    "title": "NGV",
+    "content_type": "service",
+    "category": "fuel",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 13.5540757,
+      "longitude": 101.2659803
+    },
+    "metadata": {
+      "category_label": "ปั๊มน้ำมัน",
+      "opening_hours": null,
+      "phone": null,
+      "website": null,
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/node/12680410513",
+    "collected_at": "2026-08-21T05:34:13.202271+00:00"
+  },
+  {
+    "id": "osm-node-12680417582",
+    "title": "LPG",
+    "content_type": "service",
+    "category": "fuel",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 13.6714149,
+      "longitude": 101.3959628
+    },
+    "metadata": {
+      "category_label": "ปั๊มน้ำมัน",
+      "opening_hours": null,
+      "phone": null,
+      "website": null,
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/node/12680417582",
+    "collected_at": "2026-08-21T05:34:13.202390+00:00"
+  },
+  {
+    "id": "osm-node-12680417584",
+    "title": "บางจาก",
+    "content_type": "service",
+    "category": "fuel",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 13.6634854,
+      "longitude": 101.3799685
+    },
+    "metadata": {
+      "category_label": "ปั๊มน้ำมัน",
+      "opening_hours": null,
+      "phone": null,
+      "website": null,
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/node/12680417584",
+    "collected_at": "2026-08-21T05:34:13.202517+00:00"
+  },
+  {
+    "id": "osm-node-12680461536",
+    "title": "PT",
+    "content_type": "service",
+    "category": "fuel",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 13.7281626,
+      "longitude": 101.377393
+    },
+    "metadata": {
+      "category_label": "ปั๊มน้ำมัน",
+      "opening_hours": null,
+      "phone": null,
+      "website": null,
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/node/12680461536",
+    "collected_at": "2026-08-21T05:34:13.202763+00:00"
+  },
+  {
+    "id": "osm-way-343658877",
+    "title": "ป.ต.ท.",
+    "content_type": "service",
+    "category": "fuel",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 13.7381978,
+      "longitude": 101.3390802
+    },
+    "metadata": {
+      "category_label": "ปั๊มน้ำมัน",
+      "opening_hours": null,
+      "phone": null,
+      "website": "www.pttplc.com",
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/way/343658877",
+    "collected_at": "2026-08-21T05:34:13.202955+00:00"
+  },
+  {
+    "id": "osm-way-343658884",
+    "title": "LPG Station",
+    "content_type": "service",
+    "category": "fuel",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 13.7375485,
+      "longitude": 101.3386435
+    },
+    "metadata": {
+      "category_label": "ปั๊มน้ำมัน",
+      "opening_hours": null,
+      "phone": null,
+      "website": null,
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/way/343658884",
+    "collected_at": "2026-08-21T05:34:13.203175+00:00"
+  },
+  {
+    "id": "osm-way-343660968",
+    "title": "Caltex",
+    "content_type": "service",
+    "category": "fuel",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 13.7480311,
+      "longitude": 101.3587929
+    },
+    "metadata": {
+      "category_label": "ปั๊มน้ำมัน",
+      "opening_hours": null,
+      "phone": null,
+      "website": null,
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/way/343660968",
+    "collected_at": "2026-08-21T05:34:13.203338+00:00"
+  },
+  {
+    "id": "osm-way-343660985",
+    "title": "PT",
+    "content_type": "service",
+    "category": "fuel",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 13.7514336,
+      "longitude": 101.3639951
+    },
+    "metadata": {
+      "category_label": "ปั๊มน้ำมัน",
+      "opening_hours": null,
+      "phone": null,
+      "website": null,
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/way/343660985",
+    "collected_at": "2026-08-21T05:34:13.203492+00:00"
+  },
+  {
+    "id": "osm-way-343664087",
+    "title": "PT",
+    "content_type": "service",
+    "category": "fuel",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 13.771561,
+      "longitude": 101.3856883
+    },
+    "metadata": {
+      "category_label": "ปั๊มน้ำมัน",
+      "opening_hours": null,
+      "phone": null,
+      "website": null,
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/way/343664087",
+    "collected_at": "2026-08-21T05:34:13.203617+00:00"
+  },
+  {
+    "id": "osm-way-343664089",
+    "title": "PTT",
+    "content_type": "service",
+    "category": "fuel",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 13.7669957,
+      "longitude": 101.3831904
+    },
+    "metadata": {
+      "category_label": "ปั๊มน้ำมัน",
+      "opening_hours": null,
+      "phone": null,
+      "website": null,
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/way/343664089",
+    "collected_at": "2026-08-21T05:34:13.203741+00:00"
+  },
+  {
+    "id": "osm-way-343665100",
+    "title": "Independent Fuel Station",
+    "content_type": "service",
+    "category": "fuel",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 13.7783195,
+      "longitude": 101.391624
+    },
+    "metadata": {
+      "category_label": "ปั๊มน้ำมัน",
+      "opening_hours": null,
+      "phone": null,
+      "website": null,
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/way/343665100",
+    "collected_at": "2026-08-21T05:34:13.203905+00:00"
+  },
+  {
+    "id": "osm-way-343670272",
+    "title": "Bangchak",
+    "content_type": "service",
+    "category": "fuel",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 13.870658,
+      "longitude": 101.415571
+    },
+    "metadata": {
+      "category_label": "ปั๊มน้ำมัน",
+      "opening_hours": null,
+      "phone": null,
+      "website": null,
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/way/343670272",
+    "collected_at": "2026-08-21T05:34:13.204035+00:00"
+  },
+  {
+    "id": "osm-way-441575079",
+    "title": "PT",
+    "content_type": "service",
+    "category": "fuel",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 13.8508237,
+      "longitude": 101.5550691
+    },
+    "metadata": {
+      "category_label": "ปั๊มน้ำมัน",
+      "opening_hours": null,
+      "phone": null,
+      "website": null,
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/way/441575079",
+    "collected_at": "2026-08-21T05:34:13.204165+00:00"
+  },
+  {
+    "id": "osm-way-485484729",
+    "title": "Poon Suk Oil",
+    "content_type": "service",
+    "category": "fuel",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 13.5867923,
+      "longitude": 101.2885815
+    },
+    "metadata": {
+      "category_label": "ปั๊มน้ำมัน",
+      "opening_hours": null,
+      "phone": null,
+      "website": null,
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/way/485484729",
+    "collected_at": "2026-08-21T05:34:13.204290+00:00"
+  },
+  {
+    "id": "osm-way-485488122",
+    "title": "PTT",
+    "content_type": "service",
+    "category": "fuel",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 13.60946,
+      "longitude": 101.3067166
+    },
+    "metadata": {
+      "category_label": "ปั๊มน้ำมัน",
+      "opening_hours": null,
+      "phone": null,
+      "website": "https://www.pttplc.com",
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/way/485488122",
+    "collected_at": "2026-08-21T05:34:13.204413+00:00"
+  },
+  {
+    "id": "osm-way-485488146",
+    "title": "Caltex",
+    "content_type": "service",
+    "category": "fuel",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 13.615577,
+      "longitude": 101.3101848
+    },
+    "metadata": {
+      "category_label": "ปั๊มน้ำมัน",
+      "opening_hours": null,
+      "phone": null,
+      "website": null,
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/way/485488146",
+    "collected_at": "2026-08-21T05:34:13.204560+00:00"
+  },
+  {
+    "id": "osm-way-485522192",
+    "title": "PTT",
+    "content_type": "service",
+    "category": "fuel",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 13.7712291,
+      "longitude": 101.5227982
+    },
+    "metadata": {
+      "category_label": "ปั๊มน้ำมัน",
+      "opening_hours": null,
+      "phone": null,
+      "website": "https://www.pttplc.com",
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/way/485522192",
+    "collected_at": "2026-08-21T05:34:13.204688+00:00"
+  },
+  {
+    "id": "osm-way-776185373",
+    "title": "PTT",
+    "content_type": "service",
+    "category": "fuel",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 13.7518463,
+      "longitude": 101.4956227
+    },
+    "metadata": {
+      "category_label": "ปั๊มน้ำมัน",
+      "opening_hours": null,
+      "phone": null,
+      "website": "https://www.pttplc.com",
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/way/776185373",
+    "collected_at": "2026-08-21T05:34:13.205252+00:00"
+  },
+  {
+    "id": "osm-way-776400524",
+    "title": "PTT Fill and Go",
+    "content_type": "service",
+    "category": "fuel",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 13.6092491,
+      "longitude": 101.3070791
+    },
+    "metadata": {
+      "category_label": "ปั๊มน้ำมัน",
+      "opening_hours": null,
+      "phone": null,
+      "website": "https://www.pttplc.com",
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/way/776400524",
+    "collected_at": "2026-08-21T05:34:13.205405+00:00"
+  },
+  {
+    "id": "osm-way-907009154",
+    "title": "Bangchak",
+    "content_type": "service",
+    "category": "fuel",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 13.5770519,
+      "longitude": 101.2771283
+    },
+    "metadata": {
+      "category_label": "ปั๊มน้ำมัน",
+      "opening_hours": null,
+      "phone": null,
+      "website": null,
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/way/907009154",
+    "collected_at": "2026-08-21T05:34:13.205487+00:00"
+  },
+  {
+    "id": "osm-node-1241591114",
+    "title": "NGV",
+    "content_type": "service",
+    "category": "fuel",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 13.7708243,
+      "longitude": 102.0222039
+    },
+    "metadata": {
+      "category_label": "ปั๊มน้ำมัน",
+      "opening_hours": null,
+      "phone": null,
+      "website": null,
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/node/1241591114",
+    "collected_at": "2026-08-21T05:34:13.205576+00:00"
+  },
+  {
+    "id": "osm-node-2127765598",
+    "title": "เอสโซ่",
+    "content_type": "service",
+    "category": "fuel",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 13.6732551,
+      "longitude": 102.0791544
+    },
+    "metadata": {
+      "category_label": "ปั๊มน้ำมัน",
+      "opening_hours": null,
+      "phone": null,
+      "website": "https://www.esso.co.th/",
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/node/2127765598",
+    "collected_at": "2026-08-21T05:34:13.205653+00:00"
+  },
+  {
+    "id": "osm-node-2146335008",
+    "title": "Green Lemon",
+    "content_type": "service",
+    "category": "fuel",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 13.7707873,
+      "longitude": 102.0315528
+    },
+    "metadata": {
+      "category_label": "ปั๊มน้ำมัน",
+      "opening_hours": null,
+      "phone": null,
+      "website": null,
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/node/2146335008",
+    "collected_at": "2026-08-21T05:34:13.205786+00:00"
+  },
+  {
+    "id": "osm-node-2146335014",
+    "title": "PT",
+    "content_type": "service",
+    "category": "fuel",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 13.7719458,
+      "longitude": 102.0141506
+    },
+    "metadata": {
+      "category_label": "ปั๊มน้ำมัน",
+      "opening_hours": null,
+      "phone": null,
+      "website": null,
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/node/2146335014",
+    "collected_at": "2026-08-21T05:34:13.205885+00:00"
+  },
+  {
+    "id": "osm-node-2151397748",
+    "title": "PT",
+    "content_type": "service",
+    "category": "fuel",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 13.7742863,
+      "longitude": 101.8718584
+    },
+    "metadata": {
+      "category_label": "ปั๊มน้ำมัน",
+      "opening_hours": null,
+      "phone": null,
+      "website": null,
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/node/2151397748",
+    "collected_at": "2026-08-21T05:34:13.205965+00:00"
+  },
+  {
+    "id": "osm-node-2151397749",
+    "title": "เชลล์",
+    "content_type": "service",
+    "category": "fuel",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 13.7766365,
+      "longitude": 101.8892423
+    },
+    "metadata": {
+      "category_label": "ปั๊มน้ำมัน",
+      "opening_hours": null,
+      "phone": null,
+      "website": "https://www.shell.co.th/",
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/node/2151397749",
+    "collected_at": "2026-08-21T05:34:13.206046+00:00"
+  },
+  {
+    "id": "osm-node-2174718705",
+    "title": "คาลเท็กซ์",
+    "content_type": "service",
+    "category": "fuel",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 13.7709337,
+      "longitude": 102.0231286
+    },
+    "metadata": {
+      "category_label": "ปั๊มน้ำมัน",
+      "opening_hours": null,
+      "phone": null,
+      "website": "https://www.caltex.com/",
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/node/2174718705",
+    "collected_at": "2026-08-21T05:34:13.206121+00:00"
+  },
+  {
+    "id": "osm-node-2643944277",
+    "title": "ป.ต.ท.",
+    "content_type": "service",
+    "category": "fuel",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 13.8011505,
+      "longitude": 102.1159096
+    },
+    "metadata": {
+      "category_label": "ปั๊มน้ำมัน",
+      "opening_hours": null,
+      "phone": null,
+      "website": "www.pttplc.com",
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/node/2643944277",
+    "collected_at": "2026-08-21T05:34:13.206200+00:00"
+  },
+  {
+    "id": "osm-node-2647810829",
+    "title": "ป.ต.ท.",
+    "content_type": "service",
+    "category": "fuel",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 13.9836253,
+      "longitude": 101.7758207
+    },
+    "metadata": {
+      "category_label": "ปั๊มน้ำมัน",
+      "opening_hours": null,
+      "phone": null,
+      "website": null,
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/node/2647810829",
+    "collected_at": "2026-08-21T05:34:13.206290+00:00"
+  },
+  {
+    "id": "osm-node-4569640790",
+    "title": "ปั้ม​ ngv ปตท",
+    "content_type": "service",
+    "category": "fuel",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 13.7712998,
+      "longitude": 102.0676794
+    },
+    "metadata": {
+      "category_label": "ปั๊มน้ำมัน",
+      "opening_hours": null,
+      "phone": null,
+      "website": null,
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/node/4569640790",
+    "collected_at": "2026-08-21T05:34:13.206421+00:00"
+  },
+  {
+    "id": "osm-node-4772543425",
+    "title": "ปั้มน้ำมัน​ ปตท.",
+    "content_type": "service",
+    "category": "fuel",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 13.7701554,
+      "longitude": 102.0774767
+    },
+    "metadata": {
+      "category_label": "ปั๊มน้ำมัน",
+      "opening_hours": null,
+      "phone": null,
+      "website": null,
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/node/4772543425",
+    "collected_at": "2026-08-21T05:34:13.206513+00:00"
+  },
+  {
+    "id": "osm-node-5323863727",
+    "title": "ESSO Station",
+    "content_type": "service",
+    "category": "fuel",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 13.9843693,
+      "longitude": 101.7847093
+    },
+    "metadata": {
+      "category_label": "ปั๊มน้ำมัน",
+      "opening_hours": null,
+      "phone": null,
+      "website": null,
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/node/5323863727",
+    "collected_at": "2026-08-21T05:34:13.206591+00:00"
+  },
+  {
+    "id": "osm-node-5323863728",
+    "title": "ESSO Station",
+    "content_type": "service",
+    "category": "fuel",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 13.8828419,
+      "longitude": 102.0026195
+    },
+    "metadata": {
+      "category_label": "ปั๊มน้ำมัน",
+      "opening_hours": null,
+      "phone": null,
+      "website": null,
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/node/5323863728",
+    "collected_at": "2026-08-21T05:34:13.206663+00:00"
+  },
+  {
+    "id": "osm-node-5323863922",
+    "title": "PTT Station",
+    "content_type": "service",
+    "category": "fuel",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 13.9016847,
+      "longitude": 101.9795788
+    },
+    "metadata": {
+      "category_label": "ปั๊มน้ำมัน",
+      "opening_hours": null,
+      "phone": null,
+      "website": null,
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/node/5323863922",
+    "collected_at": "2026-08-21T05:34:13.206733+00:00"
+  },
+  {
+    "id": "osm-node-5323863926",
+    "title": "Pure Station",
+    "content_type": "service",
+    "category": "fuel",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 13.7840129,
+      "longitude": 102.1636109
+    },
+    "metadata": {
+      "category_label": "ปั๊มน้ำมัน",
+      "opening_hours": null,
+      "phone": null,
+      "website": null,
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/node/5323863926",
+    "collected_at": "2026-08-21T05:34:13.206803+00:00"
+  },
+  {
+    "id": "osm-node-5323881322",
+    "title": "PT Station",
+    "content_type": "service",
+    "category": "fuel",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 13.9783624,
+      "longitude": 101.8211638
+    },
+    "metadata": {
+      "category_label": "ปั๊มน้ำมัน",
+      "opening_hours": null,
+      "phone": null,
+      "website": null,
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/node/5323881322",
+    "collected_at": "2026-08-21T05:34:13.206874+00:00"
+  },
+  {
+    "id": "osm-node-5434377521",
+    "title": "Caltex Station",
+    "content_type": "service",
+    "category": "fuel",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 13.9843899,
+      "longitude": 101.7723581
+    },
+    "metadata": {
+      "category_label": "ปั๊มน้ำมัน",
+      "opening_hours": null,
+      "phone": null,
+      "website": null,
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/node/5434377521",
+    "collected_at": "2026-08-21T05:34:13.206963+00:00"
+  },
+  {
+    "id": "osm-node-5434377524",
+    "title": "PT Station",
+    "content_type": "service",
+    "category": "fuel",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 13.9507163,
+      "longitude": 101.7157735
+    },
+    "metadata": {
+      "category_label": "ปั๊มน้ำมัน",
+      "opening_hours": "Mo-Su,PH 08:00-08:00",
+      "phone": null,
+      "website": null,
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/node/5434377524",
+    "collected_at": "2026-08-21T05:34:13.207045+00:00"
+  },
+  {
+    "id": "osm-node-5434377621",
+    "title": "PT LPG Station",
+    "content_type": "service",
+    "category": "fuel",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 13.9438544,
+      "longitude": 101.7056402
+    },
+    "metadata": {
+      "category_label": "ปั๊มน้ำมัน",
+      "opening_hours": null,
+      "phone": null,
+      "website": null,
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/node/5434377621",
+    "collected_at": "2026-08-21T05:34:13.207118+00:00"
+  },
+  {
+    "id": "osm-node-5549382252",
+    "title": "PT Station",
+    "content_type": "service",
+    "category": "fuel",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 13.9142188,
+      "longitude": 101.9424514
+    },
+    "metadata": {
+      "category_label": "ปั๊มน้ำมัน",
+      "opening_hours": null,
+      "phone": null,
+      "website": null,
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/node/5549382252",
+    "collected_at": "2026-08-21T05:34:13.207192+00:00"
+  },
+  {
+    "id": "osm-node-5549382253",
+    "title": "บางจาก",
+    "content_type": "service",
+    "category": "fuel",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 13.8833688,
+      "longitude": 102.0034542
+    },
+    "metadata": {
+      "category_label": "ปั๊มน้ำมัน",
+      "opening_hours": null,
+      "phone": null,
+      "website": null,
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/node/5549382253",
+    "collected_at": "2026-08-21T05:34:13.207279+00:00"
+  },
+  {
+    "id": "osm-node-5549382254",
+    "title": "PT Station",
+    "content_type": "service",
+    "category": "fuel",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 13.8410635,
+      "longitude": 102.0456075
+    },
+    "metadata": {
+      "category_label": "ปั๊มน้ำมัน",
+      "opening_hours": null,
+      "phone": null,
+      "website": null,
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/node/5549382254",
+    "collected_at": "2026-08-21T05:34:13.207356+00:00"
+  },
+  {
+    "id": "osm-node-5549403422",
+    "title": "PT Station",
+    "content_type": "service",
+    "category": "fuel",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 13.9090717,
+      "longitude": 101.9576116
+    },
+    "metadata": {
+      "category_label": "ปั๊มน้ำมัน",
+      "opening_hours": null,
+      "phone": null,
+      "website": null,
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/node/5549403422",
+    "collected_at": "2026-08-21T05:34:13.207430+00:00"
+  },
+  {
+    "id": "osm-node-5549403522",
+    "title": "PT LPG Station",
+    "content_type": "service",
+    "category": "fuel",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 13.8024081,
+      "longitude": 102.0914083
+    },
+    "metadata": {
+      "category_label": "ปั๊มน้ำมัน",
+      "opening_hours": null,
+      "phone": null,
+      "website": null,
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/node/5549403522",
+    "collected_at": "2026-08-21T05:34:13.207518+00:00"
+  },
+  {
+    "id": "osm-node-5549403523",
+    "title": "PT Station",
+    "content_type": "service",
+    "category": "fuel",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 13.8001629,
+      "longitude": 102.1228265
+    },
+    "metadata": {
+      "category_label": "ปั๊มน้ำมัน",
+      "opening_hours": null,
+      "phone": null,
+      "website": null,
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/node/5549403523",
+    "collected_at": "2026-08-21T05:34:13.207597+00:00"
+  },
+  {
+    "id": "osm-node-6274486586",
+    "title": "Caltex",
+    "content_type": "service",
+    "category": "fuel",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 13.7660687,
+      "longitude": 101.6606561
+    },
+    "metadata": {
+      "category_label": "ปั๊มน้ำมัน",
+      "opening_hours": null,
+      "phone": null,
+      "website": null,
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/node/6274486586",
+    "collected_at": "2026-08-21T05:34:13.207677+00:00"
+  },
+  {
+    "id": "osm-node-12681994113",
+    "title": "PTT Station",
+    "content_type": "service",
+    "category": "fuel",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 13.8408315,
+      "longitude": 102.0440348
+    },
+    "metadata": {
+      "category_label": "ปั๊มน้ำมัน",
+      "opening_hours": null,
+      "phone": null,
+      "website": null,
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/node/12681994113",
+    "collected_at": "2026-08-21T05:34:13.207766+00:00"
+  },
+  {
+    "id": "osm-node-12681996408",
+    "title": "PT",
+    "content_type": "service",
+    "category": "fuel",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 13.8376026,
+      "longitude": 102.0500406
+    },
+    "metadata": {
+      "category_label": "ปั๊มน้ำมัน",
+      "opening_hours": null,
+      "phone": null,
+      "website": null,
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/node/12681996408",
+    "collected_at": "2026-08-21T05:34:13.207840+00:00"
+  },
+  {
+    "id": "osm-node-13398041972",
+    "title": "PTT",
+    "content_type": "service",
+    "category": "fuel",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 13.9793547,
+      "longitude": 101.756862
+    },
+    "metadata": {
+      "category_label": "ปั๊มน้ำมัน",
+      "opening_hours": null,
+      "phone": null,
+      "website": null,
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/node/13398041972",
+    "collected_at": "2026-08-21T05:34:13.207939+00:00"
+  },
+  {
+    "id": "osm-way-482936825",
+    "title": "Shell",
+    "content_type": "service",
+    "category": "fuel",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 13.9896972,
+      "longitude": 101.7636227
+    },
+    "metadata": {
+      "category_label": "ปั๊มน้ำมัน",
+      "opening_hours": null,
+      "phone": null,
+      "website": null,
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/way/482936825",
+    "collected_at": "2026-08-21T05:34:13.208032+00:00"
+  },
+  {
+    "id": "osm-way-482939106",
+    "title": "PTT",
+    "content_type": "service",
+    "category": "fuel",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 13.9793621,
+      "longitude": 101.7523982
+    },
+    "metadata": {
+      "category_label": "ปั๊มน้ำมัน",
+      "opening_hours": "24/7",
+      "phone": null,
+      "website": null,
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/way/482939106",
+    "collected_at": "2026-08-21T05:34:13.208114+00:00"
+  },
+  {
+    "id": "osm-way-907084421",
+    "title": "Caltex",
+    "content_type": "service",
+    "category": "fuel",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 13.9936588,
+      "longitude": 101.7632014
+    },
+    "metadata": {
+      "category_label": "ปั๊มน้ำมัน",
+      "opening_hours": null,
+      "phone": null,
+      "website": null,
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/way/907084421",
+    "collected_at": "2026-08-21T05:34:13.208205+00:00"
+  },
+  {
+    "id": "osm-way-1358892387",
+    "title": "บางจาก",
+    "content_type": "service",
+    "category": "fuel",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 13.8236602,
+      "longitude": 102.0641471
+    },
+    "metadata": {
+      "category_label": "ปั๊มน้ำมัน",
+      "opening_hours": null,
+      "phone": null,
+      "website": null,
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/way/1358892387",
+    "collected_at": "2026-08-21T05:34:13.208286+00:00"
+  },
+  {
+    "id": "osm-way-1358892397",
+    "title": "LPG Station",
+    "content_type": "service",
+    "category": "fuel",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 13.8325476,
+      "longitude": 102.0555945
+    },
+    "metadata": {
+      "category_label": "ปั๊มน้ำมัน",
+      "opening_hours": null,
+      "phone": null,
+      "website": null,
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/way/1358892397",
+    "collected_at": "2026-08-21T05:34:13.208372+00:00"
+  },
+  {
+    "id": "osm-way-1358892399",
+    "title": "บางจาก",
+    "content_type": "service",
+    "category": "fuel",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 13.8351343,
+      "longitude": 102.0517678
+    },
+    "metadata": {
+      "category_label": "ปั๊มน้ำมัน",
+      "opening_hours": null,
+      "phone": null,
+      "website": null,
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/way/1358892399",
+    "collected_at": "2026-08-21T05:34:13.208450+00:00"
+  },
+  {
+    "id": "osm-node-1653910064",
+    "title": "ป.ต.ท.",
+    "content_type": "service",
+    "category": "fuel",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 14.1312237,
+      "longitude": 101.4455896
+    },
+    "metadata": {
+      "category_label": "ปั๊มน้ำมัน",
+      "opening_hours": null,
+      "phone": null,
+      "website": "www.pttplc.com",
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/node/1653910064",
+    "collected_at": "2026-08-21T05:34:13.208534+00:00"
+  },
+  {
+    "id": "osm-node-1653910065",
+    "title": "ป.ต.ท.",
+    "content_type": "service",
+    "category": "fuel",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 14.1496232,
+      "longitude": 101.2949775
+    },
+    "metadata": {
+      "category_label": "ปั๊มน้ำมัน",
+      "opening_hours": null,
+      "phone": null,
+      "website": "www.pttplc.com",
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/node/1653910065",
+    "collected_at": "2026-08-21T05:34:13.208625+00:00"
+  },
+  {
+    "id": "osm-node-2676351773",
+    "title": "เอสโซ่",
+    "content_type": "service",
+    "category": "fuel",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 14.0535262,
+      "longitude": 101.3671705
+    },
+    "metadata": {
+      "category_label": "ปั๊มน้ำมัน",
+      "opening_hours": null,
+      "phone": null,
+      "website": "https://www.esso.co.th/",
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/node/2676351773",
+    "collected_at": "2026-08-21T05:34:13.208724+00:00"
+  },
+  {
+    "id": "osm-node-2676351774",
+    "title": "ป.ต.ท.",
+    "content_type": "service",
+    "category": "fuel",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 14.1347232,
+      "longitude": 101.3778319
+    },
+    "metadata": {
+      "category_label": "ปั๊มน้ำมัน",
+      "opening_hours": "24/7",
+      "phone": null,
+      "website": "www.pttplc.com",
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/node/2676351774",
+    "collected_at": "2026-08-21T05:34:13.208858+00:00"
+  },
+  {
+    "id": "osm-node-2676351775",
+    "title": "เชลล์",
+    "content_type": "service",
+    "category": "fuel",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 14.0537919,
+      "longitude": 101.3691618
+    },
+    "metadata": {
+      "category_label": "ปั๊มน้ำมัน",
+      "opening_hours": null,
+      "phone": null,
+      "website": "https://www.shell.co.th/",
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/node/2676351775",
+    "collected_at": "2026-08-21T05:34:13.208938+00:00"
+  },
+  {
+    "id": "osm-node-11391508067",
+    "title": "ปั๊มน้ำมัน Shell",
+    "content_type": "service",
+    "category": "fuel",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 14.100824,
+      "longitude": 101.3308356
+    },
+    "metadata": {
+      "category_label": "ปั๊มน้ำมัน",
+      "opening_hours": null,
+      "phone": null,
+      "website": null,
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/node/11391508067",
+    "collected_at": "2026-08-21T05:34:13.209023+00:00"
+  },
+  {
+    "id": "osm-node-12279996989",
+    "title": "ปั๊มปักธงชัย กรุ๊ป",
+    "content_type": "service",
+    "category": "fuel",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 14.1742672,
+      "longitude": 101.3676714
+    },
+    "metadata": {
+      "category_label": "ปั๊มน้ำมัน",
+      "opening_hours": null,
+      "phone": null,
+      "website": null,
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/node/12279996989",
+    "collected_at": "2026-08-21T05:34:13.209107+00:00"
+  },
+  {
+    "id": "osm-node-12729727296",
+    "title": "บางจาก",
+    "content_type": "service",
+    "category": "fuel",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 14.066408,
+      "longitude": 101.5279261
+    },
+    "metadata": {
+      "category_label": "ปั๊มน้ำมัน",
+      "opening_hours": null,
+      "phone": null,
+      "website": null,
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/node/12729727296",
+    "collected_at": "2026-08-21T05:34:13.209258+00:00"
+  },
+  {
+    "id": "osm-node-12731945552",
+    "title": "บางจาก",
+    "content_type": "service",
+    "category": "fuel",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 14.1154104,
+      "longitude": 101.3258529
+    },
+    "metadata": {
+      "category_label": "ปั๊มน้ำมัน",
+      "opening_hours": null,
+      "phone": null,
+      "website": null,
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/node/12731945552",
+    "collected_at": "2026-08-21T05:34:13.209353+00:00"
+  },
+  {
+    "id": "osm-node-12733268619",
+    "title": "PT",
+    "content_type": "service",
+    "category": "fuel",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 14.1073152,
+      "longitude": 101.3452532
+    },
+    "metadata": {
+      "category_label": "ปั๊มน้ำมัน",
+      "opening_hours": null,
+      "phone": null,
+      "website": null,
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/node/12733268619",
+    "collected_at": "2026-08-21T05:34:13.209432+00:00"
+  },
+  {
+    "id": "osm-way-343671658",
+    "title": "PT",
+    "content_type": "service",
+    "category": "fuel",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 14.0911538,
+      "longitude": 101.3701679
+    },
+    "metadata": {
+      "category_label": "ปั๊มน้ำมัน",
+      "opening_hours": null,
+      "phone": null,
+      "website": null,
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/way/343671658",
+    "collected_at": "2026-08-21T05:34:13.209505+00:00"
+  },
+  {
+    "id": "osm-node-1609809877",
+    "title": "ป.ต.ท.",
+    "content_type": "service",
+    "category": "fuel",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 14.2164167,
+      "longitude": 101.9003287
+    },
+    "metadata": {
+      "category_label": "ปั๊มน้ำมัน",
+      "opening_hours": null,
+      "phone": null,
+      "website": "www.pttplc.com",
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/node/1609809877",
+    "collected_at": "2026-08-21T05:34:13.209591+00:00"
+  },
+  {
+    "id": "osm-way-482931668",
+    "title": "Bangchak",
+    "content_type": "service",
+    "category": "fuel",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 14.1269124,
+      "longitude": 101.8655771
+    },
+    "metadata": {
+      "category_label": "ปั๊มน้ำมัน",
+      "opening_hours": null,
+      "phone": null,
+      "website": null,
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/way/482931668",
+    "collected_at": "2026-08-21T05:34:13.209767+00:00"
+  },
+  {
+    "id": "osm-way-482937617",
+    "title": "บางจาก",
+    "content_type": "service",
+    "category": "fuel",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 14.0762268,
+      "longitude": 101.8174135
+    },
+    "metadata": {
+      "category_label": "ปั๊มน้ำมัน",
+      "opening_hours": "24/7",
+      "phone": null,
+      "website": null,
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/way/482937617",
+    "collected_at": "2026-08-21T05:34:13.209863+00:00"
+  },
+  {
+    "id": "osm-way-482937620",
+    "title": "PT Gas Station",
+    "content_type": "service",
+    "category": "fuel",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 14.0549338,
+      "longitude": 101.7943879
+    },
+    "metadata": {
+      "category_label": "ปั๊มน้ำมัน",
+      "opening_hours": "24/7",
+      "phone": null,
+      "website": null,
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/way/482937620",
+    "collected_at": "2026-08-21T05:34:13.209946+00:00"
+  },
+  {
+    "id": "osm-way-482938252",
+    "title": "P T T NGV Station",
+    "content_type": "service",
+    "category": "fuel",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 14.1004846,
+      "longitude": 101.8365214
+    },
+    "metadata": {
+      "category_label": "ปั๊มน้ำมัน",
+      "opening_hours": null,
+      "phone": null,
+      "website": null,
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/way/482938252",
+    "collected_at": "2026-08-21T05:34:13.210021+00:00"
+  },
+  {
+    "id": "osm-way-568571544",
+    "title": "ป.ต.ท.",
+    "content_type": "service",
+    "category": "fuel",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 14.3721295,
+      "longitude": 101.863658
+    },
+    "metadata": {
+      "category_label": "ปั๊มน้ำมัน",
+      "opening_hours": null,
+      "phone": null,
+      "website": "http://www.pttplc.com",
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/way/568571544",
+    "collected_at": "2026-08-21T05:34:13.210097+00:00"
+  },
+  {
+    "id": "osm-node-6153271083",
+    "title": "ตรอ.​แปลงยาว",
+    "content_type": "service",
+    "category": "car_repair",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 13.5971549,
+      "longitude": 101.2486638
+    },
+    "metadata": {
+      "category_label": "ซ่อมรถ",
+      "opening_hours": null,
+      "phone": null,
+      "website": null,
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/node/6153271083",
+    "collected_at": "2026-08-21T05:34:25.813500+00:00"
+  },
+  {
+    "id": "osm-node-4609367591",
+    "title": "บ.จ. ทรัพย์อุดมเจริญการยาง",
+    "content_type": "service",
+    "category": "car_repair",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 14.0570758,
+      "longitude": 101.7963583
+    },
+    "metadata": {
+      "category_label": "ซ่อมรถ",
+      "opening_hours": "Mo-Su 07:00-19:00",
+      "phone": "+6637218477",
+      "website": null,
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/node/4609367591",
+    "collected_at": "2026-08-21T05:34:25.813705+00:00"
+  },
+  {
+    "id": "osm-node-8508732635",
+    "title": "ซีเค มอเตอร์",
+    "content_type": "service",
+    "category": "car_repair",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 14.0660625,
+      "longitude": 101.8053619
+    },
+    "metadata": {
+      "category_label": "ซ่อมรถ",
+      "opening_hours": null,
+      "phone": null,
+      "website": null,
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/node/8508732635",
+    "collected_at": "2026-08-21T05:34:25.813827+00:00"
+  },
+  {
+    "id": "osm-node-12475645202",
+    "title": "Chill Chill wash",
+    "content_type": "service",
+    "category": "laundry",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 13.8179565,
+      "longitude": 102.070233
+    },
+    "metadata": {
+      "category_label": "ซักรีด",
+      "opening_hours": "24/7",
+      "phone": null,
+      "website": null,
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/node/12475645202",
+    "collected_at": "2026-08-21T05:34:35.073402+00:00"
+  },
+  {
+    "id": "osm-node-12475645301",
+    "title": "Bubble P",
+    "content_type": "service",
+    "category": "laundry",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 13.8232224,
+      "longitude": 102.066792
+    },
+    "metadata": {
+      "category_label": "ซักรีด",
+      "opening_hours": null,
+      "phone": null,
+      "website": null,
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/node/12475645301",
+    "collected_at": "2026-08-21T05:34:35.073691+00:00"
+  },
+  {
+    "id": "osm-node-12477829701",
+    "title": "Extra wash",
+    "content_type": "service",
+    "category": "laundry",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 13.8221892,
+      "longitude": 102.0656705
+    },
+    "metadata": {
+      "category_label": "ซักรีด",
+      "opening_hours": "24/7",
+      "phone": null,
+      "website": null,
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/node/12477829701",
+    "collected_at": "2026-08-21T05:34:35.073847+00:00"
+  },
+  {
+    "id": "osm-node-8477529506",
+    "title": "ร้านสะดวกซัก เป็นตาซัก",
+    "content_type": "service",
+    "category": "laundry",
+    "tags": [],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 14.0651128,
+      "longitude": 101.8072655
+    },
+    "metadata": {
+      "category_label": "ซักรีด",
+      "opening_hours": null,
+      "phone": null,
+      "website": null,
+      "verified": false,
+      "display_tier": "primary",
+      "show_in_primary_directory": true,
+      "needs_review": false,
+      "review_reason": null,
+      "qualification_policy": "service_v1_spatial_identity"
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/node/8477529506",
+    "collected_at": "2026-08-21T05:34:35.073974+00:00"
+  }
+]

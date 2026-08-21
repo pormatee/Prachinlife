@@ -786,31 +786,96 @@
           class="control-options hidden"
         >
 
-          <div class="coming-soon-panel">
+          <div class="control-group">
 
-            <span class="coming-soon-icon">
-              🔧
+            <span class="filter-label">
+              ต้องการบริการอะไร
             </span>
 
-            <div>
+            <div class="filter-buttons">
 
-              <strong>
-                บริการใกล้ตัว
-              </strong>
+              <button
+                type="button"
+                class="filter-button active"
+                data-service-category="all"
+              >
+                ทั้งหมด
+              </button>
 
-              <p>
-                กำลังเตรียมข้อมูลร้านและบริการ
-                ที่คนใน
-                <span data-site-province>ปราจีนบุรี</span>
-                ต้องใช้ในชีวิตประจำวัน
-              </p>
+              <button
+                type="button"
+                class="filter-button"
+                data-service-category="pharmacy"
+              >
+                💊 ร้านยา
+              </button>
+
+              <button
+                type="button"
+                class="filter-button"
+                data-service-category="clinic"
+              >
+                🏥 คลินิก
+              </button>
+
+              <button
+                type="button"
+                class="filter-button"
+                data-service-category="fuel"
+              >
+                ⛽ ปั๊มน้ำมัน
+              </button>
+
+              <button
+                type="button"
+                class="filter-button"
+                data-service-category="car_repair"
+              >
+                🔧 ซ่อมรถ
+              </button>
+
+              <button
+                type="button"
+                class="filter-button"
+                data-service-category="laundry"
+              >
+                🧺 ซักรีด
+              </button>
 
             </div>
 
           </div>
 
-        </div>
 
+          <div class="control-group">
+
+            <span class="filter-label">
+              บริการใกล้ฉัน
+            </span>
+
+            <div class="filter-buttons">
+
+              <button
+                id="serviceNearMeBtn"
+                type="button"
+                class="filter-button"
+              >
+                📍 ใกล้ฉัน
+              </button>
+
+            </div>
+
+            <p
+              id="serviceNearMeStatus"
+              class="control-note"
+            >
+              <span data-site-name>PrachinLife</span>
+              จะขอตำแหน่งเมื่อคุณกด “ใกล้ฉัน” เท่านั้น
+            </p>
+
+          </div>
+
+        </div>
 
 
       </div>
@@ -1227,6 +1292,83 @@
 
 
         <!-- ============================================
+        SERVICE RESULT
+        ============================================= -->
+
+        <div
+          id="serviceResultSection"
+          class="hidden"
+        >
+
+          <div class="section-heading">
+
+            <div>
+
+              <span class="eyebrow">
+                SERVICES NEAR YOU
+              </span>
+
+              <h2>
+                🔧 บริการใกล้ตัว
+              </h2>
+
+              <p>
+                ร้านและบริการที่ใช้ในชีวิตประจำวันใน
+                <span data-site-province>ปราจีนบุรี</span>
+              </p>
+
+            </div>
+
+            <div
+              id="serviceResultCount"
+              class="result-count"
+            >
+              กำลังโหลด...
+            </div>
+
+          </div>
+
+          <div
+            id="serviceList"
+            class="promotion-grid"
+          ></div>
+
+          <div
+            id="serviceEmptyState"
+            class="empty-state hidden"
+          >
+
+            <div class="empty-icon">
+              🔧
+            </div>
+
+            <h3>
+              ยังไม่พบบริการในตัวเลือกนี้
+            </h3>
+
+            <p>
+              ลองเลือก “ทั้งหมด”
+              หรือกด “ใกล้ฉัน”
+            </p>
+
+          </div>
+
+          <div class="section-footer">
+
+            <button
+              id="serviceLoadMoreBtn"
+              class="secondary-button hidden"
+              type="button"
+            >
+              ดูบริการเพิ่มเติม
+            </button>
+
+          </div>
+
+        </div>
+
+
+        <!-- ============================================
         COMING SOON RESULT
         ============================================= -->
 
@@ -1300,12 +1442,12 @@
             🥬 เจ / มังสวิรัติ
           </span>
 
-          <span class="availability-item">
-            📍 เที่ยว · เร็ว ๆ นี้
+          <span class="availability-item active">
+            📍 เที่ยว
           </span>
 
-          <span class="availability-item">
-            🔧 บริการ · เร็ว ๆ นี้
+          <span class="availability-item active">
+            🔧 บริการ
           </span>
 
         </div>
@@ -1515,7 +1657,8 @@
   <script src="js/ui/dom.js?v=20260818-1"></script>
   <script src="js/modules/vegetarian.js?v=20260819-1"></script>
   <script src="js/modules/go.js?v=20260821-go-v1-1"></script>
-  <script src="app.js?v=20260819-3"></script>
+  <script src="js/modules/service.js?v=20260821-service-v1-1"></script>
+  <script src="app.js?v=20260821-service-v1-1"></script>
 </body>
 
 </html>

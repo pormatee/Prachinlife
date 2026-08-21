@@ -4723,3 +4723,84 @@ Reference-category aligned UX
   }
 
 }
+
+
+/* =====================================================
+SERVICE V1 - UI LOOP 1
+===================================================== */
+
+.service-v1-status {
+  width: fit-content;
+  margin: 4px 0 2px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 650;
+  line-height: 1.35;
+  background: rgba(47, 111, 78, 0.08);
+  color: var(--brand-dark);
+}
+
+.service-v1-data-note {
+  margin-top: 8px;
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+
+.service-v1-actions {
+  display: grid;
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.service-v1-actions .source-button {
+  width: 100%;
+  min-width: 0;
+  padding-left: 10px;
+  padding-right: 10px;
+  text-align: center;
+}
+
+@media (max-width: 720px) {
+
+  #servicesOptions {
+    padding: 14px;
+  }
+
+  #servicesOptions .control-group {
+    margin-bottom: 14px;
+  }
+
+  #serviceNearMeBtn {
+    width: 100%;
+    min-height: 44px;
+    justify-content: center;
+  }
+
+  #serviceNearMeStatus {
+    margin-top: 8px;
+    line-height: 1.45;
+  }
+
+  .service-v1-card .promotion-body {
+    padding: 16px;
+  }
+
+  .service-v1-card .promotion-title {
+    line-height: 1.35;
+  }
+
+  .service-v1-card .promotion-description {
+    line-height: 1.5;
+  }
+
+}
+
+@media (max-width: 420px) {
+
+  .service-v1-actions {
+    grid-template-columns: 1fr;
+  }
+
+}

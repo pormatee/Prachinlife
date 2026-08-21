@@ -1,0 +1,52 @@
+{
+  "name": "PrachinLife Service V1",
+  "version": "1.0",
+  "status": "frozen",
+  "engine_dependency": "PrachinLife Place Discovery Engine V1",
+  "engine_tag": "prachinlife-place-discovery-v1",
+  "scope": {
+    "category": "service",
+    "primary_ux": "near_me",
+    "production_records": 121,
+    "categories": [
+      "pharmacy",
+      "clinic",
+      "fuel",
+      "car_repair",
+      "laundry"
+    ],
+    "mobile_ready": true
+  },
+  "qualification": {
+    "policy": "service_v1_spatial_identity",
+    "candidate_records": 124,
+    "production_records": 121,
+    "removed_duplicates": 3,
+    "same_name_different_branches_preserved": true
+  },
+  "user_facing_contract": {
+    "category_filters": true,
+    "near_me": true,
+    "distance": true,
+    "location": true,
+    "opening_hours_when_available": true,
+    "phone_when_available": true,
+    "website_when_available": true,
+    "map_action": true,
+    "source_action": true,
+    "pagination": true
+  },
+  "quality_gates": {
+    "service_data_contract": "pass",
+    "service_ui_contract": "pass",
+    "browser_test": "pass",
+    "near_me_browser_test": "pass",
+    "place_discovery_v1_regression": "pass",
+    "frozen_core_integrity": "pass"
+  },
+  "reference_categories": [
+    "Vegetarian V1",
+    "Eat V1",
+    "Go V1"
+  ]
+}

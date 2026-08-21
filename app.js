@@ -22,10 +22,12 @@ const DATA_URL = "promotions.json";
 const INDEX_URL = "prachinlife_index.json";
 const VEGETARIAN_URL = "vegetarian_index.json";
 const GO_URL = "go_index.json";
+const SERVICE_URL = "service_index.json";
 
 const PAGE_SIZE = 8;
 const EAT_PAGE_SIZE = 8;
 const VEGETARIAN_PAGE_SIZE = 8;
+const SERVICE_PAGE_SIZE = 8;
 const RECOMMENDED_LIMIT = 8;
 
 
@@ -49,10 +51,15 @@ let allGoPlaces = [];
 let primaryGoPlaces = [];
 let filteredGoPlaces = [];
 
+let allServicePlaces = [];
+let primaryServicePlaces = [];
+let filteredServicePlaces = [];
+
 
 let currentPage = 1;
 let currentEatPage = 1;
 let currentVegetarianPage = 1;
+let currentServicePage = 1;
 
 let currentMerchant = "all";
 let currentType = "all";
@@ -61,6 +68,7 @@ let currentSmart = "recommended";
 let currentEatType = "all";
 
 let currentVegetarianProvince = "all";
+let currentServiceCategory = "all";
 
 let currentLocalProvince = "";
 
@@ -104,6 +112,7 @@ async function init() {
       loadCommonIndex(),
       loadVegetarianIndex(),
       loadGoIndex(),
+      loadServiceIndex(),
     ]);
 
 
@@ -113,7 +122,7 @@ async function init() {
 
     prepareGoPlaces();
 
-
+    prepareServicePlaces();
 
     buildVegetarianProvinceFilters();
 
@@ -126,6 +135,7 @@ async function init() {
 
     applyVegetarianFilters();
 
+    applyServiceFilters();
 
     setMainCategory(
       "recommended",
@@ -174,6 +184,8 @@ function bindEvents() {
   bindVegetarianEvents();
 
   bindGoEvents();
+
+  bindServiceEvents();
 
   bindLoadMoreEvents();
 
@@ -258,6 +270,7 @@ function bindRefreshEvent() {
           loadCommonIndex(true),
           loadVegetarianIndex(true),
           loadGoIndex(true),
+          loadServiceIndex(true),
         ]);
 
 
@@ -267,8 +280,8 @@ function bindRefreshEvent() {
 
         prepareGoPlaces();
 
+        prepareServicePlaces();
 
-    
         buildVegetarianProvinceFilters();
 
 
@@ -280,6 +293,7 @@ function bindRefreshEvent() {
 
         applyVegetarianFilters();
 
+        applyServiceFilters();
 
         if (
           currentMainCategory ===
@@ -493,15 +507,10 @@ function setMainCategory(
     );
 
     window.PrachinLife.ui.showElement(
-      "comingSoonResultSection"
+      "serviceResultSection"
     );
 
-
-    setComingSoonContent(
-      "🔧",
-      "บริการใกล้ตัว",
-      "กำลังเตรียมข้อมูลร้าน ช่าง และบริการที่ใช้ในชีวิตประจำวัน"
-    );
+    applyServiceFilters();
   }
 
 
@@ -1005,6 +1014,164 @@ function showVegetarianResult() {
 
 
 /* =====================================================
+SERVICE EVENTS
+===================================================== */
+
+function bindServiceEvents() {
+
+  document
+    .querySelectorAll(
+      "[data-service-category]"
+    )
+    .forEach(
+      button => {
+
+        button.addEventListener(
+          "click",
+          () => {
+
+            currentServiceCategory =
+              button.dataset.serviceCategory
+              || "all";
+
+            currentServicePage = 1;
+
+            updateServiceButtons();
+            applyServiceFilters();
+            showServiceResult();
+          }
+        );
+      }
+    );
+
+  const nearMeBtn =
+    document.getElementById(
+      "serviceNearMeBtn"
+    );
+
+  if (nearMeBtn) {
+    nearMeBtn.addEventListener(
+      "click",
+      activateServiceNearMe
+    );
+  }
+}
+
+
+function updateServiceButtons() {
+
+  document
+    .querySelectorAll(
+      "[data-service-category]"
+    )
+    .forEach(
+      button => {
+
+        button.classList.toggle(
+          "active",
+          button.dataset.serviceCategory
+            === currentServiceCategory
+        );
+      }
+    );
+}
+
+
+function showServiceResult() {
+
+  currentMainCategory =
+    "services";
+
+  updateMainCategoryButtons();
+
+  hideAllOptionGroups();
+  hideAllResultSections();
+
+  window.PrachinLife.ui.showElement(
+    "servicesOptions"
+  );
+
+  window.PrachinLife.ui.showElement(
+    "serviceResultSection"
+  );
+
+  scrollToResults();
+}
+
+
+function updateServiceNearMeState(
+  active
+) {
+
+  const button =
+    document.getElementById(
+      "serviceNearMeBtn"
+    );
+
+  if (!button) {
+    return;
+  }
+
+  button.classList.toggle(
+    "active",
+    active
+  );
+
+  button.textContent =
+    active
+      ? "✓ ใกล้ฉัน"
+      : "📍 ใกล้ฉัน";
+}
+
+
+function activateServiceNearMe() {
+
+  if (userLocation) {
+
+    userLocation = null;
+    currentServicePage = 1;
+
+    updateServiceNearMeState(
+      false
+    );
+
+    window.PrachinLife.ui.setText(
+      "serviceNearMeStatus",
+      "กด “ใกล้ฉัน” เพื่อเรียงบริการตามระยะทาง"
+    );
+
+    applyServiceFilters();
+    showServiceResult();
+
+    return;
+  }
+
+  requestUserLocation(
+    position => {
+
+      userLocation =
+        position;
+
+      currentServicePage = 1;
+
+      updateServiceNearMeState(
+        true
+      );
+
+      window.PrachinLife.ui.setText(
+        "serviceNearMeStatus",
+        "กำลังเรียงบริการจากใกล้ไปไกล"
+      );
+
+      applyServiceFilters();
+      showServiceResult();
+    },
+    "serviceNearMeStatus"
+  );
+}
+
+
+/* =====================================================
 LOAD MORE
 ===================================================== */
 
@@ -1025,6 +1192,11 @@ function bindLoadMoreEvents() {
   const vegetarianLoadMoreBtn =
     document.getElementById(
       "vegetarianLoadMoreBtn"
+    );
+
+  const serviceLoadMoreBtn =
+    document.getElementById(
+      "serviceLoadMoreBtn"
     );
 
 
@@ -1065,6 +1237,19 @@ function bindLoadMoreEvents() {
         currentVegetarianPage++;
 
         renderVegetarianPlaces();
+      }
+    );
+  }
+
+  if (serviceLoadMoreBtn) {
+
+    serviceLoadMoreBtn.addEventListener(
+      "click",
+      () => {
+
+        currentServicePage++;
+
+        renderServicePlaces();
       }
     );
   }
@@ -1344,6 +1529,75 @@ async function loadGoIndex(
 
 
 /* =====================================================
+LOAD SERVICE INDEX
+===================================================== */
+
+async function loadServiceIndex(
+  forceRefresh = false
+) {
+  try {
+
+    const url =
+      forceRefresh
+        ? `${SERVICE_URL}?t=${Date.now()}`
+        : SERVICE_URL;
+
+    const response =
+      await fetch(
+        url,
+        {
+          cache: "no-store",
+        }
+      );
+
+    if (!response.ok) {
+      throw new Error(
+        `Service index HTTP ${response.status}`
+      );
+    }
+
+    const data =
+      await response.json();
+
+    if (!Array.isArray(data)) {
+      throw new Error(
+        "Service index must be an array"
+      );
+    }
+
+    allServicePlaces =
+      data.filter(
+        item =>
+          item &&
+          typeof item === "object"
+      );
+
+    console.log(
+      "PrachinLife service index:",
+      allServicePlaces.length
+    );
+  }
+
+  catch (error) {
+
+    console.error(
+      "PrachinLife service index error:",
+      error
+    );
+
+    allServicePlaces = [];
+    primaryServicePlaces = [];
+    filteredServicePlaces = [];
+
+    window.PrachinLife.ui.setText(
+      "serviceResultCount",
+      "ไม่สามารถโหลดข้อมูลบริการได้"
+    );
+  }
+}
+
+
+/* =====================================================
 LOAD VEGETARIAN INDEX
 ===================================================== */
 
@@ -1602,6 +1856,45 @@ function prepareVegetarianPlaces() {
     "/",
     allVegetarianPlaces.length
   );
+}
+
+
+/* =====================================================
+PREPARE SERVICE
+===================================================== */
+
+function prepareServicePlaces() {
+
+  primaryServicePlaces =
+    allServicePlaces.filter(
+      place => {
+
+        const metadata =
+          place?.metadata || {};
+
+        const province =
+          place?.location?.province || "";
+
+        return (
+          metadata.show_in_primary_directory
+            === true
+          &&
+          metadata.needs_review
+            !== true
+          &&
+          (
+            !currentLocalProvince
+            ||
+            province === currentLocalProvince
+          )
+        );
+      }
+    );
+
+  filteredServicePlaces =
+    [...primaryServicePlaces];
+
+  currentServicePage = 1;
 }
 
 
@@ -2329,6 +2622,45 @@ function applyEatFilters() {
     "eatResultCount",
     `${filteredEatPlaces.length} ร้าน`
   );
+}
+
+
+/* =====================================================
+SERVICE FILTER ENGINE
+===================================================== */
+
+function applyServiceFilters() {
+
+  filteredServicePlaces =
+    window.PrachinLife.modules.service
+      .filterAndSort(
+        primaryServicePlaces,
+        currentServiceCategory,
+        userLocation,
+        calculatePlaceDistance,
+        window.PrachinLife.core.compareDistance,
+        window.PrachinLife.core.compareTitle
+      );
+
+  currentServicePage = 1;
+
+  renderServicePlaces();
+
+  window.PrachinLife.ui.setText(
+    "serviceResultCount",
+    `${filteredServicePlaces.length} แห่ง`
+  );
+}
+
+
+function renderServicePlaces() {
+
+  window.PrachinLife.modules.service
+    .renderPlaces(
+      filteredServicePlaces,
+      currentServicePage,
+      SERVICE_PAGE_SIZE
+    );
 }
 
 
@@ -4671,6 +5003,7 @@ function hideAllResultSections() {
     "eatResultSection",
     "vegetarianResultSection",
     "goResultSection",
+    "serviceResultSection",
     "comingSoonResultSection",
   ]
     .forEach(
