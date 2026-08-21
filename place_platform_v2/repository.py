@@ -10,6 +10,7 @@ from __future__ import annotations
 from math import asin, cos, radians, sin, sqrt
 from typing import Protocol, Sequence
 
+from .adoption import PlaceRevision
 from .models import CanonicalPlace, PlaceEvidence, PlaceLifecycle
 from .persistence import NearbyPlaceQuery, NearbyPlaceResult
 
@@ -22,6 +23,10 @@ class PlaceRepository(Protocol):
     def add_evidence(self, evidence: PlaceEvidence) -> None: ...
 
     def list_evidence(self, place_id: str) -> Sequence[PlaceEvidence]: ...
+
+    def commit_adoption(self, place: CanonicalPlace, revision: PlaceRevision) -> None: ...
+
+    def list_revisions(self, place_id: str) -> Sequence[PlaceRevision]: ...
 
     def search_nearby(self, query: NearbyPlaceQuery) -> Sequence[NearbyPlaceResult]: ...
 
@@ -43,6 +48,8 @@ class InMemoryPlaceRepository:
         self._places: dict[str, CanonicalPlace] = {}
         self._evidence: dict[str, list[PlaceEvidence]] = {}
         self._evidence_ids: set[str] = set()
+        self._revisions: dict[str, list[PlaceRevision]] = {}
+        self._revision_ids: set[str] = set()
 
     def get_place(self, place_id: str) -> CanonicalPlace | None:
         return self._places.get(place_id)
@@ -60,6 +67,24 @@ class InMemoryPlaceRepository:
 
     def list_evidence(self, place_id: str) -> tuple[PlaceEvidence, ...]:
         return tuple(self._evidence.get(place_id, ()))
+
+    def commit_adoption(self, place: CanonicalPlace, revision: PlaceRevision) -> None:
+        place_id = place.identity.place_id
+        if revision.place_id != place_id:
+            raise ValueError("revision belongs to a different place")
+        if place_id not in self._places:
+            raise KeyError("adoption cannot update an unknown place")
+        if revision.revision_id in self._revision_ids:
+            raise ValueError("duplicate revision_id")
+
+        # Reference implementation models the required atomic boundary: both
+        # canonical state and immutable revision are committed in one operation.
+        self._places[place_id] = place
+        self._revisions.setdefault(place_id, []).append(revision)
+        self._revision_ids.add(revision.revision_id)
+
+    def list_revisions(self, place_id: str) -> tuple[PlaceRevision, ...]:
+        return tuple(self._revisions.get(place_id, ()))
 
     def search_nearby(self, query: NearbyPlaceQuery) -> tuple[NearbyPlaceResult, ...]:
         matches: list[NearbyPlaceResult] = []
