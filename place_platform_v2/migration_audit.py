@@ -59,6 +59,10 @@ class MigrationAuditReport:
         return sum(item.ready for item in self.files)
 
     @property
+    def skipped_records(self) -> int:
+        return sum(item.skipped for item in self.files)
+
+    @property
     def invalid_records(self) -> int:
         return sum(item.invalid for item in self.files)
 
@@ -69,6 +73,7 @@ class MigrationAuditReport:
                 "files_audited": len(self.files),
                 "total_records": self.total_records,
                 "ready_records": self.ready_records,
+                "skipped_records": self.skipped_records,
                 "invalid_records": self.invalid_records,
                 "duplicate_candidate_groups": len(self.duplicate_candidate_groups),
                 "unreadable_files": len(self.unreadable_files),

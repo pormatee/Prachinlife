@@ -39,7 +39,7 @@ def _first(record: Mapping[str, Any], names: Sequence[str]) -> Any:
 
 
 def _categories(record: Mapping[str, Any]) -> tuple[str, ...]:
-    raw = _first(record, ("categories", "category", "type", "food_type", "place_type"))
+    raw = _first(record, ("categories", "category", "food_types", "type", "food_type", "place_type"))
     if raw is None:
         return ()
     if isinstance(raw, str):
@@ -49,6 +49,45 @@ def _categories(record: Mapping[str, Any]) -> tuple[str, ...]:
     else:
         parts = [str(raw).strip()]
     return tuple(part for part in parts if part)
+
+
+
+
+def _nested(record: Mapping[str, Any], container: str, names: Sequence[str]) -> Any:
+    value = record.get(container)
+    if not isinstance(value, Mapping):
+        return None
+    return _first(value, names)
+
+
+def _province(record: Mapping[str, Any]) -> str | None:
+    return _clean(
+        _first(record, ("province", "province_name", "state"))
+        or _nested(record, "location", ("province", "province_name", "state"))
+    )
+
+
+def _metadata_value(record: Mapping[str, Any], names: Sequence[str]) -> Any:
+    return _nested(record, "metadata", names)
+
+
+def _contact(record: Mapping[str, Any], names: Sequence[str]) -> str | None:
+    return _clean(_first(record, names) or _metadata_value(record, names))
+
+
+def _is_explicit_non_place(record: Mapping[str, Any]) -> bool:
+    """Return True only for V1 records that clearly represent non-place content.
+
+    Missing coordinates alone never makes a record non-place. The exclusion is
+    intentionally conservative and based on explicit content/category signals.
+    """
+    content_type = (_clean(record.get("content_type")) or "").casefold()
+    category = (_clean(record.get("category")) or "").casefold()
+    non_place = {
+        "deal", "promotion", "shopping", "campaign", "coupon",
+        "member_offer", "article", "news",
+    }
+    return content_type in non_place or category in non_place
 
 
 def _coordinates(record: Mapping[str, Any]) -> GeoPoint | None:
@@ -127,6 +166,12 @@ def convert_v1_record(
     source_record_id = explicit_id or f"row-{record_index}"
     import_key = stable_import_key(source_file, source_record_id)
 
+    if _is_explicit_non_place(record):
+        return V1ImportItem(
+            record_index, import_key, source_file, source_record_id,
+            MigrationDisposition.SKIPPED, "explicit non-place content", None,
+        )
+
     name = _clean(_first(record, ("name", "title", "place_name")))
     if name is None:
         return V1ImportItem(
@@ -152,10 +197,10 @@ def convert_v1_record(
         name=name,
         location=location,
         address_text=_clean(_first(record, ("address_text", "address", "formatted_address"))),
-        province=_clean(_first(record, ("province", "province_name", "state"))),
+        province=_province(record),
         categories=_categories(record),
-        phone=_clean(_first(record, ("phone", "telephone", "tel"))),
-        website=_clean(_first(record, ("website", "url", "link"))),
+        phone=_contact(record, ("phone", "telephone", "tel")),
+        website=_contact(record, ("website", "url", "link")),
         raw_attributes={
             "migration_policy_version": policy.policy_version,
             "legacy_source_file": source_file,
