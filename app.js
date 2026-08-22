@@ -693,10 +693,82 @@ function bindMainCategoryEvents() {
 }
 
 
+function resetNearMeForMainCategoryChange(
+  nextCategory
+) {
+
+  if (
+    nextCategory ===
+    currentMainCategory
+  ) {
+    return;
+  }
+
+  userLocation = null;
+
+  currentEatPage = 1;
+  currentVegetarianPage = 1;
+  currentServicePage = 1;
+
+  updateNearMeState(false);
+  updateServiceNearMeState(false);
+
+  if (
+    window.PrachinLife?.modules?.vegetarian
+      ?.updateNearMeState
+  ) {
+    window.PrachinLife.modules.vegetarian.updateNearMeState(
+      false
+    );
+  }
+
+  const goNearMeBtn =
+    document.getElementById(
+      "goNearMeBtn"
+    );
+
+  if (goNearMeBtn) {
+    goNearMeBtn.classList.remove(
+      "active"
+    );
+
+    goNearMeBtn.textContent =
+      "📍 ใกล้ฉัน";
+  }
+
+  window.PrachinLife.ui.setText(
+    "nearMeStatus",
+    "กด “ใกล้ฉัน” เพื่อเรียงร้านตามระยะทาง"
+  );
+
+  window.PrachinLife.ui.setText(
+    "vegetarianNearMeStatus",
+    "กด “ใกล้ฉัน” เพื่อเรียงร้านตามระยะทาง"
+  );
+
+  window.PrachinLife.ui.setText(
+    "goNearMeStatus",
+    "กด “ใกล้ฉัน” เพื่อเรียงสถานที่ตามระยะทาง"
+  );
+
+  window.PrachinLife.ui.setText(
+    "serviceNearMeStatus",
+    "กด “ใกล้ฉัน” เพื่อเรียงบริการตามระยะทาง"
+  );
+
+  filteredGoPlaces =
+    [...primaryGoPlaces];
+}
+
+
 function setMainCategory(
   category,
   scrollToResult = true
 ) {
+
+  resetNearMeForMainCategoryChange(
+    category
+  );
 
   currentMainCategory =
     category;
