@@ -1,0 +1,1626 @@
+{
+  "mapped_visible_place_count": 333,
+  "mode": "READ_ONLY_TARGETED_ENRICHMENT_ACQUISITION_PLAN",
+  "next_step_counts": {
+    "acquire_new_additional_info_evidence": 50,
+    "acquire_new_phone_evidence": 50,
+    "acquire_new_website_evidence": 50
+  },
+  "policy_version": "3.2-targeted-enrichment-acquisition-v1",
+  "quality_priority_count": 50,
+  "queue": [
+    {
+      "actions": {
+        "additional_info": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_additional_info_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        },
+        "phone": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_phone_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        },
+        "website": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_website_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        }
+      },
+      "dataset": "vegetarian_index.json",
+      "name": "Anchan",
+      "place_id": "0453d377-7379-526a-bfdd-a3a92044ffd2",
+      "quality_score": 70,
+      "quality_tier": "medium",
+      "rank": 1,
+      "record_id": "osm-node-4477017880"
+    },
+    {
+      "actions": {
+        "additional_info": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_additional_info_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        },
+        "phone": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_phone_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        },
+        "website": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_website_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        }
+      },
+      "dataset": "vegetarian_index.json",
+      "name": "Aum Vegetarian Restaurant",
+      "place_id": "8bf61ac7-2e41-517d-80d4-e14ec1b61c4c",
+      "quality_score": 70,
+      "quality_tier": "medium",
+      "rank": 2,
+      "record_id": "osm-node-5484616521"
+    },
+    {
+      "actions": {
+        "additional_info": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_additional_info_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        },
+        "phone": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_phone_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        },
+        "website": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_website_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        }
+      },
+      "dataset": "vegetarian_index.json",
+      "name": "Baan Unrak",
+      "place_id": "7ede2f45-7b0f-55fc-843e-f6bff1138946",
+      "quality_score": 70,
+      "quality_tier": "medium",
+      "rank": 3,
+      "record_id": "osm-node-7081658186"
+    },
+    {
+      "actions": {
+        "additional_info": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_additional_info_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        },
+        "phone": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_phone_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        },
+        "website": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_website_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        }
+      },
+      "dataset": "vegetarian_index.json",
+      "name": "Ban Veggie",
+      "place_id": "b195e6dd-11da-5c2d-b9c4-8f6d2f309267",
+      "quality_score": 70,
+      "quality_tier": "medium",
+      "rank": 4,
+      "record_id": "osm-node-9494404345"
+    },
+    {
+      "actions": {
+        "additional_info": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_additional_info_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        },
+        "phone": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_phone_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        },
+        "website": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_website_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        }
+      },
+      "dataset": "service_index.json",
+      "name": "Bangchak",
+      "place_id": "c561a806-8b76-530b-9402-8092ecca5df5",
+      "quality_score": 70,
+      "quality_tier": "medium",
+      "rank": 5,
+      "record_id": "osm-way-343670272"
+    },
+    {
+      "actions": {
+        "additional_info": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_additional_info_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        },
+        "phone": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_phone_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        },
+        "website": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_website_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        }
+      },
+      "dataset": "service_index.json",
+      "name": "Bangchak",
+      "place_id": "056fab87-d101-5fca-ac88-3bb7b19ae63e",
+      "quality_score": 70,
+      "quality_tier": "medium",
+      "rank": 6,
+      "record_id": "osm-way-482931668"
+    },
+    {
+      "actions": {
+        "additional_info": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_additional_info_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        },
+        "phone": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_phone_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        },
+        "website": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_website_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        }
+      },
+      "dataset": "service_index.json",
+      "name": "Bangchak",
+      "place_id": "2c615dcd-c2fe-58c2-a4fc-f8a9c93e5ec5",
+      "quality_score": 70,
+      "quality_tier": "medium",
+      "rank": 7,
+      "record_id": "osm-way-907009154"
+    },
+    {
+      "actions": {
+        "additional_info": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_additional_info_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        },
+        "phone": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_phone_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        },
+        "website": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_website_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        }
+      },
+      "dataset": "service_index.json",
+      "name": "Bangchak Station",
+      "place_id": "0d849070-4e82-5e22-ad79-dd7e4d2d9642",
+      "quality_score": 70,
+      "quality_tier": "medium",
+      "rank": 8,
+      "record_id": "osm-node-5434456621"
+    },
+    {
+      "actions": {
+        "additional_info": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_additional_info_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        },
+        "phone": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_phone_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        },
+        "website": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_website_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        }
+      },
+      "dataset": "vegetarian_index.json",
+      "name": "Blossom Vegan Café",
+      "place_id": "5564b1a9-77d7-5afb-8c12-7b7cdcba8b29",
+      "quality_score": 70,
+      "quality_tier": "medium",
+      "rank": 9,
+      "record_id": "osm-node-6401978185"
+    },
+    {
+      "actions": {
+        "additional_info": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_additional_info_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        },
+        "phone": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_phone_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        },
+        "website": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_website_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        }
+      },
+      "dataset": "service_index.json",
+      "name": "Bubble P",
+      "place_id": "141be0e2-7b56-5f15-94f8-6256ebbff7d1",
+      "quality_score": 70,
+      "quality_tier": "medium",
+      "rank": 10,
+      "record_id": "osm-node-12475645301"
+    },
+    {
+      "actions": {
+        "additional_info": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_additional_info_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        },
+        "phone": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_phone_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        },
+        "website": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_website_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        }
+      },
+      "dataset": "vegetarian_index.json",
+      "name": "Bun Song",
+      "place_id": "9c28e4bb-b4c3-556e-9780-ec4bc73168ac",
+      "quality_score": 70,
+      "quality_tier": "medium",
+      "rank": 11,
+      "record_id": "osm-node-2294540781"
+    },
+    {
+      "actions": {
+        "additional_info": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_additional_info_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        },
+        "phone": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_phone_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        },
+        "website": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_website_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        }
+      },
+      "dataset": "prachinlife_index.json",
+      "name": "Cafe Amazon",
+      "place_id": "43da6a1c-cc04-5b9c-8787-0f07a6233f0e",
+      "quality_score": 70,
+      "quality_tier": "medium",
+      "rank": 12,
+      "record_id": "osm-node-10104800519"
+    },
+    {
+      "actions": {
+        "additional_info": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_additional_info_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        },
+        "phone": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_phone_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        },
+        "website": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_website_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        }
+      },
+      "dataset": "prachinlife_index.json",
+      "name": "Cafe Amazon",
+      "place_id": "271295ec-f3cc-5fa3-bd28-80d7b8e1f302",
+      "quality_score": 70,
+      "quality_tier": "medium",
+      "rank": 13,
+      "record_id": "osm-node-6369552999"
+    },
+    {
+      "actions": {
+        "additional_info": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_additional_info_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        },
+        "phone": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_phone_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        },
+        "website": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_website_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        }
+      },
+      "dataset": "prachinlife_index.json",
+      "name": "Café Amazon",
+      "place_id": "dc571338-a051-5047-bd8e-f3d185340bb9",
+      "quality_score": 70,
+      "quality_tier": "medium",
+      "rank": 14,
+      "record_id": "osm-node-2676351772"
+    },
+    {
+      "actions": {
+        "additional_info": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_additional_info_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        },
+        "phone": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_phone_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        },
+        "website": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_website_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        }
+      },
+      "dataset": "service_index.json",
+      "name": "Caltex",
+      "place_id": "85940274-f1b6-5f31-9cbc-a25fffa02f14",
+      "quality_score": 70,
+      "quality_tier": "medium",
+      "rank": 15,
+      "record_id": "osm-node-6274486586"
+    },
+    {
+      "actions": {
+        "additional_info": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_additional_info_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        },
+        "phone": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_phone_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        },
+        "website": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_website_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        }
+      },
+      "dataset": "service_index.json",
+      "name": "Caltex",
+      "place_id": "fb48e234-bf7b-5960-b160-3b35501a8d0b",
+      "quality_score": 70,
+      "quality_tier": "medium",
+      "rank": 16,
+      "record_id": "osm-way-343660968"
+    },
+    {
+      "actions": {
+        "additional_info": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_additional_info_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        },
+        "phone": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_phone_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        },
+        "website": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_website_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        }
+      },
+      "dataset": "service_index.json",
+      "name": "Caltex",
+      "place_id": "715aa243-825f-5d41-9ad2-7741090e01c3",
+      "quality_score": 70,
+      "quality_tier": "medium",
+      "rank": 17,
+      "record_id": "osm-way-485488146"
+    },
+    {
+      "actions": {
+        "additional_info": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_additional_info_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        },
+        "phone": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_phone_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        },
+        "website": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_website_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        }
+      },
+      "dataset": "service_index.json",
+      "name": "Caltex",
+      "place_id": "22eaf955-ef6d-5377-80d4-e78e39ee0d6b",
+      "quality_score": 70,
+      "quality_tier": "medium",
+      "rank": 18,
+      "record_id": "osm-way-907084421"
+    },
+    {
+      "actions": {
+        "additional_info": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_additional_info_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        },
+        "phone": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_phone_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        },
+        "website": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_website_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        }
+      },
+      "dataset": "service_index.json",
+      "name": "Caltex Station",
+      "place_id": "545e626f-bfba-52be-b3fa-0ebd3685fe81",
+      "quality_score": 70,
+      "quality_tier": "medium",
+      "rank": 19,
+      "record_id": "osm-node-5323879724"
+    },
+    {
+      "actions": {
+        "additional_info": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_additional_info_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        },
+        "phone": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_phone_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        },
+        "website": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_website_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        }
+      },
+      "dataset": "service_index.json",
+      "name": "Caltex Station",
+      "place_id": "b29c8a8a-c033-5146-99e4-e625fde01cc2",
+      "quality_score": 70,
+      "quality_tier": "medium",
+      "rank": 20,
+      "record_id": "osm-node-5434377521"
+    },
+    {
+      "actions": {
+        "additional_info": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_additional_info_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        },
+        "phone": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_phone_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        },
+        "website": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_website_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        }
+      },
+      "dataset": "vegetarian_index.json",
+      "name": "Cha Tanyong",
+      "place_id": "f17f5f1b-cd89-5a55-9dca-614ed0d80cb0",
+      "quality_score": 70,
+      "quality_tier": "medium",
+      "rank": 21,
+      "record_id": "osm-node-3935869769"
+    },
+    {
+      "actions": {
+        "additional_info": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_additional_info_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        },
+        "phone": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_phone_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        },
+        "website": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_website_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        }
+      },
+      "dataset": "vegetarian_index.json",
+      "name": "Chada Vegetarian",
+      "place_id": "d1251fc6-b0c5-56e3-b3cd-dbbf8feebac8",
+      "quality_score": 70,
+      "quality_tier": "medium",
+      "rank": 22,
+      "record_id": "osm-node-9872196618"
+    },
+    {
+      "actions": {
+        "additional_info": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_additional_info_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        },
+        "phone": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_phone_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        },
+        "website": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_website_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        }
+      },
+      "dataset": "prachinlife_index.json",
+      "name": "Check in",
+      "place_id": "f51004c0-e4be-506d-a417-00316e6b04bf",
+      "quality_score": 70,
+      "quality_tier": "medium",
+      "rank": 23,
+      "record_id": "osm-node-6594614085"
+    },
+    {
+      "actions": {
+        "additional_info": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_additional_info_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        },
+        "phone": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_phone_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        },
+        "website": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_website_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        }
+      },
+      "dataset": "vegetarian_index.json",
+      "name": "Chijuya Jing Xin Health Food",
+      "place_id": "fbc93ce4-b6d8-5575-9e9a-65fc274932aa",
+      "quality_score": 70,
+      "quality_tier": "medium",
+      "rank": 24,
+      "record_id": "osm-node-2972682325"
+    },
+    {
+      "actions": {
+        "additional_info": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_additional_info_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        },
+        "phone": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_phone_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        },
+        "website": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_website_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        }
+      },
+      "dataset": "vegetarian_index.json",
+      "name": "Chijuya vegan + sushi",
+      "place_id": "6121d661-c5c0-55ac-b14a-7c606cd9197d",
+      "quality_score": 70,
+      "quality_tier": "medium",
+      "rank": 25,
+      "record_id": "osm-node-4187833103"
+    },
+    {
+      "actions": {
+        "additional_info": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_additional_info_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        },
+        "phone": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_phone_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        },
+        "website": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_website_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        }
+      },
+      "dataset": "service_index.json",
+      "name": "Chill Chill wash",
+      "place_id": "c13a0da3-8fb7-5c92-ba2a-bd5b86595632",
+      "quality_score": 70,
+      "quality_tier": "medium",
+      "rank": 26,
+      "record_id": "osm-node-12475645202"
+    },
+    {
+      "actions": {
+        "additional_info": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_additional_info_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        },
+        "phone": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_phone_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        },
+        "website": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_website_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        }
+      },
+      "dataset": "prachinlife_index.json",
+      "name": "Coffee & The Kitchen By บ้านสวนดอกไม้",
+      "place_id": "958012f7-3800-5ab2-9704-d02e8b02621f",
+      "quality_score": 70,
+      "quality_tier": "medium",
+      "rank": 27,
+      "record_id": "osm-node-8518228365"
+    },
+    {
+      "actions": {
+        "additional_info": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_additional_info_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        },
+        "phone": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_phone_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        },
+        "website": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_website_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        }
+      },
+      "dataset": "prachinlife_index.json",
+      "name": "Coffee shop",
+      "place_id": "c7a919a0-ed7b-51b5-901a-c09629c06a0b",
+      "quality_score": 70,
+      "quality_tier": "medium",
+      "rank": 28,
+      "record_id": "osm-node-2823924411"
+    },
+    {
+      "actions": {
+        "additional_info": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_additional_info_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        },
+        "phone": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_phone_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        },
+        "website": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_website_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        }
+      },
+      "dataset": "service_index.json",
+      "name": "ESSO LPG Station",
+      "place_id": "a95ec98c-55a0-518d-82bb-03b9c4ce6306",
+      "quality_score": 70,
+      "quality_tier": "medium",
+      "rank": 29,
+      "record_id": "osm-node-5434456622"
+    },
+    {
+      "actions": {
+        "additional_info": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_additional_info_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        },
+        "phone": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_phone_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        },
+        "website": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_website_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        }
+      },
+      "dataset": "service_index.json",
+      "name": "ESSO Station",
+      "place_id": "c1a07622-9656-5c4f-ab57-009c9af177d4",
+      "quality_score": 70,
+      "quality_tier": "medium",
+      "rank": 30,
+      "record_id": "osm-node-5323863727"
+    },
+    {
+      "actions": {
+        "additional_info": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_additional_info_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        },
+        "phone": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_phone_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        },
+        "website": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_website_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        }
+      },
+      "dataset": "service_index.json",
+      "name": "ESSO Station",
+      "place_id": "84a0873f-3546-5e82-8d43-bdd7bb27b56c",
+      "quality_score": 70,
+      "quality_tier": "medium",
+      "rank": 31,
+      "record_id": "osm-node-5323863728"
+    },
+    {
+      "actions": {
+        "additional_info": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_additional_info_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        },
+        "phone": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_phone_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        },
+        "website": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_website_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        }
+      },
+      "dataset": "service_index.json",
+      "name": "Esso",
+      "place_id": "f4489970-5569-56b3-84c1-6ece7fec8b94",
+      "quality_score": 70,
+      "quality_tier": "medium",
+      "rank": 32,
+      "record_id": "osm-node-4345349349"
+    },
+    {
+      "actions": {
+        "additional_info": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_additional_info_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        },
+        "phone": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_phone_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        },
+        "website": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_website_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        }
+      },
+      "dataset": "vegetarian_index.json",
+      "name": "Everflow",
+      "place_id": "fc8932de-d5c6-5037-9e03-d938c494d5f9",
+      "quality_score": 70,
+      "quality_tier": "medium",
+      "rank": 33,
+      "record_id": "osm-node-9898719117"
+    },
+    {
+      "actions": {
+        "additional_info": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_additional_info_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        },
+        "phone": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_phone_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        },
+        "website": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_website_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        }
+      },
+      "dataset": "service_index.json",
+      "name": "Extra wash",
+      "place_id": "4980b275-87a1-5404-a611-4c9aae632853",
+      "quality_score": 70,
+      "quality_tier": "medium",
+      "rank": 34,
+      "record_id": "osm-node-12477829701"
+    },
+    {
+      "actions": {
+        "additional_info": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_additional_info_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        },
+        "phone": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_phone_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        },
+        "website": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_website_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        }
+      },
+      "dataset": "vegetarian_index.json",
+      "name": "Fig Cafe",
+      "place_id": "076e9270-9ca4-5fe5-88de-7636f202f959",
+      "quality_score": 70,
+      "quality_tier": "medium",
+      "rank": 35,
+      "record_id": "osm-node-6793032375"
+    },
+    {
+      "actions": {
+        "additional_info": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_additional_info_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        },
+        "phone": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_phone_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        },
+        "website": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_website_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        }
+      },
+      "dataset": "vegetarian_index.json",
+      "name": "Free Vegetarian Restaurant",
+      "place_id": "7e24fd71-7f1e-5924-ba70-c573ad41a6b6",
+      "quality_score": 70,
+      "quality_tier": "medium",
+      "rank": 36,
+      "record_id": "osm-node-6285861985"
+    },
+    {
+      "actions": {
+        "additional_info": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_additional_info_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        },
+        "phone": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_phone_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        },
+        "website": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_website_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        }
+      },
+      "dataset": "vegetarian_index.json",
+      "name": "Govinda's at the Beach",
+      "place_id": "99e18bd6-95a4-5b10-9453-3db2f06f89b8",
+      "quality_score": 70,
+      "quality_tier": "medium",
+      "rank": 37,
+      "record_id": "osm-node-10716433663"
+    },
+    {
+      "actions": {
+        "additional_info": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_additional_info_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        },
+        "phone": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_phone_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        },
+        "website": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_website_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        }
+      },
+      "dataset": "service_index.json",
+      "name": "Green Lemon",
+      "place_id": "5718fafb-1798-5b96-9fff-c58e21fd0c7f",
+      "quality_score": 70,
+      "quality_tier": "medium",
+      "rank": 38,
+      "record_id": "osm-node-2146335008"
+    },
+    {
+      "actions": {
+        "additional_info": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_additional_info_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        },
+        "phone": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_phone_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        },
+        "website": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_website_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        }
+      },
+      "dataset": "vegetarian_index.json",
+      "name": "Guan Im Jay",
+      "place_id": "8fdd6ace-d3cf-5471-a75e-82592df9c60c",
+      "quality_score": 70,
+      "quality_tier": "medium",
+      "rank": 39,
+      "record_id": "osm-node-12424802307"
+    },
+    {
+      "actions": {
+        "additional_info": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_additional_info_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        },
+        "phone": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_phone_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        },
+        "website": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_website_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        }
+      },
+      "dataset": "vegetarian_index.json",
+      "name": "Guru Kripa Restaurant",
+      "place_id": "80fd8e12-c5a7-5b8f-a7a6-1e40c0c6d9ca",
+      "quality_score": 70,
+      "quality_tier": "medium",
+      "rank": 40,
+      "record_id": "osm-node-11598073400"
+    },
+    {
+      "actions": {
+        "additional_info": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_additional_info_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        },
+        "phone": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_phone_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        },
+        "website": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_website_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        }
+      },
+      "dataset": "vegetarian_index.json",
+      "name": "Gyofu Vegetarian Dumplings",
+      "place_id": "528babea-51b6-5f39-a63b-b3a49fe7b63b",
+      "quality_score": 70,
+      "quality_tier": "medium",
+      "rank": 41,
+      "record_id": "osm-node-13588942201"
+    },
+    {
+      "actions": {
+        "additional_info": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_additional_info_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        },
+        "phone": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_phone_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        },
+        "website": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_website_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        }
+      },
+      "dataset": "vegetarian_index.json",
+      "name": "Hua Hin Vegan",
+      "place_id": "73b8d824-1308-54ea-ac64-ffcae2dd32eb",
+      "quality_score": 70,
+      "quality_tier": "medium",
+      "rank": 42,
+      "record_id": "osm-node-5224403935"
+    },
+    {
+      "actions": {
+        "additional_info": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_additional_info_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        },
+        "phone": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_phone_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        },
+        "website": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_website_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        }
+      },
+      "dataset": "vegetarian_index.json",
+      "name": "Imjai Vegan",
+      "place_id": "df4337f5-13ad-512c-9250-59e0a03c0b09",
+      "quality_score": 70,
+      "quality_tier": "medium",
+      "rank": 43,
+      "record_id": "osm-node-11421699069"
+    },
+    {
+      "actions": {
+        "additional_info": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_additional_info_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        },
+        "phone": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_phone_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        },
+        "website": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_website_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        }
+      },
+      "dataset": "vegetarian_index.json",
+      "name": "Imjai Vegan",
+      "place_id": "f2c85248-231d-57a5-8e79-9610196f0c36",
+      "quality_score": 70,
+      "quality_tier": "medium",
+      "rank": 44,
+      "record_id": "osm-node-13392865738"
+    },
+    {
+      "actions": {
+        "additional_info": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_additional_info_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        },
+        "phone": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_phone_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        },
+        "website": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_website_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        }
+      },
+      "dataset": "service_index.json",
+      "name": "Independent Fuel Station",
+      "place_id": "a11c29ba-e4ef-5900-8c78-b767a1ac0d2a",
+      "quality_score": 70,
+      "quality_tier": "medium",
+      "rank": 45,
+      "record_id": "osm-way-343665100"
+    },
+    {
+      "actions": {
+        "additional_info": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_additional_info_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        },
+        "phone": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_phone_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        },
+        "website": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_website_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        }
+      },
+      "dataset": "vegetarian_index.json",
+      "name": "Indian Bites Cafe & Vegetarian and Vegan Restaurant",
+      "place_id": "d2fbc7a1-1a22-5cda-b054-012a00cc1a58",
+      "quality_score": 70,
+      "quality_tier": "medium",
+      "rank": 46,
+      "record_id": "osm-node-13472832501"
+    },
+    {
+      "actions": {
+        "additional_info": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_additional_info_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        },
+        "phone": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_phone_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        },
+        "website": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_website_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        }
+      },
+      "dataset": "vegetarian_index.json",
+      "name": "Kao Man Kai Jay Vegan",
+      "place_id": "a4f9c99c-947f-541d-8794-6faab0885495",
+      "quality_score": 70,
+      "quality_tier": "medium",
+      "rank": 47,
+      "record_id": "osm-node-13133043002"
+    },
+    {
+      "actions": {
+        "additional_info": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_additional_info_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        },
+        "phone": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_phone_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        },
+        "website": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_website_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        }
+      },
+      "dataset": "vegetarian_index.json",
+      "name": "Khamhom Vegetarian Food  (vegan)",
+      "place_id": "802e5cf7-2033-5812-99a9-1f404cff683c",
+      "quality_score": 70,
+      "quality_tier": "medium",
+      "rank": 48,
+      "record_id": "osm-node-13467662701"
+    },
+    {
+      "actions": {
+        "additional_info": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_additional_info_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        },
+        "phone": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_phone_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        },
+        "website": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_website_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        }
+      },
+      "dataset": "vegetarian_index.json",
+      "name": "Khun Churn",
+      "place_id": "0eeac5b8-f0cb-5ec0-849b-40805277294a",
+      "quality_score": 70,
+      "quality_tier": "medium",
+      "rank": 49,
+      "record_id": "osm-node-2292083007"
+    },
+    {
+      "actions": {
+        "additional_info": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_additional_info_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        },
+        "phone": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_phone_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        },
+        "website": {
+          "active_evidence_count": 0,
+          "next_step": "acquire_new_website_evidence",
+          "ready": false,
+          "trust_classes": {},
+          "trusted_evidence_available": false
+        }
+      },
+      "dataset": "service_index.json",
+      "name": "LPG",
+      "place_id": "a2f91808-6c40-53c8-8464-6ec45a8ce2db",
+      "quality_score": 70,
+      "quality_tier": "medium",
+      "rank": 50,
+      "record_id": "osm-node-12680417582"
+    }
+  ],
+  "queue_count": 50,
+  "safety": {
+    "canonical_writes": false,
+    "database_sha256_after": "39a3597426467b5b8bfbf57179498c6a5b49066c6d64499d6d49b0bc30e452b4",
+    "database_sha256_before": "39a3597426467b5b8bfbf57179498c6a5b49066c6d64499d6d49b0bc30e452b4",
+    "database_unchanged": true,
+    "evidence_writes": false,
+    "production_json_writes": false,
+    "trust_policy_lowered": false
+  },
+  "unmapped_priorities": [],
+  "unmapped_priority_count": 0,
+  "visible_place_count": 333
+}

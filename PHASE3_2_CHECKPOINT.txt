@@ -1,0 +1,35 @@
+PrachinLife V2 Phase 3.2 — Targeted Production Enrichment Acquisition
+
+BASELINE
+- Phase 3.1 checkpoint: 15c0075
+- Production remains V2
+- Production UI / Near Me / category switching unchanged
+- Real Image policy unchanged
+- Evidence/trust policy unchanged
+
+GOAL
+Turn the Phase 3.1 Top-50 quality priorities into a deterministic evidence-acquisition queue without inventing or auto-adopting missing values.
+
+RESULT
+- Visible production places mapped to V2: 333 / 333
+- Top quality priorities planned: 50 / 50
+- Unmapped priority places: 0
+- Top-50 missing phone: 50 -> acquire new evidence
+- Top-50 missing website: 50 -> acquire new evidence
+- Top-50 missing additional info: 50 -> acquire new evidence
+- Existing hidden trusted enrichment available for these gaps: 0
+- Canonical writes: false
+- Evidence writes: false
+- Production JSON writes: false
+- Trust policy lowered: false
+- Database hash unchanged: true
+
+INTERPRETATION
+The current blocker is source/evidence coverage, not adoption/export loss. Phase 3.2 therefore creates the safe acquisition queue rather than publishing unverified values.
+
+REGRESSION
+- Added 6 Phase 3.2 tests
+- Full local suite: 698 tests OK in autonomous loop
+
+NEXT
+Use this queue as input to evidence acquisition (source collector and/or Admin/manual evidence), then pass acquired facts through existing verification/adoption/publication gates.
