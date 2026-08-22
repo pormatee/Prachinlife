@@ -23,7 +23,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "b91bca40-1ef2-500c-9a5e-04f85896dfee",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/4791106122",
@@ -53,7 +57,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "445fe8bd-ca9e-54a5-a9d7-63d3683d1075",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/13922863337",
@@ -83,7 +91,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "e6beb510-b9ad-580b-8e9e-d87444208800",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/7041312966",
@@ -113,7 +125,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "32f1fe9f-2a88-518f-aba2-3969986c4aac",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/370478612",
@@ -143,7 +159,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "fc82d89e-537c-553f-8b9b-338fad9a01d0",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/667237945",
@@ -173,7 +193,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "918e4217-73a1-5283-b24d-ce9d5523ab54",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/1241591062",
@@ -203,7 +227,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "f6e585dd-55d5-5968-9795-2d0bd342e823",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/1609815251",
@@ -267,7 +295,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "97846763-2667-5323-ad10-9203b0717191",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/1905321429",
@@ -297,7 +329,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "5724ddf8-758a-5384-884d-777dd96b2434",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/2629947426",
@@ -327,7 +363,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "bc944dd3-555a-5746-a7b7-44406db16088",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/2629947427",
@@ -357,7 +397,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "42343b9c-54c4-5793-b6c4-a1d82bab6373",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/2640779921",
@@ -387,7 +431,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "d4cd61da-e5f0-50f8-bed2-8ef0f622c472",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/2676347590",
@@ -417,7 +465,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "4b65722c-347f-5964-8de4-491cee315aaf",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/2676347595",
@@ -447,7 +499,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "57e436df-1487-5990-8951-87b105fee9c2",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/2676347600",
@@ -477,7 +533,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "9b8a36e2-4505-5a76-9bc6-5b72b08d00c7",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/2676347601",
@@ -507,7 +567,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "ba047f17-51c4-507d-84ba-910d15e2b9c7",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/3418083392",
@@ -537,7 +601,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "e1987c60-49e9-570d-960d-96229425c684",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/3504743739",
@@ -567,7 +635,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "a9413a98-6df8-5c11-9dd7-397b4357613e",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/4036101216",
@@ -597,7 +669,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "fe8c7f58-fc2f-5859-bae1-8a4bb36a9a76",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/4234962670",
@@ -627,7 +703,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "fba86c32-0883-50f6-a39a-2405dbd0262a",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/4234962671",
@@ -657,7 +737,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "21308fbf-96b1-534b-a2ad-78888e956009",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/4234962672",
@@ -687,7 +771,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "7c2791b9-fb61-5206-9ebc-bb04bc18521e",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/4345343819",
@@ -717,7 +805,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "f4489970-5569-56b3-84c1-6ece7fec8b94",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/4345349349",
@@ -747,7 +839,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "43f25860-ff84-5ac1-bd48-76c3a69fefc6",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/4873887053",
@@ -777,7 +873,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "b51d8836-2565-51bd-83fd-5d0efd99b642",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/4873887054",
@@ -807,7 +907,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "34907c5b-1ed3-58ea-b2ba-fb3aaf6eaf2b",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/4873887056",
@@ -837,7 +941,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "129bff8b-4586-58b9-8b58-a097be2b6b15",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/4873887057",
@@ -867,7 +975,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "102f106e-66e6-5e6c-8649-a9b90273754c",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/4873907846",
@@ -897,7 +1009,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "8026f0dd-372b-5c00-befa-9d98f49d75f8",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/4873907847",
@@ -927,7 +1043,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "bf395595-874c-5836-9440-f30e98235757",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/4873907937",
@@ -957,7 +1077,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "3d920545-09c1-542d-9779-9bf9c96c796a",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/5323879629",
@@ -987,7 +1111,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "545e626f-bfba-52be-b3fa-0ebd3685fe81",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/5323879724",
@@ -1051,7 +1179,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "a95ec98c-55a0-518d-82bb-03b9c4ce6306",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/5434456622",
@@ -1081,7 +1213,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "9ef9cb3d-bfc9-5379-9318-593850c24c18",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/5549382249",
@@ -1111,7 +1247,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "8bae273e-27c9-5d45-8949-a506566e1b20",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/5549382250",
@@ -1141,7 +1281,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "47c2a696-3b4c-5d3a-9c27-6f85c1412c44",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/5549403421",
@@ -1171,7 +1315,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "812084f4-b39d-503a-ab89-a42330384732",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/6275677485",
@@ -1201,7 +1349,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "fd76e9e6-e607-5d74-9830-ff52ce272cea",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/12532835756",
@@ -1231,7 +1383,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "ed205c6d-3003-534b-9230-7bb5eb748c67",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/12532874888",
@@ -1261,7 +1417,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "80534b63-e4ef-58b1-8671-1f5c2279ed37",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/12680192176",
@@ -1291,7 +1451,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "cd0cd341-7085-536c-8ac4-e285487d1a79",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/12680410513",
@@ -1321,7 +1485,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "a2f91808-6c40-53c8-8464-6ec45a8ce2db",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/12680417582",
@@ -1351,7 +1519,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "5bf6162b-85ea-547d-9403-ac52f0d63260",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/12680417584",
@@ -1381,7 +1553,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "8cbe5141-7f79-525e-974a-cb19cc10a7dc",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/12680461536",
@@ -1411,7 +1587,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "b450e0b2-d992-5ea8-bf64-2373f99329a8",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/way/343658877",
@@ -1441,7 +1621,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "fb297a5e-da07-51d0-b6c8-4b30c56a7c5a",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/way/343658884",
@@ -1471,7 +1655,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "fb48e234-bf7b-5960-b160-3b35501a8d0b",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/way/343660968",
@@ -1501,7 +1689,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "09aea66d-67f6-5c45-a756-181e296421e2",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/way/343660985",
@@ -1531,7 +1723,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "4320e29f-41f7-5f60-930a-e8513af8fc43",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/way/343664087",
@@ -1561,7 +1757,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "baddce66-273f-5d3e-ae7e-85c797fd096d",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/way/343664089",
@@ -1591,7 +1791,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "a11c29ba-e4ef-5900-8c78-b767a1ac0d2a",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/way/343665100",
@@ -1621,7 +1825,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "c561a806-8b76-530b-9402-8092ecca5df5",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/way/343670272",
@@ -1651,7 +1859,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "31b0027d-3045-5f94-b3aa-a25e3492ad10",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/way/441575079",
@@ -1681,7 +1893,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "446c9b84-30ff-54f8-a791-7cd18a9e9c6a",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/way/485484729",
@@ -1711,7 +1927,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "167c108c-90a2-53d2-863d-ba8eea5a5729",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/way/485488122",
@@ -1741,7 +1961,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "715aa243-825f-5d41-9ad2-7741090e01c3",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/way/485488146",
@@ -1771,7 +1995,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "dbef0a6d-f543-5a60-81d2-38397ccc2ac0",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/way/485522192",
@@ -1801,7 +2029,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "31e66864-87d8-5db1-9bdc-d058d70df80d",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/way/776185373",
@@ -1831,7 +2063,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "7dad8c02-3cf1-5072-bec4-c44841a4123d",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/way/776400524",
@@ -1861,7 +2097,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "2c615dcd-c2fe-58c2-a4fc-f8a9c93e5ec5",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/way/907009154",
@@ -1891,7 +2131,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "93114940-3495-5e92-99dc-90b9d1fca9cd",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/1241591114",
@@ -1921,7 +2165,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "da0b3a39-0adc-55cf-bd2c-0354ac04cc72",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/2127765598",
@@ -1951,7 +2199,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "5718fafb-1798-5b96-9fff-c58e21fd0c7f",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/2146335008",
@@ -1981,7 +2233,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "df8d588b-72da-5d8c-b8e1-410c57bfafb0",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/2146335014",
@@ -2011,7 +2267,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "43f3f894-b314-5b44-a3c7-7c237bf56743",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/2151397748",
@@ -2041,7 +2301,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "468d4a8b-739e-5eaf-8ac1-0a54f39bbc36",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/2151397749",
@@ -2071,7 +2335,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "bfc09af9-b291-529f-98e5-4760223ba152",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/2174718705",
@@ -2101,7 +2369,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "112811bd-4734-5701-9f66-8c533a3c0733",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/2643944277",
@@ -2131,7 +2403,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "1eb3f17a-331d-5c04-9500-66887c4f67c0",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/2647810829",
@@ -2161,7 +2437,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "f952fd23-bb8d-5f23-a263-5f1f4b6f3058",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/4569640790",
@@ -2225,7 +2505,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "c1a07622-9656-5c4f-ab57-009c9af177d4",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/5323863727",
@@ -2255,7 +2539,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "84a0873f-3546-5e82-8d43-bdd7bb27b56c",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/5323863728",
@@ -2285,7 +2573,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "aca44b36-6de4-5577-94bb-fe8605042c53",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/5323863922",
@@ -2349,7 +2641,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "0fec04b6-364e-5336-8744-8f08fb00940f",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/5323881322",
@@ -2379,7 +2675,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "b29c8a8a-c033-5146-99e4-e625fde01cc2",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/5434377521",
@@ -2409,7 +2709,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "b1d2965e-1336-58da-8906-133c099afb9e",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/5434377524",
@@ -2439,7 +2743,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "4aa17424-e032-5ce1-bafd-f482d4398469",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/5434377621",
@@ -2469,7 +2777,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "1060aa37-60fc-5fee-b036-90f0d705cb40",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/5549382252",
@@ -2499,7 +2811,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "780cb631-9d71-53ff-8891-42797400f3fb",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/5549382253",
@@ -2529,7 +2845,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "9f92004d-2b57-5cb7-b0b1-b7c0c0186922",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/5549382254",
@@ -2559,7 +2879,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "bcc5c753-7a0f-5c8d-ab04-3101e0cacf47",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/5549403422",
@@ -2589,7 +2913,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "6478c4a4-3766-5631-9c65-b3ad57eb544f",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/5549403522",
@@ -2619,7 +2947,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "6922c475-de28-517f-a120-0e2c028ee2a1",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/5549403523",
@@ -2649,7 +2981,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "85940274-f1b6-5f31-9cbc-a25fffa02f14",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/6274486586",
@@ -2679,7 +3015,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "4d008ff6-8a68-594b-9eb1-6dda513e9a8e",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/12681994113",
@@ -2709,7 +3049,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "d3b22620-ff91-521e-a001-a5e0541b89e9",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/12681996408",
@@ -2739,7 +3083,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "feeb14e1-e566-5c0b-93b1-9ab6f8276782",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/13398041972",
@@ -2769,7 +3117,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "5630adec-6837-5b14-b1df-7ea178dc2031",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/way/482936825",
@@ -2799,7 +3151,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "2b347202-f20c-5e35-ac93-cfadcb71fe82",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/way/482939106",
@@ -2829,7 +3185,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "22eaf955-ef6d-5377-80d4-e78e39ee0d6b",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/way/907084421",
@@ -2859,7 +3219,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "fc3d96d9-2c21-5e86-9572-664c691936a9",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/way/1358892387",
@@ -2889,7 +3253,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "b00f3203-b254-544f-90f6-d9ff0724b0af",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/way/1358892397",
@@ -2919,7 +3287,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "653344fe-a90b-5ef5-b7ef-ec6b1a2aff6e",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/way/1358892399",
@@ -2949,7 +3321,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "8f455302-c79b-5687-818b-96484e9619ae",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/1653910064",
@@ -2979,7 +3355,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "4f541a30-4b81-58ea-b979-7a1621681765",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/1653910065",
@@ -3009,7 +3389,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "0e9a4eee-2720-52ac-bdff-653add9c3e29",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/2676351773",
@@ -3039,7 +3423,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "8dceef49-92b0-55c0-b2f3-d3a83998389a",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/2676351774",
@@ -3069,7 +3457,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "716fc8ce-244f-5bff-9c30-bc527b977f1d",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/2676351775",
@@ -3099,7 +3491,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "dffadf04-1ee9-5ecd-9620-07a723f39096",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/11391508067",
@@ -3129,7 +3525,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "f45d7051-ccca-5972-af0c-b029f6a6b2fa",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/12279996989",
@@ -3159,7 +3559,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "37208f5d-0915-5b34-8c9e-0cee31e591d7",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/12729727296",
@@ -3189,7 +3593,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "5f38b48c-3197-5780-979f-94093e10f1c1",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/12731945552",
@@ -3219,7 +3627,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "202a6d5b-0b0c-5bcf-ad9e-fec5d879aa87",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/12733268619",
@@ -3249,7 +3661,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "6af95c92-0407-51ba-bed1-a271051de29c",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/way/343671658",
@@ -3279,7 +3695,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "b582ed7f-10ba-50ed-bc2e-331af87458ba",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/1609809877",
@@ -3309,7 +3729,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "056fab87-d101-5fca-ac88-3bb7b19ae63e",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/way/482931668",
@@ -3339,7 +3763,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "11ec3a7e-e924-5ec6-b866-5e12e8d2f554",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/way/482937617",
@@ -3369,7 +3797,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "116175db-c1f0-5cbc-83c5-970c9b827ebe",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/way/482937620",
@@ -3399,7 +3831,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "e62b4f68-31ea-53cd-b89e-367384a960bc",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/way/482938252",
@@ -3429,7 +3865,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "02220263-3fbb-5c3c-a301-07b2adebbafc",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/way/568571544",
@@ -3459,7 +3899,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "4415f5ce-09aa-5ec4-a888-4b4d256915bb",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/6153271083",
@@ -3489,7 +3933,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "47ef15b6-af35-5fc1-92a9-2ba903dd10aa",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/4609367591",
@@ -3519,7 +3967,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "b0e28d35-2cd1-5b6a-91a0-dc261448f276",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/8508732635",
@@ -3549,7 +4001,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "c13a0da3-8fb7-5c92-ba2a-bd5b86595632",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/12475645202",
@@ -3613,7 +4069,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "4980b275-87a1-5404-a611-4c9aae632853",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/12477829701",
@@ -3643,7 +4103,11 @@
       "show_in_primary_directory": true,
       "needs_review": false,
       "review_reason": null,
-      "qualification_policy": "service_v1_spatial_identity"
+      "qualification_policy": "service_v1_spatial_identity",
+      "v2_preview_overlay": true,
+      "v2_place_id": "ec3960c0-181a-59d1-a2b8-f9ac2a475e71",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/8477529506",
