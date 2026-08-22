@@ -99,17 +99,43 @@ def observation_status_for_item(obs, item):
     )
 
 
-def acquire_osm_queue(queue,fetcher=None,observed_at=None):
-    fetcher=fetcher or (lambda url: urllib.request.urlopen(url,timeout=20).read())
-    when=observed_at or datetime.now(timezone.utc)
-    results=[]
+def _osm_api_url(item):
+    osm_type = item["osm_type"]
+    osm_id = item["osm_id"]
+    suffix = "/full" if osm_type == "way" else ""
+    return f"https://api.openstreetmap.org/api/0.6/{osm_type}/{osm_id}{suffix}"
+
+
+def _osm_public_url(item):
+    return f"https://www.openstreetmap.org/{item['osm_type']}/{item['osm_id']}"
+
+
+def acquire_osm_queue(queue, fetcher=None, observed_at=None):
+    fetcher = fetcher or (lambda url: urllib.request.urlopen(url, timeout=20).read())
+    when = observed_at or datetime.now(timezone.utc)
+    results = []
     for item in queue:
-        url=f"https://api.openstreetmap.org/api/0.6/node/{item['osm_id']}"
+        url = _osm_api_url(item)
         try:
-            obs=parse_osm_node(fetcher(url)); status,reason=observation_status_for_item(obs,item)
-            results.append({**item,'status':status,'reason':reason,'source_name':'OpenStreetMap current observation','source_url':f"https://www.openstreetmap.org/node/{item['osm_id']}",'observed_at':when.isoformat(),'observed_latitude':obs['lat'],'observed_longitude':obs['lon']})
+            obs = parse_osm_object(fetcher(url), item["osm_type"])
+            status, reason = observation_status_for_item(obs, item)
+            results.append({
+                **item,
+                "status": status,
+                "reason": reason,
+                "source_name": "OpenStreetMap current observation",
+                "source_url": _osm_public_url(item),
+                "observed_at": when.isoformat(),
+                "observed_latitude": obs["lat"],
+                "observed_longitude": obs["lon"],
+            })
         except Exception as exc:
-            results.append({**item,'status':'acquisition_error','reason':str(exc),'observed_at':when.isoformat()})
+            results.append({
+                **item,
+                "status": "acquisition_error",
+                "reason": str(exc),
+                "observed_at": when.isoformat(),
+            })
     return results
 
 def staged_eligible(place,evidence,now=None,max_age_days=30):
@@ -151,7 +177,7 @@ def commit_current_observations(database_path, observations):
           eid=str(uuid.uuid5(uuid.NAMESPACE_URL,oid+'|existence'))
           md={'provenance_origin':'current_existence_observation','policy_version':POLICY_VERSION,'observation_status':'current_listing'}
           con.execute('''insert into place_evidence(evidence_id,place_id,source_type,source_name,source_record_id,source_url,source_observed_at,kind,field_name,value_json,status,observed_at,metadata_json)
-          values(?,?,?,?,?,?,?,?,?,?,?,?,?)''',(eid,o['place_id'],'osm','OpenStreetMap current observation',f"osm-node-{o['osm_id']}",o['source_url'],o['observed_at'],'existence','existence','true','supported',o['observed_at'],json.dumps(md,ensure_ascii=False,sort_keys=True)))
+          values(?,?,?,?,?,?,?,?,?,?,?,?,?)''',(eid,o['place_id'],'osm','OpenStreetMap current observation',f"osm-{o.get('osm_type','node')}-{o['osm_id']}",o['source_url'],o['observed_at'],'existence','existence','true','supported',o['observed_at'],json.dumps(md,ensure_ascii=False,sort_keys=True)))
           con.execute('insert into staged_existence_observations values(?,?,?,?,?,?,?,?)',(oid,o['place_id'],o['source_url'],o['status'],o['observed_at'],eid,POLICY_VERSION,json.dumps(o,ensure_ascii=False,sort_keys=True)))
           committed.append({'observation_id':oid,'place_id':o['place_id'],'evidence_id':eid})
       return committed
@@ -300,3 +326,56 @@ def select_observation_queue(
     )
 
     return queue[:limit]
+
+
+def select_identity_anchor_queue(database_path, province='ปราจีนบุรี', limit=None):
+    """Select non-eligible places anchored by a unique OSM object and location.
+
+    Duplicate canonical names are allowed because identity is anchored to the
+    OSM object reference, not the display name. Core-field evidence must still
+    be supported and conflict-free.
+    """
+    if limit is not None and limit < 0:
+        raise ValueError('limit must be >= 0 or None')
+
+    places, by = _load_places_and_evidence(database_path, province)
+    eligible, _ = eligible_place_ids(database_path, province)
+    eligible = set(eligible)
+
+    ref_counts = {}
+    refs_by_place = {}
+    for place in places:
+        ref = osm_ref(by.get(place.identity.place_id, ()))
+        if ref:
+            refs_by_place[place.identity.place_id] = ref
+            ref_counts[ref] = ref_counts.get(ref, 0) + 1
+
+    out = []
+    for place in places:
+        pid = place.identity.place_id
+        if pid in eligible or place.location is None:
+            continue
+        ref = refs_by_place.get(pid)
+        if not ref or ref_counts.get(ref) != 1:
+            continue
+        evidence = by.get(pid, ())
+        ok = True
+        for field_name in CORE_FIELDS:
+            value = getattr(place, field_name)
+            if not _lineages(_matching(evidence, field_name, value)) or _has_conflict(evidence, field_name, value):
+                ok = False
+                break
+        if not ok:
+            continue
+        out.append({
+            'place_id': pid,
+            'canonical_name': place.canonical_name,
+            'province': place.province,
+            'latitude': place.location.latitude,
+            'longitude': place.location.longitude,
+            'osm_type': ref[0],
+            'osm_id': ref[1],
+        })
+
+    out.sort(key=lambda item: (item['place_id'], item['osm_type'], item['osm_id']))
+    return out if limit is None else out[:limit]

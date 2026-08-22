@@ -1,0 +1,47 @@
+[
+  {
+    "place_id": "418e6632-2750-5386-aad7-f97ede205940",
+    "canonical_name": "Verona",
+    "source_type": "official",
+    "source_name": "The Verona at Tub Lan official website",
+    "source_record_id": "veronatublan-home",
+    "source_url": "https://www.veronatublan.com/",
+    "categories": [
+      "attraction",
+      "restaurant"
+    ],
+    "supersede_legacy_category_subsets": true
+  },
+  {
+    "place_id": "57595b16-d24d-5f41-9cf7-8ec261642886",
+    "canonical_name": "เมืองโบราณศรีมโหสถ",
+    "source_type": "official",
+    "source_name": "กรมศิลปากร",
+    "source_record_id": "finearts-srimahosot-25201",
+    "source_url": "https://www.finearts.go.th/main/view/25201-ท่องเมืองโบราณ--ศรีมโหสถ-?type1=11"
+  },
+  {
+    "place_id": "801410d8-00e5-58e9-b77e-f681bbdf6f5c",
+    "canonical_name": "อาหารเจ ซั่นสี่",
+    "source_type": "web",
+    "source_name": "Wongnai",
+    "source_record_id": "wongnai-1975749Hk",
+    "source_url": "https://www.wongnai.com/restaurants/1975749Hk-อาหารเจ-ซั่นสี่-เมืองปราจีนบุรี"
+  },
+  {
+    "place_id": "895f1f1e-993f-557c-b5c8-9fc4cae9cb16",
+    "canonical_name": "โบราณสถานสระมรกต",
+    "source_type": "official",
+    "source_name": "พิพิธภัณฑสถานแห่งชาติ ปราจีนบุรี / กรมศิลปากร",
+    "source_record_id": "finearts-prachinburimuseum-47629",
+    "source_url": "https://www.finearts.go.th/prachinburimuseum/view/47629"
+  },
+  {
+    "place_id": "df7d47d4-6772-50f6-a8a9-237b4a28ea62",
+    "canonical_name": "พิพิธภัณฑสถานแห่งชาติปราจีนบุรี",
+    "source_type": "official",
+    "source_name": "พิพิธภัณฑสถานแห่งชาติ ปราจีนบุรี / กรมศิลปากร",
+    "source_record_id": "finearts-prachinburimuseum-contact",
+    "source_url": "https://www.finearts.go.th/prachinburimuseum/contact"
+  }
+]
