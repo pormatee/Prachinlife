@@ -113,10 +113,14 @@
       source: "place_platform_v2",
       source_name: text(place.source_name),
       source_url: text(place.source_url),
+      external_links: Array.isArray(place.external_links) ? place.external_links : [],
+      prachinlife_page_url: text(place.prachinlife_page_url),
       data_version: "v2",
       metadata: {
         source_name: text(place.source_name),
         source_url: text(place.source_url),
+        external_links: Array.isArray(place.external_links) ? place.external_links : [],
+        prachinlife_page_url: text(place.prachinlife_page_url),
       }
     };
   }

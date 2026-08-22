@@ -68,6 +68,38 @@
     );
   }
 
+  function normalizeExternalLink(item) {
+    if (!item || typeof item !== "object") return null;
+    const url = text(item.url);
+    if (!/^https?:\/\//i.test(url)) return null;
+    return { type: text(item.type).toLowerCase() || "web", label: text(item.label), url };
+  }
+
+  function getAdditionalLinks(place) {
+    const meta = metadata(place);
+    const raw = Array.isArray(place?.external_links)
+      ? place.external_links
+      : (Array.isArray(meta.external_links) ? meta.external_links : []);
+    const website = getWebsite(place);
+    const mapUrl = getMapUrl(place);
+    const seen = new Set();
+    const priority = { prachinlife_vip: 0, official_website: 1, facebook: 2, wongnai: 3, google_maps: 4, web: 5, osm: 99 };
+    return raw.map(normalizeExternalLink).filter(Boolean).filter((item) => {
+      if (item.type === "osm" || /openstreetmap\.org/i.test(item.url)) return false;
+      if (item.url === website || item.url === mapUrl || seen.has(item.url)) return false;
+      seen.add(item.url);
+      return true;
+    }).sort((a, b) => (priority[a.type] ?? 50) - (priority[b.type] ?? 50));
+  }
+
+  function getBestAdditionalLink(place) {
+    const vip = text(place?.prachinlife_page_url || metadata(place).prachinlife_page_url);
+    if (/^https?:\/\//i.test(vip) || vip.startsWith("/")) {
+      return { type: "prachinlife_vip", label: "ข้อมูลเพิ่มเติม", url: vip };
+    }
+    return getAdditionalLinks(place)[0] || null;
+  }
+
   function getSourceName(place) {
     const meta = metadata(place);
     const raw = text(
@@ -149,7 +181,7 @@
     const mapUrl = getMapUrl(place);
     const phoneHref = getPhoneHref(place);
     const website = getWebsite(place);
-    const sourceUrl = getSourceUrl(place);
+    const additional = getBestAdditionalLink(place);
 
     if (mapUrl && hasCoordinates(place)) {
       actions.push(`
@@ -178,11 +210,11 @@
       `);
     }
 
-    if (sourceUrl) {
+    if (additional) {
       actions.push(`
         <a class="source-button place-card-action place-card-action-source"
-          href="${escape(sourceUrl)}" target="_blank" rel="noopener noreferrer">
-          ดูแหล่งข้อมูล
+          href="${escape(additional.url)}" target="_blank" rel="noopener noreferrer">
+          🔗 ข้อมูลเพิ่มเติม
         </a>
       `);
     }
@@ -214,6 +246,8 @@
     getWebsite,
     getSourceUrl,
     getSourceName,
+    getAdditionalLinks,
+    getBestAdditionalLink,
     getLocationLabel,
     hasCoordinates,
     getMapUrl,

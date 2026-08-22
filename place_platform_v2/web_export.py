@@ -25,19 +25,56 @@ def _source_link_from_record_id(record_id):
     kind, object_id = match.groups()
     return f"https://www.openstreetmap.org/{kind}/{object_id}"
 
-def _best_source_for_place(con, place_id):
+def _source_kind(name, url):
+    value = str(url or "").casefold()
+    label = str(name or "").casefold()
+    if "openstreetmap.org" in value or label == "openstreetmap":
+        return "osm"
+    if "maps.app.goo.gl" in value or "google.com/maps" in value:
+        return "google_maps"
+    if "wongnai.com" in value:
+        return "wongnai"
+    if "facebook.com" in value or "fb.com" in value:
+        return "facebook"
+    return "web"
+
+
+def _links_for_place(con, place_id, website=None):
     rows = con.execute(
         "SELECT source_name,source_record_id,source_url FROM place_evidence "
         "WHERE place_id=? ORDER BY observed_at DESC,evidence_id",
         (place_id,),
     ).fetchall()
+    links = []
+    seen = set()
     for row in rows:
-        direct = row["source_url"]
-        if direct:
-            return {"source_name": row["source_name"] or "แหล่งข้อมูลสาธารณะ", "source_url": direct}
+        direct = str(row["source_url"] or "").strip()
         derived = _source_link_from_record_id(row["source_record_id"])
-        if derived:
-            return {"source_name": "OpenStreetMap", "source_url": derived}
+        url = direct or derived
+        if not url or url in seen:
+            continue
+        seen.add(url)
+        kind = _source_kind(row["source_name"], url)
+        links.append({
+            "type": kind,
+            "label": row["source_name"] or ("OpenStreetMap" if kind == "osm" else "ข้อมูลเพิ่มเติม"),
+            "url": url,
+        })
+    if website:
+        website = str(website).strip()
+        if website and website not in seen:
+            links.insert(0, {"type": "official_website", "label": "เว็บไซต์", "url": website})
+    return links
+
+
+def _best_source_for_place(con, place_id):
+    links = _links_for_place(con, place_id)
+    for link in links:
+        if link["type"] != "osm":
+            return {"source_name": link["label"], "source_url": link["url"]}
+    for link in links:
+        if link["type"] == "osm":
+            return {"source_name": "OpenStreetMap", "source_url": link["url"]}
     return {"source_name": "แหล่งข้อมูลสาธารณะ", "source_url": None}
 
 def export_prachinlife_json(database_path, output_path, province="ปราจีนบุรี"):
@@ -56,6 +93,7 @@ def export_prachinlife_json(database_path, output_path, province="ปราจ�
         places = []
         for r in rows:
             source = _best_source_for_place(con, r["place_id"])
+            external_links = _links_for_place(con, r["place_id"], r["website"])
             places.append({
                 "id": r["place_id"],
                 "name": r["canonical_name"],
@@ -70,6 +108,7 @@ def export_prachinlife_json(database_path, output_path, province="ปราจ�
                 "source": "place_platform_v2",
                 "source_name": source["source_name"],
                 "source_url": source["source_url"],
+                "external_links": external_links,
             })
     finally:
         con.close()

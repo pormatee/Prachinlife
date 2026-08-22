@@ -30,13 +30,13 @@ class TestPhase2R4UnifiedPlaceCard(unittest.TestCase):
     def test_r402_unified_action_contract(self):
         text = CARD.read_text(encoding='utf-8')
         for marker in (
-            '📍 เปิดแผนที่', '📞 โทร', '🌐 เว็บไซต์', 'ดูแหล่งข้อมูล',
-            'getPhoneHref', 'getWebsite', 'getSourceUrl', 'getMapUrl',
+            '📍 เปิดแผนที่', '📞 โทร', '🌐 เว็บไซต์', '🔗 ข้อมูลเพิ่มเติม',
+            'getPhoneHref', 'getWebsite', 'getSourceUrl', 'getMapUrl', 'getBestAdditionalLink',
         ):
             self.assertIn(marker, text)
         self.assertIn('if (phoneHref)', text)
         self.assertIn('if (website)', text)
-        self.assertIn('if (sourceUrl)', text)
+        self.assertIn('if (additional)', text)
 
     def test_r403_all_place_renderers_use_shared_actions(self):
         self.assertIn('placeCard.renderActions(place)', APP.read_text(encoding='utf-8'))
@@ -93,7 +93,7 @@ class TestPhase2R4UnifiedPlaceCard(unittest.TestCase):
         self.assertIn('getEatDatasetV2First', text)
         self.assertIn('PrachinLifeV2Runtime', text)
         index = INDEX.read_text(encoding='utf-8')
-        self.assertIn('phase2r4-20260822', index)
+        self.assertIn('phase2y1-20260822', index)
 
 
 if __name__ == '__main__':
