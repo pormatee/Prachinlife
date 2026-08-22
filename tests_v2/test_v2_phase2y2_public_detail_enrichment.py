@@ -12,7 +12,7 @@ class TestPhase2Y2PublicDetailEnrichment(unittest.TestCase):
 
     def test_y202_candidate_only_detail_is_not_published(self):
         text=(ROOT/'place_platform_v2/web_export.py').read_text(encoding='utf-8')
-        self.assertIn('== "candidate"', text)
+        self.assertIn('not in {"supported", "verified"}', text)
 
     def test_y203_adapter_preserves_public_enrichment(self):
         text=(ROOT/'js/core/v2-place-adapter.js').read_text(encoding='utf-8')
