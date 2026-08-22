@@ -1,0 +1,47 @@
+PrachinLife V2 Phase 3.1 — Production Place Quality Audit
+Baseline: 728fea6 Restore V2 public place enrichment after go-live
+
+AUTONOMOUS LOOP RESULT: PASS
+
+Production-visible places audited: 333
+- Eat (prachinlife_index.json): 55
+- Vegetarian: 151
+- Go: 6
+- Service: 121
+
+Quality tiers:
+- High: 73
+- Medium: 260
+- Low: 0
+
+Action readiness:
+- Map: 333
+- Phone: 38
+- Website: 39
+- Additional information: 30
+
+Missing user-value fields:
+- Phone: 295
+- Website: 294
+- Additional information: 303
+
+Enrichment priority queue:
+- Deterministic top 50 places missing one or more user-facing actions
+- Includes medium-quality places; no longer depends on low-tier places existing
+
+Important remediation:
+- Fixed production visibility contract for prachinlife_index.json.
+- Production places use content_type="eat"; content_type="deal" is excluded.
+- Previous Phase 3.1 draft incorrectly expected content_type="place", omitting all 55 Eat places.
+
+Safety / constraints:
+- Read-only audit; hashes production JSON before/after and fails if inputs change.
+- No Production UI changes.
+- No Near Me/category switching changes.
+- No production switch changes.
+- No image policy changes.
+- No evidence/trust policy relaxation.
+
+Tests:
+- Phase 3.1 tests: 7/7 OK
+- Full tests_v2 regression: 692/692 OK

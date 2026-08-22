@@ -1,0 +1,908 @@
+{
+  "mode": "read_only_production_quality_audit",
+  "visible_place_count": 333,
+  "quality_tiers": {
+    "high": 73,
+    "medium": 260,
+    "low": 0
+  },
+  "action_ready": {
+    "map": 333,
+    "phone": 38,
+    "website": 39,
+    "additional_info": 30
+  },
+  "missing_fields": {
+    "phone": 295,
+    "website": 294,
+    "additional_info": 303
+  },
+  "datasets": {
+    "prachinlife_index.json": {
+      "visible_places": 55,
+      "quality": {
+        "medium": 46,
+        "high": 9
+      }
+    },
+    "vegetarian_index.json": {
+      "visible_places": 151,
+      "quality": {
+        "medium": 116,
+        "high": 35
+      }
+    },
+    "go_index.json": {
+      "visible_places": 6,
+      "quality": {
+        "medium": 2,
+        "high": 4
+      }
+    },
+    "service_index.json": {
+      "visible_places": 121,
+      "quality": {
+        "medium": 96,
+        "high": 25
+      }
+    }
+  },
+  "top_enrichment_priorities": [
+    {
+      "dataset": "vegetarian_index.json",
+      "id": "osm-node-4477017880",
+      "name": "Anchan",
+      "score": 70,
+      "tier": "medium",
+      "missing": [
+        "phone",
+        "website",
+        "additional_info"
+      ],
+      "missing_actions": [
+        "phone",
+        "website",
+        "additional_info"
+      ]
+    },
+    {
+      "dataset": "vegetarian_index.json",
+      "id": "osm-node-5484616521",
+      "name": "Aum Vegetarian Restaurant",
+      "score": 70,
+      "tier": "medium",
+      "missing": [
+        "phone",
+        "website",
+        "additional_info"
+      ],
+      "missing_actions": [
+        "phone",
+        "website",
+        "additional_info"
+      ]
+    },
+    {
+      "dataset": "vegetarian_index.json",
+      "id": "osm-node-7081658186",
+      "name": "Baan Unrak",
+      "score": 70,
+      "tier": "medium",
+      "missing": [
+        "phone",
+        "website",
+        "additional_info"
+      ],
+      "missing_actions": [
+        "phone",
+        "website",
+        "additional_info"
+      ]
+    },
+    {
+      "dataset": "vegetarian_index.json",
+      "id": "osm-node-9494404345",
+      "name": "Ban Veggie",
+      "score": 70,
+      "tier": "medium",
+      "missing": [
+        "phone",
+        "website",
+        "additional_info"
+      ],
+      "missing_actions": [
+        "phone",
+        "website",
+        "additional_info"
+      ]
+    },
+    {
+      "dataset": "service_index.json",
+      "id": "osm-way-343670272",
+      "name": "Bangchak",
+      "score": 70,
+      "tier": "medium",
+      "missing": [
+        "phone",
+        "website",
+        "additional_info"
+      ],
+      "missing_actions": [
+        "phone",
+        "website",
+        "additional_info"
+      ]
+    },
+    {
+      "dataset": "service_index.json",
+      "id": "osm-way-482931668",
+      "name": "Bangchak",
+      "score": 70,
+      "tier": "medium",
+      "missing": [
+        "phone",
+        "website",
+        "additional_info"
+      ],
+      "missing_actions": [
+        "phone",
+        "website",
+        "additional_info"
+      ]
+    },
+    {
+      "dataset": "service_index.json",
+      "id": "osm-way-907009154",
+      "name": "Bangchak",
+      "score": 70,
+      "tier": "medium",
+      "missing": [
+        "phone",
+        "website",
+        "additional_info"
+      ],
+      "missing_actions": [
+        "phone",
+        "website",
+        "additional_info"
+      ]
+    },
+    {
+      "dataset": "service_index.json",
+      "id": "osm-node-5434456621",
+      "name": "Bangchak Station",
+      "score": 70,
+      "tier": "medium",
+      "missing": [
+        "phone",
+        "website",
+        "additional_info"
+      ],
+      "missing_actions": [
+        "phone",
+        "website",
+        "additional_info"
+      ]
+    },
+    {
+      "dataset": "vegetarian_index.json",
+      "id": "osm-node-6401978185",
+      "name": "Blossom Vegan Café",
+      "score": 70,
+      "tier": "medium",
+      "missing": [
+        "phone",
+        "website",
+        "additional_info"
+      ],
+      "missing_actions": [
+        "phone",
+        "website",
+        "additional_info"
+      ]
+    },
+    {
+      "dataset": "service_index.json",
+      "id": "osm-node-12475645301",
+      "name": "Bubble P",
+      "score": 70,
+      "tier": "medium",
+      "missing": [
+        "phone",
+        "website",
+        "additional_info"
+      ],
+      "missing_actions": [
+        "phone",
+        "website",
+        "additional_info"
+      ]
+    },
+    {
+      "dataset": "vegetarian_index.json",
+      "id": "osm-node-2294540781",
+      "name": "Bun Song",
+      "score": 70,
+      "tier": "medium",
+      "missing": [
+        "phone",
+        "website",
+        "additional_info"
+      ],
+      "missing_actions": [
+        "phone",
+        "website",
+        "additional_info"
+      ]
+    },
+    {
+      "dataset": "prachinlife_index.json",
+      "id": "osm-node-10104800519",
+      "name": "Cafe Amazon",
+      "score": 70,
+      "tier": "medium",
+      "missing": [
+        "phone",
+        "website",
+        "additional_info"
+      ],
+      "missing_actions": [
+        "phone",
+        "website",
+        "additional_info"
+      ]
+    },
+    {
+      "dataset": "prachinlife_index.json",
+      "id": "osm-node-6369552999",
+      "name": "Cafe Amazon",
+      "score": 70,
+      "tier": "medium",
+      "missing": [
+        "phone",
+        "website",
+        "additional_info"
+      ],
+      "missing_actions": [
+        "phone",
+        "website",
+        "additional_info"
+      ]
+    },
+    {
+      "dataset": "prachinlife_index.json",
+      "id": "osm-node-2676351772",
+      "name": "Café Amazon",
+      "score": 70,
+      "tier": "medium",
+      "missing": [
+        "phone",
+        "website",
+        "additional_info"
+      ],
+      "missing_actions": [
+        "phone",
+        "website",
+        "additional_info"
+      ]
+    },
+    {
+      "dataset": "service_index.json",
+      "id": "osm-node-6274486586",
+      "name": "Caltex",
+      "score": 70,
+      "tier": "medium",
+      "missing": [
+        "phone",
+        "website",
+        "additional_info"
+      ],
+      "missing_actions": [
+        "phone",
+        "website",
+        "additional_info"
+      ]
+    },
+    {
+      "dataset": "service_index.json",
+      "id": "osm-way-343660968",
+      "name": "Caltex",
+      "score": 70,
+      "tier": "medium",
+      "missing": [
+        "phone",
+        "website",
+        "additional_info"
+      ],
+      "missing_actions": [
+        "phone",
+        "website",
+        "additional_info"
+      ]
+    },
+    {
+      "dataset": "service_index.json",
+      "id": "osm-way-485488146",
+      "name": "Caltex",
+      "score": 70,
+      "tier": "medium",
+      "missing": [
+        "phone",
+        "website",
+        "additional_info"
+      ],
+      "missing_actions": [
+        "phone",
+        "website",
+        "additional_info"
+      ]
+    },
+    {
+      "dataset": "service_index.json",
+      "id": "osm-way-907084421",
+      "name": "Caltex",
+      "score": 70,
+      "tier": "medium",
+      "missing": [
+        "phone",
+        "website",
+        "additional_info"
+      ],
+      "missing_actions": [
+        "phone",
+        "website",
+        "additional_info"
+      ]
+    },
+    {
+      "dataset": "service_index.json",
+      "id": "osm-node-5323879724",
+      "name": "Caltex Station",
+      "score": 70,
+      "tier": "medium",
+      "missing": [
+        "phone",
+        "website",
+        "additional_info"
+      ],
+      "missing_actions": [
+        "phone",
+        "website",
+        "additional_info"
+      ]
+    },
+    {
+      "dataset": "service_index.json",
+      "id": "osm-node-5434377521",
+      "name": "Caltex Station",
+      "score": 70,
+      "tier": "medium",
+      "missing": [
+        "phone",
+        "website",
+        "additional_info"
+      ],
+      "missing_actions": [
+        "phone",
+        "website",
+        "additional_info"
+      ]
+    },
+    {
+      "dataset": "vegetarian_index.json",
+      "id": "osm-node-3935869769",
+      "name": "Cha Tanyong",
+      "score": 70,
+      "tier": "medium",
+      "missing": [
+        "phone",
+        "website",
+        "additional_info"
+      ],
+      "missing_actions": [
+        "phone",
+        "website",
+        "additional_info"
+      ]
+    },
+    {
+      "dataset": "vegetarian_index.json",
+      "id": "osm-node-9872196618",
+      "name": "Chada Vegetarian",
+      "score": 70,
+      "tier": "medium",
+      "missing": [
+        "phone",
+        "website",
+        "additional_info"
+      ],
+      "missing_actions": [
+        "phone",
+        "website",
+        "additional_info"
+      ]
+    },
+    {
+      "dataset": "prachinlife_index.json",
+      "id": "osm-node-6594614085",
+      "name": "Check in",
+      "score": 70,
+      "tier": "medium",
+      "missing": [
+        "phone",
+        "website",
+        "additional_info"
+      ],
+      "missing_actions": [
+        "phone",
+        "website",
+        "additional_info"
+      ]
+    },
+    {
+      "dataset": "vegetarian_index.json",
+      "id": "osm-node-2972682325",
+      "name": "Chijuya Jing Xin Health Food",
+      "score": 70,
+      "tier": "medium",
+      "missing": [
+        "phone",
+        "website",
+        "additional_info"
+      ],
+      "missing_actions": [
+        "phone",
+        "website",
+        "additional_info"
+      ]
+    },
+    {
+      "dataset": "vegetarian_index.json",
+      "id": "osm-node-4187833103",
+      "name": "Chijuya vegan + sushi",
+      "score": 70,
+      "tier": "medium",
+      "missing": [
+        "phone",
+        "website",
+        "additional_info"
+      ],
+      "missing_actions": [
+        "phone",
+        "website",
+        "additional_info"
+      ]
+    },
+    {
+      "dataset": "service_index.json",
+      "id": "osm-node-12475645202",
+      "name": "Chill Chill wash",
+      "score": 70,
+      "tier": "medium",
+      "missing": [
+        "phone",
+        "website",
+        "additional_info"
+      ],
+      "missing_actions": [
+        "phone",
+        "website",
+        "additional_info"
+      ]
+    },
+    {
+      "dataset": "prachinlife_index.json",
+      "id": "osm-node-8518228365",
+      "name": "Coffee & The Kitchen By บ้านสวนดอกไม้",
+      "score": 70,
+      "tier": "medium",
+      "missing": [
+        "phone",
+        "website",
+        "additional_info"
+      ],
+      "missing_actions": [
+        "phone",
+        "website",
+        "additional_info"
+      ]
+    },
+    {
+      "dataset": "prachinlife_index.json",
+      "id": "osm-node-2823924411",
+      "name": "Coffee shop",
+      "score": 70,
+      "tier": "medium",
+      "missing": [
+        "phone",
+        "website",
+        "additional_info"
+      ],
+      "missing_actions": [
+        "phone",
+        "website",
+        "additional_info"
+      ]
+    },
+    {
+      "dataset": "service_index.json",
+      "id": "osm-node-5434456622",
+      "name": "ESSO LPG Station",
+      "score": 70,
+      "tier": "medium",
+      "missing": [
+        "phone",
+        "website",
+        "additional_info"
+      ],
+      "missing_actions": [
+        "phone",
+        "website",
+        "additional_info"
+      ]
+    },
+    {
+      "dataset": "service_index.json",
+      "id": "osm-node-5323863727",
+      "name": "ESSO Station",
+      "score": 70,
+      "tier": "medium",
+      "missing": [
+        "phone",
+        "website",
+        "additional_info"
+      ],
+      "missing_actions": [
+        "phone",
+        "website",
+        "additional_info"
+      ]
+    },
+    {
+      "dataset": "service_index.json",
+      "id": "osm-node-5323863728",
+      "name": "ESSO Station",
+      "score": 70,
+      "tier": "medium",
+      "missing": [
+        "phone",
+        "website",
+        "additional_info"
+      ],
+      "missing_actions": [
+        "phone",
+        "website",
+        "additional_info"
+      ]
+    },
+    {
+      "dataset": "service_index.json",
+      "id": "osm-node-4345349349",
+      "name": "Esso",
+      "score": 70,
+      "tier": "medium",
+      "missing": [
+        "phone",
+        "website",
+        "additional_info"
+      ],
+      "missing_actions": [
+        "phone",
+        "website",
+        "additional_info"
+      ]
+    },
+    {
+      "dataset": "vegetarian_index.json",
+      "id": "osm-node-9898719117",
+      "name": "Everflow",
+      "score": 70,
+      "tier": "medium",
+      "missing": [
+        "phone",
+        "website",
+        "additional_info"
+      ],
+      "missing_actions": [
+        "phone",
+        "website",
+        "additional_info"
+      ]
+    },
+    {
+      "dataset": "service_index.json",
+      "id": "osm-node-12477829701",
+      "name": "Extra wash",
+      "score": 70,
+      "tier": "medium",
+      "missing": [
+        "phone",
+        "website",
+        "additional_info"
+      ],
+      "missing_actions": [
+        "phone",
+        "website",
+        "additional_info"
+      ]
+    },
+    {
+      "dataset": "vegetarian_index.json",
+      "id": "osm-node-6793032375",
+      "name": "Fig Cafe",
+      "score": 70,
+      "tier": "medium",
+      "missing": [
+        "phone",
+        "website",
+        "additional_info"
+      ],
+      "missing_actions": [
+        "phone",
+        "website",
+        "additional_info"
+      ]
+    },
+    {
+      "dataset": "vegetarian_index.json",
+      "id": "osm-node-6285861985",
+      "name": "Free Vegetarian Restaurant",
+      "score": 70,
+      "tier": "medium",
+      "missing": [
+        "phone",
+        "website",
+        "additional_info"
+      ],
+      "missing_actions": [
+        "phone",
+        "website",
+        "additional_info"
+      ]
+    },
+    {
+      "dataset": "vegetarian_index.json",
+      "id": "osm-node-10716433663",
+      "name": "Govinda's at the Beach",
+      "score": 70,
+      "tier": "medium",
+      "missing": [
+        "phone",
+        "website",
+        "additional_info"
+      ],
+      "missing_actions": [
+        "phone",
+        "website",
+        "additional_info"
+      ]
+    },
+    {
+      "dataset": "service_index.json",
+      "id": "osm-node-2146335008",
+      "name": "Green Lemon",
+      "score": 70,
+      "tier": "medium",
+      "missing": [
+        "phone",
+        "website",
+        "additional_info"
+      ],
+      "missing_actions": [
+        "phone",
+        "website",
+        "additional_info"
+      ]
+    },
+    {
+      "dataset": "vegetarian_index.json",
+      "id": "osm-node-12424802307",
+      "name": "Guan Im Jay",
+      "score": 70,
+      "tier": "medium",
+      "missing": [
+        "phone",
+        "website",
+        "additional_info"
+      ],
+      "missing_actions": [
+        "phone",
+        "website",
+        "additional_info"
+      ]
+    },
+    {
+      "dataset": "vegetarian_index.json",
+      "id": "osm-node-11598073400",
+      "name": "Guru Kripa Restaurant",
+      "score": 70,
+      "tier": "medium",
+      "missing": [
+        "phone",
+        "website",
+        "additional_info"
+      ],
+      "missing_actions": [
+        "phone",
+        "website",
+        "additional_info"
+      ]
+    },
+    {
+      "dataset": "vegetarian_index.json",
+      "id": "osm-node-13588942201",
+      "name": "Gyofu Vegetarian Dumplings",
+      "score": 70,
+      "tier": "medium",
+      "missing": [
+        "phone",
+        "website",
+        "additional_info"
+      ],
+      "missing_actions": [
+        "phone",
+        "website",
+        "additional_info"
+      ]
+    },
+    {
+      "dataset": "vegetarian_index.json",
+      "id": "osm-node-5224403935",
+      "name": "Hua Hin Vegan",
+      "score": 70,
+      "tier": "medium",
+      "missing": [
+        "phone",
+        "website",
+        "additional_info"
+      ],
+      "missing_actions": [
+        "phone",
+        "website",
+        "additional_info"
+      ]
+    },
+    {
+      "dataset": "vegetarian_index.json",
+      "id": "osm-node-11421699069",
+      "name": "Imjai Vegan",
+      "score": 70,
+      "tier": "medium",
+      "missing": [
+        "phone",
+        "website",
+        "additional_info"
+      ],
+      "missing_actions": [
+        "phone",
+        "website",
+        "additional_info"
+      ]
+    },
+    {
+      "dataset": "vegetarian_index.json",
+      "id": "osm-node-13392865738",
+      "name": "Imjai Vegan",
+      "score": 70,
+      "tier": "medium",
+      "missing": [
+        "phone",
+        "website",
+        "additional_info"
+      ],
+      "missing_actions": [
+        "phone",
+        "website",
+        "additional_info"
+      ]
+    },
+    {
+      "dataset": "service_index.json",
+      "id": "osm-way-343665100",
+      "name": "Independent Fuel Station",
+      "score": 70,
+      "tier": "medium",
+      "missing": [
+        "phone",
+        "website",
+        "additional_info"
+      ],
+      "missing_actions": [
+        "phone",
+        "website",
+        "additional_info"
+      ]
+    },
+    {
+      "dataset": "vegetarian_index.json",
+      "id": "osm-node-13472832501",
+      "name": "Indian Bites Cafe & Vegetarian and Vegan Restaurant",
+      "score": 70,
+      "tier": "medium",
+      "missing": [
+        "phone",
+        "website",
+        "additional_info"
+      ],
+      "missing_actions": [
+        "phone",
+        "website",
+        "additional_info"
+      ]
+    },
+    {
+      "dataset": "vegetarian_index.json",
+      "id": "osm-node-13133043002",
+      "name": "Kao Man Kai Jay Vegan",
+      "score": 70,
+      "tier": "medium",
+      "missing": [
+        "phone",
+        "website",
+        "additional_info"
+      ],
+      "missing_actions": [
+        "phone",
+        "website",
+        "additional_info"
+      ]
+    },
+    {
+      "dataset": "vegetarian_index.json",
+      "id": "osm-node-13467662701",
+      "name": "Khamhom Vegetarian Food  (vegan)",
+      "score": 70,
+      "tier": "medium",
+      "missing": [
+        "phone",
+        "website",
+        "additional_info"
+      ],
+      "missing_actions": [
+        "phone",
+        "website",
+        "additional_info"
+      ]
+    },
+    {
+      "dataset": "vegetarian_index.json",
+      "id": "osm-node-2292083007",
+      "name": "Khun Churn",
+      "score": 70,
+      "tier": "medium",
+      "missing": [
+        "phone",
+        "website",
+        "additional_info"
+      ],
+      "missing_actions": [
+        "phone",
+        "website",
+        "additional_info"
+      ]
+    },
+    {
+      "dataset": "service_index.json",
+      "id": "osm-node-12680417582",
+      "name": "LPG",
+      "score": 70,
+      "tier": "medium",
+      "missing": [
+        "phone",
+        "website",
+        "additional_info"
+      ],
+      "missing_actions": [
+        "phone",
+        "website",
+        "additional_info"
+      ]
+    }
+  ],
+  "input_sha256": {
+    "prachinlife_index.json": "084e9b7c36833f3845f11cfb36511e5c8c2a9b07db00abcb3c467a10ec3c0336",
+    "vegetarian_index.json": "e29ba37653d152a536d1acfcffe3ee593316f07fd9e6b41e53fda9479d9b0d6b",
+    "go_index.json": "03b0bcce1ef8f61aedb3e0cb1b0cca345dbfd9c47aeddcbcf8acad5efb98208a",
+    "service_index.json": "2b086ba38c3496374478075b9be20bf8eb920b1f38d20da9330e00dce320b019"
+  }
+}
