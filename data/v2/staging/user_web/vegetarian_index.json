@@ -23322,7 +23322,11 @@
       "coordinate_precision": "market",
       "coordinate_verified": true,
       "location_reference": "ตลาดเทศบาลเมืองปราจีนบุรี (ตลาดล่าง)",
-      "verification_source": "web_evidence_plus_local_confirmation"
+      "verification_source": "web_evidence_plus_local_confirmation",
+      "v2_preview_overlay": true,
+      "v2_place_id": "801410d8-00e5-58e9-b77e-f681bbdf6f5c",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     },
     "source": "Wongnai",
     "source_url": "https://www.wongnai.com/restaurants/1975749Hk-%E0%B8%AD%E0%B8%B2%E0%B8%AB%E0%B8%B2%E0%B8%A3%E0%B9%80%E0%B8%88-%E0%B8%8B%E0%B8%B1%E0%B9%88%E0%B8%99%E0%B8%AA%E0%B8%B5%E0%B9%88-%E0%B9%80%E0%B8%A1%E0%B8%B7%E0%B8%AD%E0%B8%87%E0%B8%9B%E0%B8%A3%E0%B8%B2%E0%B8%88%E0%B8%B5%E0%B8%99%E0%B8%9A%E0%B8%B8%E0%B8%A3%E0%B8%B5",

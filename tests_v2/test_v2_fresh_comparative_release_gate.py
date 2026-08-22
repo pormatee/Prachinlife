@@ -7,7 +7,7 @@ class T(unittest.TestCase):
     def get(self):
         return audit_fresh_comparative_release(ROOT,ROOT/'data/v2/place_platform_v2.sqlite3',ROOT/'data/v2/staging/user_web')
     def test_passes_current_overlay_snapshot(self):
-        r=self.get();self.assertEqual(r['status'],'PASS');self.assertEqual(r['eligible_place_count'],20);self.assertEqual(r['overlay_place_count'],20)
+        r=self.get();self.assertEqual(r['status'],'PASS');self.assertEqual(r['eligible_place_count'],220);self.assertEqual(r['overlay_place_count'],220)
     def test_preserves_all_v1_counts(self):
         r=self.get();
         for x in r['files'].values(): self.assertEqual(x['v1_count'],x['staged_count'])

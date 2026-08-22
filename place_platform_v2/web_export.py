@@ -46,8 +46,9 @@ def _detail_evidence_for_place(con, place_id):
         field = str(row["field_name"] or "")
         if field not in wanted or field in result:
             continue
-        # Candidate-only edits are not public detail data yet.
-        if str(row["status"] or "").casefold() == "candidate":
+        # Public detail enrichment follows the same trust boundary as public
+        # navigation: only supported or verified evidence may be published.
+        if str(row["status"] or "").casefold() not in {"supported", "verified"}:
             continue
         value = _decode_evidence_value(row["value_json"])
         if value not in (None, "", [], {}):

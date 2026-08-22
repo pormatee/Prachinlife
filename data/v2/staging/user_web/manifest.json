@@ -2,8 +2,8 @@
   "policy_version": "staged-milestone-v1",
   "preview_mode": "v2_overlay_with_v1_fallback",
   "province": "ปราจีนบุรี",
-  "eligible_place_count": 20,
-  "overlay_place_count": 20,
+  "eligible_place_count": 220,
+  "overlay_place_count": 220,
   "unmapped_eligible_place_count": 0,
   "files": {
     "prachinlife_index.json": 71,
@@ -12,16 +12,16 @@
     "service_index.json": 121
   },
   "v2_overlay_records": {
-    "prachinlife_index.json": 7,
-    "vegetarian_index.json": 0,
-    "go_index.json": 8,
-    "service_index.json": 5
+    "prachinlife_index.json": 55,
+    "vegetarian_index.json": 1,
+    "go_index.json": 44,
+    "service_index.json": 121
   },
   "v1_fallback_records": {
-    "prachinlife_index.json": 64,
-    "vegetarian_index.json": 700,
-    "go_index.json": 36,
-    "service_index.json": 116
+    "prachinlife_index.json": 16,
+    "vegetarian_index.json": 699,
+    "go_index.json": 0,
+    "service_index.json": 0
   },
   "production_unchanged": true,
   "public_user_web_switched": false
