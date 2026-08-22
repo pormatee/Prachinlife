@@ -34,7 +34,7 @@ def _decode_evidence_value(raw):
 
 
 def _detail_evidence_for_place(con, place_id):
-    wanted = {"district", "subdistrict", "area", "opening_hours", "real_image", "description"}
+    wanted = {"district", "subdistrict", "area", "opening_hours", "real_image", "description", "prachinlife_page_url"}
     rows = con.execute(
         "SELECT field_name,value_json,status,observed_at FROM place_evidence "
         "WHERE place_id=? ORDER BY observed_at DESC,evidence_id",
@@ -69,13 +69,16 @@ def _source_kind(name, url):
 
 def _links_for_place(con, place_id, website=None):
     rows = con.execute(
-        "SELECT source_name,source_record_id,source_url FROM place_evidence "
+        "SELECT source_name,source_record_id,source_url,status FROM place_evidence "
         "WHERE place_id=? ORDER BY observed_at DESC,evidence_id",
         (place_id,),
     ).fetchall()
     links = []
     seen = set()
     for row in rows:
+        # Public navigation must not expose candidate/rejected/stale evidence links.
+        if str(row["status"] or "").casefold() not in {"supported", "verified"}:
+            continue
         direct = str(row["source_url"] or "").strip()
         derived = _source_link_from_record_id(row["source_record_id"])
         url = direct or derived
@@ -145,6 +148,7 @@ def export_prachinlife_json(database_path, output_path, province="ปราจ�
                 "real_image": details.get("real_image"),
                 "image_url": details.get("real_image"),
                 "description": details.get("description"),
+                "prachinlife_page_url": details.get("prachinlife_page_url"),
             })
     finally:
         con.close()
