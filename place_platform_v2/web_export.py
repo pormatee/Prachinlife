@@ -2,7 +2,7 @@ from __future__ import annotations
 import json, sqlite3
 from pathlib import Path
 import re
-from urllib.parse import urlparse
+from urllib.parse import urlparse, urlunparse
 
 def _decode_categories(raw):
     value = json.loads(raw)
@@ -69,6 +69,23 @@ def _public_http_url(value):
     return raw
 
 
+
+
+def _canonical_url_key(value):
+    raw = _public_http_url(value)
+    if not raw:
+        return None
+    parsed = urlparse(raw)
+    hostname = (parsed.hostname or "").casefold()
+    port = parsed.port
+    if (parsed.scheme.casefold() == "https" and port == 443) or (parsed.scheme.casefold() == "http" and port == 80):
+        port = None
+    netloc = hostname
+    if port:
+        netloc = f"{hostname}:{port}"
+    path = parsed.path.rstrip("/") or "/"
+    return urlunparse((parsed.scheme.casefold(), netloc, path, parsed.params, parsed.query, ""))
+
 def _source_kind(name, url):
     value = str(url or "").casefold()
     label = str(name or "").casefold()
@@ -98,9 +115,10 @@ def _links_for_place(con, place_id, website=None):
         direct = str(row["source_url"] or "").strip()
         derived = _source_link_from_record_id(row["source_record_id"])
         url = _public_http_url(direct or derived)
-        if not url or url in seen:
+        key = _canonical_url_key(url)
+        if not url or not key or key in seen:
             continue
-        seen.add(url)
+        seen.add(key)
         kind = _source_kind(row["source_name"], url)
         links.append({
             "type": kind,
@@ -109,7 +127,9 @@ def _links_for_place(con, place_id, website=None):
         })
     if website:
         website = _public_http_url(website)
-        if website and website not in seen:
+        website_key = _canonical_url_key(website)
+        if website and website_key and website_key not in seen:
+            seen.add(website_key)
             links.insert(0, {"type": "official_website", "label": "เว็บไซต์", "url": website})
     return links
 

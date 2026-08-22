@@ -77,6 +77,24 @@
     return safeHttpUrl(url);
   }
 
+  function canonicalUrlKey(value) {
+    const url = safeHttpUrl(value);
+    if (!url) return "";
+    try {
+      const parsed = new URL(url);
+      parsed.hash = "";
+      parsed.hostname = parsed.hostname.toLowerCase();
+      if ((parsed.protocol === "https:" && parsed.port === "443")
+        || (parsed.protocol === "http:" && parsed.port === "80")) {
+        parsed.port = "";
+      }
+      if (parsed.pathname.length > 1) parsed.pathname = parsed.pathname.replace(/\/+$/, "");
+      return parsed.toString();
+    } catch (_) {
+      return url.replace(/\/+$/, "");
+    }
+  }
+
   function normalizeExternalLink(item) {
     if (!item || typeof item !== "object") return null;
     const url = safeHttpUrl(item.url);
@@ -91,12 +109,17 @@
       : (Array.isArray(meta.external_links) ? meta.external_links : []);
     const website = getWebsite(place);
     const mapUrl = getMapUrl(place);
+    const websiteKey = canonicalUrlKey(website);
+    const mapKey = canonicalUrlKey(mapUrl);
     const seen = new Set();
-    const priority = { prachinlife_vip: 0, official_website: 1, facebook: 2, wongnai: 3, google_maps: 4, web: 5, osm: 99 };
+    // Product policy: official website has its own action; for additional
+    // information prefer Google Maps, then Wongnai, Facebook, then other web.
+    const priority = { prachinlife_vip: 0, official_website: 1, google_maps: 2, wongnai: 3, facebook: 4, web: 5, osm: 99 };
     return raw.map(normalizeExternalLink).filter(Boolean).filter((item) => {
       if (item.type === "osm" || /openstreetmap\.org/i.test(item.url)) return false;
-      if (item.url === website || item.url === mapUrl || seen.has(item.url)) return false;
-      seen.add(item.url);
+      const key = canonicalUrlKey(item.url);
+      if (!key || key === websiteKey || key === mapKey || seen.has(key)) return false;
+      seen.add(key);
       return true;
     }).sort((a, b) => (priority[a.type] ?? 50) - (priority[b.type] ?? 50));
   }
@@ -252,6 +275,7 @@
   window.PrachinLife.core.placeCard = Object.freeze({
     safeHttpUrl,
     safeVipUrl,
+    canonicalUrlKey,
     getPhone,
     getPhoneHref,
     getWebsite,
