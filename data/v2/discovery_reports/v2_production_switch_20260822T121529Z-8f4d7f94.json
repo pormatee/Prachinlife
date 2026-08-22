@@ -1,0 +1,79 @@
+{
+  "mode": "COMMIT",
+  "policy_version": "controlled-production-switch-v1",
+  "status": "SWITCHED",
+  "release_id": "20260822T121529Z-8f4d7f94",
+  "switched_at": "2026-08-22T12:15:29.352752+00:00",
+  "eligible_place_count": 20,
+  "overlay_place_count": 20,
+  "backup_dir": "/data/data/com.termux/files/home/Proprachin/data/v2/production_switch_backups/20260822T121529Z-8f4d7f94",
+  "production_sha256_before": {
+    "prachinlife_index.json": "a3933f8ab8efb0658d8c2c01cb76231fa105964ec2602dbaa28a3da28379b19e",
+    "vegetarian_index.json": "145fe84888873b0f9c2beae5faab4912fca62324a5d9fed303d1f45419b88c2f",
+    "go_index.json": "4fd587e68bae758cda2e95f66465bf302a30287942b1e7292a56b85e4199e552",
+    "service_index.json": "73b53fe3bd605783bd20b2adf6bfabc23b2ee5ed519806b0140f97a9a257dae4"
+  },
+  "production_sha256_after": {
+    "prachinlife_index.json": "b43e8d2a0967ae1b2723d5c509430fb4764485445e990053e4aa24f41e8f9e93",
+    "vegetarian_index.json": "b476c6286fe0b67bca071b84952a118b2f1240c874318a72ba879abbae3c2855",
+    "go_index.json": "cab4b39467598eb036ee354510317204d80f6b61c48b98a12508e39d3a168c70",
+    "service_index.json": "1d2e2c5f932abaf7ec5582612caa9a10904163f4fab83880514960726c544464"
+  },
+  "staging_sha256": {
+    "prachinlife_index.json": "b43e8d2a0967ae1b2723d5c509430fb4764485445e990053e4aa24f41e8f9e93",
+    "vegetarian_index.json": "b476c6286fe0b67bca071b84952a118b2f1240c874318a72ba879abbae3c2855",
+    "go_index.json": "cab4b39467598eb036ee354510317204d80f6b61c48b98a12508e39d3a168c70",
+    "service_index.json": "1d2e2c5f932abaf7ec5582612caa9a10904163f4fab83880514960726c544464"
+  },
+  "smoke_checks": [
+    {
+      "name": "prachinlife_index.json:hash_matches_staging",
+      "ok": true,
+      "detail": "promoted production JSON must byte-match staged overlay JSON"
+    },
+    {
+      "name": "prachinlife_index.json:valid_json_array",
+      "ok": true,
+      "detail": "type=list"
+    },
+    {
+      "name": "vegetarian_index.json:hash_matches_staging",
+      "ok": true,
+      "detail": "promoted production JSON must byte-match staged overlay JSON"
+    },
+    {
+      "name": "vegetarian_index.json:valid_json_array",
+      "ok": true,
+      "detail": "type=list"
+    },
+    {
+      "name": "go_index.json:hash_matches_staging",
+      "ok": true,
+      "detail": "promoted production JSON must byte-match staged overlay JSON"
+    },
+    {
+      "name": "go_index.json:valid_json_array",
+      "ok": true,
+      "detail": "type=list"
+    },
+    {
+      "name": "service_index.json:hash_matches_staging",
+      "ok": true,
+      "detail": "promoted production JSON must byte-match staged overlay JSON"
+    },
+    {
+      "name": "service_index.json:valid_json_array",
+      "ok": true,
+      "detail": "type=list"
+    },
+    {
+      "name": "overlay_place_count_after_switch",
+      "ok": true,
+      "detail": "overlay_places=20, expected=20"
+    }
+  ],
+  "rollback_available": true,
+  "automatic_rollback_performed": false,
+  "public_user_web_switched": true,
+  "database_changed": false
+}

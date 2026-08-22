@@ -1,0 +1,14 @@
+{
+  "phase": "Discovery V2 Phase 2B",
+  "mode": "OSM GRID READ-ONLY",
+  "coverage_complete": false,
+  "completed_boxes": 5,
+  "failed_boxes": 4,
+  "candidates": 406,
+  "matched": 13,
+  "new": 367,
+  "review": 26,
+  "database_mutation": "NONE",
+  "v1_mutation": "NONE",
+  "production_switch": "NONE"
+}

@@ -1,0 +1,19 @@
+{
+  "phase": "Discovery V2 Phase 2B.1",
+  "scope": "TH-25 area + bbox intersection",
+  "grid_completed": 12,
+  "grid_failed": 4,
+  "coverage_complete": false,
+  "candidates": 114,
+  "matched": 19,
+  "new": 35,
+  "review": 60,
+  "source_province_values": {
+    "(missing)": 109,
+    "ปราจีนบุรี": 5
+  },
+  "foreign_province_tag_count": 0,
+  "database_mutation": "NONE",
+  "v1_mutation": "NONE",
+  "production_switch": "NONE"
+}

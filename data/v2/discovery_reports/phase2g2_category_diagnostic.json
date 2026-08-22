@@ -1,0 +1,27 @@
+{
+  "phase": "PrachinLife V2 Phase 2G.2",
+  "export_places": 220,
+  "distinct_export_category_tokens": 2,
+  "export_category_counts": {
+    "'__type__'": 220,
+    "'items'": 220
+  },
+  "empty_category_count": 0,
+  "db_category_counts": {
+    "{'__type__': 'tuple', 'items': ['fuel']}": 111,
+    "{'__type__': 'tuple', 'items': ['laundry']}": 4,
+    "{'__type__': 'tuple', 'items': ['cafe']}": 25,
+    "{'__type__': 'tuple', 'items': ['restaurant']}": 29,
+    "{'__type__': 'tuple', 'items': ['temple']}": 33,
+    "{'__type__': 'tuple', 'items': ['attraction']}": 4,
+    "{'__type__': 'tuple', 'items': ['attraction', 'restaurant']}": 1,
+    "{'__type__': 'tuple', 'items': ['car_repair']}": 3,
+    "{'__type__': 'tuple', 'items': ['nature']}": 1,
+    "{'__type__': 'tuple', 'items': ['clinic']}": 2,
+    "{'__type__': 'tuple', 'items': ['park']}": 5,
+    "{'__type__': 'tuple', 'items': ['pharmacy']}": 1,
+    "{'__type__': 'tuple', 'items': ['vegetarian']}": 1
+  },
+  "central_db_mutation": "NONE",
+  "production_switch": "NO"
+}

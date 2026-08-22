@@ -1,0 +1,60 @@
+{
+  "policy_version": "v2-production-readiness-gate-v2",
+  "status": "READY",
+  "checks_passed": 8,
+  "checks_total": 8,
+  "blockers": [],
+  "warnings": [
+    "Phase 2H historical NO is preserved but superseded by fresh-comparative-release-gate-v1 PASS."
+  ],
+  "eligible_place_count": 20,
+  "overlay_place_count": 20,
+  "comparative_status": "PASS",
+  "comparative_policy_version": "fresh-comparative-release-gate-v1",
+  "phase2h_superseded": true,
+  "rollback_verified": true,
+  "production_switch_performed": false,
+  "public_user_web_switched": false,
+  "checks": [
+    {
+      "name": "fresh_comparative_pass",
+      "ok": true,
+      "detail": "comparative=PASS"
+    },
+    {
+      "name": "rollback_verified",
+      "ok": true,
+      "detail": "rollback=True"
+    },
+    {
+      "name": "eligible_overlay_complete",
+      "ok": true,
+      "detail": "eligible=20, overlay=20"
+    },
+    {
+      "name": "comparative_has_no_blockers",
+      "ok": true,
+      "detail": "blockers=0"
+    },
+    {
+      "name": "database_integrity",
+      "ok": true,
+      "detail": "integrity=ok"
+    },
+    {
+      "name": "database_foreign_keys",
+      "ok": true,
+      "detail": "foreign_key_errors=0"
+    },
+    {
+      "name": "staging_production_unchanged",
+      "ok": true,
+      "detail": "production source files remain unchanged"
+    },
+    {
+      "name": "public_switch_still_disabled",
+      "ok": true,
+      "detail": "public switch remains disabled"
+    }
+  ]
+}

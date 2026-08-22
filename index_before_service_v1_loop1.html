@@ -1,0 +1,1521 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="theme-color"
+    content="#f7f8f4"
+  >
+
+  <title>
+    PrachinLife | ชีวิตปราจีน ง่ายขึ้นทุกวัน
+  </title>
+
+  <meta
+    name="description"
+    content="PrachinLife ผู้ช่วยชีวิตประจำวันสำหรับคนปราจีนบุรี ช่วยหาเรื่องช้อป ร้านอาหาร คาเฟ่ อาหารเจ มังสวิรัติ Vegan สถานที่ และบริการใกล้ตัวได้ง่ายขึ้น"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <link
+    rel="stylesheet"
+    href="style.css?v=20260819-7"
+  >
+</head>
+
+<body>
+
+  <!-- ==================================================
+  HEADER
+  ================================================== -->
+
+  <header class="site-header">
+
+    <div class="container header-inner">
+
+      <a
+        href="#top"
+        class="brand"
+        aria-label="PrachinLife หน้าแรก"
+        data-site-aria-label="home"
+      >
+
+        <div
+          class="brand-mark brand-logo-mark"
+        >
+          <img
+            src="assets/brand/prachinlife-icon-v1.png"
+            alt=""
+            class="brand-logo-image"
+          >
+        </div>
+
+        <div class="brand-copy">
+          <strong data-site-name>PrachinLife</strong>
+          <span data-site-tagline>ทำให้ชีวิต <em>ง่ายขึ้น...</em></span>
+        </div>
+
+      </a>
+
+      <nav class="desktop-nav">
+
+        <a href="#top">
+          หน้าแรก
+        </a>
+
+        <a href="#controlCenter">
+          หาอะไร
+        </a>
+
+        <a href="#results">
+          ผลลัพธ์
+        </a>
+
+        <a href="#about">
+          เกี่ยวกับ
+        </a>
+
+      </nav>
+
+      <button
+        id="refreshBtn"
+        class="refresh-button"
+        type="button"
+        title="อัปเดตข้อมูล"
+        aria-label="อัปเดตข้อมูล"
+      >
+        ↻
+      </button>
+
+    </div>
+
+  </header>
+
+
+  <main id="top">
+
+    <!-- ==================================================
+    HERO
+    ================================================== -->
+
+    <section class="hero">
+
+      <div class="container hero-inner">
+
+        <div class="hero-badge">
+          LOCAL LIFE • PRACHINBURI
+        </div>
+
+        <h1 class="lifestyle-headline">
+          ทำให้ชีวิต <span class="lifestyle-highlight">ง่ายขึ้น</span> ทุกวัน...
+        </h1>
+
+        <p class="hero-description">
+          กิน • ช้อป • เที่ยว • เจ / มังสวิรัติ • ใกล้ฉัน
+        </p>
+
+        <div class="hero-search">
+
+          <div class="search-row">
+
+            <div class="search-field">
+
+              <span
+                class="search-icon"
+                aria-hidden="true"
+              >
+                🔎
+              </span>
+
+              <input
+                id="searchInput"
+                type="search"
+                placeholder="ค้นหาร้าน อาหารเจ โปรโมชั่น สถานที่ หรือจังหวัด..."
+                autocomplete="off"
+                aria-label="ค้นหา"
+              >
+
+            </div>
+
+            <button
+              id="searchBtn"
+              class="primary-button"
+              type="button"
+            >
+              ค้นหา
+            </button>
+
+          </div>
+
+        </div>
+
+
+      </div>
+
+    </section>
+
+
+    <!-- ==================================================
+    CONTROL CENTER
+    ================================================== -->
+
+    <section
+      id="controlCenter"
+      class="section soft-section"
+    >
+
+      <div class="container">
+
+        <div class="section-heading compact">
+
+          <div>
+
+            <span class="eyebrow">
+              EXPLORE YOUR DAY
+            </span>
+
+            <h2>
+              วันนี้อยากทำอะไร?
+            </h2>
+
+            <p>
+              เลือกเรื่องที่ต้องการ
+              แล้วเราจะช่วยพาไปยังข้อมูลที่เกี่ยวข้อง
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <!-- ============================================
+        MAIN CATEGORY
+        ============================================= -->
+
+        <div
+          id="mainCategoryFilters"
+          class="control-main-grid"
+        >
+
+          <button
+            type="button"
+            class="control-main-button active"
+            data-main-category="recommended"
+          >
+
+
+
+            <span class="control-main-icon category-image-icon" aria-hidden="true">
+              <img
+                src="assets/images/icons/soft3d/recommended.png"
+                alt=""
+                class="category-icon-image "
+              >
+            </span>
+            </span>
+
+            <span class="control-main-copy">
+
+              <strong>
+                แนะนำ
+              </strong>
+
+              <small>
+                วันนี้มีอะไรน่าสนใจ
+              </small>
+
+            </span>
+
+          </button>
+
+
+          <button
+            type="button"
+            class="control-main-button"
+            data-main-category="shopping"
+          >
+
+
+
+            <span class="control-main-icon category-image-icon" aria-hidden="true">
+              <img
+                src="assets/images/icons/soft3d/shopping.png"
+                alt=""
+                class="category-icon-image "
+              >
+            </span>
+            </span>
+
+            <span class="control-main-copy">
+
+              <strong>
+                ช้อป
+              </strong>
+
+              <small>
+                โปรและสิทธิ์คุ้ม
+              </small>
+
+            </span>
+
+          </button>
+
+
+          <button
+            type="button"
+            class="control-main-button"
+            data-main-category="eat"
+          >
+
+
+
+            <span class="control-main-icon category-image-icon" aria-hidden="true">
+              <img
+                src="assets/images/icons/soft3d/eat.png"
+                alt=""
+                class="category-icon-image "
+              >
+            </span>
+            </span>
+
+            <span class="control-main-copy">
+
+              <strong>
+                กิน
+              </strong>
+
+              <small>
+                ร้านอาหารและคาเฟ่
+              </small>
+
+            </span>
+
+          </button>
+
+
+          <!-- VEGETARIAN / VEGAN / JAY -->
+
+          <button
+            type="button"
+            class="control-main-button"
+            data-main-category="vegetarian"
+          >
+
+
+
+            <span class="control-main-icon category-image-icon" aria-hidden="true">
+              <img
+                src="assets/images/icons/jay-icon.jpeg"
+                alt=""
+                class="category-icon-image category-jay-real"
+              >
+            </span>
+
+            <span class="control-main-copy">
+
+              <strong>
+                เจ / มังสวิรัติ
+              </strong>
+
+              <small>
+                ค้นทั่วไทยและใกล้ฉัน
+              </small>
+
+            </span>
+
+          </button>
+
+
+          <button
+            type="button"
+            class="control-main-button"
+            data-main-category="go"
+          >
+
+
+
+            <span class="control-main-icon category-image-icon" aria-hidden="true">
+              <img
+                src="assets/images/icons/soft3d/travel.png"
+                alt=""
+                class="category-icon-image "
+              >
+            </span>
+            </span>
+
+            <span class="control-main-copy">
+
+              <strong>
+                เที่ยว
+              </strong>
+
+              <small>
+                สถานที่และกิจกรรม
+              </small>
+
+            </span>
+
+          </button>
+
+
+          <button
+            type="button"
+            class="control-main-button"
+            data-main-category="services"
+          >
+
+
+
+            <span class="control-main-icon category-image-icon" aria-hidden="true">
+              <img
+                src="assets/images/icons/soft3d/service.png"
+                alt=""
+                class="category-icon-image "
+              >
+            </span>
+            </span>
+
+            <span class="control-main-copy">
+
+              <strong>
+                บริการ
+              </strong>
+
+              <small>
+                สิ่งที่ต้องใช้ใกล้ตัว
+              </small>
+
+            </span>
+
+          </button>
+
+        </div>
+
+
+        <!-- ============================================
+        RECOMMENDED OPTIONS
+        ============================================= -->
+
+        <div
+          id="recommendedOptions"
+          class="control-options hidden index-recommended-quick"
+        >
+
+          <div class="control-group">
+
+            <span class="filter-label">
+              เลือกแบบเร็ว
+            </span>
+
+            <div class="filter-buttons">
+
+              <button
+                type="button"
+                class="filter-button active"
+                data-recommended-action="all"
+              >
+                ✨ ทั้งหมด
+              </button>
+
+              <button
+                type="button"
+                class="filter-button"
+                data-recommended-action="shopping"
+              >
+                🛒 ช้อปคุ้ม
+              </button>
+
+              <button
+                type="button"
+                class="filter-button"
+                data-recommended-action="eat"
+              >
+                🍜 กินอะไร
+              </button>
+
+              <button
+                type="button"
+                class="filter-button"
+                data-recommended-action="vegetarian"
+              >
+                🥬 หาอาหารเจ
+              </button>
+
+              <button
+                type="button"
+                class="filter-button"
+                data-recommended-action="latest"
+              >
+                🆕 ล่าสุด
+              </button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- ============================================
+        SHOPPING OPTIONS
+        ============================================= -->
+
+        <div
+          id="shoppingOptions"
+          class="control-options hidden"
+        >
+
+          <div class="control-group">
+
+            <span class="filter-label">
+              อยากดูอะไร
+            </span>
+
+            <div class="filter-buttons">
+
+              <button
+                type="button"
+                class="filter-button active"
+                data-smart="recommended"
+              >
+                ทั้งหมด
+              </button>
+
+              <button
+                type="button"
+                class="filter-button"
+                data-smart="saving"
+              >
+                💰 ช่วยประหยัด
+              </button>
+
+              <button
+                type="button"
+                class="filter-button"
+                data-type="coupon"
+              >
+                🎟️ คูปอง
+              </button>
+
+              <button
+                type="button"
+                class="filter-button"
+                data-type="member_offer"
+              >
+                👤 สิทธิสมาชิก
+              </button>
+
+              <button
+                type="button"
+                class="filter-button"
+                data-smart="catalogue"
+              >
+                📖 แคตตาล็อก
+              </button>
+
+              <button
+                type="button"
+                class="filter-button"
+                data-smart="activity"
+              >
+                🎁 โปรโมชั่น/กิจกรรม
+              </button>
+
+              <button
+                type="button"
+                class="filter-button"
+                data-smart="latest"
+              >
+                🆕 ล่าสุด
+              </button>
+
+            </div>
+
+          </div>
+
+
+          <div class="control-group">
+
+            <span class="filter-label">
+              ร้าน
+            </span>
+
+            <div class="filter-buttons">
+
+              <button
+                type="button"
+                class="filter-button active"
+                data-merchant="all"
+              >
+                ทั้งหมด
+              </button>
+
+              <button
+                type="button"
+                class="filter-button"
+                data-merchant="Big C"
+              >
+                Big C
+              </button>
+
+              <button
+                type="button"
+                class="filter-button"
+                data-merchant="Lotus's"
+              >
+                Lotus's
+              </button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- ============================================
+        EAT OPTIONS
+        ============================================= -->
+
+        <div
+          id="eatOptions"
+          class="control-options hidden"
+        >
+
+          <div class="control-group">
+
+            <span class="filter-label">
+              อยากกินแบบไหน
+            </span>
+
+            <div class="filter-buttons">
+
+              <button
+                type="button"
+                class="filter-button active"
+                data-eat-type="all"
+              >
+                ทั้งหมด
+              </button>
+
+              <button
+                type="button"
+                class="filter-button"
+                data-eat-type="restaurant"
+              >
+                🍜 ร้านอาหาร
+              </button>
+
+              <button
+                type="button"
+                class="filter-button"
+                data-eat-type="cafe"
+              >
+                ☕ คาเฟ่
+              </button>
+
+            </div>
+
+          </div>
+
+
+          <div class="control-group">
+
+            <span class="filter-label">
+              ร้านใกล้ฉัน
+            </span>
+
+            <div class="filter-buttons">
+
+              <button
+                id="nearMeBtn"
+                type="button"
+                class="filter-button"
+              >
+                📍 ใกล้ฉัน
+              </button>
+
+            </div>
+
+            <p
+              id="nearMeStatus"
+              class="control-note"
+            >
+              <span data-site-name>PrachinLife</span>
+              จะขอตำแหน่งเมื่อคุณกด “ใกล้ฉัน” เท่านั้น
+            </p>
+
+          </div>
+
+
+
+        </div>
+
+
+        <!-- ============================================
+        VEGETARIAN OPTIONS
+        ============================================= -->
+
+        <div
+          id="vegetarianOptions"
+          class="control-options hidden"
+        >
+
+
+
+          <div class="control-group">
+
+            <span class="filter-label">
+              ร้านใกล้ฉัน
+            </span>
+
+            <div class="filter-buttons">
+
+              <button
+                id="vegetarianNearMeBtn"
+                type="button"
+                class="filter-button"
+              >
+                📍 ใกล้ฉัน
+              </button>
+
+            </div>
+
+            <p
+              id="vegetarianNearMeStatus"
+              class="control-note"
+            >
+              <span data-site-name>PrachinLife</span>
+              จะขอตำแหน่งเมื่อคุณกด “ใกล้ฉัน” เท่านั้น
+            </p>
+
+          </div>
+
+
+          <div class="control-group">
+
+            <label
+              class="filter-label"
+              for="vegetarianProvinceSelect"
+            >
+              จังหวัด
+            </label>
+
+            <select
+              id="vegetarianProvinceSelect"
+              class="filter-select"
+            >
+              <option value="all">
+                ทุกจังหวัด
+              </option>
+            </select>
+
+          </div>
+
+        </div>
+
+
+        <!-- ============================================
+        GO PLACEHOLDER
+        ============================================= -->
+
+        <div
+          id="goOptions"
+          class="control-options hidden"
+        >
+
+          <div class="control-group">
+
+            <span class="filter-label">
+              สถานที่ใกล้ฉัน
+            </span>
+
+            <div class="filter-buttons">
+
+              <button
+                id="goNearMeBtn"
+                type="button"
+                class="filter-button"
+              >
+                📍 ใกล้ฉัน
+              </button>
+
+            </div>
+
+            <p
+              id="goNearMeStatus"
+              class="control-note"
+            >
+              <span data-site-name>PrachinLife</span>
+              จะขอตำแหน่งเมื่อคุณกด “ใกล้ฉัน” เท่านั้น
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <!-- ============================================
+        SERVICES PLACEHOLDER
+        ============================================= -->
+
+        <div
+          id="servicesOptions"
+          class="control-options hidden"
+        >
+
+          <div class="coming-soon-panel">
+
+            <span class="coming-soon-icon">
+              🔧
+            </span>
+
+            <div>
+
+              <strong>
+                บริการใกล้ตัว
+              </strong>
+
+              <p>
+                กำลังเตรียมข้อมูลร้านและบริการ
+                ที่คนใน
+                <span data-site-province>ปราจีนบุรี</span>
+                ต้องใช้ในชีวิตประจำวัน
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+
+      </div>
+
+    </section>
+
+
+    <!-- ==================================================
+    RESULTS
+    ================================================== -->
+
+    <section
+      id="results"
+      class="section"
+    >
+
+      <div class="container">
+
+
+        <!-- ============================================
+        RECOMMENDED RESULT
+        ============================================= -->
+
+        <div id="recommendedResultSection">
+
+          <div class="section-heading">
+
+            <div>
+
+              <span class="eyebrow">
+                TODAY
+              </span>
+
+              <h2>
+                วันนี้มีอะไรน่าสนใจ
+              </h2>
+
+              <p>
+                ข้อมูลล่าสุดที่
+                <span data-site-name>PrachinLife</span>
+                มีอยู่ในระบบ
+              </p>
+
+            </div>
+
+            <div
+              id="recommendedResultCount"
+              class="result-count"
+            >
+              กำลังโหลด...
+            </div>
+
+          </div>
+
+
+
+          <div class="recommended-deal-block">
+            <div class="recommended-subheading">
+              <div>
+                <span class="eyebrow">TODAY DEALS</span>
+                <h3>ดีลและโปรโมชั่นวันนี้</h3>
+                <p>เลื่อนดูดีลที่น่าสนใจได้ด้านข้าง</p>
+              </div>
+            </div>
+
+            <div
+              id="recommendedDealRail"
+              class="recommended-deal-rail"
+              aria-label="ดีลและโปรโมชั่นวันนี้"
+            ></div>
+          </div>
+
+          <div class="recommended-subheading recommended-for-you-heading">
+            <div>
+              <span class="eyebrow">FOR YOU</span>
+              <h3>แนะนำสำหรับคุณ</h3>
+            </div>
+          </div>
+
+<div
+            id="recommendedList"
+            class="promotion-grid"
+          >
+          </div>
+
+        </div>
+
+
+        <!-- ============================================
+        SHOPPING RESULT
+        ============================================= -->
+
+        <div
+          id="shoppingResultSection"
+          class="hidden"
+        >
+
+          <div class="section-heading">
+
+            <div>
+
+              <span class="eyebrow">
+                SMART SHOPPING
+              </span>
+
+              <h2>
+                ช้อปคุ้ม
+              </h2>
+
+              <p>
+                โปรโมชั่น คูปอง สิทธิสมาชิก
+                และข้อมูลที่อาจช่วยให้ซื้อของคุ้มขึ้น
+              </p>
+
+            </div>
+
+            <div
+              id="resultCount"
+              class="result-count"
+            >
+              กำลังโหลด...
+            </div>
+
+          </div>
+
+
+          <div
+            id="promotionList"
+            class="promotion-grid"
+          >
+
+            <div class="skeleton-card"></div>
+            <div class="skeleton-card"></div>
+            <div class="skeleton-card"></div>
+
+          </div>
+
+
+          <div
+            id="emptyState"
+            class="empty-state hidden"
+          >
+
+            <div class="empty-icon">
+              🔎
+            </div>
+
+            <h3>
+              ยังไม่มีข้อมูลตรงกับตัวเลือกนี้
+            </h3>
+
+            <p>
+              ลองเลือกประเภทอื่น
+              หรือกด “ดูทั้งหมด”
+              เพื่อดูข้อมูลที่มีอยู่
+            </p>
+
+            <button
+              id="resetBtn"
+              class="secondary-button"
+              type="button"
+            >
+              ดูทั้งหมด
+            </button>
+
+          </div>
+
+
+          <div class="section-footer">
+
+            <button
+              id="loadMoreBtn"
+              class="secondary-button hidden"
+              type="button"
+            >
+              ดูเพิ่มเติม
+            </button>
+
+          </div>
+
+        </div>
+
+
+        <!-- ============================================
+        EAT RESULT
+        ============================================= -->
+
+        <div
+          id="eatResultSection"
+          class="hidden"
+        >
+
+          <div class="section-heading">
+
+            <div>
+
+              <span class="eyebrow">
+                EAT LOCAL
+              </span>
+
+              <h2>
+                กินอะไร
+              </h2>
+
+              <p>
+                ร้านอาหารและคาเฟ่ใน
+                <span data-site-province>ปราจีนบุรี</span>
+              </p>
+
+            </div>
+
+            <div
+              id="eatResultCount"
+              class="result-count"
+            >
+              กำลังโหลด...
+            </div>
+
+          </div>
+
+
+          <div
+            id="eatList"
+            class="promotion-grid"
+          >
+
+            <div class="skeleton-card"></div>
+            <div class="skeleton-card"></div>
+            <div class="skeleton-card"></div>
+
+          </div>
+
+
+          <div
+            id="eatEmptyState"
+            class="empty-state hidden"
+          >
+
+            <div class="empty-icon">
+              🍽️
+            </div>
+
+            <h3>
+              ยังไม่พบร้านตามตัวเลือกนี้
+            </h3>
+
+            <p>
+              ลองเลือก “ทั้งหมด” หรือกด “ใกล้ฉัน”
+              เพื่อดูร้านจากตำแหน่งของคุณ
+            </p>
+
+          </div>
+
+
+          <div class="section-footer">
+
+            <button
+              id="eatLoadMoreBtn"
+              class="secondary-button hidden"
+              type="button"
+            >
+              ดูร้านเพิ่มเติม
+            </button>
+
+          </div>
+
+        </div>
+
+
+        <!-- ============================================
+        VEGETARIAN RESULT
+        ============================================= -->
+
+        <div
+          id="vegetarianResultSection"
+          class="hidden"
+        >
+
+          <div class="section-heading">
+
+            <div>
+
+              <span class="eyebrow">
+                VEGETARIAN / VEGAN / JAY
+              </span>
+
+              <h2>
+                🥬 เจ / มังสวิรัติ
+              </h2>
+
+              <p>
+                ค้นหาร้านทั่วประเทศไทย
+                เลือกจังหวัดล่วงหน้า หรือหาร้านใกล้ฉัน
+              </p>
+
+            </div>
+
+            <div
+              id="vegetarianResultCount"
+              class="result-count"
+            >
+              กำลังโหลด...
+            </div>
+
+          </div>
+
+
+          <div
+            id="vegetarianList"
+            class="promotion-grid"
+          >
+          </div>
+
+
+          <div
+            id="vegetarianEmptyState"
+            class="empty-state hidden"
+          >
+
+            <div class="empty-icon">
+              🥬
+            </div>
+
+            <h3>
+              ยังไม่พบร้านในพื้นที่ที่เลือก
+            </h3>
+
+            <p>
+              ลองเลือกจังหวัดอื่น หรือกด “ใกล้ฉัน”
+              เพื่อค้นหาร้านจากตำแหน่งของคุณ
+            </p>
+
+          </div>
+
+
+          <div class="section-footer">
+
+            <button
+              id="vegetarianLoadMoreBtn"
+              class="secondary-button hidden"
+              type="button"
+            >
+              ดูร้านเพิ่มเติม
+            </button>
+
+          </div>
+
+        </div>
+
+
+        <!-- ============================================
+        GO RESULT
+        ============================================= -->
+
+        <div
+          id="goResultSection"
+          class="hidden"
+        >
+
+          <div class="section-heading">
+
+            <div>
+
+              <span class="eyebrow">
+                EXPLORE LOCAL
+              </span>
+
+              <h2>
+                เที่ยว / สถานที่น่าแวะ
+              </h2>
+
+              <p>
+                สถานที่ที่มีข้อมูลรองรับใน
+                <span data-site-province>ปราจีนบุรี</span>
+              </p>
+
+            </div>
+
+            <div
+              id="goResultCount"
+              class="result-count"
+            >
+              0 สถานที่
+            </div>
+
+          </div>
+
+          <div
+            id="goList"
+            class="promotion-grid"
+          ></div>
+
+          <div
+            id="goEmptyState"
+            class="empty-state hidden"
+          >
+
+            <div class="empty-icon">
+              📍
+            </div>
+
+            <h3>
+              ยังไม่พบสถานที่ในตัวเลือกนี้
+            </h3>
+
+            <p>
+              ลองกด “ใกล้ฉัน”
+              เพื่อเรียงสถานที่จากตำแหน่งของคุณ
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <!-- ============================================
+        COMING SOON RESULT
+        ============================================= -->
+
+        <div
+          id="comingSoonResultSection"
+          class="hidden"
+        >
+
+          <div class="empty-state coming-result">
+
+            <div
+              id="comingSoonResultIcon"
+              class="empty-icon"
+            >
+              📍
+            </div>
+
+            <h3 id="comingSoonResultTitle">
+              กำลังเตรียมข้อมูล
+            </h3>
+
+            <p id="comingSoonResultDescription">
+              <span data-site-name>PrachinLife</span>
+              จะเพิ่มข้อมูลในหมวดนี้เร็ว ๆ นี้
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ==================================================
+    EXPLORE
+    ================================================== -->
+
+    <section class="section soft-section">
+
+      <div class="container">
+
+        <div class="section-heading compact">
+
+          <div>
+
+            <span class="eyebrow">
+              AVAILABLE NOW
+            </span>
+
+            <h2>
+              ตอนนี้ใช้ทำอะไรได้บ้าง
+            </h2>
+
+          </div>
+
+        </div>
+
+        <div class="availability-strip">
+
+          <span class="availability-item active">
+            🛒 ช้อป
+          </span>
+
+          <span class="availability-item active">
+            🍜 กิน
+          </span>
+
+          <span class="availability-item active">
+            🥬 เจ / มังสวิรัติ
+          </span>
+
+          <span class="availability-item">
+            📍 เที่ยว · เร็ว ๆ นี้
+          </span>
+
+          <span class="availability-item">
+            🔧 บริการ · เร็ว ๆ นี้
+          </span>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ==================================================
+    VALUE
+    ================================================== -->
+
+    <section
+      id="about"
+      class="section value-section"
+    >
+
+      <div class="container">
+
+        <div class="section-heading centered">
+
+          <div>
+
+            <span class="eyebrow">
+              WHY LOCAL LIFE
+            </span>
+
+            <h2>
+              เรื่องใกล้ตัว ควรหาได้ง่าย
+            </h2>
+
+          </div>
+
+        </div>
+
+
+        <div class="value-grid">
+
+          <article class="value-card">
+
+            <div class="value-icon">
+              💰
+            </div>
+
+            <h3>
+              ประหยัดเงิน
+            </h3>
+
+            <p>
+              เห็นตัวเลือกและสิทธิ์ที่อาจช่วยให้คุ้มขึ้น
+            </p>
+
+          </article>
+
+
+          <article class="value-card">
+
+            <div class="value-icon">
+              ⏱
+            </div>
+
+            <h3>
+              ประหยัดเวลา
+            </h3>
+
+            <p>
+              ลดการเปิดหลายเว็บเพื่อค้นข้อมูลเรื่องเดียวกัน
+            </p>
+
+          </article>
+
+
+          <article class="value-card">
+
+            <div class="value-icon">
+              🧠
+            </div>
+
+            <h3>
+              ไม่ต้องคิดเยอะ
+            </h3>
+
+            <p>
+              เลือกสิ่งที่ต้องการแล้วดูข้อมูลที่เกี่ยวข้องได้ทันที
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ==================================================
+    DATA TRUST
+    ================================================== -->
+
+    <section class="trust-section">
+
+      <div class="container trust-card">
+
+        <div>
+
+          <span class="eyebrow">
+            DATA TRUST
+          </span>
+
+          <h2>
+            ข้อมูลต้องมีที่มา
+          </h2>
+
+          <p>
+            <span data-site-name>PrachinLife</span>
+            ใช้ข้อมูลจากแหล่งต้นทางและข้อมูลเปิดที่ตรวจสอบย้อนกลับได้
+            โดยไม่สร้างรายละเอียดขึ้นเองเมื่อไม่มีข้อมูลรองรับ
+          </p>
+
+        </div>
+
+
+        <div class="trust-meta">
+
+          <div>
+
+            <span>
+              อัปเดตล่าสุด
+            </span>
+
+            <strong id="lastUpdate">
+              กำลังโหลด...
+            </strong>
+
+          </div>
+
+
+          <div>
+
+            <span>
+              ข้อมูลในระบบ
+            </span>
+
+            <strong id="totalCount">
+              กำลังโหลด...
+            </strong>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- ==================================================
+  FOOTER
+  ================================================== -->
+
+  <footer class="site-footer">
+
+    <div class="container footer-inner">
+
+      <div>
+
+        <strong data-site-name>
+          PrachinLife
+        </strong>
+
+        <p data-site-description>
+          Local Everyday Assistant for Prachinburi
+        </p>
+
+      </div>
+
+
+      <p class="footer-note">
+        โปรดตรวจสอบรายละเอียด ราคา เวลาเปิดบริการ
+        เงื่อนไข และข้อมูลล่าสุดกับแหล่งต้นทางก่อนตัดสินใจ
+      </p>
+
+    </div>
+
+  </footer>
+
+
+  <!-- ==================================================
+  TOAST
+  ================================================== -->
+
+  <div
+    id="toast"
+    class="toast"
+    role="status"
+    aria-live="polite"
+  ></div>
+
+  <script src="search.js?v=20260816-1"></script>
+  <script src="js/core/site-config.js?v=20260819-2"></script>
+  <script src="js/core/local-context.js?v=20260819-2"></script>
+  <script src="js/core/location.js?v=20260818-1"></script>
+  <script src="js/core/utils.js?v=20260818-1"></script>
+  <script src="js/ui/dom.js?v=20260818-1"></script>
+  <script src="js/modules/vegetarian.js?v=20260819-1"></script>
+  <script src="js/modules/go.js?v=20260821-go-v1-1"></script>
+  <script src="app.js?v=20260819-3"></script>
+</body>
+
+</html>

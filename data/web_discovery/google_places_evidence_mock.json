@@ -1,0 +1,18 @@
+[
+  {
+    "provider": "google_places",
+    "place_id": "mock-google-place-001",
+    "province": "ปราจีนบุรี",
+    "query": "ร้านอาหารเจ ปราจีนบุรี",
+    "discovered_at": "2026-08-20T10:20:06.894637+00:00",
+    "verification_status": "discovered"
+  },
+  {
+    "provider": "google_places",
+    "place_id": "mock-google-place-002",
+    "province": "ปราจีนบุรี",
+    "query": "ร้านอาหารเจ ปราจีนบุรี",
+    "discovered_at": "2026-08-20T10:20:06.894672+00:00",
+    "verification_status": "discovered"
+  }
+]

@@ -46,6 +46,6 @@ class TestPhase2Y1PlaceEnrichmentLinks(unittest.TestCase):
             self.assertEqual({x['type'] for x in links},{'osm','wongnai'})
 
     def test_y106_cache_marker_bumped(self):
-        self.assertIn('phase2y1-20260822', INDEX.read_text(encoding='utf-8'))
+        self.assertIn('phase2y4-20260822', INDEX.read_text(encoding='utf-8'))
 
 if __name__=='__main__': unittest.main()

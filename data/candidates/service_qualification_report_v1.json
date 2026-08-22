@@ -1,0 +1,45 @@
+{
+  "input_count": 124,
+  "qualified_count": 121,
+  "duplicate_count": 3,
+  "duplicate_distance_km": 0.15,
+  "category_counts": {
+    "pharmacy": 1,
+    "clinic": 2,
+    "fuel": 111,
+    "car_repair": 3,
+    "laundry": 4
+  },
+  "duplicates": [
+    {
+      "candidate_id": "osm-way-1527835009",
+      "candidate_title": "ภูวราคลินิก แพทย์แผนจีน",
+      "duplicate_of_id": "osm-node-13922863337",
+      "duplicate_of_title": "ภูวราคลินิก แพทย์แผนจีน",
+      "decision": {
+        "reason": "same_title_nearby",
+        "distance_km": 0.0014034665919957637
+      }
+    },
+    {
+      "candidate_id": "osm-node-5549382247",
+      "candidate_title": "Caltex Station",
+      "duplicate_of_id": "osm-node-5323879724",
+      "duplicate_of_title": "Caltex Station",
+      "decision": {
+        "reason": "same_title_nearby",
+        "distance_km": 0.03360419372043044
+      }
+    },
+    {
+      "candidate_id": "osm-node-1654279664",
+      "candidate_title": "ป.ต.ท.",
+      "duplicate_of_id": "osm-node-1609809877",
+      "duplicate_of_title": "ป.ต.ท.",
+      "decision": {
+        "reason": "same_title_nearby",
+        "distance_km": 0.09314643808705535
+      }
+    }
+  ]
+}

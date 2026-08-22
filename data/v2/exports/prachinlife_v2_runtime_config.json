@@ -1,0 +1,8 @@
+{
+  "schema_version": "prachinlife-v2-runtime-1",
+  "mode": "internal_beta",
+  "v2_first": true,
+  "v1_fallback": true,
+  "public_production": false,
+  "notes": "Internal beta only; keep V1 fallback enabled."
+}

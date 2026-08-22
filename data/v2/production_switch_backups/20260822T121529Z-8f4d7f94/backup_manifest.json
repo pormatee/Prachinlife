@@ -1,0 +1,23 @@
+{
+  "policy_version": "controlled-production-switch-v1",
+  "release_id": "20260822T121529Z-8f4d7f94",
+  "created_at": "2026-08-22T12:15:29.299767+00:00",
+  "files": {
+    "prachinlife_index.json": {
+      "sha256": "a3933f8ab8efb0658d8c2c01cb76231fa105964ec2602dbaa28a3da28379b19e",
+      "size_bytes": 120940
+    },
+    "vegetarian_index.json": {
+      "sha256": "145fe84888873b0f9c2beae5faab4912fca62324a5d9fed303d1f45419b88c2f",
+      "size_bytes": 661191
+    },
+    "go_index.json": {
+      "sha256": "4fd587e68bae758cda2e95f66465bf302a30287942b1e7292a56b85e4199e552",
+      "size_bytes": 40993
+    },
+    "service_index.json": {
+      "sha256": "73b53fe3bd605783bd20b2adf6bfabc23b2ee5ed519806b0140f97a9a257dae4",
+      "size_bytes": 107186
+    }
+  }
+}

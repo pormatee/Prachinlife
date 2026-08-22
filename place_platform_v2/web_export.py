@@ -2,6 +2,7 @@ from __future__ import annotations
 import json, sqlite3
 from pathlib import Path
 import re
+from urllib.parse import urlparse
 
 def _decode_categories(raw):
     value = json.loads(raw)
@@ -53,6 +54,21 @@ def _detail_evidence_for_place(con, place_id):
             result[field] = value
     return result
 
+
+def _public_http_url(value):
+    raw = str(value or "").strip()
+    if not raw:
+        return None
+    if re.match(r"^[A-Za-z][A-Za-z0-9+.-]*:", raw):
+        pass
+    elif "://" not in raw and not raw.startswith(("/", "#")):
+        raw = "https://" + raw
+    parsed = urlparse(raw)
+    if parsed.scheme.casefold() not in {"http", "https"} or not parsed.netloc:
+        return None
+    return raw
+
+
 def _source_kind(name, url):
     value = str(url or "").casefold()
     label = str(name or "").casefold()
@@ -81,7 +97,7 @@ def _links_for_place(con, place_id, website=None):
             continue
         direct = str(row["source_url"] or "").strip()
         derived = _source_link_from_record_id(row["source_record_id"])
-        url = direct or derived
+        url = _public_http_url(direct or derived)
         if not url or url in seen:
             continue
         seen.add(url)
@@ -92,7 +108,7 @@ def _links_for_place(con, place_id, website=None):
             "url": url,
         })
     if website:
-        website = str(website).strip()
+        website = _public_http_url(website)
         if website and website not in seen:
             links.insert(0, {"type": "official_website", "label": "เว็บไซต์", "url": website})
     return links

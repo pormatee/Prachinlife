@@ -1,0 +1,26 @@
+{
+  "phase": "PrachinLife V2 Phase 2H",
+  "v1_counts": {
+    "eat": 55,
+    "vegetarian": 700,
+    "go": 44,
+    "service": 121
+  },
+  "v2_counts": {
+    "eat": 55,
+    "vegetarian": 1,
+    "go": 43,
+    "service": 121,
+    "other": 0
+  },
+  "fallback_required": {
+    "eat": false,
+    "vegetarian": true,
+    "go": true,
+    "service": false
+  },
+  "v1_fallback": "READY",
+  "beta_ready": true,
+  "production_switch": "NO",
+  "recommended_mode": "INTERNAL_BETA_V2_FIRST_WITH_V1_FALLBACK"
+}

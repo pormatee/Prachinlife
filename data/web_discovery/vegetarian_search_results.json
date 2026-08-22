@@ -1,0 +1,32 @@
+[
+  {
+    "provider": "mock",
+    "provider_place_id": "mock-001",
+    "title": "ร้านอาหารเจสุขใจ ปราจีนบุรี",
+    "url": "https://example.com/jay-sukjai",
+    "snippet": "ร้านอาหารเจ อำเภอเมืองปราจีนบุรี",
+    "latitude": 14.0501,
+    "longitude": 101.3701,
+    "source": "Mock Search"
+  },
+  {
+    "provider": "mock",
+    "provider_place_id": "mock-002",
+    "title": "Green Vegetarian Cafe",
+    "url": "https://example.com/green-vegetarian",
+    "snippet": "Vegetarian restaurant in Prachinburi",
+    "latitude": 14.0612,
+    "longitude": 101.3811,
+    "source": "Mock Search"
+  },
+  {
+    "provider": "mock",
+    "provider_place_id": "mock-003",
+    "title": "ร้านเจ๊นิดอาหารตามสั่ง",
+    "url": "https://example.com/jae-nid",
+    "snippet": "อาหารตามสั่งทั่วไป ปราจีนบุรี",
+    "latitude": 14.0700,
+    "longitude": 101.3900,
+    "source": "Mock Search"
+  }
+]

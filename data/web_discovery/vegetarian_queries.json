@@ -1,0 +1,58 @@
+[
+  {
+    "id": "ปราจีนบุรี-1",
+    "province": "ปราจีนบุรี",
+    "query": "ร้านอาหารเจ ปราจีนบุรี",
+    "category": "vegetarian",
+    "status": "pending"
+  },
+  {
+    "id": "ปราจีนบุรี-2",
+    "province": "ปราจีนบุรี",
+    "query": "ร้านเจ ปราจีนบุรี",
+    "category": "vegetarian",
+    "status": "pending"
+  },
+  {
+    "id": "ปราจีนบุรี-3",
+    "province": "ปราจีนบุรี",
+    "query": "อาหารเจ ปราจีนบุรี",
+    "category": "vegetarian",
+    "status": "pending"
+  },
+  {
+    "id": "ปราจีนบุรี-4",
+    "province": "ปราจีนบุรี",
+    "query": "ข้าวเจ ปราจีนบุรี",
+    "category": "vegetarian",
+    "status": "pending"
+  },
+  {
+    "id": "ปราจีนบุรี-5",
+    "province": "ปราจีนบุรี",
+    "query": "ร้านมังสวิรัติ ปราจีนบุรี",
+    "category": "vegetarian",
+    "status": "pending"
+  },
+  {
+    "id": "ปราจีนบุรี-6",
+    "province": "ปราจีนบุรี",
+    "query": "อาหารมังสวิรัติ ปราจีนบุรี",
+    "category": "vegetarian",
+    "status": "pending"
+  },
+  {
+    "id": "ปราจีนบุรี-7",
+    "province": "ปราจีนบุรี",
+    "query": "vegetarian restaurant ปราจีนบุรี",
+    "category": "vegetarian",
+    "status": "pending"
+  },
+  {
+    "id": "ปราจีนบุรี-8",
+    "province": "ปราจีนบุรี",
+    "query": "vegan restaurant ปราจีนบุรี",
+    "category": "vegetarian",
+    "status": "pending"
+  }
+]

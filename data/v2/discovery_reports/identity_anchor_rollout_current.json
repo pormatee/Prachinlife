@@ -1,0 +1,24 @@
+{
+  "policy_version": "identity-anchor-rollout-v2-resumable",
+  "generated_at": "2026-08-22T15:00:39.184339+00:00",
+  "mode": "COMMIT_STAGING",
+  "province": "ปราจีนบุรี",
+  "queue_count": 112,
+  "queue_object_types": {
+    "way": 32,
+    "node": 80
+  },
+  "acquisition_statuses": {
+    "current_listing": 112
+  },
+  "committed_count": 112,
+  "eligible_before": 103,
+  "eligible_after": 215,
+  "blocked_before": 117,
+  "blocked_after": 5,
+  "unresolved": [],
+  "canonical_fields_changed": false,
+  "production_json_changed": false,
+  "public_user_web_switched": false,
+  "resumable": true
+}

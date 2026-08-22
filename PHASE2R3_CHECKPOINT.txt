@@ -1,0 +1,20 @@
+PrachinLife V2 Phase 2R.3 Checkpoint
+Date: 2026-08-22
+
+Result: PASS
+Full V2 regression: 320/320 OK
+Central DB SHA256: b55ee801ee0720299cd15b86b5bfa3505fbd02630d6ecc36e0a4ecdeea07a1c3
+Public Production: NOT SWITCHED
+
+Changes:
+- Rebuilt 5 landscape master place images at 1200x750 (16:10)
+- Added shared place-image CSS polish and mobile 16:9 display
+- Preserved future real image fields through V2 adapter
+- Cache-busted style and V2 adapter while preserving Phase 2P compatibility prefixes
+- Added Phase 2R.3 visual contract tests
+
+Manual gate after install:
+- Open local preview
+- Check Eat / Vegetarian / Go / Service cards
+- Confirm every card shows either real image or category master image
+- Confirm no giant blank emoji placeholder remains

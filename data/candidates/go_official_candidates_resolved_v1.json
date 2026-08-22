@@ -1,0 +1,436 @@
+[
+  {
+    "title": "พิพิธภัณฑ์พื้นบ้านวัดบางแตน",
+    "province": "ปราจีนบุรี",
+    "evidence_source": "Tourism Authority of Thailand",
+    "evidence_level": "official_tourism",
+    "status": "candidate",
+    "resolution_status": "not_found",
+    "resolution_query": null,
+    "matches": []
+  },
+  {
+    "title": "ค้างคาวแม่ไก่วัดบางกระเบา",
+    "province": "ปราจีนบุรี",
+    "evidence_source": "Tourism Authority of Thailand",
+    "evidence_level": "official_tourism",
+    "status": "candidate",
+    "resolution_status": "not_found",
+    "resolution_query": null,
+    "matches": []
+  },
+  {
+    "title": "น้ำตกธารรัตนา",
+    "province": "ปราจีนบุรี",
+    "evidence_source": "Tourism Authority of Thailand",
+    "evidence_level": "official_tourism",
+    "status": "candidate",
+    "resolution_status": "not_found",
+    "resolution_query": null,
+    "matches": []
+  },
+  {
+    "title": "สวนพันธุ์ไผ่",
+    "province": "ปราจีนบุรี",
+    "evidence_source": "Tourism Authority of Thailand",
+    "evidence_level": "official_tourism",
+    "status": "candidate",
+    "resolution_status": "not_found",
+    "resolution_query": null,
+    "matches": []
+  },
+  {
+    "title": "ศาลสมเด็จพระนเรศวรมหาราช",
+    "province": "ปราจีนบุรี",
+    "evidence_source": "Tourism Authority of Thailand",
+    "evidence_level": "official_tourism",
+    "status": "candidate",
+    "resolution_status": "matches_found",
+    "resolution_query": "ศาลสมเด็จพระนเรศวรมหาราช, ปราจีนบุรี, Thailand",
+    "matches": [
+      {
+        "osm_type": "way",
+        "osm_id": 1158747166,
+        "display_name": "ศาลสมเด็จพระนเรศวรมหาราช, ถนนสุวรรณศร, บ้านสี่แยกศาลนเรศวร, โคกมะกอก, อำเภอเมืองปราจีนบุรี, จังหวัดปราจีนบุรี, 25230, ประเทศไทย",
+        "latitude": 14.1332891,
+        "longitude": 101.3745908,
+        "category": "amenity",
+        "type": "place_of_worship",
+        "importance": 5.000152590214416e-05,
+        "address": {
+          "amenity": "ศาลสมเด็จพระนเรศวรมหาราช",
+          "road": "ถนนสุวรรณศร",
+          "village": "บ้านสี่แยกศาลนเรศวร",
+          "municipality": "โคกมะกอก",
+          "county": "อำเภอเมืองปราจีนบุรี",
+          "province": "จังหวัดปราจีนบุรี",
+          "ISO3166-2-lvl4": "TH-25",
+          "postcode": "25230",
+          "country": "ประเทศไทย",
+          "country_code": "th"
+        }
+      }
+    ]
+  },
+  {
+    "title": "เขื่อนจักรพงษ์",
+    "province": "ปราจีนบุรี",
+    "evidence_source": "Tourism Authority of Thailand",
+    "evidence_level": "official_tourism",
+    "status": "candidate",
+    "resolution_status": "not_found",
+    "resolution_query": null,
+    "matches": []
+  },
+  {
+    "title": "น้ำตกเขาอีโต้",
+    "province": "ปราจีนบุรี",
+    "evidence_source": "Tourism Authority of Thailand",
+    "evidence_level": "official_tourism",
+    "status": "candidate",
+    "resolution_status": "not_found",
+    "resolution_query": null,
+    "matches": []
+  },
+  {
+    "title": "วัดโบสถ์",
+    "province": "ปราจีนบุรี",
+    "evidence_source": "Tourism Authority of Thailand",
+    "evidence_level": "official_tourism",
+    "status": "candidate",
+    "resolution_status": "matches_found",
+    "resolution_query": "วัดโบสถ์, Thailand",
+    "matches": [
+      {
+        "osm_type": "relation",
+        "osm_id": 18994274,
+        "display_name": "อำเภอวัดโบสถ์, จังหวัดพิษณุโลก, 65160, ประเทศไทย",
+        "latitude": 17.16,
+        "longitude": 100.3950187,
+        "category": "boundary",
+        "type": "administrative",
+        "importance": 0.24000999999999997,
+        "address": {
+          "county": "อำเภอวัดโบสถ์",
+          "province": "จังหวัดพิษณุโลก",
+          "ISO3166-2-lvl4": "TH-65",
+          "postcode": "65160",
+          "country": "ประเทศไทย",
+          "country_code": "th"
+        }
+      },
+      {
+        "osm_type": "node",
+        "osm_id": 5211393772,
+        "display_name": "วัดโบสถ์, อำเภอวัดโบสถ์, จังหวัดพิษณุโลก, 65160, ประเทศไทย",
+        "latitude": 16.9950998,
+        "longitude": 100.3128877,
+        "category": "place",
+        "type": "town",
+        "importance": 0.16004000076295108,
+        "address": {
+          "town": "วัดโบสถ์",
+          "county": "อำเภอวัดโบสถ์",
+          "province": "จังหวัดพิษณุโลก",
+          "ISO3166-2-lvl4": "TH-65",
+          "postcode": "65160",
+          "country": "ประเทศไทย",
+          "country_code": "th"
+        }
+      },
+      {
+        "osm_type": "node",
+        "osm_id": 1311506899,
+        "display_name": "วัดโบสถ์, หัวถนน, อำเภอพนัสนิคม, จังหวัดชลบุรี, 20140, ประเทศไทย",
+        "latitude": 13.5006135,
+        "longitude": 101.1610258,
+        "category": "place",
+        "type": "village",
+        "importance": 0.14671666819256882,
+        "address": {
+          "village": "วัดโบสถ์",
+          "municipality": "หัวถนน",
+          "county": "อำเภอพนัสนิคม",
+          "province": "จังหวัดชลบุรี",
+          "ISO3166-2-lvl4": "TH-20",
+          "postcode": "20140",
+          "country": "ประเทศไทย",
+          "country_code": "th"
+        }
+      }
+    ]
+  },
+  {
+    "title": "พิพิธภัณฑสถานแห่งชาติปราจีนบุรี",
+    "province": "ปราจีนบุรี",
+    "evidence_source": "Tourism Authority of Thailand",
+    "evidence_level": "official_tourism",
+    "status": "candidate",
+    "resolution_status": "not_found",
+    "resolution_query": null,
+    "matches": []
+  },
+  {
+    "title": "วัดแก้วพิจิตร",
+    "province": "ปราจีนบุรี",
+    "evidence_source": "Tourism Authority of Thailand",
+    "evidence_level": "official_tourism",
+    "status": "candidate",
+    "resolution_status": "matches_found",
+    "resolution_query": "วัดแก้วพิจิตร, Thailand",
+    "matches": [
+      {
+        "osm_type": "way",
+        "osm_id": 505164569,
+        "display_name": "วัดเกาะแก้ว, พจ.3020, บ้านเกาะแก้ว, ไผ่รอบ, อำเภอโพธิ์ประทับช้าง, จังหวัดพิจิตร, ประเทศไทย",
+        "latitude": 16.3725433,
+        "longitude": 100.1777327,
+        "category": "amenity",
+        "type": "place_of_worship",
+        "importance": 5.000152590214416e-05,
+        "address": {
+          "amenity": "วัดเกาะแก้ว",
+          "road": "พจ.3020",
+          "village": "บ้านเกาะแก้ว",
+          "municipality": "ไผ่รอบ",
+          "county": "อำเภอโพธิ์ประทับช้าง",
+          "province": "จังหวัดพิจิตร",
+          "ISO3166-2-lvl4": "TH-66",
+          "country": "ประเทศไทย",
+          "country_code": "th"
+        }
+      },
+      {
+        "osm_type": "node",
+        "osm_id": 1189556614,
+        "display_name": "วัดเกาะแก้ว, 115, บ้านทุ่งสำราญ, อำเภอสากเหล็ก, จังหวัดพิจิตร, 66160, ประเทศไทย",
+        "latitude": 16.4877265,
+        "longitude": 100.4483544,
+        "category": "amenity",
+        "type": "place_of_worship",
+        "importance": 4.0000762951049326e-05,
+        "address": {
+          "amenity": "วัดเกาะแก้ว",
+          "road": "115",
+          "village": "บ้านทุ่งสำราญ",
+          "county": "อำเภอสากเหล็ก",
+          "province": "จังหวัดพิจิตร",
+          "ISO3166-2-lvl4": "TH-66",
+          "postcode": "66160",
+          "country": "ประเทศไทย",
+          "country_code": "th"
+        }
+      }
+    ]
+  },
+  {
+    "title": "ตึกเจ้าพระยาอภัยภูเบศร",
+    "province": "ปราจีนบุรี",
+    "evidence_source": "Tourism Authority of Thailand",
+    "evidence_level": "official_tourism",
+    "status": "candidate",
+    "resolution_status": "matches_found",
+    "resolution_query": "ตึกเจ้าพระยาอภัยภูเบศร, ปราจีนบุรี, Thailand",
+    "matches": [
+      {
+        "osm_type": "way",
+        "osm_id": 242744876,
+        "display_name": "ตึกเจ้าพระยาอภัยภูเบศร, ถนนปราจีนอนุสรณ์, ปราจีนบุรี, โคกมะกอก, อำเภอเมืองปราจีนบุรี, จังหวัดปราจีนบุรี, 25000, ประเทศไทย",
+        "latitude": 14.0542259,
+        "longitude": 101.3948416,
+        "category": "historic",
+        "type": "manor",
+        "importance": 5.000152590214416e-05,
+        "address": {
+          "historic": "ตึกเจ้าพระยาอภัยภูเบศร",
+          "road": "ถนนปราจีนอนุสรณ์",
+          "town": "ปราจีนบุรี",
+          "municipality": "โคกมะกอก",
+          "county": "อำเภอเมืองปราจีนบุรี",
+          "province": "จังหวัดปราจีนบุรี",
+          "ISO3166-2-lvl4": "TH-25",
+          "postcode": "25000",
+          "country": "ประเทศไทย",
+          "country_code": "th"
+        }
+      }
+    ]
+  },
+  {
+    "title": "น้ำตกส้มป่อย",
+    "province": "ปราจีนบุรี",
+    "evidence_source": "Tourism Authority of Thailand",
+    "evidence_level": "official_tourism",
+    "status": "candidate",
+    "resolution_status": "not_found",
+    "resolution_query": null,
+    "matches": []
+  },
+  {
+    "title": "น้ำตกธารทิพย์",
+    "province": "ปราจีนบุรี",
+    "evidence_source": "Tourism Authority of Thailand",
+    "evidence_level": "official_tourism",
+    "status": "candidate",
+    "resolution_status": "matches_found",
+    "resolution_query": "น้ำตกธารทิพย์, ปราจีนบุรี, Thailand",
+    "matches": [
+      {
+        "osm_type": "node",
+        "osm_id": 13288951934,
+        "display_name": "น้ำตกธารทิพย์, โพธิ์งาม, อำเภอประจันตคาม, จังหวัดปราจีนบุรี, ประเทศไทย",
+        "latitude": 14.1970767,
+        "longitude": 101.5432169,
+        "category": "waterway",
+        "type": "waterfall",
+        "importance": 0.1333833348592355,
+        "address": {
+          "waterfall": "น้ำตกธารทิพย์",
+          "municipality": "โพธิ์งาม",
+          "county": "อำเภอประจันตคาม",
+          "province": "จังหวัดปราจีนบุรี",
+          "ISO3166-2-lvl4": "TH-25",
+          "country": "ประเทศไทย",
+          "country_code": "th"
+        }
+      }
+    ]
+  },
+  {
+    "title": "น้ำตกตะคร้อ",
+    "province": "ปราจีนบุรี",
+    "evidence_source": "Tourism Authority of Thailand",
+    "evidence_level": "official_tourism",
+    "status": "candidate",
+    "resolution_status": "matches_found",
+    "resolution_query": "น้ำตกตะคร้อ, Thailand",
+    "matches": [
+      {
+        "osm_type": "node",
+        "osm_id": 13566591628,
+        "display_name": "น้ำตกตะคร้อ, อำเภอไพศาลี, จังหวัดนครสวรรค์, 60220, ประเทศไทย",
+        "latitude": 15.5053463,
+        "longitude": 100.7697361,
+        "category": "waterway",
+        "type": "waterfall",
+        "importance": 0.1333433333333333,
+        "address": {
+          "waterfall": "น้ำตกตะคร้อ",
+          "county": "อำเภอไพศาลี",
+          "province": "จังหวัดนครสวรรค์",
+          "ISO3166-2-lvl4": "TH-60",
+          "postcode": "60220",
+          "country": "ประเทศไทย",
+          "country_code": "th"
+        }
+      }
+    ]
+  },
+  {
+    "title": "น้ำตกสลัดได",
+    "province": "ปราจีนบุรี",
+    "evidence_source": "Tourism Authority of Thailand",
+    "evidence_level": "official_tourism",
+    "status": "candidate",
+    "resolution_status": "not_found",
+    "resolution_query": null,
+    "matches": []
+  },
+  {
+    "title": "แก่งหินเพิง",
+    "province": "ปราจีนบุรี",
+    "evidence_source": "Tourism Authority of Thailand",
+    "evidence_level": "official_tourism",
+    "status": "candidate",
+    "resolution_status": "not_found",
+    "resolution_query": null,
+    "matches": []
+  },
+  {
+    "title": "อุทยานแห่งชาติทับลาน",
+    "province": "ปราจีนบุรี",
+    "evidence_source": "Tourism Authority of Thailand",
+    "evidence_level": "official_tourism",
+    "status": "candidate",
+    "resolution_status": "matches_found",
+    "resolution_query": "อุทยานแห่งชาติทับลาน, Thailand",
+    "matches": [
+      {
+        "osm_type": "relation",
+        "osm_id": 4537981,
+        "display_name": "อุทยานแห่งชาติทับลาน, จังหวัดนครราชสีมา, ประเทศไทย",
+        "latitude": 14.3471964,
+        "longitude": 102.0154674,
+        "category": "boundary",
+        "type": "national_park",
+        "importance": 0.3626429788867404,
+        "address": {
+          "national_park": "อุทยานแห่งชาติทับลาน",
+          "province": "จังหวัดนครราชสีมา",
+          "ISO3166-2-lvl4": "TH-30",
+          "country": "ประเทศไทย",
+          "country_code": "th"
+        }
+      }
+    ]
+  },
+  {
+    "title": "เมืองโบราณศรีมโหสถ",
+    "province": "ปราจีนบุรี",
+    "evidence_source": "Tourism Authority of Thailand",
+    "evidence_level": "official_tourism",
+    "status": "candidate",
+    "resolution_status": "not_found",
+    "resolution_query": null,
+    "matches": []
+  },
+  {
+    "title": "โบราณสถานสระมรกต",
+    "province": "ปราจีนบุรี",
+    "evidence_source": "Tourism Authority of Thailand",
+    "evidence_level": "official_tourism",
+    "status": "candidate",
+    "resolution_status": "not_found",
+    "resolution_query": null,
+    "matches": []
+  },
+  {
+    "title": "ต้นโพธิ์ศรีมหาโพธิ",
+    "province": "ปราจีนบุรี",
+    "evidence_source": "Tourism Authority of Thailand",
+    "evidence_level": "official_tourism",
+    "status": "candidate",
+    "resolution_status": "matches_found",
+    "resolution_query": "ต้นโพธิ์ศรีมหาโพธิ, ปราจีนบุรี, Thailand",
+    "matches": [
+      {
+        "osm_type": "node",
+        "osm_id": 14024206013,
+        "display_name": "บ้านต้นตาล, อำเภอศรีมหาโพธิ, จังหวัดปราจีนบุรี, ประเทศไทย",
+        "latitude": 13.9776628,
+        "longitude": 101.435003,
+        "category": "place",
+        "type": "village",
+        "importance": 0.14671666819256882,
+        "address": {
+          "village": "บ้านต้นตาล",
+          "county": "อำเภอศรีมหาโพธิ",
+          "province": "จังหวัดปราจีนบุรี",
+          "ISO3166-2-lvl4": "TH-25",
+          "country": "ประเทศไทย",
+          "country_code": "th"
+        }
+      }
+    ]
+  },
+  {
+    "title": "พิพิธภัณฑ์อยู่สุขสุวรรณ์",
+    "province": "ปราจีนบุรี",
+    "evidence_source": "Tourism Authority of Thailand",
+    "evidence_level": "official_tourism",
+    "status": "candidate",
+    "resolution_status": "not_found",
+    "resolution_query": null,
+    "matches": []
+  }
+]

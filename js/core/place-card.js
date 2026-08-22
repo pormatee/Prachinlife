@@ -52,11 +52,7 @@
       || ""
     );
 
-    if (value && !/^https?:\/\//i.test(value)) {
-      value = `https://${value}`;
-    }
-
-    return value;
+    return safeHttpUrl(value);
   }
 
   function getSourceUrl(place) {
@@ -68,10 +64,23 @@
     );
   }
 
+  function safeHttpUrl(value) {
+    let url = text(value);
+    if (!url) return "";
+    if (!/^[a-z][a-z0-9+.-]*:/i.test(url)) url = `https://${url}`;
+    return /^https?:\/\//i.test(url) ? url : "";
+  }
+
+  function safeVipUrl(value) {
+    const url = text(value);
+    if (url.startsWith("/") && !url.startsWith("//")) return url;
+    return safeHttpUrl(url);
+  }
+
   function normalizeExternalLink(item) {
     if (!item || typeof item !== "object") return null;
-    const url = text(item.url);
-    if (!/^https?:\/\//i.test(url)) return null;
+    const url = safeHttpUrl(item.url);
+    if (!url) return null;
     return { type: text(item.type).toLowerCase() || "web", label: text(item.label), url };
   }
 
@@ -93,8 +102,8 @@
   }
 
   function getBestAdditionalLink(place) {
-    const vip = text(place?.prachinlife_page_url || metadata(place).prachinlife_page_url);
-    if (/^https?:\/\//i.test(vip) || vip.startsWith("/")) {
+    const vip = safeVipUrl(place?.prachinlife_page_url || metadata(place).prachinlife_page_url);
+    if (vip) {
       return { type: "prachinlife_vip", label: "ข้อมูลเพิ่มเติม", url: vip };
     }
     return getAdditionalLinks(place)[0] || null;
@@ -241,6 +250,8 @@
   }
 
   window.PrachinLife.core.placeCard = Object.freeze({
+    safeHttpUrl,
+    safeVipUrl,
     getPhone,
     getPhoneHref,
     getWebsite,

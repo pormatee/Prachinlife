@@ -1,0 +1,7230 @@
+{
+  "source": "OpenStreetMap",
+  "province": "ปราจีนบุรี",
+  "iso3166_2": "TH-25",
+  "bbox": [
+    13.8,
+    101.1,
+    14.6,
+    102.6
+  ],
+  "grid": "3x3",
+  "fetched_at": "2026-08-21T13:07:37.490882+00:00",
+  "completed_boxes": 5,
+  "failed_boxes": 4,
+  "coverage_complete": false,
+  "errors": [
+    "grid-1: https://overpass-api.de/api/interpreter:HTTPError:504 Server Error: Gateway Timeout for url: https://overpass-api.de/api/interpreter | https://overpass-api.de/api/interpreter:ConnectionError:('Connection aborted.', ConnectionAbortedError(103, 'Software caused connection abort')) | https://overpass.kumi.systems/api/interpreter:HTTPError:500 Server Error: Internal Server Error for url: https://overpass.kumi.systems/api/interpreter | https://overpass.kumi.systems/api/interpreter:HTTPError:502 Server Error: Bad Gateway for url: https://overpass.kumi.systems/api/interpreter",
+    "grid-2: https://overpass-api.de/api/interpreter:HTTPError:504 Server Error: Gateway Timeout for url: https://overpass-api.de/api/interpreter | https://overpass-api.de/api/interpreter:HTTPError:504 Server Error: Gateway Timeout for url: https://overpass-api.de/api/interpreter | https://overpass.kumi.systems/api/interpreter:HTTPError:502 Server Error: Bad Gateway for url: https://overpass.kumi.systems/api/interpreter | https://overpass.kumi.systems/api/interpreter:HTTPError:500 Server Error: Internal Server Error for url: https://overpass.kumi.systems/api/interpreter",
+    "grid-5: https://overpass-api.de/api/interpreter:429:a1 | https://overpass-api.de/api/interpreter:429:a2 | https://overpass.kumi.systems/api/interpreter:HTTPError:500 Server Error: Internal Server Error for url: https://overpass.kumi.systems/api/interpreter | https://overpass.kumi.systems/api/interpreter:HTTPError:502 Server Error: Bad Gateway for url: https://overpass.kumi.systems/api/interpreter",
+    "grid-8: https://overpass-api.de/api/interpreter:429:a1 | https://overpass-api.de/api/interpreter:429:a2 | https://overpass.kumi.systems/api/interpreter:HTTPError:502 Server Error: Bad Gateway for url: https://overpass.kumi.systems/api/interpreter | https://overpass.kumi.systems/api/interpreter:HTTPError:502 Server Error: Bad Gateway for url: https://overpass.kumi.systems/api/interpreter"
+  ],
+  "elements": [
+    {
+      "type": "node",
+      "id": 10065848055,
+      "lat": 14.2272977,
+      "lon": 101.1740887,
+      "tags": {
+        "description": "สกรีนเสื้อตัดสติ๊กเกอร์ไฮเดฟดีไซน์",
+        "shop": "clothes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10110472917,
+      "lat": 14.5418891,
+      "lon": 101.3622086,
+      "tags": {
+        "amenity": "cafe",
+        "name:en": "Hol Cafe"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10272311809,
+      "lat": 14.5345981,
+      "lon": 101.3720565,
+      "tags": {
+        "amenity": "restaurant",
+        "name:en": "Auntie’s Joke",
+        "opening_hours": "Su,Tu-Sa,Mo 05:00-09:30"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10692540944,
+      "lat": 14.5203149,
+      "lon": 101.3702622,
+      "tags": {
+        "amenity": "cafe",
+        "name": "Café des Artists"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10692540945,
+      "lat": 14.5200527,
+      "lon": 101.3703346,
+      "tags": {
+        "name": "Hotel des Artists",
+        "tourism": "hotel"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10692540946,
+      "lat": 14.5344656,
+      "lon": 101.3702863,
+      "tags": {
+        "amenity": "pharmacy",
+        "shop": "chemist"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10692662315,
+      "lat": 14.5633951,
+      "lon": 101.4059141,
+      "tags": {
+        "alt_name": "Cannabis Cafe & Clinic",
+        "name": "Florist Cannabis Café & Clinic",
+        "shop": "cannabis",
+        "source:name": "Both names appear on each of two road signs"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10692662316,
+      "lat": 14.5574631,
+      "lon": 101.4071399,
+      "tags": {
+        "alt_name": "7-11",
+        "brand": "7-Eleven",
+        "name": "7-Eleven",
+        "opening_hours": "24/7",
+        "shop": "convenience"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10692662318,
+      "lat": 14.55144,
+      "lon": 101.4083067,
+      "tags": {
+        "name": "The Forest Camp",
+        "tourism": "guest_house"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10692662354,
+      "lat": 14.5378694,
+      "lon": 101.4010084,
+      "tags": {
+        "name": "The Stay in Khao Yai",
+        "tourism": "hotel"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10692662362,
+      "lat": 14.534354,
+      "lon": 101.371374,
+      "tags": {
+        "amenity": "pharmacy",
+        "shop": "chemist"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10692662363,
+      "lat": 14.5350225,
+      "lon": 101.3718608,
+      "tags": {
+        "alt_name": "7-11",
+        "brand": "7-Eleven",
+        "name": "7-Eleven",
+        "opening_hours": "24/7",
+        "shop": "convenience"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10692662364,
+      "lat": 14.5339723,
+      "lon": 101.3705733,
+      "tags": {
+        "brand": "Mini Big C",
+        "name": "Mini Big C",
+        "opening_hours": "24/7",
+        "shop": "convenience"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10692662365,
+      "lat": 14.5284004,
+      "lon": 101.3695514,
+      "tags": {
+        "amenity": "cafe",
+        "fixme": "position approximate",
+        "name:en": "Coffee Joe"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10692662366,
+      "lat": 14.5175412,
+      "lon": 101.3702106,
+      "tags": {
+        "amenity": "cafe",
+        "brand": "Doi Chaang",
+        "cuisine": "coffee_shop"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10692662471,
+      "lat": 14.5129277,
+      "lon": 101.3750339,
+      "tags": {
+        "fixme": "the name on the physial sign (?) is a mix of English and Thai",
+        "name:en": "Isaan Resort Khaoyai",
+        "tourism": "hotel"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10692662476,
+      "lat": 14.5121902,
+      "lon": 101.3754898,
+      "tags": {
+        "amenity": "cafe",
+        "brand": "Café Amazon",
+        "name": "Café Amazon"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10692662487,
+      "lat": 14.5112347,
+      "lon": 101.3763374,
+      "tags": {
+        "name": "ที่พัก Resort",
+        "name:en": "Thiphak Resort",
+        "tourism": "hotel"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10694010986,
+      "lat": 14.5412706,
+      "lon": 101.4036959,
+      "tags": {
+        "amenity": "cafe",
+        "cuisine": "coffee_shop;cake",
+        "name": "กดังกาแฟ"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10694061832,
+      "lat": 14.5632341,
+      "lon": 101.405839,
+      "tags": {
+        "alt_name": "7-11",
+        "brand": "7-Eleven",
+        "name": "7-Eleven",
+        "opening_hours": "24/7",
+        "shop": "convenience"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10734092023,
+      "lat": 14.4216106,
+      "lon": 101.1563163,
+      "tags": {
+        "amenity": "restaurant",
+        "name": "Restaurant"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10734398365,
+      "lat": 14.4226473,
+      "lon": 101.1628664,
+      "tags": {
+        "name": "ไรภูกามยาว",
+        "tourism": "camp_site"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11036876205,
+      "lat": 14.4285908,
+      "lon": 102.4637186,
+      "tags": {
+        "name": "ไอดิน",
+        "shop": "variety_store"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11081152347,
+      "lat": 14.2348383,
+      "lon": 101.2426445,
+      "tags": {
+        "brand": "7-Eleven",
+        "brand:wikidata": "Q259340",
+        "name": "7-Eleven",
+        "shop": "convenience"
+      }
+    },
+    {
+      "type": "node",
+      "id": 1110374848,
+      "lat": 14.1964267,
+      "lon": 101.3837443,
+      "tags": {
+        "name": "Moon River",
+        "tourism": "hotel"
+      }
+    },
+    {
+      "type": "node",
+      "id": 1110671207,
+      "lat": 13.9940769,
+      "lon": 102.2060563,
+      "tags": {
+        "name": "น้ำตกปางสีดา",
+        "name:en": "Pangsida Waterfall",
+        "name:th": "น้ำตกปางสีดา",
+        "tourism": "yes",
+        "waterway": "waterfall",
+        "wikidata": "Q34676276"
+      }
+    },
+    {
+      "type": "node",
+      "id": 1111331802,
+      "lat": 14.5221821,
+      "lon": 101.3689078,
+      "tags": {
+        "amenity": "restaurant",
+        "cuisine": "steak",
+        "name": "Khao Yai Cowboy Steak House",
+        "source:name": "physical sign"
+      }
+    },
+    {
+      "type": "node",
+      "id": 1111332582,
+      "lat": 14.5790202,
+      "lon": 101.4000697,
+      "tags": {
+        "amenity": "restaurant",
+        "name": "Steak In Khao Yai"
+      }
+    },
+    {
+      "type": "node",
+      "id": 1111336286,
+      "lat": 14.5281642,
+      "lon": 101.3697312,
+      "tags": {
+        "name": "Supphakit",
+        "tourism": "guest_house"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11212239854,
+      "lat": 14.1999428,
+      "lon": 101.3881814,
+      "tags": {
+        "name": "นูนู่คาเฟ่",
+        "name:en": "Nunou Café",
+        "tourism": "hotel"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11212239869,
+      "lat": 14.5274138,
+      "lon": 101.3609864,
+      "tags": {
+        "name:en": "Tham Khao Luk Chang (Bat Cave)",
+        "tourism": "viewpoint"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11212239870,
+      "lat": 14.4212945,
+      "lon": 101.123055,
+      "tags": {
+        "name": "ชะอมโฮมสเตย์",
+        "name:en": "Chaom Homestay",
+        "tourism": "guest_house"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11212240145,
+      "lat": 14.2257219,
+      "lon": 101.3449216,
+      "tags": {
+        "name": "นาหินลาด รีสอร์ท นครนายก",
+        "name:en": "Nahinlad Resort",
+        "tourism": "alpine_hut"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11212240146,
+      "lat": 14.3185855,
+      "lon": 101.3384614,
+      "tags": {
+        "tourism": "viewpoint"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11212240638,
+      "lat": 14.3019359,
+      "lon": 101.357915,
+      "tags": {
+        "tourism": "viewpoint"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11219564137,
+      "lat": 14.4404753,
+      "lon": 102.2496737,
+      "tags": {
+        "name": "ผาสามเกลอ",
+        "name:en": "Pha Sam Klao Viewpoint",
+        "tourism": "viewpoint"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11337332708,
+      "lat": 14.3112423,
+      "lon": 101.2950651,
+      "tags": {
+        "addr:street": "362 Mu 2, Sarika Mueang Nakhon Nayok, Nakhon Nayok 26000, Thailand",
+        "amenity": "restaurant",
+        "name": "ชมนก Café & Restaurant",
+        "opening_hours": "Mo-Su 09:00-22:00",
+        "phone": "+66 88 215 5666",
+        "website": "https://www.facebook.com/profile.php?id=100076161917860"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11391508067,
+      "lat": 14.100824,
+      "lon": 101.3308356,
+      "tags": {
+        "amenity": "fuel",
+        "name": "ปั๊มน้ำมัน Shell"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11495482095,
+      "lat": 14.5349285,
+      "lon": 101.3719757,
+      "tags": {
+        "addr:city": "หมูสี",
+        "addr:postcode": "30450",
+        "addr:street": "เซเว่นอีเลฟเว่น #15568 เขาใหญ่กุดคล้า จุด2 นครราชสีมา",
+        "amenity": "restaurant",
+        "cuisine": "thai",
+        "name": "เปิ้ล เล้งแซ่บเขาใหญ่",
+        "name:en": "Pern Leng Zap Khao Yai",
+        "opening_hours": "Tu-Mo 16:00-24:00",
+        "phone": "+66647284844",
+        "website": "https://www.facebook.com/pernlengzappkhaoyai"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11609247784,
+      "lat": 14.3377149,
+      "lon": 101.1513849,
+      "tags": {
+        "name": "เขาหัวหมวก",
+        "name:en": "Khao Hua Muak",
+        "tourism": "viewpoint"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11613103896,
+      "lat": 14.5112681,
+      "lon": 101.5349456,
+      "tags": {
+        "addr:housenumber": "262",
+        "addr:place": "Moo 6",
+        "addr:postcode": "30450",
+        "addr:province": "Nakhon Ratchasima",
+        "addr:subdistrict": "Pong Talong Sub-District",
+        "bar": "yes",
+        "brand": "InterContinental",
+        "brand:wikidata": "Q1825730",
+        "email": "intercontinental.khaoyai@ihg.com",
+        "internet_access": "yes",
+        "internet_access:fee": "customers",
+        "name": "InterContinental Khao Yai Resort",
+        "phone": "+66 44 082039",
+        "rooms": "64",
+        "tourism": "hotel",
+        "website": "https://www.ihg.com/intercontinental/hotels/us/en/khao-yai/bkksw/hoteldetail"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11613103897,
+      "lat": 14.509539,
+      "lon": 101.5337113,
+      "tags": {
+        "amenity": "restaurant",
+        "cuisine": "french",
+        "name": "Poirot French Restaurant"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11613103899,
+      "lat": 14.5103531,
+      "lon": 101.5346605,
+      "tags": {
+        "amenity": "cafe",
+        "cuisine": "coffee_shop;dessert",
+        "name": "Afternoon tea",
+        "opening_hours": "11.00-18.00",
+        "outdoor_seating": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11613103900,
+      "lat": 14.5103637,
+      "lon": 101.5331121,
+      "tags": {
+        "amenity": "restaurant",
+        "cuisine": "thai;juice",
+        "diet:chicken": "yes",
+        "diet:meat": "yes",
+        "diet:vegan": "yes",
+        "name": "Somying",
+        "opening_hours": "24/7 \"all day dining\""
+      }
+    },
+    {
+      "type": "node",
+      "id": 11645624718,
+      "lat": 13.871176,
+      "lon": 102.4252878,
+      "tags": {
+        "amenity": "school"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11648691807,
+      "lat": 14.1307452,
+      "lon": 101.4451647,
+      "tags": {
+        "amenity": "cafe",
+        "name": "Teas & Trees"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11648691958,
+      "lat": 14.1312739,
+      "lon": 101.4458951,
+      "tags": {
+        "name": "7-eleven",
+        "shop": "supermarket"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11648728936,
+      "lat": 14.1305216,
+      "lon": 101.4448789,
+      "tags": {
+        "name": "Lotus's (go fresh)",
+        "shop": "supermarket"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11648729026,
+      "lat": 14.1311206,
+      "lon": 101.4458507,
+      "tags": {
+        "amenity": "atm",
+        "name": "Bangkok Bank & Krungsri"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11675957769,
+      "lat": 14.2602609,
+      "lon": 101.2317705,
+      "tags": {
+        "name": "วัดเขาทุเรียน นครนายก",
+        "tourism": "attraction"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11675957869,
+      "lat": 14.275452,
+      "lon": 101.2231256,
+      "tags": {
+        "name": "ภูตะลึง คาเฟ่ นครนายก",
+        "tourism": "attraction"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11681037953,
+      "lat": 14.535006,
+      "lon": 101.3717719,
+      "tags": {
+        "addr:city": "หมูสี",
+        "addr:postcode": "30450",
+        "addr:street": "ถนน ธนะรัชน์",
+        "beauty": "nails",
+        "contact:facebook": "https://www.facebook.com/fairyrichnailstudioatkhaoyai",
+        "internet_access": "wlan",
+        "level": "2",
+        "name": "Fairy Rich Nail Studio",
+        "opening_hours": "Mo-Su 09:00-20:00",
+        "payment:cash": "yes",
+        "payment:contactless": "yes",
+        "phone": "+66956588297",
+        "shop": "beauty",
+        "toilets": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11681133933,
+      "lat": 14.5350056,
+      "lon": 101.3717853,
+      "tags": {
+        "addr:city": "หมูสี",
+        "addr:postcode": "30450",
+        "amenity": "cafe",
+        "contact:facebook": "https://www.facebook.com/tarocafeandbistro",
+        "cuisine": "coffee_shop;dessert;juice;ร้านเหล้า;bistro",
+        "delivery": "yes",
+        "internet_access": "yes",
+        "internet_access:fee": "customers",
+        "level": "2",
+        "name": "Taro Cafe & Bistro",
+        "opening_hours": "Mo-Su 07:30-00:00",
+        "outdoor_seating": "yes",
+        "phone": "+66956588297"
+      }
+    },
+    {
+      "type": "node",
+      "id": 1195421011,
+      "lat": 14.435536,
+      "lon": 101.4141364,
+      "tags": {
+        "height": "20",
+        "name": "น้ำตกเหวสุวัต",
+        "name:en": "Haew Suwat Waterfall",
+        "name:th": "น้ำตกเหวสุวัต",
+        "name:th-Latn": "Nam Tok Heo Suwat",
+        "swimming": "no",
+        "tourism": "attraction",
+        "waterway": "waterfall",
+        "wikidata": "Q132650256"
+      }
+    },
+    {
+      "type": "node",
+      "id": 1195429275,
+      "lat": 14.4313599,
+      "lon": 101.4004154,
+      "tags": {
+        "addr:district": "Pak Chong",
+        "addr:postcode": "30130",
+        "addr:province": "Nakhon Ratchasima",
+        "addr:subdistrict": "Mu Si",
+        "name": "จุดกางเต็นท์ผากล้วยไม้",
+        "name:en": "Pha Kluai Mai Camping Ground & Waterfall",
+        "source:name": "sign at entrance",
+        "tourism": "camp_site"
+      }
+    },
+    {
+      "type": "node",
+      "id": 1195430093,
+      "lat": 14.4349196,
+      "lon": 101.4146649,
+      "tags": {
+        "amenity": "restaurant",
+        "cuisine": "thai"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11954384019,
+      "lat": 14.0693246,
+      "lon": 101.4597805,
+      "tags": {
+        "amenity": "fuel"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11954384020,
+      "lat": 14.0704869,
+      "lon": 101.473443,
+      "tags": {
+        "amenity": "school"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11954398799,
+      "lat": 14.1321686,
+      "lon": 101.4509067,
+      "tags": {
+        "amenity": "school"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11954398800,
+      "lat": 14.1317544,
+      "lon": 101.4496658,
+      "tags": {
+        "amenity": "school"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11954411015,
+      "lat": 14.1810769,
+      "lon": 101.4121024,
+      "tags": {
+        "amenity": "school"
+      }
+    },
+    {
+      "type": "node",
+      "id": 1195449739,
+      "lat": 14.5739475,
+      "lon": 101.4119427,
+      "tags": {
+        "addr:district": "Pak Chong",
+        "addr:housenumber": "149",
+        "addr:place": "หมู่ที่ 15",
+        "addr:postcode": "30130",
+        "addr:province": "Nakhon Ratchasima",
+        "addr:subdistrict": "Mu Si",
+        "amenity": "place_of_worship",
+        "description:en": "This quite unique temple built on several floors on a mountain 12 kilometers from the northern entrance to Khao Yai National Park is especially interesting for its very astonishing architecture loaded",
+        "name": "วัดศิมาลัยทรงธรรม",
+        "name:en": "Wat Simalai Songtham",
+        "religion": "buddhist",
+        "tourism": "attraction",
+        "website": "https://www.facebook.com/simalaisongdham?mibextid=ZbWKwL"
+      }
+    },
+    {
+      "type": "node",
+      "id": 1195453996,
+      "lat": 14.5612051,
+      "lon": 101.4060676,
+      "tags": {
+        "internet_access": "wlan",
+        "name": "Baan Sararanya Khao Yai",
+        "stars": "2",
+        "tourism": "hotel"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11959569952,
+      "lat": 14.2023475,
+      "lon": 101.2135995,
+      "tags": {
+        "alt_name:en": "Krungsri",
+        "amenity": "bank",
+        "brand": "กรุงศรี",
+        "brand:en": "Bank of Ayudhya",
+        "brand:th": "กรุงศรี",
+        "brand:wikidata": "Q782537",
+        "name": "กรุงศรี",
+        "name:en": "Bank of Ayudhya",
+        "name:th": "กรุงศรี"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11959569953,
+      "lat": 14.2026586,
+      "lon": 101.2134854,
+      "tags": {
+        "amenity": "bank",
+        "brand": "ธนาคารกรุงเทพ",
+        "brand:en": "Bangkok Bank",
+        "brand:th": "ธนาคารกรุงเทพ",
+        "brand:wikidata": "Q806483",
+        "name": "ธนาคารกรุงเทพ",
+        "name:en": "Bangkok Bank",
+        "name:th": "ธนาคารกรุงเทพ"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11959587396,
+      "lat": 14.2032158,
+      "lon": 101.21407,
+      "tags": {
+        "amenity": "bank",
+        "brand": "ธนาคารออมสิน",
+        "brand:en": "Government Savings Bank",
+        "brand:th": "ธนาคารออมสิน",
+        "brand:wikidata": "Q6579041",
+        "name": "ธนาคารออมสิน",
+        "name:en": "Government Savings Bank",
+        "name:th": "ธนาคารออมสิน"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11959718794,
+      "lat": 14.2660694,
+      "lon": 101.1470444,
+      "tags": {
+        "shop": "convenience"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12151767385,
+      "lat": 14.2089147,
+      "lon": 101.2138286,
+      "tags": {
+        "air_conditioning": "yes",
+        "currency:THB": "yes",
+        "name": "ร้านค้าสหกรณ์โรงพยาบาลนครนายก",
+        "name:en": "Nakhon Nayok Hospital Co-op",
+        "name:th": "สหกรณ์โรงพยาบาลนครนายก",
+        "opening_hours": "24/7",
+        "operator": "โรงพยาบาลนครนายก",
+        "payment:cash": "yes",
+        "payment:contactless": "yes",
+        "shop": "convenience"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12273238369,
+      "lat": 14.1591386,
+      "lon": 101.3456778,
+      "tags": {
+        "amenity": "atm",
+        "branch": "ธนาคารกรุงเทพ",
+        "cash_in": "no",
+        "currency:THB": "yes",
+        "drive_through": "no",
+        "indoor": "yes",
+        "level": "1",
+        "network": "ธนาคารกรุงเทพ",
+        "operator": "ATM ธนาคารกรุงเทพ"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12273238370,
+      "lat": 14.1588789,
+      "lon": 101.3462192,
+      "tags": {
+        "name": "Convenience store",
+        "name:th": "ร้านสะดวกซื้อ",
+        "operator": "คณะเทคโนโลยีและการจัดการอุตสาหกรรม",
+        "shop": "convenience"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12273238371,
+      "lat": 14.1590484,
+      "lon": 101.345984,
+      "tags": {
+        "name": "ร้านถ่ายเอกสาร",
+        "operator": "คณะเทคโนโลยีและการจัดการอุตสาหกรรม",
+        "shop": "photo"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12273238372,
+      "lat": 14.1571578,
+      "lon": 101.3493507,
+      "tags": {
+        "name": "Convenience store",
+        "name:th": "ร้านสะดวกซื้อ",
+        "operator": "คณะอุตสาหกรรมการเกษตร",
+        "shop": "convenience"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12273238373,
+      "lat": 14.161192,
+      "lon": 101.3612948,
+      "tags": {
+        "name": "Convenience store",
+        "name:th": "ร้านสะดวกซื้อ",
+        "operator": "คณะบริหารธุรกิจและอุตสาหกรรมบริการ",
+        "shop": "convenience"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12279602899,
+      "lat": 14.2170519,
+      "lon": 101.4064814,
+      "tags": {
+        "name": "PRY1",
+        "tourism": "hotel"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12279996989,
+      "lat": 14.1742672,
+      "lon": 101.3676714,
+      "tags": {
+        "amenity": "fuel",
+        "name": "ปั๊มปักธงชัย กรุ๊ป"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12280000098,
+      "lat": 14.1932375,
+      "lon": 101.3831505,
+      "tags": {
+        "name": "Siam Dasada",
+        "tourism": "attraction"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12280035505,
+      "lat": 14.1358583,
+      "lon": 101.3676886,
+      "tags": {
+        "amenity": "fuel",
+        "fuel:lpg": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12281165068,
+      "lat": 14.1443557,
+      "lon": 101.3496642,
+      "tags": {
+        "amenity": "school"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12281173970,
+      "lat": 14.1509317,
+      "lon": 101.311047,
+      "tags": {
+        "brand": "7-Eleven",
+        "brand:wikidata": "Q259340",
+        "name": "7-Eleven",
+        "shop": "convenience"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12281173975,
+      "lat": 14.1669305,
+      "lon": 101.2604971,
+      "tags": {
+        "brand": "7-Eleven",
+        "brand:wikidata": "Q259340",
+        "name": "7-Eleven",
+        "shop": "convenience"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12281173977,
+      "lat": 14.1692735,
+      "lon": 101.2562546,
+      "tags": {
+        "tourism": "motel"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12281368011,
+      "lat": 14.1503196,
+      "lon": 101.3064195,
+      "tags": {
+        "brand": "7-Eleven",
+        "brand:wikidata": "Q259340",
+        "name": "7-Eleven",
+        "shop": "convenience"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12281368012,
+      "lat": 14.1502556,
+      "lon": 101.3066572,
+      "tags": {
+        "amenity": "fuel"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12281368013,
+      "lat": 14.1499387,
+      "lon": 101.3064455,
+      "tags": {
+        "amenity": "cafe",
+        "brand": "คาเฟ่ อเมซอน",
+        "brand:en": "Café Amazon",
+        "brand:th": "คาเฟ่ อเมซอน",
+        "brand:wikidata": "Q43247503",
+        "cuisine": "coffee_shop",
+        "name": "คาเฟ่ อเมซอน",
+        "name:en": "Café Amazon",
+        "name:th": "คาเฟ่ อเมซอน",
+        "takeaway": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12281368691,
+      "lat": 14.1514009,
+      "lon": 101.2732914,
+      "tags": {
+        "amenity": "school"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12281373304,
+      "lat": 14.1502289,
+      "lon": 101.3251862,
+      "tags": {
+        "amenity": "fuel"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12281381591,
+      "lat": 14.1966986,
+      "lon": 101.2215324,
+      "tags": {
+        "amenity": "fuel"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12281381592,
+      "lat": 14.205548,
+      "lon": 101.2195318,
+      "tags": {
+        "amenity": "school"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12281385860,
+      "lat": 14.1661514,
+      "lon": 101.263429,
+      "tags": {
+        "healthcare": "yes",
+        "name": "Health Center"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12282725348,
+      "lat": 14.2474338,
+      "lon": 101.2539156,
+      "tags": {
+        "amenity": "fuel"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12325327101,
+      "lat": 14.4217999,
+      "lon": 102.4571207,
+      "tags": {
+        "alt_name": "Kentucky Fried Chicken",
+        "amenity": "fast_food",
+        "brand": "KFC",
+        "brand:wikidata": "Q524757",
+        "cuisine": "chicken",
+        "name": "KFC",
+        "opening_hours": "Mo-Su 09:00-20:00",
+        "takeaway": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12325327201,
+      "lat": 14.4217118,
+      "lon": 102.4569317,
+      "tags": {
+        "amenity": "cafe",
+        "brand": "คาเฟ่ อเมซอน",
+        "brand:en": "Café Amazon",
+        "brand:th": "คาเฟ่ อเมซอน",
+        "brand:wikidata": "Q43247503",
+        "cuisine": "coffee_shop",
+        "internet_access": "wlan",
+        "name": "คาเฟ่ อเมซอน",
+        "name:en": "Café Amazon",
+        "name:th": "คาเฟ่ อเมซอน",
+        "opening_hours": "Mo-Su 07:00-18:30",
+        "takeaway": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12325327202,
+      "lat": 14.422123,
+      "lon": 102.4569751,
+      "tags": {
+        "amenity": "fuel",
+        "brand": "ป.ต.ท.",
+        "brand:en": "PTT",
+        "brand:th": "ป.ต.ท.",
+        "brand:wikidata": "Q1810389",
+        "name": "PTT",
+        "name:en": "PTT",
+        "name:th": "ป.ต.ท."
+      }
+    },
+    {
+      "type": "node",
+      "id": 12325327203,
+      "lat": 14.421854,
+      "lon": 102.4566499,
+      "tags": {
+        "name": "Otteri",
+        "shop": "laundry"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12325327301,
+      "lat": 14.4220929,
+      "lon": 102.4565413,
+      "tags": {
+        "brand": "7-Eleven",
+        "brand:wikidata": "Q259340",
+        "name": "7-Eleven",
+        "shop": "convenience"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12328245401,
+      "lat": 14.542021,
+      "lon": 101.4069229,
+      "tags": {
+        "name": "Hokkaido Flower Park",
+        "shop": "florist"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12328252001,
+      "lat": 14.5411902,
+      "lon": 101.4076124,
+      "tags": {
+        "amenity": "cafe"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12424789343,
+      "lat": 14.5347071,
+      "lon": 102.2574427,
+      "tags": {
+        "tourism": "guest_house"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12424808248,
+      "lat": 14.522548,
+      "lon": 102.2475789,
+      "tags": {
+        "brand": "7-Eleven",
+        "brand:wikidata": "Q259340",
+        "name": "7-Eleven",
+        "shop": "convenience"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12438332919,
+      "lat": 14.2795115,
+      "lon": 101.154704,
+      "tags": {
+        "name": "Armthong Resort",
+        "tourism": "hotel"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12438360049,
+      "lat": 14.4383816,
+      "lon": 101.3715712,
+      "tags": {
+        "shop": "convenience"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12438373871,
+      "lat": 14.4231189,
+      "lon": 101.3870255,
+      "tags": {
+        "rental": "tent",
+        "shop": "rental"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12438375035,
+      "lat": 14.2758156,
+      "lon": 101.162509,
+      "tags": {
+        "brand": "Lotus's go fresh",
+        "brand:wikidata": "Q125937967",
+        "name": "Lotus's go fresh",
+        "shop": "convenience"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12438387442,
+      "lat": 14.2762023,
+      "lon": 101.1619421,
+      "tags": {
+        "brand": "7-Eleven",
+        "brand:wikidata": "Q259340",
+        "name": "7-Eleven",
+        "shop": "convenience"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12438641682,
+      "lat": 14.2760949,
+      "lon": 101.1624611,
+      "tags": {
+        "brand": "CJ Express",
+        "brand:wikidata": "Q125874457",
+        "name": "CJ Supermarket",
+        "shop": "supermarket"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12468256301,
+      "lat": 14.5410062,
+      "lon": 101.402401,
+      "tags": {
+        "name": "MYS Khao Yai",
+        "tourism": "hotel"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12570612201,
+      "lat": 14.2026689,
+      "lon": 101.2132559,
+      "tags": {
+        "amenity": "marketplace",
+        "name:en": "Night Market",
+        "opening_hours": "Mo-Su 17:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12590478748,
+      "lat": 14.5159937,
+      "lon": 101.4415373,
+      "tags": {
+        "shop": "convenience"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12597975301,
+      "lat": 13.9586822,
+      "lon": 102.1804466,
+      "tags": {
+        "amenity": "school",
+        "name:en": "Banklongpakkhom school"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12618022395,
+      "lat": 14.5553899,
+      "lon": 101.4769144,
+      "tags": {
+        "addr:district": "Pakchong",
+        "addr:housenumber": "101",
+        "addr:place": "Charlie Garden",
+        "addr:postcode": "30450",
+        "addr:province": "Nakhon Ratchasima",
+        "addr:subdistrict": "Mu si",
+        "amenity": "cafe",
+        "cuisine": "juice;coffee_shop",
+        "internet_access": "wlan",
+        "internet_access:fee": "customers",
+        "name": "Charlie Garden",
+        "natural": "cafe",
+        "opening_hours": "Mo-Su 09:00-18:00",
+        "outdoor_seating": "yes",
+        "website": "https://www.facebook.com/share/1BDAx1C1Sx/?mibextid=wwXIfr"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12679348601,
+      "lat": 14.4540008,
+      "lon": 101.359698,
+      "tags": {
+        "tourism": "viewpoint"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12679516701,
+      "lat": 14.4305629,
+      "lon": 101.4009632,
+      "tags": {
+        "tourism": "viewpoint"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12682154418,
+      "lat": 13.8023023,
+      "lon": 102.1214965,
+      "tags": {
+        "amenity": "school"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12683675101,
+      "lat": 14.434938,
+      "lon": 101.413903,
+      "tags": {
+        "tourism": "viewpoint"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12723499519,
+      "lat": 14.077714,
+      "lon": 101.5126155,
+      "tags": {
+        "addr:district": "ประจันตคาม",
+        "addr:housenumber": "121",
+        "addr:place": "หมู่ที่ 9",
+        "addr:postcode": "25130",
+        "addr:province": "ปราจีนบุรี",
+        "addr:subdistrict": "โพธิ์งาม",
+        "amenity": "cafe",
+        "cuisine": "coffee_shop",
+        "name": "ขุนเขาคาเฟ่",
+        "name:en": "Khunkhao Cafe",
+        "name:th": "ขุนเขาคาเฟ่",
+        "phone": "+66 96 383 8183",
+        "website": "facebook.com/profile.php?id=61573536808719"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12729767513,
+      "lat": 14.0694996,
+      "lon": 101.55033,
+      "tags": {
+        "amenity": "fuel"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12729859016,
+      "lat": 14.0987743,
+      "lon": 101.4445749,
+      "tags": {
+        "shop": "garden_centre"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12729859017,
+      "lat": 14.0990701,
+      "lon": 101.441403,
+      "tags": {
+        "shop": "garden_centre"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12731945552,
+      "lat": 14.1154104,
+      "lon": 101.3258529,
+      "tags": {
+        "amenity": "fuel",
+        "brand": "บางจาก",
+        "brand:en": "Bangchak",
+        "brand:th": "บางจาก",
+        "brand:wikidata": "Q6579719",
+        "name": "บางจาก",
+        "name:en": "Bangchak",
+        "name:th": "บางจาก"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12731992215,
+      "lat": 14.1091978,
+      "lon": 101.3376207,
+      "tags": {
+        "amenity": "school"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12732812611,
+      "lat": 14.122477,
+      "lon": 101.3227423,
+      "tags": {
+        "amenity": "school"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12732839217,
+      "lat": 14.13383,
+      "lon": 101.3211372,
+      "tags": {
+        "amenity": "fuel"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12733265904,
+      "lat": 14.1116573,
+      "lon": 101.3347933,
+      "tags": {
+        "amenity": "university"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12733265906,
+      "lat": 14.1117682,
+      "lon": 101.3322796,
+      "tags": {
+        "amenity": "college"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12733268619,
+      "lat": 14.1073152,
+      "lon": 101.3452532,
+      "tags": {
+        "amenity": "fuel",
+        "brand": "PT",
+        "brand:wikidata": "Q62298612",
+        "name": "PT"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12733957579,
+      "lat": 14.1215791,
+      "lon": 101.3679519,
+      "tags": {
+        "amenity": "school"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12735319167,
+      "lat": 14.0877645,
+      "lon": 101.4132028,
+      "tags": {
+        "amenity": "school"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12735384629,
+      "lat": 14.1778287,
+      "lon": 101.3511185,
+      "tags": {
+        "amenity": "school"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12738882833,
+      "lat": 14.5176047,
+      "lon": 101.4394743,
+      "tags": {
+        "amenity": "atm"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12765517146,
+      "lat": 14.4349078,
+      "lon": 101.413369,
+      "tags": {
+        "information": "board",
+        "tourism": "information"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13059546052,
+      "lat": 14.574095,
+      "lon": 101.1462325,
+      "tags": {
+        "alt_name:en": "Travertine",
+        "name": "น้ำตก จปร.",
+        "name:en": "Waterfall",
+        "name:th": "น้ำตก จปร.",
+        "tourism": "attraction"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13059579836,
+      "lat": 14.4050017,
+      "lon": 101.1654152,
+      "tags": {
+        "name": "Kang Khao Camp",
+        "tourism": "camp_site"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13064759555,
+      "lat": 14.5868782,
+      "lon": 101.4927909,
+      "tags": {
+        "name": "อิ่มเอม แคมป์",
+        "ref": "https://www.facebook.com/share/18FYfQ3kar/",
+        "tourism": "camp_pitch"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13190817160,
+      "lat": 14.2324235,
+      "lon": 101.2856431,
+      "tags": {
+        "addr:district": "เมือง",
+        "addr:housenumber": "199",
+        "addr:place": "บ้านคีรีวัน",
+        "addr:postcode": "26000",
+        "addr:province": "นครนายก",
+        "addr:street": "ไร่รมิตา",
+        "addr:subdistrict": "ศรีนาวา",
+        "amenity": "cafe",
+        "cuisine": "coffee_shop",
+        "name": "รมิตาคอทเทจ",
+        "name:en": "Ramita Cottage",
+        "name:th": "รมิตาคอทเทจ",
+        "opening_hours": "Mo-Su 08:00-20:00",
+        "outdoor_seating": "no"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13247081732,
+      "lat": 14.3465487,
+      "lon": 101.1495662,
+      "tags": {
+        "name": "Salad Dai Waterfalls",
+        "tourism": "attraction"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13271598601,
+      "lat": 14.5578218,
+      "lon": 101.4018055,
+      "tags": {
+        "addr:place": "หมู่ที่ /",
+        "addr:postcode": "30130",
+        "addr:street": "Thanarat Road",
+        "contact:instagram": "villamusee",
+        "email": "reservation.villamusee@gmail.com",
+        "name": "วิลล่า มูเซ่",
+        "name:en": "Villa Musée Khaoyai",
+        "name:fr": "Villa Musée Khaoyai",
+        "name:th": "วิลล่า มูเซ่",
+        "opening_hours": "24/7",
+        "phone": "+66 (0) 63 225 1555",
+        "tourism": "museum",
+        "website": "https://www.villamusee.com/museum.html"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13272215131,
+      "lat": 14.5320805,
+      "lon": 101.5785537,
+      "tags": {
+        "artwork_type": "statue",
+        "statue": "buddha",
+        "tourism": "artwork"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13272215132,
+      "lat": 14.5317682,
+      "lon": 101.5785901,
+      "tags": {
+        "artwork_type": "statue",
+        "statue": "buddha",
+        "tourism": "artwork"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13272215133,
+      "lat": 14.5319345,
+      "lon": 101.5782948,
+      "tags": {
+        "artwork_type": "statue",
+        "name:en": "Phra Phuttha Mongkhon Siri Thawichai",
+        "statue": "buddha",
+        "tourism": "artwork"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13273480009,
+      "lat": 14.5436228,
+      "lon": 101.3282669,
+      "tags": {
+        "garden:type": "show_garden",
+        "leisure": "garden",
+        "name": "สวนกุหลาบกลางพนา",
+        "name:en": "Klang Phana Rose Garden",
+        "tourism": "attraction"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13320788001,
+      "lat": 14.4289338,
+      "lon": 102.4710794,
+      "tags": {
+        "addr:housenumber": "460/1 Moo 17",
+        "amenity": "dentist",
+        "contact:facebook": "pro.smile",
+        "contact:line": "pro_smile",
+        "healthcare": "dentist",
+        "name": "PRO.SMILE",
+        "name:th": "โปรสไมล์",
+        "opening_hours": "Fr-Mo 09:00-17:00",
+        "phone": "+66 80 350 0865"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13323731801,
+      "lat": 14.3502047,
+      "lon": 102.4332094,
+      "tags": {
+        "brand": "7-Eleven",
+        "brand:wikidata": "Q259340",
+        "name": "7-Eleven",
+        "shop": "convenience"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13352638101,
+      "lat": 14.4317563,
+      "lon": 102.4619623,
+      "tags": {
+        "name": "ร้านตัดผมชาย ตัดก๊ะโต้",
+        "opening_hours": "Mo-Su 08:00-20:00",
+        "phone": "+66 82 695 5183",
+        "shop": "hairdresser"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13360744001,
+      "lat": 14.5257779,
+      "lon": 102.2485987,
+      "tags": {
+        "addr:housenumber": "492",
+        "amenity": "cafe",
+        "cuisine": "coffee_shop;tea",
+        "internet_access": "wlan",
+        "name": "หอมนวล Coffee and Bakery",
+        "name:en": "Hom Naun Cafe",
+        "opening_hours": "Mo-Su 08:00-16:00",
+        "outdoor_seating": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13392203401,
+      "lat": 14.4386843,
+      "lon": 101.3717414,
+      "tags": {
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13433937175,
+      "lat": 14.1666442,
+      "lon": 101.2628551,
+      "tags": {
+        "amenity": "cafe",
+        "name": "Café d'Amazon Pak Phli"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13439222505,
+      "lat": 14.5073134,
+      "lon": 102.2792114,
+      "tags": {
+        "name": "Phop Rak Resort",
+        "tourism": "hotel"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13441914489,
+      "lat": 14.2903521,
+      "lon": 101.3879444,
+      "tags": {
+        "tourism": "viewpoint"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13444903824,
+      "lat": 14.5455626,
+      "lon": 101.4191259,
+      "tags": {
+        "tourism": "guest_house"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13444992225,
+      "lat": 14.5643562,
+      "lon": 101.4057775,
+      "tags": {
+        "amenity": "restaurant",
+        "cuisine": "thai",
+        "diet:vegan": "no",
+        "diet:vegetarian": "no"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13447575158,
+      "lat": 14.5794082,
+      "lon": 101.3817307,
+      "tags": {
+        "amenity": "cafe",
+        "food:ice_cream": "yes",
+        "name": "Khao Yai Mango Farm"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13535941501,
+      "lat": 14.2527764,
+      "lon": 101.2796401,
+      "tags": {
+        "addr:postcode": "26000",
+        "addr:street": "3, 5 ซอยวิงหิน ต, Nakhon Nayok, อ.เมือง,",
+        "email": "wanghinrivercamping@gmail.com",
+        "name": "วังหิน ริเวอร์แคมป์ปิ้ง นครนายก",
+        "name:en": "WangHin River Camping",
+        "name:th": "วังหิน ริเวอร์แคมป์ปิ้ง นครนายก",
+        "phone": "062 223 9291",
+        "tourism": "camp_site",
+        "website": "https://www.facebook.com/share/17cLH8YWE4/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13607087664,
+      "lat": 14.5804389,
+      "lon": 101.3892389,
+      "tags": {
+        "check_date": "2026-02-13",
+        "tourism": "hotel"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13607087665,
+      "lat": 14.5805001,
+      "lon": 101.3889945,
+      "tags": {
+        "amenity": "restaurant",
+        "check_date": "2026-02-15",
+        "opening_hours": "Mo-Fr off"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13607087666,
+      "lat": 14.5805228,
+      "lon": 101.3891021,
+      "tags": {
+        "amenity": "cafe",
+        "check_date": "2026-02-15"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13614731651,
+      "lat": 14.319735,
+      "lon": 101.2892333,
+      "tags": {
+        "addr:district": "เมืองนครนายก",
+        "addr:housenumber": "914",
+        "addr:postcode": "26000",
+        "addr:province": "นครนายก",
+        "addr:subdistrict": "สาริกา",
+        "name": "พัชชา พลูวิลล่า@นครนายก",
+        "name:en": "Patcha poolvilla",
+        "name:th": "พัชชา พลูวิลล่า@นครนายก",
+        "tourism": "chalet",
+        "website": "https://www.facebook.com/share/14YuLBC4QgE/?mibextid=wwXIfr"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13685686438,
+      "lat": 14.1194801,
+      "lon": 101.4758261,
+      "tags": {
+        "name": "Sun Moon Resort",
+        "tourism": "hotel"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13686077933,
+      "lat": 14.5804389,
+      "lon": 101.3892389,
+      "tags": {
+        "check_date": "2026-02-13",
+        "tourism": "hotel"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13686077934,
+      "lat": 14.5805001,
+      "lon": 101.3889945,
+      "tags": {
+        "amenity": "restaurant",
+        "check_date": "2026-02-15",
+        "opening_hours": "Mo-Fr off"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13686077935,
+      "lat": 14.5805228,
+      "lon": 101.3891021,
+      "tags": {
+        "amenity": "cafe",
+        "check_date": "2026-02-15"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13703268801,
+      "lat": 14.542469,
+      "lon": 101.4059445,
+      "tags": {
+        "check_date": "2026-04-03",
+        "internet_access": "wlan",
+        "name:en": "Pingdao Khao Yai Hotel",
+        "tourism": "hotel"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13731764083,
+      "lat": 14.3107129,
+      "lon": 101.3165939,
+      "tags": {
+        "shop": "clothes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13731764084,
+      "lat": 14.3107013,
+      "lon": 101.3168505,
+      "tags": {
+        "amenity": "cafe"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13731775151,
+      "lat": 14.3153651,
+      "lon": 101.3162654,
+      "tags": {
+        "direction": "w",
+        "tourism": "viewpoint"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13731775156,
+      "lat": 14.3145284,
+      "lon": 101.3211628,
+      "tags": {
+        "direction": "S",
+        "tourism": "viewpoint"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13731775177,
+      "lat": 14.3151313,
+      "lon": 101.3233759,
+      "tags": {
+        "amenity": "cafe"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13731775183,
+      "lat": 14.3150562,
+      "lon": 101.3234064,
+      "tags": {
+        "tourism": "viewpoint"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13955623257,
+      "lat": 14.4529142,
+      "lon": 101.2152607,
+      "tags": {
+        "addr:district": "Kaeng Khoi",
+        "addr:postcode": "18180",
+        "addr:province": "Saraburi",
+        "addr:subdistrict": "Mittraphap",
+        "height": "350",
+        "name": "น้ำตกโกรกอีดก สระบุรี",
+        "name:en": "Krok-E-Dok waterfall",
+        "tourism": "attraction"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13955624053,
+      "lat": 14.3084083,
+      "lon": 101.2554574,
+      "tags": {
+        "amenity": "restaurant",
+        "name": "Sarika Cafe & Bistro"
+      }
+    },
+    {
+      "type": "node",
+      "id": 14100388024,
+      "lat": 14.2212564,
+      "lon": 101.2288131,
+      "tags": {
+        "internet_access:fee": "no",
+        "name": "บ้านสวนวิวเขาสปกรณ์",
+        "tourism": "chalet"
+      }
+    },
+    {
+      "type": "node",
+      "id": 14104605988,
+      "lat": 14.5352719,
+      "lon": 101.1351263,
+      "tags": {
+        "name": "น้ำตกศิรดา",
+        "name:en": "Sinda Waterfall",
+        "name:th-Latn": "Nam Tok Sinda",
+        "tourism": "attraction"
+      }
+    },
+    {
+      "type": "node",
+      "id": 14104605989,
+      "lat": 14.5405814,
+      "lon": 101.1445556,
+      "tags": {
+        "name": "น้ำตกโกรกมะตูม",
+        "name:de": "Krok Matum Waterfall",
+        "name:th-Latn": "Nam Tok Krok Matum",
+        "tourism": "attraction"
+      }
+    },
+    {
+      "type": "node",
+      "id": 14104605990,
+      "lat": 14.551656,
+      "lon": 101.1848101,
+      "tags": {
+        "name": "น้ำตกเหวราง",
+        "name:de": "Heo Rang Waterfall",
+        "tourism": "attraction"
+      }
+    },
+    {
+      "type": "node",
+      "id": 14104606855,
+      "lat": 14.59988,
+      "lon": 101.2066535,
+      "tags": {
+        "name": "วันเดอร์แลนด์ สระบุรี",
+        "name:en": "Wonderland Saraburi",
+        "tourism": "theme_park"
+      }
+    },
+    {
+      "type": "node",
+      "id": 1545579879,
+      "lat": 14.5742184,
+      "lon": 101.1481686,
+      "tags": {
+        "name:en": "Lumphini Suan Hin Cave",
+        "natural": "cave_entrance",
+        "tourism": "attraction"
+      }
+    },
+    {
+      "type": "node",
+      "id": 1609793367,
+      "lat": 14.5313136,
+      "lon": 101.3696503,
+      "tags": {
+        "amenity": "cafe",
+        "cuisine": "coffee_shop",
+        "name": "Baan Reua Coffee"
+      }
+    },
+    {
+      "type": "node",
+      "id": 1609793433,
+      "lat": 14.5378331,
+      "lon": 101.367062,
+      "tags": {
+        "amenity": "restaurant",
+        "cuisine": "italian",
+        "name": "Baan Tiu's Italian Homemade"
+      }
+    },
+    {
+      "type": "node",
+      "id": 1609793441,
+      "lat": 14.5315135,
+      "lon": 101.3694734,
+      "tags": {
+        "amenity": "restaurant",
+        "name": "Krua Yakha"
+      }
+    },
+    {
+      "type": "node",
+      "id": 1612937838,
+      "lat": 14.5745717,
+      "lon": 101.1475144,
+      "tags": {
+        "name:en": "Mathat Cave",
+        "natural": "cave_entrance",
+        "tourism": "attraction"
+      }
+    },
+    {
+      "type": "node",
+      "id": 1653910064,
+      "lat": 14.1312237,
+      "lon": 101.4455896,
+      "tags": {
+        "amenity": "fuel",
+        "fuel:diesel": "yes",
+        "fuel:gasohol_95": "yes",
+        "fuel:gasoline_91": "yes",
+        "name": "ป.ต.ท.",
+        "name:en": "PTT",
+        "source": "Bing; sign",
+        "website": "www.pttplc.com"
+      }
+    },
+    {
+      "type": "node",
+      "id": 1653910065,
+      "lat": 14.1496232,
+      "lon": 101.2949775,
+      "tags": {
+        "amenity": "fuel",
+        "fuel:cng": "yes",
+        "name": "ป.ต.ท.",
+        "name:en": "PTT",
+        "source": "Bing; sign",
+        "website": "www.pttplc.com"
+      }
+    },
+    {
+      "type": "node",
+      "id": 1880989238,
+      "lat": 14.0780323,
+      "lon": 102.2610712,
+      "tags": {
+        "name": "ปางสีดา",
+        "name:th": "ปางสีดา",
+        "tourism": "viewpoint"
+      }
+    },
+    {
+      "type": "node",
+      "id": 1880989459,
+      "lat": 13.9705875,
+      "lon": 102.268868,
+      "tags": {
+        "tourism": "picnic_site"
+      }
+    },
+    {
+      "type": "node",
+      "id": 1978947684,
+      "lat": 14.3114907,
+      "lon": 101.2546832,
+      "tags": {
+        "name": "น้ำตกสาริกา",
+        "name:en": "Sarika Waterfall",
+        "name:th-Latn": "Nam Tok Sarika",
+        "tourism": "yes",
+        "waterway": "waterfall"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2127529905,
+      "lat": 14.0525865,
+      "lon": 102.5747748,
+      "tags": {
+        "addr:city": "Thap Rat",
+        "addr:postcode": "27180",
+        "addr:street": "Ban Khlong Yang",
+        "description": "La-lu is an 800-acres park where you see natural earth pillars in various shapes, crafted by soil erosion",
+        "geological": "yes",
+        "leisure": "nature_reserve",
+        "name:en": "La-Lu",
+        "name:th": "ละลุ",
+        "tourism": "attraction",
+        "website": "https://www.tourismthailand.org/attraction/detail?id=3084&title=La-lu"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2127530062,
+      "lat": 14.0374504,
+      "lon": 102.5809483,
+      "tags": {
+        "amenity": "fuel",
+        "note": "Has no name!"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2128401030,
+      "lat": 13.9436116,
+      "lon": 102.5438377,
+      "tags": {
+        "amenity": "fuel",
+        "name": "บางจาก",
+        "name:en": "Bangchak",
+        "website": "https://www.bangchak.co.th/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2130322045,
+      "lat": 14.4250268,
+      "lon": 102.4663772,
+      "tags": {
+        "name": "Honda",
+        "shop": "motorcycle"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2130322047,
+      "lat": 14.547503,
+      "lon": 102.2203959,
+      "tags": {
+        "amenity": "fuel",
+        "name": "เชลล์",
+        "name:en": "Shell",
+        "website": "https://www.shell.co.th/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2412639726,
+      "lat": 14.5379247,
+      "lon": 101.4002428,
+      "tags": {
+        "name": "The Palio Khao Yai",
+        "note": "Shopping",
+        "tourism": "attraction"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2525136430,
+      "lat": 14.5478342,
+      "lon": 101.4199869,
+      "tags": {
+        "board_type": "board",
+        "information": "board",
+        "tourism": "information"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2525136452,
+      "lat": 14.5476116,
+      "lon": 101.4196499,
+      "tags": {
+        "addr:district": "Pak Chong",
+        "addr:postcode": "30130",
+        "addr:province": "Nakhon Ratchasima",
+        "addr:subdistrict": "Mu Si",
+        "alt_name": "น้ำผุดปากช่อง",
+        "name": "น้ำผุดธรรมชาติบ้านท่าช้าง",
+        "name:en": "Nam Phut natural spring",
+        "name:th": "น้ำผุดธรรมชาติ",
+        "name:th-Latn": "Nam Phut Thammachad Ban Tha Chang",
+        "note": "public swimming area",
+        "tourism": "attraction"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2629935069,
+      "lat": 13.8201774,
+      "lon": 102.3552687,
+      "tags": {
+        "amenity": "fuel",
+        "name": "Fuel Station",
+        "source": "GPS"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2643944277,
+      "lat": 13.8011505,
+      "lon": 102.1159096,
+      "tags": {
+        "amenity": "fuel",
+        "name": "ป.ต.ท.",
+        "name:en": "PTT",
+        "website": "www.pttplc.com"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2643944765,
+      "lat": 13.8012469,
+      "lon": 102.1156995,
+      "tags": {
+        "alt_name": "7-11",
+        "brand": "7-Eleven",
+        "brand:website": "http://www.7eleven.co.th/",
+        "brand:wikidata": "Q259340",
+        "brand:wikipedia": "th:เซเว่น อีเลฟเว่น",
+        "name": "7-Eleven",
+        "name:en": "7-Eleven",
+        "shop": "convenience"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2664610753,
+      "lat": 14.55516,
+      "lon": 101.2776255,
+      "tags": {
+        "amenity": "restaurant",
+        "cuisine": "thai",
+        "name": "Kham Reserve"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2674611103,
+      "lat": 14.5434048,
+      "lon": 101.3576373,
+      "tags": {
+        "name": "DNA Resort and Spa",
+        "tourism": "hotel",
+        "website": "http://www.dnakhaoyai.com"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2676351772,
+      "lat": 14.1342611,
+      "lon": 101.3775249,
+      "tags": {
+        "amenity": "cafe",
+        "brand": "Café Amazon",
+        "cuisine": "coffee_shop",
+        "name": "Café Amazon",
+        "name:en": "Café Amazon",
+        "name:th": "คาเฟ่ อเมซอน",
+        "operator": "PTT",
+        "shop": "coffee",
+        "smoking": "no"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2676351774,
+      "lat": 14.1347232,
+      "lon": 101.3778319,
+      "tags": {
+        "amenity": "fuel",
+        "name": "ป.ต.ท.",
+        "name:en": "PTT",
+        "opening_hours": "24/7",
+        "website": "www.pttplc.com"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2676351791,
+      "lat": 14.0715171,
+      "lon": 101.374812,
+      "tags": {
+        "alt_name": "7-11",
+        "brand": "7-Eleven",
+        "brand:website": "http://www.7eleven.co.th/",
+        "brand:wikidata": "Q259340",
+        "brand:wikipedia": "th:เซเว่น อีเลฟเว่น",
+        "name": "7-Eleven",
+        "name:en": "7-Eleven",
+        "shop": "convenience"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2676351792,
+      "lat": 14.1344567,
+      "lon": 101.3730053,
+      "tags": {
+        "alt_name": "7-11",
+        "brand": "7-Eleven",
+        "brand:website": "http://www.7eleven.co.th/",
+        "brand:wikidata": "Q259340",
+        "brand:wikipedia": "th:เซเว่น อีเลฟเว่น",
+        "name": "7-Eleven",
+        "name:en": "7-Eleven ทางขึ้นเขาใหญ่",
+        "name:th": "7-Eleven ทางขึ้นเขาใหญ่",
+        "opening_hours": "24/7",
+        "shop": "convenience"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2676351793,
+      "lat": 14.1346999,
+      "lon": 101.3774834,
+      "tags": {
+        "alt_name": "7-11",
+        "brand": "7-Eleven",
+        "brand:website": "http://www.7eleven.co.th/",
+        "brand:wikidata": "Q259340",
+        "brand:wikipedia": "th:เซเว่น อีเลฟเว่น",
+        "name": "7-Eleven",
+        "name:en": "7-Eleven",
+        "opening_hours": "24/7",
+        "shop": "convenience"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2678596386,
+      "lat": 14.2896768,
+      "lon": 101.3881569,
+      "tags": {
+        "height": "150",
+        "name": "น้ำตกเหวนรก",
+        "name:en": "Haew Narok Waterfall",
+        "name:th": "น้ำตกเหวนรก",
+        "tourism": "attraction",
+        "waterway": "waterfall",
+        "website": "https://www.world-of-waterfalls.com/asia-haew-narok-waterfall.html",
+        "wikidata": "Q34845984"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2823924411,
+      "lat": 14.2268013,
+      "lon": 101.3860267,
+      "tags": {
+        "amenity": "cafe",
+        "cuisine": "regional",
+        "name": "Coffee shop",
+        "smoking": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2927380404,
+      "lat": 14.5067816,
+      "lon": 101.1571415,
+      "tags": {
+        "name": "จุดชมวิวมอเครือ",
+        "tourism": "viewpoint"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2962683877,
+      "lat": 14.2766553,
+      "lon": 101.2220166,
+      "tags": {
+        "amenity": "restaurant",
+        "cuisine": "regional"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2962692142,
+      "lat": 14.333173,
+      "lon": 101.1867105,
+      "tags": {
+        "name": "Wangree",
+        "tourism": "hotel"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3054728908,
+      "lat": 14.4945698,
+      "lon": 101.1626663,
+      "tags": {
+        "name": "เจ็ดคต",
+        "name:en": "Chet khot",
+        "tourism": "camp_site"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3123476886,
+      "lat": 14.4702878,
+      "lon": 101.1601185,
+      "tags": {
+        "shop": "convenience"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3123477097,
+      "lat": 14.4938181,
+      "lon": 101.1616648,
+      "tags": {
+        "alt_name:en": "Jedkod-Pongkonsao Natural Study and Ecotourism Center",
+        "information": "office",
+        "name": "ศูนย์ศึกษาธรรมชาติและท่องเที่ยวเชิงนิเวศเจ็ดคต-โป่งก้อนเส้า",
+        "name:en": "Chetkhot-Pongkonsao Natural Study and Ecotourism Center",
+        "tourism": "information"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3219694107,
+      "lat": 14.5202473,
+      "lon": 101.4755207,
+      "tags": {
+        "name": "ออโรร่ารีสอร์ท เขาใหญ่",
+        "name:en": "Aurora Resort Kaoyai",
+        "tourism": "hotel"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3317806361,
+      "lat": 14.3282821,
+      "lon": 102.4498095,
+      "tags": {
+        "artwork_type": "statue",
+        "tourism": "artwork"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3317837792,
+      "lat": 14.3480891,
+      "lon": 102.430444,
+      "tags": {
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3637422038,
+      "lat": 14.5492742,
+      "lon": 101.5456187,
+      "tags": {
+        "name": "Khao Lak Chang Bat Cave",
+        "tourism": "viewpoint"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3637518084,
+      "lat": 14.54741,
+      "lon": 101.4401312,
+      "tags": {
+        "amenity": "fuel"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3637530293,
+      "lat": 14.5597247,
+      "lon": 101.2564252,
+      "tags": {
+        "addr:city": "Phayayen",
+        "addr:housenumber": "88/1, 88/88-93",
+        "addr:postcode": "30320",
+        "addr:street": "Moo 5",
+        "name": "Patravana Resort",
+        "operator": "Phu Patra",
+        "tourism": "hotel"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3798939535,
+      "lat": 14.5149619,
+      "lon": 101.5656843,
+      "tags": {
+        "amenity": "restaurant",
+        "name": "Sala Hilltop Restaurant and Bar",
+        "wheelchair": "no"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3798939536,
+      "lat": 14.5150454,
+      "lon": 101.5657099,
+      "tags": {
+        "contact:email": "stay@salakhaoyai.com",
+        "contact:fax": "+66 4 400 9953",
+        "contact:phone": "+66 89 846 0500",
+        "contact:website": "http://www.salakhaoyai.com",
+        "name": "Sala Khaoyai",
+        "operator": "Sala Hospitality Group",
+        "payment:visa": "yes",
+        "rooms": "7",
+        "stars": "5",
+        "tourism": "hotel",
+        "wheelchair": "no"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3798939537,
+      "lat": 14.5178468,
+      "lon": 101.5073577,
+      "tags": {
+        "name": "Toscana Valley",
+        "name:en": "Toscana Valley",
+        "name:th": "ทอสกานา วัลเล่",
+        "tourism": "attraction"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3799349630,
+      "lat": 14.5416697,
+      "lon": 101.565113,
+      "tags": {
+        "name": "Kensington",
+        "tourism": "hotel"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3869299189,
+      "lat": 14.3205155,
+      "lon": 101.3041653,
+      "tags": {
+        "name": "Toffy Cafe & Resort",
+        "tourism": "guest_house",
+        "website": "http://toffyhouseresort.com/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3891202066,
+      "lat": 14.4722743,
+      "lon": 101.1663818,
+      "tags": {
+        "information": "sign",
+        "name": "Jed Kot waterfall",
+        "tourism": "information"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3891202068,
+      "lat": 14.4937818,
+      "lon": 101.1616387,
+      "tags": {
+        "shop": "convenience"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3891202069,
+      "lat": 14.493655,
+      "lon": 101.1617272,
+      "tags": {
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3896102823,
+      "lat": 13.8009461,
+      "lon": 102.3399668,
+      "tags": {
+        "amenity": "fuel",
+        "brand": "PT",
+        "brand:en": "PT",
+        "brand:th": "พีที",
+        "name": "PT",
+        "name:en": "PT",
+        "name:th": "พีที",
+        "source": "GPS"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3896112866,
+      "lat": 13.8622377,
+      "lon": 102.4197067,
+      "tags": {
+        "amenity": "fuel",
+        "name": "Fuel Station",
+        "source": "GPS"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3896112872,
+      "lat": 13.8777045,
+      "lon": 102.456778,
+      "tags": {
+        "amenity": "fuel",
+        "name": "Fuel Station",
+        "source": "GPS"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3900487218,
+      "lat": 14.5214454,
+      "lon": 102.246715,
+      "tags": {
+        "amenity": "marketplace",
+        "name": "Khon Buri market"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3900487219,
+      "lat": 14.4254493,
+      "lon": 102.4656774,
+      "tags": {
+        "alt_name": "7-11",
+        "brand": "7-Eleven",
+        "brand:website": "http://www.7eleven.co.th/",
+        "brand:wikidata": "Q259340",
+        "brand:wikipedia": "th:เซเว่น อีเลฟเว่น",
+        "name": "7-Eleven",
+        "name:en": "7-Eleven",
+        "opening_hours": "24/7",
+        "operator": "Seven & I Holdings",
+        "shop": "convenience"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3900487223,
+      "lat": 14.4251,
+      "lon": 102.4656606,
+      "tags": {
+        "amenity": "marketplace",
+        "name": "Soeng Sang Market"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3900487245,
+      "lat": 14.5324685,
+      "lon": 102.2356132,
+      "tags": {
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3904395178,
+      "lat": 14.5613777,
+      "lon": 101.4066468,
+      "tags": {
+        "amenity": "restaurant",
+        "name": "Khao Yai Kitchen"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3933239903,
+      "lat": 14.2185558,
+      "lon": 101.1941463,
+      "tags": {
+        "amenity": "fuel"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3933240074,
+      "lat": 14.2105454,
+      "lon": 101.2047118,
+      "tags": {
+        "alt_name": "7-11",
+        "brand": "7-Eleven",
+        "brand:website": "http://www.7eleven.co.th/",
+        "brand:wikidata": "Q259340",
+        "brand:wikipedia": "th:เซเว่น อีเลฟเว่น",
+        "name": "7-Eleven",
+        "name:en": "7-Eleven",
+        "operator": "Seven & I Holdings",
+        "shop": "convenience"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3933240075,
+      "lat": 14.2183166,
+      "lon": 101.1943323,
+      "tags": {
+        "alt_name": "7-11",
+        "brand": "7-Eleven",
+        "brand:website": "http://www.7eleven.co.th/",
+        "brand:wikidata": "Q259340",
+        "brand:wikipedia": "th:เซเว่น อีเลฟเว่น",
+        "name": "7-Eleven",
+        "name:en": "7-Eleven",
+        "operator": "Seven & I Holdings",
+        "shop": "convenience"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3933240309,
+      "lat": 14.2098518,
+      "lon": 101.2039709,
+      "tags": {
+        "amenity": "marketplace"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4106961496,
+      "lat": 14.5266748,
+      "lon": 102.2432147,
+      "tags": {
+        "amenity": "atm",
+        "opening_hours": "24/7"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4106961497,
+      "lat": 14.3499731,
+      "lon": 102.4297648,
+      "tags": {
+        "amenity": "cafe",
+        "internet_access": "wlan",
+        "name": "Co-op Coffee"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4106961692,
+      "lat": 14.523011,
+      "lon": 102.2468129,
+      "tags": {
+        "shop": "hardware"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4106966794,
+      "lat": 14.3472872,
+      "lon": 102.4316385,
+      "tags": {
+        "amenity": "bank",
+        "name": "Baac Bank",
+        "opening_hours": "Mo-Fr 08:30-15:30"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4106971991,
+      "lat": 14.5268513,
+      "lon": 102.242976,
+      "tags": {
+        "amenity": "atm",
+        "opening_hours": "24/7"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4106972390,
+      "lat": 14.5266124,
+      "lon": 102.2428311,
+      "tags": {
+        "brand": "7-Eleven",
+        "brand:website": "http://www.7eleven.co.th/",
+        "brand:wikidata": "Q259340",
+        "brand:wikipedia": "th:เซเว่น อีเลฟเว่น",
+        "name": "7-Eleven",
+        "name:en": "7-Eleven",
+        "opening_hours": "24/7",
+        "operator": "Seven & I Holdings",
+        "shop": "convenience"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4106973091,
+      "lat": 14.5268877,
+      "lon": 102.2429411,
+      "tags": {
+        "amenity": "bank",
+        "name": "Krungthai Bank",
+        "opening_hours": "Mo-Su 08:30-16:30",
+        "phone": "+66021111111"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4106973092,
+      "lat": 14.3472359,
+      "lon": 102.43163,
+      "tags": {
+        "amenity": "atm",
+        "opening_hours": "24/7"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4106974089,
+      "lat": 14.3472744,
+      "lon": 102.4314824,
+      "tags": {
+        "amenity": "restaurant",
+        "cuisine": "thai"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4111165290,
+      "lat": 14.3465679,
+      "lon": 102.4299607,
+      "tags": {
+        "amenity": "restaurant",
+        "cuisine": "thai",
+        "internet_access": "wlan",
+        "name": "Dude"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4111169089,
+      "lat": 14.2601442,
+      "lon": 102.3425595,
+      "tags": {
+        "amenity": "place_of_worship",
+        "name": "1000 years old Sacred tree",
+        "place_of_worship": "sacred_tree",
+        "religion": "buddhist",
+        "tourism": "attraction"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4113602391,
+      "lat": 14.5237888,
+      "lon": 102.2461611,
+      "tags": {
+        "amenity": "atm",
+        "brand": "ธนาคารไทยพาณิชย์",
+        "brand:en": "Siam Commercial Bank",
+        "brand:th": "ธนาคารไทยพาณิชย์",
+        "brand:wikidata": "Q2038986",
+        "opening_hours": "24/7",
+        "operator": "ธนาคารไทยพาณิชย์",
+        "operator:wikidata": "Q2038986"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4113652091,
+      "lat": 14.5240887,
+      "lon": 102.2457387,
+      "tags": {
+        "amenity": "bank",
+        "brand": "ธนาคารกสิกรไทย",
+        "brand:en": "Kasikornbank",
+        "brand:th": "ธนาคารกสิกรไทย",
+        "brand:wikidata": "Q276557",
+        "name": "ธนาคารกสิกรไทย",
+        "name:en": "Kasikornbank",
+        "name:th": "ธนาคารกสิกรไทย",
+        "opening_hours": "Mo-Fr 08:30-15:30"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4113658989,
+      "lat": 14.5237588,
+      "lon": 102.2461799,
+      "tags": {
+        "amenity": "bank",
+        "brand": "ธนาคารไทยพาณิชย์",
+        "brand:en": "Siam Commercial Bank",
+        "brand:th": "ธนาคารไทยพาณิชย์",
+        "brand:wikidata": "Q2038986",
+        "name": "ธนาคารไทยพาณิชย์",
+        "name:en": "Siam Commercial Bank",
+        "name:th": "ธนาคารไทยพาณิชย์",
+        "opening_hours": "Mo-Fr 08:30-15:30"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4113658990,
+      "lat": 14.5241108,
+      "lon": 102.2457186,
+      "tags": {
+        "amenity": "atm",
+        "brand": "ธนาคารกสิกรไทย",
+        "brand:en": "Kasikornbank",
+        "brand:th": "ธนาคารกสิกรไทย",
+        "brand:wikidata": "Q276557",
+        "opening_hours": "24/7",
+        "operator": "ธนาคารกสิกรไทย",
+        "operator:wikidata": "Q276557"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4113659089,
+      "lat": 14.5241432,
+      "lon": 102.2461008,
+      "tags": {
+        "shop": "motorcycle"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4113659189,
+      "lat": 14.5240393,
+      "lon": 102.2461893,
+      "tags": {
+        "shop": "motorcycle"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4113659289,
+      "lat": 14.5237719,
+      "lon": 102.246487,
+      "tags": {
+        "shop": "motorcycle"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4113659389,
+      "lat": 14.5236005,
+      "lon": 102.2467096,
+      "tags": {
+        "shop": "motorcycle"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4125247889,
+      "lat": 14.334907,
+      "lon": 102.4043362,
+      "tags": {
+        "shop": "convenience"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4158649383,
+      "lat": 14.1768741,
+      "lon": 101.3530191,
+      "tags": {
+        "amenity": "restaurant",
+        "name": "บ้านส้มตำ"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4162332791,
+      "lat": 14.4957026,
+      "lon": 101.1395468,
+      "tags": {
+        "amenity": "restaurant",
+        "name": "ร้านป้าสี"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4305412919,
+      "lat": 14.3182496,
+      "lon": 101.2751064,
+      "tags": {
+        "name": "Royal Hills Resort",
+        "tourism": "hotel"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4306826510,
+      "lat": 14.3038445,
+      "lon": 101.2933032,
+      "tags": {
+        "amenity": "atm"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4306876381,
+      "lat": 14.3094489,
+      "lon": 101.2821103,
+      "tags": {
+        "name": "Baan Phu Suay",
+        "tourism": "hotel"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4306876459,
+      "lat": 14.3074438,
+      "lon": 101.283949,
+      "tags": {
+        "name": "Baan Phu Tawan",
+        "tourism": "hotel"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4306876460,
+      "lat": 14.3084457,
+      "lon": 101.2831135,
+      "tags": {
+        "name": "Baan Phu Tarn",
+        "tourism": "hotel"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4306876461,
+      "lat": 14.3080182,
+      "lon": 101.2826897,
+      "tags": {
+        "name": "Baan Phupha",
+        "tourism": "hotel"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4307238871,
+      "lat": 14.3183729,
+      "lon": 101.2749765,
+      "tags": {
+        "amenity": "cafe",
+        "name": "Cafe - Ice cream"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4308206568,
+      "lat": 14.3200395,
+      "lon": 101.2741067,
+      "tags": {
+        "amenity": "restaurant",
+        "name": "Jasmine",
+        "opening_hours": "07:00-22:00",
+        "source": "http://www.royalhillsresort.com/en/resort_facilities/dining_facilities.html",
+        "source:date": "2016-07-26"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4308715796,
+      "lat": 14.3182853,
+      "lon": 101.2750251,
+      "tags": {
+        "amenity": "atm",
+        "source": "survey",
+        "source:date": "2016-07-18"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4308715801,
+      "lat": 14.3183108,
+      "lon": 101.2750694,
+      "tags": {
+        "name": "Mini Mart",
+        "shop": "convenience"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4312135437,
+      "lat": 14.3177747,
+      "lon": 101.2743027,
+      "tags": {
+        "name": "Baan Ingpha",
+        "tourism": "hotel"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4320565873,
+      "lat": 14.3193337,
+      "lon": 101.2745624,
+      "tags": {
+        "amenity": "cafe",
+        "name": "Orchid Cafe",
+        "source": "http://www.royalhillsresort.com/en/resort_facilities/dining_facilities.html",
+        "source:date": "2016-07-18",
+        "source_1": "survey"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4320567228,
+      "lat": 14.3179446,
+      "lon": 101.2749164,
+      "tags": {
+        "amenity": "restaurant",
+        "name": "Leelawadee Restaurant",
+        "source": "http://www.royalhillsresort.com/en/resort_facilities/dining_facilities.html",
+        "source:date": "2016-07-18"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4330755790,
+      "lat": 14.32541,
+      "lon": 101.30594,
+      "tags": {
+        "name": "Nang Rang Waterfall",
+        "tourism": "camp_site"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4330770389,
+      "lat": 14.210663,
+      "lon": 101.2046,
+      "tags": {
+        "name": "Большой рынок по пятницам и понедельникам",
+        "shop": "convenience"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4330770589,
+      "lat": 14.312673,
+      "lon": 101.30524,
+      "tags": {
+        "tourism": "hotel"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4397896153,
+      "lat": 14.582784,
+      "lon": 101.4401149,
+      "tags": {
+        "addr:district": "Pak Chong",
+        "addr:housenumber": "236",
+        "addr:postcode": "30130",
+        "addr:province": "Nakhon Ratchasima",
+        "addr:subdistrict": "Khanong Phra",
+        "description:en": "The Zoo is a centre of exotic animals for tourists to watch closely; for example, Alpaca, white lion, red panda, miniature horse, white raccoons, sun conure parrots, marmoset monkeys, etc.",
+        "name": "สวนสัตว์โบนันซ่าเอ็กโซติก",
+        "name:en": "Bonanza Exotic Park",
+        "old_name": "Bonanza Exotic Zoo",
+        "opening_hours": "Mo-Fr 09:00-17:00; Sa,Su 09:00-18:00",
+        "tourism": "zoo",
+        "website": "https://thebonanzakhaoyai.com/en/bonanza-exotic-zoo/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4402913993,
+      "lat": 14.4286353,
+      "lon": 102.4667772,
+      "tags": {
+        "amenity": "restaurant",
+        "name": "ร้านลองแล",
+        "name:th": "ร้านลองแล"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4460342489,
+      "lat": 14.5213543,
+      "lon": 101.3688567,
+      "tags": {
+        "name:en": "Khao Yai Cowboy City Resort",
+        "tourism": "hotel"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4461136190,
+      "lat": 14.5350817,
+      "lon": 101.3933765,
+      "tags": {
+        "name": "Bella House",
+        "name:en": "Bella House",
+        "phone": "+66800561177",
+        "tourism": "hotel"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4469502240,
+      "lat": 14.3571176,
+      "lon": 101.3782188,
+      "tags": {
+        "tourism": "viewpoint"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4502043156,
+      "lat": 14.2607516,
+      "lon": 101.2637079,
+      "tags": {
+        "tourism": "viewpoint"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4519303637,
+      "lat": 14.5066618,
+      "lon": 102.4401445,
+      "tags": {
+        "amenity": "school"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4519303853,
+      "lat": 14.5179251,
+      "lon": 102.3771497,
+      "tags": {
+        "amenity": "school"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4519304155,
+      "lat": 14.5527861,
+      "lon": 102.4086605,
+      "tags": {
+        "amenity": "school"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4540762692,
+      "lat": 14.2361265,
+      "lon": 101.2483433,
+      "tags": {
+        "name": "Cho Kaew Resort",
+        "name:th": "ช่อแก้วรีสอร์ต",
+        "tourism": "hotel"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4541208005,
+      "lat": 14.5754333,
+      "lon": 101.2349202,
+      "tags": {
+        "addr:district:en": "Pak Chong",
+        "addr:housenumber": "102/2",
+        "addr:postcode": "30320",
+        "addr:province:en": "Nakhon Ratchasima",
+        "addr:street": "Mitraparp Road",
+        "addr:subdistrict:en": "Phaya Yen",
+        "alt_name:en": "Moo5",
+        "name": "พีบีวัลเลย์ เขาใหญ่ไวน์เนอร",
+        "name:en": "PB Valley Khao Yai Vineyard",
+        "name:zh": "PB酒莊",
+        "tourism": "attraction",
+        "website": "https://www.pbvalley.com"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4542260389,
+      "lat": 14.4930768,
+      "lon": 101.5301752,
+      "tags": {
+        "name": "L-89",
+        "name:th": "L-89",
+        "tourism": "camp_site"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4547841756,
+      "lat": 14.5344094,
+      "lon": 101.3725742,
+      "tags": {
+        "name": "ดวงพร",
+        "tourism": "hotel"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4550271489,
+      "lat": 14.5250816,
+      "lon": 102.2514963,
+      "tags": {
+        "brand": "Tesco",
+        "brand:wikidata": "Q487494",
+        "name": "Tesco",
+        "name:en": "Tesco Lotus",
+        "shop": "convenience"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4550271689,
+      "lat": 14.5264943,
+      "lon": 102.2742576,
+      "tags": {
+        "name:en": "Krobureeresort",
+        "tourism": "guest_house"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4550272091,
+      "lat": 14.42322,
+      "lon": 101.3872742,
+      "tags": {
+        "caravans": "yes",
+        "internet_access": "no",
+        "name": "Lam Ta Khong Campingground",
+        "opening_hours": "Mo-Su 06:00-22:00",
+        "sanitary_dump_station": "no",
+        "tents": "yes",
+        "tourism": "camp_site"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4550272890,
+      "lat": 14.4234469,
+      "lon": 101.3873907,
+      "tags": {
+        "amenity": "restaurant",
+        "diet:vegetarian": "yes",
+        "self_service": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4559848947,
+      "lat": 14.315342,
+      "lon": 101.2986818,
+      "tags": {
+        "amenity": "restaurant",
+        "cuisine": "thai",
+        "name": "ช่อชะมวง",
+        "name:th": "ช่อชะมวง"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4594503537,
+      "lat": 13.8629613,
+      "lon": 102.5854411,
+      "tags": {
+        "name:en": "Lilly Resort",
+        "tourism": "motel"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4594565403,
+      "lat": 13.9430938,
+      "lon": 102.5476093,
+      "tags": {
+        "amenity": "school"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4594565470,
+      "lat": 14.0426176,
+      "lon": 102.5756938,
+      "tags": {
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4639512290,
+      "lat": 14.5934321,
+      "lon": 101.445723,
+      "tags": {
+        "name": "โบนันซ่า",
+        "name:en": "Bonanza",
+        "name:th": "โบนันซ่า",
+        "tourism": "hotel"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4643856989,
+      "lat": 14.1496824,
+      "lon": 101.3329396,
+      "tags": {
+        "internet_access": "wlan",
+        "name": "Suvimon Resort",
+        "name:th": "Suvimon Resort",
+        "tourism": "motel"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4682240189,
+      "lat": 14.3232464,
+      "lon": 101.3159174,
+      "tags": {
+        "addr:district": "Mueang Nakhon Nayok,",
+        "addr:postcode": "26000",
+        "addr:province": "Nakhon Nayok",
+        "addr:subdistrict": "Hin Tung",
+        "tourism": "hotel"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4684181589,
+      "lat": 14.5110109,
+      "lon": 101.411347,
+      "tags": {
+        "addr:housenumber": "99",
+        "addr:postcode": "30130",
+        "addr:street": "Pakchong",
+        "name": "พุฒิพงษ์คอนสตรัคชั่น",
+        "name:en": "PPC",
+        "tourism": "information"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4686895602,
+      "lat": 14.429168,
+      "lon": 102.4639836,
+      "tags": {
+        "amenity": "restaurant",
+        "cuisine": "barbecue",
+        "internet_access": "yes",
+        "name": "เดิม",
+        "name:en": "Derm"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4686895605,
+      "lat": 14.4289189,
+      "lon": 102.4635736,
+      "tags": {
+        "shop": "car_parts"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4686895611,
+      "lat": 14.4288163,
+      "lon": 102.4636351,
+      "tags": {
+        "amenity": "bank",
+        "brand": "Bank for Agriculture and Agricultural Co-operatives (BAAC)"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4686895612,
+      "lat": 14.4288599,
+      "lon": 102.4636088,
+      "tags": {
+        "amenity": "atm"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4686931089,
+      "lat": 14.4314851,
+      "lon": 102.4637386,
+      "tags": {
+        "addr:postcode": "30330",
+        "amenity": "hospital",
+        "name": "โรงพยาบาลเสิงสาง",
+        "name:en": "Soeng Sang Hospital"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4686931090,
+      "lat": 14.425707,
+      "lon": 102.4640936,
+      "tags": {
+        "motorcycle:repair": "yes",
+        "shop": "motorcycle"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4696258190,
+      "lat": 14.5966233,
+      "lon": 101.3713916,
+      "tags": {
+        "name:en": "Piano Resort Khao Yai",
+        "tourism": "hotel"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4709746897,
+      "lat": 14.5433519,
+      "lon": 101.3365969,
+      "tags": {
+        "addr:district": "Pak Chong",
+        "addr:housenumber": "200",
+        "addr:postcode": "30130",
+        "addr:province": "Nakhon Ratchasima",
+        "addr:street": "Primo Piazza Khaoyai, 2",
+        "addr:subdistrict": "Mu Si",
+        "name": "พรีโม เพียซซ่า",
+        "name:en": "Primo Piazza",
+        "opening_hours": "Mo-Su 09:00-18:00",
+        "tourism": "attraction"
+      }
+    },
+    {
+      "type": "node",
+      "id": 475003997,
+      "lat": 14.1457745,
+      "lon": 101.3856459,
+      "tags": {
+        "tourism": "viewpoint"
+      }
+    },
+    {
+      "type": "node",
+      "id": 475004896,
+      "lat": 14.1534005,
+      "lon": 101.4040591,
+      "tags": {
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4750841828,
+      "lat": 14.1198596,
+      "lon": 101.3246913,
+      "tags": {
+        "amenity": "cafe",
+        "cuisine": "thai",
+        "internet_access": "wlan",
+        "name:en": "cho ka chua"
+      }
+    },
+    {
+      "type": "node",
+      "id": 475490484,
+      "lat": 14.2379135,
+      "lon": 101.3442743,
+      "tags": {
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4768909727,
+      "lat": 14.4258159,
+      "lon": 102.4640166,
+      "tags": {
+        "shop": "car_repair"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4768909728,
+      "lat": 14.4258031,
+      "lon": 102.4640907,
+      "tags": {
+        "amenity": "restaurant",
+        "cuisine": "thai",
+        "internet_access": "wlan",
+        "name:en": "Saneyont"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4768917121,
+      "lat": 14.4256589,
+      "lon": 102.4641483,
+      "tags": {
+        "shop": "bicycle"
+      }
+    },
+    {
+      "type": "node",
+      "id": 477198612,
+      "lat": 14.1806248,
+      "lon": 101.3518158,
+      "tags": {
+        "artwork_type": "statue",
+        "tourism": "artwork"
+      }
+    },
+    {
+      "type": "node",
+      "id": 477240680,
+      "lat": 14.2341855,
+      "lon": 101.3787782,
+      "tags": {
+        "amenity": "cafe"
+      }
+    },
+    {
+      "type": "node",
+      "id": 477241954,
+      "lat": 14.197462,
+      "lon": 101.2195891,
+      "tags": {
+        "amenity": "restaurant",
+        "cuisine": "duck"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4780494421,
+      "lat": 14.3493312,
+      "lon": 102.4305432,
+      "tags": {
+        "opening_hours": "Mo-Su 08:00-17:00",
+        "shop": "hairdresser"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4780494521,
+      "lat": 14.3472341,
+      "lon": 102.4300255,
+      "tags": {
+        "shop": "hairdresser"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4780521022,
+      "lat": 14.3493701,
+      "lon": 102.430334,
+      "tags": {
+        "amenity": "pharmacy"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4785532921,
+      "lat": 14.3500627,
+      "lon": 102.4301106,
+      "tags": {
+        "opening_hours": "Th-Tu 09:00-18:00",
+        "shop": "hairdresser"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4788113721,
+      "lat": 14.3491259,
+      "lon": 102.4303313,
+      "tags": {
+        "amenity": "atm",
+        "opening_hours": "24/7",
+        "operator": "Krungthai Bank"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4788118321,
+      "lat": 14.3490557,
+      "lon": 102.430283,
+      "tags": {
+        "shop": "convenience"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4807378022,
+      "lat": 14.5725932,
+      "lon": 101.2412582,
+      "tags": {
+        "name:en": "The bloom",
+        "tourism": "attraction"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4807378221,
+      "lat": 14.537637,
+      "lon": 101.3779735,
+      "tags": {
+        "addr:district": "Pak Chong",
+        "addr:housenumber": "777",
+        "addr:place": "หมู่ 5",
+        "addr:postcode": "30450",
+        "addr:province": "Nakhon Ratchasima",
+        "addr:street": "Thanaratch Rd",
+        "addr:subdistrict": "Mu Si",
+        "name": "ซีนิคอลเวิลด์ เขาใหญ่",
+        "name:en": "Scenical World Khao Yai",
+        "opening_hours": "Do-Di 10:00-18:00",
+        "tourism": "attraction",
+        "website": "https://www.scenicalworld.com/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4808859922,
+      "lat": 14.5977666,
+      "lon": 102.4676098,
+      "tags": {
+        "name": "ไร่ยาง ปังย่า ปิงปอง",
+        "name:th": "ไร่ยาง ปังย่า ปิงปอง",
+        "tourism": "camp_site"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4810830021,
+      "lat": 14.5789537,
+      "lon": 101.4316715,
+      "tags": {
+        "name": "Pete maze",
+        "name:th": "Pete maze",
+        "tourism": "attraction"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4810830121,
+      "lat": 14.5621957,
+      "lon": 101.4060422,
+      "tags": {
+        "name": "Chocolate factory",
+        "name:th": "Chocolate factory",
+        "shop": "confectionery",
+        "tourism": "attraction"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4823508622,
+      "lat": 14.3513632,
+      "lon": 102.4337511,
+      "tags": {
+        "amenity": "school"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4885556379,
+      "lat": 14.4860962,
+      "lon": 102.4774893,
+      "tags": {
+        "amenity": "school"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4885556494,
+      "lat": 14.4477881,
+      "lon": 102.4603768,
+      "tags": {
+        "amenity": "school"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4893037921,
+      "lat": 14.2030905,
+      "lon": 101.229888,
+      "tags": {
+        "addr:street": "3239",
+        "amenity": "restaurant",
+        "name": "ผัดไทยเลิศรส",
+        "name:en": "lerdros pochana",
+        "name:th": "ผัดไทยเลิศรส"
+      }
+    },
+    {
+      "type": "node",
+      "id": 501833973,
+      "lat": 14.4738839,
+      "lon": 101.3903174,
+      "tags": {
+        "tourism": "viewpoint"
+      }
+    },
+    {
+      "type": "node",
+      "id": 501833975,
+      "lat": 14.365574,
+      "lon": 101.4069502,
+      "tags": {
+        "name": "ผาเดียวดาย",
+        "name:en": "Pha Diao Dai",
+        "name:th": "ผาเดียวดาย",
+        "tourism": "viewpoint"
+      }
+    },
+    {
+      "type": "node",
+      "id": 501833976,
+      "lat": 14.3657232,
+      "lon": 101.4003618,
+      "tags": {
+        "name": "Khao Kieow",
+        "tourism": "viewpoint"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5033632021,
+      "lat": 14.3364615,
+      "lon": 102.2462673,
+      "tags": {
+        "name:en": "Temple",
+        "tourism": "attraction"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5109361028,
+      "lat": 14.221764,
+      "lon": 101.1481711,
+      "tags": {
+        "addr:street": "ตำบล พรหมณี อำเภอเมืองนครนายก, นครนายก 26000",
+        "amenity": "restaurant",
+        "cuisine": "coffee_shop;noodles;diner;steak_house;thai;hotdog;cake;ice_cream;sausage",
+        "name": "โหน่งชะชะช่า บะหมี่โหน่ง"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5205582026,
+      "lat": 14.5784393,
+      "lon": 101.429416,
+      "tags": {
+        "name:en": "Huge Buddha",
+        "tourism": "attraction"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5205582028,
+      "lat": 14.5743538,
+      "lon": 101.4118012,
+      "tags": {
+        "name:en": "Colored Temple",
+        "tourism": "attraction"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5206089921,
+      "lat": 14.5396021,
+      "lon": 101.4009342,
+      "tags": {
+        "amenity": "restaurant",
+        "name:en": "Cheap and g00d food!"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5206090021,
+      "lat": 14.5394897,
+      "lon": 101.4007721,
+      "tags": {
+        "amenity": "cafe",
+        "name:en": "The Witchess Chill House"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5207430121,
+      "lat": 14.5343606,
+      "lon": 101.3715259,
+      "tags": {
+        "amenity": "fuel"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5207430122,
+      "lat": 14.5343613,
+      "lon": 101.371751,
+      "tags": {
+        "alt_name": "Tesco Lotus",
+        "brand": "Lotus's",
+        "brand:wikidata": "Q2378901",
+        "brand:wikipedia": "en:Lotus's",
+        "name": "Lotus's Go Fresh",
+        "shop": "convenience"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5207430321,
+      "lat": 14.5709779,
+      "lon": 101.4507318,
+      "tags": {
+        "name:en": "Golden hour viewpoint",
+        "tourism": "viewpoint"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5207511821,
+      "lat": 14.5345582,
+      "lon": 101.3809848,
+      "tags": {
+        "name": "Strawberry Picking",
+        "name:en": "Strawberry Picking",
+        "tourism": "attraction"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5267432421,
+      "lat": 14.5343088,
+      "lon": 101.3746628,
+      "tags": {
+        "name": "ศูนย์บริการนักท่องเที่ยว",
+        "tourism": "attraction"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5267434421,
+      "lat": 14.5337414,
+      "lon": 101.3701609,
+      "tags": {
+        "amenity": "pharmacy",
+        "name": "เขาใหญ่ฟาร์มาชี"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5292999147,
+      "lat": 14.495318,
+      "lon": 101.1396258,
+      "tags": {
+        "amenity": "restaurant",
+        "name": "Krua Khob Chol (ครัวขอบชล)"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5293000057,
+      "lat": 14.4957865,
+      "lon": 101.1396494,
+      "tags": {
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5303037123,
+      "lat": 14.5603746,
+      "lon": 101.4066725,
+      "tags": {
+        "amenity": "restaurant",
+        "name:en": "mookata"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5305847421,
+      "lat": 14.5352141,
+      "lon": 101.3836021,
+      "tags": {
+        "amenity": "restaurant",
+        "name": "The Castle"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5316654823,
+      "lat": 14.536629,
+      "lon": 101.3779779,
+      "tags": {
+        "amenity": "restaurant",
+        "name": "เป็นลาว"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5367561313,
+      "lat": 14.5159368,
+      "lon": 101.4291017,
+      "tags": {
+        "amenity": "restaurant",
+        "name": "ครัวบ้านแม่​ เขาใหญ่",
+        "name:en": "Krua Ban Mae Khao Yai"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5369187121,
+      "lat": 14.4307329,
+      "lon": 101.3998906,
+      "tags": {
+        "amenity": "restaurant",
+        "name:en": "Camping Restaurant"
+      }
+    },
+    {
+      "type": "node",
+      "id": 540135410,
+      "lat": 14.5757663,
+      "lon": 101.23465,
+      "tags": {
+        "addr:postcode": "30320",
+        "amenity": "restaurant",
+        "name": "The Great Hornbill Vinary Restaurant",
+        "website": "https://www.pbvalley.com/restaurant/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5402775223,
+      "lat": 14.4574658,
+      "lon": 101.1917477,
+      "tags": {
+        "addr:district": "Kaeng Khoi",
+        "addr:postcode": "18180",
+        "addr:province": "Saraburi",
+        "name": "จุดเริ่มเดินน้ำตกโกรกอีดก",
+        "name:en": "Krok E Dok waterfall Start Hiking Point",
+        "tourism": "attraction"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5402854221,
+      "lat": 14.3451239,
+      "lon": 101.1329305,
+      "tags": {
+        "name:en": "Kawang Waterfall",
+        "tourism": "attraction"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5412259521,
+      "lat": 14.5480801,
+      "lon": 101.4249738,
+      "tags": {
+        "alt_name": "7-11",
+        "brand": "7-Eleven",
+        "name": "7-Eleven",
+        "shop": "convenience"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5424503124,
+      "lat": 14.5168454,
+      "lon": 101.3715103,
+      "tags": {
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5424516721,
+      "lat": 14.5337911,
+      "lon": 101.3704124,
+      "tags": {
+        "brand": "7-Eleven",
+        "brand:wikidata": "Q259340",
+        "brand:wikipedia": "en:7-Eleven",
+        "name": "7-Eleven",
+        "name:en": "7 Eleven",
+        "shop": "convenience"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5424517121,
+      "lat": 14.4367679,
+      "lon": 101.3723936,
+      "tags": {
+        "name:en": "Trail no. 4 and 5 Start (uphill after the Visitor Center)",
+        "tourism": "attraction"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5424517321,
+      "lat": 14.433521,
+      "lon": 101.3714301,
+      "tags": {
+        "name:en": "Trail no.4 End",
+        "tourism": "attraction"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5448425802,
+      "lat": 14.1978617,
+      "lon": 101.2199616,
+      "tags": {
+        "brand": "7-Eleven",
+        "brand:wikidata": "Q259340",
+        "name": "7-Eleven",
+        "shop": "convenience"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5448427149,
+      "lat": 14.234786,
+      "lon": 101.3785858,
+      "tags": {
+        "name": "Free Camping Zone with Shower",
+        "tourism": "camp_site"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5449782821,
+      "lat": 14.4353745,
+      "lon": 101.3642903,
+      "tags": {
+        "name:en": "Massive Tree",
+        "tourism": "attraction"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5498108422,
+      "lat": 14.4197438,
+      "lon": 102.4569195,
+      "tags": {
+        "tourism": "hotel"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5498109621,
+      "lat": 14.4198306,
+      "lon": 102.45885,
+      "tags": {
+        "internet_access": "wlan",
+        "name:en": "Sayfon resort",
+        "tourism": "hotel"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5498109821,
+      "lat": 14.4202032,
+      "lon": 102.456737,
+      "tags": {
+        "tourism": "hotel"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5500192023,
+      "lat": 14.5281225,
+      "lon": 102.2423576,
+      "tags": {
+        "amenity": "restaurant",
+        "name:en": "Baanya Steak house"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5500192122,
+      "lat": 14.5277256,
+      "lon": 102.2419709,
+      "tags": {
+        "internet_access": "wlan",
+        "name:en": "The tree",
+        "tourism": "hotel"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5502650022,
+      "lat": 14.5475672,
+      "lon": 102.2211478,
+      "tags": {
+        "tourism": "hotel"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5502650023,
+      "lat": 14.5558099,
+      "lon": 102.2032708,
+      "tags": {
+        "tourism": "hotel"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5505327253,
+      "lat": 14.3275936,
+      "lon": 101.2001207,
+      "tags": {
+        "amenity": "restaurant",
+        "internet_access": "wlan",
+        "internet_access:fee": "no",
+        "name": "ร้านตึ๋ง",
+        "name:en": "Ran Tueng",
+        "name:th": "ร้านตึ๋ง",
+        "outdoor_seating": "yes",
+        "phone": "+66948641995",
+        "toilets": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5506840707,
+      "lat": 14.2949485,
+      "lon": 101.2049309,
+      "tags": {
+        "internet_access": "wlan",
+        "internet_access:fee": "no",
+        "name": "Villa Panalai",
+        "payment:cash": "yes",
+        "payment:coins": "no",
+        "payment:notes": "no",
+        "tourism": "guest_house"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5513307463,
+      "lat": 14.2868513,
+      "lon": 101.3938499,
+      "tags": {
+        "name": "Beverages",
+        "shop": "kiosk"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5549403523,
+      "lat": 13.8001629,
+      "lon": 102.1228265,
+      "tags": {
+        "amenity": "fuel",
+        "name:en": "PT Station"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5568405123,
+      "lat": 14.4931359,
+      "lon": 101.1383646,
+      "tags": {
+        "name": "ร้านเจ้ตี้",
+        "name:en": "Jaetee mart",
+        "shop": "convenience"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5568405421,
+      "lat": 14.4933994,
+      "lon": 101.1382197,
+      "tags": {
+        "name": "ร้านสะดวกซื้อ",
+        "name:en": "Minimarr",
+        "shop": "convenience"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5643475721,
+      "lat": 14.5531469,
+      "lon": 101.4335645,
+      "tags": {
+        "name": "เขาใหญ่อาร์ตมิวเซียม",
+        "name:en": "Khao Yai Art Museum",
+        "name:th": "เขาใหญ่อาร์ตมิวเซียม",
+        "tourism": "gallery"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5792167156,
+      "lat": 14.5349082,
+      "lon": 101.3957378,
+      "tags": {
+        "amenity": "restaurant",
+        "cuisine": "asian;local;thai",
+        "name": "หมูกะทะไม้เอก",
+        "name:en": "BBQ May Aek"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5930679489,
+      "lat": 14.500737,
+      "lon": 101.4899884,
+      "tags": {
+        "name": "La Casetta Resort",
+        "tourism": "hotel"
+      }
+    },
+    {
+      "type": "node",
+      "id": 595358703,
+      "lat": 14.5341081,
+      "lon": 101.3777066,
+      "tags": {
+        "name": "Jungle House Hotel",
+        "tourism": "hotel"
+      }
+    },
+    {
+      "type": "node",
+      "id": 595358727,
+      "lat": 14.5355595,
+      "lon": 101.3873841,
+      "tags": {
+        "name": "Roma Hotel Khao Yai",
+        "source": "GPS",
+        "tourism": "hotel",
+        "url": "http://www.ban-ingdao.com"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6006909385,
+      "lat": 14.2004452,
+      "lon": 101.2130411,
+      "tags": {
+        "amenity": "restaurant",
+        "name": "แดงแกงป่า"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6021716088,
+      "lat": 14.5596364,
+      "lon": 101.3032097,
+      "tags": {
+        "addr:city": "Nongnamdaeng ,Pakchong  Nakornratchasima",
+        "addr:housenumber": "161/1 Moo3",
+        "addr:postcode": "30130",
+        "addr:street": "Phansuk-Kudkla Road",
+        "email": "cs@theseriesresort.com",
+        "name": "The Series Resort Khaoyai",
+        "phone": "+66   (0)44-081-222",
+        "tourism": "hotel"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6122847090,
+      "lat": 14.5523563,
+      "lon": 101.5964413,
+      "tags": {
+        "name:en": "Khao Yai Floating Market",
+        "tourism": "attraction"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6154731578,
+      "lat": 14.4959036,
+      "lon": 101.143932,
+      "tags": {
+        "name": "ค่ายลูกเสือเจ็ดคต-โป่งก้อนเส้า",
+        "tourism": "camp_site"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6241212985,
+      "lat": 14.5084369,
+      "lon": 101.3788918,
+      "tags": {
+        "internet_access": "wlan",
+        "name": "San Khao Yai",
+        "tourism": "guest_house"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6255179163,
+      "lat": 14.5826927,
+      "lon": 101.4400558,
+      "tags": {
+        "shop": "gift"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6255195510,
+      "lat": 14.5857562,
+      "lon": 101.3997235,
+      "tags": {
+        "amenity": "restaurant",
+        "diet:vegetarian": "yes",
+        "name": "ออร่า  แอมมี่",
+        "name:en": "Aurra Ammie",
+        "name:th": "ออร่า​ แอมมี่",
+        "opening_hours": "08:00-18:00",
+        "payment:promptpay": "yes",
+        "toilets": "yes",
+        "wheelchair": "no"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6260391485,
+      "lat": 14.1693745,
+      "lon": 101.2558601,
+      "tags": {
+        "internet_access": "wlan",
+        "name:en": "Nava Resort",
+        "tourism": "motel"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6288050086,
+      "lat": 13.9706238,
+      "lon": 102.2030242,
+      "tags": {
+        "name": "Thai street shop",
+        "shop": "convenience"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6288089186,
+      "lat": 13.9727524,
+      "lon": 102.2031749,
+      "tags": {
+        "amenity": "cafe",
+        "name": "Thai street bistro"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6288089285,
+      "lat": 13.9780443,
+      "lon": 102.2025026,
+      "tags": {
+        "amenity": "restaurant",
+        "internet_access": "wlan",
+        "name:en": "Romcai house"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6369552988,
+      "lat": 14.1504294,
+      "lon": 101.3158764,
+      "tags": {
+        "amenity": "marketplace"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6369552993,
+      "lat": 14.1510121,
+      "lon": 101.3108018,
+      "tags": {
+        "amenity": "fuel"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6369552999,
+      "lat": 14.1513019,
+      "lon": 101.3109747,
+      "tags": {
+        "amenity": "cafe",
+        "name": "Cafe Amazon"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6484629888,
+      "lat": 14.1479794,
+      "lon": 101.4021135,
+      "tags": {
+        "amenity": "cafe"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6503360785,
+      "lat": 14.4110566,
+      "lon": 101.3729262,
+      "tags": {
+        "name:en": "The Nature Shop",
+        "shop": "convenience"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6503440085,
+      "lat": 14.4234188,
+      "lon": 101.3872678,
+      "tags": {
+        "shop": "convenience"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6515870292,
+      "lat": 14.5736514,
+      "lon": 101.2816576,
+      "tags": {
+        "amenity": "restaurant",
+        "name:en": "Big Mount Restaurant"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6515929885,
+      "lat": 14.5736798,
+      "lon": 101.281761,
+      "tags": {
+        "amenity": "restaurant",
+        "name:en": "Mountful Restaurant"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6698857891,
+      "lat": 14.5203687,
+      "lon": 101.3698918,
+      "tags": {
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6699712485,
+      "lat": 14.5342627,
+      "lon": 101.3759005,
+      "tags": {
+        "name:en": "Srisaward Camp Khao Yai",
+        "tourism": "camp_site"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6918635435,
+      "lat": 13.8193476,
+      "lon": 102.5829819,
+      "tags": {
+        "amenity": "school"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6918649233,
+      "lat": 13.8003282,
+      "lon": 102.5524959,
+      "tags": {
+        "amenity": "school"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6970743676,
+      "lat": 14.5557176,
+      "lon": 101.4728278,
+      "tags": {
+        "name": "เขาใหญ่คีรีธารทิพย์ รีสอร์ท",
+        "name:en": "Khaoyai Kiri Thantip Resort",
+        "tourism": "hotel"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7066598529,
+      "lat": 14.5705124,
+      "lon": 102.5154068,
+      "tags": {
+        "amenity": "school"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7066603440,
+      "lat": 14.5489442,
+      "lon": 102.552963,
+      "tags": {
+        "amenity": "school"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7066614069,
+      "lat": 14.555863,
+      "lon": 102.5402655,
+      "tags": {
+        "amenity": "school"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7066623744,
+      "lat": 14.5721297,
+      "lon": 102.4722876,
+      "tags": {
+        "amenity": "fuel"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7066632231,
+      "lat": 14.5457665,
+      "lon": 102.5873221,
+      "tags": {
+        "amenity": "school"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7066646629,
+      "lat": 14.5754057,
+      "lon": 102.4527074,
+      "tags": {
+        "amenity": "school"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7069687562,
+      "lat": 14.5714054,
+      "lon": 102.4635346,
+      "tags": {
+        "amenity": "school"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7069728718,
+      "lat": 14.5511328,
+      "lon": 102.4752344,
+      "tags": {
+        "amenity": "school"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7069739051,
+      "lat": 14.536033,
+      "lon": 102.4638457,
+      "tags": {
+        "amenity": "school"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7096803352,
+      "lat": 14.2861245,
+      "lon": 101.3089626,
+      "tags": {
+        "addr:city": "ตำบลหินตั้ง  อำเภอเมือง  นครนายก",
+        "addr:housenumber": "1 หมู่4",
+        "addr:postcode": "26000",
+        "amenity": "restaurant",
+        "name": "เตี๋ยวในสวน ครัวบ้านเลขที่1"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7096835260,
+      "lat": 14.2852097,
+      "lon": 101.3077196,
+      "tags": {
+        "addr:city": "ตำบลหินตั้ง  อำเภอเมือง  นครนายก",
+        "addr:housenumber": "137 หมู่ 4",
+        "addr:postcode": "26000",
+        "name": "สวนแม่นวนจันทร์",
+        "shop": "agrarian"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7168257067,
+      "lat": 14.2282479,
+      "lon": 101.1838985,
+      "tags": {
+        "addr:city": "พรหมณี",
+        "addr:housenumber": "230 หมู่12",
+        "addr:postcode": "26000",
+        "name": "Zuzearth TattooShop",
+        "opening_hours": "10:00-21:00",
+        "operator": "0957764093,0846341636",
+        "shop": "tattoo"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7575337986,
+      "lat": 14.1854836,
+      "lon": 102.5427479,
+      "tags": {
+        "name:en": "Dong Yai Wildlife Sanctuary",
+        "tourism": "attraction"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7659191639,
+      "lat": 14.4241651,
+      "lon": 102.5355399,
+      "tags": {
+        "amenity": "school"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7659191821,
+      "lat": 14.3019949,
+      "lon": 102.48402,
+      "tags": {
+        "amenity": "school"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7660559266,
+      "lat": 14.5995574,
+      "lon": 102.4987829,
+      "tags": {
+        "amenity": "school"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7836162676,
+      "lat": 14.1308452,
+      "lon": 101.4685576,
+      "tags": {
+        "amenity": "restaurant",
+        "name": "The Platoo Kitchen",
+        "opening_hours": "08:00-20:00",
+        "phone": "+66868416818",
+        "website": "https://www.facebook.com/ThePlatooKitchen/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7856667495,
+      "lat": 14.5279227,
+      "lon": 102.2468376,
+      "tags": {
+        "amenity": "hospital",
+        "name": "โรงพยาบาลครบุรี",
+        "name:en": "Khon Buri Hospital"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7856667630,
+      "lat": 14.2864051,
+      "lon": 101.1712932,
+      "tags": {
+        "amenity": "hospital",
+        "check_date": "2026-06-05",
+        "name": "โรงพยาบาลโรงเรียนนายร้อยพระจุลจอมเกล้า",
+        "name:en": "Rongrian Nai Roi Phrachunlachomklao Hospital"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7856667631,
+      "lat": 14.1502884,
+      "lon": 101.2687156,
+      "tags": {
+        "amenity": "hospital",
+        "name": "โรงพยาบาลปากพลี",
+        "name:en": "Pak Phli Hospital"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7942240485,
+      "lat": 14.3497801,
+      "lon": 102.4319153,
+      "tags": {
+        "name:en": "WishCO Express",
+        "opening_hours": "24/7",
+        "shop": "convenience"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7942240685,
+      "lat": 14.357613,
+      "lon": 102.4105896,
+      "tags": {
+        "name": "เทพเจริญ วัสดุ สาขาโนนสมบูรณ์",
+        "name:en": "Tepjaroen Watsadu Non Somboon",
+        "opening_hours": "Mo-Su 07:00-17:00",
+        "payment:cash": "yes",
+        "phone": "+66955545567",
+        "shop": "hardware"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7944548585,
+      "lat": 14.4263182,
+      "lon": 102.4643512,
+      "tags": {
+        "amenity": "cafe",
+        "cuisine": "coffee_shop;tea",
+        "internet_access": "wlan",
+        "name:en": "Green Cafe'"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7949544185,
+      "lat": 14.4306078,
+      "lon": 102.47451,
+      "tags": {
+        "amenity": "cafe",
+        "cuisine": "cake;coffee_shop;tea",
+        "internet_access": "wlan",
+        "internet_access:fee": "customers",
+        "name": "i-coffee",
+        "opening_hours": "Mo-Su 08:30-18:30",
+        "outdoor_seating": "no",
+        "phone": "+66892869700"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7962532685,
+      "lat": 14.3500702,
+      "lon": 102.4314787,
+      "tags": {
+        "amenity": "cafe",
+        "cuisine": "coffee_shop;tea",
+        "internet_access": "wlan",
+        "name:en": "Time Coffee",
+        "opening_hours": "Mo-Su 07:00-18:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7965768386,
+      "lat": 14.427846,
+      "lon": 102.4641838,
+      "tags": {
+        "amenity": "cafe",
+        "brand": "Café Amazon",
+        "brand:wikidata": "Q43247503",
+        "brand:wikipedia": "en:Café Amazon",
+        "cuisine": "coffee_shop",
+        "internet_access": "wlan",
+        "internet_access:fee": "customers",
+        "name": "Café Amazon",
+        "name:en": "Cafe Amazon",
+        "opening_hours": "Mo-Su 07:00-19:30",
+        "outdoor_seating": "no",
+        "takeaway": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7973008790,
+      "lat": 14.5126741,
+      "lon": 101.3821778,
+      "tags": {
+        "internet_access": "wlan",
+        "name": "Casa de Montana at Khaoyai",
+        "name:en": "Casa de Montana at Khao Yai",
+        "tourism": "hotel"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8011894585,
+      "lat": 14.5294491,
+      "lon": 102.2393088,
+      "tags": {
+        "amenity": "cafe",
+        "brand": "Café Amazon",
+        "brand:wikidata": "Q43247503",
+        "brand:wikipedia": "en:Café Amazon",
+        "cuisine": "coffee_shop",
+        "internet_access": "wlan",
+        "internet_access:fee": "customers",
+        "name": "Café Amazon",
+        "opening_hours": "Mo-Su 07:00-20:00",
+        "outdoor_seating": "yes",
+        "takeaway": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8011894885,
+      "lat": 14.5296026,
+      "lon": 102.2394057,
+      "tags": {
+        "brand": "7-Eleven",
+        "brand:wikidata": "Q259340",
+        "brand:wikipedia": "en:7-Eleven",
+        "name": "7-Eleven",
+        "opening_hours": "24/7",
+        "shop": "convenience"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8011894886,
+      "lat": 14.5294571,
+      "lon": 102.2395919,
+      "tags": {
+        "amenity": "fuel",
+        "brand": "PTT",
+        "fuel:diesel": "yes",
+        "fuel:e10": "yes",
+        "fuel:octane_87": "yes",
+        "fuel:octane_92": "yes",
+        "fuel:octane_95": "yes",
+        "internet_access": "wlan",
+        "name:en": "PTT",
+        "opening_hours": "24/7",
+        "self_service": "no"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8018719660,
+      "lat": 14.4279216,
+      "lon": 102.4692689,
+      "tags": {
+        "amenity": "fuel",
+        "brand": "PT",
+        "brand:wikidata": "Q62298612",
+        "name": "PT",
+        "self_service": "no"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8018719673,
+      "lat": 14.4291256,
+      "lon": 102.4700133,
+      "tags": {
+        "amenity": "fuel",
+        "brand": "บางจาก",
+        "brand:en": "Bangchak",
+        "brand:th": "บางจาก",
+        "brand:wikidata": "Q6579719",
+        "name": "Bangchak",
+        "name:en": "Bangchak",
+        "name:th": "บางจาก",
+        "self_service": "no"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8018723892,
+      "lat": 14.4219777,
+      "lon": 102.4678868,
+      "tags": {
+        "shop": "hardware"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8018731578,
+      "lat": 14.3863338,
+      "lon": 102.4629029,
+      "tags": {
+        "shop": "hardware"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8034428485,
+      "lat": 14.4259627,
+      "lon": 102.4645017,
+      "tags": {
+        "amenity": "atm",
+        "opening_hours": "24/7",
+        "operator": "Krungsri"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8034428585,
+      "lat": 14.4259766,
+      "lon": 102.4645329,
+      "tags": {
+        "amenity": "atm",
+        "opening_hours": "24/7",
+        "operator": "Bangkok Bank"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8034428685,
+      "lat": 14.4259943,
+      "lon": 102.4646126,
+      "tags": {
+        "name": "ยงสวัส",
+        "name:en": "Yong Sa Was",
+        "opening_hours": "Mo-Su 07:00-20:00",
+        "shop": "convenience"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8034428686,
+      "lat": 14.4263057,
+      "lon": 102.4646139,
+      "tags": {
+        "name:en": "7-Eleven",
+        "opening_hours": "24/7",
+        "shop": "convenience"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8034428785,
+      "lat": 14.4260696,
+      "lon": 102.4647534,
+      "tags": {
+        "amenity": "bank",
+        "name:en": "Kasikorn"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8034428885,
+      "lat": 14.4260807,
+      "lon": 102.4647899,
+      "tags": {
+        "amenity": "atm",
+        "opening_hours": "24/7",
+        "operator": "Kasikorn"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8034428886,
+      "lat": 14.4262028,
+      "lon": 102.4643883,
+      "tags": {
+        "amenity": "atm",
+        "opening_hours": "24/7",
+        "operator": "Krungthai"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8034433185,
+      "lat": 14.426191,
+      "lon": 102.4643522,
+      "tags": {
+        "amenity": "bank",
+        "name:en": "Krungthai"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8039181385,
+      "lat": 14.4239518,
+      "lon": 102.4653874,
+      "tags": {
+        "name": "อรัใ",
+        "opening_hours": "Mo-Su 08:00-21:00",
+        "phone": "+66642259859",
+        "shop": "cosmetics"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8061547385,
+      "lat": 14.350061,
+      "lon": 102.4313392,
+      "tags": {
+        "amenity": "fuel",
+        "fuel:diesel": "yes",
+        "fuel:octane_95": "yes",
+        "self_service": "no"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8061547485,
+      "lat": 14.350065,
+      "lon": 102.4310861,
+      "tags": {
+        "amenity": "fuel"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8079650017,
+      "lat": 14.3484935,
+      "lon": 102.4315988,
+      "tags": {
+        "amenity": "cafe",
+        "cuisine": "coffee_shop;ice_cream",
+        "internet_access": "wlan",
+        "name": "C69",
+        "outdoor_seating": "no",
+        "phone": "+669686041"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8084573518,
+      "lat": 14.4335821,
+      "lon": 102.4607573,
+      "tags": {
+        "amenity": "restaurant",
+        "cuisine": "barbecue",
+        "internet_access": "wlan",
+        "name": "เพื่อนกัน หมูกะทะ",
+        "name:en": "Pernkan BBQ Buffet",
+        "phone": "+66899493511"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8093609538,
+      "lat": 14.3483159,
+      "lon": 102.430499,
+      "tags": {
+        "amenity": "atm"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8093609539,
+      "lat": 14.3483146,
+      "lon": 102.4304654,
+      "tags": {
+        "amenity": "atm",
+        "operator": "Kasikorn"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8093609540,
+      "lat": 14.3482925,
+      "lon": 102.4302173,
+      "tags": {
+        "shop": "hardware"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8093609541,
+      "lat": 14.3499017,
+      "lon": 102.4257635,
+      "tags": {
+        "name": "Love You Market",
+        "shop": "supermarket"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8136714717,
+      "lat": 14.594921,
+      "lon": 101.4460112,
+      "tags": {
+        "amenity": "cafe",
+        "cuisine": "coffee_shop",
+        "internet_access": "wlan",
+        "name:en": "Cafe Amazon",
+        "opening_hours": "Mo-Su 07:00-18:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8172670817,
+      "lat": 14.3157585,
+      "lon": 101.2981213,
+      "tags": {
+        "amenity": "restaurant",
+        "name:en": "Thai Esan Food"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8419895817,
+      "lat": 13.8144328,
+      "lon": 102.3464154,
+      "tags": {
+        "name": "วัดป่าหลวงปู่หมุน",
+        "tourism": "attraction"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8879142203,
+      "lat": 14.2842555,
+      "lon": 101.2758538,
+      "tags": {
+        "amenity": "school"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8887333917,
+      "lat": 14.5463291,
+      "lon": 101.3439724,
+      "tags": {
+        "addr:housenumber": "223",
+        "addr:postcode": "30130",
+        "addr:street": "223 หมู่ 10, Mu Si, Pak Chong District, Nakhon Ratchasima 30130",
+        "name:en": "Hansar Wellness",
+        "tourism": "hotel",
+        "website": "https://hansarhotels.com/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8892063292,
+      "lat": 14.5319746,
+      "lon": 101.3844456,
+      "tags": {
+        "addr:city": "Nakhon Ratchasima",
+        "addr:housenumber": "444",
+        "addr:postcode": "30450",
+        "addr:street": "Thanarath",
+        "amenity": "cafe",
+        "internet_access": "wlan",
+        "internet_access:fee": "no",
+        "name": "Campfire Cafe Khao Yai",
+        "opening_hours": "Mo-Su 10:00-22:00",
+        "outdoor_seating": "yes",
+        "phone": "+66800742208"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9331878968,
+      "lat": 14.4207791,
+      "lon": 101.3710561,
+      "tags": {
+        "information": "board",
+        "tourism": "information"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9331911544,
+      "lat": 14.4324242,
+      "lon": 101.3705326,
+      "tags": {
+        "tourism": "viewpoint"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9331911601,
+      "lat": 14.4736152,
+      "lon": 101.3900972,
+      "tags": {
+        "amenity": "cafe",
+        "cuisine": "coffee_shop"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9434074444,
+      "lat": 14.5512912,
+      "lon": 101.4965373,
+      "tags": {
+        "amenity": "fuel"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9434074445,
+      "lat": 14.5503929,
+      "lon": 101.5029209,
+      "tags": {
+        "amenity": "school",
+        "name": "โรงเรียนสระน้ำใสวิทยา"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9434074446,
+      "lat": 14.5490892,
+      "lon": 101.5057875,
+      "tags": {
+        "amenity": "fuel"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9434074447,
+      "lat": 14.5521791,
+      "lon": 101.4996003,
+      "tags": {
+        "amenity": "school",
+        "name": "โรงเรียนพฤกษาวิทยา"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9434074449,
+      "lat": 14.5500205,
+      "lon": 101.4222245,
+      "tags": {
+        "amenity": "fuel"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9630646517,
+      "lat": 14.5354212,
+      "lon": 101.3786351,
+      "tags": {
+        "addr:housenumber": "822",
+        "addr:street": "Thanarat Road, Tumbon Moosi, Amphoe Pak Chong, Khao Yai, Thailand",
+        "email": "mailto:contact@prairiehillsresort.com",
+        "internet_access": "wlan",
+        "name": "Prairie Hills Resort",
+        "name:th": "แพรรี่ ฮิลส์ รีสอร์ท",
+        "opening_hours": "24/7",
+        "phone": "+66873489888",
+        "tourism": "hotel"
+      }
+    },
+    {
+      "type": "node",
+      "id": 967172872,
+      "lat": 14.0681604,
+      "lon": 101.5232656,
+      "tags": {
+        "amenity": "fuel"
+      }
+    },
+    {
+      "type": "node",
+      "id": 967478770,
+      "lat": 14.52577,
+      "lon": 102.2518,
+      "tags": {
+        "description": "Friendly, simple, short beds, not very clean. 21-OCT-08",
+        "source": "GPS survey",
+        "tourism": "hotel"
+      }
+    },
+    {
+      "type": "node",
+      "id": 967480109,
+      "lat": 14.4182682,
+      "lon": 102.4489731,
+      "tags": {
+        "description": "500B, poor value, noisy, didn't stay here. 21-OCT-08",
+        "name": "24 h resort",
+        "tourism": "motel"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9686689308,
+      "lat": 14.5422903,
+      "lon": 101.3734239,
+      "tags": {
+        "name": "Botanica Khao Yai",
+        "tourism": "hotel"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9686768510,
+      "lat": 14.5335437,
+      "lon": 101.3904202,
+      "tags": {
+        "name": "Plearn Khao Yai Resort",
+        "tourism": "hotel"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9686769177,
+      "lat": 14.5353649,
+      "lon": 101.3856601,
+      "tags": {
+        "name": "Fortune Courtyard Khao Yai",
+        "tourism": "hotel"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9686782118,
+      "lat": 14.5406416,
+      "lon": 101.3749756,
+      "tags": {
+        "name": "The Greenery Resort",
+        "tourism": "hotel"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9686796244,
+      "lat": 14.5354435,
+      "lon": 101.3833034,
+      "tags": {
+        "name": "Thames Valley Khao Yai",
+        "tourism": "hotel"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9686796248,
+      "lat": 14.5353863,
+      "lon": 101.3790027,
+      "tags": {
+        "name": "Le Monte Hotel Khao Yai",
+        "tourism": "hotel"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9686822022,
+      "lat": 14.5364075,
+      "lon": 101.387868,
+      "tags": {
+        "name": "Romantic Resort & Spa Khao Yai",
+        "tourism": "hotel"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9688011652,
+      "lat": 14.5363946,
+      "lon": 101.3990726,
+      "tags": {
+        "name": "Balios Resort Khao Yai",
+        "tourism": "hotel"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9688201729,
+      "lat": 14.5154314,
+      "lon": 101.4059708,
+      "tags": {
+        "name": "Monlada Khaoyai",
+        "tourism": "hotel"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9688315696,
+      "lat": 14.5173055,
+      "lon": 101.4395554,
+      "tags": {
+        "amenity": "fuel"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9688315697,
+      "lat": 14.5175165,
+      "lon": 101.4393953,
+      "tags": {
+        "brand": "7-Eleven",
+        "brand:wikidata": "Q259340",
+        "brand:wikipedia": "en:7-Eleven",
+        "name": "7-Eleven",
+        "shop": "convenience"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9688315701,
+      "lat": 14.5173279,
+      "lon": 101.4392947,
+      "tags": {
+        "amenity": "cafe",
+        "brand": "Café Amazon",
+        "brand:wikidata": "Q43247503",
+        "brand:wikipedia": "en:Café Amazon",
+        "cuisine": "coffee_shop",
+        "name": "Café Amazon",
+        "takeaway": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9688342641,
+      "lat": 14.5171333,
+      "lon": 101.4403918,
+      "tags": {
+        "shop": "convenience"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9688344944,
+      "lat": 14.5134999,
+      "lon": 101.4435423,
+      "tags": {
+        "tourism": "motel"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9688372911,
+      "lat": 14.5148408,
+      "lon": 101.4310932,
+      "tags": {
+        "name": "Kirimaya Lakeside Khaoyai, Resort, Spa, Golf",
+        "tourism": "hotel"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9688414411,
+      "lat": 14.5151759,
+      "lon": 101.4370534,
+      "tags": {
+        "name": "Atta Lakeside Resort Suite",
+        "tourism": "hotel"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9688433134,
+      "lat": 14.503566,
+      "lon": 101.4131161,
+      "tags": {
+        "name": "The Pig House",
+        "tourism": "hotel"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9688448327,
+      "lat": 14.5028701,
+      "lon": 101.416541,
+      "tags": {
+        "name": "Muthi Maya Forest Pool Resort Villa",
+        "tourism": "hotel"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9688453991,
+      "lat": 14.5133679,
+      "lon": 101.4516945,
+      "tags": {
+        "name": "Chateau de Khaoyai Hotel and Resort",
+        "tourism": "hotel"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9688594015,
+      "lat": 14.5125322,
+      "lon": 101.3824363,
+      "tags": {
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9688605328,
+      "lat": 14.527881,
+      "lon": 101.3702054,
+      "tags": {
+        "name": "Tharapana Khaoyai Resort",
+        "tourism": "hotel"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9689237562,
+      "lat": 14.5488619,
+      "lon": 101.4273686,
+      "tags": {
+        "shop": "convenience"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9689237564,
+      "lat": 14.548833,
+      "lon": 101.4271346,
+      "tags": {
+        "shop": "convenience"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9689237565,
+      "lat": 14.5488316,
+      "lon": 101.4272854,
+      "tags": {
+        "shop": "convenience"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9689246382,
+      "lat": 14.5880026,
+      "lon": 101.440911,
+      "tags": {
+        "name": "Mountain View Resort",
+        "tourism": "hotel"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9689246655,
+      "lat": 14.54796,
+      "lon": 101.4246979,
+      "tags": {
+        "tourism": "motel"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9689246656,
+      "lat": 14.5505204,
+      "lon": 101.4297731,
+      "tags": {
+        "amenity": "school"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9689258388,
+      "lat": 14.5231629,
+      "lon": 101.4790109,
+      "tags": {
+        "amenity": "school"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9689258389,
+      "lat": 14.5090554,
+      "lon": 101.4649127,
+      "tags": {
+        "name": "Phuphatara Khaoyai",
+        "tourism": "hotel"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9689258397,
+      "lat": 14.5071382,
+      "lon": 101.4653526,
+      "tags": {
+        "name": "DusitD2 Khao yai",
+        "tourism": "hotel"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9689276460,
+      "lat": 14.5951497,
+      "lon": 101.4456683,
+      "tags": {
+        "name": "Capital J at Khaoyai",
+        "tourism": "hotel"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9689303211,
+      "lat": 14.588711,
+      "lon": 101.4430426,
+      "tags": {
+        "name": "Villa Pitak",
+        "tourism": "hotel"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9689310176,
+      "lat": 14.5768978,
+      "lon": 101.4301633,
+      "tags": {
+        "artwork_type": "statue",
+        "name": "Buddha",
+        "tourism": "artwork"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9689338647,
+      "lat": 14.5100793,
+      "lon": 101.4578145,
+      "tags": {
+        "name": "Ayata private villa",
+        "tourism": "hotel"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9689367988,
+      "lat": 14.5171446,
+      "lon": 101.5074965,
+      "tags": {
+        "name": "Toscana Hotel La Casetta",
+        "tourism": "hotel"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9689367990,
+      "lat": 14.5065072,
+      "lon": 101.5042014,
+      "tags": {
+        "name": "Toscana town square suites",
+        "tourism": "hotel"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9689453309,
+      "lat": 14.5148401,
+      "lon": 101.5314225,
+      "tags": {
+        "shop": "convenience"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9689657296,
+      "lat": 14.579325,
+      "lon": 101.4301738,
+      "tags": {
+        "name": "Palazzo Pavone Galery and Resort",
+        "tourism": "hotel"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9690232566,
+      "lat": 14.5408313,
+      "lon": 101.4120076,
+      "tags": {
+        "name": "Belle Ville Resort",
+        "tourism": "hotel"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9690258379,
+      "lat": 14.5410579,
+      "lon": 101.405501,
+      "tags": {
+        "name": "Hotel Labaris Khao Yai",
+        "tourism": "hotel"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9690364380,
+      "lat": 14.5352024,
+      "lon": 101.3977474,
+      "tags": {
+        "name": "Juldis Khao Yai J2",
+        "tourism": "hotel"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9690705348,
+      "lat": 14.5634161,
+      "lon": 101.4067884,
+      "tags": {
+        "name": "Wood Park Home Resort Khao Yai",
+        "note": "Added tourism=hotel to aexisting node having only a name tag",
+        "tourism": "hotel"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9691624788,
+      "lat": 14.5707129,
+      "lon": 101.401959,
+      "tags": {
+        "name": "Khao Yai Speedcart",
+        "tourism": "attraction"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9691624795,
+      "lat": 14.5734618,
+      "lon": 101.4001529,
+      "tags": {
+        "amenity": "cafe"
+      }
+    },
+    {
+      "type": "relation",
+      "id": 18181297,
+      "center": {
+        "lat": 14.1614954,
+        "lon": 101.3622206
+      },
+      "tags": {
+        "building": "yes",
+        "tourism": "hotel",
+        "type": "multipolygon"
+      }
+    },
+    {
+      "type": "relation",
+      "id": 2062894,
+      "center": {
+        "lat": 14.1122255,
+        "lon": 101.5094428
+      },
+      "tags": {
+        "addr:district": "ประจันตคาม",
+        "addr:district:en": "Prachantakham",
+        "addr:hamlet": "หมู่ที่ 2",
+        "addr:province": "ปราจีนบุรี",
+        "addr:province:en": "Prachin Buri",
+        "addr:subdistrict": "โพธิ์งาม",
+        "addr:subdistrict:en": "Pho Ngam",
+        "amenity": "school",
+        "name": "โรงเรียนชุมชนวัดบ้านโง้ง",
+        "name:en": "Chumchon Wat Ban Ngong School",
+        "source": "Bing; sign",
+        "type": "multipolygon"
+      }
+    },
+    {
+      "type": "relation",
+      "id": 2062895,
+      "center": {
+        "lat": 14.0719367,
+        "lon": 101.5766641
+      },
+      "tags": {
+        "addr:district": "ประจันตคาม",
+        "addr:district:en": "Prachantakham",
+        "addr:province": "ปราจีนบุรี",
+        "addr:province:en": "Prachin Buri",
+        "addr:subdistrict": "คำโตนด",
+        "addr:subdistrict:en": "Kham Tanot",
+        "amenity": "school",
+        "name": "โรงเรียนวัดคำภู",
+        "name:en": "Wat Kham Phu School",
+        "source": "Bing; sign",
+        "type": "multipolygon"
+      }
+    },
+    {
+      "type": "relation",
+      "id": 2062896,
+      "center": {
+        "lat": 14.0709203,
+        "lon": 101.5805231
+      },
+      "tags": {
+        "addr:district": "ประจันตคาม",
+        "addr:district:en": "Prachantakham",
+        "addr:province": "ปราจีนบุรี",
+        "addr:province:en": "Prachin Buri",
+        "addr:subdistrict": "คำโตนด",
+        "addr:subdistrict:en": "Kham Tanot",
+        "amenity": "school",
+        "name": "โรงเรียนสุวรรณวิทยา",
+        "name:en": "Suwan Witthaya School",
+        "source": "Bing; sign",
+        "type": "multipolygon"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1011425542,
+      "center": {
+        "lat": 14.4343938,
+        "lon": 101.37241
+      },
+      "tags": {
+        "building": "office",
+        "information": "office",
+        "tourism": "information"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1011425546,
+      "center": {
+        "lat": 14.4381167,
+        "lon": 101.3713156
+      },
+      "tags": {
+        "amenity": "food_court",
+        "building": "yes",
+        "diet:vegetarian": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1100662404,
+      "center": {
+        "lat": 14.4919113,
+        "lon": 101.1385365
+      },
+      "tags": {
+        "amenity": "hospital",
+        "healthcare": "hospital",
+        "name": "โรงพยาบาลส่งเสริมสุขภาพตำบลโป่งก้อนเส้า"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1100662405,
+      "center": {
+        "lat": 14.496579,
+        "lon": 101.1389512
+      },
+      "tags": {
+        "amenity": "school",
+        "name": "โรงเรียนวัด โป่งก้อนเส้า"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1126243642,
+      "center": {
+        "lat": 14.5330679,
+        "lon": 101.3699085
+      },
+      "tags": {
+        "addr:city": "หมูสี",
+        "addr:postcode": "30130",
+        "amenity": "restaurant",
+        "building": "yes",
+        "name": "ครัว 505 ข้าวหอมโพชนา",
+        "opening_hours": "Mo-Su 10:00-21:00",
+        "phone": "+66651213956",
+        "source": "microsoft/BuildingFootprints"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1149369752,
+      "center": {
+        "lat": 14.5415899,
+        "lon": 101.4031005
+      },
+      "tags": {
+        "name": "Mont Blanc Glamping",
+        "tourism": "camp_site"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1149369754,
+      "center": {
+        "lat": 14.5360247,
+        "lon": 101.3781908
+      },
+      "tags": {
+        "addr:district": "Pak Chong",
+        "addr:housenumber": "777",
+        "addr:place": "Moo 5",
+        "addr:postcode": "30450",
+        "addr:province": "Nakhon Ratchasima",
+        "amenity": "marketplace",
+        "name": "ตลาดไนท์มาร์เก็ต เขาใหญ่",
+        "name:en": "Night Market Khao Yai"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1158747164,
+      "center": {
+        "lat": 14.1541037,
+        "lon": 101.3662013
+      },
+      "tags": {
+        "brand": "7-Eleven",
+        "brand:wikidata": "Q259340",
+        "building": "yes",
+        "name": "7-Eleven",
+        "shop": "convenience"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1193779563,
+      "center": {
+        "lat": 14.2360861,
+        "lon": 101.2471888
+      },
+      "tags": {
+        "amenity": "school",
+        "name": "Wat Phrammani School",
+        "name:th": "โรงเรียนวัดพราหมณี"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1193779564,
+      "center": {
+        "lat": 14.2338747,
+        "lon": 101.2424028
+      },
+      "tags": {
+        "amenity": "marketplace",
+        "name": "Rong Kluea Nakhon Nayok Market",
+        "name:th": "ตลาดนัดโรงเกลือนครนายก"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1193779565,
+      "center": {
+        "lat": 14.24678,
+        "lon": 101.2519336
+      },
+      "tags": {
+        "amenity": "marketplace",
+        "name": "Theng Thoet Thoeng Market",
+        "name:th": "ตลาดเท่งเถิดเทิง"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1232540692,
+      "center": {
+        "lat": 14.4059357,
+        "lon": 101.3708789
+      },
+      "tags": {
+        "amenity": "restaurant",
+        "building": "yes",
+        "cuisine": "thai"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1239662311,
+      "center": {
+        "lat": 14.4235598,
+        "lon": 101.3870167
+      },
+      "tags": {
+        "building": "yes",
+        "shop": "coffee"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1249444482,
+      "center": {
+        "lat": 14.5098605,
+        "lon": 101.5329136
+      },
+      "tags": {
+        "brand": "InterContinental",
+        "brand:wikidata": "Q1825730",
+        "name": "InterContinental",
+        "tourism": "hotel"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1289793076,
+      "center": {
+        "lat": 14.2027494,
+        "lon": 101.2140975
+      },
+      "tags": {
+        "building": "yes",
+        "name": "โรงแรมกอบเกื้อพาเลซ",
+        "name:th": "โรงแรมกอบเกื้อพาเลซ",
+        "tourism": "hotel"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1289793079,
+      "center": {
+        "lat": 14.203652,
+        "lon": 101.214758
+      },
+      "tags": {
+        "amenity": "school",
+        "name": "โรงเรียนอนุบาลนครนายก",
+        "name:en": "Anuban Nakhon Nayok School",
+        "name:th": "โรงเรียนอนุบาลนครนายก"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1289793083,
+      "center": {
+        "lat": 14.2089531,
+        "lon": 101.2136561
+      },
+      "tags": {
+        "amenity": "hospital",
+        "healthcare": "hospital",
+        "name": "โรงพยาบาลนครนายก",
+        "name:en": "Nakhon Nayok Hospital",
+        "name:th": "โรงพยาบาลนครนายก",
+        "operator": "กระทรวงสาธารณสุข",
+        "operator:type": "public/government"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1289793085,
+      "center": {
+        "lat": 14.2075247,
+        "lon": 101.217754
+      },
+      "tags": {
+        "alt_name": "Tesco Lotus",
+        "brand": "Lotus's",
+        "brand:en": "Lotus's",
+        "brand:th": "โลตัส",
+        "brand:wikidata": "Q2378901",
+        "building": "yes",
+        "name": "Lotus's",
+        "name:en": "Lotus's",
+        "name:th": "โลตัส",
+        "shop": "supermarket"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1312477491,
+      "center": {
+        "lat": 14.2082872,
+        "lon": 101.2138653
+      },
+      "tags": {
+        "amenity": "marketplace",
+        "building": "hospital",
+        "name": "ตลาดนัดโรงพยาบาลนครนายก",
+        "name:en": "Nakhon Nayok Hospital Marketplace"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1312477492,
+      "center": {
+        "lat": 14.2114587,
+        "lon": 101.2061977
+      },
+      "tags": {
+        "building": "yes",
+        "name": "ฟีลด์ทาวน์ อะพาร์ตเมนต์",
+        "name:en": "Field Town Apartment",
+        "tourism": "apartment"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1312834282,
+      "center": {
+        "lat": 14.2089137,
+        "lon": 101.2136556
+      },
+      "tags": {
+        "amenity": "food_court",
+        "building": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1312834287,
+      "center": {
+        "lat": 14.2075717,
+        "lon": 101.2080807
+      },
+      "tags": {
+        "amenity": "bank",
+        "brand": "ธนาคารทหารไทย",
+        "brand:en": "TMBThanachart Bank",
+        "brand:th": "ธนาคารทหารไทย",
+        "brand:wikidata": "Q1527826",
+        "building": "yes",
+        "name": "ธนาคารทหารไทย",
+        "name:en": "TMBThanachart Bank",
+        "name:th": "ธนาคารทหารไทย",
+        "short_name": "ttb"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1312834288,
+      "center": {
+        "lat": 14.2074287,
+        "lon": 101.208333
+      },
+      "tags": {
+        "building": "retail",
+        "name": "หจก เสียงทิพย์วิทยุ",
+        "shop": "electronics"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1312834289,
+      "center": {
+        "lat": 14.2088493,
+        "lon": 101.2079914
+      },
+      "tags": {
+        "building": "yes",
+        "name": "หจก บุญไทยวัสดุก่อสร้าง",
+        "shop": "hardware"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1312834290,
+      "center": {
+        "lat": 14.2093026,
+        "lon": 101.207153
+      },
+      "tags": {
+        "amenity": "bank",
+        "brand": "ธนาคารเพื่อการเกษตรและสหกรณ์การเกษตร",
+        "brand:en": "Bank for Agriculture and Agricultural Co-operatives",
+        "brand:th": "ธนาคารเพื่อการเกษตรและสหกรณ์การเกษตร",
+        "brand:wikidata": "Q23043470",
+        "building": "yes",
+        "name": "ธนาคารเพื่อการเกษตรและสหกรณ์การเกษตร",
+        "name:en": "Bank for Agriculture and Agricultural Co-operatives",
+        "name:th": "ธนาคารเพื่อการเกษตรและสหกรณ์การเกษตร"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1312834291,
+      "center": {
+        "lat": 14.2103436,
+        "lon": 101.206247
+      },
+      "tags": {
+        "building": "yes",
+        "name": "สำเพ็งนครนายก",
+        "name:en": "Sampheng Nakhon Nayok",
+        "shop": "variety_store"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1312834299,
+      "center": {
+        "lat": 14.2044599,
+        "lon": 101.2162887
+      },
+      "tags": {
+        "amenity": "school",
+        "name": "โรงเรียนเทศบาล 1 (วัดศรีเมือง)",
+        "name:en": "Thetsaban 1 (Wat Si Mueang) School"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1312834301,
+      "center": {
+        "lat": 14.2009813,
+        "lon": 101.2176075
+      },
+      "tags": {
+        "amenity": "school",
+        "name": "โรงเรียนนครนายกวิทยาคม",
+        "name:en": "Nakhon Nayok Wittayakhom School"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1327496375,
+      "center": {
+        "lat": 14.1684879,
+        "lon": 101.2600597
+      },
+      "tags": {
+        "amenity": "school"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1351872840,
+      "center": {
+        "lat": 14.0736079,
+        "lon": 101.3722848
+      },
+      "tags": {
+        "amenity": "hospital",
+        "healthcare": "hospital",
+        "name": "โรงพยาบาลค่ายจักรพงษ์",
+        "name:en": "Khai Chakkraphong Hospital",
+        "name:th": "โรงพยาบาลค่ายจักรพงษ์"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1352904094,
+      "center": {
+        "lat": 14.1762478,
+        "lon": 101.3707461
+      },
+      "tags": {
+        "amenity": "school",
+        "name": "โรงเรียนโสตศึกษาจังหวัดปราจีนบุรี"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1352904095,
+      "center": {
+        "lat": 14.1761171,
+        "lon": 101.3774318
+      },
+      "tags": {
+        "building": "yes",
+        "name": "บ้านเคียงเขารีสอร์ท สวนลุงน้อย",
+        "tourism": "hotel"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1360874399,
+      "center": {
+        "lat": 14.2084115,
+        "lon": 101.2155641
+      },
+      "tags": {
+        "building": "yes",
+        "tourism": "apartment"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1424968257,
+      "center": {
+        "lat": 13.8517314,
+        "lon": 102.5865888
+      },
+      "tags": {
+        "amenity": "school",
+        "name": "โรงเรียนวัดหนองม่วง",
+        "name:en": "Wat Nong Muang School",
+        "name:th": "โรงเรียนวัดหนองม่วง"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1424985205,
+      "center": {
+        "lat": 13.8793112,
+        "lon": 102.5702811
+      },
+      "tags": {
+        "amenity": "school",
+        "name": "โรงเรียนบ้านโคกสามัคคี",
+        "name:th": "โรงเรียนบ้านโคกสามัคคี"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1424985206,
+      "center": {
+        "lat": 13.8998359,
+        "lon": 102.5618697
+      },
+      "tags": {
+        "amenity": "school"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1424985232,
+      "center": {
+        "lat": 13.8973821,
+        "lon": 102.465305
+      },
+      "tags": {
+        "amenity": "school",
+        "name": "โรงเรียนช่องกุ่มวิทยา",
+        "name:th": "โรงเรียนช่องกุ่มวิทยา"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1446659968,
+      "center": {
+        "lat": 14.5440843,
+        "lon": 101.3281853
+      },
+      "tags": {
+        "addr:district": "Pak Chong",
+        "addr:postcode": "30130",
+        "addr:province": "Nakhon Ratchasima",
+        "addr:subdistrict": "Mu Si",
+        "amenity": "cafe",
+        "building": "yes",
+        "name": "สวนกุหลาบกลางพนาคาเฟ่",
+        "name:en": "Klang Phana Rose Garden and Coffee",
+        "opening_hours": "Mo-Su 08:00-17:30",
+        "phone": "+66 92 493 4552",
+        "website": "https://www.facebook.com/KlangPanaRosesGardenAndCafe"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1447146572,
+      "center": {
+        "lat": 14.5216198,
+        "lon": 101.3705772
+      },
+      "tags": {
+        "addr:district": "Pak Chong",
+        "addr:housenumber": "242",
+        "addr:postcode": "30130",
+        "addr:province": "Nakhon Ratchasima",
+        "addr:street": "ถ. ธนะรัชต์ตำบล หมูสี",
+        "addr:subdistrict": "หมูสี",
+        "amenity": "marketplace",
+        "name": "ตีนเขา ไนท์มาร์เก็ต เขาใหญ่",
+        "name:en": "Foothill Night Market Khao Yai",
+        "opening_hours": "Mo-Di 16:00-24:00; Mi-Sa 16:00-24:00"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1464295357,
+      "center": {
+        "lat": 14.3046058,
+        "lon": 101.130797
+      },
+      "tags": {
+        "addr:district": "บ้านนา",
+        "addr:housenumber": "9",
+        "addr:place": "หมู่ที่ 10",
+        "addr:postcode": "26110",
+        "addr:province": "นครนายก",
+        "addr:subdistrict": "ศรีกะอาง",
+        "amenity": "college",
+        "education": "college",
+        "landuse": "military",
+        "name": "โรงเรียนเตรียมทหาร",
+        "name:ar": "مدرسة أكاديميات القوات المسلحة الإعدادية",
+        "name:arz": "مدرسة اكاديميات القوات المسلحة الاعداديه",
+        "name:ca": "Escola Preparatòria de les Acadèmies de les Forces Armades",
+        "name:da": "Forberedelsesskolen til Akademiet for de Væbnede Styrker",
+        "name:en": "Armed Forces Academies Preparatory School",
+        "name:eu": "Indar Armatuen Akademien Prestaketa Eskola",
+        "name:it": "Scuola preparatoria delle Accademie delle Forze Armate",
+        "name:ja": "タイ王国士官学校予科",
+        "name:ru": "Подготовительная школа Академии Вооружённых сил Таиланда",
+        "name:th": "โรงเรียนเตรียมทหาร",
+        "name:zh": "泰国军官预备学校",
+        "name:zh-Hans": "泰国军官预备学校",
+        "name:zh-Hant": "泰國軍官預備學校",
+        "operator": "กองบัญชาการกองทัพไทย",
+        "operator:type": "military",
+        "website": "https://afaps.rtarf.mi.th",
+        "wikidata": "Q4792974",
+        "wikipedia": "th:โรงเรียนเตรียมทหาร"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1486089419,
+      "center": {
+        "lat": 14.2108891,
+        "lon": 101.2332234
+      },
+      "tags": {
+        "artwork_type": "statue",
+        "tourism": "artwork"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1486089420,
+      "center": {
+        "lat": 14.2105715,
+        "lon": 101.2334211
+      },
+      "tags": {
+        "artwork_type": "statue",
+        "tourism": "artwork"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1486089421,
+      "center": {
+        "lat": 14.2109301,
+        "lon": 101.2336698
+      },
+      "tags": {
+        "artwork_type": "statue",
+        "tourism": "artwork"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1499810140,
+      "center": {
+        "lat": 14.5122659,
+        "lon": 101.41974
+      },
+      "tags": {
+        "building": "yes",
+        "tourism": "hotel"
+      }
+    },
+    {
+      "type": "way",
+      "id": 242744880,
+      "center": {
+        "lat": 14.0697076,
+        "lon": 101.37415
+      },
+      "tags": {
+        "operator": "Big C",
+        "shop": "supermarket"
+      }
+    },
+    {
+      "type": "way",
+      "id": 289755424,
+      "center": {
+        "lat": 14.2926044,
+        "lon": 101.1732295
+      },
+      "tags": {
+        "addr:district": "เมืองนครนายก",
+        "addr:housenumber": "99",
+        "addr:place": "หมู่ที่ 1",
+        "addr:postcode": "26000",
+        "addr:province": "นครนายก",
+        "addr:subdistrict": "พรหมณี",
+        "amenity": "college",
+        "education": "college",
+        "email": "contact.us@crma.ac.th",
+        "landuse": "military",
+        "name": "โรงเรียนนายร้อยพระจุลจอมเกล้า",
+        "name:en": "Chulachomklao Royal Military Academy",
+        "name:th": "โรงเรียนนายร้อยพระจุลจอมเกล้า",
+        "phone": "+66 3739-3010-4",
+        "website": "https://www.crma.ac.th",
+        "wikidata": "Q1089417",
+        "wikipedia": "th:โรงเรียนนายร้อยพระจุลจอมเกล้า"
+      }
+    },
+    {
+      "type": "way",
+      "id": 343671658,
+      "center": {
+        "lat": 14.0911538,
+        "lon": 101.3701679
+      },
+      "tags": {
+        "amenity": "fuel",
+        "building": "roof",
+        "name": "PT",
+        "source": "GPS"
+      }
+    },
+    {
+      "type": "way",
+      "id": 343675019,
+      "center": {
+        "lat": 14.2239609,
+        "lon": 101.4053043
+      },
+      "tags": {
+        "building": "yes",
+        "name:en": "Visitor Centre",
+        "tourism": "information"
+      }
+    },
+    {
+      "type": "way",
+      "id": 386290099,
+      "center": {
+        "lat": 13.8368025,
+        "lon": 102.3709071
+      },
+      "tags": {
+        "amenity": "hospital",
+        "name": "Hospital",
+        "note": "Approx boundary.",
+        "source": "Sign"
+      }
+    },
+    {
+      "type": "way",
+      "id": 40195151,
+      "center": {
+        "lat": 14.2008674,
+        "lon": 101.1990608
+      },
+      "tags": {
+        "amenity": "marketplace",
+        "name": "Fruit Market"
+      }
+    },
+    {
+      "type": "way",
+      "id": 410767946,
+      "center": {
+        "lat": 14.4354575,
+        "lon": 102.280272
+      },
+      "tags": {
+        "bridge": "yes",
+        "highway": "footway",
+        "is_in:district": "Khon Buri",
+        "is_in:province": "Nakhon Ratchasima",
+        "is_in:subdistrict": "Khok Krachai",
+        "material": "wood",
+        "name": "สะพานไม้ ๑๐๐ ปี",
+        "name:de": "100-jährige Holzbrücke",
+        "name:en": "100 years old wooden bridge",
+        "tourism": "attraction",
+        "width": "0.8"
+      }
+    },
+    {
+      "type": "way",
+      "id": 412001017,
+      "center": {
+        "lat": 14.3504247,
+        "lon": 102.4295705
+      },
+      "tags": {
+        "amenity": "marketplace",
+        "area": "yes",
+        "opening_hours": "Sa 16:00-19:00"
+      }
+    },
+    {
+      "type": "way",
+      "id": 431388822,
+      "center": {
+        "lat": 14.3168296,
+        "lon": 101.2760522
+      },
+      "tags": {
+        "area": "yes",
+        "landuse": "recreation_ground",
+        "name": "Baan Phupha",
+        "tourism": "hotel"
+      }
+    },
+    {
+      "type": "way",
+      "id": 431476331,
+      "center": {
+        "lat": 14.3039279,
+        "lon": 101.2932347
+      },
+      "tags": {
+        "building": "yes",
+        "name": "7-Eleven",
+        "opening_hours": "24/7",
+        "shop": "convenience"
+      }
+    },
+    {
+      "type": "way",
+      "id": 431875961,
+      "center": {
+        "lat": 14.3190349,
+        "lon": 101.2738926
+      },
+      "tags": {
+        "name": "Mini-Zoo",
+        "operator": "Royal Hills Resort",
+        "tourism": "zoo"
+      }
+    },
+    {
+      "type": "way",
+      "id": 516965275,
+      "center": {
+        "lat": 14.1815335,
+        "lon": 101.5923559
+      },
+      "tags": {
+        "amenity": "parking",
+        "name": "Takhro Waterfall Car Park",
+        "tourism": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 518190348,
+      "center": {
+        "lat": 14.1602046,
+        "lon": 101.3453349
+      },
+      "tags": {
+        "amenity": "restaurant",
+        "building": "yes",
+        "name": "อาคารโรงอาหาร 2",
+        "name:th": "อาคารโรงอาหาร 2",
+        "source": "Bing"
+      }
+    },
+    {
+      "type": "way",
+      "id": 518190351,
+      "center": {
+        "lat": 14.1610236,
+        "lon": 101.3529625
+      },
+      "tags": {
+        "addr:district": "เมืองปราจีนบุรี",
+        "addr:housenumber": "129",
+        "addr:postcode": "25230",
+        "addr:province": "ปราจีนบุรี",
+        "addr:subdistrict": "เนินหอม",
+        "amenity": "university",
+        "area": "yes",
+        "contact:facebook": "https://www.facebook.com/pr.kmutnb.prachinburi",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/e/eb/Kmutnbprachin.jpg",
+        "internet_access": "wlan",
+        "internet_access:fee": "customers",
+        "internet_access:ssid": "KMUTNB",
+        "loc_name": "มจพ. ปราจีน",
+        "name": "มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าพระนครเหนือ วิทยาเขตปราจีนบุรี",
+        "name:en": "King Mongkut University of Technology",
+        "name:th": "มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าพระนครเหนือ วิทยาเขตปราจีนบุรี",
+        "note": "Outline completly estimated.",
+        "official_name": "มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าพระนครเหนือ วิทยาเขตปราจีนบุรี",
+        "official_name:en": "King Mongkut University of Technology",
+        "short_name": "มจพ.",
+        "start_date": "1997-05-22",
+        "website": "https://kmutnb.ac.th/",
+        "wikidata": "Q29426484",
+        "wikipedia": "th:มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าพระนครเหนือ วิทยาเขตปราจีนบุรี"
+      }
+    },
+    {
+      "type": "way",
+      "id": 518190355,
+      "center": {
+        "lat": 14.1598677,
+        "lon": 101.3452317
+      },
+      "tags": {
+        "amenity": "restaurant",
+        "building": "yes",
+        "name": "อาคารโรงอาหาร 1",
+        "name:th": "อาคารโรงอาหาร 1",
+        "source": "Bing"
+      }
+    },
+    {
+      "type": "way",
+      "id": 518194288,
+      "center": {
+        "lat": 14.1614954,
+        "lon": 101.3622206
+      },
+      "tags": {
+        "addr:district": "เมืองปราจีนบุรี",
+        "addr:housenumber": "129 หมู่ 21",
+        "addr:postcode": "25230",
+        "addr:province": "ปราจีนบุรี",
+        "addr:subdistrict": "เนินหอม",
+        "air_conditioning": "yes",
+        "bar": "yes",
+        "brand": "มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าพระนครเหนือ วิทยาเขตปราจีนบุรี",
+        "building": "college",
+        "contact:facebook": "https://www.facebook.com/villavichalai",
+        "description": "บริการห้องพัก จํานวนถึง 33 ห้อง ท่ามกลาง\nบรรยากาศร่มรื่น ทุกห้องสามารถมองเห็นวิววนอุทยาน\nเขาอีโต้ สะดวกสบายด้วยการรักษาความปลอดภัยตลอด\n24 ชั่วโมง อีกทั้งสถานที่ตั้งของโรงแรมอยู่ใกล้ทางขึ้น อุทยานแห่งชาติเขาใหญ่เพียง 10 นาที",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXWrsJkiDbeJlGiM90GSdzF7rGMj55YefaUQ&s",
+        "internet_access": "wlan",
+        "internet_access:fee": "customers",
+        "name": "โรงแรมวิลลาวิชาลัย",
+        "name:en": "Villa Vichalai Hotel",
+        "note": "อัตราค่าห้องพัก\nSuperior Twin\n700 บาท/คืน\nExecutive Room\n1,100 บาท/คืน\nExtra bed\n300 บาท/คืน\nหมายเหตุ ราคาห้องพักดังกล่าวข้างต้นไม่รวมค่าบริการอาหารเช้า",
+        "operator": "มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าพระนครเหนือ วิทยาเขตปราจีนบุรี",
+        "phone": "0924398497",
+        "reservation": "required",
+        "rooms": "33",
+        "source": "Bing",
+        "stars": "2",
+        "tourism": "hotel",
+        "type": "multipolygon",
+        "website": "https://line.me/ti/p/ie3SGmnmDD"
+      }
+    },
+    {
+      "type": "way",
+      "id": 567578676,
+      "center": {
+        "lat": 14.4393357,
+        "lon": 101.3723088
+      },
+      "tags": {
+        "building": "yes",
+        "check_date": "2024-12-21",
+        "emergency:phone": "+66 82 539 5753",
+        "information": "office",
+        "name": "ศูนย์ข้อมูลนักท่องเที่ยวอุทยานแห่งชาติเขาใหญ่",
+        "name:en": "Khao Yai National Park Visitor Center",
+        "phone": "+66 86 092 6529",
+        "tourism": "information",
+        "website": "https://www.khaoyainationalpark.com/"
+      }
+    },
+    {
+      "type": "way",
+      "id": 567578678,
+      "center": {
+        "lat": 14.438322,
+        "lon": 101.3715765
+      },
+      "tags": {
+        "amenity": "cafe",
+        "building": "yes",
+        "diet:vegetarian": "yes",
+        "name": "ศูนย์อาหารเขาใหญ่",
+        "name:en": "Khao Yai Cafetaria"
+      }
+    },
+    {
+      "type": "way",
+      "id": 569439056,
+      "center": {
+        "lat": 14.4835037,
+        "lon": 101.5969957
+      },
+      "tags": {
+        "building": "yes",
+        "shop": "convenience"
+      }
+    },
+    {
+      "type": "way",
+      "id": 569439064,
+      "center": {
+        "lat": 14.4838195,
+        "lon": 101.596848
+      },
+      "tags": {
+        "amenity": "ice_cream",
+        "building": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 569447018,
+      "center": {
+        "lat": 14.4693679,
+        "lon": 101.5775786
+      },
+      "tags": {
+        "building": "yes",
+        "name": "Angel Valley",
+        "tourism": "apartment"
+      }
+    },
+    {
+      "type": "way",
+      "id": 575026501,
+      "center": {
+        "lat": 14.5113246,
+        "lon": 101.3816494
+      },
+      "tags": {
+        "addr:country": "TH",
+        "addr:district": "Pak Chong",
+        "addr:postcode": "30130",
+        "addr:province": "Nakhon Ratchasima",
+        "addr:street": "Thanarat Road (ถนนธนะรัชต์)",
+        "addr:subdistrict": "Mu Si",
+        "brand": "banyan tree",
+        "building": "residential",
+        "building:levels": "6",
+        "name": "Banyan Tree Residences Creston Hill",
+        "tourism": "apartment"
+      }
+    },
+    {
+      "type": "way",
+      "id": 575026504,
+      "center": {
+        "lat": 14.507981,
+        "lon": 101.3788951
+      },
+      "tags": {
+        "building": "yes",
+        "name": "Northern Fee Station (400 baht foreigner)",
+        "name:en": "Khao Yai National Park Northern Fee Entrance Station",
+        "opening_hours": "Mo-Su 06:00-18:00",
+        "shop": "ticket",
+        "tourism": "attraction"
+      }
+    },
+    {
+      "type": "way",
+      "id": 575026507,
+      "center": {
+        "lat": 14.5102803,
+        "lon": 101.3770468
+      },
+      "tags": {
+        "amenity": "restaurant",
+        "building": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 575026508,
+      "center": {
+        "lat": 14.510353,
+        "lon": 101.3769611
+      },
+      "tags": {
+        "amenity": "restaurant",
+        "building": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 658885405,
+      "center": {
+        "lat": 14.411425,
+        "lon": 101.373316
+      },
+      "tags": {
+        "amenity": "cafe",
+        "building": "yes",
+        "cuisine": "coffee_shop",
+        "name:en": "17 Degree Café",
+        "outdoor_seating": "only"
+      }
+    },
+    {
+      "type": "way",
+      "id": 658885441,
+      "center": {
+        "lat": 14.4005528,
+        "lon": 101.3701646
+      },
+      "tags": {
+        "building": "yes",
+        "guest_house": "guest_house",
+        "internet_access": "no",
+        "name": "407/1 - 9",
+        "operator": "Khao Yai National Park",
+        "rooms": "9",
+        "tourism": "guest_house",
+        "website": "https://www.khaoyainationalpark.com/en/plan-your-visit/staying"
+      }
+    },
+    {
+      "type": "way",
+      "id": 658885446,
+      "center": {
+        "lat": 14.4001848,
+        "lon": 101.3678134
+      },
+      "tags": {
+        "building": "yes",
+        "guest_house": "guest_house",
+        "name": "402",
+        "operator": "Khao Yai National Park",
+        "tourism": "guest_house",
+        "website": "https://www.khaoyainationalpark.com/en/plan-your-visit/staying"
+      }
+    },
+    {
+      "type": "way",
+      "id": 658885447,
+      "center": {
+        "lat": 14.4008512,
+        "lon": 101.3679488
+      },
+      "tags": {
+        "building": "yes",
+        "guest_house": "guest_house",
+        "name": "401",
+        "operator": "Khao Yai National Park",
+        "tourism": "guest_house",
+        "website": "https://www.khaoyainationalpark.com/en/plan-your-visit/staying"
+      }
+    },
+    {
+      "type": "way",
+      "id": 658885448,
+      "center": {
+        "lat": 14.39986,
+        "lon": 101.3678053
+      },
+      "tags": {
+        "building": "yes",
+        "guest_house": "guest_house",
+        "name": "403",
+        "operator": "Khao Yai National Park",
+        "tourism": "guest_house",
+        "website": "https://www.khaoyainationalpark.com/en/plan-your-visit/staying"
+      }
+    },
+    {
+      "type": "way",
+      "id": 658885449,
+      "center": {
+        "lat": 14.4002044,
+        "lon": 101.368274
+      },
+      "tags": {
+        "building": "yes",
+        "guest_house": "guest_house",
+        "name": "404",
+        "operator": "Khao Yai National Park",
+        "tourism": "guest_house",
+        "website": "https://www.khaoyainationalpark.com/en/plan-your-visit/staying"
+      }
+    },
+    {
+      "type": "way",
+      "id": 658885450,
+      "center": {
+        "lat": 14.3994782,
+        "lon": 101.3689237
+      },
+      "tags": {
+        "building": "yes",
+        "guest_house": "guest_house",
+        "name": "406/1 - 406/2",
+        "operator": "Khao Yai National Park",
+        "tourism": "guest_house",
+        "website": "https://www.khaoyainationalpark.com/en/plan-your-visit/staying"
+      }
+    },
+    {
+      "type": "way",
+      "id": 658885451,
+      "center": {
+        "lat": 14.4003544,
+        "lon": 101.3690742
+      },
+      "tags": {
+        "building": "yes",
+        "guest_house": "guest_house",
+        "name": "405/1 - 405/2",
+        "operator": "Khao Yai National Park",
+        "tourism": "guest_house",
+        "website": "https://www.khaoyainationalpark.com/en/plan-your-visit/staying"
+      }
+    },
+    {
+      "type": "way",
+      "id": 706160764,
+      "center": {
+        "lat": 14.1669286,
+        "lon": 101.3899889
+      },
+      "tags": {
+        "area": "yes",
+        "artwork_type": "statue",
+        "name": "Large buddha statue",
+        "tourism": "artwork"
+      }
+    },
+    {
+      "type": "way",
+      "id": 755916061,
+      "center": {
+        "lat": 14.2068668,
+        "lon": 101.2136936
+      },
+      "tags": {
+        "building": "yes",
+        "name": "ดอนเบเกอรี่",
+        "name:en": "Dawn Bakery",
+        "shop": "bakery"
+      }
+    },
+    {
+      "type": "way",
+      "id": 805978178,
+      "center": {
+        "lat": 14.1982505,
+        "lon": 101.2197751
+      },
+      "tags": {
+        "building": "yes",
+        "name": "Lotus's go fresh",
+        "shop": "convenience",
+        "source": "Bing"
+      }
+    },
+    {
+      "type": "way",
+      "id": 805996545,
+      "center": {
+        "lat": 14.2984238,
+        "lon": 101.3028651
+      },
+      "tags": {
+        "name:en": "The Chill Resort",
+        "tourism": "hotel"
+      }
+    },
+    {
+      "type": "way",
+      "id": 813577606,
+      "center": {
+        "lat": 14.3069354,
+        "lon": 101.3088768
+      },
+      "tags": {
+        "building": "yes",
+        "name": "Ingtarn Resort",
+        "name:en": "Ingtarn Resort",
+        "name:th": "Ingtarn Resort",
+        "source": "Bing",
+        "tourism": "hotel"
+      }
+    },
+    {
+      "type": "way",
+      "id": 949746126,
+      "center": {
+        "lat": 14.0661411,
+        "lon": 101.3751286
+      },
+      "tags": {
+        "amenity": "school",
+        "name": "โรงเรียนเทศบาล 4 อุดมวิทย์"
+      }
+    }
+  ]
+}

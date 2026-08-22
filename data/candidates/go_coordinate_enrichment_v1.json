@@ -1,0 +1,34 @@
+[
+  {
+    "title": "พิพิธภัณฑสถานแห่งชาติปราจีนบุรี",
+    "latitude": 14.047306,
+    "longitude": 101.37467,
+    "coordinate_status": "confirmed",
+    "coordinate_source": "SAC / Arts in Southeast Asia",
+    "ready_for_merge_preview": true
+  },
+  {
+    "title": "โบราณสถานสระมรกต",
+    "latitude": 13.863657,
+    "longitude": 101.424075,
+    "coordinate_status": "confirmed",
+    "coordinate_source": "ONEP Cultural Environment",
+    "ready_for_merge_preview": true
+  },
+  {
+    "title": "เมืองโบราณศรีมโหสถ",
+    "latitude": 13.895284,
+    "longitude": 101.413708,
+    "coordinate_status": "confirmed",
+    "coordinate_source": "SAC Archaeology Database",
+    "ready_for_merge_preview": true
+  },
+  {
+    "title": "แก่งหินเพิง",
+    "latitude": 14.167275,
+    "longitude": 101.729684,
+    "coordinate_status": "review",
+    "coordinate_source": "Web evidence; province tourism identity confirmed",
+    "ready_for_merge_preview": false
+  }
+]

@@ -1,0 +1,32 @@
+[
+  {
+    "id": "osm-way-567578678",
+    "title": "ศูนย์อาหารเขาใหญ่",
+    "content_type": "vegetarian",
+    "food_types": [
+      "vegetarian"
+    ],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 14.438322,
+      "longitude": 101.3715765
+    },
+    "metadata": {
+      "display_tier": "option_available",
+      "show_in_primary_directory": false,
+      "needs_review": false,
+      "diet_vegetarian": "yes",
+      "diet_vegan": null,
+      "keyword_match": false,
+      "opening_hours": null,
+      "phone": null,
+      "website": null
+    },
+    "source": "OpenStreetMap",
+    "source_url": "https://www.openstreetmap.org/way/567578678",
+    "collected_at": "2026-08-20T09:33:15.804365+00:00"
+  }
+]

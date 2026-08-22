@@ -1,0 +1,3748 @@
+{
+  "schema_version": "prachinlife-v2-json-1",
+  "province": "ปราจีนบุรี",
+  "count": 220,
+  "places": [
+    {
+      "id": "056fab87-d101-5fca-ac88-3bb7b19ae63e",
+      "name": "Bangchak",
+      "latitude": 14.1269124,
+      "longitude": 101.8655771,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "fuel"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/482931668"
+    },
+    {
+      "id": "2c615dcd-c2fe-58c2-a4fc-f8a9c93e5ec5",
+      "name": "Bangchak",
+      "latitude": 13.5770519,
+      "longitude": 101.2771283,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "fuel"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/907009154"
+    },
+    {
+      "id": "c561a806-8b76-530b-9402-8092ecca5df5",
+      "name": "Bangchak",
+      "latitude": 13.870658,
+      "longitude": 101.415571,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "fuel"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/343670272"
+    },
+    {
+      "id": "0d849070-4e82-5e22-ad79-dd7e4d2d9642",
+      "name": "Bangchak Station",
+      "latitude": 13.6731659,
+      "longitude": 101.2130031,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "fuel"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/5434456621"
+    },
+    {
+      "id": "141be0e2-7b56-5f15-94f8-6256ebbff7d1",
+      "name": "Bubble P",
+      "latitude": 13.8232224,
+      "longitude": 102.066792,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "laundry"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/12475645301"
+    },
+    {
+      "id": "271295ec-f3cc-5fa3-bd28-80d7b8e1f302",
+      "name": "Cafe Amazon",
+      "latitude": 14.1513019,
+      "longitude": 101.3109747,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "cafe"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/6369552999"
+    },
+    {
+      "id": "43da6a1c-cc04-5b9c-8787-0f07a6233f0e",
+      "name": "Cafe Amazon",
+      "latitude": 13.9981463,
+      "longitude": 101.2234316,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "cafe"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/10104800519"
+    },
+    {
+      "id": "dc571338-a051-5047-bd8e-f3d185340bb9",
+      "name": "Café Amazon",
+      "latitude": 14.1342611,
+      "longitude": 101.3775249,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "cafe"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/2676351772"
+    },
+    {
+      "id": "22eaf955-ef6d-5377-80d4-e78e39ee0d6b",
+      "name": "Caltex",
+      "latitude": 13.9936588,
+      "longitude": 101.7632014,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "fuel"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/907084421"
+    },
+    {
+      "id": "715aa243-825f-5d41-9ad2-7741090e01c3",
+      "name": "Caltex",
+      "latitude": 13.615577,
+      "longitude": 101.3101848,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "fuel"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/485488146"
+    },
+    {
+      "id": "85940274-f1b6-5f31-9cbc-a25fffa02f14",
+      "name": "Caltex",
+      "latitude": 13.7660687,
+      "longitude": 101.6606561,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "fuel"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/6274486586"
+    },
+    {
+      "id": "fb48e234-bf7b-5960-b160-3b35501a8d0b",
+      "name": "Caltex",
+      "latitude": 13.7480311,
+      "longitude": 101.3587929,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "fuel"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/343660968"
+    },
+    {
+      "id": "545e626f-bfba-52be-b3fa-0ebd3685fe81",
+      "name": "Caltex Station",
+      "latitude": 13.6593652,
+      "longitude": 101.1222909,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "fuel"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/5323879724"
+    },
+    {
+      "id": "b29c8a8a-c033-5146-99e4-e625fde01cc2",
+      "name": "Caltex Station",
+      "latitude": 13.9843899,
+      "longitude": 101.7723581,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "fuel"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/5434377521"
+    },
+    {
+      "id": "f51004c0-e4be-506d-a417-00316e6b04bf",
+      "name": "Check in",
+      "latitude": 14.0564445,
+      "longitude": 101.3612059,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "restaurant"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/6594614085"
+    },
+    {
+      "id": "ad4e4922-d84a-50f4-8f8d-25ffb41513aa",
+      "name": "Chedi",
+      "latitude": 14.2225943,
+      "longitude": 101.3971784,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "temple"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/477117643"
+    },
+    {
+      "id": "c13a0da3-8fb7-5c92-ba2a-bd5b86595632",
+      "name": "Chill Chill wash",
+      "latitude": 13.8179565,
+      "longitude": 102.070233,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "laundry"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/12475645202"
+    },
+    {
+      "id": "ea1ec28e-0e32-5d25-a697-97db9c81f0ec",
+      "name": "cho ka chua",
+      "latitude": 14.1198596,
+      "longitude": 101.3246913,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "cafe"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/4750841828"
+    },
+    {
+      "id": "958012f7-3800-5ab2-9704-d02e8b02621f",
+      "name": "Coffee & The Kitchen By บ้านสวนดอกไม้",
+      "latitude": 14.0054151,
+      "longitude": 101.7644167,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "restaurant"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/8518228365"
+    },
+    {
+      "id": "c7a919a0-ed7b-51b5-901a-c09629c06a0b",
+      "name": "Coffee shop",
+      "latitude": 14.2268013,
+      "longitude": 101.3860267,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "cafe"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/2823924411"
+    },
+    {
+      "id": "f4489970-5569-56b3-84c1-6ece7fec8b94",
+      "name": "Esso",
+      "latitude": 13.9155817,
+      "longitude": 101.5744481,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "fuel"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/4345349349"
+    },
+    {
+      "id": "a95ec98c-55a0-518d-82bb-03b9c4ce6306",
+      "name": "ESSO LPG Station",
+      "latitude": 13.6715825,
+      "longitude": 101.2091936,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "fuel"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/5434456622"
+    },
+    {
+      "id": "84a0873f-3546-5e82-8d43-bdd7bb27b56c",
+      "name": "ESSO Station",
+      "latitude": 13.8828419,
+      "longitude": 102.0026195,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "fuel"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/5323863728"
+    },
+    {
+      "id": "c1a07622-9656-5c4f-ab57-009c9af177d4",
+      "name": "ESSO Station",
+      "latitude": 13.9843693,
+      "longitude": 101.7847093,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "fuel"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/5323863727"
+    },
+    {
+      "id": "4980b275-87a1-5404-a611-4c9aae632853",
+      "name": "Extra wash",
+      "latitude": 13.8221892,
+      "longitude": 102.0656705,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "laundry"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/12477829701"
+    },
+    {
+      "id": "5718fafb-1798-5b96-9fff-c58e21fd0c7f",
+      "name": "Green Lemon",
+      "latitude": 13.7707873,
+      "longitude": 102.0315528,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "fuel"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/2146335008"
+    },
+    {
+      "id": "a11c29ba-e4ef-5900-8c78-b767a1ac0d2a",
+      "name": "Independent Fuel Station",
+      "latitude": 13.7783195,
+      "longitude": 101.391624,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "fuel"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/343665100"
+    },
+    {
+      "id": "ff380270-a96b-5f39-b445-99b5895ca075",
+      "name": "K'Bin Coffee",
+      "latitude": 14.0925201,
+      "longitude": 101.8291513,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "cafe"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/4841184021"
+    },
+    {
+      "id": "61ad8602-11d6-56c3-bc53-d6b98f5b62d3",
+      "name": "Lamin Coffee",
+      "latitude": 13.9924869,
+      "longitude": 101.7252698,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "cafe"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/12756489327"
+    },
+    {
+      "id": "97846763-2667-5323-ad10-9203b0717191",
+      "name": "LPG",
+      "latitude": 13.6164929,
+      "longitude": 101.3108537,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "fuel"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/1905321429"
+    },
+    {
+      "id": "a2f91808-6c40-53c8-8464-6ec45a8ce2db",
+      "name": "LPG",
+      "latitude": 13.6714149,
+      "longitude": 101.3959628,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "fuel"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/12680417582"
+    },
+    {
+      "id": "b00f3203-b254-544f-90f6-d9ff0724b0af",
+      "name": "LPG Station",
+      "latitude": 13.8325476,
+      "longitude": 102.0555945,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "fuel"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/1358892397"
+    },
+    {
+      "id": "fb297a5e-da07-51d0-b6c8-4b30c56a7c5a",
+      "name": "LPG Station",
+      "latitude": 13.7375485,
+      "longitude": 101.3386435,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "fuel"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/343658884"
+    },
+    {
+      "id": "918e4217-73a1-5283-b24d-ce9d5523ab54",
+      "name": "NGV",
+      "latitude": 13.6586849,
+      "longitude": 101.1451733,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "fuel"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/1241591062"
+    },
+    {
+      "id": "93114940-3495-5e92-99dc-90b9d1fca9cd",
+      "name": "NGV",
+      "latitude": 13.7708243,
+      "longitude": 102.0222039,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "fuel"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/1241591114"
+    },
+    {
+      "id": "cd0cd341-7085-536c-8ac4-e285487d1a79",
+      "name": "NGV",
+      "latitude": 13.5540757,
+      "longitude": 101.2659803,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "fuel"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/12680410513"
+    },
+    {
+      "id": "e62b4f68-31ea-53cd-b89e-367384a960bc",
+      "name": "P T T NGV Station",
+      "latitude": 14.1004846,
+      "longitude": 101.8365214,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "fuel"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/482938252"
+    },
+    {
+      "id": "129bff8b-4586-58b9-8b58-a097be2b6b15",
+      "name": "Petro Station",
+      "latitude": 13.8881889,
+      "longitude": 101.5722778,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "fuel"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/4873887057"
+    },
+    {
+      "id": "47c2a696-3b4c-5d3a-9c27-6f85c1412c44",
+      "name": "Petro Station",
+      "latitude": 13.8243723,
+      "longitude": 101.5476312,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "fuel"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/5549403421"
+    },
+    {
+      "id": "446c9b84-30ff-54f8-a791-7cd18a9e9c6a",
+      "name": "Poon Suk Oil",
+      "latitude": 13.5867923,
+      "longitude": 101.2885815,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "fuel"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/485484729"
+    },
+    {
+      "id": "f59b7f73-cec3-5f38-b2aa-027da2efa0e2",
+      "name": "Prachin Thai Food",
+      "latitude": 13.9052953,
+      "longitude": 101.5778169,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "restaurant"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/11164355070"
+    },
+    {
+      "id": "09aea66d-67f6-5c45-a756-181e296421e2",
+      "name": "PT",
+      "latitude": 13.7514336,
+      "longitude": 101.3639951,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "fuel"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/343660985"
+    },
+    {
+      "id": "202a6d5b-0b0c-5bcf-ad9e-fec5d879aa87",
+      "name": "PT",
+      "latitude": 14.1073152,
+      "longitude": 101.3452532,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "fuel"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/12733268619"
+    },
+    {
+      "id": "31b0027d-3045-5f94-b3aa-a25e3492ad10",
+      "name": "PT",
+      "latitude": 13.8508237,
+      "longitude": 101.5550691,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "fuel"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/441575079"
+    },
+    {
+      "id": "32f1fe9f-2a88-518f-aba2-3969986c4aac",
+      "name": "PT",
+      "latitude": 13.740859,
+      "longitude": 101.4858755,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "fuel"
+      ],
+      "phone": null,
+      "website": "https://www.pttplc.com",
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/370478612"
+    },
+    {
+      "id": "4320e29f-41f7-5f60-930a-e8513af8fc43",
+      "name": "PT",
+      "latitude": 13.771561,
+      "longitude": 101.3856883,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "fuel"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/343664087"
+    },
+    {
+      "id": "43f3f894-b314-5b44-a3c7-7c237bf56743",
+      "name": "PT",
+      "latitude": 13.7742863,
+      "longitude": 101.8718584,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "fuel"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/2151397748"
+    },
+    {
+      "id": "4b65722c-347f-5964-8de4-491cee315aaf",
+      "name": "PT",
+      "latitude": 13.6904747,
+      "longitude": 101.2659492,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "fuel"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/2676347595"
+    },
+    {
+      "id": "6af95c92-0407-51ba-bed1-a271051de29c",
+      "name": "PT",
+      "latitude": 14.0911538,
+      "longitude": 101.3701679,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "fuel"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/343671658"
+    },
+    {
+      "id": "8cbe5141-7f79-525e-974a-cb19cc10a7dc",
+      "name": "PT",
+      "latitude": 13.7281626,
+      "longitude": 101.377393,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "fuel"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/12680461536"
+    },
+    {
+      "id": "bc944dd3-555a-5746-a7b7-44406db16088",
+      "name": "PT",
+      "latitude": 13.6822294,
+      "longitude": 101.4091162,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "fuel"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/2629947427"
+    },
+    {
+      "id": "d3b22620-ff91-521e-a001-a5e0541b89e9",
+      "name": "PT",
+      "latitude": 13.8376026,
+      "longitude": 102.0500406,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "fuel"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/12681996408"
+    },
+    {
+      "id": "d4cd61da-e5f0-50f8-bed2-8ef0f622c472",
+      "name": "PT",
+      "latitude": 13.6400952,
+      "longitude": 101.2958552,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "fuel"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/2676347590"
+    },
+    {
+      "id": "df8d588b-72da-5d8c-b8e1-410c57bfafb0",
+      "name": "PT",
+      "latitude": 13.7719458,
+      "longitude": 102.0141506,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "fuel"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/2146335014"
+    },
+    {
+      "id": "fd76e9e6-e607-5d74-9830-ff52ce272cea",
+      "name": "PT",
+      "latitude": 13.6770683,
+      "longitude": 101.4273484,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "fuel"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/12532835756"
+    },
+    {
+      "id": "fe8c7f58-fc2f-5859-bae1-8a4bb36a9a76",
+      "name": "PT",
+      "latitude": 13.6254705,
+      "longitude": 101.1081407,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "fuel"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/4234962670"
+    },
+    {
+      "id": "116175db-c1f0-5cbc-83c5-970c9b827ebe",
+      "name": "PT Gas Station",
+      "latitude": 14.0549338,
+      "longitude": 101.7943879,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "fuel"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/482937620"
+    },
+    {
+      "id": "102f106e-66e6-5e6c-8649-a9b90273754c",
+      "name": "PT LPG Station",
+      "latitude": 13.6599647,
+      "longitude": 101.1239887,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "fuel"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/4873907846"
+    },
+    {
+      "id": "4aa17424-e032-5ce1-bafd-f482d4398469",
+      "name": "PT LPG Station",
+      "latitude": 13.9438544,
+      "longitude": 101.7056402,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "fuel"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/5434377621"
+    },
+    {
+      "id": "6478c4a4-3766-5631-9c65-b3ad57eb544f",
+      "name": "PT LPG Station",
+      "latitude": 13.8024081,
+      "longitude": 102.0914083,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "fuel"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/5549403522"
+    },
+    {
+      "id": "0fec04b6-364e-5336-8744-8f08fb00940f",
+      "name": "PT Station",
+      "latitude": 13.9783624,
+      "longitude": 101.8211638,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "fuel"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/5323881322"
+    },
+    {
+      "id": "1060aa37-60fc-5fee-b036-90f0d705cb40",
+      "name": "PT Station",
+      "latitude": 13.9142188,
+      "longitude": 101.9424514,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "fuel"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/5549382252"
+    },
+    {
+      "id": "34907c5b-1ed3-58ea-b2ba-fb3aaf6eaf2b",
+      "name": "PT Station",
+      "latitude": 13.7657105,
+      "longitude": 101.5188553,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "fuel"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/4873887056"
+    },
+    {
+      "id": "6922c475-de28-517f-a120-0e2c028ee2a1",
+      "name": "PT Station",
+      "latitude": 13.8001629,
+      "longitude": 102.1228265,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "fuel"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/5549403523"
+    },
+    {
+      "id": "9ef9cb3d-bfc9-5379-9318-593850c24c18",
+      "name": "PT Station",
+      "latitude": 13.6586482,
+      "longitude": 101.1440984,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "fuel"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/5549382249"
+    },
+    {
+      "id": "9f92004d-2b57-5cb7-b0b1-b7c0c0186922",
+      "name": "PT Station",
+      "latitude": 13.8410635,
+      "longitude": 102.0456075,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "fuel"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/5549382254"
+    },
+    {
+      "id": "b1d2965e-1336-58da-8906-133c099afb9e",
+      "name": "PT Station",
+      "latitude": 13.9507163,
+      "longitude": 101.7157735,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "fuel"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/5434377524"
+    },
+    {
+      "id": "b51d8836-2565-51bd-83fd-5d0efd99b642",
+      "name": "PT Station",
+      "latitude": 13.6616897,
+      "longitude": 101.1642187,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "fuel"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/4873887054"
+    },
+    {
+      "id": "bcc5c753-7a0f-5c8d-ab04-3101e0cacf47",
+      "name": "PT Station",
+      "latitude": 13.9090717,
+      "longitude": 101.9576116,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "fuel"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/5549403422"
+    },
+    {
+      "id": "167c108c-90a2-53d2-863d-ba8eea5a5729",
+      "name": "PTT",
+      "latitude": 13.60946,
+      "longitude": 101.3067166,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "fuel"
+      ],
+      "phone": null,
+      "website": "https://www.pttplc.com",
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/485488122"
+    },
+    {
+      "id": "2b347202-f20c-5e35-ac93-cfadcb71fe82",
+      "name": "PTT",
+      "latitude": 13.9793621,
+      "longitude": 101.7523982,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "fuel"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/482939106"
+    },
+    {
+      "id": "31e66864-87d8-5db1-9bdc-d058d70df80d",
+      "name": "PTT",
+      "latitude": 13.7518463,
+      "longitude": 101.4956227,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "fuel"
+      ],
+      "phone": null,
+      "website": "https://www.pttplc.com",
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/776185373"
+    },
+    {
+      "id": "ba047f17-51c4-507d-84ba-910d15e2b9c7",
+      "name": "PTT",
+      "latitude": 13.6612485,
+      "longitude": 101.1186146,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "fuel"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/3418083392"
+    },
+    {
+      "id": "baddce66-273f-5d3e-ae7e-85c797fd096d",
+      "name": "PTT",
+      "latitude": 13.7669957,
+      "longitude": 101.3831904,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "fuel"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/343664089"
+    },
+    {
+      "id": "dbef0a6d-f543-5a60-81d2-38397ccc2ac0",
+      "name": "PTT",
+      "latitude": 13.7712291,
+      "longitude": 101.5227982,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "fuel"
+      ],
+      "phone": null,
+      "website": "https://www.pttplc.com",
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/485522192"
+    },
+    {
+      "id": "ed205c6d-3003-534b-9230-7bb5eb748c67",
+      "name": "Ptt",
+      "latitude": 13.6646977,
+      "longitude": 101.4355759,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "fuel"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/12532874888"
+    },
+    {
+      "id": "fba86c32-0883-50f6-a39a-2405dbd0262a",
+      "name": "PTT",
+      "latitude": 13.6142704,
+      "longitude": 101.1126321,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "fuel"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/4234962671"
+    },
+    {
+      "id": "feeb14e1-e566-5c0b-93b1-9ab6f8276782",
+      "name": "PTT",
+      "latitude": 13.9793547,
+      "longitude": 101.756862,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "fuel"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/13398041972"
+    },
+    {
+      "id": "8026f0dd-372b-5c00-befa-9d98f49d75f8",
+      "name": "PTT / Jiffy Station",
+      "latitude": 13.6660373,
+      "longitude": 101.1847033,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "fuel"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/4873907847"
+    },
+    {
+      "id": "7dad8c02-3cf1-5072-bec4-c44841a4123d",
+      "name": "PTT Fill and Go",
+      "latitude": 13.6092491,
+      "longitude": 101.3070791,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "fuel"
+      ],
+      "phone": null,
+      "website": "https://www.pttplc.com",
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/776400524"
+    },
+    {
+      "id": "bf395595-874c-5836-9440-f30e98235757",
+      "name": "PTT LPG Station",
+      "latitude": 13.6674769,
+      "longitude": 101.1917091,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "fuel"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/4873907937"
+    },
+    {
+      "id": "4d008ff6-8a68-594b-9eb1-6dda513e9a8e",
+      "name": "PTT Station",
+      "latitude": 13.8408315,
+      "longitude": 102.0440348,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "fuel"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/12681994113"
+    },
+    {
+      "id": "aca44b36-6de4-5577-94bb-fe8605042c53",
+      "name": "PTT Station",
+      "latitude": 13.9016847,
+      "longitude": 101.9795788,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "fuel"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/5323863922"
+    },
+    {
+      "id": "4245d01c-344a-539a-8b85-92bb8a02413c",
+      "name": "Pure Station",
+      "latitude": 13.7840129,
+      "longitude": 102.1636109,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "fuel"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/5323863926"
+    },
+    {
+      "id": "21308fbf-96b1-534b-a2ad-78888e956009",
+      "name": "Shell",
+      "latitude": 13.6033619,
+      "longitude": 101.1168499,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "fuel"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/4234962672"
+    },
+    {
+      "id": "5630adec-6837-5b14-b1df-7ea178dc2031",
+      "name": "Shell",
+      "latitude": 13.9896972,
+      "longitude": 101.7636227,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "fuel"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/482936825"
+    },
+    {
+      "id": "7c2791b9-fb61-5206-9ebc-bb04bc18521e",
+      "name": "Shell",
+      "latitude": 13.8975391,
+      "longitude": 101.5895968,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "fuel"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/4345343819"
+    },
+    {
+      "id": "80534b63-e4ef-58b1-8671-1f5c2279ed37",
+      "name": "Shell",
+      "latitude": 13.5961267,
+      "longitude": 101.2990518,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "fuel"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/12680192176"
+    },
+    {
+      "id": "812084f4-b39d-503a-ab89-a42330384732",
+      "name": "Shell",
+      "latitude": 13.7784469,
+      "longitude": 101.5251811,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "fuel"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/6275677485"
+    },
+    {
+      "id": "3d920545-09c1-542d-9779-9bf9c96c796a",
+      "name": "Shell Station",
+      "latitude": 13.7624792,
+      "longitude": 101.5128915,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "fuel"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/5323879629"
+    },
+    {
+      "id": "43f25860-ff84-5ac1-bd48-76c3a69fefc6",
+      "name": "Shell Station",
+      "latitude": 13.6631563,
+      "longitude": 101.101538,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "fuel"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/4873887053"
+    },
+    {
+      "id": "8bae273e-27c9-5d45-8949-a506566e1b20",
+      "name": "Shell Station",
+      "latitude": 13.6702561,
+      "longitude": 101.2036682,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "fuel"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/5549382250"
+    },
+    {
+      "id": "b9aa14d6-2b09-5de6-a20d-f652ea63a2bf",
+      "name": "Siam Dasada",
+      "latitude": 14.1932375,
+      "longitude": 101.3831505,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "attraction"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/12280000098"
+    },
+    {
+      "id": "b88631a6-a2fb-578a-9de0-acd3b843d254",
+      "name": "Teas & Trees",
+      "latitude": 14.1307452,
+      "longitude": 101.4451647,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "cafe"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/11648691807"
+    },
+    {
+      "id": "22730e27-0433-5558-aa5b-38e1fd80a40e",
+      "name": "The Platoo Kitchen",
+      "latitude": 14.1308452,
+      "longitude": 101.4685576,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "restaurant"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/7836162676"
+    },
+    {
+      "id": "e1987c60-49e9-570d-960d-96229425c684",
+      "name": "Unique Gas",
+      "latitude": 13.8658419,
+      "longitude": 101.4185714,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "fuel"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/3504743739"
+    },
+    {
+      "id": "418e6632-2750-5386-aad7-f97ede205940",
+      "name": "Verona",
+      "latitude": 14.2155093,
+      "longitude": 101.9005021,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "attraction",
+        "restaurant"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/4943305721"
+    },
+    {
+      "id": "22ccbc6a-9981-5a52-ba8e-9b1651be8caf",
+      "name": "Wat Don Yai",
+      "latitude": 13.9635733,
+      "longitude": 101.4202061,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "temple"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/4481583826"
+    },
+    {
+      "id": "d54b8704-2868-51a2-875e-97d90c8e8c17",
+      "name": "Wat Kao Samo",
+      "latitude": 13.9130918,
+      "longitude": 101.4638515,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "temple"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/1666731926"
+    },
+    {
+      "id": "546d9345-1423-516b-b772-2ea0383bb953",
+      "name": "Wat Pa Mafai",
+      "latitude": 14.1392701,
+      "longitude": 101.2926475,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "temple"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/518203817"
+    },
+    {
+      "id": "1198f0b5-8ed6-574e-add6-1e0c33483b55",
+      "name": "กาแฟตัวหมี",
+      "latitude": 13.9496111,
+      "longitude": 101.5055641,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "cafe"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/9538872995"
+    },
+    {
+      "id": "9ee01b20-e377-57ca-bb4d-5aa7c71ba744",
+      "name": "กาแฟสดบลูคอฟฟี่",
+      "latitude": 13.8757618,
+      "longitude": 101.5627755,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "cafe"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/4036359329"
+    },
+    {
+      "id": "f678dc6d-6ce5-5dd4-acbf-72fe4523dab3",
+      "name": "กาแฟสดบลูคอฟฟี่",
+      "latitude": 13.8757602,
+      "longitude": 101.5628054,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "cafe"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/431800572"
+    },
+    {
+      "id": "f59e9548-adb3-5c6f-b4c5-2b829751561c",
+      "name": "กู๊ดวิวบ้านสวนริมคลอง ปราจีนบุรี",
+      "latitude": 14.0694165,
+      "longitude": 101.9914583,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "restaurant"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/12863075914"
+    },
+    {
+      "id": "094d3d1f-40e8-52ce-be7e-1b1c232ffabf",
+      "name": "ก๋วยเตี๋ยวลิ้นวัว-เนื้อลาย นครสวรรค์-สาขากบินทร์บุรี",
+      "latitude": 14.0641184,
+      "longitude": 101.8054791,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "restaurant"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/8487743496"
+    },
+    {
+      "id": "06305e2a-15a8-5e4a-8068-5a272222aed7",
+      "name": "ก๋วยเตี๋ยวเป็ดโดนัท",
+      "latitude": 14.0651602,
+      "longitude": 101.8069401,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "restaurant"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/8477554774"
+    },
+    {
+      "id": "794c0388-c476-5b54-817a-96648597767e",
+      "name": "ขุนเขาคาเฟ่",
+      "latitude": 14.077714,
+      "longitude": 101.5126155,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "cafe"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/12723499519"
+    },
+    {
+      "id": "a031f900-5295-5dcd-b0d0-53d305a297c0",
+      "name": "ข้าวเหนียวนึ่ง เมืองนครพนม",
+      "latitude": 14.0633617,
+      "longitude": 101.8056382,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "restaurant"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/8511009144"
+    },
+    {
+      "id": "bfc09af9-b291-529f-98e5-4760223ba152",
+      "name": "คาลเท็กซ์",
+      "latitude": 13.7709337,
+      "longitude": 102.0231286,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "fuel"
+      ],
+      "phone": null,
+      "website": "https://www.caltex.com/",
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/2174718705"
+    },
+    {
+      "id": "113b61d5-c34b-5efc-b59a-bb6ecb190a19",
+      "name": "คาเฟ่ อเมซอน",
+      "latitude": 14.0162108,
+      "longitude": 101.7773389,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "cafe"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/12535084238"
+    },
+    {
+      "id": "1c62e0dd-f213-5dd5-bca4-1f7a0c98600a",
+      "name": "คาเฟ่ อเมซอน",
+      "latitude": 13.978555,
+      "longitude": 101.7569822,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "cafe"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/4873907938"
+    },
+    {
+      "id": "2291f136-1796-5c04-99e2-b7c3515f5591",
+      "name": "คาเฟ่ อเมซอน",
+      "latitude": 13.9799667,
+      "longitude": 101.7525653,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "cafe"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/5434377523"
+    },
+    {
+      "id": "2c5d6060-b1ce-55b0-891e-f97cb530531d",
+      "name": "คาเฟ่ อเมซอน",
+      "latitude": 14.2160997,
+      "longitude": 101.8998552,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "cafe"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/1609809894"
+    },
+    {
+      "id": "2f4ddbdd-a877-5cfa-aaa2-65d31dea17be",
+      "name": "คาเฟ่ อเมซอน",
+      "latitude": 14.1499387,
+      "longitude": 101.3064455,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "cafe"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/12281368013"
+    },
+    {
+      "id": "55b32c1c-d19d-53b1-a0f8-998b9ae06bb2",
+      "name": "คาเฟ่ อเมซอน",
+      "latitude": 13.8964751,
+      "longitude": 101.599531,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "cafe"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/12535015655"
+    },
+    {
+      "id": "957f86a6-fc36-5dbf-97ad-7dbb831f796b",
+      "name": "คาเฟ่ อเมซอน",
+      "latitude": 14.0092435,
+      "longitude": 101.705088,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "cafe"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/12729633359"
+    },
+    {
+      "id": "efdfc66f-30cc-5030-b7bc-2935f9cee564",
+      "name": "คาเฟ่ อเมซอน",
+      "latitude": 13.9830599,
+      "longitude": 101.7754906,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "cafe"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/5434366222"
+    },
+    {
+      "id": "f1607424-008d-551e-9042-43ca8dc6fea7",
+      "name": "คาเฟ่ อเมซอน",
+      "latitude": 14.0594056,
+      "longitude": 101.6035681,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "cafe"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/12729755735"
+    },
+    {
+      "id": "b0e28d35-2cd1-5b6a-91a0-dc261448f276",
+      "name": "ซีเค มอเตอร์",
+      "latitude": 14.0660625,
+      "longitude": 101.8053619,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "car_repair"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/8508732635"
+    },
+    {
+      "id": "47ceb75b-791b-53a6-ba8d-86f2900ee37f",
+      "name": "ดินหวาน",
+      "latitude": 14.0660987,
+      "longitude": 101.8073965,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "restaurant"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/8477554775"
+    },
+    {
+      "id": "4415f5ce-09aa-5ec4-a888-4b4d256915bb",
+      "name": "ตรอ.​แปลงยาว",
+      "latitude": 13.5971549,
+      "longitude": 101.2486638,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "car_repair"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/6153271083"
+    },
+    {
+      "id": "98b56a01-c659-5de4-a492-db5537bda40c",
+      "name": "ตั้งหย่งปัง",
+      "latitude": 14.0664777,
+      "longitude": 101.8076687,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "restaurant"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/8477529505"
+    },
+    {
+      "id": "42200e5e-1dff-589c-9cc3-a87eff923e3e",
+      "name": "ตามสั่งตำแซ่บ",
+      "latitude": 14.0534434,
+      "longitude": 101.390861,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "restaurant"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/14087623913"
+    },
+    {
+      "id": "b3e1b4bd-68ff-5296-bbfc-c10776c9c31c",
+      "name": "ทีทำการผู้ใหญ่บ้าน หมู่ 4",
+      "latitude": 13.9683922,
+      "longitude": 101.5522523,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "cafe"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/7999239610"
+    },
+    {
+      "id": "47ef15b6-af35-5fc1-92a9-2ba903dd10aa",
+      "name": "บ.จ. ทรัพย์อุดมเจริญการยาง",
+      "latitude": 14.0570758,
+      "longitude": 101.7963583,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "car_repair"
+      ],
+      "phone": "+6637218477",
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/4609367591"
+    },
+    {
+      "id": "11ec3a7e-e924-5ec6-b866-5e12e8d2f554",
+      "name": "บางจาก",
+      "latitude": 14.0762268,
+      "longitude": 101.8174135,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "fuel"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/482937617"
+    },
+    {
+      "id": "37208f5d-0915-5b34-8c9e-0cee31e591d7",
+      "name": "บางจาก",
+      "latitude": 14.066408,
+      "longitude": 101.5279261,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "fuel"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/12729727296"
+    },
+    {
+      "id": "42343b9c-54c4-5793-b6c4-a1d82bab6373",
+      "name": "บางจาก",
+      "latitude": 13.6596709,
+      "longitude": 101.1258499,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "fuel"
+      ],
+      "phone": null,
+      "website": "https://www.bangchak.co.th/",
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/2640779921"
+    },
+    {
+      "id": "5724ddf8-758a-5384-884d-777dd96b2434",
+      "name": "บางจาก",
+      "latitude": 13.7161909,
+      "longitude": 101.4650183,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "fuel"
+      ],
+      "phone": null,
+      "website": "https://www.bangchak.co.th",
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/2629947426"
+    },
+    {
+      "id": "5bf6162b-85ea-547d-9403-ac52f0d63260",
+      "name": "บางจาก",
+      "latitude": 13.6634854,
+      "longitude": 101.3799685,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "fuel"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/12680417584"
+    },
+    {
+      "id": "5f38b48c-3197-5780-979f-94093e10f1c1",
+      "name": "บางจาก",
+      "latitude": 14.1154104,
+      "longitude": 101.3258529,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "fuel"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/12731945552"
+    },
+    {
+      "id": "653344fe-a90b-5ef5-b7ef-ec6b1a2aff6e",
+      "name": "บางจาก",
+      "latitude": 13.8351343,
+      "longitude": 102.0517678,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "fuel"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/1358892399"
+    },
+    {
+      "id": "780cb631-9d71-53ff-8891-42797400f3fb",
+      "name": "บางจาก",
+      "latitude": 13.8833688,
+      "longitude": 102.0034542,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "fuel"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/5549382253"
+    },
+    {
+      "id": "fc3d96d9-2c21-5e86-9572-664c691936a9",
+      "name": "บางจาก",
+      "latitude": 13.8236602,
+      "longitude": 102.0641471,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "fuel"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/1358892387"
+    },
+    {
+      "id": "c5a6756e-218b-5c35-a8b9-d0e42763d108",
+      "name": "บุศบาจิ้มจุ่ม",
+      "latitude": 14.0643625,
+      "longitude": 101.8061805,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "restaurant"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/8459869506"
+    },
+    {
+      "id": "cf4c6ecd-ffd5-5449-b877-a0d98a649665",
+      "name": "บ้านส้มตำ",
+      "latitude": 14.1768741,
+      "longitude": 101.3530191,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "restaurant"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/4158649383"
+    },
+    {
+      "id": "02220263-3fbb-5c3c-a301-07b2adebbafc",
+      "name": "ป.ต.ท.",
+      "latitude": 14.3721295,
+      "longitude": 101.863658,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "fuel"
+      ],
+      "phone": null,
+      "website": "http://www.pttplc.com",
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/568571544"
+    },
+    {
+      "id": "112811bd-4734-5701-9f66-8c533a3c0733",
+      "name": "ป.ต.ท.",
+      "latitude": 13.8011505,
+      "longitude": 102.1159096,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "fuel"
+      ],
+      "phone": null,
+      "website": "www.pttplc.com",
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/2643944277"
+    },
+    {
+      "id": "1eb3f17a-331d-5c04-9500-66887c4f67c0",
+      "name": "ป.ต.ท.",
+      "latitude": 13.9836253,
+      "longitude": 101.7758207,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "fuel"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/2647810829"
+    },
+    {
+      "id": "4f541a30-4b81-58ea-b979-7a1621681765",
+      "name": "ป.ต.ท.",
+      "latitude": 14.1496232,
+      "longitude": 101.2949775,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "fuel"
+      ],
+      "phone": null,
+      "website": "www.pttplc.com",
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/1653910065"
+    },
+    {
+      "id": "57e436df-1487-5990-8951-87b105fee9c2",
+      "name": "ป.ต.ท.",
+      "latitude": 13.7310053,
+      "longitude": 101.3337499,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "fuel"
+      ],
+      "phone": null,
+      "website": "www.pttplc.com",
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/2676347600"
+    },
+    {
+      "id": "8dceef49-92b0-55c0-b2f3-d3a83998389a",
+      "name": "ป.ต.ท.",
+      "latitude": 14.1347232,
+      "longitude": 101.3778319,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "fuel"
+      ],
+      "phone": null,
+      "website": "www.pttplc.com",
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/2676351774"
+    },
+    {
+      "id": "8f455302-c79b-5687-818b-96484e9619ae",
+      "name": "ป.ต.ท.",
+      "latitude": 14.1312237,
+      "longitude": 101.4455896,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "fuel"
+      ],
+      "phone": null,
+      "website": "www.pttplc.com",
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/1653910064"
+    },
+    {
+      "id": "9b8a36e2-4505-5a76-9bc6-5b72b08d00c7",
+      "name": "ป.ต.ท.",
+      "latitude": 13.7539334,
+      "longitude": 101.3697837,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "fuel"
+      ],
+      "phone": null,
+      "website": "www.pttplc.com",
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/2676347601"
+    },
+    {
+      "id": "b450e0b2-d992-5ea8-bf64-2373f99329a8",
+      "name": "ป.ต.ท.",
+      "latitude": 13.7381978,
+      "longitude": 101.3390802,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "fuel"
+      ],
+      "phone": null,
+      "website": "www.pttplc.com",
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/343658877"
+    },
+    {
+      "id": "b582ed7f-10ba-50ed-bc2e-331af87458ba",
+      "name": "ป.ต.ท.",
+      "latitude": 14.2164167,
+      "longitude": 101.9003287,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "fuel"
+      ],
+      "phone": null,
+      "website": "www.pttplc.com",
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/1609809877"
+    },
+    {
+      "id": "fc82d89e-537c-553f-8b9b-338fad9a01d0",
+      "name": "ป.ต.ท.",
+      "latitude": 13.9985526,
+      "longitude": 101.2230834,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "fuel"
+      ],
+      "phone": null,
+      "website": "www.pttplc.com",
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/667237945"
+    },
+    {
+      "id": "28aef29d-2d48-50a3-b12f-86cb6a2c0e7f",
+      "name": "ปตท.วัฒนาคาร์แคร์",
+      "latitude": 13.6618972,
+      "longitude": 101.1004015,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "fuel"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/1691604909"
+    },
+    {
+      "id": "1c63e3d1-ffd5-58d2-bc7b-36c97a8b3d8f",
+      "name": "ปั้มน้ำมัน​ ปตท.",
+      "latitude": 13.7701554,
+      "longitude": 102.0774767,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "fuel"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/4772543425"
+    },
+    {
+      "id": "f952fd23-bb8d-5f23-a263-5f1f4b6f3058",
+      "name": "ปั้ม​ ngv ปตท",
+      "latitude": 13.7712998,
+      "longitude": 102.0676794,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "fuel"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/4569640790"
+    },
+    {
+      "id": "dffadf04-1ee9-5ecd-9620-07a723f39096",
+      "name": "ปั๊มน้ำมัน Shell",
+      "latitude": 14.100824,
+      "longitude": 101.3308356,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "fuel"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/11391508067"
+    },
+    {
+      "id": "f45d7051-ccca-5972-af0c-b029f6a6b2fa",
+      "name": "ปั๊มปักธงชัย กรุ๊ป",
+      "latitude": 14.1742672,
+      "longitude": 101.3676714,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "fuel"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/12279996989"
+    },
+    {
+      "id": "6ce8ad7f-5dfb-537a-a839-8e430b68c8f2",
+      "name": "ปาป๊า คอฟฟี่ Papa Coffee",
+      "latitude": 14.0660493,
+      "longitude": 101.8069557,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "cafe"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/8518228355"
+    },
+    {
+      "id": "99f9e03a-f9ee-534b-bdc6-d1e84d010921",
+      "name": "ปาล์มสวีทโฮม",
+      "latitude": 13.9832206,
+      "longitude": 101.7681497,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "restaurant"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/13955478384"
+    },
+    {
+      "id": "f771b5c2-e1f6-5e05-ad93-9d6420ff8bed",
+      "name": "ผาเก็บตะวัน",
+      "latitude": 14.3182787,
+      "longitude": 101.9299268,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "nature"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/5449003442"
+    },
+    {
+      "id": "df7d47d4-6772-50f6-a8a9-237b4a28ea62",
+      "name": "พิพิธภัณฑสถานแห่งชาติปราจีนบุรี",
+      "latitude": 14.047306,
+      "longitude": 101.37467,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "attraction"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "แหล่งข้อมูลสาธารณะ",
+      "source_url": null
+    },
+    {
+      "id": "445fe8bd-ca9e-54a5-a9d7-63d3683d1075",
+      "name": "ภูวราคลินิก แพทย์แผนจีน",
+      "latitude": 13.9223507,
+      "longitude": 101.5707098,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "clinic"
+      ],
+      "phone": null,
+      "website": "https://www.facebook.com/share/18siXBQMVQ/?mibextid=wwXIfr",
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/13922863337"
+    },
+    {
+      "id": "cc5821ae-8462-56f9-86cc-316a549f0397",
+      "name": "ร้านชานมสด (กลอยกาแฟสด)",
+      "latitude": 14.0654859,
+      "longitude": 101.80591,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "cafe"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/13251429765"
+    },
+    {
+      "id": "f156f119-717b-5e52-b3b0-afe376817b44",
+      "name": "ร้านปลายจวัก",
+      "latitude": 13.9056677,
+      "longitude": 101.577423,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "restaurant"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/11425827233"
+    },
+    {
+      "id": "2298b6be-0d9e-56a4-86b5-2c7bdbcf8144",
+      "name": "ร้านป้าแอ๊ว อาหารตามสั่ง",
+      "latitude": 14.0648239,
+      "longitude": 101.8068303,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "restaurant"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/8482167812"
+    },
+    {
+      "id": "ef2d3acf-8f51-5898-8879-375c3dde52b5",
+      "name": "ร้านศรีนุชข้าวต้มกุ๊ย",
+      "latitude": 14.0708667,
+      "longitude": 101.8118901,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "restaurant"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/8526925620"
+    },
+    {
+      "id": "ec3960c0-181a-59d1-a2b8-f9ac2a475e71",
+      "name": "ร้านสะดวกซัก เป็นตาซัก",
+      "latitude": 14.0651128,
+      "longitude": 101.8072655,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "laundry"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/8477529506"
+    },
+    {
+      "id": "b366a714-90f7-5ae2-8772-2eefe58feca6",
+      "name": "ร้านอาหารจีน จุ้ว เชียง เก๋อ 304",
+      "latitude": 13.9173455,
+      "longitude": 101.5743212,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "restaurant"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/13706395637"
+    },
+    {
+      "id": "84bf4f8f-e2a5-55c3-875f-4517c64887e0",
+      "name": "ร้านอาโก",
+      "latitude": 13.9797738,
+      "longitude": 101.7528495,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "restaurant"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/7306657537"
+    },
+    {
+      "id": "eda2df2d-acfe-5b38-9a64-0af53b74d923",
+      "name": "ร้านเซาะกราว",
+      "latitude": 14.0649819,
+      "longitude": 101.8132738,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "restaurant"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/8477554771"
+    },
+    {
+      "id": "5840823b-ae42-5682-b789-978181d0e02a",
+      "name": "ร้านโกหยัด ข้าวต้มกุ๊ย",
+      "latitude": 14.0706968,
+      "longitude": 101.8116583,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "restaurant"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/8526925621"
+    },
+    {
+      "id": "8aa7749d-b373-562c-b645-e0eae858fcf9",
+      "name": "ลาบเป็ดยโส",
+      "latitude": 14.0656878,
+      "longitude": 101.8147554,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "restaurant"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/8477554772"
+    },
+    {
+      "id": "18ebb732-aaab-59a0-8fb1-62b342f659c5",
+      "name": "วัดกลางเมืองเก่า",
+      "latitude": 14.0118482,
+      "longitude": 101.7627344,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "temple"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/5243829913"
+    },
+    {
+      "id": "f9850dd3-7493-591b-98bd-4b01ed496180",
+      "name": "วัดทุ่งประพาส",
+      "latitude": 13.8992592,
+      "longitude": 101.6143262,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "temple"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/5158314453"
+    },
+    {
+      "id": "896cd178-6225-5ec1-a0a5-8020931b61ce",
+      "name": "วัดนาคํา",
+      "latitude": 14.0088755,
+      "longitude": 101.840367,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "temple"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/7041312967"
+    },
+    {
+      "id": "1143af8f-2f04-5329-a5c0-330b12250697",
+      "name": "วัดบรรพตรัตนารามเขาไม้แก้ว",
+      "latitude": 13.8252277,
+      "longitude": 101.7499988,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "temple"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/5182718404"
+    },
+    {
+      "id": "0b348092-7187-5ca0-9085-ddd02ae24c04",
+      "name": "วัดบางเตย",
+      "latitude": 13.9444126,
+      "longitude": 101.2025602,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "temple"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/1540257731"
+    },
+    {
+      "id": "4a43c3a8-9e58-5753-8c96-2436803ff4ec",
+      "name": "วัดบุญเกิด",
+      "latitude": 13.9035433,
+      "longitude": 101.6585215,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "temple"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/7041843507"
+    },
+    {
+      "id": "c5780467-a73e-56d7-8bc0-0d84ddefdb12",
+      "name": "วัดบุพพาราม",
+      "latitude": 13.9739517,
+      "longitude": 101.4828929,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "temple"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/1540257706"
+    },
+    {
+      "id": "94df458b-53db-533a-a4a3-b9436ae9ff5f",
+      "name": "วัดประทุมบูชา",
+      "latitude": 13.9745004,
+      "longitude": 101.5125597,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "temple"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/1540257704"
+    },
+    {
+      "id": "cf8ba483-0bbd-5728-85da-331741445566",
+      "name": "วัดปากแพรก",
+      "latitude": 13.9865695,
+      "longitude": 101.691119,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "temple"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/1540257698"
+    },
+    {
+      "id": "a44bc6b0-2a69-5bfc-b33c-e7ae0fb4fd60",
+      "name": "วัดพระปรง (วัดสมศรีราษฎร์)",
+      "latitude": 13.9516368,
+      "longitude": 101.9174443,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "temple"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/7040512147"
+    },
+    {
+      "id": "73c69c8d-29bc-5ae0-8211-e2dd59696dbb",
+      "name": "วัดมหาชัย",
+      "latitude": 14.0052274,
+      "longitude": 101.7553914,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "temple"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/1396724438"
+    },
+    {
+      "id": "a93e35df-87be-5ae5-94dc-bbb5bb7ed2b2",
+      "name": "วัดมูลเหล็ก",
+      "latitude": 14.0083281,
+      "longitude": 101.2378053,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "temple"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/1540257729"
+    },
+    {
+      "id": "cab5512d-cbf6-546e-befa-efa7dc8742d1",
+      "name": "วัดรัตนเนตตาราม ปราจีนบุรี",
+      "latitude": 14.0827922,
+      "longitude": 101.7639048,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "temple"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/11212240060"
+    },
+    {
+      "id": "1fdace1e-dd25-561d-84de-4155798d0d2e",
+      "name": "วัดศรีบุญเรือง",
+      "latitude": 14.0133706,
+      "longitude": 101.7712719,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "temple"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/5243829920"
+    },
+    {
+      "id": "8da1b98d-7f51-5ae4-a9bb-3ead69302929",
+      "name": "วัดศรีษะเมือง",
+      "latitude": 14.012102,
+      "longitude": 101.7662441,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "temple"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/5243829914"
+    },
+    {
+      "id": "03393763-0fa7-5774-b7a4-32a8e8168b49",
+      "name": "วัดสง่างาม",
+      "latitude": 14.0323442,
+      "longitude": 101.426333,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "temple"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/1540257718"
+    },
+    {
+      "id": "f943451f-3963-5847-ad48-714ad12071a1",
+      "name": "วัดสุทธิธรรม",
+      "latitude": 13.8972505,
+      "longitude": 101.592804,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "temple"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/7041843509"
+    },
+    {
+      "id": "cab6942b-b5b9-5bb7-97a4-4b7802f76298",
+      "name": "วัดหนองคล้า",
+      "latitude": 13.9050281,
+      "longitude": 101.6408768,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "temple"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/7041843508"
+    },
+    {
+      "id": "c2a94a08-8d67-5fed-a1cc-a7264df776bf",
+      "name": "วัดหนองนมหนู",
+      "latitude": 13.9205109,
+      "longitude": 101.6821986,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "temple"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/7041632208"
+    },
+    {
+      "id": "4c8f7e6b-7743-5ff0-85ab-7ae2388521fc",
+      "name": "วัดหนองนาใน",
+      "latitude": 13.9677871,
+      "longitude": 101.9340728,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "temple"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/7040512150"
+    },
+    {
+      "id": "f6421c45-71ff-51ff-9b31-efcfadcfb9d5",
+      "name": "วัดหนองโดน",
+      "latitude": 13.9518671,
+      "longitude": 101.9018357,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "temple"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/7040512146"
+    },
+    {
+      "id": "a31aefc3-a5d4-5c88-8f3f-77f0c1f5e52c",
+      "name": "วัดหนองไผ่ล้อม",
+      "latitude": 13.9614585,
+      "longitude": 101.8702301,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "temple"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/6506145033"
+    },
+    {
+      "id": "c71c7249-ac99-572b-925a-1b918df906ef",
+      "name": "วัดหลวงบดินทร์เดชา (วัดสิงหเสนี)",
+      "latitude": 14.0043965,
+      "longitude": 101.7610636,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "temple"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/5243829879"
+    },
+    {
+      "id": "beac601a-caad-598f-b8c1-bd7d8d159086",
+      "name": "วัดอัมพวัน",
+      "latitude": 14.0247993,
+      "longitude": 101.7896359,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "temple"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/5243832947"
+    },
+    {
+      "id": "4288bb41-2552-5b57-9a2e-00620a883091",
+      "name": "วัดโคกอุดม",
+      "latitude": 14.064465,
+      "longitude": 101.8012397,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "temple"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/5243832992"
+    },
+    {
+      "id": "8c88fcfe-d07f-52b6-994a-07fab3289a62",
+      "name": "วัดโยธาราษฎร์ศรัทธาธรรม",
+      "latitude": 14.0645523,
+      "longitude": 101.3983604,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "temple"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/1351539885"
+    },
+    {
+      "id": "06571797-3932-5888-95e0-3a76b1ae0fee",
+      "name": "วัดใหม่เชตวัน",
+      "latitude": 13.8056072,
+      "longitude": 101.7675822,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "temple"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/7041632206"
+    },
+    {
+      "id": "0d366db7-59fa-502f-8164-4a235bcd9f96",
+      "name": "ศาลาประชาคม หมู่ 4",
+      "latitude": 13.9679526,
+      "longitude": 101.552187,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "park"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/7999239609"
+    },
+    {
+      "id": "3f3788b5-8473-5e5c-8901-c37c2be19088",
+      "name": "ศาสลาประชาคม หมู่7",
+      "latitude": 13.9760665,
+      "longitude": 101.5979282,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "park"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/7999051156"
+    },
+    {
+      "id": "a9413a98-6df8-5c11-9dd7-397b4357613e",
+      "name": "สถานีบริการแก๊สแอลพีจี (บ.ลลิตาภัทรา จำกัด)",
+      "latitude": 13.8760631,
+      "longitude": 101.5629169,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "fuel"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/4036101216"
+    },
+    {
+      "id": "2bbf4032-2bf3-5a84-89b8-7d530e0ecb7e",
+      "name": "สวนปราจีนวนารมย์",
+      "latitude": 14.0596956,
+      "longitude": 101.3711593,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "park"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/1351872829"
+    },
+    {
+      "id": "b5faca61-4b29-5377-b892-453db7af25b1",
+      "name": "สวนเฉลิมพระเกียรติ 70 พรรษา มหาราชินี",
+      "latitude": 14.0658622,
+      "longitude": 101.5178232,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "park"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/1311218809"
+    },
+    {
+      "id": "b91bca40-1ef2-500c-9a5e-04f85896dfee",
+      "name": "สว่างโอสถ",
+      "latitude": 13.5544969,
+      "longitude": 101.1230238,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "pharmacy"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/4791106122"
+    },
+    {
+      "id": "c2a69572-7810-5ae5-bc25-b01cc6811da6",
+      "name": "สเต็กซอย 4 วังสำราญ",
+      "latitude": 13.9093811,
+      "longitude": 101.5784591,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "restaurant"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/4036092969"
+    },
+    {
+      "id": "3e54f146-a064-5eee-ac9b-b03bf4485c14",
+      "name": "สเต็กบ้านน้ำพริก",
+      "latitude": 14.0644395,
+      "longitude": 101.8100869,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "restaurant"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/8477554773"
+    },
+    {
+      "id": "50e9054a-5992-50eb-96a8-031879bc9c1f",
+      "name": "หมู่กุฎิปฏิบัติธรรมพระประจำ (อาศรมปริวาส)",
+      "latitude": 14.0121441,
+      "longitude": 101.9141513,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "temple"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/7040512151"
+    },
+    {
+      "id": "0a37ad44-fa09-5f27-95a1-86629707ef7d",
+      "name": "หลวงพ่อสิงห์",
+      "latitude": 14.1605492,
+      "longitude": 101.3472801,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "temple"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/518190349"
+    },
+    {
+      "id": "d632aacb-1c26-57da-9979-198951a6900f",
+      "name": "อาคารโรงอาหาร 1",
+      "latitude": 14.1598677,
+      "longitude": 101.3452317,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "restaurant"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/518190355"
+    },
+    {
+      "id": "b2d13a4a-c60e-5d45-abaf-81717a090106",
+      "name": "อาคารโรงอาหาร 2",
+      "latitude": 14.1602046,
+      "longitude": 101.3453349,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "restaurant"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/518190348"
+    },
+    {
+      "id": "801410d8-00e5-58e9-b77e-f681bbdf6f5c",
+      "name": "อาหารเจ ซั่นสี่",
+      "latitude": 14.05236,
+      "longitude": 101.36833,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "vegetarian"
+      ],
+      "phone": "['0821389588', '0903853130']",
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "แหล่งข้อมูลสาธารณะ",
+      "source_url": null
+    },
+    {
+      "id": "70b26f43-00c2-5677-8d3a-c12aa6e4c610",
+      "name": "อุทยาน กบินทร์ เฉลิมราชย์",
+      "latitude": 13.9869401,
+      "longitude": 101.7498873,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "park"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/8527903036"
+    },
+    {
+      "id": "eb040772-37bb-5727-b68b-d8ed595c5f5a",
+      "name": "เกศรา ส้มตำรสเด็ด กบินทร์บุรี",
+      "latitude": 13.9909837,
+      "longitude": 101.7225505,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "restaurant"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/6982014185"
+    },
+    {
+      "id": "468d4a8b-739e-5eaf-8ac1-0a54f39bbc36",
+      "name": "เชลล์",
+      "latitude": 13.7766365,
+      "longitude": 101.8892423,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "fuel"
+      ],
+      "phone": null,
+      "website": "https://www.shell.co.th/",
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/2151397749"
+    },
+    {
+      "id": "716fc8ce-244f-5bff-9c30-bc527b977f1d",
+      "name": "เชลล์",
+      "latitude": 14.0537919,
+      "longitude": 101.3691618,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "fuel"
+      ],
+      "phone": null,
+      "website": "https://www.shell.co.th/",
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/2676351775"
+    },
+    {
+      "id": "f6e585dd-55d5-5968-9795-2d0bd342e823",
+      "name": "เชลล์",
+      "latitude": 13.6836272,
+      "longitude": 101.4123885,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "fuel"
+      ],
+      "phone": null,
+      "website": "https://www.shell.co.th/",
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/1609815251"
+    },
+    {
+      "id": "57595b16-d24d-5f41-9cf7-8ec261642886",
+      "name": "เมืองโบราณศรีมโหสถ",
+      "latitude": 13.895284,
+      "longitude": 101.413708,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "attraction"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "แหล่งข้อมูลสาธารณะ",
+      "source_url": null
+    },
+    {
+      "id": "0e9a4eee-2720-52ac-bdff-653add9c3e29",
+      "name": "เอสโซ่",
+      "latitude": 14.0535262,
+      "longitude": 101.3671705,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "fuel"
+      ],
+      "phone": null,
+      "website": "https://www.esso.co.th/",
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/2676351773"
+    },
+    {
+      "id": "da0b3a39-0adc-55cf-bd2c-0354ac04cc72",
+      "name": "เอสโซ่",
+      "latitude": 13.6732551,
+      "longitude": 102.0791544,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "fuel"
+      ],
+      "phone": null,
+      "website": "https://www.esso.co.th/",
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/2127765598"
+    },
+    {
+      "id": "75bf2dcd-8ed1-5fd3-988c-7a28b97cd130",
+      "name": "แมนหมูกระทะ",
+      "latitude": 14.0629925,
+      "longitude": 101.8057482,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "restaurant"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/8511009142"
+    },
+    {
+      "id": "9384fcc0-ff09-5b6c-8597-7ab3dbef6a57",
+      "name": "โกเดชพิศดาร",
+      "latitude": 14.0061739,
+      "longitude": 101.7022325,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "restaurant"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/7008336988"
+    },
+    {
+      "id": "895f1f1e-993f-557c-b5c8-9fc4cae9cb16",
+      "name": "โบราณสถานสระมรกต",
+      "latitude": 13.863657,
+      "longitude": 101.424075,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "attraction"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "แหล่งข้อมูลสาธารณะ",
+      "source_url": null
+    },
+    {
+      "id": "bfc4ec85-1da8-5e1b-9ce4-db3c3f1205bd",
+      "name": "โรงน้ำแข็ง",
+      "latitude": 13.975032,
+      "longitude": 101.509933,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "cafe"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/7999239632"
+    },
+    {
+      "id": "e6beb510-b9ad-580b-8e9e-d87444208800",
+      "name": "โรงพยาบาลส่งเสริมสุขภาพตำบล เมืองเก่า",
+      "latitude": 14.0208777,
+      "longitude": 101.7799612,
+      "address": null,
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "clinic"
+      ],
+      "phone": null,
+      "website": null,
+      "lifecycle": "unknown",
+      "source": "place_platform_v2",
+      "source_name": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/7041312966"
+    }
+  ]
+}

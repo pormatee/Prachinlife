@@ -7,6 +7,19 @@
     return typeof value === "string" ? value.trim() : "";
   }
 
+  function safeHttpUrl(value) {
+    let url = text(value);
+    if (!url) return "";
+    if (!/^[a-z][a-z0-9+.-]*:/i.test(url)) url = `https://${url}`;
+    return /^https?:\/\//i.test(url) ? url : "";
+  }
+
+  function safeVipUrl(value) {
+    const url = text(value);
+    if (url.startsWith("/") && !url.startsWith("//")) return url;
+    return safeHttpUrl(url);
+  }
+
   function normalizeCategories(value) {
     if (!Array.isArray(value)) return [];
     return [...new Set(
@@ -97,7 +110,7 @@
       subtype: primaryType,
 
       phone: text(place.phone),
-      website: text(place.website),
+      website: safeHttpUrl(place.website),
       opening_hours: text(place.opening_hours),
       description: text(place.description),
       real_image: text(place.real_image),
@@ -120,13 +133,13 @@
       source_name: text(place.source_name),
       source_url: text(place.source_url),
       external_links: Array.isArray(place.external_links) ? place.external_links : [],
-      prachinlife_page_url: text(place.prachinlife_page_url),
+      prachinlife_page_url: safeVipUrl(place.prachinlife_page_url),
       data_version: "v2",
       metadata: {
         source_name: text(place.source_name),
         source_url: text(place.source_url),
         external_links: Array.isArray(place.external_links) ? place.external_links : [],
-        prachinlife_page_url: text(place.prachinlife_page_url),
+        prachinlife_page_url: safeVipUrl(place.prachinlife_page_url),
         opening_hours: text(place.opening_hours),
         description: text(place.description),
         real_image: text(place.real_image),

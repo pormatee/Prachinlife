@@ -1,0 +1,114 @@
+{
+  "place_count": 220,
+  "core": {
+    "name": 220,
+    "coordinates": 220,
+    "province": 220,
+    "categories": 220,
+    "source_name": 220,
+    "source_url": 216
+  },
+  "detail_fields": {
+    "district": {
+      "present": 0,
+      "missing": 220,
+      "coverage_percent": 0.0
+    },
+    "subdistrict": {
+      "present": 0,
+      "missing": 220,
+      "coverage_percent": 0.0
+    },
+    "area": {
+      "present": 0,
+      "missing": 220,
+      "coverage_percent": 0.0
+    },
+    "opening_hours": {
+      "present": 0,
+      "missing": 220,
+      "coverage_percent": 0.0
+    },
+    "phone": {
+      "present": 2,
+      "missing": 218,
+      "coverage_percent": 0.9
+    },
+    "website": {
+      "present": 24,
+      "missing": 196,
+      "coverage_percent": 10.9
+    },
+    "real_image": {
+      "present": 0,
+      "missing": 220,
+      "coverage_percent": 0.0
+    },
+    "description": {
+      "present": 0,
+      "missing": 220,
+      "coverage_percent": 0.0
+    }
+  },
+  "admin_priority": [
+    {
+      "field": "area",
+      "missing": 220,
+      "coverage_percent": 0.0,
+      "priority": "critical"
+    },
+    {
+      "field": "district",
+      "missing": 220,
+      "coverage_percent": 0.0,
+      "priority": "critical"
+    },
+    {
+      "field": "real_image",
+      "missing": 220,
+      "coverage_percent": 0.0,
+      "priority": "critical"
+    },
+    {
+      "field": "subdistrict",
+      "missing": 220,
+      "coverage_percent": 0.0,
+      "priority": "critical"
+    },
+    {
+      "field": "opening_hours",
+      "missing": 220,
+      "coverage_percent": 0.0,
+      "priority": "high"
+    },
+    {
+      "field": "phone",
+      "missing": 218,
+      "coverage_percent": 0.9,
+      "priority": "high"
+    },
+    {
+      "field": "website",
+      "missing": 196,
+      "coverage_percent": 10.9,
+      "priority": "high"
+    },
+    {
+      "field": "description",
+      "missing": 220,
+      "coverage_percent": 0.0,
+      "priority": "medium"
+    }
+  ],
+  "evidence_inventory": {
+    "canonical_name": 920,
+    "categories": 920,
+    "existence": 920,
+    "location": 920,
+    "phone": 218,
+    "province": 920,
+    "website": 130
+  },
+  "central_db_sha256": "b55ee801ee0720299cd15b86b5bfa3505fbd02630d6ecc36e0a4ecdeea07a1c3",
+  "mode": "read_only_audit"
+}

@@ -1,0 +1,50 @@
+[
+  {
+    "title": "พิพิธภัณฑสถานแห่งชาติปราจีนบุรี",
+    "evidence_status": "official_confirmed",
+    "province": "ปราจีนบุรี",
+    "district": "เมืองปราจีนบุรี",
+    "subdistrict": "หน้าเมือง",
+    "category": "พิพิธภัณฑ์ / ประวัติศาสตร์",
+    "official_source": "กรมศิลปากร",
+    "evidence_url": "https://www.finearts.go.th/prachinburimuseum/contact",
+    "coordinates": null,
+    "ready_for_location_resolution": true
+  },
+  {
+    "title": "โบราณสถานสระมรกต",
+    "evidence_status": "official_confirmed",
+    "province": "ปราจีนบุรี",
+    "district": "ศรีมโหสถ",
+    "subdistrict": "โคกไทย",
+    "category": "โบราณสถาน / ประวัติศาสตร์",
+    "official_source": "กรมศิลปากร",
+    "evidence_url": "https://finearts.go.th/prachinburimuseum/view/47629",
+    "coordinates": null,
+    "ready_for_location_resolution": true
+  },
+  {
+    "title": "เมืองโบราณศรีมโหสถ",
+    "evidence_status": "official_confirmed",
+    "province": "ปราจีนบุรี",
+    "district": "ศรีมโหสถ",
+    "subdistrict": null,
+    "category": "เมืองโบราณ / ประวัติศาสตร์",
+    "official_source": "กรมศิลปากร",
+    "evidence_url": "https://www.finearts.go.th/prachinburimuseum/view/7942",
+    "coordinates": null,
+    "ready_for_location_resolution": true
+  },
+  {
+    "title": "แก่งหินเพิง",
+    "evidence_status": "official_confirmed",
+    "province": "ปราจีนบุรี",
+    "district": "นาดี",
+    "subdistrict": "สำพันตา",
+    "category": "ธรรมชาติ / กิจกรรมกลางแจ้ง",
+    "official_source": "สำนักงานประชาสัมพันธ์จังหวัดปราจีนบุรี",
+    "evidence_url": "https://prachinburi.prd.go.th/th/content/category/detail/id/436/iid/421796",
+    "coordinates": null,
+    "ready_for_location_resolution": true
+  }
+]

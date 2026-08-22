@@ -1,0 +1,62 @@
+[
+  {
+    "id": "web-7ca1d6ae3a307163",
+    "title": "ร้านอาหารเจสุขใจ",
+    "content_type": "vegetarian",
+    "food_types": [
+      "vegetarian"
+    ],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 14.0501,
+      "longitude": 101.3701
+    },
+    "metadata": {
+      "display_tier": "named_candidate",
+      "show_in_primary_directory": false,
+      "needs_review": true,
+      "review_reason": "web_discovery_needs_verification",
+      "evidence_reason": "web_text_strong_vegetarian_signal",
+      "diet_vegetarian": null,
+      "diet_vegan": null,
+      "web_snippet": "อำเภอเมืองปราจีนบุรี ปราจีนบุรี",
+      "location_needs_review": false
+    },
+    "source": "Google Places",
+    "source_url": "https://maps.google.com/?cid=mock001",
+    "collected_at": "2026-08-20T10:20:07.099766+00:00"
+  },
+  {
+    "id": "web-557fb9d12645865f",
+    "title": "Green Vegetarian Cafe",
+    "content_type": "vegetarian",
+    "food_types": [
+      "vegetarian"
+    ],
+    "location": {
+      "province": "ปราจีนบุรี",
+      "district": null,
+      "subdistrict": null,
+      "country": "TH",
+      "latitude": 14.0612,
+      "longitude": 101.3811
+    },
+    "metadata": {
+      "display_tier": "named_candidate",
+      "show_in_primary_directory": false,
+      "needs_review": true,
+      "review_reason": "web_discovery_needs_verification",
+      "evidence_reason": "web_text_strong_vegetarian_signal",
+      "diet_vegetarian": null,
+      "diet_vegan": null,
+      "web_snippet": "ปราจีนบุรี",
+      "location_needs_review": false
+    },
+    "source": "Google Places",
+    "source_url": "https://maps.google.com/?cid=mock002",
+    "collected_at": "2026-08-20T10:20:07.099869+00:00"
+  }
+]

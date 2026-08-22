@@ -1,0 +1,180 @@
+{
+  "policy_version": "fresh-comparative-release-gate-v1",
+  "status": "PASS",
+  "supersedes": "phase2h_comparative_beta_ready.json",
+  "supersede_reason": "current staged overlay preserves full V1 coverage while overlaying eligible canonical V2 core identity",
+  "checks_passed": 27,
+  "checks_total": 27,
+  "eligible_place_count": 20,
+  "overlay_place_count": 20,
+  "total_overlay_records": 20,
+  "files": {
+    "prachinlife_index.json": {
+      "v1_count": 71,
+      "staged_count": 71,
+      "overlay_records": 7,
+      "fallback_records": 64
+    },
+    "vegetarian_index.json": {
+      "v1_count": 700,
+      "staged_count": 700,
+      "overlay_records": 0,
+      "fallback_records": 700
+    },
+    "go_index.json": {
+      "v1_count": 44,
+      "staged_count": 44,
+      "overlay_records": 8,
+      "fallback_records": 36
+    },
+    "service_index.json": {
+      "v1_count": 121,
+      "staged_count": 121,
+      "overlay_records": 5,
+      "fallback_records": 116
+    }
+  },
+  "blockers": [],
+  "overlay_core_mismatches": [],
+  "fallback_mutations": [],
+  "rollback_verified": true,
+  "production_switch": "DISABLED",
+  "public_user_web_switched": false,
+  "checks": [
+    {
+      "name": "manifest_overlay_mode",
+      "ok": true,
+      "detail": "v2_overlay_with_v1_fallback"
+    },
+    {
+      "name": "manifest_eligible_overlay_equal",
+      "ok": true,
+      "detail": "eligible=20, overlay=20"
+    },
+    {
+      "name": "manifest_unmapped_zero",
+      "ok": true,
+      "detail": "unmapped=0"
+    },
+    {
+      "name": "manifest_production_unchanged",
+      "ok": true,
+      "detail": "production_unchanged must be true"
+    },
+    {
+      "name": "manifest_public_switch_disabled",
+      "ok": true,
+      "detail": "public_user_web_switched must be false"
+    },
+    {
+      "name": "database_integrity",
+      "ok": true,
+      "detail": "integrity=ok"
+    },
+    {
+      "name": "database_foreign_keys",
+      "ok": true,
+      "detail": "foreign_key_errors=0"
+    },
+    {
+      "name": "prachinlife_index.json:record_count_preserved",
+      "ok": true,
+      "detail": "v1=71, staged=71"
+    },
+    {
+      "name": "prachinlife_index.json:id_set_preserved",
+      "ok": true,
+      "detail": "v1_ids=71, staged_ids=71"
+    },
+    {
+      "name": "vegetarian_index.json:record_count_preserved",
+      "ok": true,
+      "detail": "v1=700, staged=700"
+    },
+    {
+      "name": "vegetarian_index.json:id_set_preserved",
+      "ok": true,
+      "detail": "v1_ids=700, staged_ids=700"
+    },
+    {
+      "name": "go_index.json:record_count_preserved",
+      "ok": true,
+      "detail": "v1=44, staged=44"
+    },
+    {
+      "name": "go_index.json:id_set_preserved",
+      "ok": true,
+      "detail": "v1_ids=44, staged_ids=44"
+    },
+    {
+      "name": "service_index.json:record_count_preserved",
+      "ok": true,
+      "detail": "v1=121, staged=121"
+    },
+    {
+      "name": "service_index.json:id_set_preserved",
+      "ok": true,
+      "detail": "v1_ids=121, staged_ids=121"
+    },
+    {
+      "name": "overlay_unique_place_count",
+      "ok": true,
+      "detail": "unique_overlay_places=20, manifest=20"
+    },
+    {
+      "name": "overlay_core_identity_matches_v2",
+      "ok": true,
+      "detail": "mismatches=0"
+    },
+    {
+      "name": "fallback_rows_unchanged",
+      "ok": true,
+      "detail": "mutations=0"
+    },
+    {
+      "name": "preview_opt_in_query",
+      "ok": true,
+      "detail": "?v2preview=1 opt-in required"
+    },
+    {
+      "name": "preview_separate_staging_root",
+      "ok": true,
+      "detail": "separate staging root required"
+    },
+    {
+      "name": "search_contract_present",
+      "ok": true,
+      "detail": "search binding + execution markers"
+    },
+    {
+      "name": "near_me_distance_contract_present",
+      "ok": true,
+      "detail": "distance + Near Me functions"
+    },
+    {
+      "name": "vegetarian_near_me_contract_present",
+      "ok": true,
+      "detail": "vegetarian Near Me"
+    },
+    {
+      "name": "go_near_me_contract_present",
+      "ok": true,
+      "detail": "go Near Me"
+    },
+    {
+      "name": "service_near_me_contract_present",
+      "ok": true,
+      "detail": "service Near Me"
+    },
+    {
+      "name": "category_shape_preserved",
+      "ok": true,
+      "detail": "bad_rows=0"
+    },
+    {
+      "name": "rollback_default_v1_paths_present",
+      "ok": true,
+      "detail": "remove ?v2preview=1 to return to V1 data paths"
+    }
+  ]
+}

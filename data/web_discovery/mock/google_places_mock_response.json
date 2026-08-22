@@ -1,0 +1,37 @@
+{
+  "places": [
+    {
+      "id": "mock-google-place-001",
+      "displayName": {
+        "text": "ร้านอาหารเจสุขใจ"
+      },
+      "formattedAddress": "อำเภอเมืองปราจีนบุรี ปราจีนบุรี",
+      "location": {
+        "latitude": 14.0501,
+        "longitude": 101.3701
+      },
+      "googleMapsUri": "https://maps.google.com/?cid=mock001",
+      "businessStatus": "OPERATIONAL",
+      "types": [
+        "restaurant"
+      ]
+    },
+    {
+      "id": "mock-google-place-002",
+      "displayName": {
+        "text": "Green Vegetarian Cafe"
+      },
+      "formattedAddress": "ปราจีนบุรี",
+      "location": {
+        "latitude": 14.0612,
+        "longitude": 101.3811
+      },
+      "googleMapsUri": "https://maps.google.com/?cid=mock002",
+      "businessStatus": "OPERATIONAL",
+      "types": [
+        "cafe",
+        "restaurant"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,296 @@
+[
+  {
+    "title": "พิพิธภัณฑ์พื้นบ้านวัดบางแตน",
+    "previous_status": "unresolved",
+    "matches": []
+  },
+  {
+    "title": "ค้างคาวแม่ไก่วัดบางกระเบา",
+    "previous_status": "unresolved",
+    "matches": []
+  },
+  {
+    "title": "น้ำตกธารรัตนา",
+    "previous_status": "unresolved",
+    "matches": []
+  },
+  {
+    "title": "สวนพันธุ์ไผ่",
+    "previous_status": "unresolved",
+    "matches": []
+  },
+  {
+    "title": "เขื่อนจักรพงษ์",
+    "previous_status": "unresolved",
+    "matches": []
+  },
+  {
+    "title": "น้ำตกเขาอีโต้",
+    "previous_status": "unresolved",
+    "matches": []
+  },
+  {
+    "title": "วัดโบสถ์",
+    "previous_status": "reject_match",
+    "matches": [
+      {
+        "query": "วัดโบสถ์, Thailand",
+        "osm_type": "relation",
+        "osm_id": 18994274,
+        "display_name": "อำเภอวัดโบสถ์, จังหวัดพิษณุโลก, 65160, ประเทศไทย",
+        "latitude": 17.16,
+        "longitude": 100.3950187,
+        "category": "boundary",
+        "type": "administrative",
+        "importance": 0.24000999999999997,
+        "address": {
+          "county": "อำเภอวัดโบสถ์",
+          "province": "จังหวัดพิษณุโลก",
+          "ISO3166-2-lvl4": "TH-65",
+          "postcode": "65160",
+          "country": "ประเทศไทย",
+          "country_code": "th"
+        }
+      },
+      {
+        "query": "วัดโบสถ์, Thailand",
+        "osm_type": "node",
+        "osm_id": 5211393772,
+        "display_name": "วัดโบสถ์, อำเภอวัดโบสถ์, จังหวัดพิษณุโลก, 65160, ประเทศไทย",
+        "latitude": 16.9950998,
+        "longitude": 100.3128877,
+        "category": "place",
+        "type": "town",
+        "importance": 0.16004000076295108,
+        "address": {
+          "town": "วัดโบสถ์",
+          "county": "อำเภอวัดโบสถ์",
+          "province": "จังหวัดพิษณุโลก",
+          "ISO3166-2-lvl4": "TH-65",
+          "postcode": "65160",
+          "country": "ประเทศไทย",
+          "country_code": "th"
+        }
+      },
+      {
+        "query": "วัดโบสถ์, Thailand",
+        "osm_type": "node",
+        "osm_id": 1311506899,
+        "display_name": "วัดโบสถ์, หัวถนน, อำเภอพนัสนิคม, จังหวัดชลบุรี, 20140, ประเทศไทย",
+        "latitude": 13.5006135,
+        "longitude": 101.1610258,
+        "category": "place",
+        "type": "village",
+        "importance": 0.14671666819256882,
+        "address": {
+          "village": "วัดโบสถ์",
+          "municipality": "หัวถนน",
+          "county": "อำเภอพนัสนิคม",
+          "province": "จังหวัดชลบุรี",
+          "ISO3166-2-lvl4": "TH-20",
+          "postcode": "20140",
+          "country": "ประเทศไทย",
+          "country_code": "th"
+        }
+      }
+    ]
+  },
+  {
+    "title": "พิพิธภัณฑสถานแห่งชาติปราจีนบุรี",
+    "previous_status": "unresolved",
+    "matches": []
+  },
+  {
+    "title": "วัดแก้วพิจิตร",
+    "previous_status": "reject_match",
+    "matches": [
+      {
+        "query": "วัดแก้วพิจิตร, Thailand",
+        "osm_type": "way",
+        "osm_id": 505164569,
+        "display_name": "วัดเกาะแก้ว, พจ.3020, บ้านเกาะแก้ว, ไผ่รอบ, อำเภอโพธิ์ประทับช้าง, จังหวัดพิจิตร, ประเทศไทย",
+        "latitude": 16.3725433,
+        "longitude": 100.1777327,
+        "category": "amenity",
+        "type": "place_of_worship",
+        "importance": 5.000152590214416e-05,
+        "address": {
+          "amenity": "วัดเกาะแก้ว",
+          "road": "พจ.3020",
+          "village": "บ้านเกาะแก้ว",
+          "municipality": "ไผ่รอบ",
+          "county": "อำเภอโพธิ์ประทับช้าง",
+          "province": "จังหวัดพิจิตร",
+          "ISO3166-2-lvl4": "TH-66",
+          "country": "ประเทศไทย",
+          "country_code": "th"
+        }
+      },
+      {
+        "query": "วัดแก้วพิจิตร, Thailand",
+        "osm_type": "node",
+        "osm_id": 1189556614,
+        "display_name": "วัดเกาะแก้ว, 115, บ้านทุ่งสำราญ, อำเภอสากเหล็ก, จังหวัดพิจิตร, 66160, ประเทศไทย",
+        "latitude": 16.4877265,
+        "longitude": 100.4483544,
+        "category": "amenity",
+        "type": "place_of_worship",
+        "importance": 4.0000762951049326e-05,
+        "address": {
+          "amenity": "วัดเกาะแก้ว",
+          "road": "115",
+          "village": "บ้านทุ่งสำราญ",
+          "county": "อำเภอสากเหล็ก",
+          "province": "จังหวัดพิจิตร",
+          "ISO3166-2-lvl4": "TH-66",
+          "postcode": "66160",
+          "country": "ประเทศไทย",
+          "country_code": "th"
+        }
+      }
+    ]
+  },
+  {
+    "title": "น้ำตกส้มป่อย",
+    "previous_status": "unresolved",
+    "matches": []
+  },
+  {
+    "title": "น้ำตกตะคร้อ",
+    "previous_status": "reject_match",
+    "matches": [
+      {
+        "query": "น้ำตกตะคร้อ, Thailand",
+        "osm_type": "node",
+        "osm_id": 13566591628,
+        "display_name": "น้ำตกตะคร้อ, อำเภอไพศาลี, จังหวัดนครสวรรค์, 60220, ประเทศไทย",
+        "latitude": 15.5053463,
+        "longitude": 100.7697361,
+        "category": "waterway",
+        "type": "waterfall",
+        "importance": 0.1333433333333333,
+        "address": {
+          "waterfall": "น้ำตกตะคร้อ",
+          "county": "อำเภอไพศาลี",
+          "province": "จังหวัดนครสวรรค์",
+          "ISO3166-2-lvl4": "TH-60",
+          "postcode": "60220",
+          "country": "ประเทศไทย",
+          "country_code": "th"
+        }
+      }
+    ]
+  },
+  {
+    "title": "น้ำตกสลัดได",
+    "previous_status": "unresolved",
+    "matches": []
+  },
+  {
+    "title": "แก่งหินเพิง",
+    "previous_status": "unresolved",
+    "matches": []
+  },
+  {
+    "title": "อุทยานแห่งชาติทับลาน",
+    "previous_status": "review",
+    "matches": [
+      {
+        "query": "อุทยานแห่งชาติทับลาน, Thailand",
+        "osm_type": "relation",
+        "osm_id": 4537981,
+        "display_name": "อุทยานแห่งชาติทับลาน, จังหวัดนครราชสีมา, ประเทศไทย",
+        "latitude": 14.3471964,
+        "longitude": 102.0154674,
+        "category": "boundary",
+        "type": "national_park",
+        "importance": 0.3626429788867404,
+        "address": {
+          "national_park": "อุทยานแห่งชาติทับลาน",
+          "province": "จังหวัดนครราชสีมา",
+          "ISO3166-2-lvl4": "TH-30",
+          "country": "ประเทศไทย",
+          "country_code": "th"
+        }
+      }
+    ]
+  },
+  {
+    "title": "เมืองโบราณศรีมโหสถ",
+    "previous_status": "unresolved",
+    "matches": [
+      {
+        "query": "ศรีมโหสถ, จังหวัดปราจีนบุรี, ประเทศไทย",
+        "osm_type": "relation",
+        "osm_id": 18959665,
+        "display_name": "อำเภอศรีมโหสถ, จังหวัดปราจีนบุรี, ประเทศไทย",
+        "latitude": 13.8678266,
+        "longitude": 101.4118897,
+        "category": "boundary",
+        "type": "administrative",
+        "importance": 0.25352702198722055,
+        "address": {
+          "county": "อำเภอศรีมโหสถ",
+          "province": "จังหวัดปราจีนบุรี",
+          "ISO3166-2-lvl4": "TH-25",
+          "country": "ประเทศไทย",
+          "country_code": "th"
+        }
+      },
+      {
+        "query": "ศรีมโหสถ, จังหวัดปราจีนบุรี, ประเทศไทย",
+        "osm_type": "node",
+        "osm_id": 3504743760,
+        "display_name": "โคกปีบ, อำเภอศรีมโหสถ, จังหวัดปราจีนบุรี, ประเทศไทย",
+        "latitude": 13.8899824,
+        "longitude": 101.4006752,
+        "category": "place",
+        "type": "town",
+        "importance": 0.16005000152590218,
+        "address": {
+          "town": "โคกปีบ",
+          "county": "อำเภอศรีมโหสถ",
+          "province": "จังหวัดปราจีนบุรี",
+          "ISO3166-2-lvl4": "TH-25",
+          "country": "ประเทศไทย",
+          "country_code": "th"
+        }
+      }
+    ]
+  },
+  {
+    "title": "โบราณสถานสระมรกต",
+    "previous_status": "unresolved",
+    "matches": []
+  },
+  {
+    "title": "ต้นโพธิ์ศรีมหาโพธิ",
+    "previous_status": "reject_match",
+    "matches": [
+      {
+        "query": "ต้นโพธิ์ศรีมหาโพธิ, จังหวัดปราจีนบุรี, ประเทศไทย",
+        "osm_type": "node",
+        "osm_id": 14024206013,
+        "display_name": "บ้านต้นตาล, อำเภอศรีมหาโพธิ, จังหวัดปราจีนบุรี, ประเทศไทย",
+        "latitude": 13.9776628,
+        "longitude": 101.435003,
+        "category": "place",
+        "type": "village",
+        "importance": 0.14671666819256882,
+        "address": {
+          "village": "บ้านต้นตาล",
+          "county": "อำเภอศรีมหาโพธิ",
+          "province": "จังหวัดปราจีนบุรี",
+          "ISO3166-2-lvl4": "TH-25",
+          "country": "ประเทศไทย",
+          "country_code": "th"
+        }
+      }
+    ]
+  },
+  {
+    "title": "พิพิธภัณฑ์อยู่สุขสุวรรณ์",
+    "previous_status": "unresolved",
+    "matches": []
+  }
+]
