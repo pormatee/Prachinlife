@@ -7,6 +7,7 @@ from pathlib import Path
 
 from .publication_export import _load_places_and_evidence
 from .staged_milestone import POLICY_VERSION, eligible_place_ids
+from .web_export import _detail_evidence_for_place, _links_for_place
 
 FILES = (
     'prachinlife_index.json',
@@ -51,6 +52,39 @@ def _source_mapping(database_path, eligible):
         con.close()
 
 
+def _public_enrichment_rows(database_path, eligible):
+    eligible = set(eligible)
+    if not eligible:
+        return {}
+    con = sqlite3.connect(database_path)
+    con.row_factory = sqlite3.Row
+    try:
+        rows = con.execute(
+            'select place_id,phone,website from places where place_id in (%s)'
+            % ','.join('?' for _ in eligible),
+            tuple(sorted(eligible)),
+        ).fetchall()
+        result = {}
+        for row in rows:
+            pid = row['place_id']
+            details = _detail_evidence_for_place(con, pid)
+            result[pid] = {
+                'phone': row['phone'],
+                'website': row['website'],
+                'external_links': _links_for_place(con, pid, row['website']),
+                'opening_hours': details.get('opening_hours'),
+                'real_image': details.get('real_image'),
+                'description': details.get('description'),
+                'prachinlife_page_url': details.get('prachinlife_page_url'),
+                'district': details.get('district'),
+                'subdistrict': details.get('subdistrict'),
+                'area': details.get('area'),
+            }
+        return result
+    finally:
+        con.close()
+
+
 def _canonical_rows(database_path, eligible):
     eligible = set(eligible)
     if not eligible:
@@ -68,7 +102,7 @@ def _canonical_rows(database_path, eligible):
         con.close()
 
 
-def _overlay_record(record, canonical, place_id):
+def _overlay_record(record, canonical, place_id, enrichment=None):
     out = copy.deepcopy(record)
     if 'title' in out:
         out['title'] = canonical['canonical_name']
@@ -89,7 +123,21 @@ def _overlay_record(record, canonical, place_id):
     if cats and 'original_type' in out:
         out['original_type'] = cats[0]
 
+    enrichment = enrichment or {}
+    for key in ('external_links', 'prachinlife_page_url', 'district', 'subdistrict', 'area', 'description'):
+        value = enrichment.get(key)
+        if value not in (None, '', [], {}):
+            out[key] = copy.deepcopy(value)
+    real_image = enrichment.get('real_image')
+    if real_image:
+        out['real_image'] = real_image
+        out['image_url'] = real_image
+
     metadata = dict(out.get('metadata') or {})
+    for key in ('phone', 'website', 'opening_hours'):
+        value = enrichment.get(key)
+        if value not in (None, ''):
+            metadata[key] = value
     metadata.update({
         'v2_preview_overlay': True,
         'v2_place_id': place_id,
@@ -105,6 +153,7 @@ def build_overlay_staging(database_path, repo_root, output_root, province='à¸›à¸
     eligible = set(eligible)
     mapping = _source_mapping(database_path, eligible)
     canon = _canonical_rows(database_path, eligible)
+    enrichment = _public_enrichment_rows(database_path, eligible)
 
     root = Path(repo_root)
     outroot = Path(output_root)
@@ -122,7 +171,7 @@ def build_overlay_staging(database_path, repo_root, output_root, province='à¸›à¸
         for record in source:
             pid = mapping.get((fn, str(record.get('id', ''))))
             if pid and pid in canon:
-                payload.append(_overlay_record(record, canon[pid], pid))
+                payload.append(_overlay_record(record, canon[pid], pid, enrichment.get(pid)))
                 overlays += 1
                 overlay_place_ids.add(pid)
             else:

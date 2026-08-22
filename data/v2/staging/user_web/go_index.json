@@ -32,7 +32,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/12280000098",
-    "collected_at": "2026-08-18T12:38:23.373781+00:00"
+    "collected_at": "2026-08-18T12:38:23.373781+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/12280000098"
+      }
+    ]
   },
   {
     "id": "osm-node-4943305721",
@@ -67,7 +74,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/4943305721",
-    "collected_at": "2026-08-18T12:38:23.372037+00:00"
+    "collected_at": "2026-08-18T12:38:23.372037+00:00",
+    "external_links": [
+      {
+        "type": "web",
+        "label": "The Verona at Tub Lan official website",
+        "url": "https://www.veronatublan.com/"
+      }
+    ]
   },
   {
     "id": "osm-node-5449003442",
@@ -102,7 +116,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/5449003442",
-    "collected_at": "2026-08-18T12:38:23.372754+00:00"
+    "collected_at": "2026-08-18T12:38:23.372754+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/5449003442"
+      }
+    ]
   },
   {
     "id": "osm-node-7999239609",
@@ -137,7 +158,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/7999239609",
-    "collected_at": "2026-08-18T12:38:23.373545+00:00"
+    "collected_at": "2026-08-18T12:38:23.373545+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/7999239609"
+      }
+    ]
   },
   {
     "id": "osm-node-7999051156",
@@ -172,7 +200,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/7999051156",
-    "collected_at": "2026-08-18T12:38:23.373485+00:00"
+    "collected_at": "2026-08-18T12:38:23.373485+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/7999051156"
+      }
+    ]
   },
   {
     "id": "osm-way-1351872829",
@@ -207,7 +242,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/way/1351872829",
-    "collected_at": "2026-08-18T12:38:23.374202+00:00"
+    "collected_at": "2026-08-18T12:38:23.374202+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/1351872829"
+      }
+    ]
   },
   {
     "id": "osm-way-1311218809",
@@ -242,7 +284,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/way/1311218809",
-    "collected_at": "2026-08-18T12:38:23.374082+00:00"
+    "collected_at": "2026-08-18T12:38:23.374082+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/way/1311218809"
+      }
+    ]
   },
   {
     "id": "osm-node-8527903036",
@@ -277,7 +326,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/8527903036",
-    "collected_at": "2026-08-18T12:38:23.373616+00:00"
+    "collected_at": "2026-08-18T12:38:23.373616+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/8527903036"
+      }
+    ]
   },
   {
     "id": "osm-node-477117643",
@@ -312,7 +368,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/477117643",
-    "collected_at": "2026-08-18T12:38:23.371745+00:00"
+    "collected_at": "2026-08-18T12:38:23.371745+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/477117643"
+      }
+    ]
   },
   {
     "id": "osm-node-4481583826",
@@ -347,7 +410,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/4481583826",
-    "collected_at": "2026-08-18T12:38:23.371978+00:00"
+    "collected_at": "2026-08-18T12:38:23.371978+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/4481583826"
+      }
+    ]
   },
   {
     "id": "osm-node-1666731926",
@@ -382,7 +452,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/1666731926",
-    "collected_at": "2026-08-18T12:38:23.371894+00:00"
+    "collected_at": "2026-08-18T12:38:23.371894+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/1666731926"
+      }
+    ]
   },
   {
     "id": "osm-way-518203817",
@@ -417,7 +494,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/way/518203817",
-    "collected_at": "2026-08-18T12:38:23.374015+00:00"
+    "collected_at": "2026-08-18T12:38:23.374015+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/518203817"
+      }
+    ]
   },
   {
     "id": "osm-node-5243829913",
@@ -452,7 +536,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/5243829913",
-    "collected_at": "2026-08-18T12:38:23.372343+00:00"
+    "collected_at": "2026-08-18T12:38:23.372343+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/5243829913"
+      }
+    ]
   },
   {
     "id": "osm-node-5158314453",
@@ -487,7 +578,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/5158314453",
-    "collected_at": "2026-08-18T12:38:23.372141+00:00"
+    "collected_at": "2026-08-18T12:38:23.372141+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/5158314453"
+      }
+    ]
   },
   {
     "id": "osm-node-7041312967",
@@ -522,7 +620,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/7041312967",
-    "collected_at": "2026-08-18T12:38:23.373117+00:00"
+    "collected_at": "2026-08-18T12:38:23.373117+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/7041312967"
+      }
+    ]
   },
   {
     "id": "osm-node-5182718404",
@@ -557,7 +662,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/5182718404",
-    "collected_at": "2026-08-18T12:38:23.372212+00:00"
+    "collected_at": "2026-08-18T12:38:23.372212+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/5182718404"
+      }
+    ]
   },
   {
     "id": "osm-way-1540257731",
@@ -592,7 +704,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/way/1540257731",
-    "collected_at": "2026-08-18T12:38:23.374639+00:00"
+    "collected_at": "2026-08-18T12:38:23.374639+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/way/1540257731"
+      }
+    ]
   },
   {
     "id": "osm-node-7041843507",
@@ -627,7 +746,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/7041843507",
-    "collected_at": "2026-08-18T12:38:23.373290+00:00"
+    "collected_at": "2026-08-18T12:38:23.373290+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/7041843507"
+      }
+    ]
   },
   {
     "id": "osm-way-1540257706",
@@ -662,7 +788,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/way/1540257706",
-    "collected_at": "2026-08-18T12:38:23.374458+00:00"
+    "collected_at": "2026-08-18T12:38:23.374458+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/1540257706"
+      }
+    ]
   },
   {
     "id": "osm-way-1540257704",
@@ -697,7 +830,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/way/1540257704",
-    "collected_at": "2026-08-18T12:38:23.374397+00:00"
+    "collected_at": "2026-08-18T12:38:23.374397+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/1540257704"
+      }
+    ]
   },
   {
     "id": "osm-way-1540257698",
@@ -732,7 +872,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/way/1540257698",
-    "collected_at": "2026-08-18T12:38:23.374328+00:00"
+    "collected_at": "2026-08-18T12:38:23.374328+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/way/1540257698"
+      }
+    ]
   },
   {
     "id": "osm-node-7040512147",
@@ -767,7 +914,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/7040512147",
-    "collected_at": "2026-08-18T12:38:23.372929+00:00"
+    "collected_at": "2026-08-18T12:38:23.372929+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/7040512147"
+      }
+    ]
   },
   {
     "id": "osm-way-1396724438",
@@ -802,7 +956,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/way/1396724438",
-    "collected_at": "2026-08-18T12:38:23.374261+00:00"
+    "collected_at": "2026-08-18T12:38:23.374261+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/1396724438"
+      }
+    ]
   },
   {
     "id": "osm-way-1540257729",
@@ -837,7 +998,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/way/1540257729",
-    "collected_at": "2026-08-18T12:38:23.374580+00:00"
+    "collected_at": "2026-08-18T12:38:23.374580+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/1540257729"
+      }
+    ]
   },
   {
     "id": "osm-node-11212240060",
@@ -872,7 +1040,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/11212240060",
-    "collected_at": "2026-08-18T12:38:23.373676+00:00"
+    "collected_at": "2026-08-18T12:38:23.373676+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/11212240060"
+      }
+    ]
   },
   {
     "id": "osm-node-5243829920",
@@ -907,7 +1082,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/5243829920",
-    "collected_at": "2026-08-18T12:38:23.372461+00:00"
+    "collected_at": "2026-08-18T12:38:23.372461+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/5243829920"
+      }
+    ]
   },
   {
     "id": "osm-node-5243829914",
@@ -942,7 +1124,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/5243829914",
-    "collected_at": "2026-08-18T12:38:23.372402+00:00"
+    "collected_at": "2026-08-18T12:38:23.372402+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/5243829914"
+      }
+    ]
   },
   {
     "id": "osm-way-1540257718",
@@ -977,7 +1166,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/way/1540257718",
-    "collected_at": "2026-08-18T12:38:23.374518+00:00"
+    "collected_at": "2026-08-18T12:38:23.374518+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/way/1540257718"
+      }
+    ]
   },
   {
     "id": "osm-node-7041843509",
@@ -1012,7 +1208,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/7041843509",
-    "collected_at": "2026-08-18T12:38:23.373425+00:00"
+    "collected_at": "2026-08-18T12:38:23.373425+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/7041843509"
+      }
+    ]
   },
   {
     "id": "osm-node-7041843508",
@@ -1047,7 +1250,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/7041843508",
-    "collected_at": "2026-08-18T12:38:23.373357+00:00"
+    "collected_at": "2026-08-18T12:38:23.373357+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/7041843508"
+      }
+    ]
   },
   {
     "id": "osm-node-7041632208",
@@ -1082,7 +1292,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/7041632208",
-    "collected_at": "2026-08-18T12:38:23.373232+00:00"
+    "collected_at": "2026-08-18T12:38:23.373232+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/7041632208"
+      }
+    ]
   },
   {
     "id": "osm-node-7040512150",
@@ -1117,7 +1334,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/7040512150",
-    "collected_at": "2026-08-18T12:38:23.372988+00:00"
+    "collected_at": "2026-08-18T12:38:23.372988+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/7040512150"
+      }
+    ]
   },
   {
     "id": "osm-node-7040512146",
@@ -1152,7 +1376,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/7040512146",
-    "collected_at": "2026-08-18T12:38:23.372872+00:00"
+    "collected_at": "2026-08-18T12:38:23.372872+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/7040512146"
+      }
+    ]
   },
   {
     "id": "osm-node-6506145033",
@@ -1187,7 +1418,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/6506145033",
-    "collected_at": "2026-08-18T12:38:23.372815+00:00"
+    "collected_at": "2026-08-18T12:38:23.372815+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/6506145033"
+      }
+    ]
   },
   {
     "id": "osm-node-5243829879",
@@ -1222,7 +1460,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/5243829879",
-    "collected_at": "2026-08-18T12:38:23.372269+00:00"
+    "collected_at": "2026-08-18T12:38:23.372269+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/5243829879"
+      }
+    ]
   },
   {
     "id": "osm-node-5243832947",
@@ -1257,7 +1502,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/5243832947",
-    "collected_at": "2026-08-18T12:38:23.372599+00:00"
+    "collected_at": "2026-08-18T12:38:23.372599+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/5243832947"
+      }
+    ]
   },
   {
     "id": "osm-node-5243832992",
@@ -1292,7 +1544,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/5243832992",
-    "collected_at": "2026-08-18T12:38:23.372667+00:00"
+    "collected_at": "2026-08-18T12:38:23.372667+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/5243832992"
+      }
+    ]
   },
   {
     "id": "osm-way-1351539885",
@@ -1327,7 +1586,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/way/1351539885",
-    "collected_at": "2026-08-18T12:38:23.374141+00:00"
+    "collected_at": "2026-08-18T12:38:23.374141+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/1351539885"
+      }
+    ]
   },
   {
     "id": "osm-node-7041632206",
@@ -1362,7 +1628,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/7041632206",
-    "collected_at": "2026-08-18T12:38:23.373175+00:00"
+    "collected_at": "2026-08-18T12:38:23.373175+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/7041632206"
+      }
+    ]
   },
   {
     "id": "osm-node-7040512151",
@@ -1397,7 +1670,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/7040512151",
-    "collected_at": "2026-08-18T12:38:23.373058+00:00"
+    "collected_at": "2026-08-18T12:38:23.373058+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/7040512151"
+      }
+    ]
   },
   {
     "id": "osm-way-518190349",
@@ -1432,7 +1712,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/way/518190349",
-    "collected_at": "2026-08-18T12:38:23.373940+00:00"
+    "collected_at": "2026-08-18T12:38:23.373940+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/way/518190349"
+      }
+    ]
   },
   {
     "id": "official-go-1",
@@ -1469,7 +1756,14 @@
     },
     "source": "กรมศิลปากร",
     "source_url": "https://www.finearts.go.th/prachinburimuseum/contact",
-    "collected_at": null
+    "collected_at": null,
+    "external_links": [
+      {
+        "type": "web",
+        "label": "พิพิธภัณฑสถานแห่งชาติ ปราจีนบุรี / กรมศิลปากร",
+        "url": "https://www.finearts.go.th/prachinburimuseum/contact"
+      }
+    ]
   },
   {
     "id": "official-go-2",
@@ -1506,7 +1800,14 @@
     },
     "source": "กรมศิลปากร",
     "source_url": "https://finearts.go.th/prachinburimuseum/view/47629",
-    "collected_at": null
+    "collected_at": null,
+    "external_links": [
+      {
+        "type": "web",
+        "label": "พิพิธภัณฑสถานแห่งชาติ ปราจีนบุรี / กรมศิลปากร",
+        "url": "https://www.finearts.go.th/prachinburimuseum/view/47629"
+      }
+    ]
   },
   {
     "id": "official-go-3",
@@ -1543,6 +1844,13 @@
     },
     "source": "กรมศิลปากร",
     "source_url": "https://www.finearts.go.th/prachinburimuseum/view/7942",
-    "collected_at": null
+    "collected_at": null,
+    "external_links": [
+      {
+        "type": "web",
+        "label": "กรมศิลปากร",
+        "url": "https://www.finearts.go.th/main/view/25201-ท่องเมืองโบราณ--ศรีมโหสถ-?type1=11"
+      }
+    ]
   }
 ]

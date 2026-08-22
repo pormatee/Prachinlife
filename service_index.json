@@ -31,7 +31,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/4791106122",
-    "collected_at": "2026-08-21T05:30:26.666095+00:00"
+    "collected_at": "2026-08-21T05:30:26.666095+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/4791106122"
+      }
+    ]
   },
   {
     "id": "osm-node-13922863337",
@@ -65,7 +72,19 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/13922863337",
-    "collected_at": "2026-08-21T05:33:22.435139+00:00"
+    "collected_at": "2026-08-21T05:33:22.435139+00:00",
+    "external_links": [
+      {
+        "type": "official_website",
+        "label": "เว็บไซต์",
+        "url": "https://www.facebook.com/share/18siXBQMVQ/?mibextid=wwXIfr"
+      },
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/13922863337"
+      }
+    ]
   },
   {
     "id": "osm-node-7041312966",
@@ -99,7 +118,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/7041312966",
-    "collected_at": "2026-08-21T05:33:22.437197+00:00"
+    "collected_at": "2026-08-21T05:33:22.437197+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/7041312966"
+      }
+    ]
   },
   {
     "id": "osm-node-370478612",
@@ -133,7 +159,19 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/370478612",
-    "collected_at": "2026-08-21T05:34:13.194888+00:00"
+    "collected_at": "2026-08-21T05:34:13.194888+00:00",
+    "external_links": [
+      {
+        "type": "official_website",
+        "label": "เว็บไซต์",
+        "url": "https://www.pttplc.com"
+      },
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/370478612"
+      }
+    ]
   },
   {
     "id": "osm-node-667237945",
@@ -167,7 +205,19 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/667237945",
-    "collected_at": "2026-08-21T05:34:13.195061+00:00"
+    "collected_at": "2026-08-21T05:34:13.195061+00:00",
+    "external_links": [
+      {
+        "type": "official_website",
+        "label": "เว็บไซต์",
+        "url": "https://www.pttplc.com"
+      },
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/667237945"
+      }
+    ]
   },
   {
     "id": "osm-node-1241591062",
@@ -201,7 +251,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/1241591062",
-    "collected_at": "2026-08-21T05:34:13.195199+00:00"
+    "collected_at": "2026-08-21T05:34:13.195199+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/1241591062"
+      }
+    ]
   },
   {
     "id": "osm-node-1609815251",
@@ -235,7 +292,19 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/1609815251",
-    "collected_at": "2026-08-21T05:34:13.195312+00:00"
+    "collected_at": "2026-08-21T05:34:13.195312+00:00",
+    "external_links": [
+      {
+        "type": "official_website",
+        "label": "เว็บไซต์",
+        "url": "https://www.shell.co.th/"
+      },
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/1609815251"
+      }
+    ]
   },
   {
     "id": "osm-node-1691604909",
@@ -269,7 +338,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/1691604909",
-    "collected_at": "2026-08-21T05:34:13.195421+00:00"
+    "collected_at": "2026-08-21T05:34:13.195421+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/1691604909"
+      }
+    ]
   },
   {
     "id": "osm-node-1905321429",
@@ -303,7 +379,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/1905321429",
-    "collected_at": "2026-08-21T05:34:13.195688+00:00"
+    "collected_at": "2026-08-21T05:34:13.195688+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/1905321429"
+      }
+    ]
   },
   {
     "id": "osm-node-2629947426",
@@ -337,7 +420,19 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/2629947426",
-    "collected_at": "2026-08-21T05:34:13.195808+00:00"
+    "collected_at": "2026-08-21T05:34:13.195808+00:00",
+    "external_links": [
+      {
+        "type": "official_website",
+        "label": "เว็บไซต์",
+        "url": "https://www.bangchak.co.th"
+      },
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/2629947426"
+      }
+    ]
   },
   {
     "id": "osm-node-2629947427",
@@ -371,7 +466,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/2629947427",
-    "collected_at": "2026-08-21T05:34:13.195920+00:00"
+    "collected_at": "2026-08-21T05:34:13.195920+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/2629947427"
+      }
+    ]
   },
   {
     "id": "osm-node-2640779921",
@@ -405,7 +507,19 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/2640779921",
-    "collected_at": "2026-08-21T05:34:13.196029+00:00"
+    "collected_at": "2026-08-21T05:34:13.196029+00:00",
+    "external_links": [
+      {
+        "type": "official_website",
+        "label": "เว็บไซต์",
+        "url": "https://www.bangchak.co.th/"
+      },
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/2640779921"
+      }
+    ]
   },
   {
     "id": "osm-node-2676347590",
@@ -439,7 +553,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/2676347590",
-    "collected_at": "2026-08-21T05:34:13.196231+00:00"
+    "collected_at": "2026-08-21T05:34:13.196231+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/2676347590"
+      }
+    ]
   },
   {
     "id": "osm-node-2676347595",
@@ -473,7 +594,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/2676347595",
-    "collected_at": "2026-08-21T05:34:13.196365+00:00"
+    "collected_at": "2026-08-21T05:34:13.196365+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/2676347595"
+      }
+    ]
   },
   {
     "id": "osm-node-2676347600",
@@ -507,7 +635,19 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/2676347600",
-    "collected_at": "2026-08-21T05:34:13.196500+00:00"
+    "collected_at": "2026-08-21T05:34:13.196500+00:00",
+    "external_links": [
+      {
+        "type": "official_website",
+        "label": "เว็บไซต์",
+        "url": "https://www.pttplc.com"
+      },
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/2676347600"
+      }
+    ]
   },
   {
     "id": "osm-node-2676347601",
@@ -541,7 +681,19 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/2676347601",
-    "collected_at": "2026-08-21T05:34:13.196616+00:00"
+    "collected_at": "2026-08-21T05:34:13.196616+00:00",
+    "external_links": [
+      {
+        "type": "official_website",
+        "label": "เว็บไซต์",
+        "url": "https://www.pttplc.com"
+      },
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/2676347601"
+      }
+    ]
   },
   {
     "id": "osm-node-3418083392",
@@ -575,7 +727,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/3418083392",
-    "collected_at": "2026-08-21T05:34:13.196740+00:00"
+    "collected_at": "2026-08-21T05:34:13.196740+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/3418083392"
+      }
+    ]
   },
   {
     "id": "osm-node-3504743739",
@@ -609,7 +768,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/3504743739",
-    "collected_at": "2026-08-21T05:34:13.197942+00:00"
+    "collected_at": "2026-08-21T05:34:13.197942+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/3504743739"
+      }
+    ]
   },
   {
     "id": "osm-node-4036101216",
@@ -643,7 +809,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/4036101216",
-    "collected_at": "2026-08-21T05:34:13.198095+00:00"
+    "collected_at": "2026-08-21T05:34:13.198095+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/4036101216"
+      }
+    ]
   },
   {
     "id": "osm-node-4234962670",
@@ -677,7 +850,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/4234962670",
-    "collected_at": "2026-08-21T05:34:13.198223+00:00"
+    "collected_at": "2026-08-21T05:34:13.198223+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/4234962670"
+      }
+    ]
   },
   {
     "id": "osm-node-4234962671",
@@ -711,7 +891,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/4234962671",
-    "collected_at": "2026-08-21T05:34:13.198373+00:00"
+    "collected_at": "2026-08-21T05:34:13.198373+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/4234962671"
+      }
+    ]
   },
   {
     "id": "osm-node-4234962672",
@@ -745,7 +932,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/4234962672",
-    "collected_at": "2026-08-21T05:34:13.198597+00:00"
+    "collected_at": "2026-08-21T05:34:13.198597+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/4234962672"
+      }
+    ]
   },
   {
     "id": "osm-node-4345343819",
@@ -779,7 +973,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/4345343819",
-    "collected_at": "2026-08-21T05:34:13.198733+00:00"
+    "collected_at": "2026-08-21T05:34:13.198733+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/4345343819"
+      }
+    ]
   },
   {
     "id": "osm-node-4345349349",
@@ -813,7 +1014,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/4345349349",
-    "collected_at": "2026-08-21T05:34:13.198853+00:00"
+    "collected_at": "2026-08-21T05:34:13.198853+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/4345349349"
+      }
+    ]
   },
   {
     "id": "osm-node-4873887053",
@@ -847,7 +1055,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/4873887053",
-    "collected_at": "2026-08-21T05:34:13.198975+00:00"
+    "collected_at": "2026-08-21T05:34:13.198975+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/4873887053"
+      }
+    ]
   },
   {
     "id": "osm-node-4873887054",
@@ -881,7 +1096,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/4873887054",
-    "collected_at": "2026-08-21T05:34:13.199097+00:00"
+    "collected_at": "2026-08-21T05:34:13.199097+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/4873887054"
+      }
+    ]
   },
   {
     "id": "osm-node-4873887056",
@@ -915,7 +1137,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/4873887056",
-    "collected_at": "2026-08-21T05:34:13.199313+00:00"
+    "collected_at": "2026-08-21T05:34:13.199313+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/4873887056"
+      }
+    ]
   },
   {
     "id": "osm-node-4873887057",
@@ -949,7 +1178,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/4873887057",
-    "collected_at": "2026-08-21T05:34:13.199485+00:00"
+    "collected_at": "2026-08-21T05:34:13.199485+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/4873887057"
+      }
+    ]
   },
   {
     "id": "osm-node-4873907846",
@@ -983,7 +1219,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/4873907846",
-    "collected_at": "2026-08-21T05:34:13.199618+00:00"
+    "collected_at": "2026-08-21T05:34:13.199618+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/4873907846"
+      }
+    ]
   },
   {
     "id": "osm-node-4873907847",
@@ -1017,7 +1260,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/4873907847",
-    "collected_at": "2026-08-21T05:34:13.199740+00:00"
+    "collected_at": "2026-08-21T05:34:13.199740+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/4873907847"
+      }
+    ]
   },
   {
     "id": "osm-node-4873907937",
@@ -1051,7 +1301,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/4873907937",
-    "collected_at": "2026-08-21T05:34:13.199859+00:00"
+    "collected_at": "2026-08-21T05:34:13.199859+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/4873907937"
+      }
+    ]
   },
   {
     "id": "osm-node-5323879629",
@@ -1085,7 +1342,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/5323879629",
-    "collected_at": "2026-08-21T05:34:13.200096+00:00"
+    "collected_at": "2026-08-21T05:34:13.200096+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/5323879629"
+      }
+    ]
   },
   {
     "id": "osm-node-5323879724",
@@ -1119,7 +1383,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/5323879724",
-    "collected_at": "2026-08-21T05:34:13.200321+00:00"
+    "collected_at": "2026-08-21T05:34:13.200321+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/5323879724"
+      }
+    ]
   },
   {
     "id": "osm-node-5434456621",
@@ -1153,7 +1424,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/5434456621",
-    "collected_at": "2026-08-21T05:34:13.200479+00:00"
+    "collected_at": "2026-08-21T05:34:13.200479+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/5434456621"
+      }
+    ]
   },
   {
     "id": "osm-node-5434456622",
@@ -1187,7 +1465,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/5434456622",
-    "collected_at": "2026-08-21T05:34:13.200627+00:00"
+    "collected_at": "2026-08-21T05:34:13.200627+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/5434456622"
+      }
+    ]
   },
   {
     "id": "osm-node-5549382249",
@@ -1221,7 +1506,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/5549382249",
-    "collected_at": "2026-08-21T05:34:13.201342+00:00"
+    "collected_at": "2026-08-21T05:34:13.201342+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/5549382249"
+      }
+    ]
   },
   {
     "id": "osm-node-5549382250",
@@ -1255,7 +1547,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/5549382250",
-    "collected_at": "2026-08-21T05:34:13.201471+00:00"
+    "collected_at": "2026-08-21T05:34:13.201471+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/5549382250"
+      }
+    ]
   },
   {
     "id": "osm-node-5549403421",
@@ -1289,7 +1588,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/5549403421",
-    "collected_at": "2026-08-21T05:34:13.201592+00:00"
+    "collected_at": "2026-08-21T05:34:13.201592+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/5549403421"
+      }
+    ]
   },
   {
     "id": "osm-node-6275677485",
@@ -1323,7 +1629,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/6275677485",
-    "collected_at": "2026-08-21T05:34:13.201710+00:00"
+    "collected_at": "2026-08-21T05:34:13.201710+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/6275677485"
+      }
+    ]
   },
   {
     "id": "osm-node-12532835756",
@@ -1357,7 +1670,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/12532835756",
-    "collected_at": "2026-08-21T05:34:13.201892+00:00"
+    "collected_at": "2026-08-21T05:34:13.201892+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/12532835756"
+      }
+    ]
   },
   {
     "id": "osm-node-12532874888",
@@ -1391,7 +1711,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/12532874888",
-    "collected_at": "2026-08-21T05:34:13.202019+00:00"
+    "collected_at": "2026-08-21T05:34:13.202019+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/12532874888"
+      }
+    ]
   },
   {
     "id": "osm-node-12680192176",
@@ -1425,7 +1752,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/12680192176",
-    "collected_at": "2026-08-21T05:34:13.202151+00:00"
+    "collected_at": "2026-08-21T05:34:13.202151+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/12680192176"
+      }
+    ]
   },
   {
     "id": "osm-node-12680410513",
@@ -1459,7 +1793,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/12680410513",
-    "collected_at": "2026-08-21T05:34:13.202271+00:00"
+    "collected_at": "2026-08-21T05:34:13.202271+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/12680410513"
+      }
+    ]
   },
   {
     "id": "osm-node-12680417582",
@@ -1493,7 +1834,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/12680417582",
-    "collected_at": "2026-08-21T05:34:13.202390+00:00"
+    "collected_at": "2026-08-21T05:34:13.202390+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/12680417582"
+      }
+    ]
   },
   {
     "id": "osm-node-12680417584",
@@ -1527,7 +1875,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/12680417584",
-    "collected_at": "2026-08-21T05:34:13.202517+00:00"
+    "collected_at": "2026-08-21T05:34:13.202517+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/12680417584"
+      }
+    ]
   },
   {
     "id": "osm-node-12680461536",
@@ -1561,7 +1916,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/12680461536",
-    "collected_at": "2026-08-21T05:34:13.202763+00:00"
+    "collected_at": "2026-08-21T05:34:13.202763+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/12680461536"
+      }
+    ]
   },
   {
     "id": "osm-way-343658877",
@@ -1595,7 +1957,19 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/way/343658877",
-    "collected_at": "2026-08-21T05:34:13.202955+00:00"
+    "collected_at": "2026-08-21T05:34:13.202955+00:00",
+    "external_links": [
+      {
+        "type": "official_website",
+        "label": "เว็บไซต์",
+        "url": "https://www.pttplc.com"
+      },
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/way/343658877"
+      }
+    ]
   },
   {
     "id": "osm-way-343658884",
@@ -1629,7 +2003,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/way/343658884",
-    "collected_at": "2026-08-21T05:34:13.203175+00:00"
+    "collected_at": "2026-08-21T05:34:13.203175+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/way/343658884"
+      }
+    ]
   },
   {
     "id": "osm-way-343660968",
@@ -1663,7 +2044,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/way/343660968",
-    "collected_at": "2026-08-21T05:34:13.203338+00:00"
+    "collected_at": "2026-08-21T05:34:13.203338+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/way/343660968"
+      }
+    ]
   },
   {
     "id": "osm-way-343660985",
@@ -1697,7 +2085,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/way/343660985",
-    "collected_at": "2026-08-21T05:34:13.203492+00:00"
+    "collected_at": "2026-08-21T05:34:13.203492+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/way/343660985"
+      }
+    ]
   },
   {
     "id": "osm-way-343664087",
@@ -1731,7 +2126,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/way/343664087",
-    "collected_at": "2026-08-21T05:34:13.203617+00:00"
+    "collected_at": "2026-08-21T05:34:13.203617+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/way/343664087"
+      }
+    ]
   },
   {
     "id": "osm-way-343664089",
@@ -1765,7 +2167,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/way/343664089",
-    "collected_at": "2026-08-21T05:34:13.203741+00:00"
+    "collected_at": "2026-08-21T05:34:13.203741+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/way/343664089"
+      }
+    ]
   },
   {
     "id": "osm-way-343665100",
@@ -1799,7 +2208,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/way/343665100",
-    "collected_at": "2026-08-21T05:34:13.203905+00:00"
+    "collected_at": "2026-08-21T05:34:13.203905+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/343665100"
+      }
+    ]
   },
   {
     "id": "osm-way-343670272",
@@ -1833,7 +2249,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/way/343670272",
-    "collected_at": "2026-08-21T05:34:13.204035+00:00"
+    "collected_at": "2026-08-21T05:34:13.204035+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/way/343670272"
+      }
+    ]
   },
   {
     "id": "osm-way-441575079",
@@ -1867,7 +2290,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/way/441575079",
-    "collected_at": "2026-08-21T05:34:13.204165+00:00"
+    "collected_at": "2026-08-21T05:34:13.204165+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/way/441575079"
+      }
+    ]
   },
   {
     "id": "osm-way-485484729",
@@ -1901,7 +2331,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/way/485484729",
-    "collected_at": "2026-08-21T05:34:13.204290+00:00"
+    "collected_at": "2026-08-21T05:34:13.204290+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/way/485484729"
+      }
+    ]
   },
   {
     "id": "osm-way-485488122",
@@ -1935,7 +2372,19 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/way/485488122",
-    "collected_at": "2026-08-21T05:34:13.204413+00:00"
+    "collected_at": "2026-08-21T05:34:13.204413+00:00",
+    "external_links": [
+      {
+        "type": "official_website",
+        "label": "เว็บไซต์",
+        "url": "https://www.pttplc.com"
+      },
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/way/485488122"
+      }
+    ]
   },
   {
     "id": "osm-way-485488146",
@@ -1969,7 +2418,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/way/485488146",
-    "collected_at": "2026-08-21T05:34:13.204560+00:00"
+    "collected_at": "2026-08-21T05:34:13.204560+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/way/485488146"
+      }
+    ]
   },
   {
     "id": "osm-way-485522192",
@@ -2003,7 +2459,19 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/way/485522192",
-    "collected_at": "2026-08-21T05:34:13.204688+00:00"
+    "collected_at": "2026-08-21T05:34:13.204688+00:00",
+    "external_links": [
+      {
+        "type": "official_website",
+        "label": "เว็บไซต์",
+        "url": "https://www.pttplc.com"
+      },
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/way/485522192"
+      }
+    ]
   },
   {
     "id": "osm-way-776185373",
@@ -2037,7 +2505,19 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/way/776185373",
-    "collected_at": "2026-08-21T05:34:13.205252+00:00"
+    "collected_at": "2026-08-21T05:34:13.205252+00:00",
+    "external_links": [
+      {
+        "type": "official_website",
+        "label": "เว็บไซต์",
+        "url": "https://www.pttplc.com"
+      },
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/way/776185373"
+      }
+    ]
   },
   {
     "id": "osm-way-776400524",
@@ -2071,7 +2551,19 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/way/776400524",
-    "collected_at": "2026-08-21T05:34:13.205405+00:00"
+    "collected_at": "2026-08-21T05:34:13.205405+00:00",
+    "external_links": [
+      {
+        "type": "official_website",
+        "label": "เว็บไซต์",
+        "url": "https://www.pttplc.com"
+      },
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/way/776400524"
+      }
+    ]
   },
   {
     "id": "osm-way-907009154",
@@ -2105,7 +2597,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/way/907009154",
-    "collected_at": "2026-08-21T05:34:13.205487+00:00"
+    "collected_at": "2026-08-21T05:34:13.205487+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/way/907009154"
+      }
+    ]
   },
   {
     "id": "osm-node-1241591114",
@@ -2139,7 +2638,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/1241591114",
-    "collected_at": "2026-08-21T05:34:13.205576+00:00"
+    "collected_at": "2026-08-21T05:34:13.205576+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/1241591114"
+      }
+    ]
   },
   {
     "id": "osm-node-2127765598",
@@ -2173,7 +2679,19 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/2127765598",
-    "collected_at": "2026-08-21T05:34:13.205653+00:00"
+    "collected_at": "2026-08-21T05:34:13.205653+00:00",
+    "external_links": [
+      {
+        "type": "official_website",
+        "label": "เว็บไซต์",
+        "url": "https://www.esso.co.th/"
+      },
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/2127765598"
+      }
+    ]
   },
   {
     "id": "osm-node-2146335008",
@@ -2207,7 +2725,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/2146335008",
-    "collected_at": "2026-08-21T05:34:13.205786+00:00"
+    "collected_at": "2026-08-21T05:34:13.205786+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/2146335008"
+      }
+    ]
   },
   {
     "id": "osm-node-2146335014",
@@ -2241,7 +2766,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/2146335014",
-    "collected_at": "2026-08-21T05:34:13.205885+00:00"
+    "collected_at": "2026-08-21T05:34:13.205885+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/2146335014"
+      }
+    ]
   },
   {
     "id": "osm-node-2151397748",
@@ -2275,7 +2807,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/2151397748",
-    "collected_at": "2026-08-21T05:34:13.205965+00:00"
+    "collected_at": "2026-08-21T05:34:13.205965+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/2151397748"
+      }
+    ]
   },
   {
     "id": "osm-node-2151397749",
@@ -2309,7 +2848,19 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/2151397749",
-    "collected_at": "2026-08-21T05:34:13.206046+00:00"
+    "collected_at": "2026-08-21T05:34:13.206046+00:00",
+    "external_links": [
+      {
+        "type": "official_website",
+        "label": "เว็บไซต์",
+        "url": "https://www.shell.co.th/"
+      },
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/2151397749"
+      }
+    ]
   },
   {
     "id": "osm-node-2174718705",
@@ -2343,7 +2894,19 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/2174718705",
-    "collected_at": "2026-08-21T05:34:13.206121+00:00"
+    "collected_at": "2026-08-21T05:34:13.206121+00:00",
+    "external_links": [
+      {
+        "type": "official_website",
+        "label": "เว็บไซต์",
+        "url": "https://www.caltex.com/"
+      },
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/2174718705"
+      }
+    ]
   },
   {
     "id": "osm-node-2643944277",
@@ -2377,7 +2940,19 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/2643944277",
-    "collected_at": "2026-08-21T05:34:13.206200+00:00"
+    "collected_at": "2026-08-21T05:34:13.206200+00:00",
+    "external_links": [
+      {
+        "type": "official_website",
+        "label": "เว็บไซต์",
+        "url": "https://www.pttplc.com"
+      },
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/2643944277"
+      }
+    ]
   },
   {
     "id": "osm-node-2647810829",
@@ -2411,7 +2986,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/2647810829",
-    "collected_at": "2026-08-21T05:34:13.206290+00:00"
+    "collected_at": "2026-08-21T05:34:13.206290+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/2647810829"
+      }
+    ]
   },
   {
     "id": "osm-node-4569640790",
@@ -2445,7 +3027,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/4569640790",
-    "collected_at": "2026-08-21T05:34:13.206421+00:00"
+    "collected_at": "2026-08-21T05:34:13.206421+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/4569640790"
+      }
+    ]
   },
   {
     "id": "osm-node-4772543425",
@@ -2479,7 +3068,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/4772543425",
-    "collected_at": "2026-08-21T05:34:13.206513+00:00"
+    "collected_at": "2026-08-21T05:34:13.206513+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/4772543425"
+      }
+    ]
   },
   {
     "id": "osm-node-5323863727",
@@ -2513,7 +3109,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/5323863727",
-    "collected_at": "2026-08-21T05:34:13.206591+00:00"
+    "collected_at": "2026-08-21T05:34:13.206591+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/5323863727"
+      }
+    ]
   },
   {
     "id": "osm-node-5323863728",
@@ -2547,7 +3150,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/5323863728",
-    "collected_at": "2026-08-21T05:34:13.206663+00:00"
+    "collected_at": "2026-08-21T05:34:13.206663+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/5323863728"
+      }
+    ]
   },
   {
     "id": "osm-node-5323863922",
@@ -2581,7 +3191,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/5323863922",
-    "collected_at": "2026-08-21T05:34:13.206733+00:00"
+    "collected_at": "2026-08-21T05:34:13.206733+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/5323863922"
+      }
+    ]
   },
   {
     "id": "osm-node-5323863926",
@@ -2615,7 +3232,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/5323863926",
-    "collected_at": "2026-08-21T05:34:13.206803+00:00"
+    "collected_at": "2026-08-21T05:34:13.206803+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/5323863926"
+      }
+    ]
   },
   {
     "id": "osm-node-5323881322",
@@ -2649,7 +3273,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/5323881322",
-    "collected_at": "2026-08-21T05:34:13.206874+00:00"
+    "collected_at": "2026-08-21T05:34:13.206874+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/5323881322"
+      }
+    ]
   },
   {
     "id": "osm-node-5434377521",
@@ -2683,7 +3314,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/5434377521",
-    "collected_at": "2026-08-21T05:34:13.206963+00:00"
+    "collected_at": "2026-08-21T05:34:13.206963+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/5434377521"
+      }
+    ]
   },
   {
     "id": "osm-node-5434377524",
@@ -2717,7 +3355,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/5434377524",
-    "collected_at": "2026-08-21T05:34:13.207045+00:00"
+    "collected_at": "2026-08-21T05:34:13.207045+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/5434377524"
+      }
+    ]
   },
   {
     "id": "osm-node-5434377621",
@@ -2751,7 +3396,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/5434377621",
-    "collected_at": "2026-08-21T05:34:13.207118+00:00"
+    "collected_at": "2026-08-21T05:34:13.207118+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/5434377621"
+      }
+    ]
   },
   {
     "id": "osm-node-5549382252",
@@ -2785,7 +3437,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/5549382252",
-    "collected_at": "2026-08-21T05:34:13.207192+00:00"
+    "collected_at": "2026-08-21T05:34:13.207192+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/5549382252"
+      }
+    ]
   },
   {
     "id": "osm-node-5549382253",
@@ -2819,7 +3478,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/5549382253",
-    "collected_at": "2026-08-21T05:34:13.207279+00:00"
+    "collected_at": "2026-08-21T05:34:13.207279+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/5549382253"
+      }
+    ]
   },
   {
     "id": "osm-node-5549382254",
@@ -2853,7 +3519,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/5549382254",
-    "collected_at": "2026-08-21T05:34:13.207356+00:00"
+    "collected_at": "2026-08-21T05:34:13.207356+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/5549382254"
+      }
+    ]
   },
   {
     "id": "osm-node-5549403422",
@@ -2887,7 +3560,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/5549403422",
-    "collected_at": "2026-08-21T05:34:13.207430+00:00"
+    "collected_at": "2026-08-21T05:34:13.207430+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/5549403422"
+      }
+    ]
   },
   {
     "id": "osm-node-5549403522",
@@ -2921,7 +3601,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/5549403522",
-    "collected_at": "2026-08-21T05:34:13.207518+00:00"
+    "collected_at": "2026-08-21T05:34:13.207518+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/5549403522"
+      }
+    ]
   },
   {
     "id": "osm-node-5549403523",
@@ -2955,7 +3642,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/5549403523",
-    "collected_at": "2026-08-21T05:34:13.207597+00:00"
+    "collected_at": "2026-08-21T05:34:13.207597+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/5549403523"
+      }
+    ]
   },
   {
     "id": "osm-node-6274486586",
@@ -2989,7 +3683,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/6274486586",
-    "collected_at": "2026-08-21T05:34:13.207677+00:00"
+    "collected_at": "2026-08-21T05:34:13.207677+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/6274486586"
+      }
+    ]
   },
   {
     "id": "osm-node-12681994113",
@@ -3023,7 +3724,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/12681994113",
-    "collected_at": "2026-08-21T05:34:13.207766+00:00"
+    "collected_at": "2026-08-21T05:34:13.207766+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/12681994113"
+      }
+    ]
   },
   {
     "id": "osm-node-12681996408",
@@ -3057,7 +3765,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/12681996408",
-    "collected_at": "2026-08-21T05:34:13.207840+00:00"
+    "collected_at": "2026-08-21T05:34:13.207840+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/12681996408"
+      }
+    ]
   },
   {
     "id": "osm-node-13398041972",
@@ -3091,7 +3806,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/13398041972",
-    "collected_at": "2026-08-21T05:34:13.207939+00:00"
+    "collected_at": "2026-08-21T05:34:13.207939+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/13398041972"
+      }
+    ]
   },
   {
     "id": "osm-way-482936825",
@@ -3125,7 +3847,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/way/482936825",
-    "collected_at": "2026-08-21T05:34:13.208032+00:00"
+    "collected_at": "2026-08-21T05:34:13.208032+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/way/482936825"
+      }
+    ]
   },
   {
     "id": "osm-way-482939106",
@@ -3159,7 +3888,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/way/482939106",
-    "collected_at": "2026-08-21T05:34:13.208114+00:00"
+    "collected_at": "2026-08-21T05:34:13.208114+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/way/482939106"
+      }
+    ]
   },
   {
     "id": "osm-way-907084421",
@@ -3193,7 +3929,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/way/907084421",
-    "collected_at": "2026-08-21T05:34:13.208205+00:00"
+    "collected_at": "2026-08-21T05:34:13.208205+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/way/907084421"
+      }
+    ]
   },
   {
     "id": "osm-way-1358892387",
@@ -3227,7 +3970,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/way/1358892387",
-    "collected_at": "2026-08-21T05:34:13.208286+00:00"
+    "collected_at": "2026-08-21T05:34:13.208286+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/way/1358892387"
+      }
+    ]
   },
   {
     "id": "osm-way-1358892397",
@@ -3261,7 +4011,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/way/1358892397",
-    "collected_at": "2026-08-21T05:34:13.208372+00:00"
+    "collected_at": "2026-08-21T05:34:13.208372+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/way/1358892397"
+      }
+    ]
   },
   {
     "id": "osm-way-1358892399",
@@ -3295,7 +4052,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/way/1358892399",
-    "collected_at": "2026-08-21T05:34:13.208450+00:00"
+    "collected_at": "2026-08-21T05:34:13.208450+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/way/1358892399"
+      }
+    ]
   },
   {
     "id": "osm-node-1653910064",
@@ -3329,7 +4093,19 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/1653910064",
-    "collected_at": "2026-08-21T05:34:13.208534+00:00"
+    "collected_at": "2026-08-21T05:34:13.208534+00:00",
+    "external_links": [
+      {
+        "type": "official_website",
+        "label": "เว็บไซต์",
+        "url": "https://www.pttplc.com"
+      },
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/1653910064"
+      }
+    ]
   },
   {
     "id": "osm-node-1653910065",
@@ -3363,7 +4139,19 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/1653910065",
-    "collected_at": "2026-08-21T05:34:13.208625+00:00"
+    "collected_at": "2026-08-21T05:34:13.208625+00:00",
+    "external_links": [
+      {
+        "type": "official_website",
+        "label": "เว็บไซต์",
+        "url": "https://www.pttplc.com"
+      },
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/1653910065"
+      }
+    ]
   },
   {
     "id": "osm-node-2676351773",
@@ -3397,7 +4185,19 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/2676351773",
-    "collected_at": "2026-08-21T05:34:13.208724+00:00"
+    "collected_at": "2026-08-21T05:34:13.208724+00:00",
+    "external_links": [
+      {
+        "type": "official_website",
+        "label": "เว็บไซต์",
+        "url": "https://www.esso.co.th/"
+      },
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/2676351773"
+      }
+    ]
   },
   {
     "id": "osm-node-2676351774",
@@ -3431,7 +4231,19 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/2676351774",
-    "collected_at": "2026-08-21T05:34:13.208858+00:00"
+    "collected_at": "2026-08-21T05:34:13.208858+00:00",
+    "external_links": [
+      {
+        "type": "official_website",
+        "label": "เว็บไซต์",
+        "url": "https://www.pttplc.com"
+      },
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/2676351774"
+      }
+    ]
   },
   {
     "id": "osm-node-2676351775",
@@ -3465,7 +4277,19 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/2676351775",
-    "collected_at": "2026-08-21T05:34:13.208938+00:00"
+    "collected_at": "2026-08-21T05:34:13.208938+00:00",
+    "external_links": [
+      {
+        "type": "official_website",
+        "label": "เว็บไซต์",
+        "url": "https://www.shell.co.th/"
+      },
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/2676351775"
+      }
+    ]
   },
   {
     "id": "osm-node-11391508067",
@@ -3499,7 +4323,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/11391508067",
-    "collected_at": "2026-08-21T05:34:13.209023+00:00"
+    "collected_at": "2026-08-21T05:34:13.209023+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/11391508067"
+      }
+    ]
   },
   {
     "id": "osm-node-12279996989",
@@ -3533,7 +4364,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/12279996989",
-    "collected_at": "2026-08-21T05:34:13.209107+00:00"
+    "collected_at": "2026-08-21T05:34:13.209107+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/12279996989"
+      }
+    ]
   },
   {
     "id": "osm-node-12729727296",
@@ -3567,7 +4405,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/12729727296",
-    "collected_at": "2026-08-21T05:34:13.209258+00:00"
+    "collected_at": "2026-08-21T05:34:13.209258+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/12729727296"
+      }
+    ]
   },
   {
     "id": "osm-node-12731945552",
@@ -3601,7 +4446,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/12731945552",
-    "collected_at": "2026-08-21T05:34:13.209353+00:00"
+    "collected_at": "2026-08-21T05:34:13.209353+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/12731945552"
+      }
+    ]
   },
   {
     "id": "osm-node-12733268619",
@@ -3635,7 +4487,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/12733268619",
-    "collected_at": "2026-08-21T05:34:13.209432+00:00"
+    "collected_at": "2026-08-21T05:34:13.209432+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/12733268619"
+      }
+    ]
   },
   {
     "id": "osm-way-343671658",
@@ -3669,7 +4528,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/way/343671658",
-    "collected_at": "2026-08-21T05:34:13.209505+00:00"
+    "collected_at": "2026-08-21T05:34:13.209505+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/way/343671658"
+      }
+    ]
   },
   {
     "id": "osm-node-1609809877",
@@ -3703,7 +4569,19 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/1609809877",
-    "collected_at": "2026-08-21T05:34:13.209591+00:00"
+    "collected_at": "2026-08-21T05:34:13.209591+00:00",
+    "external_links": [
+      {
+        "type": "official_website",
+        "label": "เว็บไซต์",
+        "url": "https://www.pttplc.com"
+      },
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/1609809877"
+      }
+    ]
   },
   {
     "id": "osm-way-482931668",
@@ -3737,7 +4615,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/way/482931668",
-    "collected_at": "2026-08-21T05:34:13.209767+00:00"
+    "collected_at": "2026-08-21T05:34:13.209767+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/way/482931668"
+      }
+    ]
   },
   {
     "id": "osm-way-482937617",
@@ -3771,7 +4656,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/way/482937617",
-    "collected_at": "2026-08-21T05:34:13.209863+00:00"
+    "collected_at": "2026-08-21T05:34:13.209863+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/way/482937617"
+      }
+    ]
   },
   {
     "id": "osm-way-482937620",
@@ -3805,7 +4697,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/way/482937620",
-    "collected_at": "2026-08-21T05:34:13.209946+00:00"
+    "collected_at": "2026-08-21T05:34:13.209946+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/482937620"
+      }
+    ]
   },
   {
     "id": "osm-way-482938252",
@@ -3839,7 +4738,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/way/482938252",
-    "collected_at": "2026-08-21T05:34:13.210021+00:00"
+    "collected_at": "2026-08-21T05:34:13.210021+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/way/482938252"
+      }
+    ]
   },
   {
     "id": "osm-way-568571544",
@@ -3873,7 +4779,19 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/way/568571544",
-    "collected_at": "2026-08-21T05:34:13.210097+00:00"
+    "collected_at": "2026-08-21T05:34:13.210097+00:00",
+    "external_links": [
+      {
+        "type": "official_website",
+        "label": "เว็บไซต์",
+        "url": "http://www.pttplc.com"
+      },
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/way/568571544"
+      }
+    ]
   },
   {
     "id": "osm-node-6153271083",
@@ -3907,7 +4825,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/6153271083",
-    "collected_at": "2026-08-21T05:34:25.813500+00:00"
+    "collected_at": "2026-08-21T05:34:25.813500+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/6153271083"
+      }
+    ]
   },
   {
     "id": "osm-node-4609367591",
@@ -3941,7 +4866,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/4609367591",
-    "collected_at": "2026-08-21T05:34:25.813705+00:00"
+    "collected_at": "2026-08-21T05:34:25.813705+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/4609367591"
+      }
+    ]
   },
   {
     "id": "osm-node-8508732635",
@@ -3975,7 +4907,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/8508732635",
-    "collected_at": "2026-08-21T05:34:25.813827+00:00"
+    "collected_at": "2026-08-21T05:34:25.813827+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/8508732635"
+      }
+    ]
   },
   {
     "id": "osm-node-12475645202",
@@ -4009,7 +4948,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/12475645202",
-    "collected_at": "2026-08-21T05:34:35.073402+00:00"
+    "collected_at": "2026-08-21T05:34:35.073402+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/12475645202"
+      }
+    ]
   },
   {
     "id": "osm-node-12475645301",
@@ -4043,7 +4989,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/12475645301",
-    "collected_at": "2026-08-21T05:34:35.073691+00:00"
+    "collected_at": "2026-08-21T05:34:35.073691+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/12475645301"
+      }
+    ]
   },
   {
     "id": "osm-node-12477829701",
@@ -4077,7 +5030,14 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/12477829701",
-    "collected_at": "2026-08-21T05:34:35.073847+00:00"
+    "collected_at": "2026-08-21T05:34:35.073847+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/12477829701"
+      }
+    ]
   },
   {
     "id": "osm-node-8477529506",
@@ -4111,6 +5071,13 @@
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/8477529506",
-    "collected_at": "2026-08-21T05:34:35.073974+00:00"
+    "collected_at": "2026-08-21T05:34:35.073974+00:00",
+    "external_links": [
+      {
+        "type": "osm",
+        "label": "OpenStreetMap current observation",
+        "url": "https://www.openstreetmap.org/node/8477529506"
+      }
+    ]
   }
 ]

@@ -23310,10 +23310,7 @@
       "diet_vegetarian": null,
       "diet_vegan": null,
       "opening_hours": null,
-      "phone": [
-        "0821389588",
-        "0903853130"
-      ],
+      "phone": "['0821389588', '0903853130']",
       "website": null,
       "address": "114 ถนนราษฎร์ดำริ ตำบลหน้าเมือง อำเภอเมืองปราจีนบุรี จังหวัดปราจีนบุรี",
       "opening_hours_text": "จันทร์-เสาร์ 06:00-15:00; อาทิตย์ 09:00-17:00",
@@ -23330,6 +23327,13 @@
     },
     "source": "Wongnai",
     "source_url": "https://www.wongnai.com/restaurants/1975749Hk-%E0%B8%AD%E0%B8%B2%E0%B8%AB%E0%B8%B2%E0%B8%A3%E0%B9%80%E0%B8%88-%E0%B8%8B%E0%B8%B1%E0%B9%88%E0%B8%99%E0%B8%AA%E0%B8%B5%E0%B9%88-%E0%B9%80%E0%B8%A1%E0%B8%B7%E0%B8%AD%E0%B8%87%E0%B8%9B%E0%B8%A3%E0%B8%B2%E0%B8%88%E0%B8%B5%E0%B8%99%E0%B8%9A%E0%B8%B8%E0%B8%A3%E0%B8%B5",
-    "collected_at": "2026-08-20T10:27:35.159250+00:00"
+    "collected_at": "2026-08-20T10:27:35.159250+00:00",
+    "external_links": [
+      {
+        "type": "wongnai",
+        "label": "Wongnai",
+        "url": "https://www.wongnai.com/restaurants/1975749Hk-อาหารเจ-ซั่นสี่-เมืองปราจีนบุรี"
+      }
+    ]
   }
 ]
