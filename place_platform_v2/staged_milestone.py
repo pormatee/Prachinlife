@@ -35,12 +35,26 @@ def select_pilot_queue(database_path,province='ปราจีนบุรี',l
         out.append({'place_id':p.identity.place_id,'canonical_name':p.canonical_name,'province':p.province,'latitude':p.location.latitude if p.location else None,'longitude':p.location.longitude if p.location else None,'osm_type':ref[0],'osm_id':ref[1]})
     return out[:limit]
 
-def parse_osm_node(payload:bytes):
+def parse_osm_object(payload:bytes, osm_type):
     import xml.etree.ElementTree as ET
-    root=ET.fromstring(payload); node=root.find('node')
-    if node is None: raise ValueError('OSM response has no node')
-    tags={t.attrib['k']:t.attrib.get('v','') for t in node.findall('tag')}
-    return {'lat':float(node.attrib['lat']),'lon':float(node.attrib['lon']),'tags':tags,'visible':node.attrib.get('visible','true')!='false'}
+    root=ET.fromstring(payload)
+    obj=root.find(osm_type)
+    if obj is None:
+        raise ValueError(f'OSM response has no {osm_type}')
+    tags={t.attrib['k']:t.attrib.get('v','') for t in obj.findall('tag')}
+    if osm_type == 'node':
+        lat=float(obj.attrib['lat'])
+        lon=float(obj.attrib['lon'])
+    else:
+        center=root.find('way/center')
+        lat=float(center.attrib['lat']) if center is not None else None
+        lon=float(center.attrib['lon']) if center is not None else None
+    return {'lat':lat,'lon':lon,'tags':tags,'visible':obj.attrib.get('visible','true')!='false'}
+
+
+def parse_osm_node(payload: bytes):
+    return parse_osm_object(payload, 'node')
+
 
 def observation_status(obs, expected_lat, expected_lon):
     if not obs['visible']:return 'negative','OSM object is not visible'
@@ -49,6 +63,42 @@ def observation_status(obs, expected_lat, expected_lon):
     if abs(obs['lat']-expected_lat)>0.002 or abs(obs['lon']-expected_lon)>0.002:return 'conflict','OSM object moved materially from canonical location'
     return 'current_listing','current OSM object remains present without closure marker'
 
+
+def observation_status_for_item(obs, item):
+    # Node: preserve existing location-drift protection.
+    if item.get('osm_type') == 'node':
+        return observation_status(
+            obs,
+            item['latitude'],
+            item['longitude'],
+        )
+
+    # Way: existence is determined by the current OSM object itself.
+    # A polygon/building/area must not be rejected by node-style
+    # point-distance comparison.
+    if not obs['visible']:
+        return 'negative', 'OSM object is not visible'
+
+    tags = {
+        str(k).casefold(): str(v).casefold()
+        for k, v in obs['tags'].items()
+    }
+
+    if (
+        any(k in tags for k in NEGATIVE_KEYS)
+        or any(v in NEGATIVE_VALUES for v in tags.values())
+    ):
+        return (
+            'negative',
+            'OSM object carries closure/disused marker',
+        )
+
+    return (
+        'current_listing',
+        'current OSM way remains present without closure marker',
+    )
+
+
 def acquire_osm_queue(queue,fetcher=None,observed_at=None):
     fetcher=fetcher or (lambda url: urllib.request.urlopen(url,timeout=20).read())
     when=observed_at or datetime.now(timezone.utc)
@@ -56,7 +106,7 @@ def acquire_osm_queue(queue,fetcher=None,observed_at=None):
     for item in queue:
         url=f"https://api.openstreetmap.org/api/0.6/node/{item['osm_id']}"
         try:
-            obs=parse_osm_node(fetcher(url)); status,reason=observation_status(obs,item['latitude'],item['longitude'])
+            obs=parse_osm_node(fetcher(url)); status,reason=observation_status_for_item(obs,item)
             results.append({**item,'status':status,'reason':reason,'source_name':'OpenStreetMap current observation','source_url':f"https://www.openstreetmap.org/node/{item['osm_id']}",'observed_at':when.isoformat(),'observed_latitude':obs['lat'],'observed_longitude':obs['lon']})
         except Exception as exc:
             results.append({**item,'status':'acquisition_error','reason':str(exc),'observed_at':when.isoformat()})
@@ -137,3 +187,116 @@ def build_compat_staging(database_path,repo_root,output_root,province='ปรา
     manifest={'policy_version':POLICY_VERSION,'province':province,'eligible_place_count':len(eligible),'files':counts,'production_unchanged':True}
     (outroot/'manifest.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2),encoding='utf-8')
     return manifest
+def select_observation_queue(
+    database_path,
+    province='ปราจีนบุรี',
+    limit=20,
+):
+    """
+    Select the next deterministic batch of places whose current
+    existence can be checked automatically through an OSM node.
+
+    Unlike select_pilot_queue(), this rollout queue excludes places
+    that are already staged-eligible.  It deliberately does not
+    expand to OSM ways/relations; those require a separate policy.
+    """
+    if limit < 0:
+        raise ValueError('limit must be >= 0')
+    if limit == 0:
+        return []
+
+    places, by = _load_places_and_evidence(
+        database_path,
+        province,
+    )
+
+    eligible, _ = eligible_place_ids(
+        database_path,
+        province,
+    )
+    eligible = set(eligible)
+
+    name_counts = {}
+    for place in places:
+        key = place.canonical_name.strip().casefold()
+        name_counts[key] = name_counts.get(key, 0) + 1
+
+    queue = []
+
+    for place in places:
+        place_id = place.identity.place_id
+
+        # Critical rollout-pagination guard:
+        # never acquire the already-eligible pilot again.
+        if place_id in eligible:
+            continue
+
+        evidence = by.get(place_id, ())
+        ref = osm_ref(evidence)
+
+        # Keep first rollout generation on the already-proven
+        # OSM-node acquisition path only.
+        if not ref or ref[0] != 'node':
+            continue
+
+        name_key = place.canonical_name.strip().casefold()
+        if name_counts[name_key] != 1:
+            continue
+
+        core_ok = True
+
+        for field_name in CORE_FIELDS:
+            value = getattr(place, field_name)
+
+            if not _lineages(
+                _matching(
+                    evidence,
+                    field_name,
+                    value,
+                )
+            ):
+                core_ok = False
+                break
+
+            if _has_conflict(
+                evidence,
+                field_name,
+                value,
+            ):
+                core_ok = False
+                break
+
+        if not core_ok:
+            continue
+
+        queue.append(
+            {
+                'place_id': place_id,
+                'canonical_name': place.canonical_name,
+                'province': place.province,
+                'latitude': (
+                    place.location.latitude
+                    if place.location
+                    else None
+                ),
+                'longitude': (
+                    place.location.longitude
+                    if place.location
+                    else None
+                ),
+                'osm_type': ref[0],
+                'osm_id': ref[1],
+            }
+        )
+
+    # Explicit ordering makes batch boundaries reproducible even if
+    # repository query ordering changes in the future.
+    queue.sort(
+        key=lambda item: (
+            item['place_id'],
+            item['canonical_name'].casefold(),
+            item['osm_id'],
+        )
+    )
+
+    return queue[:limit]
