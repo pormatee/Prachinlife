@@ -80,7 +80,9 @@
       lng: longitude,
       province,
       area: displayArea,
-      district: displayArea,
+      district: text(place.district) || displayArea,
+      subdistrict: text(place.subdistrict),
+      area: text(place.area) || displayArea,
       address: address || displayArea,
 
       /*
@@ -96,8 +98,12 @@
 
       phone: text(place.phone),
       website: text(place.website),
+      opening_hours: text(place.opening_hours),
+      description: text(place.description),
+      real_image: text(place.real_image),
       image_url:
-        text(place.image_url)
+        text(place.real_image)
+        || text(place.image_url)
         || text(place.image)
         || text(place.photo_url)
         || text(place.thumbnail_url),
@@ -121,6 +127,9 @@
         source_url: text(place.source_url),
         external_links: Array.isArray(place.external_links) ? place.external_links : [],
         prachinlife_page_url: text(place.prachinlife_page_url),
+        opening_hours: text(place.opening_hours),
+        description: text(place.description),
+        real_image: text(place.real_image),
       }
     };
   }

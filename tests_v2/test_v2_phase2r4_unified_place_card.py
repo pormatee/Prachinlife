@@ -93,7 +93,7 @@ class TestPhase2R4UnifiedPlaceCard(unittest.TestCase):
         self.assertIn('getEatDatasetV2First', text)
         self.assertIn('PrachinLifeV2Runtime', text)
         index = INDEX.read_text(encoding='utf-8')
-        self.assertIn('phase2y1-20260822', index)
+        self.assertIn('phase2y2-20260822', index)
 
 
 if __name__ == '__main__':

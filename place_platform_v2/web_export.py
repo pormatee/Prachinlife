@@ -25,6 +25,34 @@ def _source_link_from_record_id(record_id):
     kind, object_id = match.groups()
     return f"https://www.openstreetmap.org/{kind}/{object_id}"
 
+
+def _decode_evidence_value(raw):
+    try:
+        return json.loads(raw)
+    except (TypeError, json.JSONDecodeError):
+        return raw
+
+
+def _detail_evidence_for_place(con, place_id):
+    wanted = {"district", "subdistrict", "area", "opening_hours", "real_image", "description"}
+    rows = con.execute(
+        "SELECT field_name,value_json,status,observed_at FROM place_evidence "
+        "WHERE place_id=? ORDER BY observed_at DESC,evidence_id",
+        (place_id,),
+    ).fetchall()
+    result = {}
+    for row in rows:
+        field = str(row["field_name"] or "")
+        if field not in wanted or field in result:
+            continue
+        # Candidate-only edits are not public detail data yet.
+        if str(row["status"] or "").casefold() == "candidate":
+            continue
+        value = _decode_evidence_value(row["value_json"])
+        if value not in (None, "", [], {}):
+            result[field] = value
+    return result
+
 def _source_kind(name, url):
     value = str(url or "").casefold()
     label = str(name or "").casefold()
@@ -94,6 +122,7 @@ def export_prachinlife_json(database_path, output_path, province="ปราจ�
         for r in rows:
             source = _best_source_for_place(con, r["place_id"])
             external_links = _links_for_place(con, r["place_id"], r["website"])
+            details = _detail_evidence_for_place(con, r["place_id"])
             places.append({
                 "id": r["place_id"],
                 "name": r["canonical_name"],
@@ -109,6 +138,13 @@ def export_prachinlife_json(database_path, output_path, province="ปราจ�
                 "source_name": source["source_name"],
                 "source_url": source["source_url"],
                 "external_links": external_links,
+                "district": details.get("district"),
+                "subdistrict": details.get("subdistrict"),
+                "area": details.get("area"),
+                "opening_hours": details.get("opening_hours"),
+                "real_image": details.get("real_image"),
+                "image_url": details.get("real_image"),
+                "description": details.get("description"),
             })
     finally:
         con.close()
