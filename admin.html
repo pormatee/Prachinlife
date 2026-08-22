@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <title>PrachinLife Admin — Internal Beta</title>
+  <link rel="stylesheet" href="admin.css?v=phase2u331-20260822-u335">
+</head>
+<body>
+  <main class="admin-shell">
+    <header class="admin-header">
+      <div>
+        <p class="admin-eyebrow">PRACHINLIFE V2 • INTERNAL ONLY</p>
+        <h1>Admin ข้อมูลสถานที่</h1>
+        <p>Visual Place Manager — ดู Card แบบผู้ใช้ แล้วกดแก้ไขเพื่อเปิด Form เดิมและสร้าง evidence draft</p>
+      </div>
+      <div class="admin-header-actions"><a class="admin-link-button secondary" href="admin-view.html">← กลับมุมมอง User</a><a class="admin-link-button secondary" href="admin-review.html">รายการรอตรวจสอบ</a><span class="admin-badge">Phase 2U.3 • Preview Before Action</span></div>
+    </header>
+
+    <section id="adminAccessWarning" class="admin-warning hidden" role="alert">
+      หน้านี้เปิดใช้งานได้เฉพาะ local/internal runtime ใน Phase 2T Foundation
+    </section>
+
+    <section class="admin-panel admin-manager-panel">
+      <div class="admin-manager-heading">
+        <div>
+          <p class="admin-eyebrow">VISUAL PLACE MANAGER</p>
+          <h2>สถานที่ในระบบ</h2>
+          <p class="admin-muted">ค้นหาแล้วกด “แก้ไขข้อมูล” จาก Card ได้ทันที หรือเพิ่มสถานที่ใหม่ที่ยังไม่มีในระบบ</p>
+        </div>
+        <button id="adminAddPlaceBtn" type="button">＋ เพิ่มสถานที่ใหม่</button>
+      </div>
+
+      <div class="admin-grid admin-grid-search">
+        <label>
+          <span>ค้นหาสถานที่</span>
+          <input id="adminPlaceSearch" type="search" placeholder="ชื่อร้าน / สถานที่ / หมวด" autocomplete="off">
+        </label>
+        <label>
+          <span>เลือกแบบรายการ</span>
+          <select id="adminPlaceSelect">
+            <option value="">กำลังโหลดข้อมูล...</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="admin-result-meta">
+        <p id="adminPlaceSummary" class="admin-muted">ยังไม่ได้เลือกสถานที่</p>
+        <strong id="adminPlaceCount">กำลังโหลด...</strong>
+      </div>
+
+      <div id="adminPlaceCards" class="admin-place-grid" aria-live="polite"></div>
+      <div class="admin-card-footer">
+        <button id="adminShowMoreBtn" class="secondary hidden" type="button">ดูสถานที่เพิ่มเติม</button>
+      </div>
+    </section>
+
+    <section id="adminEditPanel" class="admin-panel admin-edit-panel">
+      <div class="admin-panel-heading admin-form-heading">
+        <div>
+          <p class="admin-eyebrow">EVIDENCE EDITOR</p>
+          <h2 id="adminFormTitle">เลือกสถานที่จาก Card เพื่อแก้ไข</h2>
+          <p id="adminFormHint" class="admin-muted">Form นี้สร้าง Evidence Draft เท่านั้น ยังไม่เขียน Canonical DB โดยตรง</p>
+        </div>
+        <span id="adminFormMode" class="admin-mode-badge">ยังไม่ได้เลือก</span>
+      </div>
+
+      <div class="admin-grid">
+        <label><span>ชื่อสถานที่</span><input id="fieldCanonicalName" data-admin-field="canonical_name"></label>
+        <label><span>จังหวัด</span><input id="fieldProvince" data-admin-field="province"></label>
+        <label><span>อำเภอ</span><input id="fieldDistrict" data-admin-field="district"></label>
+        <label><span>ตำบล</span><input id="fieldSubdistrict" data-admin-field="subdistrict"></label>
+        <label><span>พื้นที่ / จุดสังเกต</span><input id="fieldArea" data-admin-field="area"></label>
+        <label class="admin-span-2"><span>ที่อยู่</span><input id="fieldAddress" data-admin-field="address_text"></label>
+        <label><span>ละติจูด</span><input id="fieldLatitude" inputmode="decimal"></label>
+        <label><span>ลองจิจูด</span><input id="fieldLongitude" inputmode="decimal"></label>
+        <label><span>เวลาเปิด</span><input id="fieldOpeningHours" data-admin-field="opening_hours" placeholder="เช่น Mo-Su 08:00-18:00"></label>
+        <label><span>โทรศัพท์</span><input id="fieldPhone" data-admin-field="phone"></label>
+        <label><span>เว็บไซต์</span><input id="fieldWebsite" data-admin-field="website" type="url"></label>
+        <label><span>รูปจริง (URL)</span><input id="fieldRealImage" data-admin-field="real_image" type="url"></label>
+        <label class="admin-span-2 admin-media-upload-field">
+          <span>อัปโหลดรูปจากเครื่อง / มือถือ</span>
+          <div class="admin-upload-row">
+            <input id="fieldRealImageUpload" type="file" accept="image/jpeg,image/png,image/webp">
+            <button id="adminUploadImageBtn" class="secondary" type="button">อัปโหลดรูป</button>
+          </div>
+          <small class="admin-muted">JPEG / PNG / WebP · รูปจากมือถือที่ใหญ่เกินจะถูกย่ออัตโนมัติก่อนอัปโหลด · ยังไม่ Publish</small>
+          <p id="adminImageUploadStatus" class="admin-upload-status admin-muted" role="status">ยังไม่ได้เลือกรูป</p>
+          <div id="adminImageUploadPreview" class="admin-inline-image-preview"><span>ยังไม่ได้เลือกรูปใหม่</span></div>
+        </label>
+        <label class="admin-span-2"><span>หมวด (คั่นด้วย comma)</span><input id="fieldCategories" placeholder="restaurant,cafe"></label>
+        <label class="admin-span-2"><span>คำอธิบาย</span><textarea id="fieldDescription" data-admin-field="description" rows="4"></textarea></label>
+      </div>
+    </section>
+
+    <section class="admin-panel admin-commerce-foundation">
+      <div class="admin-panel-heading">
+        <div>
+          <p class="admin-eyebrow">MERCHANT / VIP FOUNDATION</p>
+          <h2>ข้อมูลพิเศษร้านค้า / VIP</h2>
+          <p class="admin-muted">วางโครงสร้างล่วงหน้าเท่านั้น ข้อมูลส่วนนี้ยังไม่เปลี่ยน Card สาธารณะและไม่กระทบ Ranking</p>
+        </div>
+        <span class="admin-mode-badge">Foundation only</span>
+      </div>
+      <div class="admin-grid">
+        <label><span>โหมดร้าน</span><select id="merchantMode"><option value="normal">Normal</option><option value="vip">VIP / Sponsor</option></select></label>
+        <label><span>แพ็กเกจ / แผน</span><input id="vipPlan" placeholder="เช่น annual-vip"></label>
+        <label><span>เริ่มสัญญา</span><input id="vipContractStart" type="datetime-local"></label>
+        <label><span>หมดสัญญา</span><input id="vipContractEnd" type="datetime-local"></label>
+        <label class="admin-span-2"><span>เลขอ้างอิง / หมายเหตุสัญญา</span><input id="vipContractReference"></label>
+        <label class="admin-span-2"><span>Gallery media IDs (สูงสุด 20, คั่นด้วย comma)</span><input id="merchantGallery" placeholder="media-id-1,media-id-2"></label>
+        <label><span>LINE URL</span><input id="merchantLineUrl" type="url"></label>
+        <label><span>Facebook URL</span><input id="merchantFacebookUrl" type="url"></label>
+        <label><span>เมนู / Catalog URL</span><input id="merchantMenuUrl" type="url"></label>
+        <label><span>จอง / สั่งซื้อ URL</span><input id="merchantBookingUrl" type="url"></label>
+        <label class="admin-span-2"><span>ข้อความเด่นจากร้าน</span><input id="merchantHighlight" maxlength="240"></label>
+      </div>
+      <p class="admin-muted">เมื่อครบวันหมดสัญญา โหมด VIP จะกลับเป็น Normal อัตโนมัติใน runtime โดยไม่ลบ Canonical Facts หรือประวัติ Merchant Content</p>
+    </section>
+
+    <section class="admin-panel">
+      <h2>หลักฐาน / Provenance</h2>
+      <div class="admin-grid">
+        <label><span>ชื่อแหล่งข้อมูล *</span><input id="adminSourceName" required placeholder="Official Facebook / OpenStreetMap / เว็บไซต์ร้าน"></label>
+        <label><span>URL แหล่งข้อมูล *</span><input id="adminSourceUrl" required type="url" placeholder="https://..."></label>
+        <label class="admin-span-2"><span>หมายเหตุ</span><textarea id="adminNote" rows="3"></textarea></label>
+      </div>
+      <div class="admin-actions">
+        <button id="adminBuildDraftBtn" type="button">สร้าง Evidence Draft</button>
+        <button id="adminSaveDraftBtn" type="button" disabled>บันทึกเพื่อรอตรวจสอบ</button>
+        <button id="adminClearBtn" class="secondary" type="button">ยกเลิกการแก้ไข</button>
+      </div>
+      <p id="adminStatus" class="admin-muted" role="status"></p>
+    </section>
+
+    <section class="admin-panel" id="adminVisualPreviewPanel">
+      <div class="admin-panel-heading">
+        <div><p class="admin-eyebrow">USER PREVIEW</p><h2>ตัวอย่างก่อนบันทึก</h2></div>
+        <span class="admin-mode-badge">ต้องตรวจ Preview ก่อนบันทึก</span>
+      </div>
+      <p class="admin-muted">ตรวจว่า Card หลังปรับปรุงจะเป็นอย่างไรก่อนส่งเข้าคิว Review</p>
+      <div id="adminBeforeAfterPreview" class="admin-before-after-preview">
+        <p class="admin-muted">สร้าง Evidence Draft เพื่อดู Preview ก่อน / หลัง</p>
+      </div>
+    </section>
+
+    <section class="admin-panel">
+      <div class="admin-panel-heading">
+        <h2>Evidence Draft JSON</h2>
+        <button id="adminCopyDraftBtn" class="secondary" type="button" disabled>คัดลอก JSON</button>
+      </div>
+      <pre id="adminDraftPreview">ยังไม่มี draft</pre>
+      <p class="admin-muted">Preview และ Draft นี้ยังไม่แก้ Canonical DB และยังไม่ Publish</p>
+    </section>
+  </main>
+
+  <script src="js/core/utils.js?v=20260818-1"></script>
+  <script src="js/core/place-image.js?v=phase2r4-20260822-u333"></script>
+  <script src="js/admin/preview.js?v=phase2u331-20260822-u335a"></script>
+  <script src="js/admin/admin.js?v=phase2u331-20260822-u335a"></script>
+</body>
+</html>

@@ -1175,6 +1175,24 @@ PROMOTIONS
 }
 
 
+.place-card-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  background: var(--surface-soft);
+}
+
+.place-card-image[data-place-image-type="master"] {
+  object-fit: cover;
+}
+
+.place-card-image[data-place-image-type="real"] {
+  object-fit: cover;
+}
+
+
 .image-placeholder {
   width: 100%;
   height: 100%;
@@ -4803,4 +4821,64 @@ SERVICE V1 - UI LOOP 1
     grid-template-columns: 1fr;
   }
 
+}
+
+/* PHASE 2R.3 - shared place image polish */
+
+@media (max-width: 720px) {
+
+  .eat-image-wrap {
+    aspect-ratio: 16 / 9;
+  }
+
+}
+
+
+/* =====================================================
+PHASE 2R.4 - UNIFIED PLACE CARD ACTIONS
+===================================================== */
+
+.place-card-data-note {
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+
+.place-card-actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  padding-top: 14px;
+}
+
+.place-card-actions .place-card-action {
+  width: 100%;
+  min-width: 0;
+  padding-inline: 10px;
+  text-align: center;
+}
+
+.place-card-actions .place-card-action:only-child {
+  grid-column: 1 / -1;
+}
+
+.place-card-actions .place-card-action:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+}
+
+.place-card-action-source {
+  border: 1px solid var(--line);
+  background: var(--surface-soft);
+  color: var(--brand-dark);
+}
+
+.place-card-action-source:hover {
+  background: var(--brand-soft);
+}
+
+@media (max-width: 420px) {
+  .place-card-actions {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }

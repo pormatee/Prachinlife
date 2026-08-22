@@ -139,6 +139,68 @@ CREATE TABLE IF NOT EXISTS place_revisions (
     created_at TEXT NOT NULL
 );
 CREATE INDEX IF NOT EXISTS idx_place_revisions_place ON place_revisions(place_id);
+CREATE TABLE IF NOT EXISTS admin_adoption_receipts (
+    draft_id TEXT PRIMARY KEY,
+    place_id TEXT NOT NULL REFERENCES places(place_id) ON DELETE RESTRICT,
+    revision_ids_json TEXT NOT NULL,
+    evidence_ids_json TEXT NOT NULL,
+    policy_version TEXT NOT NULL,
+    committed_at TEXT NOT NULL
+);
+CREATE INDEX IF NOT EXISTS idx_admin_adoption_receipts_place ON admin_adoption_receipts(place_id);
+CREATE TABLE IF NOT EXISTS admin_candidate_resolution_audit (
+    draft_id TEXT PRIMARY KEY,
+    place_id TEXT NOT NULL REFERENCES places(place_id) ON DELETE RESTRICT,
+    operation TEXT NOT NULL,
+    resolution_outcome TEXT NOT NULL,
+    decision_json TEXT NOT NULL,
+    policy_version TEXT NOT NULL,
+    committed_at TEXT NOT NULL
+);
+CREATE INDEX IF NOT EXISTS idx_admin_candidate_resolution_place
+    ON admin_candidate_resolution_audit(place_id);
+CREATE TABLE IF NOT EXISTS admin_provenance_repairs (
+    repair_id TEXT PRIMARY KEY,
+    draft_id TEXT NOT NULL,
+    place_id TEXT NOT NULL REFERENCES places(place_id) ON DELETE RESTRICT,
+    evidence_ids_json TEXT NOT NULL,
+    before_json TEXT NOT NULL,
+    after_json TEXT NOT NULL,
+    policy_version TEXT NOT NULL,
+    repaired_at TEXT NOT NULL
+);
+CREATE UNIQUE INDEX IF NOT EXISTS idx_admin_provenance_repairs_draft
+    ON admin_provenance_repairs(draft_id);
+CREATE INDEX IF NOT EXISTS idx_admin_provenance_repairs_place
+    ON admin_provenance_repairs(place_id);
+CREATE TABLE IF NOT EXISTS canonical_geographic_corrections (
+    proposal_id TEXT PRIMARY KEY,
+    place_id TEXT NOT NULL REFERENCES places(place_id) ON DELETE RESTRICT,
+    province_before TEXT,
+    province_after TEXT NOT NULL,
+    supporting_lineages_json TEXT NOT NULL,
+    evidence_ids_json TEXT NOT NULL,
+    revision_id TEXT NOT NULL REFERENCES place_revisions(revision_id) ON DELETE RESTRICT,
+    policy_version TEXT NOT NULL,
+    committed_at TEXT NOT NULL
+);
+CREATE INDEX IF NOT EXISTS idx_canonical_geographic_corrections_place
+    ON canonical_geographic_corrections(place_id);
+CREATE TABLE IF NOT EXISTS publication_verification_bundles (
+    bundle_id TEXT PRIMARY KEY,
+    place_id TEXT NOT NULL REFERENCES places(place_id) ON DELETE RESTRICT,
+    source_type TEXT NOT NULL,
+    source_name TEXT NOT NULL,
+    source_record_id TEXT,
+    source_url TEXT,
+    evidence_ids_json TEXT NOT NULL,
+    lifecycle_before TEXT NOT NULL,
+    lifecycle_after TEXT NOT NULL,
+    policy_version TEXT NOT NULL,
+    committed_at TEXT NOT NULL
+);
+CREATE INDEX IF NOT EXISTS idx_publication_verification_bundles_place
+    ON publication_verification_bundles(place_id);
 CREATE TABLE IF NOT EXISTS migration_imports (
     import_key TEXT PRIMARY KEY,
     source_file TEXT NOT NULL,
@@ -341,6 +403,320 @@ class SQLitePlaceRepository(_SQLiteBase):
             if "place_revisions.revision_id" in message or "unique" in message:
                 raise ValueError("duplicate revision_id") from exc
             raise
+
+    def get_admin_adoption_receipt(self, draft_id: str) -> dict[str, Any] | None:
+        row = self._connection.execute(
+            "SELECT * FROM admin_adoption_receipts WHERE draft_id = ?", (draft_id,)
+        ).fetchone()
+        if row is None:
+            return None
+        item = dict(row)
+        item["revision_ids"] = _load(item.pop("revision_ids_json"))
+        item["evidence_ids"] = _load(item.pop("evidence_ids_json"))
+        return item
+
+    def commit_admin_adoption_batch(
+        self,
+        *,
+        draft_id: str,
+        place: CanonicalPlace,
+        revisions: Iterable[PlaceRevision],
+        evidence: Iterable[PlaceEvidence],
+        policy_version: str,
+        committed_at: datetime,
+    ) -> dict[str, Any]:
+        """Atomically persist approved admin evidence + canonical revisions.
+
+        The draft receipt is part of the same SQLite transaction and makes the
+        operation idempotent. Publication is deliberately outside this method.
+        """
+        if committed_at.tzinfo is None:
+            raise ValueError("committed_at must be timezone-aware")
+        existing = self.get_admin_adoption_receipt(draft_id)
+        if existing is not None:
+            return existing
+        place_id = place.identity.place_id
+        if self.get_place(place_id) is None:
+            raise KeyError("adoption cannot update an unknown place")
+        revision_items = tuple(revisions)
+        evidence_items = tuple(evidence)
+        if not revision_items:
+            raise ValueError("admin adoption requires at least one revision")
+        if any(item.place_id != place_id for item in revision_items):
+            raise ValueError("revision belongs to a different place")
+        if any(item.place_id != place_id for item in evidence_items):
+            raise ValueError("evidence belongs to a different place")
+
+        location = place.location
+        try:
+            with self._connection:
+                for item in evidence_items:
+                    self._connection.execute(
+                        """
+                        INSERT INTO place_evidence(
+                            evidence_id, place_id, source_type, source_name, source_record_id,
+                            source_url, source_observed_at, kind, field_name, value_json,
+                            status, observed_at, metadata_json
+                        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                        """,
+                        (
+                            item.evidence_id, item.place_id, item.source.source_type.value,
+                            item.source.source_name, item.source.source_record_id,
+                            item.source.source_url, _iso(item.source.observed_at), item.kind.value,
+                            item.field_name, _dump(item.value), item.status.value,
+                            _iso(item.observed_at), _dump(dict(item.metadata)),
+                        ),
+                    )
+                self._connection.execute(
+                    """
+                    UPDATE places SET canonical_name=?, latitude=?, longitude=?, address_text=?,
+                        province=?, categories_json=?, phone=?, website=?, lifecycle=?,
+                        created_at=?, updated_at=? WHERE place_id=?
+                    """,
+                    (
+                        place.canonical_name,
+                        location.latitude if location else None,
+                        location.longitude if location else None,
+                        place.address_text, place.province, _dump(tuple(place.categories)),
+                        place.phone, place.website, place.lifecycle.value,
+                        _iso(place.created_at), _iso(place.updated_at), place_id,
+                    ),
+                )
+                for revision in revision_items:
+                    self._connection.execute(
+                        """
+                        INSERT INTO place_revisions(
+                            revision_id, place_id, changed_fields_json, before_values_json,
+                            after_values_json, reason, evidence_ids_json, policy_version, created_at
+                        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+                        """,
+                        (
+                            revision.revision_id, revision.place_id,
+                            _dump(tuple(revision.changed_fields)), _dump(dict(revision.before_values)),
+                            _dump(dict(revision.after_values)), revision.reason,
+                            _dump(tuple(revision.evidence_ids)), revision.policy_version,
+                            _iso(revision.created_at),
+                        ),
+                    )
+                self._connection.execute(
+                    """
+                    INSERT INTO admin_adoption_receipts(
+                        draft_id, place_id, revision_ids_json, evidence_ids_json,
+                        policy_version, committed_at
+                    ) VALUES (?, ?, ?, ?, ?, ?)
+                    """,
+                    (
+                        draft_id, place_id,
+                        _dump(tuple(item.revision_id for item in revision_items)),
+                        _dump(tuple(item.evidence_id for item in evidence_items)),
+                        policy_version, _iso(committed_at),
+                    ),
+                )
+        except sqlite3.IntegrityError as exc:
+            message = str(exc).lower()
+            if "evidence_id" in message or "revision_id" in message or "unique" in message:
+                raise ValueError("duplicate adoption evidence/revision identifier") from exc
+            raise
+        return self.get_admin_adoption_receipt(draft_id) or {}
+
+    def get_admin_candidate_resolution_audit(self, draft_id: str) -> dict[str, Any] | None:
+        row = self._connection.execute(
+            "SELECT * FROM admin_candidate_resolution_audit WHERE draft_id = ?", (draft_id,)
+        ).fetchone()
+        if row is None:
+            return None
+        item = dict(row)
+        item["decision"] = _load(item.pop("decision_json"))
+        return item
+
+    def commit_admin_candidate_creation(
+        self,
+        *,
+        draft_id: str,
+        place: CanonicalPlace,
+        revision: PlaceRevision,
+        evidence: Iterable[PlaceEvidence],
+        policy_version: str,
+        decision: dict[str, Any],
+        committed_at: datetime,
+    ) -> dict[str, Any]:
+        """Atomically create one canonical place from one approved admin candidate.
+
+        This is an insert-only creation boundary. It never upserts an existing
+        place and never writes to the published read model.
+        """
+        if committed_at.tzinfo is None:
+            raise ValueError("committed_at must be timezone-aware")
+        existing = self.get_admin_adoption_receipt(draft_id)
+        if existing is not None:
+            return existing
+        place_id = place.identity.place_id
+        if self.get_place(place_id) is not None:
+            raise ValueError("candidate place_id already exists in canonical database")
+        if revision.place_id != place_id:
+            raise ValueError("creation revision belongs to a different place")
+        evidence_items = tuple(evidence)
+        if not evidence_items:
+            raise ValueError("candidate creation requires evidence")
+        if any(item.place_id != place_id for item in evidence_items):
+            raise ValueError("candidate evidence belongs to a different place")
+        location = place.location
+        try:
+            with self._connection:
+                self._connection.execute(
+                    """
+                    INSERT INTO places(
+                        place_id, canonical_name, latitude, longitude, address_text, province,
+                        categories_json, phone, website, lifecycle, created_at, updated_at
+                    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                    """,
+                    (
+                        place_id, place.canonical_name,
+                        location.latitude if location else None,
+                        location.longitude if location else None,
+                        place.address_text, place.province, _dump(tuple(place.categories)),
+                        place.phone, place.website, place.lifecycle.value,
+                        _iso(place.created_at), _iso(place.updated_at),
+                    ),
+                )
+                for item in evidence_items:
+                    self._connection.execute(
+                        """
+                        INSERT INTO place_evidence(
+                            evidence_id, place_id, source_type, source_name, source_record_id,
+                            source_url, source_observed_at, kind, field_name, value_json,
+                            status, observed_at, metadata_json
+                        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                        """,
+                        (
+                            item.evidence_id, item.place_id, item.source.source_type.value,
+                            item.source.source_name, item.source.source_record_id,
+                            item.source.source_url, _iso(item.source.observed_at), item.kind.value,
+                            item.field_name, _dump(item.value), item.status.value,
+                            _iso(item.observed_at), _dump(dict(item.metadata)),
+                        ),
+                    )
+                self._connection.execute(
+                    """
+                    INSERT INTO place_revisions(
+                        revision_id, place_id, changed_fields_json, before_values_json,
+                        after_values_json, reason, evidence_ids_json, policy_version, created_at
+                    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+                    """,
+                    (
+                        revision.revision_id, revision.place_id,
+                        _dump(tuple(revision.changed_fields)), _dump(dict(revision.before_values)),
+                        _dump(dict(revision.after_values)), revision.reason,
+                        _dump(tuple(revision.evidence_ids)), revision.policy_version,
+                        _iso(revision.created_at),
+                    ),
+                )
+                self._connection.execute(
+                    """
+                    INSERT INTO admin_adoption_receipts(
+                        draft_id, place_id, revision_ids_json, evidence_ids_json,
+                        policy_version, committed_at
+                    ) VALUES (?, ?, ?, ?, ?, ?)
+                    """,
+                    (
+                        draft_id, place_id, _dump((revision.revision_id,)),
+                        _dump(tuple(item.evidence_id for item in evidence_items)),
+                        policy_version, _iso(committed_at),
+                    ),
+                )
+                self._connection.execute(
+                    """
+                    INSERT INTO admin_candidate_resolution_audit(
+                        draft_id, place_id, operation, resolution_outcome, decision_json,
+                        policy_version, committed_at
+                    ) VALUES (?, ?, ?, ?, ?, ?, ?)
+                    """,
+                    (
+                        draft_id, place_id, str(decision.get("operation") or "create_place_candidate"),
+                        str(decision.get("resolution_outcome") or ""), _dump(decision),
+                        policy_version, _iso(committed_at),
+                    ),
+                )
+        except sqlite3.IntegrityError as exc:
+            raise ValueError("controlled candidate creation failed atomically") from exc
+        return self.get_admin_adoption_receipt(draft_id) or {}
+
+    def commit_admin_candidate_reconciliation(
+        self,
+        *,
+        draft_id: str,
+        place_id: str,
+        evidence: Iterable[PlaceEvidence],
+        policy_version: str,
+        decision: dict[str, Any],
+        committed_at: datetime,
+    ) -> dict[str, Any]:
+        """Atomically attach approved create-candidate evidence to an existing canonical.
+
+        This path is evidence/audit-only: it never updates the canonical place row,
+        never creates a revision, and never publishes. It is used only after one
+        deterministic SAME_ENTITY match has been established.
+        """
+        if committed_at.tzinfo is None:
+            raise ValueError("committed_at must be timezone-aware")
+        existing = self.get_admin_adoption_receipt(draft_id)
+        if existing is not None:
+            return existing
+        if self.get_place(place_id) is None:
+            raise KeyError("reconciliation target canonical place does not exist")
+        evidence_items = tuple(evidence)
+        if not evidence_items:
+            raise ValueError("candidate reconciliation requires evidence")
+        if any(item.place_id != place_id for item in evidence_items):
+            raise ValueError("reconciliation evidence belongs to a different place")
+        try:
+            with self._connection:
+                for item in evidence_items:
+                    self._connection.execute(
+                        """
+                        INSERT INTO place_evidence(
+                            evidence_id, place_id, source_type, source_name, source_record_id,
+                            source_url, source_observed_at, kind, field_name, value_json,
+                            status, observed_at, metadata_json
+                        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                        """,
+                        (
+                            item.evidence_id, item.place_id, item.source.source_type.value,
+                            item.source.source_name, item.source.source_record_id,
+                            item.source.source_url, _iso(item.source.observed_at), item.kind.value,
+                            item.field_name, _dump(item.value), item.status.value,
+                            _iso(item.observed_at), _dump(dict(item.metadata)),
+                        ),
+                    )
+                self._connection.execute(
+                    """
+                    INSERT INTO admin_adoption_receipts(
+                        draft_id, place_id, revision_ids_json, evidence_ids_json,
+                        policy_version, committed_at
+                    ) VALUES (?, ?, ?, ?, ?, ?)
+                    """,
+                    (
+                        draft_id, place_id, _dump(tuple()),
+                        _dump(tuple(item.evidence_id for item in evidence_items)),
+                        policy_version, _iso(committed_at),
+                    ),
+                )
+                self._connection.execute(
+                    """
+                    INSERT INTO admin_candidate_resolution_audit(
+                        draft_id, place_id, operation, resolution_outcome, decision_json,
+                        policy_version, committed_at
+                    ) VALUES (?, ?, ?, ?, ?, ?, ?)
+                    """,
+                    (
+                        draft_id, place_id, str(decision.get("operation") or "create_place_candidate"),
+                        str(decision.get("resolution_outcome") or "matched"), _dump(decision),
+                        policy_version, _iso(committed_at),
+                    ),
+                )
+        except sqlite3.IntegrityError as exc:
+            raise ValueError("controlled candidate reconciliation failed atomically") from exc
+        return self.get_admin_adoption_receipt(draft_id) or {}
 
     def list_migration_import_keys(self) -> frozenset[str]:
         rows = self._connection.execute("SELECT import_key FROM migration_imports").fetchall()

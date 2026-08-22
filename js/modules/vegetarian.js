@@ -290,45 +290,14 @@ window.PrachinLife.modules.vegetarian.bindMainEvents = function (
 window.PrachinLife.modules.vegetarian.getLocationLabel = function (
   place
 ) {
-  const location =
-    place?.location || {};
-
-  const parts = [
-    location.subdistrict,
-    location.district,
-    location.province,
-  ].filter(Boolean);
-
-  const unique = [
-    ...new Set(parts)
-  ];
-
-  if (unique.length > 0) {
-    return unique.join(
-      " · "
-    );
-  }
-
-  const latitude =
-    Number(
-      location.latitude
-    );
-
-  const longitude =
-    Number(
-      location.longitude
-    );
-
-  if (
-    Number.isFinite(latitude)
-    &&
-    Number.isFinite(longitude)
-  ) {
-    return "ดูตำแหน่งจากแผนที่";
-  }
-
-  return "ไม่ระบุพื้นที่";
+  return (
+    window.PrachinLife.core.placeCard.getLocationLabel(
+      place
+    )
+    || "ไม่ระบุพื้นที่"
+  );
 };
+
 
 window.PrachinLife.modules.vegetarian.getUserStatus = function (
   place
@@ -377,16 +346,14 @@ window.PrachinLife.modules.vegetarian.getUserStatus = function (
 window.PrachinLife.modules.vegetarian.renderCard = function (
   place
 ) {
-  const title =
-    window.PrachinLife.core.escapeHtml(
-      place?.title || "ไม่ระบุชื่อร้าน"
+  const detail =
+    window.PrachinLife.core.placeDetail.getDetail(
+      place
     );
 
-  const location =
+  const title =
     window.PrachinLife.core.escapeHtml(
-      window.PrachinLife.modules.vegetarian.getLocationLabel(
-        place
-      )
+      detail.title || "ไม่ระบุชื่อร้าน"
     );
 
   const distance =
@@ -396,56 +363,22 @@ window.PrachinLife.modules.vegetarian.renderCard = function (
         )
       : "";
 
-  const openingHoursRaw =
-    place?.metadata?.opening_hours || "";
-
-  const openingHours =
-    openingHoursRaw
-      ? window.PrachinLife.core.escapeHtml(
-          openingHoursRaw
-        )
-      : "";
-
   const status =
     window.PrachinLife.modules.vegetarian.getUserStatus(
       place
     );
 
-  const mapUrl =
-    window.PrachinLife.core.buildMapUrl(
-      place
-    );
-
-  const phoneRaw =
-    place?.metadata?.phone || "";
-
-  const phoneHref =
-    String(phoneRaw).replace(
-      /[^+\d]/g,
-      ""
-    );
-
-  const websiteUrl =
-    place?.metadata?.website || "";
-
-  const sourceName =
-    window.PrachinLife.core.escapeHtml(
-      place?.source || "แหล่งข้อมูลสาธารณะ"
-    );
-
-  const sourceUrl =
-    place?.source_url
-    || place?.metadata?.source_url
-    || "";
 
   return `
-    <article class="promotion-card eat-card vegetarian-card">
+    <article class="promotion-card eat-card vegetarian-card" data-place-id="${window.PrachinLife.core.escapeAttribute(place?.id || "")}">
 
       <div class="promotion-image-wrap eat-image-wrap">
 
-        <div class="image-placeholder eat-placeholder">
-          🥬
-        </div>
+        ${window.PrachinLife.core.placeImage.renderPlaceImage(
+          place,
+          "vegetarian",
+          place?.title || "ร้านเจ / มังสวิรัติ"
+        )}
 
         <span class="source-pill">
           เจ / มังสวิรัติ
@@ -474,19 +407,9 @@ window.PrachinLife.modules.vegetarian.renderCard = function (
           ${title}
         </h3>
 
-        <p class="promotion-description">
-          📍 ${location}
-        </p>
-
-        ${
-          openingHours
-            ? `
-              <p class="promotion-description">
-                🕒 เวลาเปิด: ${openingHours}
-              </p>
-            `
-            : ""
-        }
+        ${window.PrachinLife.core.placeDetail.renderFacts(
+          place
+        )}
 
         <p
           class="vegetarian-status ${window.PrachinLife.core.escapeAttribute(
@@ -498,80 +421,9 @@ window.PrachinLife.modules.vegetarian.renderCard = function (
           )}
         </p>
 
-        <p class="promotion-description vegetarian-data-note">
-          แหล่งข้อมูล: ${sourceName}
-          · ควรตรวจสอบรายละเอียดล่าสุดก่อนเดินทาง
-        </p>
+        ${window.PrachinLife.core.placeCard.renderDataNote(place)}
 
-        <div class="promotion-actions vegetarian-actions">
-
-          ${
-            mapUrl
-              ? `
-                <a
-                  class="source-button"
-                  href="${window.PrachinLife.core.escapeAttribute(
-                    mapUrl
-                  )}"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  📍 เปิดแผนที่
-                </a>
-              `
-              : ""
-          }
-
-          ${
-            phoneHref
-              ? `
-                <a
-                  class="source-button"
-                  href="tel:${window.PrachinLife.core.escapeAttribute(
-                    phoneHref
-                  )}"
-                >
-                  📞 โทร
-                </a>
-              `
-              : ""
-          }
-
-          ${
-            websiteUrl
-              ? `
-                <a
-                  class="source-button"
-                  href="${window.PrachinLife.core.escapeAttribute(
-                    websiteUrl
-                  )}"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  🌐 เว็บไซต์
-                </a>
-              `
-              : ""
-          }
-
-          ${
-            sourceUrl
-              ? `
-                <a
-                  class="source-button vegetarian-source-link"
-                  href="${window.PrachinLife.core.escapeAttribute(
-                    sourceUrl
-                  )}"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  ดูแหล่งข้อมูล
-                </a>
-              `
-              : ""
-          }
-
-        </div>
+        ${window.PrachinLife.core.placeCard.renderActions(place)}
 
       </div>
 

@@ -1,0 +1,92 @@
+:root { color-scheme:light; font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; background:#f4f6f2; color:#17211b; }
+* { box-sizing:border-box; }
+body { margin:0; background:#f4f6f2; }
+.admin-shell { width:min(1160px,calc(100% - 24px)); margin:24px auto 56px; }
+.admin-header,.admin-panel { background:#fff; border:1px solid #dfe6de; border-radius:18px; box-shadow:0 8px 26px rgba(24,48,34,.06); }
+.admin-header { padding:24px; display:flex; gap:20px; justify-content:space-between; align-items:flex-start; margin-bottom:16px; }
+.admin-header h1 { margin:4px 0 8px; }
+.admin-header p { margin:0; color:#56645a; }
+.admin-eyebrow { margin:0 0 5px; font-size:.76rem; font-weight:850; letter-spacing:.1em; color:#2f6f4e !important; }
+.admin-badge,.admin-mode-badge { white-space:nowrap; background:#eaf4ed; color:#24563c; padding:8px 12px; border-radius:999px; font-weight:750; font-size:.82rem; }
+.admin-mode-badge.is-new { background:#eef3ff; color:#314b7c; }
+.admin-panel { padding:20px; margin-bottom:16px; }
+.admin-panel h2 { margin:0 0 16px; font-size:1.08rem; }
+.admin-manager-heading,.admin-panel-heading { display:flex; gap:16px; align-items:flex-start; justify-content:space-between; }
+.admin-manager-heading { margin-bottom:18px; }
+.admin-manager-heading h2,.admin-form-heading h2 { margin:0 0 5px; font-size:1.2rem; }
+.admin-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
+.admin-grid-search { grid-template-columns:minmax(0,1fr) minmax(260px,1fr); }
+.admin-span-2 { grid-column:1 / -1; }
+label { display:grid; gap:6px; font-size:.88rem; font-weight:700; }
+input,select,textarea { width:100%; border:1px solid #ccd7ce; border-radius:12px; padding:11px 12px; font:inherit; background:#fff; color:#17211b; }
+input:focus,select:focus,textarea:focus { outline:3px solid rgba(47,111,78,.12); border-color:#2f6f4e; }
+textarea { resize:vertical; }
+.admin-actions,.admin-panel-heading { display:flex; gap:10px; align-items:center; justify-content:space-between; margin-top:16px; }
+.admin-form-heading { margin-top:0; margin-bottom:18px; }
+.admin-actions { justify-content:flex-start; }
+button { border:0; border-radius:12px; background:#2f6f4e; color:#fff; padding:11px 16px; font:inherit; font-weight:800; cursor:pointer; }
+button.secondary { background:#edf1ed; color:#26352b; }
+button:disabled { opacity:.45; cursor:not-allowed; }
+.admin-muted { margin:0; color:#65736a; font-size:.9rem; line-height:1.5; }
+.admin-warning { margin-bottom:16px; padding:14px 16px; border-radius:12px; background:#fff2d8; border:1px solid #efd69f; }
+.hidden { display:none !important; }
+.admin-result-meta { display:flex; justify-content:space-between; gap:12px; align-items:center; margin:15px 0 12px; }
+.admin-result-meta strong { color:#2f6f4e; font-size:.9rem; }
+.admin-place-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; }
+.admin-place-card { overflow:hidden; display:flex; flex-direction:column; min-width:0; background:#fff; border:1px solid #e0e8e1; border-radius:18px; box-shadow:0 7px 20px rgba(24,48,34,.06); }
+.admin-place-media { position:relative; aspect-ratio:16/9; overflow:hidden; background:#eef3ed; }
+.admin-place-media img,.admin-place-media .place-card-image { width:100%; height:100%; display:block; object-fit:cover; }
+.admin-category-pill { position:absolute; top:10px; left:10px; max-width:calc(100% - 20px); padding:6px 9px; border-radius:999px; background:rgba(255,255,255,.92); color:#2c5e43; font-size:.75rem; font-weight:800; box-shadow:0 2px 8px rgba(0,0,0,.08); }
+.admin-place-body { display:flex; flex-direction:column; flex:1; gap:9px; padding:15px; }
+.admin-place-title { margin:0; font-size:1.02rem; line-height:1.35; }
+.admin-place-location { margin:0; color:#5d6a61; font-size:.87rem; line-height:1.4; }
+.admin-completeness { display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+.admin-completeness strong { color:#2f6f4e; font-size:.86rem; }
+.admin-missing-chips { display:flex; gap:5px; flex-wrap:wrap; }
+.admin-missing-chip { background:#fff4df; color:#7b5a18; padding:4px 7px; border-radius:999px; font-size:.7rem; font-weight:750; }
+.admin-complete-chip { background:#eaf4ed; color:#24563c; padding:4px 7px; border-radius:999px; font-size:.7rem; font-weight:750; }
+.admin-card-actions { margin-top:auto; padding-top:4px; display:grid; grid-template-columns:1fr; }
+.admin-edit-place-btn { width:100%; }
+.admin-card-footer { display:flex; justify-content:center; margin-top:16px; }
+.admin-edit-panel { scroll-margin-top:12px; }
+pre { margin:0; background:#101712; color:#dbe9dd; padding:16px; border-radius:14px; overflow:auto; min-height:130px; font-size:.82rem; line-height:1.5; }
+@media (max-width:900px) { .admin-place-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+@media (max-width:720px) { .admin-header,.admin-manager-heading { display:block; } .admin-badge { display:inline-block; margin-top:14px; } .admin-manager-heading button { width:100%; margin-top:14px; } .admin-grid,.admin-grid-search,.admin-place-grid { grid-template-columns:1fr; } .admin-span-2 { grid-column:auto; } .admin-panel-heading { align-items:flex-start; } .admin-result-meta { align-items:flex-start; } }
+.admin-header-actions { display:flex; align-items:center; gap:10px; flex-wrap:wrap; justify-content:flex-end; }
+.admin-link-button { display:inline-flex; align-items:center; justify-content:center; border-radius:12px; padding:9px 12px; text-decoration:none; font-weight:800; background:#2f6f4e; color:#fff; }
+.admin-link-button.secondary { background:#edf1ed; color:#26352b; }
+@media (max-width:720px) { .admin-header-actions { justify-content:flex-start; margin-top:14px; } }
+.admin-review-toolbar{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:14px}.admin-review-toolbar>div{display:flex;gap:8px;flex-wrap:wrap}.admin-review-list{display:grid;gap:14px}.admin-review-card{border:1px solid #dfe6de;border-radius:16px;padding:16px;background:#fff}.admin-review-head{display:flex;justify-content:space-between;gap:14px;align-items:flex-start}.admin-review-head h3{margin:8px 0 4px}.admin-review-source{margin:14px 0;font-size:.9rem}.admin-review-source a{color:#2f6f4e}.admin-review-table-wrap{overflow:auto}.admin-review-table{width:100%;border-collapse:collapse;font-size:.88rem}.admin-review-table th,.admin-review-table td{padding:9px;border-bottom:1px solid #e7ece7;text-align:left;vertical-align:top}.admin-review-table thead th{background:#f5f7f4}.admin-review-note{margin-top:14px}.admin-actions button.danger,button.danger{background:#a53c3c}@media(max-width:720px){.admin-review-toolbar,.admin-review-head{align-items:flex-start;flex-direction:column}.admin-review-table{min-width:620px}}
+
+/* Phase 2U.3 — preview before submit/review */
+.admin-before-after-preview{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:16px;align-items:start}.admin-preview-column{min-width:0}.admin-preview-column.is-after{padding:10px;border-radius:20px;background:#f0f8f2;border:1px solid #bcd9c3}.admin-preview-caption{font-size:.78rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#466150;margin:0 0 8px}.admin-preview-empty{min-height:180px;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;border:1px dashed #cdd8cf;border-radius:18px;background:#fafcf9;color:#66766a}.admin-user-preview-card{overflow:hidden;background:#fff;border:1px solid #dfe7df;border-radius:19px;box-shadow:0 6px 18px rgba(22,33,27,.05)}.admin-user-preview-media{position:relative;aspect-ratio:16/9;overflow:hidden;background:#f2f5ef}.admin-user-preview-media img{width:100%;height:100%;object-fit:cover;display:block}.admin-user-preview-media .admin-category-pill{position:absolute;left:12px;top:12px}.admin-user-preview-body{padding:16px}.admin-user-preview-body h3{margin:0 0 8px;font-size:1.08rem}.admin-preview-line{margin:5px 0;color:#526158}.admin-preview-description{margin:10px 0;line-height:1.55}.admin-preview-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:14px}.admin-preview-action{display:block;padding:9px 10px;border-radius:10px;border:1px solid #d9e4da;text-align:center;font-size:.86rem;background:#fff}.admin-review-gate{margin:14px 0 4px;padding:10px 12px;border-radius:12px;background:#fff8dd;border:1px solid #ead99b;font-weight:650;font-size:.88rem}@media(max-width:760px){.admin-before-after-preview{grid-template-columns:1fr}.admin-preview-actions{grid-template-columns:1fr}}
+
+
+/* Phase 2U.3.1 — mobile review + complete preview hotfix */
+html,body{max-width:100%;overflow-x:hidden}.admin-shell,.admin-header,.admin-panel,.admin-review-list,.admin-review-card,.admin-before-after-preview,.admin-preview-column{min-width:0;max-width:100%}.admin-review-card{overflow:hidden}.admin-review-table-wrap{max-width:100%;width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}.admin-preview-detail-grid{display:grid;gap:0;margin:10px 0;border:1px solid #e5ebe5;border-radius:12px;overflow:hidden}.admin-preview-detail-row{display:grid;grid-template-columns:minmax(90px,.7fr) minmax(0,1.3fr);gap:10px;padding:8px 10px;background:#fafcf9;border-bottom:1px solid #e8eee9;font-size:.82rem}.admin-preview-detail-row:last-child{border-bottom:0}.admin-preview-detail-row span{color:#66756b}.admin-preview-detail-row strong{min-width:0;overflow-wrap:anywhere;font-weight:700}.admin-preview-description{margin:10px 0;padding:10px 12px;border-radius:12px;background:#f5f8f4}.admin-preview-description>span{display:block;margin-bottom:5px;color:#66756b;font-size:.76rem;font-weight:800}.admin-preview-description p{margin:0;line-height:1.55}.admin-preview-locality{font-size:.86rem}.admin-review-duplicate-note{margin:8px 0 0;padding:7px 10px;border-radius:10px;background:#fff4df;color:#725316;font-size:.8rem;font-weight:700}
+@media(max-width:760px){.admin-shell{width:calc(100% - 16px);margin:8px auto 32px}.admin-header,.admin-panel{padding:14px;border-radius:14px}.admin-header h1{font-size:1.45rem}.admin-header-actions{display:grid;grid-template-columns:1fr 1fr;width:100%;gap:8px}.admin-header-actions .admin-badge{grid-column:1/-1;width:max-content;margin-top:2px}.admin-link-button{min-width:0;padding:9px 8px;font-size:.82rem;text-align:center}.admin-review-card{padding:12px;border-radius:14px}.admin-review-head{gap:8px}.admin-review-head>div{min-width:0;max-width:100%}.admin-review-head .admin-muted{overflow-wrap:anywhere}.admin-before-after-preview{gap:12px;margin-top:12px}.admin-preview-column.is-after{padding:7px;border-radius:16px}.admin-user-preview-card{border-radius:15px}.admin-user-preview-body{padding:13px}.admin-user-preview-body h3{font-size:1rem}.admin-preview-detail-row{grid-template-columns:1fr;gap:2px}.admin-preview-actions{grid-template-columns:1fr 1fr}.admin-review-table{min-width:520px;font-size:.8rem}.admin-review-table th,.admin-review-table td{padding:7px}.admin-review-note textarea{min-height:90px}.admin-actions{display:grid;grid-template-columns:1fr 1fr;width:100%}.admin-actions button{width:100%;padding:11px 8px}.admin-review-toolbar{gap:10px}.admin-review-toolbar>div{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));width:100%;gap:6px}.admin-review-toolbar button{padding:9px 5px;font-size:.78rem}.admin-review-source{overflow-wrap:anywhere}}
+@media(max-width:390px){.admin-header-actions{grid-template-columns:1fr}.admin-header-actions .admin-badge{grid-column:auto}.admin-preview-actions{grid-template-columns:1fr}.admin-review-toolbar>div{grid-template-columns:1fr}}
+
+/* Phase 2U.3.2 — grouped versions + automatic change diff */
+.admin-version-badge{display:inline-flex;margin-left:7px;padding:7px 10px;border-radius:999px;background:#eef3ff;color:#38517e;font-size:.76rem;font-weight:800;vertical-align:middle}.admin-change-summary{margin:14px 0;padding:12px;border:1px solid #dce6dd;border-radius:14px;background:#fbfdfb}.admin-change-summary.is-first{display:flex;gap:8px;flex-wrap:wrap;align-items:center}.admin-change-summary.is-first span{color:#65736a;font-size:.84rem}.admin-change-summary-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:9px}.admin-change-summary-head span{font-size:.78rem;color:#65736a}.admin-diff-list{display:grid;gap:7px}.admin-diff-row{display:grid;grid-template-columns:auto minmax(92px,.75fr) minmax(0,1fr) auto minmax(0,1fr);gap:8px;align-items:center;padding:8px 9px;border-radius:10px;background:#f5f8f5;font-size:.82rem}.admin-diff-row.is-added{background:#edf8f0}.admin-diff-row.is-changed{background:#fff8df}.admin-diff-row.is-removed{background:#fff0f0}.admin-diff-kind{padding:3px 7px;border-radius:999px;background:#fff;font-size:.7rem;font-weight:850;white-space:nowrap}.admin-diff-before{color:#6f7b72;text-decoration:none;overflow-wrap:anywhere}.admin-diff-row strong{overflow-wrap:anywhere}.admin-version-history{margin:12px 0;border:1px solid #e0e7e0;border-radius:12px;background:#fafcf9;overflow:hidden}.admin-version-history summary{cursor:pointer;padding:10px 12px;font-weight:800;color:#385144}.admin-version-history>div{border-top:1px solid #e5ebe5}.admin-version-row{display:grid;grid-template-columns:auto auto auto 1fr;gap:10px;padding:8px 12px;align-items:center;font-size:.78rem;color:#5f6d63}.admin-version-row.is-latest{background:#edf8f0;color:#244d37}.admin-version-row small{text-align:right;overflow-wrap:anywhere}@media(max-width:760px){.admin-version-badge{margin:6px 0 0}.admin-change-summary-head{align-items:flex-start;flex-direction:column}.admin-diff-row{grid-template-columns:auto 1fr;gap:4px 8px}.admin-diff-row .admin-diff-before{grid-column:1/-1}.admin-diff-row [aria-hidden="true"]{display:none}.admin-diff-row strong{grid-column:1/-1}.admin-version-row{grid-template-columns:auto auto auto}.admin-version-row small{grid-column:1/-1;text-align:left}.admin-review-head .admin-version-badge{display:inline-flex}}
+
+/* Phase 2U.3.3 — media upload + sponsor/VIP-ready foundation */
+.admin-upload-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;align-items:center}.admin-upload-row input[type=file]{min-width:0}.admin-inline-image-preview{margin-top:10px;min-height:110px;border:1px dashed #cbd8cd;border-radius:14px;background:#f8faf7;display:flex;align-items:center;justify-content:center;overflow:hidden;color:#657369;font-size:.82rem}.admin-inline-image-preview img{width:100%;max-height:260px;object-fit:contain;display:block;background:#fff}.admin-commerce-foundation{border-color:#cbd7ea;background:linear-gradient(180deg,#fbfcff,#f6f8fc)}.admin-commerce-foundation .admin-mode-badge{background:#eaf0ff;color:#38517e}@media(max-width:720px){.admin-upload-row{grid-template-columns:1fr}.admin-upload-row button{width:100%}}
+
+/* Phase 2U.3.3.1 — media review hotfix */
+.admin-diff-image-row { grid-template-columns: auto minmax(0,1fr); align-items: start; }
+.admin-diff-image-row > b { align-self: center; }
+.admin-image-diff-pair { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0,1fr) auto minmax(0,1fr); gap: 10px; align-items: center; width: 100%; }
+.admin-image-diff-figure { margin: 0; min-width: 0; }
+.admin-image-diff-figure figcaption { font-weight: 700; margin-bottom: 6px; }
+.admin-image-diff-figure img { display: block; width: 100%; max-height: 220px; object-fit: cover; border-radius: 14px; background: #f2f4f1; }
+.admin-image-diff-figure small { display: block; margin-top: 6px; overflow-wrap: anywhere; color: #657066; }
+.admin-image-diff-empty { min-height: 120px; display: grid; place-items: center; padding: 12px; border: 1px dashed #c8cec8; border-radius: 14px; background: #f7f8f6; color: #657066; text-align: center; }
+@media (max-width: 720px) {
+  .admin-image-diff-pair { grid-template-columns: 1fr; }
+  .admin-image-diff-pair > span[aria-hidden="true"] { display: none; }
+  .admin-image-diff-figure img { max-height: 260px; }
+}
+
+/* Phase 2U.3.3.5 — review semantics */
+.admin-seed-summary{margin:14px 0;border:1px solid #d9e4da;border-radius:14px;background:#f8fbf8;overflow:hidden}.admin-seed-summary summary{cursor:pointer;padding:12px 14px;font-weight:800;color:#315c46}.admin-seed-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;padding:0 14px 14px}.admin-seed-grid>div{padding:10px 12px;border-radius:10px;background:#fff;border:1px solid #e4ebe5;min-width:0}.admin-seed-grid span{display:block;font-size:.76rem;color:#6b786f;margin-bottom:3px}.admin-seed-grid strong{display:block;overflow-wrap:anywhere}.admin-change-summary.is-operator{border:1px solid #b9d8c3;background:#eff8f1}.admin-change-summary.is-operator .admin-change-summary-head strong{color:#0f6840}@media(max-width:720px){.admin-seed-grid{grid-template-columns:1fr}}

@@ -835,7 +835,11 @@
         "outdoor_seating": null,
         "wheelchair": null,
         "internet_access": null
-      }
+      },
+      "v2_preview_overlay": true,
+      "v2_place_id": "1198f0b5-8ed6-574e-add6-1e0c33483b55",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     }
   },
   {
@@ -2150,7 +2154,11 @@
         "outdoor_seating": null,
         "wheelchair": null,
         "internet_access": null
-      }
+      },
+      "v2_preview_overlay": true,
+      "v2_place_id": "22730e27-0433-5558-aa5b-38e1fd80a40e",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     }
   },
   {
@@ -2341,7 +2349,11 @@
         "outdoor_seating": null,
         "wheelchair": null,
         "internet_access": null
-      }
+      },
+      "v2_preview_overlay": true,
+      "v2_place_id": "094d3d1f-40e8-52ce-be7e-1b1c232ffabf",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     }
   },
   {
@@ -2403,7 +2415,11 @@
         "outdoor_seating": null,
         "wheelchair": null,
         "internet_access": null
-      }
+      },
+      "v2_preview_overlay": true,
+      "v2_place_id": "06305e2a-15a8-5e4a-8068-5a272222aed7",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     }
   },
   {
@@ -2658,7 +2674,11 @@
         "outdoor_seating": null,
         "wheelchair": null,
         "internet_access": null
-      }
+      },
+      "v2_preview_overlay": true,
+      "v2_place_id": "42200e5e-1dff-589c-9cc3-a87eff923e3e",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     }
   },
   {
@@ -2969,7 +2989,11 @@
         "outdoor_seating": null,
         "wheelchair": null,
         "internet_access": null
-      }
+      },
+      "v2_preview_overlay": true,
+      "v2_place_id": "2298b6be-0d9e-56a4-86b5-2c7bdbcf8144",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     }
   },
   {
@@ -3470,7 +3494,11 @@
         "outdoor_seating": null,
         "wheelchair": null,
         "internet_access": null
-      }
+      },
+      "v2_preview_overlay": true,
+      "v2_place_id": "3e54f146-a064-5eee-ac9b-b03bf4485c14",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2"
     }
   },
   {

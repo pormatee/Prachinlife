@@ -24,3 +24,8 @@ data/checkpoints/
 Thumbs.db
 .vscode/
 .idea/
+
+# Internal Admin draft queue (runtime state, never canonical source)
+data/v2/admin_evidence_drafts.sqlite3
+data/v2/admin_media.sqlite3
+data/v2/admin_media/

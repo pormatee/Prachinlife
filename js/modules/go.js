@@ -46,47 +46,33 @@ window.PrachinLife.modules.go.getPrimaryPlaces = function (
 window.PrachinLife.modules.go.getLocationLabel = function (
   place
 ) {
-  const location =
-    place?.location || {};
-
-  const parts = [
-    location.subdistrict,
-    location.district,
-    location.province,
-  ].filter(Boolean);
-
-  const unique = [
-    ...new Set(parts)
-  ];
-
-  if (unique.length > 0) {
-    return unique.join(" · ");
-  }
-
-  return "ไม่ระบุพื้นที่";
+  return (
+    window.PrachinLife.core.placeCard.getLocationLabel(
+      place
+    )
+    || "ไม่ระบุพื้นที่"
+  );
 };
 
 
 window.PrachinLife.modules.go.renderCard = function (
   place
 ) {
+  const detail =
+    window.PrachinLife.core.placeDetail.getDetail(
+      place,
+      "ปราจีนบุรี"
+    );
+
   const title =
     window.PrachinLife.core.escapeHtml(
-      place?.title
-      || "ไม่ระบุชื่อสถานที่"
+      detail.title || "ไม่ระบุชื่อสถานที่"
     );
 
   const categoryLabel =
     window.PrachinLife.core.escapeHtml(
       place?.metadata?.category_label
       || "สถานที่น่าสนใจ"
-    );
-
-  const location =
-    window.PrachinLife.core.escapeHtml(
-      window.PrachinLife.modules.go.getLocationLabel(
-        place
-      )
     );
 
   const distance =
@@ -98,46 +84,17 @@ window.PrachinLife.modules.go.renderCard = function (
         )
       : "";
 
-  const openingHours =
-    place?.metadata?.opening_hours
-      ? window.PrachinLife.core.escapeHtml(
-          place.metadata.opening_hours
-        )
-      : "";
-
-  const verified =
-    place?.metadata?.verified === true;
-
-  const statusLabel =
-    verified
-      ? "มีข้อมูลสถานที่ที่ผ่านการยืนยันแหล่งข้อมูล"
-      : "มีข้อมูลสถานที่จากแหล่งข้อมูลสาธารณะ";
-
-  const mapUrl =
-    window.PrachinLife.core.buildMapUrl(
-      place
-    );
-
-  const sourceName =
-    window.PrachinLife.core.escapeHtml(
-      place?.metadata?.source_name
-      || place?.source
-      || "แหล่งข้อมูลสาธารณะ"
-    );
-
-  const sourceUrl =
-    place?.source_url
-    || place?.metadata?.source_url
-    || "";
 
   return `
-    <article class="promotion-card eat-card go-v1-card">
+    <article class="promotion-card eat-card go-v1-card" data-place-id="${window.PrachinLife.core.escapeAttribute(place?.id || "")}">
 
       <div class="promotion-image-wrap eat-image-wrap">
 
-        <div class="image-placeholder eat-placeholder">
-          🗺️
-        </div>
+        ${window.PrachinLife.core.placeImage.renderPlaceImage(
+          place,
+          "go",
+          place?.title || "สถานที่"
+        )}
 
         <span class="source-pill">
           ${categoryLabel}
@@ -168,68 +125,15 @@ window.PrachinLife.modules.go.renderCard = function (
           ${title}
         </h3>
 
-        <p class="promotion-description">
-          📍 ${location}
-        </p>
+        ${window.PrachinLife.core.placeDetail.renderFacts(
+          place,
+          "ปราจีนบุรี"
+        )}
 
-        ${
-          openingHours
-            ? `
-              <p class="promotion-description">
-                🕒 เวลาเปิด: ${openingHours}
-              </p>
-            `
-            : ""
-        }
 
-        <p class="go-v1-status">
-          ${window.PrachinLife.core.escapeHtml(
-            statusLabel
-          )}
-        </p>
+        ${window.PrachinLife.core.placeCard.renderDataNote(place)}
 
-        <p class="promotion-description go-v1-data-note">
-          แหล่งข้อมูล: ${sourceName}
-          · ควรตรวจสอบรายละเอียดล่าสุดก่อนเดินทาง
-        </p>
-
-        <div class="promotion-actions go-v1-actions">
-
-          ${
-            mapUrl
-              ? `
-                <a
-                  class="source-button"
-                  href="${window.PrachinLife.core.escapeAttribute(
-                    mapUrl
-                  )}"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  📍 เปิดแผนที่
-                </a>
-              `
-              : ""
-          }
-
-          ${
-            sourceUrl
-              ? `
-                <a
-                  class="source-button go-v1-source-link"
-                  href="${window.PrachinLife.core.escapeAttribute(
-                    sourceUrl
-                  )}"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  ดูแหล่งข้อมูล
-                </a>
-              `
-              : ""
-          }
-
-        </div>
+        ${window.PrachinLife.core.placeCard.renderActions(place)}
 
       </div>
 

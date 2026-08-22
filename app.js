@@ -19,10 +19,12 @@ CONFIG
 ===================================================== */
 
 const DATA_URL = "promotions.json";
-const INDEX_URL = "prachinlife_index.json";
-const VEGETARIAN_URL = "vegetarian_index.json";
-const GO_URL = "go_index.json";
-const SERVICE_URL = "service_index.json";
+const V2_STAGED_PREVIEW = new URLSearchParams(window.location.search).get("v2preview") === "1";
+const V2_STAGED_ROOT = "data/v2/staging/user_web";
+const INDEX_URL = V2_STAGED_PREVIEW ? `${V2_STAGED_ROOT}/prachinlife_index.json` : "prachinlife_index.json";
+const VEGETARIAN_URL = V2_STAGED_PREVIEW ? `${V2_STAGED_ROOT}/vegetarian_index.json` : "vegetarian_index.json";
+const GO_URL = V2_STAGED_PREVIEW ? `${V2_STAGED_ROOT}/go_index.json` : "go_index.json";
+const SERVICE_URL = V2_STAGED_PREVIEW ? `${V2_STAGED_ROOT}/service_index.json` : "service_index.json";
 
 const PAGE_SIZE = 8;
 const EAT_PAGE_SIZE = 8;
@@ -89,7 +91,323 @@ document.addEventListener(
 );
 
 
+
+/* ===== PRACHINLIFE V2 DATA BRIDGE ===== */
+
+let prachinLifeV2Places = [];
+let prachinLifeV2DataStatus = "not_loaded";
+
+async function loadPrachinLifeV2Data() {
+  if (
+    !window.PrachinLifeV2 ||
+    typeof window.PrachinLifeV2.loadV2Places !== "function"
+  ) {
+    prachinLifeV2DataStatus = "adapter_missing";
+    return [];
+  }
+
+  try {
+    const places = await window.PrachinLifeV2.loadV2Places();
+    prachinLifeV2Places = places;
+    prachinLifeV2DataStatus = "ready";
+
+    console.info(
+      "[PrachinLife V2] loaded",
+      places.length,
+      "places"
+    );
+
+    return places;
+  } catch (error) {
+    prachinLifeV2Places = [];
+    prachinLifeV2DataStatus = "fallback_v1";
+
+    console.warn(
+      "[PrachinLife V2] load failed; V1 remains active",
+      error
+    );
+
+    return [];
+  }
+}
+
+function getPrachinLifeV2Places(category = null) {
+  if (!category) return [...prachinLifeV2Places];
+
+  return prachinLifeV2Places.filter(
+    (place) =>
+      place.main_category === category ||
+      place.category === category
+  );
+}
+
+window.PrachinLifeV2Runtime = Object.freeze({
+  load: loadPrachinLifeV2Data,
+  getPlaces: getPrachinLifeV2Places,
+  getStatus: () => prachinLifeV2DataStatus
+});
+
+/* ===== END PRACHINLIFE V2 DATA BRIDGE ===== */
+
+
+/* ===== PRACHINLIFE V2 CATEGORY DATA BRIDGE ===== */
+
+function getPreferredPlaceDataset(
+  category,
+  fallbackDataset = []
+) {
+  const supportedCategories = new Set([
+    "eat",
+    "vegetarian",
+    "go",
+    "service",
+  ]);
+
+  if (!supportedCategories.has(category)) {
+    return fallbackDataset;
+  }
+
+  if (
+    !window.PrachinLifeV2Runtime ||
+    typeof window.PrachinLifeV2Runtime.getPlaces !== "function" ||
+    typeof window.PrachinLifeV2Runtime.getStatus !== "function" ||
+    window.PrachinLifeV2Runtime.getStatus() !== "ready"
+  ) {
+    return fallbackDataset;
+  }
+
+  const v2Places =
+    window.PrachinLifeV2Runtime.getPlaces(category);
+
+  if (!v2Places.length) {
+    return fallbackDataset;
+  }
+
+  const fallbackCount = Array.isArray(fallbackDataset)
+    ? fallbackDataset.length
+    : 0;
+
+  /*
+   * Quality-aware rollout:
+   * - If V1 has meaningful coverage, V2 must retain at least 80%.
+   * - Avoid switching a mature category to only 1-2 V2 records.
+   * - If there is no V1 coverage, V2 remains usable.
+   */
+  if (fallbackCount >= 5) {
+    const coverageRatio = v2Places.length / fallbackCount;
+
+    if (
+      v2Places.length < 3 ||
+      coverageRatio < 0.80
+    ) {
+      console.info(
+        "[PrachinLife V2] smart fallback",
+        category,
+        {
+          v2: v2Places.length,
+          v1: fallbackCount,
+          ratio: coverageRatio,
+        }
+      );
+
+      return fallbackDataset;
+    }
+  }
+
+  return v2Places;
+}
+
+function getEatDatasetV2First() {
+  return getPreferredPlaceDataset(
+    "eat",
+    Array.isArray(allEatPlaces) ? allEatPlaces : []
+  );
+}
+
+function getVegetarianDatasetV2First() {
+  const primaryFallback =
+    (
+      typeof primaryVegetarianPlaces !== "undefined" &&
+      Array.isArray(primaryVegetarianPlaces) &&
+      primaryVegetarianPlaces.length
+    )
+      ? primaryVegetarianPlaces
+      : (
+          Array.isArray(allVegetarianPlaces)
+            ? allVegetarianPlaces
+            : []
+        );
+
+  return getPreferredPlaceDataset(
+    "vegetarian",
+    primaryFallback
+  );
+}
+
+function getGoDatasetV2First() {
+  return getPreferredPlaceDataset(
+    "go",
+    Array.isArray(allGoPlaces) ? allGoPlaces : []
+  );
+}
+
+function getServiceDatasetV2First() {
+  return getPreferredPlaceDataset(
+    "service",
+    Array.isArray(allServicePlaces)
+      ? allServicePlaces
+      : []
+  );
+}
+
+/* ===== END PRACHINLIFE V2 CATEGORY DATA BRIDGE ===== */
+
+
+/* ===== PRACHINLIFE V2 SEARCH + NEAR ME BRIDGE ===== */
+
+function normalizeSearchTextV2(value) {
+  return String(value || "")
+    .trim()
+    .toLocaleLowerCase("th-TH");
+}
+
+function searchPrachinLifeV2Places(query, category = null) {
+  const normalizedQuery = normalizeSearchTextV2(query);
+
+  const source = category
+    ? getPrachinLifeV2Places(category)
+    : getPrachinLifeV2Places();
+
+  if (!normalizedQuery) {
+    return [...source];
+  }
+
+  return source.filter((place) => {
+    const haystack = [
+      place.title,
+      place.name,
+      place.area,
+      place.address,
+      place.province,
+      ...(Array.isArray(place.categories)
+        ? place.categories
+        : []),
+    ]
+      .filter(Boolean)
+      .join(" ")
+      .toLocaleLowerCase("th-TH");
+
+    return haystack.includes(normalizedQuery);
+  });
+}
+
+function getPrachinLifeV2NearMe(
+  userPoint,
+  category = null,
+  limit = 50
+) {
+  if (!userPoint) {
+    return [];
+  }
+
+  const userLat = Number(
+    userPoint.latitude ?? userPoint.lat
+  );
+
+  const userLng = Number(
+    userPoint.longitude ?? userPoint.lng
+  );
+
+  if (
+    !Number.isFinite(userLat) ||
+    !Number.isFinite(userLng)
+  ) {
+    return [];
+  }
+
+  const source = category
+    ? getPrachinLifeV2Places(category)
+    : getPrachinLifeV2Places();
+
+  return source
+    .map((place) => {
+      const placeLat = Number(
+        place.latitude ?? place.lat
+      );
+
+      const placeLng = Number(
+        place.longitude ?? place.lng
+      );
+
+      if (
+        !Number.isFinite(placeLat) ||
+        !Number.isFinite(placeLng)
+      ) {
+        return null;
+      }
+
+      const km = Number(
+        calculatePlaceDistance(
+          userLat,
+          userLng,
+          placeLat,
+          placeLng
+        )
+      );
+
+      if (!Number.isFinite(km)) {
+        return null;
+      }
+
+      return {
+        ...place,
+
+        /*
+         * V1 renderer compatibility.
+         * Keep the canonical numeric distance in kilometres
+         * under the common field names used by old UI code.
+         */
+        distance: km,
+        distance_km: km,
+        distanceKm: km,
+        computedDistance: km,
+        distance_text:
+          km < 1
+            ? `${Math.round(km * 1000)} ม.`
+            : `${km.toFixed(1)} กม.`,
+      };
+    })
+    .filter(Boolean)
+    .sort((a, b) => a.distance - b.distance)
+    .slice(0, limit);
+}
+
+window.PrachinLifeV2Search = Object.freeze({
+  search: searchPrachinLifeV2Places,
+  nearMe: getPrachinLifeV2NearMe,
+});
+
+/* ===== END PRACHINLIFE V2 SEARCH + NEAR ME BRIDGE ===== */
+
+
+/* ===== PRACHINLIFE V2 INTERNAL BETA SWITCH ===== */
+
+window.PrachinLifeV2Beta = Object.freeze({
+  mode: "internal_beta",
+  v2First: true,
+  v1Fallback: true,
+  publicProduction: false
+});
+
+/* ===== END PRACHINLIFE V2 INTERNAL BETA SWITCH ===== */
+
+
+
+
 async function init() {
+
+  /* V2_PRELOAD_PHASE2D */
+  await loadPrachinLifeV2Data();
 
   try {
 
@@ -2567,7 +2885,7 @@ EAT FILTER ENGINE
 function applyEatFilters() {
 
   filteredEatPlaces =
-    allEatPlaces.filter(
+    getEatDatasetV2First().filter(
       place => {
 
         const matchesType =
@@ -2673,7 +2991,7 @@ function applyVegetarianFilters() {
 
   filteredVegetarianPlaces =
     window.PrachinLife.modules.vegetarian.filterAndSortPlaces(
-      primaryVegetarianPlaces,
+      getVegetarianDatasetV2First(),
       currentVegetarianProvince,
       userLocation,
       calculatePlaceDistance,
@@ -3099,44 +3417,44 @@ DISTANCE
 function calculatePlaceDistance(
   place
 ) {
-
   if (!userLocation) {
-
     return null;
   }
 
+  const latitude = Number(
+    place?.location?.latitude
+    ?? place?.latitude
+    ?? place?.lat
+  );
 
-  const latitude =
-    Number(
-      place.location
-        ?.latitude
-    );
+  const longitude = Number(
+    place?.location?.longitude
+    ?? place?.longitude
+    ?? place?.lng
+  );
 
+  const userLatitude = Number(
+    userLocation?.latitude
+    ?? userLocation?.lat
+  );
 
-  const longitude =
-    Number(
-      place.location
-        ?.longitude
-    );
-
+  const userLongitude = Number(
+    userLocation?.longitude
+    ?? userLocation?.lng
+  );
 
   if (
-    !Number.isFinite(
-      latitude
-    )
-    ||
-    !Number.isFinite(
-      longitude
-    )
+    !Number.isFinite(latitude)
+    || !Number.isFinite(longitude)
+    || !Number.isFinite(userLatitude)
+    || !Number.isFinite(userLongitude)
   ) {
-
     return null;
   }
 
-
   return window.PrachinLife.core.haversineDistance(
-    userLocation.latitude,
-    userLocation.longitude,
+    userLatitude,
+    userLongitude,
     latitude,
     longitude
   );
@@ -4139,32 +4457,25 @@ function renderVegetarianPlaces() {
 EAT CARD
 ===================================================== */
 
+
+
 function renderEatCard(
   place
 ) {
+  const detail =
+    window.PrachinLife.core.placeDetail.getDetail(
+      place,
+      "ปราจีนบุรี"
+    );
+
   const title =
     window.PrachinLife.core.escapeHtml(
-      place?.title
-      || "ไม่ระบุชื่อร้าน"
+      detail.title || "ไม่ระบุชื่อร้าน"
     );
 
   const category =
     window.PrachinLife.core.escapeHtml(
-      getEatCategoryLabel(
-        place
-      )
-    );
-
-  const location =
-    window.PrachinLife.core.escapeHtml(
-      getEatLocationLabel(
-        place
-      )
-    );
-
-  const mapUrl =
-    window.PrachinLife.core.buildMapUrl(
-      place
+      getEatCategoryLabel(place)
     );
 
   const distance =
@@ -4176,96 +4487,16 @@ function renderEatCard(
         )
       : "";
 
-  const openingHoursRaw =
-    place?.metadata?.opening_hours
-    || "";
-
-  const openingHours =
-    openingHoursRaw
-      ? window.PrachinLife.core.escapeHtml(
-          openingHoursRaw
-        )
-      : "";
-
-  const contact =
-    place?.metadata?.contact
-    || {};
-
-  const phoneRaw =
-    contact.phone
-    || "";
-
-  const phoneHref =
-    String(phoneRaw)
-      .replace(
-        /[^+\d]/g,
-        ""
-      );
-
-  let websiteUrl =
-    contact.website
-    || "";
-
-  if (
-    websiteUrl
-    &&
-    !/^https?:\/\//i.test(
-      websiteUrl
-    )
-  ) {
-    websiteUrl =
-      `https://${websiteUrl}`;
-  }
-
-  let facebookUrl =
-    contact.facebook
-    || "";
-
-  if (
-    facebookUrl
-    &&
-    !/^https?:\/\//i.test(
-      facebookUrl
-    )
-  ) {
-    facebookUrl =
-      `https://${facebookUrl}`;
-  }
-
-  const source =
-    place?.source
-    || {};
-
-  const sourceName =
-    window.PrachinLife.core.escapeHtml(
-      source?.name
-      || "แหล่งข้อมูลสาธารณะ"
-    );
-
-  const sourceUrl =
-    source?.url
-    || "";
-
-  const sourceVerified =
-    source?.verified === true;
-
-  const statusLabel =
-    sourceVerified
-      ? "มีข้อมูลตำแหน่งร้านจากแหล่งข้อมูลสาธารณะ"
-      : "พบข้อมูลตำแหน่งร้าน";
 
   return `
-    <article class="promotion-card eat-card eat-v1-card">
-
+    <article class="promotion-card eat-card eat-v1-card" data-place-id="${window.PrachinLife.core.escapeAttribute(place?.id || "")}">
       <div class="promotion-image-wrap eat-image-wrap">
 
-        <div class="image-placeholder eat-placeholder">
-          ${
-            place?.category === "cafe"
-              ? "☕"
-              : "🍜"
-          }
-        </div>
+        ${window.PrachinLife.core.placeImage.renderPlaceImage(
+          place,
+          "eat",
+          place?.title || place?.name || "ร้านอาหาร"
+        )}
 
         <span class="source-pill">
           ${category}
@@ -4297,120 +4528,16 @@ function renderEatCard(
           ${title}
         </h3>
 
-        <p class="promotion-description">
-          📍 ${location}
-        </p>
+        ${window.PrachinLife.core.placeDetail.renderFacts(
+          place,
+          "ปราจีนบุรี"
+        )}
 
-        ${
-          openingHours
-            ? `
-              <p class="promotion-description">
-                🕒 เวลาเปิด: ${openingHours}
-              </p>
-            `
-            : ""
-        }
 
-        <p class="eat-v1-status">
-          ${window.PrachinLife.core.escapeHtml(
-            statusLabel
-          )}
-        </p>
+        ${window.PrachinLife.core.placeCard.renderDataNote(place)}
 
-        <p class="promotion-description eat-v1-data-note">
-          แหล่งข้อมูล: ${sourceName}
-          · ควรตรวจสอบรายละเอียดล่าสุดก่อนเดินทาง
-        </p>
-
-        <div class="promotion-actions eat-v1-actions">
-
-          ${
-            mapUrl
-              ? `
-                <a
-                  class="source-button"
-                  href="${window.PrachinLife.core.escapeAttribute(
-                    mapUrl
-                  )}"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  📍 เปิดแผนที่
-                </a>
-              `
-              : ""
-          }
-
-          ${
-            phoneHref
-              ? `
-                <a
-                  class="source-button"
-                  href="tel:${window.PrachinLife.core.escapeAttribute(
-                    phoneHref
-                  )}"
-                >
-                  📞 โทร
-                </a>
-              `
-              : ""
-          }
-
-          ${
-            websiteUrl
-              ? `
-                <a
-                  class="source-button"
-                  href="${window.PrachinLife.core.escapeAttribute(
-                    websiteUrl
-                  )}"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  🌐 เว็บไซต์
-                </a>
-              `
-              : ""
-          }
-
-          ${
-            facebookUrl
-              ? `
-                <a
-                  class="source-button"
-                  href="${window.PrachinLife.core.escapeAttribute(
-                    facebookUrl
-                  )}"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Facebook
-                </a>
-              `
-              : ""
-          }
-
-          ${
-            sourceUrl
-              ? `
-                <a
-                  class="source-button eat-v1-source-link"
-                  href="${window.PrachinLife.core.escapeAttribute(
-                    sourceUrl
-                  )}"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  ดูแหล่งข้อมูล
-                </a>
-              `
-              : ""
-          }
-
-        </div>
-
+        ${window.PrachinLife.core.placeCard.renderActions(place)}
       </div>
-
     </article>
   `;
 }
