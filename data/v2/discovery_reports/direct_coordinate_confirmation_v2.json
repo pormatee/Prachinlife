@@ -1,0 +1,34 @@
+{
+  "status": "PASS",
+  "mode": "DRY_RUN",
+  "policy_version": "4.13-direct-coordinate-confirmation-v1",
+  "candidate_name": "ร้านอาหารเจ AMITA VEGAN",
+  "province": "ปราจีนบุรี",
+  "validation_errors": [
+    "missing_confirmer",
+    "missing_confirmer_role",
+    "invalid_method",
+    "missing_reference",
+    "invalid_confirmed_at",
+    "invalid_coordinates"
+  ],
+  "confirmation_outcome": "STILL_UNRESOLVED",
+  "coordinates_resolved": false,
+  "latitude": null,
+  "longitude": null,
+  "confirmation_id": null,
+  "inserted_confirmation_count": 0,
+  "already_present_confirmation_count": 0,
+  "direct_coordinate_total": null,
+  "next_step": "supply_valid_direct_coordinate_confirmation",
+  "safety": {
+    "canonical_rows_unchanged": true,
+    "precanonical_candidate_rows_unchanged": true,
+    "production_json_writes": false,
+    "automatic_coordinate_guessing": false,
+    "automatic_canonical_creation": false,
+    "automatic_publication": false,
+    "direct_provenance_required": true,
+    "trust_policy_lowered": false
+  }
+}

@@ -1,0 +1,32 @@
+PHASE 4.13 CHECKPOINT
+
+Baseline: 27f9764 content
+STATUS = PASS
+MODE = DRY_RUN
+
+PLACE = ร้านอาหารเจ AMITA VEGAN
+OUTCOME = STILL_UNRESOLVED
+COORDINATES_RESOLVED = False
+LAT = None
+LON = None
+NEXT = supply_valid_direct_coordinate_confirmation
+
+VALIDATION_ERRORS:
+- missing_confirmer
+- missing_confirmer_role
+- invalid_method
+- missing_reference
+- invalid_confirmed_at
+- invalid_coordinates
+
+CANONICAL_ROWS_UNCHANGED = True
+PRECANONICAL_CANDIDATE_ROWS_UNCHANGED = True
+PRODUCTION_WRITES = False
+AUTOMATIC_COORDINATE_GUESSING = False
+AUTOMATIC_CANONICAL_CREATION = False
+AUTOMATIC_PUBLICATION = False
+DIRECT_PROVENANCE_REQUIRED = True
+TRUST_POLICY_LOWERED = False
+
+Targeted tests: 5/5 OK
+Full regression merged validation tree: 824/824 OK
