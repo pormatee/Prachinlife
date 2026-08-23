@@ -1,0 +1,65 @@
+{
+  "status": "PASS",
+  "policy_version": "4.3-independent-identity-verification-v1",
+  "candidate_count": 2,
+  "decision_counts": {
+    "SUPPORTED_IDENTITY": 1,
+    "VERIFIED_IDENTITY": 1
+  },
+  "decisions": [
+    {
+      "candidate_key": "5ea763f1e66e655bba237207e6374fa1f2fe31ac59a72b3f444e87abd3539f46",
+      "name": "มังสวิรัติ🥕🥦🍞🫘",
+      "province": "ปราจีนบุรี",
+      "identity_outcome": "SUPPORTED_IDENTITY",
+      "next_step": "acquire_second_independent_source",
+      "independent_source_family_count": 1,
+      "source_families": [
+        "wongnai"
+      ],
+      "accepted_observation_count": 2,
+      "blocked_observations": [],
+      "phone": "0959546958",
+      "phone_independent_source_family_count": 1,
+      "canonical_duplicate_matches": [],
+      "lifecycle_conflicts": [],
+      "identity_verified": false
+    },
+    {
+      "candidate_key": "5e8dccffa9b6db06469081d83e87e87d063d1e69de4fd54fdec0828941bfdf71",
+      "name": "ต้นหลิวอาหารเจ",
+      "province": "ปราจีนบุรี",
+      "identity_outcome": "VERIFIED_IDENTITY",
+      "next_step": "persist_precanonical_evidence",
+      "independent_source_family_count": 4,
+      "source_families": [
+        "facebook-official",
+        "restaurantguru",
+        "vegetarian-thailand-directory",
+        "wongnai"
+      ],
+      "accepted_observation_count": 4,
+      "blocked_observations": [],
+      "phone": "095-917-6495",
+      "phone_independent_source_family_count": 3,
+      "canonical_duplicate_matches": [],
+      "lifecycle_conflicts": [
+        "open_vs_closed_source_conflict"
+      ],
+      "identity_verified": true
+    }
+  ],
+  "ready_for_precanonical_evidence_count": 1,
+  "needs_more_evidence_count": 1,
+  "safety": {
+    "database_unchanged": true,
+    "database_writes": false,
+    "canonical_writes": false,
+    "evidence_writes": false,
+    "production_json_writes": false,
+    "automatic_place_creation": false,
+    "trust_policy_lowered": false,
+    "source_family_independence_enforced": true,
+    "province_agnostic": true
+  }
+}

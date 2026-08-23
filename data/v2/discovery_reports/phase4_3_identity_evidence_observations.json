@@ -1,0 +1,76 @@
+[
+  {
+    "candidate_name": "มังสวิรัติ🥕🥦🍞🫘",
+    "observed_name": "มังสวิรัติ🥕🥦🍞🫘",
+    "province": "ปราจีนบุรี",
+    "source_name": "Wongnai",
+    "source_family": "wongnai",
+    "source_url": "https://www.wongnai.com/restaurants/2950062Zv",
+    "source_record_id": "2950062Zv",
+    "phone": "0959546958",
+    "address_text": "313/19 ปราจีนตคาม หน้าเมือง เมืองปราจีนบุรี ปราจีนบุรี",
+    "lifecycle_status": "open",
+    "evidence_kind": "identity_contact"
+  },
+  {
+    "candidate_name": "มังสวิรัติ🥕🥦🍞🫘",
+    "observed_name": "มังสวิรัติ🥕🥦🍞🫘",
+    "province": "ปราจีนบุรี",
+    "source_name": "Wongnai x LINE MAN delivery",
+    "source_family": "wongnai",
+    "source_url": "https://www.wongnai.com/delivery/businesses/2950062Zv/order",
+    "source_record_id": "2950062Zv-delivery",
+    "lifecycle_status": "open",
+    "evidence_kind": "identity_category"
+  },
+  {
+    "candidate_name": "ต้นหลิวอาหารเจ",
+    "observed_name": "ต้นหลิวอาหารเจ",
+    "province": "ปราจีนบุรี",
+    "source_name": "Vegetarian Thailand directory",
+    "source_family": "vegetarian-thailand-directory",
+    "source_url": "https://w55221469.readyplanet.site/17587090/",
+    "source_record_id": "prachinburi-tonliw-jay",
+    "phone": "095-917-6495",
+    "address_text": "ตำบลหนองกี่ อำเภอกบินทร์บุรี ปราจีนบุรี 25110",
+    "evidence_kind": "identity_contact"
+  },
+  {
+    "candidate_name": "ต้นหลิวอาหารเจ",
+    "observed_name": "ต้นหลิวอาหารเจ",
+    "province": "ปราจีนบุรี",
+    "source_name": "Restaurant Guru",
+    "source_family": "restaurantguru",
+    "source_url": "https://restaurantguru.com/ต้นหลิวอาหารเจ-Nong-Ki",
+    "source_record_id": "tonliw-nong-ki",
+    "phone": "+66 95 917 6495",
+    "address_text": "Nong Ki, Prachin Buri, Thailand",
+    "lifecycle_status": "permanently_closed",
+    "evidence_kind": "identity_contact_lifecycle"
+  },
+  {
+    "candidate_name": "ต้นหลิวอาหารเจ",
+    "observed_name": "ต้นหลิว อาหารเจ",
+    "province": "ปราจีนบุรี",
+    "source_name": "Facebook official page",
+    "source_family": "facebook-official",
+    "source_url": "https://www.facebook.com/tn.hliw.xahar.ce/",
+    "source_record_id": "tn.hliw.xahar.ce",
+    "address_text": "ทางลัดนิคมหนองกี่ อ.กบินทร์บุรี",
+    "lifecycle_status": "open",
+    "evidence_kind": "identity_lifecycle"
+  },
+  {
+    "candidate_name": "ต้นหลิวอาหารเจ",
+    "observed_name": "ต้นหลิวอาหารเจ",
+    "province": "ปราจีนบุรี",
+    "source_name": "Wongnai",
+    "source_family": "wongnai",
+    "source_url": "https://www.wongnai.com/restaurants/1572074tx-ต้นหลิวอาหารเจ",
+    "source_record_id": "1572074tx",
+    "phone": "095-917-6495",
+    "address_text": "เลขที่ 185 หมู่ 1 ปราจีนบุรี",
+    "lifecycle_status": "open",
+    "evidence_kind": "identity_contact"
+  }
+]
