@@ -1,0 +1,13 @@
+PHASE 3.10 FIXED V2 CHECKPOINT
+
+Fix: action readiness now reuses place_platform_v2.production_quality.audit_production,
+eliminating duplicate schema parsing.
+
+Expected on current Production:
+- 936 total records
+- 333 visible place records
+- map readiness must be nonzero (expected 333 on current snapshot)
+- post-publication phone/website counts derived live, not hard-coded
+- staging contact mismatches 0
+- blockers 0
+- DB unchanged

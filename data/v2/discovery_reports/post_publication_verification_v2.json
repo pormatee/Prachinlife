@@ -1,0 +1,52 @@
+{
+  "status": "PASS",
+  "production_record_count": 936,
+  "staging_record_count": 936,
+  "visible_place_count": 333,
+  "action_ready": {
+    "map": 333,
+    "phone": 44,
+    "website": 41,
+    "additional_info": 35
+  },
+  "quality_datasets": {
+    "prachinlife_index.json": {
+      "visible_places": 55,
+      "quality": {
+        "medium": 47,
+        "high": 8
+      }
+    },
+    "vegetarian_index.json": {
+      "visible_places": 151,
+      "quality": {
+        "medium": 110,
+        "high": 41
+      }
+    },
+    "go_index.json": {
+      "visible_places": 6,
+      "quality": {
+        "medium": 2,
+        "high": 4
+      }
+    },
+    "service_index.json": {
+      "visible_places": 121,
+      "quality": {
+        "medium": 96,
+        "high": 25
+      }
+    }
+  },
+  "staging_contact_mismatches": [],
+  "production_shape_violations": [],
+  "blockers": [],
+  "safety": {
+    "database_unchanged": true,
+    "production_writes": false,
+    "staging_writes": false,
+    "trust_policy_lowered": false,
+    "shared_quality_semantics": true
+  }
+}
