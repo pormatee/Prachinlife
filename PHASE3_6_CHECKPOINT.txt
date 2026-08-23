@@ -1,0 +1,33 @@
+PrachinLife V2 Phase 3.6 — Controlled Canonical Adoption Review
+
+BASELINE: aa852ab Persist verified V2 web evidence
+POLICY: 3.6-controlled-canonical-adoption-review-v1
+
+REAL REVIEW RESULT
+- Phase 3.5 persisted evidence in scope: 10
+- Reviewed place-field decisions: 8
+- Verification outcomes: supported=6, verified=2
+- Adoption outcomes: proposed=8
+- Canonical writes: false
+- Evidence writes: false
+- Production JSON writes: false
+- Automatic adoption: false
+- Database unchanged: true
+- Province agnostic: true
+- Trust policy lowered: false
+
+PROPOSALS
+- Anchan phone: supported
+- Anchan website: supported
+- Hua Hin Vegan phone: verified
+- Hua Hin Vegan website: supported
+- Baan Unrak phone: supported
+- Guru Kripa Restaurant phone: supported
+- Aum Vegetarian Restaurant phone: supported
+- Chada Vegetarian phone: verified
+
+REGRESSION
+727/727 tests OK in development loop.
+
+NEXT STAGE
+Explicit controlled canonical adoption. No automatic publication.

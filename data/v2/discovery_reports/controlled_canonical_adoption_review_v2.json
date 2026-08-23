@@ -1,0 +1,211 @@
+{
+  "adoption_outcome_counts": {
+    "proposed": 8
+  },
+  "decisions": [
+    {
+      "adoption_outcome": "proposed",
+      "adoption_policy_version": "1.0-packet7",
+      "canonical_name": "Anchan",
+      "current_value": null,
+      "evidence_ids": [
+        "c3cd9512-0e0d-556c-8f6a-98b2f72d4e8e"
+      ],
+      "field_name": "phone",
+      "place_id": "0453d377-7379-526a-bfdd-a3a92044ffd2",
+      "proposed_value": "+66835811689",
+      "province": "เชียงใหม่",
+      "reason": "verification satisfies adoption policy",
+      "selected_value": "+66835811689",
+      "source_support": [
+        {
+          "evidence_count": 1,
+          "source_count": 1,
+          "value": "+66835811689"
+        }
+      ],
+      "verification_outcome": "supported"
+    },
+    {
+      "adoption_outcome": "proposed",
+      "adoption_policy_version": "1.0-packet7",
+      "canonical_name": "Anchan",
+      "current_value": null,
+      "evidence_ids": [
+        "9567ca9b-c457-5395-b6b4-cb9f6de3d3c4"
+      ],
+      "field_name": "website",
+      "place_id": "0453d377-7379-526a-bfdd-a3a92044ffd2",
+      "proposed_value": "https://anchanvegetarian.com/",
+      "province": "เชียงใหม่",
+      "reason": "verification satisfies adoption policy",
+      "selected_value": "https://anchanvegetarian.com/",
+      "source_support": [
+        {
+          "evidence_count": 1,
+          "source_count": 1,
+          "value": "https://anchanvegetarian.com/"
+        }
+      ],
+      "verification_outcome": "supported"
+    },
+    {
+      "adoption_outcome": "proposed",
+      "adoption_policy_version": "1.0-packet7",
+      "canonical_name": "Hua Hin Vegan",
+      "current_value": null,
+      "evidence_ids": [
+        "41c13951-a590-5e4d-9c0d-3efc621a381c",
+        "6913ca7c-490d-526b-9fbd-869b6e9573ea"
+      ],
+      "field_name": "phone",
+      "place_id": "73b8d824-1308-54ea-ac64-ffcae2dd32eb",
+      "proposed_value": "+66925366241",
+      "province": "ประจวบคีรีขันธ์",
+      "reason": "verification satisfies adoption policy",
+      "selected_value": "+66925366241",
+      "source_support": [
+        {
+          "evidence_count": 2,
+          "source_count": 2,
+          "value": "+66925366241"
+        }
+      ],
+      "verification_outcome": "verified"
+    },
+    {
+      "adoption_outcome": "proposed",
+      "adoption_policy_version": "1.0-packet7",
+      "canonical_name": "Hua Hin Vegan",
+      "current_value": null,
+      "evidence_ids": [
+        "26179a2d-12cd-57be-82c2-73c35eded266"
+      ],
+      "field_name": "website",
+      "place_id": "73b8d824-1308-54ea-ac64-ffcae2dd32eb",
+      "proposed_value": "https://facebook.com/huahinvegancafe/",
+      "province": "ประจวบคีรีขันธ์",
+      "reason": "verification satisfies adoption policy",
+      "selected_value": "https://facebook.com/huahinvegancafe/",
+      "source_support": [
+        {
+          "evidence_count": 1,
+          "source_count": 1,
+          "value": "https://facebook.com/huahinvegancafe/"
+        }
+      ],
+      "verification_outcome": "supported"
+    },
+    {
+      "adoption_outcome": "proposed",
+      "adoption_policy_version": "1.0-packet7",
+      "canonical_name": "Baan Unrak",
+      "current_value": null,
+      "evidence_ids": [
+        "b90bb6a1-71b3-5aab-848e-d1188596243e"
+      ],
+      "field_name": "phone",
+      "place_id": "7ede2f45-7b0f-55fc-843e-f6bff1138946",
+      "proposed_value": "+6634595006",
+      "province": "กาญจนบุรี",
+      "reason": "verification satisfies adoption policy",
+      "selected_value": "+6634595006",
+      "source_support": [
+        {
+          "evidence_count": 1,
+          "source_count": 1,
+          "value": "+6634595006"
+        }
+      ],
+      "verification_outcome": "supported"
+    },
+    {
+      "adoption_outcome": "proposed",
+      "adoption_policy_version": "1.0-packet7",
+      "canonical_name": "Guru Kripa Restaurant",
+      "current_value": null,
+      "evidence_ids": [
+        "664b170b-c168-591c-bf9c-541c041b3679"
+      ],
+      "field_name": "phone",
+      "place_id": "80fd8e12-c5a7-5b8f-a7a6-1e40c0c6d9ca",
+      "proposed_value": "+66630020351",
+      "province": "ชลบุรี",
+      "reason": "verification satisfies adoption policy",
+      "selected_value": "+66630020351",
+      "source_support": [
+        {
+          "evidence_count": 1,
+          "source_count": 1,
+          "value": "+66630020351"
+        }
+      ],
+      "verification_outcome": "supported"
+    },
+    {
+      "adoption_outcome": "proposed",
+      "adoption_policy_version": "1.0-packet7",
+      "canonical_name": "Aum Vegetarian Restaurant",
+      "current_value": null,
+      "evidence_ids": [
+        "64306592-dce2-59e9-8733-7be933c87270"
+      ],
+      "field_name": "phone",
+      "place_id": "8bf61ac7-2e41-517d-80d4-e14ec1b61c4c",
+      "proposed_value": "+66898539796",
+      "province": "เชียงใหม่",
+      "reason": "verification satisfies adoption policy",
+      "selected_value": "+66898539796",
+      "source_support": [
+        {
+          "evidence_count": 1,
+          "source_count": 1,
+          "value": "+66898539796"
+        }
+      ],
+      "verification_outcome": "supported"
+    },
+    {
+      "adoption_outcome": "proposed",
+      "adoption_policy_version": "1.0-packet7",
+      "canonical_name": "Chada Vegetarian",
+      "current_value": null,
+      "evidence_ids": [
+        "128342d4-b230-56b5-b447-35667a7fe518",
+        "75e21116-f147-5b29-8d87-bae4e5356b0e"
+      ],
+      "field_name": "phone",
+      "place_id": "d1251fc6-b0c5-56e3-b3cd-dbbf8feebac8",
+      "proposed_value": "+66898856875",
+      "province": "เชียงใหม่",
+      "reason": "verification satisfies adoption policy",
+      "selected_value": "+66898856875",
+      "source_support": [
+        {
+          "evidence_count": 2,
+          "source_count": 2,
+          "value": "+66898856875"
+        }
+      ],
+      "verification_outcome": "verified"
+    }
+  ],
+  "next_stage": "explicit_controlled_canonical_adoption_required",
+  "policy_version": "3.6-controlled-canonical-adoption-review-v1",
+  "review_place_field_count": 8,
+  "review_scope_evidence_count": 10,
+  "safety": {
+    "all_tables_unchanged": true,
+    "automatic_adoption": false,
+    "canonical_writes": false,
+    "database_unchanged": true,
+    "evidence_writes": false,
+    "production_json_writes": false,
+    "province_agnostic": true,
+    "trust_policy_lowered": false
+  },
+  "verification_outcome_counts": {
+    "supported": 6,
+    "verified": 2
+  }
+}
