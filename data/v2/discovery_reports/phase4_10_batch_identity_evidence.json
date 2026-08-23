@@ -1,0 +1,36 @@
+[
+  {
+    "candidate_name": "ร้านอาหารเจ AMITA VEGAN",
+    "observed_name": "ร้านอาหารเจ AMITA VEGAN",
+    "province": "ปราจีนบุรี",
+    "source_name": "Wongnai",
+    "source_family": "wongnai",
+    "source_url": "https://www.wongnai.com/restaurants/2107360fZ-ร้านอาหารเจ-amita-vegan-ท่าตูม",
+    "source_record_id": "2107360fZ",
+    "phone": "+66804653226",
+    "address_text": "701/177 ซอย5 หมู่10 ท่าตูม ศรีมหาโพธิ ปราจีนบุรี",
+    "evidence_kind": "identity_contact_category"
+  },
+  {
+    "candidate_name": "ร้านอาหารเจ AMITA VEGAN",
+    "observed_name": "ร้านอาหารเจ AMITA VEGAN (หมู่บ้านไพรวี่1 ข้างหลัง รพ.เกษมราช ปราจีน)",
+    "province": "ปราจีนบุรี",
+    "source_name": "Restaurant Guru",
+    "source_family": "restaurantguru",
+    "source_url": "https://restaurantguru.com/Si-Maha-Phot",
+    "source_record_id": "amita-vegan-si-maha-phot",
+    "address_text": "Si Maha Phot, Prachin Buri",
+    "evidence_kind": "identity_category"
+  },
+  {
+    "candidate_name": "ฉันทนา",
+    "observed_name": "ฉันทนา",
+    "province": "ปราจีนบุรี",
+    "source_name": "Innews",
+    "source_family": "innews",
+    "source_url": "https://www.innews.news/news.php?n=85740",
+    "source_record_id": "85740",
+    "address_text": "ตรงข้ามอนุสาวรีย์ลายพระหัตถ์ ต.หนองโพรง อ.ศรีมหาโพธิ จ.ปราจีนบุรี",
+    "evidence_kind": "identity_category"
+  }
+]

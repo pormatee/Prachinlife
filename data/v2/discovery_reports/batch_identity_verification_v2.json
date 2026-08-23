@@ -1,0 +1,68 @@
+{
+  "status": "PASS",
+  "policy_version": "4.10-batch-identity-verification-v1",
+  "verification_queue_count": 2,
+  "decision_counts": {
+    "SUPPORTED_IDENTITY": 1,
+    "VERIFIED_IDENTITY": 1
+  },
+  "decisions": [
+    {
+      "candidate_key": "c3e2112eaf69247b73254c75242617e79d17db2351038ecde66cfef7269e4225",
+      "name": "ร้านอาหารเจ AMITA VEGAN",
+      "province": "ปราจีนบุรี",
+      "category": "vegetarian",
+      "identity_outcome": "VERIFIED_IDENTITY",
+      "next_step": "acquire_geolocation_and_persist_precanonical_evidence",
+      "independent_source_family_count": 2,
+      "source_families": [
+        "restaurantguru",
+        "wongnai"
+      ],
+      "accepted_observation_count": 2,
+      "blocked_observations": [],
+      "phone_support": {
+        "0804653226": 1
+      },
+      "canonical_duplicate_matches": [],
+      "geolocation_ready": false,
+      "canonical_adoption_ready": false
+    },
+    {
+      "candidate_key": "d8655d689492b6cdab6b120cc77ed4e0bfff9b721c64c5ffa9c44b21d52b04d8",
+      "name": "ฉันทนา",
+      "province": "ปราจีนบุรี",
+      "category": "vegetarian",
+      "identity_outcome": "SUPPORTED_IDENTITY",
+      "next_step": "acquire_second_independent_source",
+      "independent_source_family_count": 1,
+      "source_families": [
+        "innews"
+      ],
+      "accepted_observation_count": 1,
+      "blocked_observations": [],
+      "phone_support": {},
+      "canonical_duplicate_matches": [],
+      "geolocation_ready": false,
+      "canonical_adoption_ready": false
+    }
+  ],
+  "verified_identity_count": 1,
+  "supported_identity_count": 1,
+  "blocked_count": 0,
+  "ready_for_geolocation_count": 1,
+  "needs_more_identity_evidence_count": 1,
+  "safety": {
+    "database_unchanged": true,
+    "database_writes": false,
+    "canonical_writes": false,
+    "precanonical_writes": false,
+    "pending_queue_writes": false,
+    "production_json_writes": false,
+    "automatic_adoption": false,
+    "automatic_publication": false,
+    "trust_policy_lowered": false,
+    "source_family_independence_enforced": true,
+    "batch_processing": true
+  }
+}

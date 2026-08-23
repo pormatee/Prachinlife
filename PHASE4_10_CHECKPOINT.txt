@@ -1,0 +1,35 @@
+PHASE 4.10 CHECKPOINT
+
+Baseline: 76a7e2c content
+STATUS = PASS
+VERIFICATION_QUEUE = 2
+DECISIONS = {
+  SUPPORTED_IDENTITY: 1,
+  VERIFIED_IDENTITY: 1
+}
+VERIFIED_IDENTITY = 1
+SUPPORTED_IDENTITY = 1
+READY_FOR_GEOLOCATION = 1
+NEEDS_MORE_IDENTITY_EVIDENCE = 1
+
+AMITA VEGAN:
+- VERIFIED_IDENTITY
+- independent source families = 2
+- next = acquire_geolocation_and_persist_precanonical_evidence
+
+ฉันทนา:
+- SUPPORTED_IDENTITY
+- independent source families = 1
+- next = acquire_second_independent_source
+
+DATABASE_UNCHANGED = True
+CANONICAL_WRITES = False
+PRECANONICAL_WRITES = False
+PENDING_WRITES = False
+PRODUCTION_WRITES = False
+AUTOMATIC_ADOPTION = False
+AUTOMATIC_PUBLICATION = False
+TRUST_POLICY_LOWERED = False
+
+Targeted Phase 4.10 tests: 6/6 OK
+Full regression on merged validation tree: 809/809 OK
