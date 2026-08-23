@@ -1,0 +1,876 @@
+{
+  "status": "PASS",
+  "policy_version": "6-final-operational-expansion-v1",
+  "scope": {
+    "province": "ปราจีนบุรี",
+    "category": "all"
+  },
+  "quality_audit": {
+    "status": "PASS",
+    "policy_version": "6-final-prachinburi-data-expansion-quality-v1",
+    "scope": {
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "restaurant",
+        "cafe",
+        "vegetarian",
+        "attraction",
+        "temple",
+        "nature",
+        "park",
+        "fuel",
+        "pharmacy",
+        "clinic",
+        "laundry",
+        "car_repair"
+      ]
+    },
+    "canonical_place_count": 220,
+    "category_counts": {
+      "attraction": 5,
+      "cafe": 25,
+      "car_repair": 3,
+      "clinic": 2,
+      "fuel": 111,
+      "laundry": 4,
+      "nature": 1,
+      "park": 5,
+      "pharmacy": 1,
+      "restaurant": 30,
+      "temple": 33,
+      "vegetarian": 1
+    },
+    "categories": {
+      "restaurant": {
+        "canonical_count": 30,
+        "coordinates_ready": 30,
+        "address_ready": 0,
+        "phone_ready": 0,
+        "website_ready": 0,
+        "lifecycle_known": 0,
+        "has_evidence": 30,
+        "quality_gaps": {
+          "coordinates": 0,
+          "address": 30,
+          "phone": 30,
+          "website": 30,
+          "lifecycle": 30,
+          "evidence": 0
+        }
+      },
+      "cafe": {
+        "canonical_count": 25,
+        "coordinates_ready": 25,
+        "address_ready": 0,
+        "phone_ready": 0,
+        "website_ready": 0,
+        "lifecycle_known": 0,
+        "has_evidence": 25,
+        "quality_gaps": {
+          "coordinates": 0,
+          "address": 25,
+          "phone": 25,
+          "website": 25,
+          "lifecycle": 25,
+          "evidence": 0
+        }
+      },
+      "vegetarian": {
+        "canonical_count": 1,
+        "coordinates_ready": 1,
+        "address_ready": 0,
+        "phone_ready": 1,
+        "website_ready": 0,
+        "lifecycle_known": 0,
+        "has_evidence": 1,
+        "quality_gaps": {
+          "coordinates": 0,
+          "address": 1,
+          "phone": 0,
+          "website": 1,
+          "lifecycle": 1,
+          "evidence": 0
+        }
+      },
+      "attraction": {
+        "canonical_count": 5,
+        "coordinates_ready": 5,
+        "address_ready": 0,
+        "phone_ready": 0,
+        "website_ready": 0,
+        "lifecycle_known": 0,
+        "has_evidence": 5,
+        "quality_gaps": {
+          "coordinates": 0,
+          "address": 5,
+          "phone": 5,
+          "website": 5,
+          "lifecycle": 5,
+          "evidence": 0
+        }
+      },
+      "temple": {
+        "canonical_count": 33,
+        "coordinates_ready": 33,
+        "address_ready": 0,
+        "phone_ready": 0,
+        "website_ready": 0,
+        "lifecycle_known": 0,
+        "has_evidence": 33,
+        "quality_gaps": {
+          "coordinates": 0,
+          "address": 33,
+          "phone": 33,
+          "website": 33,
+          "lifecycle": 33,
+          "evidence": 0
+        }
+      },
+      "nature": {
+        "canonical_count": 1,
+        "coordinates_ready": 1,
+        "address_ready": 0,
+        "phone_ready": 0,
+        "website_ready": 0,
+        "lifecycle_known": 0,
+        "has_evidence": 1,
+        "quality_gaps": {
+          "coordinates": 0,
+          "address": 1,
+          "phone": 1,
+          "website": 1,
+          "lifecycle": 1,
+          "evidence": 0
+        }
+      },
+      "park": {
+        "canonical_count": 5,
+        "coordinates_ready": 5,
+        "address_ready": 0,
+        "phone_ready": 0,
+        "website_ready": 0,
+        "lifecycle_known": 0,
+        "has_evidence": 5,
+        "quality_gaps": {
+          "coordinates": 0,
+          "address": 5,
+          "phone": 5,
+          "website": 5,
+          "lifecycle": 5,
+          "evidence": 0
+        }
+      },
+      "fuel": {
+        "canonical_count": 111,
+        "coordinates_ready": 111,
+        "address_ready": 0,
+        "phone_ready": 0,
+        "website_ready": 23,
+        "lifecycle_known": 0,
+        "has_evidence": 111,
+        "quality_gaps": {
+          "coordinates": 0,
+          "address": 111,
+          "phone": 111,
+          "website": 88,
+          "lifecycle": 111,
+          "evidence": 0
+        }
+      },
+      "pharmacy": {
+        "canonical_count": 1,
+        "coordinates_ready": 1,
+        "address_ready": 0,
+        "phone_ready": 0,
+        "website_ready": 0,
+        "lifecycle_known": 0,
+        "has_evidence": 1,
+        "quality_gaps": {
+          "coordinates": 0,
+          "address": 1,
+          "phone": 1,
+          "website": 1,
+          "lifecycle": 1,
+          "evidence": 0
+        }
+      },
+      "clinic": {
+        "canonical_count": 2,
+        "coordinates_ready": 2,
+        "address_ready": 0,
+        "phone_ready": 0,
+        "website_ready": 1,
+        "lifecycle_known": 0,
+        "has_evidence": 2,
+        "quality_gaps": {
+          "coordinates": 0,
+          "address": 2,
+          "phone": 2,
+          "website": 1,
+          "lifecycle": 2,
+          "evidence": 0
+        }
+      },
+      "laundry": {
+        "canonical_count": 4,
+        "coordinates_ready": 4,
+        "address_ready": 0,
+        "phone_ready": 0,
+        "website_ready": 0,
+        "lifecycle_known": 0,
+        "has_evidence": 4,
+        "quality_gaps": {
+          "coordinates": 0,
+          "address": 4,
+          "phone": 4,
+          "website": 4,
+          "lifecycle": 4,
+          "evidence": 0
+        }
+      },
+      "car_repair": {
+        "canonical_count": 3,
+        "coordinates_ready": 3,
+        "address_ready": 0,
+        "phone_ready": 1,
+        "website_ready": 0,
+        "lifecycle_known": 0,
+        "has_evidence": 3,
+        "quality_gaps": {
+          "coordinates": 0,
+          "address": 3,
+          "phone": 2,
+          "website": 3,
+          "lifecycle": 3,
+          "evidence": 0
+        }
+      }
+    },
+    "real_world_completeness_claimed": false
+  },
+  "work_items": [
+    {
+      "candidate_id": null,
+      "name": "ปราจีนบุรี:restaurant",
+      "queue": "quality_enrichment",
+      "next_action": "enrich_high_value_place_fields",
+      "blockers": [
+        "systematic_quality_gap"
+      ],
+      "category_scope": "restaurant",
+      "metrics": {
+        "canonical_count": 30,
+        "coordinates_ready": 30,
+        "address_ready": 0,
+        "phone_ready": 0,
+        "website_ready": 0,
+        "lifecycle_known": 0,
+        "has_evidence": 30,
+        "quality_gaps": {
+          "coordinates": 0,
+          "address": 30,
+          "phone": 30,
+          "website": 30,
+          "lifecycle": 30,
+          "evidence": 0
+        }
+      }
+    },
+    {
+      "candidate_id": null,
+      "name": "ปราจีนบุรี:cafe",
+      "queue": "quality_enrichment",
+      "next_action": "enrich_high_value_place_fields",
+      "blockers": [
+        "systematic_quality_gap"
+      ],
+      "category_scope": "cafe",
+      "metrics": {
+        "canonical_count": 25,
+        "coordinates_ready": 25,
+        "address_ready": 0,
+        "phone_ready": 0,
+        "website_ready": 0,
+        "lifecycle_known": 0,
+        "has_evidence": 25,
+        "quality_gaps": {
+          "coordinates": 0,
+          "address": 25,
+          "phone": 25,
+          "website": 25,
+          "lifecycle": 25,
+          "evidence": 0
+        }
+      }
+    },
+    {
+      "candidate_id": null,
+      "name": "ปราจีนบุรี:vegetarian",
+      "queue": "coverage_discovery",
+      "next_action": "expand_category_coverage",
+      "blockers": [
+        "thin_canonical_coverage"
+      ],
+      "category_scope": "vegetarian",
+      "metrics": {
+        "canonical_count": 1,
+        "coordinates_ready": 1,
+        "address_ready": 0,
+        "phone_ready": 1,
+        "website_ready": 0,
+        "lifecycle_known": 0,
+        "has_evidence": 1,
+        "quality_gaps": {
+          "coordinates": 0,
+          "address": 1,
+          "phone": 0,
+          "website": 1,
+          "lifecycle": 1,
+          "evidence": 0
+        }
+      }
+    },
+    {
+      "candidate_id": null,
+      "name": "ปราจีนบุรี:attraction",
+      "queue": "quality_enrichment",
+      "next_action": "enrich_high_value_place_fields",
+      "blockers": [
+        "systematic_quality_gap"
+      ],
+      "category_scope": "attraction",
+      "metrics": {
+        "canonical_count": 5,
+        "coordinates_ready": 5,
+        "address_ready": 0,
+        "phone_ready": 0,
+        "website_ready": 0,
+        "lifecycle_known": 0,
+        "has_evidence": 5,
+        "quality_gaps": {
+          "coordinates": 0,
+          "address": 5,
+          "phone": 5,
+          "website": 5,
+          "lifecycle": 5,
+          "evidence": 0
+        }
+      }
+    },
+    {
+      "candidate_id": null,
+      "name": "ปราจีนบุรี:temple",
+      "queue": "quality_enrichment",
+      "next_action": "enrich_high_value_place_fields",
+      "blockers": [
+        "systematic_quality_gap"
+      ],
+      "category_scope": "temple",
+      "metrics": {
+        "canonical_count": 33,
+        "coordinates_ready": 33,
+        "address_ready": 0,
+        "phone_ready": 0,
+        "website_ready": 0,
+        "lifecycle_known": 0,
+        "has_evidence": 33,
+        "quality_gaps": {
+          "coordinates": 0,
+          "address": 33,
+          "phone": 33,
+          "website": 33,
+          "lifecycle": 33,
+          "evidence": 0
+        }
+      }
+    },
+    {
+      "candidate_id": null,
+      "name": "ปราจีนบุรี:nature",
+      "queue": "coverage_discovery",
+      "next_action": "expand_category_coverage",
+      "blockers": [
+        "thin_canonical_coverage"
+      ],
+      "category_scope": "nature",
+      "metrics": {
+        "canonical_count": 1,
+        "coordinates_ready": 1,
+        "address_ready": 0,
+        "phone_ready": 0,
+        "website_ready": 0,
+        "lifecycle_known": 0,
+        "has_evidence": 1,
+        "quality_gaps": {
+          "coordinates": 0,
+          "address": 1,
+          "phone": 1,
+          "website": 1,
+          "lifecycle": 1,
+          "evidence": 0
+        }
+      }
+    },
+    {
+      "candidate_id": null,
+      "name": "ปราจีนบุรี:park",
+      "queue": "quality_enrichment",
+      "next_action": "enrich_high_value_place_fields",
+      "blockers": [
+        "systematic_quality_gap"
+      ],
+      "category_scope": "park",
+      "metrics": {
+        "canonical_count": 5,
+        "coordinates_ready": 5,
+        "address_ready": 0,
+        "phone_ready": 0,
+        "website_ready": 0,
+        "lifecycle_known": 0,
+        "has_evidence": 5,
+        "quality_gaps": {
+          "coordinates": 0,
+          "address": 5,
+          "phone": 5,
+          "website": 5,
+          "lifecycle": 5,
+          "evidence": 0
+        }
+      }
+    },
+    {
+      "candidate_id": null,
+      "name": "ปราจีนบุรี:fuel",
+      "queue": "quality_enrichment",
+      "next_action": "enrich_high_value_place_fields",
+      "blockers": [
+        "systematic_quality_gap"
+      ],
+      "category_scope": "fuel",
+      "metrics": {
+        "canonical_count": 111,
+        "coordinates_ready": 111,
+        "address_ready": 0,
+        "phone_ready": 0,
+        "website_ready": 23,
+        "lifecycle_known": 0,
+        "has_evidence": 111,
+        "quality_gaps": {
+          "coordinates": 0,
+          "address": 111,
+          "phone": 111,
+          "website": 88,
+          "lifecycle": 111,
+          "evidence": 0
+        }
+      }
+    },
+    {
+      "candidate_id": null,
+      "name": "ปราจีนบุรี:pharmacy",
+      "queue": "coverage_discovery",
+      "next_action": "expand_category_coverage",
+      "blockers": [
+        "thin_canonical_coverage"
+      ],
+      "category_scope": "pharmacy",
+      "metrics": {
+        "canonical_count": 1,
+        "coordinates_ready": 1,
+        "address_ready": 0,
+        "phone_ready": 0,
+        "website_ready": 0,
+        "lifecycle_known": 0,
+        "has_evidence": 1,
+        "quality_gaps": {
+          "coordinates": 0,
+          "address": 1,
+          "phone": 1,
+          "website": 1,
+          "lifecycle": 1,
+          "evidence": 0
+        }
+      }
+    },
+    {
+      "candidate_id": null,
+      "name": "ปราจีนบุรี:clinic",
+      "queue": "coverage_discovery",
+      "next_action": "expand_category_coverage",
+      "blockers": [
+        "thin_canonical_coverage"
+      ],
+      "category_scope": "clinic",
+      "metrics": {
+        "canonical_count": 2,
+        "coordinates_ready": 2,
+        "address_ready": 0,
+        "phone_ready": 0,
+        "website_ready": 1,
+        "lifecycle_known": 0,
+        "has_evidence": 2,
+        "quality_gaps": {
+          "coordinates": 0,
+          "address": 2,
+          "phone": 2,
+          "website": 1,
+          "lifecycle": 2,
+          "evidence": 0
+        }
+      }
+    },
+    {
+      "candidate_id": null,
+      "name": "ปราจีนบุรี:laundry",
+      "queue": "quality_enrichment",
+      "next_action": "enrich_high_value_place_fields",
+      "blockers": [
+        "systematic_quality_gap"
+      ],
+      "category_scope": "laundry",
+      "metrics": {
+        "canonical_count": 4,
+        "coordinates_ready": 4,
+        "address_ready": 0,
+        "phone_ready": 0,
+        "website_ready": 0,
+        "lifecycle_known": 0,
+        "has_evidence": 4,
+        "quality_gaps": {
+          "coordinates": 0,
+          "address": 4,
+          "phone": 4,
+          "website": 4,
+          "lifecycle": 4,
+          "evidence": 0
+        }
+      }
+    },
+    {
+      "candidate_id": null,
+      "name": "ปราจีนบุรี:car_repair",
+      "queue": "quality_enrichment",
+      "next_action": "enrich_high_value_place_fields",
+      "blockers": [
+        "systematic_quality_gap"
+      ],
+      "category_scope": "car_repair",
+      "metrics": {
+        "canonical_count": 3,
+        "coordinates_ready": 3,
+        "address_ready": 0,
+        "phone_ready": 1,
+        "website_ready": 0,
+        "lifecycle_known": 0,
+        "has_evidence": 3,
+        "quality_gaps": {
+          "coordinates": 0,
+          "address": 3,
+          "phone": 2,
+          "website": 3,
+          "lifecycle": 3,
+          "evidence": 0
+        }
+      }
+    },
+    {
+      "candidate_id": "0b87b7f8-f9d6-58f9-871d-9d6d5f9172b1",
+      "name": "ร้านอาหารเจ AMITA VEGAN",
+      "queue": "coordinate_or_manual_confirmation",
+      "next_action": "supply_valid_direct_confirmation",
+      "blockers": [
+        "pending_manual_or_coordinate_confirmation",
+        "exact_candidate_coordinates_not_verified"
+      ],
+      "category_scope": "vegetarian"
+    },
+    {
+      "candidate_id": "8a7a5bf3-a1d9-5324-8ebd-d6bc39148855",
+      "name": "ต้นหลิวอาหารเจ",
+      "queue": "manual_confirmation",
+      "next_action": "resolve_lifecycle_conflict",
+      "blockers": [
+        "unresolved_lifecycle_conflict",
+        "pending_manual_or_coordinate_confirmation",
+        "exact_candidate_coordinates_not_verified"
+      ],
+      "category_scope": "vegetarian"
+    }
+  ],
+  "work_queue": {
+    "status": "PASS",
+    "mode": "COMMIT",
+    "policy_version": "5-final-operational-work-queue-v1",
+    "scope": {
+      "province": "ปราจีนบุรี",
+      "category": "all"
+    },
+    "active_work_count": 14,
+    "open_queue_count": 14,
+    "queue_counts": {
+      "coordinate_or_manual_confirmation": 1,
+      "coverage_discovery": 4,
+      "manual_confirmation": 1,
+      "quality_enrichment": 8
+    },
+    "inserted": 0,
+    "updated": 0,
+    "unchanged": 14,
+    "resolved": 0,
+    "open_work": [
+      {
+        "work_id": "501bb64f-38c8-5a2d-a3e6-d68b0fff97a5",
+        "work_key": "ปราจีนบุรี|all|0b87b7f8-f9d6-58f9-871d-9d6d5f9172b1",
+        "candidate_id": "0b87b7f8-f9d6-58f9-871d-9d6d5f9172b1",
+        "name": "ร้านอาหารเจ AMITA VEGAN",
+        "province": "ปราจีนบุรี",
+        "category": "all",
+        "queue_type": "coordinate_or_manual_confirmation",
+        "next_action": "supply_valid_direct_confirmation",
+        "status": "OPEN",
+        "first_seen_at": "2026-08-23T06:23:56.307098+00:00",
+        "last_seen_at": "2026-08-23T06:23:56.307098+00:00",
+        "resolved_at": null
+      },
+      {
+        "work_id": "df240040-77e4-5b83-b22e-4a61c28b70c1",
+        "work_key": "ปราจีนบุรี|all|ปราจีนบุรี:clinic",
+        "candidate_id": null,
+        "name": "ปราจีนบุรี:clinic",
+        "province": "ปราจีนบุรี",
+        "category": "all",
+        "queue_type": "coverage_discovery",
+        "next_action": "expand_category_coverage",
+        "status": "OPEN",
+        "first_seen_at": "2026-08-23T06:23:56.307098+00:00",
+        "last_seen_at": "2026-08-23T06:23:56.307098+00:00",
+        "resolved_at": null
+      },
+      {
+        "work_id": "4c67b577-c6fa-5074-8f40-f4011fb75d2e",
+        "work_key": "ปราจีนบุรี|all|ปราจีนบุรี:nature",
+        "candidate_id": null,
+        "name": "ปราจีนบุรี:nature",
+        "province": "ปราจีนบุรี",
+        "category": "all",
+        "queue_type": "coverage_discovery",
+        "next_action": "expand_category_coverage",
+        "status": "OPEN",
+        "first_seen_at": "2026-08-23T06:23:56.307098+00:00",
+        "last_seen_at": "2026-08-23T06:23:56.307098+00:00",
+        "resolved_at": null
+      },
+      {
+        "work_id": "97c687fe-e8df-58ae-a5dc-934e76ec1690",
+        "work_key": "ปราจีนบุรี|all|ปราจีนบุรี:pharmacy",
+        "candidate_id": null,
+        "name": "ปราจีนบุรี:pharmacy",
+        "province": "ปราจีนบุรี",
+        "category": "all",
+        "queue_type": "coverage_discovery",
+        "next_action": "expand_category_coverage",
+        "status": "OPEN",
+        "first_seen_at": "2026-08-23T06:23:56.307098+00:00",
+        "last_seen_at": "2026-08-23T06:23:56.307098+00:00",
+        "resolved_at": null
+      },
+      {
+        "work_id": "6ab910ac-d677-5181-a655-271dc59882ff",
+        "work_key": "ปราจีนบุรี|all|ปราจีนบุรี:vegetarian",
+        "candidate_id": null,
+        "name": "ปราจีนบุรี:vegetarian",
+        "province": "ปราจีนบุรี",
+        "category": "all",
+        "queue_type": "coverage_discovery",
+        "next_action": "expand_category_coverage",
+        "status": "OPEN",
+        "first_seen_at": "2026-08-23T06:23:56.307098+00:00",
+        "last_seen_at": "2026-08-23T06:23:56.307098+00:00",
+        "resolved_at": null
+      },
+      {
+        "work_id": "b49bdfe1-9543-5c5a-816f-9e85f7c07779",
+        "work_key": "ปราจีนบุรี|all|8a7a5bf3-a1d9-5324-8ebd-d6bc39148855",
+        "candidate_id": "8a7a5bf3-a1d9-5324-8ebd-d6bc39148855",
+        "name": "ต้นหลิวอาหารเจ",
+        "province": "ปราจีนบุรี",
+        "category": "all",
+        "queue_type": "manual_confirmation",
+        "next_action": "resolve_lifecycle_conflict",
+        "status": "OPEN",
+        "first_seen_at": "2026-08-23T06:23:56.307098+00:00",
+        "last_seen_at": "2026-08-23T06:23:56.307098+00:00",
+        "resolved_at": null
+      },
+      {
+        "work_id": "8ecb91e1-a96e-5ea3-beba-6c81ad8a1f0b",
+        "work_key": "ปราจีนบุรี|all|ปราจีนบุรี:attraction",
+        "candidate_id": null,
+        "name": "ปราจีนบุรี:attraction",
+        "province": "ปราจีนบุรี",
+        "category": "all",
+        "queue_type": "quality_enrichment",
+        "next_action": "enrich_high_value_place_fields",
+        "status": "OPEN",
+        "first_seen_at": "2026-08-23T06:23:56.307098+00:00",
+        "last_seen_at": "2026-08-23T06:23:56.307098+00:00",
+        "resolved_at": null
+      },
+      {
+        "work_id": "12e3f37b-7120-50a6-8a15-5065be0ed8c8",
+        "work_key": "ปราจีนบุรี|all|ปราจีนบุรี:cafe",
+        "candidate_id": null,
+        "name": "ปราจีนบุรี:cafe",
+        "province": "ปราจีนบุรี",
+        "category": "all",
+        "queue_type": "quality_enrichment",
+        "next_action": "enrich_high_value_place_fields",
+        "status": "OPEN",
+        "first_seen_at": "2026-08-23T06:23:56.307098+00:00",
+        "last_seen_at": "2026-08-23T06:23:56.307098+00:00",
+        "resolved_at": null
+      },
+      {
+        "work_id": "3096ab34-dbc6-5a15-ad13-1269c2225285",
+        "work_key": "ปราจีนบุรี|all|ปราจีนบุรี:car_repair",
+        "candidate_id": null,
+        "name": "ปราจีนบุรี:car_repair",
+        "province": "ปราจีนบุรี",
+        "category": "all",
+        "queue_type": "quality_enrichment",
+        "next_action": "enrich_high_value_place_fields",
+        "status": "OPEN",
+        "first_seen_at": "2026-08-23T06:23:56.307098+00:00",
+        "last_seen_at": "2026-08-23T06:23:56.307098+00:00",
+        "resolved_at": null
+      },
+      {
+        "work_id": "ab68b42c-0c5c-5503-b8cf-9c8c3585a4eb",
+        "work_key": "ปราจีนบุรี|all|ปราจีนบุรี:fuel",
+        "candidate_id": null,
+        "name": "ปราจีนบุรี:fuel",
+        "province": "ปราจีนบุรี",
+        "category": "all",
+        "queue_type": "quality_enrichment",
+        "next_action": "enrich_high_value_place_fields",
+        "status": "OPEN",
+        "first_seen_at": "2026-08-23T06:23:56.307098+00:00",
+        "last_seen_at": "2026-08-23T06:23:56.307098+00:00",
+        "resolved_at": null
+      },
+      {
+        "work_id": "9cfffbe9-5a95-58f5-97d5-2fcb8da7a5d0",
+        "work_key": "ปราจีนบุรี|all|ปราจีนบุรี:laundry",
+        "candidate_id": null,
+        "name": "ปราจีนบุรี:laundry",
+        "province": "ปราจีนบุรี",
+        "category": "all",
+        "queue_type": "quality_enrichment",
+        "next_action": "enrich_high_value_place_fields",
+        "status": "OPEN",
+        "first_seen_at": "2026-08-23T06:23:56.307098+00:00",
+        "last_seen_at": "2026-08-23T06:23:56.307098+00:00",
+        "resolved_at": null
+      },
+      {
+        "work_id": "ed325e5e-224c-543c-83c2-e25c8fb86773",
+        "work_key": "ปราจีนบุรี|all|ปราจีนบุรี:park",
+        "candidate_id": null,
+        "name": "ปราจีนบุรี:park",
+        "province": "ปราจีนบุรี",
+        "category": "all",
+        "queue_type": "quality_enrichment",
+        "next_action": "enrich_high_value_place_fields",
+        "status": "OPEN",
+        "first_seen_at": "2026-08-23T06:23:56.307098+00:00",
+        "last_seen_at": "2026-08-23T06:23:56.307098+00:00",
+        "resolved_at": null
+      },
+      {
+        "work_id": "0f91c0c8-babe-5471-8bed-4eaa6c946153",
+        "work_key": "ปราจีนบุรี|all|ปราจีนบุรี:restaurant",
+        "candidate_id": null,
+        "name": "ปราจีนบุรี:restaurant",
+        "province": "ปราจีนบุรี",
+        "category": "all",
+        "queue_type": "quality_enrichment",
+        "next_action": "enrich_high_value_place_fields",
+        "status": "OPEN",
+        "first_seen_at": "2026-08-23T06:23:56.307098+00:00",
+        "last_seen_at": "2026-08-23T06:23:56.307098+00:00",
+        "resolved_at": null
+      },
+      {
+        "work_id": "3913d203-5a28-596a-9677-9c33bd0a92c8",
+        "work_key": "ปราจีนบุรี|all|ปราจีนบุรี:temple",
+        "candidate_id": null,
+        "name": "ปราจีนบุรี:temple",
+        "province": "ปราจีนบุรี",
+        "category": "all",
+        "queue_type": "quality_enrichment",
+        "next_action": "enrich_high_value_place_fields",
+        "status": "OPEN",
+        "first_seen_at": "2026-08-23T06:23:56.307098+00:00",
+        "last_seen_at": "2026-08-23T06:23:56.307098+00:00",
+        "resolved_at": null
+      }
+    ],
+    "safety": {
+      "queue_only_write": true,
+      "canonical_writes": false,
+      "precanonical_writes": false,
+      "production_json_writes": false,
+      "automatic_adoption": false,
+      "trust_policy_lowered": false,
+      "idempotent": true
+    }
+  },
+  "summary": {
+    "canonical_places": 220,
+    "categories_accounted": 12,
+    "category_work_items": 12,
+    "concrete_candidate_work": 2,
+    "open_work": 14,
+    "queue_counts": {
+      "coordinate_or_manual_confirmation": 1,
+      "coverage_discovery": 4,
+      "manual_confirmation": 1,
+      "quality_enrichment": 8
+    },
+    "coverage_work_remains": true,
+    "discovery_continues": true
+  },
+  "safety": {
+    "canonical_writes": false,
+    "precanonical_writes": false,
+    "production_json_writes": false,
+    "automatic_adoption": false,
+    "explicit_adoption_commit_required": true,
+    "trust_policy_lowered": false
+  },
+  "final_gate": {
+    "status": "PASS",
+    "checks": {
+      "all_categories_accounted": true,
+      "category_work_routed": true,
+      "open_work_non_blocking": true,
+      "persistent_queue_reconciled": true,
+      "real_world_completeness_not_claimed": true,
+      "explicit_adoption_required": true,
+      "production_writes_disabled": true,
+      "trust_policy_preserved": true,
+      "database_integrity": true
+    },
+    "database": {
+      "integrity_check": "ok",
+      "foreign_key_errors": 0
+    },
+    "phase6": {
+      "multi_category_expansion": true,
+      "quality_gap_routing": true,
+      "persistent_operational_queue": true,
+      "repeatable_batch_cycle": true,
+      "blockers_do_not_stop_expansion": true
+    }
+  }
+}
