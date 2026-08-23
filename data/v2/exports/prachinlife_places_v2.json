@@ -5328,33 +5328,81 @@
       "name": "พิพิธภัณฑสถานแห่งชาติปราจีนบุรี",
       "latitude": 14.047306,
       "longitude": 101.37467,
-      "address": null,
+      "address": "ถนนปราจีนอนุสรณ์ ตำบลหน้าเมือง อำเภอเมืองปราจีนบุรี จังหวัดปราจีนบุรี 25000",
       "province": "ปราจีนบุรี",
       "categories": [
         "attraction"
       ],
-      "phone": null,
-      "website": null,
+      "phone": "0-3721-1586",
+      "website": "https://www.finearts.go.th/prachinburimuseum",
       "lifecycle": "unknown",
       "source": "place_platform_v2",
-      "source_name": "พิพิธภัณฑสถานแห่งชาติ ปราจีนบุรี / กรมศิลปากร",
+      "source_name": "กรมศิลปากร - พิพิธภัณฑสถานแห่งชาติ ปราจีนบุรี",
       "source_url": "https://www.finearts.go.th/prachinburimuseum/contact",
       "external_links": [
         {
+          "type": "official_website",
+          "label": "เว็บไซต์",
+          "url": "https://www.finearts.go.th/prachinburimuseum"
+        },
+        {
           "type": "web",
-          "label": "พิพิธภัณฑสถานแห่งชาติ ปราจีนบุรี / กรมศิลปากร",
+          "label": "กรมศิลปากร - พิพิธภัณฑสถานแห่งชาติ ปราจีนบุรี",
           "url": "https://www.finearts.go.th/prachinburimuseum/contact"
         }
       ],
-      "district": null,
-      "subdistrict": null,
+      "district": "เมืองปราจีนบุรี",
+      "subdistrict": "หน้าเมือง",
       "area": null,
-      "opening_hours": null,
+      "opening_hours": "วันพุธ-อาทิตย์ 09:00-16:00; ปิดวันจันทร์-อังคาร",
       "real_image": null,
       "image_url": null,
       "description": null,
       "prachinlife_page_url": null,
-      "detail_provenance": {}
+      "detail_provenance": {
+        "website": {
+          "status": "supported",
+          "source_type": "official",
+          "source_name": "กรมศิลปากร - พิพิธภัณฑสถานแห่งชาติ ปราจีนบุรี",
+          "source_url": "https://www.finearts.go.th/prachinburimuseum/contact",
+          "observed_at": "2026-08-23T00:00:00+07:00"
+        },
+        "opening_hours": {
+          "status": "supported",
+          "source_type": "official",
+          "source_name": "กรมศิลปากร - พิพิธภัณฑสถานแห่งชาติ ปราจีนบุรี",
+          "source_url": "https://www.finearts.go.th/prachinburimuseum/contact",
+          "observed_at": "2026-08-23T00:00:00+07:00"
+        },
+        "subdistrict": {
+          "status": "supported",
+          "source_type": "official",
+          "source_name": "กรมศิลปากร - พิพิธภัณฑสถานแห่งชาติ ปราจีนบุรี",
+          "source_url": "https://www.finearts.go.th/prachinburimuseum/contact",
+          "observed_at": "2026-08-23T00:00:00+07:00"
+        },
+        "district": {
+          "status": "supported",
+          "source_type": "official",
+          "source_name": "กรมศิลปากร - พิพิธภัณฑสถานแห่งชาติ ปราจีนบุรี",
+          "source_url": "https://www.finearts.go.th/prachinburimuseum/contact",
+          "observed_at": "2026-08-23T00:00:00+07:00"
+        },
+        "address": {
+          "status": "supported",
+          "source_type": "official",
+          "source_name": "กรมศิลปากร - พิพิธภัณฑสถานแห่งชาติ ปราจีนบุรี",
+          "source_url": "https://www.finearts.go.th/prachinburimuseum/contact",
+          "observed_at": "2026-08-23T00:00:00+07:00"
+        },
+        "phone": {
+          "status": "supported",
+          "source_type": "official",
+          "source_name": "กรมศิลปากร - พิพิธภัณฑสถานแห่งชาติ ปราจีนบุรี",
+          "source_url": "https://www.finearts.go.th/prachinburimuseum/contact",
+          "observed_at": "2026-08-23T00:00:00+07:00"
+        }
+      }
     },
     {
       "id": "445fe8bd-ca9e-54a5-a9d7-63d3683d1075",
@@ -7238,12 +7286,12 @@
       "website": null,
       "lifecycle": "unknown",
       "source": "place_platform_v2",
-      "source_name": "กรมศิลปากร",
+      "source_name": "กรมศิลปากร - ท่องเมืองโบราณศรีมโหสถ",
       "source_url": "https://www.finearts.go.th/main/view/25201-ท่องเมืองโบราณ--ศรีมโหสถ-?type1=11",
       "external_links": [
         {
           "type": "web",
-          "label": "กรมศิลปากร",
+          "label": "กรมศิลปากร - ท่องเมืองโบราณศรีมโหสถ",
           "url": "https://www.finearts.go.th/main/view/25201-ท่องเมืองโบราณ--ศรีมโหสถ-?type1=11"
         }
       ],
@@ -7253,9 +7301,17 @@
       "opening_hours": null,
       "real_image": null,
       "image_url": null,
-      "description": null,
+      "description": "เมืองโบราณขนาดใหญ่ในอำเภอศรีมโหสถ จังหวัดปราจีนบุรี มีพัฒนาการราวพุทธศตวรรษที่ 11-18 และมีคูน้ำคันดินล้อมรอบ",
       "prachinlife_page_url": null,
-      "detail_provenance": {}
+      "detail_provenance": {
+        "description": {
+          "status": "supported",
+          "source_type": "official",
+          "source_name": "กรมศิลปากร - ท่องเมืองโบราณศรีมโหสถ",
+          "source_url": "https://www.finearts.go.th/main/view/25201-ท่องเมืองโบราณ--ศรีมโหสถ-?type1=11",
+          "observed_at": "2026-08-23T00:00:00+07:00"
+        }
+      }
     },
     {
       "id": "0e9a4eee-2720-52ac-bdff-653add9c3e29",

@@ -1737,7 +1737,7 @@
     },
     "metadata": {
       "category_label": "พิพิธภัณฑ์ / ประวัติศาสตร์",
-      "opening_hours": null,
+      "opening_hours": "วันพุธ-อาทิตย์ 09:00-16:00; ปิดวันจันทร์-อังคาร",
       "phone": null,
       "website": null,
       "fee": null,
@@ -1760,10 +1760,12 @@
     "external_links": [
       {
         "type": "web",
-        "label": "พิพิธภัณฑสถานแห่งชาติ ปราจีนบุรี / กรมศิลปากร",
+        "label": "กรมศิลปากร - พิพิธภัณฑสถานแห่งชาติ ปราจีนบุรี",
         "url": "https://www.finearts.go.th/prachinburimuseum/contact"
       }
-    ]
+    ],
+    "district": "เมืองปราจีนบุรี",
+    "subdistrict": "หน้าเมือง"
   },
   {
     "id": "official-go-2",
@@ -1848,9 +1850,10 @@
     "external_links": [
       {
         "type": "web",
-        "label": "กรมศิลปากร",
+        "label": "กรมศิลปากร - ท่องเมืองโบราณศรีมโหสถ",
         "url": "https://www.finearts.go.th/main/view/25201-ท่องเมืองโบราณ--ศรีมโหสถ-?type1=11"
       }
-    ]
+    ],
+    "description": "เมืองโบราณขนาดใหญ่ในอำเภอศรีมโหสถ จังหวัดปราจีนบุรี มีพัฒนาการราวพุทธศตวรรษที่ 11-18 และมีคูน้ำคันดินล้อมรอบ"
   }
 ]

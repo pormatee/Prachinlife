@@ -1,0 +1,45 @@
+{
+  "schema_version": "phase11-official-web-observation-v1",
+  "generated_at": "2026-08-23T21:30:00+07:00",
+  "policy_version": "phase11-official-web-enrichment-v1",
+  "mode": "manual_verified_source_manifest",
+  "observations": [
+    {
+      "place_id": "df7d47d4-6772-50f6-a8a9-237b4a28ea62",
+      "canonical_name": "พิพิธภัณฑสถานแห่งชาติปราจีนบุรี",
+      "province": "ปราจีนบุรี",
+      "source_name": "กรมศิลปากร - พิพิธภัณฑสถานแห่งชาติ ปราจีนบุรี",
+      "source_url": "https://www.finearts.go.th/prachinburimuseum/contact",
+      "source_record_id": "finearts-prachinburimuseum-contact",
+      "observed_at": "2026-08-23T00:00:00+07:00",
+      "fields": {
+        "address": "ถนนปราจีนอนุสรณ์ ตำบลหน้าเมือง อำเภอเมืองปราจีนบุรี จังหวัดปราจีนบุรี 25000",
+        "district": "เมืองปราจีนบุรี",
+        "subdistrict": "หน้าเมือง",
+        "opening_hours": "วันพุธ-อาทิตย์ 09:00-16:00; ปิดวันจันทร์-อังคาร",
+        "phone": "0-3721-1586",
+        "website": "https://www.finearts.go.th/prachinburimuseum"
+      }
+    },
+    {
+      "place_id": "57595b16-d24d-5f41-9cf7-8ec261642886",
+      "canonical_name": "เมืองโบราณศรีมโหสถ",
+      "province": "ปราจีนบุรี",
+      "source_name": "กรมศิลปากร - ท่องเมืองโบราณศรีมโหสถ",
+      "source_url": "https://www.finearts.go.th/main/view/25201-ท่องเมืองโบราณ--ศรีมโหสถ-?type1=11",
+      "source_record_id": "finearts-main-25201-si-mahosot",
+      "observed_at": "2026-08-23T00:00:00+07:00",
+      "fields": {
+        "description": "เมืองโบราณขนาดใหญ่ในอำเภอศรีมโหสถ จังหวัดปราจีนบุรี มีพัฒนาการราวพุทธศตวรรษที่ 11-18 และมีคูน้ำคันดินล้อมรอบ"
+      }
+    }
+  ],
+  "safety": {
+    "canonical_writes": false,
+    "automatic_adoption": false,
+    "candidate_promotion": false,
+    "trust_policy_lowered": false,
+    "production_switch_changed": false,
+    "real_image_synthesized": false
+  }
+}
