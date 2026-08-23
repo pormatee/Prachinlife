@@ -1,0 +1,21 @@
+PHASE 4.16 CHECKPOINT
+STATUS = PASS
+SCOPE_QUEUE = 3
+DECISIONS = {'GENERAL_OR_MIXED_SCOPE': 3}
+DEDICATED_SCOPE_VERIFIED = 0
+GENERAL_OR_MIXED_SCOPE = 3
+SCOPE_UNRESOLVED = 0
+PRIMARY_DIRECTORY_READY = 0
+CATEGORY_LABEL_ALONE_INSUFFICIENT = True
+GENERIC_NAME_NOT_DEDICATED = True
+INDEPENDENT_SCOPE_EVIDENCE_REQUIRED = True
+DATABASE_UNCHANGED = True
+CANONICAL_WRITES = False
+PRECANONICAL_WRITES = False
+PENDING_WRITES = False
+PRODUCTION_WRITES = False
+TRUST_POLICY_LOWERED = False
+RESULT = PASS
+
+Targeted tests: 5/5 OK
+Note: uploaded development packet is intentionally partial and lacks frontend/admin files required by older unrelated tests; full local regression must be run after applying packet in the repository.

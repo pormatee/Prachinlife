@@ -1,0 +1,33 @@
+[
+  {
+    "candidate_key": "3127f965c11c2c81e370cb2d34d2592f6cc00f807fabf09759204c0c8d7bffdd",
+    "candidate_name": "ซาลาเปา ขนมจีบ by Salon&Cafe' คลองรั้งสายใน",
+    "source_name": "Wongnai",
+    "source_family": "wongnai",
+    "source_url": "https://www.wongnai.com/restaurants/1585661Om-ซาลาเปา-ขนมจีบ-by-salon-cafe-คลองรั้งสายใน",
+    "observed_categories": "ติ่มซำ อาหารเจ อาหารเช้า",
+    "merchant_description": "ขนมจีบ ซาลาเปา หม่านโถว",
+    "review_summary": "ร้านทำผม/ซาลาเปาหลากหลายรส",
+    "scope_signal": "mixed_menu_business"
+  },
+  {
+    "candidate_key": "8220de8519c941ecec7bc5ecd924942129bc5652ebb7378344409130481d3d30",
+    "candidate_name": "น้ำเต้าหู้ นมสด (บ้านเอื้อฯ304)",
+    "source_name": "Wongnai",
+    "source_family": "wongnai",
+    "source_url": "https://www.wongnai.com/restaurants/957975yr-น้ำเต้าหู้-นมสด-บ้านเอื้อฯ304",
+    "observed_categories": "อาหารเจ",
+    "merchant_description": "น้ำเต้าหู้ นมสด",
+    "scope_signal": "general_food_business"
+  },
+  {
+    "candidate_key": "7aa94b98012f60b1886b9582cfc2453d05d44e94f819496445ef121e38143923",
+    "candidate_name": "น้ำเต้าหู้ ร้านเหมยคลองรั้งสายในตรงข้าม7-11ซอยประปา",
+    "source_name": "Wongnai",
+    "source_family": "wongnai",
+    "source_url": "https://www.wongnai.com/restaurants/1810489MO-น้ำเต้าหู้-ร้านเหมยคลองรั้งสายในตรงข้าม7-11ซอยประปา",
+    "observed_categories": "สตรีทฟู้ด/รถเข็น อาหารเจ",
+    "merchant_description": "ร้านน้ำเต้าหู้",
+    "scope_signal": "general_food_business"
+  }
+]
