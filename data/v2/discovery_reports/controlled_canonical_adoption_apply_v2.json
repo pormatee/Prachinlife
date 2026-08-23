@@ -1,0 +1,225 @@
+{
+  "policy_version": "3.7-explicit-controlled-canonical-adoption-v1",
+  "mode": "COMMIT",
+  "proposal_count": 8,
+  "apply_outcome_counts": {
+    "ready": 8
+  },
+  "updated_field_count": 8,
+  "inserted_revision_count": 8,
+  "already_applied_count": 0,
+  "decisions": [
+    {
+      "place_id": "0453d377-7379-526a-bfdd-a3a92044ffd2",
+      "canonical_name": "Anchan",
+      "province": "เชียงใหม่",
+      "field_name": "phone",
+      "current_value": null,
+      "verification_outcome": "supported",
+      "selected_value": "+66835811689",
+      "source_support": [
+        {
+          "value": "+66835811689",
+          "source_count": 1,
+          "evidence_count": 1
+        }
+      ],
+      "adoption_outcome": "proposed",
+      "proposed_value": "+66835811689",
+      "evidence_ids": [
+        "c3cd9512-0e0d-556c-8f6a-98b2f72d4e8e"
+      ],
+      "adoption_policy_version": "1.0-packet7",
+      "reason": "verification satisfies adoption policy",
+      "apply_outcome": "ready",
+      "revision_id": "d4758dc8-0236-5db3-87a5-93c9359e03e0"
+    },
+    {
+      "place_id": "0453d377-7379-526a-bfdd-a3a92044ffd2",
+      "canonical_name": "Anchan",
+      "province": "เชียงใหม่",
+      "field_name": "website",
+      "current_value": null,
+      "verification_outcome": "supported",
+      "selected_value": "https://anchanvegetarian.com/",
+      "source_support": [
+        {
+          "value": "https://anchanvegetarian.com/",
+          "source_count": 1,
+          "evidence_count": 1
+        }
+      ],
+      "adoption_outcome": "proposed",
+      "proposed_value": "https://anchanvegetarian.com/",
+      "evidence_ids": [
+        "9567ca9b-c457-5395-b6b4-cb9f6de3d3c4"
+      ],
+      "adoption_policy_version": "1.0-packet7",
+      "reason": "verification satisfies adoption policy",
+      "apply_outcome": "ready",
+      "revision_id": "a4bb780c-697a-55a9-9e9a-6b746fe432e3"
+    },
+    {
+      "place_id": "73b8d824-1308-54ea-ac64-ffcae2dd32eb",
+      "canonical_name": "Hua Hin Vegan",
+      "province": "ประจวบคีรีขันธ์",
+      "field_name": "phone",
+      "current_value": null,
+      "verification_outcome": "verified",
+      "selected_value": "+66925366241",
+      "source_support": [
+        {
+          "value": "+66925366241",
+          "source_count": 2,
+          "evidence_count": 2
+        }
+      ],
+      "adoption_outcome": "proposed",
+      "proposed_value": "+66925366241",
+      "evidence_ids": [
+        "41c13951-a590-5e4d-9c0d-3efc621a381c",
+        "6913ca7c-490d-526b-9fbd-869b6e9573ea"
+      ],
+      "adoption_policy_version": "1.0-packet7",
+      "reason": "verification satisfies adoption policy",
+      "apply_outcome": "ready",
+      "revision_id": "4dca1437-124c-5f56-9bfc-6ac4068b6ab9"
+    },
+    {
+      "place_id": "73b8d824-1308-54ea-ac64-ffcae2dd32eb",
+      "canonical_name": "Hua Hin Vegan",
+      "province": "ประจวบคีรีขันธ์",
+      "field_name": "website",
+      "current_value": null,
+      "verification_outcome": "supported",
+      "selected_value": "https://facebook.com/huahinvegancafe/",
+      "source_support": [
+        {
+          "value": "https://facebook.com/huahinvegancafe/",
+          "source_count": 1,
+          "evidence_count": 1
+        }
+      ],
+      "adoption_outcome": "proposed",
+      "proposed_value": "https://facebook.com/huahinvegancafe/",
+      "evidence_ids": [
+        "26179a2d-12cd-57be-82c2-73c35eded266"
+      ],
+      "adoption_policy_version": "1.0-packet7",
+      "reason": "verification satisfies adoption policy",
+      "apply_outcome": "ready",
+      "revision_id": "53bb560b-84e9-54a1-a2eb-08174f74362c"
+    },
+    {
+      "place_id": "7ede2f45-7b0f-55fc-843e-f6bff1138946",
+      "canonical_name": "Baan Unrak",
+      "province": "กาญจนบุรี",
+      "field_name": "phone",
+      "current_value": null,
+      "verification_outcome": "supported",
+      "selected_value": "+6634595006",
+      "source_support": [
+        {
+          "value": "+6634595006",
+          "source_count": 1,
+          "evidence_count": 1
+        }
+      ],
+      "adoption_outcome": "proposed",
+      "proposed_value": "+6634595006",
+      "evidence_ids": [
+        "b90bb6a1-71b3-5aab-848e-d1188596243e"
+      ],
+      "adoption_policy_version": "1.0-packet7",
+      "reason": "verification satisfies adoption policy",
+      "apply_outcome": "ready",
+      "revision_id": "847cc617-f356-56c1-bce4-ccf338891924"
+    },
+    {
+      "place_id": "80fd8e12-c5a7-5b8f-a7a6-1e40c0c6d9ca",
+      "canonical_name": "Guru Kripa Restaurant",
+      "province": "ชลบุรี",
+      "field_name": "phone",
+      "current_value": null,
+      "verification_outcome": "supported",
+      "selected_value": "+66630020351",
+      "source_support": [
+        {
+          "value": "+66630020351",
+          "source_count": 1,
+          "evidence_count": 1
+        }
+      ],
+      "adoption_outcome": "proposed",
+      "proposed_value": "+66630020351",
+      "evidence_ids": [
+        "664b170b-c168-591c-bf9c-541c041b3679"
+      ],
+      "adoption_policy_version": "1.0-packet7",
+      "reason": "verification satisfies adoption policy",
+      "apply_outcome": "ready",
+      "revision_id": "17c602c9-0c75-5ea3-8a4d-5835353133bd"
+    },
+    {
+      "place_id": "8bf61ac7-2e41-517d-80d4-e14ec1b61c4c",
+      "canonical_name": "Aum Vegetarian Restaurant",
+      "province": "เชียงใหม่",
+      "field_name": "phone",
+      "current_value": null,
+      "verification_outcome": "supported",
+      "selected_value": "+66898539796",
+      "source_support": [
+        {
+          "value": "+66898539796",
+          "source_count": 1,
+          "evidence_count": 1
+        }
+      ],
+      "adoption_outcome": "proposed",
+      "proposed_value": "+66898539796",
+      "evidence_ids": [
+        "64306592-dce2-59e9-8733-7be933c87270"
+      ],
+      "adoption_policy_version": "1.0-packet7",
+      "reason": "verification satisfies adoption policy",
+      "apply_outcome": "ready",
+      "revision_id": "a8c0a548-c7dd-58c7-8eb2-fb871c4917c6"
+    },
+    {
+      "place_id": "d1251fc6-b0c5-56e3-b3cd-dbbf8feebac8",
+      "canonical_name": "Chada Vegetarian",
+      "province": "เชียงใหม่",
+      "field_name": "phone",
+      "current_value": null,
+      "verification_outcome": "verified",
+      "selected_value": "+66898856875",
+      "source_support": [
+        {
+          "value": "+66898856875",
+          "source_count": 2,
+          "evidence_count": 2
+        }
+      ],
+      "adoption_outcome": "proposed",
+      "proposed_value": "+66898856875",
+      "evidence_ids": [
+        "128342d4-b230-56b5-b447-35667a7fe518",
+        "75e21116-f147-5b29-8d87-bae4e5356b0e"
+      ],
+      "adoption_policy_version": "1.0-packet7",
+      "reason": "verification satisfies adoption policy",
+      "apply_outcome": "ready",
+      "revision_id": "64760c05-d65f-5ffd-b1f6-714fefab2bfd"
+    }
+  ],
+  "safety": {
+    "transaction_committed": true,
+    "database_unchanged": false,
+    "evidence_unchanged": true,
+    "non_adoption_tables_unchanged": true,
+    "production_json_writes": false,
+    "automatic_publication": false,
+    "trust_policy_lowered": false,
+    "province_agnostic": true
+  }
+}

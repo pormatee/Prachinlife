@@ -1,0 +1,14 @@
+PrachinLife V2 Phase 3.7 — Explicit Controlled Canonical Adoption
+Development loop result: PASS
+Baseline: Phase 3.6 / canonical adoption review
+Target proposals: 8 place-field decisions
+Dry run: 8 ready
+Commit simulation on DB copy: 8 canonical fields updated, 8 revision rows inserted
+Idempotency simulation: second commit 0 updates, 8 already applied
+Evidence unchanged: PASS
+Non-adoption tables unchanged: PASS
+Production JSON writes: False
+Automatic publication: False
+Trust policy lowered: False
+Province agnostic: True
+Full regression: 734/734 OK
