@@ -1,0 +1,23 @@
+PrachinLife V2 Phase 3.3 — Targeted OSM Evidence Acquisition
+
+Baseline: 0a6509c
+Policy: 3.3-osm-evidence-acquisition-v1
+
+Implemented:
+- Exact OSM-target extraction from Phase 3.2 Top-50 queue.
+- Exact-object Overpass query generation (node/way/relation).
+- Fresh OSM phone/website contact-claim extraction.
+- Canonical name + <=250m location identity guard before claim emission.
+- Candidate-only provenance with direct OSM source URL/record id.
+- No canonical/evidence/production writes.
+- Safe source-outage behavior: zero claims, no policy relaxation, retry later.
+
+Verification in development environment:
+- Targeted tests: 7/7 OK.
+- Full regression: 705/705 OK.
+- Live Overpass unavailable in sandbox due DNS/network restriction; safe-source-unavailable path verified.
+
+Next after device checkpoint:
+- If live claims are acquired: Phase 3.4 verification + controlled adoption dry-run.
+- Claims absent because tags are missing: keep queue for independent web/manual acquisition.
+- Source unavailable: retry acquisition without changing trust policy.
