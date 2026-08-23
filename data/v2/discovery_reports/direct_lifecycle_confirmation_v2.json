@@ -1,0 +1,30 @@
+{
+  "status": "PASS",
+  "mode": "DRY_RUN",
+  "policy_version": "4.7-direct-lifecycle-confirmation-v1",
+  "candidate_name": "ต้นหลิวอาหารเจ",
+  "province": "ปราจีนบุรี",
+  "validation_errors": [
+    "missing_confirmer",
+    "missing_confirmer_role",
+    "invalid_method",
+    "invalid_confirmed_at"
+  ],
+  "confirmation_id": null,
+  "confirmation_outcome": "STILL_UNRESOLVED",
+  "resolved_lifecycle": null,
+  "next_step": "supply_valid_direct_confirmation",
+  "inserted_confirmation_count": 0,
+  "already_present_confirmation_count": 0,
+  "direct_confirmation_total": null,
+  "safety": {
+    "canonical_rows_unchanged": true,
+    "precanonical_candidate_rows_unchanged": true,
+    "production_json_writes": false,
+    "automatic_canonical_creation": false,
+    "automatic_lifecycle_mutation": false,
+    "automatic_publication": false,
+    "trust_policy_lowered": false,
+    "direct_provenance_required": true
+  }
+}

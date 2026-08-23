@@ -1,0 +1,20 @@
+PHASE 4.7 CHECKPOINT
+
+Baseline content: 3584f9e + Phase 4.6
+Default direct confirmation: intentionally empty
+Outcome: STILL_UNRESOLVED
+Next: supply_valid_direct_confirmation
+
+Safety:
+- canonical rows unchanged True
+- pre-canonical candidate rows unchanged True
+- Production writes False
+- automatic canonical creation False
+- automatic lifecycle mutation False
+- automatic publication False
+- trust policy lowered False
+- direct provenance required True
+
+Targeted tests: 5/5 OK
+Full regression in clean development tree: 786/786 OK.
+User working tree may show a higher count due to retained untracked regression tests.
