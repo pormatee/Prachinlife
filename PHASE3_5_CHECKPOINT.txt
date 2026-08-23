@@ -1,0 +1,25 @@
+PrachinLife V2 Phase 3.5 — Verification & Controlled Evidence Persistence
+
+Goal
+- Verify Phase 3.4 independent-web candidate claims under the existing evidence verification policy.
+- Persist only SUPPORTED/VERIFIED evidence into place_evidence.
+- Do not mutate canonical place fields or Production JSON.
+
+Expected production checkpoint
+- input claims: 10
+- persistable evidence: 10
+- supported: 6
+- verified: 4
+- blocked: 0
+- first controlled commit: inserted 10
+- repeated controlled commit: inserted 0, already present 10
+- canonical unchanged: true
+- every non-evidence DB table unchanged: true
+- trust policy lowered: false
+- production JSON writes: false
+
+Development regression
+- 720 / 720 tests OK
+
+Next stage
+- Controlled canonical adoption review; no automatic publication.

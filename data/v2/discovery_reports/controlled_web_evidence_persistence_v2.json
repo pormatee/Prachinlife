@@ -1,0 +1,170 @@
+{
+  "already_present_count": 0,
+  "blocked_counts": {},
+  "input_claim_count": 10,
+  "inserted_evidence_count": 10,
+  "mode": "COMMIT",
+  "next_stage": "controlled_canonical_adoption_review_required",
+  "persistable_evidence_count": 10,
+  "persistable_status_counts": {
+    "supported": 6,
+    "verified": 4
+  },
+  "policy_version": "3.5-controlled-evidence-persistence-v1",
+  "safety": {
+    "canonical_unchanged": true,
+    "database_sha256_after": "0ea1004fe1147a85b1745e137f9be0f6917bf4a0510301b20cd97c927590b909",
+    "database_sha256_before": "39a3597426467b5b8bfbf57179498c6a5b49066c6d64499d6d49b0bc30e452b4",
+    "evidence_count_after": 5186,
+    "evidence_count_before": 5176,
+    "evidence_only_writes": true,
+    "non_evidence_tables_unchanged": true,
+    "production_json_writes": false,
+    "trust_policy_lowered": false
+  },
+  "validated_candidate_count": 10,
+  "verification_decisions": [
+    {
+      "accepted_evidence_ids": [
+        "c3cd9512-0e0d-556c-8f6a-98b2f72d4e8e"
+      ],
+      "field_name": "phone",
+      "outcome": "supported",
+      "place_id": "0453d377-7379-526a-bfdd-a3a92044ffd2",
+      "reason": "value has active source support but lacks verification quorum",
+      "selected_value": "+66835811689",
+      "source_support": [
+        {
+          "evidence_count": 1,
+          "source_count": 1,
+          "value": "+66835811689"
+        }
+      ]
+    },
+    {
+      "accepted_evidence_ids": [
+        "9567ca9b-c457-5395-b6b4-cb9f6de3d3c4"
+      ],
+      "field_name": "website",
+      "outcome": "supported",
+      "place_id": "0453d377-7379-526a-bfdd-a3a92044ffd2",
+      "reason": "value has active source support but lacks verification quorum",
+      "selected_value": "https://anchanvegetarian.com/",
+      "source_support": [
+        {
+          "evidence_count": 1,
+          "source_count": 1,
+          "value": "https://anchanvegetarian.com/"
+        }
+      ]
+    },
+    {
+      "accepted_evidence_ids": [
+        "41c13951-a590-5e4d-9c0d-3efc621a381c",
+        "6913ca7c-490d-526b-9fbd-869b6e9573ea"
+      ],
+      "field_name": "phone",
+      "outcome": "verified",
+      "place_id": "73b8d824-1308-54ea-ac64-ffcae2dd32eb",
+      "reason": "value confirmed by required independent sources",
+      "selected_value": "+66925366241",
+      "source_support": [
+        {
+          "evidence_count": 2,
+          "source_count": 2,
+          "value": "+66925366241"
+        }
+      ]
+    },
+    {
+      "accepted_evidence_ids": [
+        "26179a2d-12cd-57be-82c2-73c35eded266"
+      ],
+      "field_name": "website",
+      "outcome": "supported",
+      "place_id": "73b8d824-1308-54ea-ac64-ffcae2dd32eb",
+      "reason": "value has active source support but lacks verification quorum",
+      "selected_value": "https://facebook.com/huahinvegancafe/",
+      "source_support": [
+        {
+          "evidence_count": 1,
+          "source_count": 1,
+          "value": "https://facebook.com/huahinvegancafe/"
+        }
+      ]
+    },
+    {
+      "accepted_evidence_ids": [
+        "b90bb6a1-71b3-5aab-848e-d1188596243e"
+      ],
+      "field_name": "phone",
+      "outcome": "supported",
+      "place_id": "7ede2f45-7b0f-55fc-843e-f6bff1138946",
+      "reason": "value has active source support but lacks verification quorum",
+      "selected_value": "+6634595006",
+      "source_support": [
+        {
+          "evidence_count": 1,
+          "source_count": 1,
+          "value": "+6634595006"
+        }
+      ]
+    },
+    {
+      "accepted_evidence_ids": [
+        "664b170b-c168-591c-bf9c-541c041b3679"
+      ],
+      "field_name": "phone",
+      "outcome": "supported",
+      "place_id": "80fd8e12-c5a7-5b8f-a7a6-1e40c0c6d9ca",
+      "reason": "value has active source support but lacks verification quorum",
+      "selected_value": "+66630020351",
+      "source_support": [
+        {
+          "evidence_count": 1,
+          "source_count": 1,
+          "value": "+66630020351"
+        }
+      ]
+    },
+    {
+      "accepted_evidence_ids": [
+        "64306592-dce2-59e9-8733-7be933c87270"
+      ],
+      "field_name": "phone",
+      "outcome": "supported",
+      "place_id": "8bf61ac7-2e41-517d-80d4-e14ec1b61c4c",
+      "reason": "value has active source support but lacks verification quorum",
+      "selected_value": "+66898539796",
+      "source_support": [
+        {
+          "evidence_count": 1,
+          "source_count": 1,
+          "value": "+66898539796"
+        }
+      ]
+    },
+    {
+      "accepted_evidence_ids": [
+        "128342d4-b230-56b5-b447-35667a7fe518",
+        "75e21116-f147-5b29-8d87-bae4e5356b0e"
+      ],
+      "field_name": "phone",
+      "outcome": "verified",
+      "place_id": "d1251fc6-b0c5-56e3-b3cd-dbbf8feebac8",
+      "reason": "value confirmed by required independent sources",
+      "selected_value": "+66898856875",
+      "source_support": [
+        {
+          "evidence_count": 2,
+          "source_count": 2,
+          "value": "+66898856875"
+        }
+      ]
+    }
+  ],
+  "verification_status_counts": {
+    "supported": 6,
+    "verified": 4
+  }
+}
