@@ -1,0 +1,54 @@
+{
+  "status": "PASS",
+  "policy_version": "4.5-controlled-new-place-adoption-review-v1",
+  "candidate_count": 1,
+  "decision_counts": {
+    "NEEDS_REVIEW": 1
+  },
+  "ready_count": 0,
+  "needs_review_count": 1,
+  "blocked_count": 0,
+  "decisions": [
+    {
+      "candidate_id": "8a7a5bf3-a1d9-5324-8ebd-d6bc39148855",
+      "candidate_key": "5e8dccffa9b6db06469081d83e87e87d063d1e69de4fd54fdec0828941bfdf71",
+      "name": "ต้นหลิวอาหารเจ",
+      "province": "ปราจีนบุรี",
+      "category": "vegetarian",
+      "identity_outcome": "VERIFIED_IDENTITY",
+      "independent_source_family_count": 4,
+      "source_families": [
+        "facebook-official",
+        "restaurantguru",
+        "vegetarian-thailand-directory",
+        "wongnai"
+      ],
+      "evidence_count": 4,
+      "phone_support": {
+        "0959176495": 3
+      },
+      "lifecycle_observations": {
+        "open": 2,
+        "permanently_closed": 1
+      },
+      "duplicate_matches": [],
+      "blockers": [],
+      "review_flags": [
+        "open_vs_closed_source_conflict"
+      ],
+      "adoption_outcome": "NEEDS_REVIEW",
+      "proposed_lifecycle": null,
+      "next_step": "resolve_lifecycle_before_canonical_adoption"
+    }
+  ],
+  "safety": {
+    "database_unchanged": true,
+    "canonical_writes": false,
+    "precanonical_writes": false,
+    "production_json_writes": false,
+    "automatic_canonical_creation": false,
+    "automatic_lifecycle_resolution": false,
+    "automatic_publication": false,
+    "trust_policy_lowered": false
+  }
+}
