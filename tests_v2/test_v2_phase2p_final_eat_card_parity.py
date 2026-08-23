@@ -47,7 +47,7 @@ class TestPhase2PFinalEatCardParity(unittest.TestCase):
 
     def test_p06_cache_bust_present(self):
         text = INDEX.read_text(encoding="utf-8")
-        self.assertIn("style.css?v=phase2y2-20260822", text)
+        self.assertIn("style.css?v=phase10p1-20260823", text)
 
 if __name__ == "__main__":
     unittest.main()

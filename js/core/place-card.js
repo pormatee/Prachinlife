@@ -206,9 +206,15 @@
     );
   }
 
-  function renderActions(place) {
+  function renderActions(place, options = {}) {
     const escape = window.PrachinLife.core.escapeAttribute;
     const actions = [];
+    const includeDetail = options.includeDetail !== false;
+
+    if (includeDetail) {
+      const detailButton = window.PrachinLife.core.placeDetail?.renderOpenButton(place) || "";
+      if (detailButton) actions.push(detailButton);
+    }
 
     const mapUrl = getMapUrl(place);
     const phoneHref = getPhoneHref(place);

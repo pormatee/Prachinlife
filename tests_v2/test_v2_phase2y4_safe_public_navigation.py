@@ -29,7 +29,7 @@ class TestPhase2Y4SafePublicNavigation(unittest.TestCase):
 
     def test_y404_public_assets_are_cache_busted(self):
         html=(ROOT/'index.html').read_text(encoding='utf-8')
-        self.assertIn('place-card.js?v=phase2y5-20260822',html)
+        self.assertIn('place-card.js?v=phase10-20260823',html)
         self.assertIn('v2-place-adapter.js?v=phase9r1-20260823',html)
 
 if __name__=='__main__': unittest.main()

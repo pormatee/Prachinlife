@@ -28,6 +28,6 @@ class TestPhase2Y5AdditionalSourcePriority(unittest.TestCase):
 
     def test_y504_public_asset_cache_busted(self):
         html=(ROOT/"index.html").read_text(encoding="utf-8")
-        self.assertIn("place-card.js?v=phase2y5-20260822",html)
+        self.assertIn("place-card.js?v=phase10-20260823",html)
 
 if __name__=="__main__": unittest.main()
