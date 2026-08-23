@@ -1,0 +1,1062 @@
+{
+  "status": "PASS",
+  "policy_version": "4.1-discovery-coverage-audit-v1",
+  "canonical_place_count": 919,
+  "lifecycle_counts": {
+    "unknown": 919
+  },
+  "province_count": 51,
+  "category_totals": {
+    "eat": 55,
+    "vegetarian": 700,
+    "go": 44,
+    "service": 121
+  },
+  "unmapped_category_place_count": 0,
+  "province_coverage": {
+    "กระบี่": {
+      "place_count": 37,
+      "categories": {
+        "eat": 0,
+        "vegetarian": 37,
+        "go": 0,
+        "service": 0
+      },
+      "missing_contact_count": 22,
+      "missing_coordinates_count": 0
+    },
+    "กรุงเทพมหานคร": {
+      "place_count": 168,
+      "categories": {
+        "eat": 0,
+        "vegetarian": 168,
+        "go": 0,
+        "service": 0
+      },
+      "missing_contact_count": 100,
+      "missing_coordinates_count": 0
+    },
+    "กาญจนบุรี": {
+      "place_count": 3,
+      "categories": {
+        "eat": 0,
+        "vegetarian": 3,
+        "go": 0,
+        "service": 0
+      },
+      "missing_contact_count": 0,
+      "missing_coordinates_count": 0
+    },
+    "ขอนแก่น": {
+      "place_count": 3,
+      "categories": {
+        "eat": 0,
+        "vegetarian": 3,
+        "go": 0,
+        "service": 0
+      },
+      "missing_contact_count": 2,
+      "missing_coordinates_count": 0
+    },
+    "จันทบุรี": {
+      "place_count": 10,
+      "categories": {
+        "eat": 0,
+        "vegetarian": 10,
+        "go": 0,
+        "service": 0
+      },
+      "missing_contact_count": 7,
+      "missing_coordinates_count": 0
+    },
+    "ฉะเชิงเทรา": {
+      "place_count": 1,
+      "categories": {
+        "eat": 0,
+        "vegetarian": 1,
+        "go": 0,
+        "service": 0
+      },
+      "missing_contact_count": 1,
+      "missing_coordinates_count": 0
+    },
+    "ชลบุรี": {
+      "place_count": 23,
+      "categories": {
+        "eat": 0,
+        "vegetarian": 23,
+        "go": 0,
+        "service": 0
+      },
+      "missing_contact_count": 12,
+      "missing_coordinates_count": 0
+    },
+    "ชุมพร": {
+      "place_count": 5,
+      "categories": {
+        "eat": 0,
+        "vegetarian": 5,
+        "go": 0,
+        "service": 0
+      },
+      "missing_contact_count": 4,
+      "missing_coordinates_count": 0
+    },
+    "ตรัง": {
+      "place_count": 2,
+      "categories": {
+        "eat": 0,
+        "vegetarian": 2,
+        "go": 0,
+        "service": 0
+      },
+      "missing_contact_count": 2,
+      "missing_coordinates_count": 0
+    },
+    "ตราด": {
+      "place_count": 22,
+      "categories": {
+        "eat": 0,
+        "vegetarian": 22,
+        "go": 0,
+        "service": 0
+      },
+      "missing_contact_count": 20,
+      "missing_coordinates_count": 0
+    },
+    "ตาก": {
+      "place_count": 4,
+      "categories": {
+        "eat": 0,
+        "vegetarian": 4,
+        "go": 0,
+        "service": 0
+      },
+      "missing_contact_count": 4,
+      "missing_coordinates_count": 0
+    },
+    "นครนายก": {
+      "place_count": 1,
+      "categories": {
+        "eat": 0,
+        "vegetarian": 1,
+        "go": 0,
+        "service": 0
+      },
+      "missing_contact_count": 1,
+      "missing_coordinates_count": 0
+    },
+    "นครปฐม": {
+      "place_count": 1,
+      "categories": {
+        "eat": 0,
+        "vegetarian": 1,
+        "go": 0,
+        "service": 0
+      },
+      "missing_contact_count": 1,
+      "missing_coordinates_count": 0
+    },
+    "นครพนม": {
+      "place_count": 1,
+      "categories": {
+        "eat": 0,
+        "vegetarian": 1,
+        "go": 0,
+        "service": 0
+      },
+      "missing_contact_count": 1,
+      "missing_coordinates_count": 0
+    },
+    "นครราชสีมา": {
+      "place_count": 5,
+      "categories": {
+        "eat": 0,
+        "vegetarian": 5,
+        "go": 0,
+        "service": 0
+      },
+      "missing_contact_count": 4,
+      "missing_coordinates_count": 0
+    },
+    "นครศรีธรรมราช": {
+      "place_count": 2,
+      "categories": {
+        "eat": 0,
+        "vegetarian": 2,
+        "go": 0,
+        "service": 0
+      },
+      "missing_contact_count": 1,
+      "missing_coordinates_count": 0
+    },
+    "นครสวรรค์": {
+      "place_count": 2,
+      "categories": {
+        "eat": 0,
+        "vegetarian": 2,
+        "go": 0,
+        "service": 0
+      },
+      "missing_contact_count": 2,
+      "missing_coordinates_count": 0
+    },
+    "น่าน": {
+      "place_count": 3,
+      "categories": {
+        "eat": 0,
+        "vegetarian": 3,
+        "go": 0,
+        "service": 0
+      },
+      "missing_contact_count": 2,
+      "missing_coordinates_count": 0
+    },
+    "บึงกาฬ": {
+      "place_count": 1,
+      "categories": {
+        "eat": 0,
+        "vegetarian": 1,
+        "go": 0,
+        "service": 0
+      },
+      "missing_contact_count": 1,
+      "missing_coordinates_count": 0
+    },
+    "บุรีรัมย์": {
+      "place_count": 1,
+      "categories": {
+        "eat": 0,
+        "vegetarian": 1,
+        "go": 0,
+        "service": 0
+      },
+      "missing_contact_count": 1,
+      "missing_coordinates_count": 0
+    },
+    "ปทุมธานี": {
+      "place_count": 3,
+      "categories": {
+        "eat": 0,
+        "vegetarian": 3,
+        "go": 0,
+        "service": 0
+      },
+      "missing_contact_count": 1,
+      "missing_coordinates_count": 0
+    },
+    "ประจวบคีรีขันธ์": {
+      "place_count": 11,
+      "categories": {
+        "eat": 0,
+        "vegetarian": 11,
+        "go": 0,
+        "service": 0
+      },
+      "missing_contact_count": 6,
+      "missing_coordinates_count": 0
+    },
+    "ปราจีนบุรี": {
+      "place_count": 220,
+      "categories": {
+        "eat": 55,
+        "vegetarian": 1,
+        "go": 44,
+        "service": 121
+      },
+      "missing_contact_count": 194,
+      "missing_coordinates_count": 0
+    },
+    "พระนครศรีอยุธยา": {
+      "place_count": 10,
+      "categories": {
+        "eat": 0,
+        "vegetarian": 10,
+        "go": 0,
+        "service": 0
+      },
+      "missing_contact_count": 10,
+      "missing_coordinates_count": 0
+    },
+    "พะเยา": {
+      "place_count": 3,
+      "categories": {
+        "eat": 0,
+        "vegetarian": 3,
+        "go": 0,
+        "service": 0
+      },
+      "missing_contact_count": 2,
+      "missing_coordinates_count": 0
+    },
+    "พังงา": {
+      "place_count": 9,
+      "categories": {
+        "eat": 0,
+        "vegetarian": 9,
+        "go": 0,
+        "service": 0
+      },
+      "missing_contact_count": 6,
+      "missing_coordinates_count": 0
+    },
+    "พิษณุโลก": {
+      "place_count": 1,
+      "categories": {
+        "eat": 0,
+        "vegetarian": 1,
+        "go": 0,
+        "service": 0
+      },
+      "missing_contact_count": 1,
+      "missing_coordinates_count": 0
+    },
+    "ภูเก็ต": {
+      "place_count": 58,
+      "categories": {
+        "eat": 0,
+        "vegetarian": 58,
+        "go": 0,
+        "service": 0
+      },
+      "missing_contact_count": 31,
+      "missing_coordinates_count": 0
+    },
+    "มุกดาหาร": {
+      "place_count": 1,
+      "categories": {
+        "eat": 0,
+        "vegetarian": 1,
+        "go": 0,
+        "service": 0
+      },
+      "missing_contact_count": 1,
+      "missing_coordinates_count": 0
+    },
+    "ยะลา": {
+      "place_count": 1,
+      "categories": {
+        "eat": 0,
+        "vegetarian": 1,
+        "go": 0,
+        "service": 0
+      },
+      "missing_contact_count": 1,
+      "missing_coordinates_count": 0
+    },
+    "ระนอง": {
+      "place_count": 14,
+      "categories": {
+        "eat": 0,
+        "vegetarian": 14,
+        "go": 0,
+        "service": 0
+      },
+      "missing_contact_count": 13,
+      "missing_coordinates_count": 0
+    },
+    "ระยอง": {
+      "place_count": 9,
+      "categories": {
+        "eat": 0,
+        "vegetarian": 9,
+        "go": 0,
+        "service": 0
+      },
+      "missing_contact_count": 7,
+      "missing_coordinates_count": 0
+    },
+    "ราชบุรี": {
+      "place_count": 2,
+      "categories": {
+        "eat": 0,
+        "vegetarian": 2,
+        "go": 0,
+        "service": 0
+      },
+      "missing_contact_count": 2,
+      "missing_coordinates_count": 0
+    },
+    "ลำปาง": {
+      "place_count": 7,
+      "categories": {
+        "eat": 0,
+        "vegetarian": 7,
+        "go": 0,
+        "service": 0
+      },
+      "missing_contact_count": 3,
+      "missing_coordinates_count": 0
+    },
+    "ลำพูน": {
+      "place_count": 1,
+      "categories": {
+        "eat": 0,
+        "vegetarian": 1,
+        "go": 0,
+        "service": 0
+      },
+      "missing_contact_count": 1,
+      "missing_coordinates_count": 0
+    },
+    "สกลนคร": {
+      "place_count": 2,
+      "categories": {
+        "eat": 0,
+        "vegetarian": 2,
+        "go": 0,
+        "service": 0
+      },
+      "missing_contact_count": 0,
+      "missing_coordinates_count": 0
+    },
+    "สงขลา": {
+      "place_count": 5,
+      "categories": {
+        "eat": 0,
+        "vegetarian": 5,
+        "go": 0,
+        "service": 0
+      },
+      "missing_contact_count": 2,
+      "missing_coordinates_count": 0
+    },
+    "สตูล": {
+      "place_count": 5,
+      "categories": {
+        "eat": 0,
+        "vegetarian": 5,
+        "go": 0,
+        "service": 0
+      },
+      "missing_contact_count": 4,
+      "missing_coordinates_count": 0
+    },
+    "สมุทรปราการ": {
+      "place_count": 4,
+      "categories": {
+        "eat": 0,
+        "vegetarian": 4,
+        "go": 0,
+        "service": 0
+      },
+      "missing_contact_count": 3,
+      "missing_coordinates_count": 0
+    },
+    "สมุทรสาคร": {
+      "place_count": 2,
+      "categories": {
+        "eat": 0,
+        "vegetarian": 2,
+        "go": 0,
+        "service": 0
+      },
+      "missing_contact_count": 2,
+      "missing_coordinates_count": 0
+    },
+    "สิงห์บุรี": {
+      "place_count": 2,
+      "categories": {
+        "eat": 0,
+        "vegetarian": 2,
+        "go": 0,
+        "service": 0
+      },
+      "missing_contact_count": 2,
+      "missing_coordinates_count": 0
+    },
+    "สุราษฎร์ธานี": {
+      "place_count": 68,
+      "categories": {
+        "eat": 0,
+        "vegetarian": 68,
+        "go": 0,
+        "service": 0
+      },
+      "missing_contact_count": 36,
+      "missing_coordinates_count": 0
+    },
+    "สุโขทัย": {
+      "place_count": 4,
+      "categories": {
+        "eat": 0,
+        "vegetarian": 4,
+        "go": 0,
+        "service": 0
+      },
+      "missing_contact_count": 2,
+      "missing_coordinates_count": 0
+    },
+    "หนองคาย": {
+      "place_count": 7,
+      "categories": {
+        "eat": 0,
+        "vegetarian": 7,
+        "go": 0,
+        "service": 0
+      },
+      "missing_contact_count": 6,
+      "missing_coordinates_count": 0
+    },
+    "อุดรธานี": {
+      "place_count": 8,
+      "categories": {
+        "eat": 0,
+        "vegetarian": 8,
+        "go": 0,
+        "service": 0
+      },
+      "missing_contact_count": 6,
+      "missing_coordinates_count": 0
+    },
+    "อุบลราชธานี": {
+      "place_count": 3,
+      "categories": {
+        "eat": 0,
+        "vegetarian": 3,
+        "go": 0,
+        "service": 0
+      },
+      "missing_contact_count": 2,
+      "missing_coordinates_count": 0
+    },
+    "เชียงราย": {
+      "place_count": 25,
+      "categories": {
+        "eat": 0,
+        "vegetarian": 25,
+        "go": 0,
+        "service": 0
+      },
+      "missing_contact_count": 19,
+      "missing_coordinates_count": 0
+    },
+    "เชียงใหม่": {
+      "place_count": 122,
+      "categories": {
+        "eat": 0,
+        "vegetarian": 122,
+        "go": 0,
+        "service": 0
+      },
+      "missing_contact_count": 78,
+      "missing_coordinates_count": 0
+    },
+    "เลย": {
+      "place_count": 1,
+      "categories": {
+        "eat": 0,
+        "vegetarian": 1,
+        "go": 0,
+        "service": 0
+      },
+      "missing_contact_count": 1,
+      "missing_coordinates_count": 0
+    },
+    "แพร่": {
+      "place_count": 1,
+      "categories": {
+        "eat": 0,
+        "vegetarian": 1,
+        "go": 0,
+        "service": 0
+      },
+      "missing_contact_count": 1,
+      "missing_coordinates_count": 0
+    },
+    "แม่ฮ่องสอน": {
+      "place_count": 15,
+      "categories": {
+        "eat": 0,
+        "vegetarian": 15,
+        "go": 0,
+        "service": 0
+      },
+      "missing_contact_count": 10,
+      "missing_coordinates_count": 0
+    }
+  },
+  "coverage_priority_queue": [
+    {
+      "province": "ปราจีนบุรี",
+      "category": "vegetarian",
+      "gap_kind": "sparse",
+      "known_place_count": 1,
+      "province_place_count": 220,
+      "priority_score": 120,
+      "next_step": "discover_new_places"
+    },
+    {
+      "province": "กรุงเทพมหานคร",
+      "category": "eat",
+      "gap_kind": "missing",
+      "known_place_count": 0,
+      "province_place_count": 168,
+      "priority_score": 116,
+      "next_step": "discover_new_places"
+    },
+    {
+      "province": "กรุงเทพมหานคร",
+      "category": "go",
+      "gap_kind": "missing",
+      "known_place_count": 0,
+      "province_place_count": 168,
+      "priority_score": 116,
+      "next_step": "discover_new_places"
+    },
+    {
+      "province": "กรุงเทพมหานคร",
+      "category": "service",
+      "gap_kind": "missing",
+      "known_place_count": 0,
+      "province_place_count": 168,
+      "priority_score": 116,
+      "next_step": "discover_new_places"
+    },
+    {
+      "province": "เชียงใหม่",
+      "category": "eat",
+      "gap_kind": "missing",
+      "known_place_count": 0,
+      "province_place_count": 122,
+      "priority_score": 112,
+      "next_step": "discover_new_places"
+    },
+    {
+      "province": "เชียงใหม่",
+      "category": "go",
+      "gap_kind": "missing",
+      "known_place_count": 0,
+      "province_place_count": 122,
+      "priority_score": 112,
+      "next_step": "discover_new_places"
+    },
+    {
+      "province": "เชียงใหม่",
+      "category": "service",
+      "gap_kind": "missing",
+      "known_place_count": 0,
+      "province_place_count": 122,
+      "priority_score": 112,
+      "next_step": "discover_new_places"
+    },
+    {
+      "province": "สุราษฎร์ธานี",
+      "category": "eat",
+      "gap_kind": "missing",
+      "known_place_count": 0,
+      "province_place_count": 68,
+      "priority_score": 106,
+      "next_step": "discover_new_places"
+    },
+    {
+      "province": "สุราษฎร์ธานี",
+      "category": "go",
+      "gap_kind": "missing",
+      "known_place_count": 0,
+      "province_place_count": 68,
+      "priority_score": 106,
+      "next_step": "discover_new_places"
+    },
+    {
+      "province": "สุราษฎร์ธานี",
+      "category": "service",
+      "gap_kind": "missing",
+      "known_place_count": 0,
+      "province_place_count": 68,
+      "priority_score": 106,
+      "next_step": "discover_new_places"
+    },
+    {
+      "province": "ภูเก็ต",
+      "category": "eat",
+      "gap_kind": "missing",
+      "known_place_count": 0,
+      "province_place_count": 58,
+      "priority_score": 105,
+      "next_step": "discover_new_places"
+    },
+    {
+      "province": "ภูเก็ต",
+      "category": "go",
+      "gap_kind": "missing",
+      "known_place_count": 0,
+      "province_place_count": 58,
+      "priority_score": 105,
+      "next_step": "discover_new_places"
+    },
+    {
+      "province": "ภูเก็ต",
+      "category": "service",
+      "gap_kind": "missing",
+      "known_place_count": 0,
+      "province_place_count": 58,
+      "priority_score": 105,
+      "next_step": "discover_new_places"
+    },
+    {
+      "province": "กระบี่",
+      "category": "eat",
+      "gap_kind": "missing",
+      "known_place_count": 0,
+      "province_place_count": 37,
+      "priority_score": 103,
+      "next_step": "discover_new_places"
+    },
+    {
+      "province": "กระบี่",
+      "category": "go",
+      "gap_kind": "missing",
+      "known_place_count": 0,
+      "province_place_count": 37,
+      "priority_score": 103,
+      "next_step": "discover_new_places"
+    },
+    {
+      "province": "กระบี่",
+      "category": "service",
+      "gap_kind": "missing",
+      "known_place_count": 0,
+      "province_place_count": 37,
+      "priority_score": 103,
+      "next_step": "discover_new_places"
+    },
+    {
+      "province": "เชียงราย",
+      "category": "eat",
+      "gap_kind": "missing",
+      "known_place_count": 0,
+      "province_place_count": 25,
+      "priority_score": 102,
+      "next_step": "discover_new_places"
+    },
+    {
+      "province": "เชียงราย",
+      "category": "go",
+      "gap_kind": "missing",
+      "known_place_count": 0,
+      "province_place_count": 25,
+      "priority_score": 102,
+      "next_step": "discover_new_places"
+    },
+    {
+      "province": "เชียงราย",
+      "category": "service",
+      "gap_kind": "missing",
+      "known_place_count": 0,
+      "province_place_count": 25,
+      "priority_score": 102,
+      "next_step": "discover_new_places"
+    },
+    {
+      "province": "ชลบุรี",
+      "category": "eat",
+      "gap_kind": "missing",
+      "known_place_count": 0,
+      "province_place_count": 23,
+      "priority_score": 102,
+      "next_step": "discover_new_places"
+    },
+    {
+      "province": "ชลบุรี",
+      "category": "go",
+      "gap_kind": "missing",
+      "known_place_count": 0,
+      "province_place_count": 23,
+      "priority_score": 102,
+      "next_step": "discover_new_places"
+    },
+    {
+      "province": "ชลบุรี",
+      "category": "service",
+      "gap_kind": "missing",
+      "known_place_count": 0,
+      "province_place_count": 23,
+      "priority_score": 102,
+      "next_step": "discover_new_places"
+    },
+    {
+      "province": "ตราด",
+      "category": "eat",
+      "gap_kind": "missing",
+      "known_place_count": 0,
+      "province_place_count": 22,
+      "priority_score": 102,
+      "next_step": "discover_new_places"
+    },
+    {
+      "province": "ตราด",
+      "category": "go",
+      "gap_kind": "missing",
+      "known_place_count": 0,
+      "province_place_count": 22,
+      "priority_score": 102,
+      "next_step": "discover_new_places"
+    },
+    {
+      "province": "ตราด",
+      "category": "service",
+      "gap_kind": "missing",
+      "known_place_count": 0,
+      "province_place_count": 22,
+      "priority_score": 102,
+      "next_step": "discover_new_places"
+    },
+    {
+      "province": "แม่ฮ่องสอน",
+      "category": "eat",
+      "gap_kind": "missing",
+      "known_place_count": 0,
+      "province_place_count": 15,
+      "priority_score": 101,
+      "next_step": "discover_new_places"
+    },
+    {
+      "province": "แม่ฮ่องสอน",
+      "category": "go",
+      "gap_kind": "missing",
+      "known_place_count": 0,
+      "province_place_count": 15,
+      "priority_score": 101,
+      "next_step": "discover_new_places"
+    },
+    {
+      "province": "แม่ฮ่องสอน",
+      "category": "service",
+      "gap_kind": "missing",
+      "known_place_count": 0,
+      "province_place_count": 15,
+      "priority_score": 101,
+      "next_step": "discover_new_places"
+    },
+    {
+      "province": "ระนอง",
+      "category": "eat",
+      "gap_kind": "missing",
+      "known_place_count": 0,
+      "province_place_count": 14,
+      "priority_score": 101,
+      "next_step": "discover_new_places"
+    },
+    {
+      "province": "ระนอง",
+      "category": "go",
+      "gap_kind": "missing",
+      "known_place_count": 0,
+      "province_place_count": 14,
+      "priority_score": 101,
+      "next_step": "discover_new_places"
+    },
+    {
+      "province": "ระนอง",
+      "category": "service",
+      "gap_kind": "missing",
+      "known_place_count": 0,
+      "province_place_count": 14,
+      "priority_score": 101,
+      "next_step": "discover_new_places"
+    },
+    {
+      "province": "ประจวบคีรีขันธ์",
+      "category": "eat",
+      "gap_kind": "missing",
+      "known_place_count": 0,
+      "province_place_count": 11,
+      "priority_score": 101,
+      "next_step": "discover_new_places"
+    },
+    {
+      "province": "ประจวบคีรีขันธ์",
+      "category": "go",
+      "gap_kind": "missing",
+      "known_place_count": 0,
+      "province_place_count": 11,
+      "priority_score": 101,
+      "next_step": "discover_new_places"
+    },
+    {
+      "province": "ประจวบคีรีขันธ์",
+      "category": "service",
+      "gap_kind": "missing",
+      "known_place_count": 0,
+      "province_place_count": 11,
+      "priority_score": 101,
+      "next_step": "discover_new_places"
+    },
+    {
+      "province": "จันทบุรี",
+      "category": "eat",
+      "gap_kind": "missing",
+      "known_place_count": 0,
+      "province_place_count": 10,
+      "priority_score": 101,
+      "next_step": "discover_new_places"
+    },
+    {
+      "province": "จันทบุรี",
+      "category": "go",
+      "gap_kind": "missing",
+      "known_place_count": 0,
+      "province_place_count": 10,
+      "priority_score": 101,
+      "next_step": "discover_new_places"
+    },
+    {
+      "province": "จันทบุรี",
+      "category": "service",
+      "gap_kind": "missing",
+      "known_place_count": 0,
+      "province_place_count": 10,
+      "priority_score": 101,
+      "next_step": "discover_new_places"
+    },
+    {
+      "province": "พระนครศรีอยุธยา",
+      "category": "eat",
+      "gap_kind": "missing",
+      "known_place_count": 0,
+      "province_place_count": 10,
+      "priority_score": 101,
+      "next_step": "discover_new_places"
+    },
+    {
+      "province": "พระนครศรีอยุธยา",
+      "category": "go",
+      "gap_kind": "missing",
+      "known_place_count": 0,
+      "province_place_count": 10,
+      "priority_score": 101,
+      "next_step": "discover_new_places"
+    },
+    {
+      "province": "พระนครศรีอยุธยา",
+      "category": "service",
+      "gap_kind": "missing",
+      "known_place_count": 0,
+      "province_place_count": 10,
+      "priority_score": 101,
+      "next_step": "discover_new_places"
+    },
+    {
+      "province": "พังงา",
+      "category": "eat",
+      "gap_kind": "missing",
+      "known_place_count": 0,
+      "province_place_count": 9,
+      "priority_score": 100,
+      "next_step": "discover_new_places"
+    },
+    {
+      "province": "พังงา",
+      "category": "go",
+      "gap_kind": "missing",
+      "known_place_count": 0,
+      "province_place_count": 9,
+      "priority_score": 100,
+      "next_step": "discover_new_places"
+    },
+    {
+      "province": "พังงา",
+      "category": "service",
+      "gap_kind": "missing",
+      "known_place_count": 0,
+      "province_place_count": 9,
+      "priority_score": 100,
+      "next_step": "discover_new_places"
+    },
+    {
+      "province": "ระยอง",
+      "category": "eat",
+      "gap_kind": "missing",
+      "known_place_count": 0,
+      "province_place_count": 9,
+      "priority_score": 100,
+      "next_step": "discover_new_places"
+    },
+    {
+      "province": "ระยอง",
+      "category": "go",
+      "gap_kind": "missing",
+      "known_place_count": 0,
+      "province_place_count": 9,
+      "priority_score": 100,
+      "next_step": "discover_new_places"
+    },
+    {
+      "province": "ระยอง",
+      "category": "service",
+      "gap_kind": "missing",
+      "known_place_count": 0,
+      "province_place_count": 9,
+      "priority_score": 100,
+      "next_step": "discover_new_places"
+    },
+    {
+      "province": "อุดรธานี",
+      "category": "eat",
+      "gap_kind": "missing",
+      "known_place_count": 0,
+      "province_place_count": 8,
+      "priority_score": 100,
+      "next_step": "discover_new_places"
+    },
+    {
+      "province": "อุดรธานี",
+      "category": "go",
+      "gap_kind": "missing",
+      "known_place_count": 0,
+      "province_place_count": 8,
+      "priority_score": 100,
+      "next_step": "discover_new_places"
+    },
+    {
+      "province": "อุดรธานี",
+      "category": "service",
+      "gap_kind": "missing",
+      "known_place_count": 0,
+      "province_place_count": 8,
+      "priority_score": 100,
+      "next_step": "discover_new_places"
+    },
+    {
+      "province": "ลำปาง",
+      "category": "eat",
+      "gap_kind": "missing",
+      "known_place_count": 0,
+      "province_place_count": 7,
+      "priority_score": 100,
+      "next_step": "discover_new_places"
+    }
+  ],
+  "coverage_priority_count": 50,
+  "focus_province_summary": {
+    "place_count": 220,
+    "categories": {
+      "eat": 55,
+      "vegetarian": 1,
+      "go": 44,
+      "service": 121
+    },
+    "missing_contact_count": 194,
+    "missing_coordinates_count": 0
+  },
+  "next_recommended_work": {
+    "mode": "coverage",
+    "province": "ปราจีนบุรี",
+    "category": "vegetarian",
+    "reason": "sparse_relative_coverage"
+  },
+  "interpretation": {
+    "coverage_is_relative_to_current_database": true,
+    "not_a_real_world_completeness_claim": true,
+    "queue_purpose": "Phase 4.2 discovery targeting",
+    "focus_province": "ปราจีนบุรี"
+  },
+  "safety": {
+    "database_unchanged": true,
+    "database_writes": false,
+    "production_json_writes": false,
+    "trust_policy_lowered": false,
+    "province_agnostic": true
+  }
+}

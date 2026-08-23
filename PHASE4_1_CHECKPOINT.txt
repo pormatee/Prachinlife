@@ -1,0 +1,13 @@
+PHASE 4.1 CHECKPOINT
+
+Expected on baseline 0a56766:
+- canonical places: 919
+- provinces represented: 51
+- normalized category totals: eat 55, vegetarian 700, go 44, service 121
+- unmapped categories: 0
+- priority queue: 50
+- default focus province: ปราจีนบุรี
+- database unchanged: True
+- production writes: False
+- trust policy lowered: False
+- full regression PASS
