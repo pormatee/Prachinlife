@@ -1,0 +1,80 @@
+{
+  "status": "PASS",
+  "policy_version": "4.12-exact-coordinate-acquisition-v1",
+  "candidate_count": 1,
+  "decision_counts": {
+    "EXACT_COORDINATES_UNRESOLVED": 1
+  },
+  "exact_verified_count": 0,
+  "unresolved_count": 1,
+  "conflict_count": 0,
+  "results": [
+    {
+      "candidate_key": "c3e2112eaf69247b73254c75242617e79d17db2351038ecde66cfef7269e4225",
+      "name": "ร้านอาหารเจ AMITA VEGAN",
+      "province": "ปราจีนบุรี",
+      "coordinate_outcome": "EXACT_COORDINATES_UNRESOLVED",
+      "accepted_candidate_coordinate_count": 0,
+      "independent_coordinate_source_family_count": 0,
+      "accepted_source_families": [],
+      "excluded_observations": [
+        {
+          "candidate_name": "ร้านอาหารเจ AMITA VEGAN",
+          "province": "ปราจีนบุรี",
+          "source_name": "Wongnai",
+          "source_family": "wongnai",
+          "source_url": "https://www.wongnai.com/restaurants/2107360fZ-ร้านอาหารเจ-amita-vegan-ท่าตูม",
+          "address_text": "701/177 ซอย5 หมู่10 ท่าตูม ศรีมหาโพธิ ปราจีนบุรี",
+          "map_available": true,
+          "coordinate_owner": "candidate",
+          "latitude": null,
+          "longitude": null,
+          "acquisition_status": "map_present_coordinates_not_exposed",
+          "exclusion_reason": "coordinates_not_exposed"
+        },
+        {
+          "candidate_name": "ร้านอาหารเจ AMITA VEGAN",
+          "province": "ปราจีนบุรี",
+          "source_name": "Restaurant Guru",
+          "source_family": "restaurantguru",
+          "source_url": "https://restaurantguru.com/Si-Maha-Phot",
+          "address_text": "Si Maha Phot, Prachin Buri",
+          "map_available": true,
+          "coordinate_owner": "candidate",
+          "latitude": null,
+          "longitude": null,
+          "acquisition_status": "listing_present_coordinates_not_exposed",
+          "exclusion_reason": "coordinates_not_exposed"
+        },
+        {
+          "candidate_name": "ร้านอาหารเจ AMITA VEGAN",
+          "province": "ปราจีนบุรี",
+          "source_name": "Kasemrad Prachinburi official",
+          "source_family": "kasemrad-official",
+          "source_url": "https://www.kasemrad.co.th/th/prachinburi/contact",
+          "coordinate_owner": "landmark",
+          "latitude": 13.89862,
+          "longitude": 101.59631,
+          "acquisition_status": "landmark_coordinate_only",
+          "exclusion_reason": "coordinate_not_owned_by_candidate"
+        }
+      ],
+      "max_source_disagreement_m": 0.0,
+      "latitude": null,
+      "longitude": null,
+      "canonical_adoption_ready": false,
+      "next_step": "direct_map_or_operator_coordinate_confirmation"
+    }
+  ],
+  "safety": {
+    "database_unchanged": true,
+    "database_writes": false,
+    "canonical_writes": false,
+    "precanonical_writes": false,
+    "production_json_writes": false,
+    "automatic_coordinate_guessing": false,
+    "landmark_coordinates_rejected": true,
+    "automatic_adoption": false,
+    "trust_policy_lowered": false
+  }
+}

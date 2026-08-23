@@ -1,0 +1,39 @@
+[
+  {
+    "candidate_name": "ร้านอาหารเจ AMITA VEGAN",
+    "province": "ปราจีนบุรี",
+    "source_name": "Wongnai",
+    "source_family": "wongnai",
+    "source_url": "https://www.wongnai.com/restaurants/2107360fZ-ร้านอาหารเจ-amita-vegan-ท่าตูม",
+    "address_text": "701/177 ซอย5 หมู่10 ท่าตูม ศรีมหาโพธิ ปราจีนบุรี",
+    "map_available": true,
+    "coordinate_owner": "candidate",
+    "latitude": null,
+    "longitude": null,
+    "acquisition_status": "map_present_coordinates_not_exposed"
+  },
+  {
+    "candidate_name": "ร้านอาหารเจ AMITA VEGAN",
+    "province": "ปราจีนบุรี",
+    "source_name": "Restaurant Guru",
+    "source_family": "restaurantguru",
+    "source_url": "https://restaurantguru.com/Si-Maha-Phot",
+    "address_text": "Si Maha Phot, Prachin Buri",
+    "map_available": true,
+    "coordinate_owner": "candidate",
+    "latitude": null,
+    "longitude": null,
+    "acquisition_status": "listing_present_coordinates_not_exposed"
+  },
+  {
+    "candidate_name": "ร้านอาหารเจ AMITA VEGAN",
+    "province": "ปราจีนบุรี",
+    "source_name": "Kasemrad Prachinburi official",
+    "source_family": "kasemrad-official",
+    "source_url": "https://www.kasemrad.co.th/th/prachinburi/contact",
+    "coordinate_owner": "landmark",
+    "latitude": 13.89862,
+    "longitude": 101.59631,
+    "acquisition_status": "landmark_coordinate_only"
+  }
+]

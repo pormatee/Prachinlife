@@ -1,0 +1,31 @@
+PHASE 4.12 CHECKPOINT
+
+Baseline: 0d83c38 content
+STATUS = PASS
+CANDIDATES = 1
+DECISIONS = {'EXACT_COORDINATES_UNRESOLVED': 1}
+
+PLACE = ร้านอาหารเจ AMITA VEGAN
+ACCEPTED_CANDIDATE_COORDINATES = 0
+INDEPENDENT_COORDINATE_SOURCE_FAMILIES = 0
+EXACT_COORDINATES = None
+CANONICAL_ADOPTION_READY = False
+NEXT = direct_map_or_operator_coordinate_confirmation
+
+EXCLUDED:
+- Wongnai -> coordinates_not_exposed
+- Restaurant Guru -> coordinates_not_exposed
+- Kasemrad official -> coordinate_not_owned_by_candidate
+
+DATABASE_UNCHANGED = True
+DATABASE_WRITES = False
+CANONICAL_WRITES = False
+PRECANONICAL_WRITES = False
+PRODUCTION_WRITES = False
+AUTOMATIC_COORDINATE_GUESSING = False
+LANDMARK_COORDINATES_REJECTED = True
+AUTOMATIC_ADOPTION = False
+TRUST_POLICY_LOWERED = False
+
+Targeted tests: 5/5 OK
+Full regression merged validation tree: 819/819 OK
