@@ -3541,116 +3541,53 @@ END PART 2
 RECOMMENDED RESULT
 ===================================================== */
 
+function getDecisionAssistantPlaces() {
+  const groups = [
+    getEatDatasetV2First(),
+    getVegetarianDatasetV2First(),
+    getGoDatasetV2First(),
+    getServiceDatasetV2First(),
+  ];
+  const seen = new Set();
+  return groups.flat().filter(place => {
+    const key = String(place?.id || `${place?.title || place?.name}|${place?.latitude || place?.lat}|${place?.longitude || place?.lng}`);
+    if (seen.has(key)) return false;
+    seen.add(key); return true;
+  }).map(place => {
+    if (!userLocation) return place;
+    const d = calculatePlaceDistance(place);
+    return Number.isFinite(d) ? {...place, _distance:d, distance_km:d} : place;
+  });
+}
+
 function renderRecommended(
   mode = "all"
 ) {
-
   renderRecommendedDealRail();
+  const list = document.getElementById("recommendedList");
+  if (!list) return;
 
-  const list =
-    document.getElementById(
-      "recommendedList"
-    );
-
-
-  if (!list) {
-
-    return;
-  }
-
-
-  const dealItems =
-    rankInteresting(
-      allPromotions.filter(
-        promotion =>
-          window.PrachinLife.core.matchesLocalScope(
-            promotion,
-            currentLocalProvince
-          )
-      )
+  const dealItems = rankInteresting(
+    allPromotions.filter(promotion =>
+      window.PrachinLife.core.matchesLocalScope(promotion,currentLocalProvince)
     )
-      .slice(
-        0,
-        4
-      )
-      .map(
-        item => ({
-          kind:
-            "deal",
+  ).slice(0, 3).map(item => ({kind:"deal",item}));
 
-          item,
-        })
-      );
+  const engine = window.PrachinLife?.core?.decisionAssistant;
+  const decisionResults = engine
+    ? engine.recommend(getDecisionAssistantPlaces(), {limit:5})
+    : [];
+  const placeItems = decisionResults.map(result => ({
+    kind:"place", item:result.place, decision:result
+  }));
 
-
-  const eatItems =
-    [...allEatPlaces]
-      .sort(
-        window.PrachinLife.core.compareTitle
-      )
-      .slice(
-        0,
-        4
-      )
-      .map(
-        item => ({
-          kind:
-            "eat",
-
-          item,
-        })
-      );
-
-
-  let items = [
-    ...dealItems,
-    ...eatItems,
-  ];
-
-
-  if (
-    mode ===
-    "latest"
-  ) {
-
-    items.sort(
-      (a, b) => {
-
-        return (
-          parseDateValue(
-            b.item
-              .collected_at
-          )
-          -
-          parseDateValue(
-            a.item
-              .collected_at
-          )
-        );
-      }
-    );
+  let items = [...placeItems, ...dealItems];
+  if (mode === "latest") {
+    items.sort((a,b) => parseDateValue(b.item.collected_at)-parseDateValue(a.item.collected_at));
   }
-
-
-  items =
-    items.slice(
-      0,
-      RECOMMENDED_LIMIT
-    );
-
-
-  list.innerHTML =
-    items
-      .map(
-        renderRecommendedDetailedCard
-      )
-      .join("");
-
-
-  window.PrachinLife.ui.setText(
-    "recommendedResultCount",
-    `${items.length} รายการ`
-  );
+  items = items.slice(0, RECOMMENDED_LIMIT);
+  list.innerHTML = items.map(renderRecommendedDetailedCard).join("");
+  window.PrachinLife.ui.setText("recommendedResultCount", `${items.length} รายการ`);
 }
 
 /* =====================================================
@@ -4033,8 +3970,11 @@ function renderRecommendedDetailedCard(
         </div>
 
         <p>
-          ร้านอาหารและสถานที่ที่ PrachinLife
-          มีข้อมูลอยู่ในระบบ
+          ${window.PrachinLife.core.escapeHtml(
+            entry.decision && window.PrachinLife?.core?.decisionAssistant
+              ? window.PrachinLife.core.decisionAssistant.reasonText(entry.decision)
+              : "สถานที่ที่ PrachinLife มีข้อมูลอยู่ในระบบ"
+          )}
         </p>
 
         ${
