@@ -1,0 +1,169 @@
+{
+  "status": "PASS",
+  "mode": {
+    "queue": "COMMIT",
+    "adoption": "DRY_RUN"
+  },
+  "scope": {
+    "province": "ปราจีนบุรี",
+    "category": "vegetarian"
+  },
+  "cycle": {
+    "status": "PASS",
+    "policy_version": "5.1-coverage-cycle-orchestrator-v1",
+    "mode": "DRY_RUN",
+    "scope": {
+      "province": "ปราจีนบุรี",
+      "category": "vegetarian"
+    },
+    "cycle": {
+      "coverage_audit": true,
+      "candidate_routing": true,
+      "controlled_adoption_evaluated": true,
+      "controlled_adoption_requested": false,
+      "controlled_adoption_executed": false,
+      "discovery_continues": true
+    },
+    "summary": {
+      "canonical_primary": 1,
+      "accounted_unique": 8,
+      "precanonical_candidates": 2,
+      "ready_for_adoption": 0,
+      "work_item_count": 2,
+      "queue_counts": {
+        "coordinate_or_manual_confirmation": 1,
+        "manual_confirmation": 1
+      },
+      "coverage_work_remains": true
+    },
+    "work_items": [
+      {
+        "candidate_id": "0b87b7f8-f9d6-58f9-871d-9d6d5f9172b1",
+        "name": "ร้านอาหารเจ AMITA VEGAN",
+        "queue": "coordinate_or_manual_confirmation",
+        "next_action": "supply_valid_direct_confirmation",
+        "blockers": [
+          "pending_manual_or_coordinate_confirmation",
+          "exact_candidate_coordinates_not_verified"
+        ]
+      },
+      {
+        "candidate_id": "8a7a5bf3-a1d9-5324-8ebd-d6bc39148855",
+        "name": "ต้นหลิวอาหารเจ",
+        "queue": "manual_confirmation",
+        "next_action": "resolve_lifecycle_conflict",
+        "blockers": [
+          "unresolved_lifecycle_conflict",
+          "pending_manual_or_coordinate_confirmation",
+          "exact_candidate_coordinates_not_verified"
+        ]
+      }
+    ],
+    "adoption": {
+      "eligible_count": 0,
+      "commit_performed": false
+    },
+    "safety": {
+      "database_unchanged": true,
+      "database_writes": false,
+      "production_json_writes": false,
+      "automatic_publication": false,
+      "automatic_evidence_fabrication": false,
+      "automatic_conflict_resolution": false,
+      "explicit_commit_required": true,
+      "trust_policy_lowered": false
+    }
+  },
+  "work_queue": {
+    "status": "PASS",
+    "mode": "COMMIT",
+    "policy_version": "5-final-operational-work-queue-v1",
+    "scope": {
+      "province": "ปราจีนบุรี",
+      "category": "vegetarian"
+    },
+    "active_work_count": 2,
+    "open_queue_count": 2,
+    "queue_counts": {
+      "coordinate_or_manual_confirmation": 1,
+      "manual_confirmation": 1
+    },
+    "inserted": 0,
+    "updated": 0,
+    "unchanged": 2,
+    "resolved": 0,
+    "open_work": [
+      {
+        "work_id": "d676e2e1-226a-502c-90ae-c68a12dc8491",
+        "work_key": "ปราจีนบุรี|vegetarian|0b87b7f8-f9d6-58f9-871d-9d6d5f9172b1",
+        "candidate_id": "0b87b7f8-f9d6-58f9-871d-9d6d5f9172b1",
+        "name": "ร้านอาหารเจ AMITA VEGAN",
+        "province": "ปราจีนบุรี",
+        "category": "vegetarian",
+        "queue_type": "coordinate_or_manual_confirmation",
+        "next_action": "supply_valid_direct_confirmation",
+        "status": "OPEN",
+        "first_seen_at": "2026-08-23T06:11:30.101733+00:00",
+        "last_seen_at": "2026-08-23T06:11:30.101733+00:00",
+        "resolved_at": null
+      },
+      {
+        "work_id": "a8db2e2f-dd17-5901-a9f9-c2c40a23981c",
+        "work_key": "ปราจีนบุรี|vegetarian|8a7a5bf3-a1d9-5324-8ebd-d6bc39148855",
+        "candidate_id": "8a7a5bf3-a1d9-5324-8ebd-d6bc39148855",
+        "name": "ต้นหลิวอาหารเจ",
+        "province": "ปราจีนบุรี",
+        "category": "vegetarian",
+        "queue_type": "manual_confirmation",
+        "next_action": "resolve_lifecycle_conflict",
+        "status": "OPEN",
+        "first_seen_at": "2026-08-23T06:11:30.101733+00:00",
+        "last_seen_at": "2026-08-23T06:11:30.101733+00:00",
+        "resolved_at": null
+      }
+    ],
+    "safety": {
+      "queue_only_write": true,
+      "canonical_writes": false,
+      "precanonical_writes": false,
+      "production_json_writes": false,
+      "automatic_adoption": false,
+      "trust_policy_lowered": false,
+      "idempotent": true
+    }
+  },
+  "operator_summary": {
+    "open_work": 2,
+    "queue_counts": {
+      "coordinate_or_manual_confirmation": 1,
+      "manual_confirmation": 1
+    },
+    "ready_for_adoption": 0,
+    "coverage_work_remains": true,
+    "discovery_continues": true
+  },
+  "final_gate": {
+    "status": "PASS",
+    "checks": {
+      "cycle_pass": true,
+      "persistent_queue_reconciled": true,
+      "discovery_non_blocking": true,
+      "explicit_adoption_commit_required": true,
+      "production_writes_disabled": true,
+      "trust_policy_preserved": true,
+      "database_integrity": true
+    },
+    "database": {
+      "integrity_check": "ok",
+      "foreign_key_errors": 0
+    },
+    "operational": {
+      "single_cycle_entry_point": true,
+      "persistent_queue": true,
+      "queue_dedup_and_state_transition": true,
+      "operator_summary": true,
+      "repeatable_scope": true,
+      "open_work_carries_forward": true
+    }
+  }
+}
