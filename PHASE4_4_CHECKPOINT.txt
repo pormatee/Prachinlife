@@ -1,0 +1,29 @@
+PHASE 4.4 CHECKPOINT
+
+Baseline: 1c2115c
+VERIFIED_IDENTITY input: 1
+Prepared candidates: 1
+Prepared evidence: 4
+First commit simulation:
+- inserted precanonical candidates: 1
+- inserted precanonical evidence: 4
+- precanonical candidate total: 1
+- precanonical evidence total: 4
+
+Replay simulation:
+- inserted candidates: 0
+- inserted evidence: 0
+- already present candidates: 1
+- already present evidence: 4
+
+Canonical places remain: 919
+Canonical rows unchanged: True
+place_evidence unchanged: True
+Non-precanonical tables unchanged: True
+Production writes: False
+Automatic canonical creation: False
+Automatic publication: False
+Trust policy lowered: False
+
+Full regression on archived repo after commit simulation: 770/770 OK.
+On the user's current working tree, expected count is approximately 776 tests because additional local regression tests are present.

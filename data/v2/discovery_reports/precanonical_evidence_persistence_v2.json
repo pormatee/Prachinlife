@@ -1,0 +1,26 @@
+{
+  "status": "PASS",
+  "mode": "COMMIT",
+  "policy_version": "4.4-precanonical-evidence-persistence-v1",
+  "verified_identity_input_count": 1,
+  "prepared_candidate_count": 1,
+  "prepared_evidence_count": 4,
+  "inserted_candidate_count": 1,
+  "inserted_evidence_count": 4,
+  "already_present_candidate_count": 0,
+  "already_present_evidence_count": 0,
+  "precanonical_candidate_total": 1,
+  "precanonical_evidence_total": 4,
+  "blocked_counts": {},
+  "safety": {
+    "canonical_place_count_unchanged": true,
+    "canonical_rows_unchanged": true,
+    "place_evidence_unchanged": true,
+    "non_precanonical_tables_unchanged": true,
+    "production_json_writes": false,
+    "automatic_canonical_creation": false,
+    "automatic_publication": false,
+    "trust_policy_lowered": false,
+    "idempotent_ids": true
+  }
+}
