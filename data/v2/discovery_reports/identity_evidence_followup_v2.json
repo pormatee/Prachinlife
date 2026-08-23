@@ -1,0 +1,33 @@
+{
+  "status": "PASS",
+  "policy_version": "4.17-identity-evidence-followup-v1",
+  "candidate": "ฉันทนา",
+  "province": "ปราจีนบุรี",
+  "raw_observation_count": 3,
+  "raw_source_family_count": 3,
+  "source_families": [
+    "innews",
+    "local-news-video",
+    "thairemark"
+  ],
+  "independent_editorial_origin_count": 1,
+  "editorial_origins": [
+    "manit-sanabboon-2025-10-21-jay-report"
+  ],
+  "identity_outcome": "SUPPORTED_IDENTITY",
+  "next_step": "acquire_truly_independent_source_not_syndicated_copy",
+  "canonical_ready": false,
+  "quality": {
+    "syndicated_copies_not_counted_as_independent": true,
+    "host_count_not_equal_independence": true
+  },
+  "safety": {
+    "database_unchanged": true,
+    "canonical_writes": false,
+    "precanonical_writes": false,
+    "pending_queue_writes": false,
+    "production_json_writes": false,
+    "automatic_adoption": false,
+    "trust_policy_lowered": false
+  }
+}
