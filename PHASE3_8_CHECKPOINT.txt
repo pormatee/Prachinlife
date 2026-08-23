@@ -1,0 +1,29 @@
+PrachinLife V2 Phase 3.8 — Controlled Publication Preview / Production Impact Review
+
+Baseline expected: Phase 3.7 canonical adoption committed on main.
+
+Development-loop result:
+- adoption revisions reviewed: 8
+- adopted places: 6
+- mapped production places: 6
+- changed production records in preview: 6
+- contact impacts: phone +6, website +2
+- trusted external link additions: 9
+- identity changes: 0
+- overwrites: 0
+- destructive changes: 0
+- unexpected changes: 0
+- blockers: 0
+- database unchanged: True
+- production JSON unchanged: True
+- automatic publication: False
+- trust policy lowered: False
+- province agnostic: True
+- full regression: 741/741 OK
+
+Phase 3.8 is preview-only. No production publication is performed.
+
+Fixture compatibility fix:
+- Phase 3.8 tests now support both pre-adoption and already-adopted Phase 3.7 databases.
+- Idempotent replay is accepted when updated_field_count + already_applied_count = 8.
+- Regression after fix: 741/741 OK.

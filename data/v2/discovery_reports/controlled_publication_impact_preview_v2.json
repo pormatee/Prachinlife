@@ -1,0 +1,421 @@
+{
+  "policy_version": "3.8-controlled-publication-impact-preview-v1",
+  "mode": "READ_ONLY_PREVIEW",
+  "status": "PASS",
+  "adoption_revision_count": 8,
+  "adopted_place_count": 6,
+  "mapped_place_count": 6,
+  "changed_production_record_count": 6,
+  "targeted_field_impact_counts": {
+    "phone": 6,
+    "website": 2
+  },
+  "external_link_addition_count": 9,
+  "identity_change_count": 0,
+  "overwrite_count": 0,
+  "destructive_change_count": 0,
+  "unexpected_change_count": 0,
+  "blockers": [],
+  "impacts": [
+    {
+      "place_id": "0453d377-7379-526a-bfdd-a3a92044ffd2",
+      "canonical_name": "Anchan",
+      "province": "เชียงใหม่",
+      "production_file": "vegetarian_index.json",
+      "production_record_id": "osm-node-4477017880",
+      "targeted_fields": [
+        "phone",
+        "website"
+      ],
+      "changes": [
+        {
+          "path": "external_links",
+          "kind": "add",
+          "before": null,
+          "after": [
+            {
+              "type": "web",
+              "label": "Anchan Vegetarian Restaurant official website",
+              "url": "https://anchanvegetarian.com/"
+            }
+          ],
+          "category": "trusted_external_links_addition"
+        },
+        {
+          "path": "metadata.phone",
+          "kind": "change",
+          "before": null,
+          "after": "+66835811689",
+          "category": "targeted_contact_addition"
+        },
+        {
+          "path": "metadata.v2_core_identity_source",
+          "kind": "add",
+          "before": null,
+          "after": "canonical_v2",
+          "category": "v2_overlay_marker"
+        },
+        {
+          "path": "metadata.v2_place_id",
+          "kind": "add",
+          "before": null,
+          "after": "0453d377-7379-526a-bfdd-a3a92044ffd2",
+          "category": "v2_overlay_marker"
+        },
+        {
+          "path": "metadata.v2_policy_version",
+          "kind": "add",
+          "before": null,
+          "after": "staged-milestone-v1",
+          "category": "v2_overlay_marker"
+        },
+        {
+          "path": "metadata.v2_preview_overlay",
+          "kind": "add",
+          "before": null,
+          "after": true,
+          "category": "v2_overlay_marker"
+        },
+        {
+          "path": "metadata.website",
+          "kind": "change",
+          "before": null,
+          "after": "https://anchanvegetarian.com/",
+          "category": "targeted_contact_addition"
+        }
+      ]
+    },
+    {
+      "place_id": "73b8d824-1308-54ea-ac64-ffcae2dd32eb",
+      "canonical_name": "Hua Hin Vegan",
+      "province": "ประจวบคีรีขันธ์",
+      "production_file": "vegetarian_index.json",
+      "production_record_id": "osm-node-5224403935",
+      "targeted_fields": [
+        "phone",
+        "website"
+      ],
+      "changes": [
+        {
+          "path": "external_links",
+          "kind": "add",
+          "before": null,
+          "after": [
+            {
+              "type": "official_website",
+              "label": "เว็บไซต์",
+              "url": "https://facebook.com/huahinvegancafe/"
+            },
+            {
+              "type": "web",
+              "label": "Wanderlog listing",
+              "url": "https://wanderlog.com/place/details/1137651/hua-hin-vegan-cafe--wine"
+            },
+            {
+              "type": "web",
+              "label": "Tripadvisor claimed listing",
+              "url": "https://www.tripadvisor.com/Restaurant_Review-g297922-d12483848-Reviews-Hua_Hin_Vegan_Cafe_Wine-Hua_Hin_Prachuap_Khiri_Khan_Province.html"
+            }
+          ],
+          "category": "trusted_external_links_addition"
+        },
+        {
+          "path": "metadata.phone",
+          "kind": "change",
+          "before": null,
+          "after": "+66925366241",
+          "category": "targeted_contact_addition"
+        },
+        {
+          "path": "metadata.v2_core_identity_source",
+          "kind": "add",
+          "before": null,
+          "after": "canonical_v2",
+          "category": "v2_overlay_marker"
+        },
+        {
+          "path": "metadata.v2_place_id",
+          "kind": "add",
+          "before": null,
+          "after": "73b8d824-1308-54ea-ac64-ffcae2dd32eb",
+          "category": "v2_overlay_marker"
+        },
+        {
+          "path": "metadata.v2_policy_version",
+          "kind": "add",
+          "before": null,
+          "after": "staged-milestone-v1",
+          "category": "v2_overlay_marker"
+        },
+        {
+          "path": "metadata.v2_preview_overlay",
+          "kind": "add",
+          "before": null,
+          "after": true,
+          "category": "v2_overlay_marker"
+        },
+        {
+          "path": "metadata.website",
+          "kind": "change",
+          "before": null,
+          "after": "https://facebook.com/huahinvegancafe/",
+          "category": "targeted_contact_addition"
+        }
+      ]
+    },
+    {
+      "place_id": "7ede2f45-7b0f-55fc-843e-f6bff1138946",
+      "canonical_name": "Baan Unrak",
+      "province": "กาญจนบุรี",
+      "production_file": "vegetarian_index.json",
+      "production_record_id": "osm-node-7081658186",
+      "targeted_fields": [
+        "phone"
+      ],
+      "changes": [
+        {
+          "path": "external_links",
+          "kind": "add",
+          "before": null,
+          "after": [
+            {
+              "type": "web",
+              "label": "Tripadvisor claimed listing",
+              "url": "https://www.tripadvisor.com/Restaurant_Review-g303919-d3578670-Reviews-Baan_Unrak_Vegetarian_Restaurant_Bakery-Sangkhla_Buri_Kanchanaburi_Province.html"
+            }
+          ],
+          "category": "trusted_external_links_addition"
+        },
+        {
+          "path": "metadata.phone",
+          "kind": "change",
+          "before": null,
+          "after": "+6634595006",
+          "category": "targeted_contact_addition"
+        },
+        {
+          "path": "metadata.v2_core_identity_source",
+          "kind": "add",
+          "before": null,
+          "after": "canonical_v2",
+          "category": "v2_overlay_marker"
+        },
+        {
+          "path": "metadata.v2_place_id",
+          "kind": "add",
+          "before": null,
+          "after": "7ede2f45-7b0f-55fc-843e-f6bff1138946",
+          "category": "v2_overlay_marker"
+        },
+        {
+          "path": "metadata.v2_policy_version",
+          "kind": "add",
+          "before": null,
+          "after": "staged-milestone-v1",
+          "category": "v2_overlay_marker"
+        },
+        {
+          "path": "metadata.v2_preview_overlay",
+          "kind": "add",
+          "before": null,
+          "after": true,
+          "category": "v2_overlay_marker"
+        }
+      ]
+    },
+    {
+      "place_id": "80fd8e12-c5a7-5b8f-a7a6-1e40c0c6d9ca",
+      "canonical_name": "Guru Kripa Restaurant",
+      "province": "ชลบุรี",
+      "production_file": "vegetarian_index.json",
+      "production_record_id": "osm-node-11598073400",
+      "targeted_fields": [
+        "phone"
+      ],
+      "changes": [
+        {
+          "path": "external_links",
+          "kind": "add",
+          "before": null,
+          "after": [
+            {
+              "type": "web",
+              "label": "Tripadvisor listing",
+              "url": "https://www.tripadvisor.com/Restaurant_Review-g293919-d25232117-Reviews-Guru_Kripa_Restaurant_Pattaya_Thailand-Pattaya_Chonburi_Province.html"
+            }
+          ],
+          "category": "trusted_external_links_addition"
+        },
+        {
+          "path": "metadata.phone",
+          "kind": "change",
+          "before": null,
+          "after": "+66630020351",
+          "category": "targeted_contact_addition"
+        },
+        {
+          "path": "metadata.v2_core_identity_source",
+          "kind": "add",
+          "before": null,
+          "after": "canonical_v2",
+          "category": "v2_overlay_marker"
+        },
+        {
+          "path": "metadata.v2_place_id",
+          "kind": "add",
+          "before": null,
+          "after": "80fd8e12-c5a7-5b8f-a7a6-1e40c0c6d9ca",
+          "category": "v2_overlay_marker"
+        },
+        {
+          "path": "metadata.v2_policy_version",
+          "kind": "add",
+          "before": null,
+          "after": "staged-milestone-v1",
+          "category": "v2_overlay_marker"
+        },
+        {
+          "path": "metadata.v2_preview_overlay",
+          "kind": "add",
+          "before": null,
+          "after": true,
+          "category": "v2_overlay_marker"
+        }
+      ]
+    },
+    {
+      "place_id": "8bf61ac7-2e41-517d-80d4-e14ec1b61c4c",
+      "canonical_name": "Aum Vegetarian Restaurant",
+      "province": "เชียงใหม่",
+      "production_file": "vegetarian_index.json",
+      "production_record_id": "osm-node-5484616521",
+      "targeted_fields": [
+        "phone"
+      ],
+      "changes": [
+        {
+          "path": "external_links",
+          "kind": "add",
+          "before": null,
+          "after": [
+            {
+              "type": "web",
+              "label": "Tripadvisor claimed listing",
+              "url": "https://www.tripadvisor.com/Restaurant_Review-g293917-d1129373-Reviews-AUM_Vegetarian_Food-Chiang_Mai.html"
+            }
+          ],
+          "category": "trusted_external_links_addition"
+        },
+        {
+          "path": "metadata.phone",
+          "kind": "change",
+          "before": null,
+          "after": "+66898539796",
+          "category": "targeted_contact_addition"
+        },
+        {
+          "path": "metadata.v2_core_identity_source",
+          "kind": "add",
+          "before": null,
+          "after": "canonical_v2",
+          "category": "v2_overlay_marker"
+        },
+        {
+          "path": "metadata.v2_place_id",
+          "kind": "add",
+          "before": null,
+          "after": "8bf61ac7-2e41-517d-80d4-e14ec1b61c4c",
+          "category": "v2_overlay_marker"
+        },
+        {
+          "path": "metadata.v2_policy_version",
+          "kind": "add",
+          "before": null,
+          "after": "staged-milestone-v1",
+          "category": "v2_overlay_marker"
+        },
+        {
+          "path": "metadata.v2_preview_overlay",
+          "kind": "add",
+          "before": null,
+          "after": true,
+          "category": "v2_overlay_marker"
+        }
+      ]
+    },
+    {
+      "place_id": "d1251fc6-b0c5-56e3-b3cd-dbbf8feebac8",
+      "canonical_name": "Chada Vegetarian",
+      "province": "เชียงใหม่",
+      "production_file": "vegetarian_index.json",
+      "production_record_id": "osm-node-9872196618",
+      "targeted_fields": [
+        "phone"
+      ],
+      "changes": [
+        {
+          "path": "external_links",
+          "kind": "add",
+          "before": null,
+          "after": [
+            {
+              "type": "wongnai",
+              "label": "Wongnai listing",
+              "url": "https://www.wongnai.com/restaurants/2205676Xo-chada-vegetarian-restaurant"
+            },
+            {
+              "type": "web",
+              "label": "Tripadvisor claimed listing",
+              "url": "https://www.tripadvisor.com/Restaurant_Review-g293917-d24890735-Reviews-Chada_Vegetarian_Restaurant_Chiang_Mai-Chiang_Mai.html"
+            }
+          ],
+          "category": "trusted_external_links_addition"
+        },
+        {
+          "path": "metadata.phone",
+          "kind": "change",
+          "before": null,
+          "after": "+66898856875",
+          "category": "targeted_contact_addition"
+        },
+        {
+          "path": "metadata.v2_core_identity_source",
+          "kind": "add",
+          "before": null,
+          "after": "canonical_v2",
+          "category": "v2_overlay_marker"
+        },
+        {
+          "path": "metadata.v2_place_id",
+          "kind": "add",
+          "before": null,
+          "after": "d1251fc6-b0c5-56e3-b3cd-dbbf8feebac8",
+          "category": "v2_overlay_marker"
+        },
+        {
+          "path": "metadata.v2_policy_version",
+          "kind": "add",
+          "before": null,
+          "after": "staged-milestone-v1",
+          "category": "v2_overlay_marker"
+        },
+        {
+          "path": "metadata.v2_preview_overlay",
+          "kind": "add",
+          "before": null,
+          "after": true,
+          "category": "v2_overlay_marker"
+        }
+      ]
+    }
+  ],
+  "safety": {
+    "database_unchanged": true,
+    "production_json_unchanged": true,
+    "production_json_writes": false,
+    "automatic_publication": false,
+    "trust_policy_lowered": false,
+    "province_agnostic": true,
+    "destructive_changes_allowed": false
+  }
+}
