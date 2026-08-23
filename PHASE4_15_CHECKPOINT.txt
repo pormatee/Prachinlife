@@ -1,0 +1,38 @@
+PHASE 4.15 CHECKPOINT
+
+Baseline: 7ed5b7a state
+STATUS = PASS
+SOURCE_OBSERVATIONS = 5
+CANDIDATE_GROUPS = 5
+STATES = {
+  KNOWN_CANDIDATE: 1,
+  NEW_CATEGORY_CANDIDATE: 3,
+  PENDING_REVIEW: 1
+}
+NEW_CANDIDATES = 3
+FOLLOWUP_QUEUE = 3
+PENDING = 1
+DISCOVERY_CONTINUES = True
+
+NEW CATEGORY CANDIDATES:
+- ซาลาเปา ขนมจีบ by Salon&Cafe' คลองรั้งสายใน
+- น้ำเต้าหู้ นมสด (บ้านเอื้อฯ304)
+- น้ำเต้าหู้ ร้านเหมยคลองรั้งสายในตรงข้าม7-11ซอยประปา
+
+KNOWN:
+- ฉันทนา -> continue_identity_evidence_acquisition
+
+PENDING:
+- ร้านอาหารเจ AMITA VEGAN -> skip_pending_candidate
+
+CATEGORY_ONLY_NOT_PROMOTED_TO_PRIMARY = True
+DATABASE_UNCHANGED = True
+CANONICAL_WRITES = False
+PRECANONICAL_WRITES = False
+PENDING_WRITES = False
+PRODUCTION_WRITES = False
+AUTOMATIC_ADOPTION = False
+TRUST_POLICY_LOWERED = False
+
+Targeted tests: 5/5 OK
+Full regression merged validation tree: 834/834 OK

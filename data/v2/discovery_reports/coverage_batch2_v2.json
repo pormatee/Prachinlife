@@ -1,0 +1,265 @@
+{
+  "status": "PASS",
+  "policy_version": "4.15-coverage-batch2-v1",
+  "source_observation_count": 5,
+  "candidate_group_count": 5,
+  "batch_state_counts": {
+    "KNOWN_CANDIDATE": 1,
+    "NEW_CATEGORY_CANDIDATE": 3,
+    "PENDING_REVIEW": 1
+  },
+  "new_candidate_count": 3,
+  "followup_queue_count": 3,
+  "pending_candidate_count": 1,
+  "results": [
+    {
+      "candidate_key": "3127f965c11c2c81e370cb2d34d2592f6cc00f807fabf09759204c0c8d7bffdd",
+      "name": "ซาลาเปา ขนมจีบ by Salon&Cafe' คลองรั้งสายใน",
+      "province": "ปราจีนบุรี",
+      "batch_state": "NEW_CATEGORY_CANDIDATE",
+      "next_step": "confirm_diet_scope_and_acquire_independent_source",
+      "source_observation_count": 1,
+      "independent_source_family_count": 1,
+      "source_families": [
+        "wongnai"
+      ],
+      "phones": [
+        "0822001007"
+      ],
+      "dedicated_diet_signal": false,
+      "category_only_signal": true,
+      "primary_directory_ready": false,
+      "canonical_matches": [],
+      "pending_matches": [],
+      "precanonical_matches": [],
+      "observations": [
+        {
+          "candidate_group": "salon-cafe-khlong-rang",
+          "name": "ซาลาเปา ขนมจีบ by Salon&Cafe' คลองรั้งสายใน",
+          "province": "ปราจีนบุรี",
+          "category": "vegetarian",
+          "source_type": "web",
+          "source_name": "Wongnai",
+          "source_family": "wongnai",
+          "source_record_id": "1585661Om",
+          "source_url": "https://www.wongnai.com/restaurants/1585661Om-ซาลาเปา-ขนมจีบ-by-salon-cafe-คลองรั้งสายใน",
+          "phone": "+66822001007",
+          "address_text": "212/36 หมู่10 ท่าตูม ศรีมหาโพธิ ปราจีนบุรี",
+          "source_category": "ติ่มซำ อาหารเจ อาหารเช้า",
+          "discovery_signal": "category_only"
+        }
+      ]
+    },
+    {
+      "candidate_key": "8220de8519c941ecec7bc5ecd924942129bc5652ebb7378344409130481d3d30",
+      "name": "น้ำเต้าหู้ นมสด (บ้านเอื้อฯ304)",
+      "province": "ปราจีนบุรี",
+      "batch_state": "NEW_CATEGORY_CANDIDATE",
+      "next_step": "confirm_diet_scope_and_acquire_independent_source",
+      "source_observation_count": 1,
+      "independent_source_family_count": 1,
+      "source_families": [
+        "wongnai"
+      ],
+      "phones": [
+        "0649622436"
+      ],
+      "dedicated_diet_signal": false,
+      "category_only_signal": true,
+      "primary_directory_ready": false,
+      "canonical_matches": [],
+      "pending_matches": [],
+      "precanonical_matches": [],
+      "observations": [
+        {
+          "candidate_group": "soymilk-baan-uea-304",
+          "name": "น้ำเต้าหู้ นมสด (บ้านเอื้อฯ304)",
+          "province": "ปราจีนบุรี",
+          "category": "vegetarian",
+          "source_type": "web",
+          "source_name": "Wongnai",
+          "source_family": "wongnai",
+          "source_record_id": "957975yr",
+          "source_url": "https://www.wongnai.com/restaurants/957975yr-น้ำเต้าหู้-นมสด-บ้านเอื้อฯ304",
+          "phone": "0649622436",
+          "address_text": "Unnamed Road ตำบลท่าตูม อำเภอศรีมหาโพธิ ปราจีนบุรี",
+          "source_category": "อาหารเจ",
+          "discovery_signal": "category_only"
+        }
+      ]
+    },
+    {
+      "candidate_key": "7aa94b98012f60b1886b9582cfc2453d05d44e94f819496445ef121e38143923",
+      "name": "น้ำเต้าหู้ ร้านเหมยคลองรั้งสายในตรงข้าม7-11ซอยประปา",
+      "province": "ปราจีนบุรี",
+      "batch_state": "NEW_CATEGORY_CANDIDATE",
+      "next_step": "confirm_diet_scope_and_acquire_independent_source",
+      "source_observation_count": 1,
+      "independent_source_family_count": 1,
+      "source_families": [
+        "wongnai"
+      ],
+      "phones": [
+        "0861389349",
+        "0979318247"
+      ],
+      "dedicated_diet_signal": false,
+      "category_only_signal": true,
+      "primary_directory_ready": false,
+      "canonical_matches": [],
+      "pending_matches": [],
+      "precanonical_matches": [],
+      "observations": [
+        {
+          "candidate_group": "mei-soymilk-khlong-rang",
+          "name": "น้ำเต้าหู้ ร้านเหมยคลองรั้งสายในตรงข้าม7-11ซอยประปา",
+          "province": "ปราจีนบุรี",
+          "category": "vegetarian",
+          "source_type": "web",
+          "source_name": "Wongnai",
+          "source_family": "wongnai",
+          "source_record_id": "1810489MO",
+          "source_url": "https://www.wongnai.com/restaurants/1810489MO-น้ำเต้าหู้-ร้านเหมยคลองรั้งสายในตรงข้าม7-11ซอยประปา",
+          "phone": "0979318247, 0861389349",
+          "address_text": "588/3 หมู่10 ท่าตูม ศรีมหาโพธิ ปราจีนบุรี",
+          "source_category": "สตรีทฟู้ด/รถเข็น อาหารเจ",
+          "discovery_signal": "category_only"
+        }
+      ]
+    },
+    {
+      "candidate_key": "d8655d689492b6cdab6b120cc77ed4e0bfff9b721c64c5ffa9c44b21d52b04d8",
+      "name": "ฉันทนา",
+      "province": "ปราจีนบุรี",
+      "batch_state": "KNOWN_CANDIDATE",
+      "next_step": "continue_identity_evidence_acquisition",
+      "source_observation_count": 1,
+      "independent_source_family_count": 1,
+      "source_families": [
+        "local-news-video"
+      ],
+      "phones": [],
+      "dedicated_diet_signal": true,
+      "category_only_signal": false,
+      "primary_directory_ready": false,
+      "canonical_matches": [],
+      "pending_matches": [],
+      "precanonical_matches": [],
+      "observations": [
+        {
+          "candidate_group": "chantana-nong-phrongs",
+          "name": "ฉันทนา",
+          "province": "ปราจีนบุรี",
+          "category": "vegetarian",
+          "source_type": "news",
+          "source_name": "รวมข่าวปราจีนบุรี News",
+          "source_family": "local-news-video",
+          "source_record_id": "21102568",
+          "source_url": "https://www.youtube.com/watch?v=ddJ8T_WEzKo",
+          "address_text": "ตรงข้ามอนุสาวรีย์ลายพระหัตถ์ ต.หนองโพรง อ.ศรีมหาโพธิ จ.ปราจีนบุรี",
+          "source_category": "ร้านอาหารเจ",
+          "discovery_signal": "named_jay_report"
+        }
+      ]
+    },
+    {
+      "candidate_key": "c3e2112eaf69247b73254c75242617e79d17db2351038ecde66cfef7269e4225",
+      "name": "ร้านอาหารเจ AMITA VEGAN",
+      "province": "ปราจีนบุรี",
+      "batch_state": "PENDING_REVIEW",
+      "next_step": "skip_pending_candidate",
+      "source_observation_count": 1,
+      "independent_source_family_count": 1,
+      "source_families": [
+        "wongnai"
+      ],
+      "phones": [
+        "0804653226"
+      ],
+      "dedicated_diet_signal": true,
+      "category_only_signal": false,
+      "primary_directory_ready": false,
+      "canonical_matches": [],
+      "pending_matches": [
+        {
+          "candidate_id": "0b87b7f8-f9d6-58f9-871d-9d6d5f9172b1",
+          "proposed_name": "ร้านอาหารเจ AMITA VEGAN",
+          "province": "ปราจีนบุรี",
+          "status": "pending_coordinate_confirmation",
+          "reason": "unresolved_exact_coordinates",
+          "current_state": "EXACT_COORDINATES_UNRESOLVED",
+          "next_action": "supply_valid_direct_coordinate_confirmation"
+        }
+      ],
+      "precanonical_matches": [
+        {
+          "candidate_id": "0b87b7f8-f9d6-58f9-871d-9d6d5f9172b1",
+          "candidate_key": "c3e2112eaf69247b73254c75242617e79d17db2351038ecde66cfef7269e4225",
+          "proposed_name": "ร้านอาหารเจ AMITA VEGAN",
+          "province": "ปราจีนบุรี",
+          "status": "verified_identity_address_location"
+        }
+      ],
+      "observations": [
+        {
+          "candidate_group": "amita-vegan-tha-tum",
+          "name": "ร้านอาหารเจ AMITA VEGAN",
+          "province": "ปราจีนบุรี",
+          "category": "vegetarian",
+          "source_type": "web",
+          "source_name": "Wongnai",
+          "source_family": "wongnai",
+          "source_record_id": "2107360fZ",
+          "source_url": "https://www.wongnai.com/restaurants/2107360fZ-ร้านอาหารเจ-amita-vegan-ท่าตูม",
+          "phone": "+66804653226",
+          "address_text": "701/177 ซอย5 หมู่10 ท่าตูม ศรีมหาโพธิ ปราจีนบุรี",
+          "source_category": "อาหารเจ",
+          "discovery_signal": "dedicated_name"
+        }
+      ]
+    }
+  ],
+  "followup_queue": [
+    {
+      "candidate_key": "3127f965c11c2c81e370cb2d34d2592f6cc00f807fabf09759204c0c8d7bffdd",
+      "name": "ซาลาเปา ขนมจีบ by Salon&Cafe' คลองรั้งสายใน",
+      "province": "ปราจีนบุรี",
+      "candidate_scope": "category_only",
+      "independent_source_family_count": 1,
+      "next_step": "confirm_diet_scope_and_acquire_independent_source"
+    },
+    {
+      "candidate_key": "8220de8519c941ecec7bc5ecd924942129bc5652ebb7378344409130481d3d30",
+      "name": "น้ำเต้าหู้ นมสด (บ้านเอื้อฯ304)",
+      "province": "ปราจีนบุรี",
+      "candidate_scope": "category_only",
+      "independent_source_family_count": 1,
+      "next_step": "confirm_diet_scope_and_acquire_independent_source"
+    },
+    {
+      "candidate_key": "7aa94b98012f60b1886b9582cfc2453d05d44e94f819496445ef121e38143923",
+      "name": "น้ำเต้าหู้ ร้านเหมยคลองรั้งสายในตรงข้าม7-11ซอยประปา",
+      "province": "ปราจีนบุรี",
+      "candidate_scope": "category_only",
+      "independent_source_family_count": 1,
+      "next_step": "confirm_diet_scope_and_acquire_independent_source"
+    }
+  ],
+  "discovery_continues": true,
+  "quality": {
+    "category_only_candidates_not_promoted_to_primary": true,
+    "dedicated_scope_requires_identity_verification": true
+  },
+  "safety": {
+    "database_unchanged": true,
+    "database_writes": false,
+    "canonical_writes": false,
+    "precanonical_writes": false,
+    "pending_queue_writes": false,
+    "production_json_writes": false,
+    "automatic_adoption": false,
+    "automatic_publication": false,
+    "pending_candidates_do_not_block_discovery": true,
+    "trust_policy_lowered": false
+  }
+}
