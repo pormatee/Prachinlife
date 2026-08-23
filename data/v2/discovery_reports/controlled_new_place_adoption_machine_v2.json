@@ -1,0 +1,49 @@
+{
+  "status": "PASS",
+  "mode": "DRY_RUN",
+  "policy_version": "4.18-controlled-new-place-adoption-machine-v1",
+  "eligible_count": 0,
+  "inserted_place_count": 0,
+  "inserted_evidence_count": 0,
+  "inserted_revision_count": 0,
+  "decisions": [
+    {
+      "candidate_id": "0b87b7f8-f9d6-58f9-871d-9d6d5f9172b1",
+      "name": "ร้านอาหารเจ AMITA VEGAN",
+      "province": "ปราจีนบุรี",
+      "category": "vegetarian",
+      "outcome": "NOT_READY",
+      "blockers": [
+        "pending_manual_or_coordinate_confirmation",
+        "exact_candidate_coordinates_not_verified"
+      ],
+      "source_family_count": 3,
+      "exact_coordinate_count": 0,
+      "duplicate_place_ids": [],
+      "next_step": "resolve_adoption_blockers"
+    },
+    {
+      "candidate_id": "8a7a5bf3-a1d9-5324-8ebd-d6bc39148855",
+      "name": "ต้นหลิวอาหารเจ",
+      "province": "ปราจีนบุรี",
+      "category": "vegetarian",
+      "outcome": "NOT_READY",
+      "blockers": [
+        "unresolved_lifecycle_conflict",
+        "pending_manual_or_coordinate_confirmation",
+        "exact_candidate_coordinates_not_verified"
+      ],
+      "source_family_count": 4,
+      "exact_coordinate_count": 0,
+      "duplicate_place_ids": [],
+      "next_step": "resolve_adoption_blockers"
+    }
+  ],
+  "safety": {
+    "database_unchanged": true,
+    "production_json_writes": false,
+    "automatic_publication": false,
+    "trust_policy_lowered": false,
+    "commit_requires_full_eligibility": true
+  }
+}
