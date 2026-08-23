@@ -35,7 +35,7 @@ def _decode_evidence_value(raw):
 
 
 def _detail_evidence_for_place(con, place_id):
-    wanted = {"district", "subdistrict", "area", "opening_hours", "real_image", "description", "prachinlife_page_url"}
+    wanted = {"address", "district", "subdistrict", "area", "opening_hours", "phone", "website", "real_image", "description", "prachinlife_page_url"}
     rows = con.execute(
         "SELECT field_name,value_json,status,observed_at FROM place_evidence "
         "WHERE place_id=? ORDER BY observed_at DESC,evidence_id",
@@ -53,6 +53,28 @@ def _detail_evidence_for_place(con, place_id):
         value = _decode_evidence_value(row["value_json"])
         if value not in (None, "", [], {}):
             result[field] = value
+    return result
+
+
+def _detail_provenance_for_place(con, place_id):
+    wanted = {"address", "district", "subdistrict", "area", "opening_hours", "phone", "website", "real_image", "description", "prachinlife_page_url"}
+    columns = {row[1] for row in con.execute("PRAGMA table_info(place_evidence)").fetchall()}
+    provenance_columns = {"source_type", "source_name", "source_url", "source_record_id"}
+    if not provenance_columns.issubset(columns):
+        return {}
+    rows = con.execute(
+        "SELECT field_name,value_json,status,observed_at,source_type,source_name,source_url,source_record_id,evidence_id FROM place_evidence "
+        "WHERE place_id=? ORDER BY observed_at DESC,evidence_id", (place_id,),
+    ).fetchall()
+    result = {}
+    for row in rows:
+        field = str(row["field_name"] or "")
+        if field not in wanted or field in result: continue
+        status = str(row["status"] or "").casefold()
+        if status not in {"supported", "verified"}: continue
+        value = _decode_evidence_value(row["value_json"])
+        if value in (None, "", [], {}): continue
+        result[field] = {"status": status, "source_type": row["source_type"], "source_name": row["source_name"], "source_url": _public_http_url(row["source_url"] or _source_link_from_record_id(row["source_record_id"])), "observed_at": row["observed_at"]}
     return result
 
 
@@ -161,18 +183,20 @@ def export_prachinlife_json(database_path, output_path, province="ปราจ�
         places = []
         for r in rows:
             source = _best_source_for_place(con, r["place_id"])
-            external_links = _links_for_place(con, r["place_id"], r["website"])
             details = _detail_evidence_for_place(con, r["place_id"])
+            detail_provenance = _detail_provenance_for_place(con, r["place_id"])
+            resolved_website = r["website"] or details.get("website")
+            external_links = _links_for_place(con, r["place_id"], resolved_website)
             places.append({
                 "id": r["place_id"],
                 "name": r["canonical_name"],
                 "latitude": r["latitude"],
                 "longitude": r["longitude"],
-                "address": r["address_text"],
+                "address": r["address_text"] or details.get("address"),
                 "province": r["province"],
                 "categories": _decode_categories(r["categories_json"]),
-                "phone": r["phone"],
-                "website": r["website"],
+                "phone": r["phone"] or details.get("phone"),
+                "website": resolved_website,
                 "lifecycle": r["lifecycle"],
                 "source": "place_platform_v2",
                 "source_name": source["source_name"],
@@ -186,6 +210,7 @@ def export_prachinlife_json(database_path, output_path, province="ปราจ�
                 "image_url": details.get("real_image"),
                 "description": details.get("description"),
                 "prachinlife_page_url": details.get("prachinlife_page_url"),
+                "detail_provenance": detail_provenance,
             })
     finally:
         con.close()
