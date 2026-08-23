@@ -1,0 +1,97 @@
+{
+  "status": "PASS",
+  "policy_version": "4.19-phase4-coverage-reaudit-v1",
+  "scope": {
+    "province": "ปราจีนบุรี",
+    "category": "vegetarian"
+  },
+  "canonical": {
+    "province_place_count": 220,
+    "primary_category_count": 1,
+    "primary_names": [
+      "อาหารเจ ซั่นสี่"
+    ]
+  },
+  "funnel": {
+    "state_counts": {
+      "CANONICAL_PRIMARY": 1,
+      "PRECANONICAL": 2,
+      "PENDING_CONFIRMATION": 2,
+      "FOLLOWUP_EVIDENCE": 2,
+      "EXCLUDED_GENERAL_OR_MIXED_SCOPE": 3,
+      "READY_FOR_CONTROLLED_ADOPTION": 0
+    },
+    "accounted_place_names": [
+      "ฉันทนา",
+      "ซาลาเปา ขนมจีบ by Salon&Cafe' คลองรั้งสายใน",
+      "ต้นหลิวอาหารเจ",
+      "น้ำเต้าหู้ นมสด (บ้านเอื้อฯ304)",
+      "น้ำเต้าหู้ ร้านเหมยคลองรั้งสายในตรงข้าม7-11ซอยประปา",
+      "มังสวิรัติ🥕🥦🍞🫘",
+      "ร้านอาหารเจ AMITA VEGAN",
+      "อาหารเจ ซั่นสี่"
+    ],
+    "accounted_unique_count": 8,
+    "excluded_names": [
+      "ซาลาเปา ขนมจีบ by Salon&Cafe' คลองรั้งสายใน",
+      "น้ำเต้าหู้ นมสด (บ้านเอื้อฯ304)",
+      "น้ำเต้าหู้ ร้านเหมยคลองรั้งสายในตรงข้าม7-11ซอยประปา"
+    ],
+    "followup_names": [
+      "ฉันทนา",
+      "มังสวิรัติ🥕🥦🍞🫘"
+    ],
+    "pending_names": [
+      "ต้นหลิวอาหารเจ",
+      "ร้านอาหารเจ AMITA VEGAN"
+    ],
+    "eligible_names": []
+  },
+  "pending_queue": {
+    "total": 2,
+    "type_counts": {
+      "pending_coordinate_confirmation": 1,
+      "pending_manual_confirmation": 1
+    }
+  },
+  "closure_assessment": {
+    "all_ready_candidates_have_controlled_path": true,
+    "unresolved_candidates_are_explicitly_queued_or_followup": true,
+    "general_or_mixed_candidates_excluded_from_primary": true,
+    "pending_does_not_block_discovery": true,
+    "real_world_completeness_claimed": false,
+    "coverage_work_remains": true,
+    "phase4_final_gate_ready": true,
+    "reason": "Open coverage and manual-review work is explicitly classified and non-blocking; no eligible candidate is stranded before controlled adoption."
+  },
+  "next_priority_work": [
+    {
+      "priority": 1,
+      "work": "resolve_pending_confirmations",
+      "count": 2,
+      "blocking_phase_close": false
+    },
+    {
+      "priority": 2,
+      "work": "acquire_independent_identity_evidence",
+      "count": 2,
+      "blocking_phase_close": false
+    },
+    {
+      "priority": 3,
+      "work": "continue_vegetarian_coverage_discovery",
+      "province": "ปราจีนบุรี",
+      "blocking_phase_close": false
+    }
+  ],
+  "safety": {
+    "database_unchanged": true,
+    "database_writes": false,
+    "canonical_writes": false,
+    "precanonical_writes": false,
+    "pending_writes": false,
+    "production_json_writes": false,
+    "trust_policy_lowered": false,
+    "read_only_audit": true
+  }
+}
