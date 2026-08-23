@@ -17,7 +17,7 @@ class TestPhase2K1(unittest.TestCase):
     def test_k12_eat_category_uses_primary_type(self):
         text = ADAPTER.read_text(encoding="utf-8")
         self.assertIn(
-            'category: group === "eat" ? primaryType : group',
+            'group === "eat" || group === "service"',
             text,
         )
 

@@ -106,7 +106,7 @@
       place_type: primaryType,
       eat_type: primaryType,
       food_type: primaryType,
-      content_type: primaryType,
+      content_type: group,
       subtype: primaryType,
 
       phone: text(place.phone),
@@ -128,7 +128,10 @@
       lifecycle: text(place.lifecycle) || "unknown",
       categories,
       main_category: group,
-      category: group === "eat" ? primaryType : group,
+      category:
+        group === "eat" || group === "service"
+          ? primaryType
+          : group,
       source: "place_platform_v2",
       source_name: text(place.source_name),
       source_url: text(place.source_url),

@@ -766,6 +766,8 @@ function setMainCategory(
   scrollToResult = true
 ) {
 
+  window.PrachinLife?.core?.usageAnalytics?.track("category_view");
+
   resetNearMeForMainCategoryChange(
     category
   );
@@ -1515,6 +1517,8 @@ function updateServiceNearMeState(
 
 
 function activateServiceNearMe() {
+
+  window.PrachinLife?.core?.usageAnalytics?.track("near_me");
 
   if (userLocation) {
 
@@ -2350,6 +2354,8 @@ function performSearch() {
   }
 
 
+  window.PrachinLife?.core?.usageAnalytics?.track("search");
+
   const normalizedQuery =
     query.toLowerCase();
 
@@ -3132,6 +3138,8 @@ NEAR ME - EAT
 
 function activateNearMe() {
 
+  window.PrachinLife?.core?.usageAnalytics?.track("near_me");
+
   if (userLocation) {
 
     userLocation = null;
@@ -3215,6 +3223,8 @@ NEAR ME - VEGETARIAN
 ===================================================== */
 
 function activateVegetarianNearMe() {
+
+  window.PrachinLife?.core?.usageAnalytics?.track("near_me");
 
   if (userLocation) {
 
@@ -3312,6 +3322,8 @@ function bindGoEvents() {
 
 
 function activateGoNearMe() {
+
+  window.PrachinLife?.core?.usageAnalytics?.track("near_me");
 
   if (userLocation) {
 
@@ -3577,9 +3589,48 @@ function renderRecommended(
   const decisionResults = engine
     ? engine.recommend(getDecisionAssistantPlaces(), {limit:5})
     : [];
-  const placeItems = decisionResults.map(result => ({
-    kind:"place", item:result.place, decision:result
-  }));
+  if (decisionResults.length) window.PrachinLife?.core?.usageAnalytics?.track("decision_view");
+  const recommendedPlaceIdentityKey = place => {
+    const contentType = String(
+      place?.content_type
+        || place?.main_category
+        || "place"
+    ).toLowerCase();
+
+    const category = String(
+      place?.category || ""
+    ).toLowerCase();
+
+    const title = String(
+      place?.title || place?.name || ""
+    )
+      .toLocaleLowerCase("th-TH")
+      .replace(/\b(?:service\s+station|gas\s+station|station)\b/g, " ")
+      .replace(/ปั๊มน้ำมัน|ปั้มน้ำมัน|ปั๊ม|ปั้ม/g, " ")
+      .replace(/[^0-9a-zก-๙]+/g, "")
+      .trim();
+
+    return `${contentType}|${category}|${title}`;
+  };
+
+  const seenRecommendedPlaces = new Set();
+
+  const placeItems = decisionResults
+    .filter(result => {
+      const key = recommendedPlaceIdentityKey(
+        result?.place
+      );
+
+      if (!key || seenRecommendedPlaces.has(key)) {
+        return false;
+      }
+
+      seenRecommendedPlaces.add(key);
+      return true;
+    })
+    .map(result => ({
+      kind:"place", item:result.place, decision:result
+    }));
 
   let items = [...placeItems, ...dealItems];
   if (mode === "latest") {
@@ -3892,24 +3943,84 @@ function renderRecommendedDetailedCard(
   const place =
     entry.item;
 
+  const contentType =
+    String(
+      place?.content_type
+        || place?.main_category
+        || ""
+    ).toLowerCase();
+
+  const isServicePlace =
+    contentType === "service";
+
+  const isVegetarianPlace =
+    contentType === "vegetarian";
+
+  const isGoPlace =
+    contentType === "go";
+
   const title =
     window.PrachinLife.core.escapeHtml(
       place.title
+      || place.name
       || "ไม่ระบุชื่อ"
     );
 
-  const category =
-    window.PrachinLife.core.escapeHtml(
+  let categoryLabel = "";
+
+  if (isServicePlace) {
+    categoryLabel =
+      window.PrachinLife.modules.service
+        ?.CATEGORY_LABELS?.[
+          place?.category
+        ]
+      || place?.metadata?.category_label
+      || "บริการ";
+  }
+  else if (isVegetarianPlace) {
+    categoryLabel =
+      place?.metadata?.category_label
+      || "เจ / มังสวิรัติ";
+  }
+  else if (isGoPlace) {
+    categoryLabel =
+      place?.metadata?.category_label
+      || "สถานที่น่าสนใจ";
+  }
+  else {
+    categoryLabel =
       getEatCategoryLabel(
         place
-      )
+      );
+  }
+
+  const category =
+    window.PrachinLife.core.escapeHtml(
+      categoryLabel
     );
+
+  let locationLabel = "";
+
+  if (isServicePlace) {
+    locationLabel =
+      window.PrachinLife.modules.service
+        ?.getLocationLabel?.(
+          place
+        )
+      || "";
+  }
+
+  if (!locationLabel) {
+    locationLabel =
+      getEatLocationLabel(
+        place
+      );
+  }
 
   const location =
     window.PrachinLife.core.escapeHtml(
-      getEatLocationLabel(
-        place
-      )
+      locationLabel
+      || "ไม่ระบุพื้นที่"
     );
 
   const mapUrl =
@@ -3926,19 +4037,30 @@ function renderRecommendedDetailedCard(
         )
       : "";
 
+  const imageGroup =
+    isServicePlace
+      ? "service"
+      : isVegetarianPlace
+        ? "vegetarian"
+        : isGoPlace
+          ? "go"
+          : "eat";
+
+  const imageBlock =
+    window.PrachinLife.core.placeImage
+      .renderPlaceImage(
+        place,
+        imageGroup,
+        place?.title
+        || place?.name
+        || categoryLabel
+      );
+
   return `
     <article class="recommended-detail-card">
 
       <div class="recommended-detail-media">
-
-        <div class="recommended-detail-placeholder recommended-place-placeholder">
-          ${
-            place.category === "cafe"
-              ? "☕"
-              : "🍜"
-          }
-        </div>
-
+        ${imageBlock}
       </div>
 
       <div class="recommended-detail-body">
@@ -4002,9 +4124,6 @@ function renderRecommendedDetailedCard(
     </article>
   `;
 }
-
-
-
 
 function renderRecommendedSearch(
   items
@@ -4097,6 +4216,17 @@ function renderRecommendedSearch(
             return renderEatCard(
               item
             );
+          }
+
+
+          if (
+            item.content_type
+              === "service"
+          ) {
+
+            return window.PrachinLife.modules.service
+              ?.renderCard?.(item)
+              || "";
           }
 
 
