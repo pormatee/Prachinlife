@@ -1,0 +1,68 @@
+{
+  "status": "PASS",
+  "mode": "COMMIT",
+  "policy_version": "4.14-pending-coordinate-queue-v1",
+  "pending_candidate_count": 1,
+  "inserted_queue_count": 1,
+  "already_present_queue_count": 0,
+  "pending_queue_total": 2,
+  "queue_type_counts": {
+    "pending_coordinate_confirmation": 1,
+    "pending_manual_confirmation": 1
+  },
+  "pending_candidates": [
+    {
+      "candidate_id": "0b87b7f8-f9d6-58f9-871d-9d6d5f9172b1",
+      "candidate_key": "c3e2112eaf69247b73254c75242617e79d17db2351038ecde66cfef7269e4225",
+      "name": "ร้านอาหารเจ AMITA VEGAN",
+      "province": "ปราจีนบุรี",
+      "reason": "unresolved_exact_coordinates",
+      "current_state": "EXACT_COORDINATES_UNRESOLVED",
+      "next_action": "supply_valid_direct_coordinate_confirmation",
+      "queue_type": "pending_coordinate_confirmation",
+      "source_policy_version": "4.13-direct-coordinate-confirmation-v1"
+    }
+  ],
+  "queue_rows": [
+    {
+      "queue_id": "e03ec42a-7a5f-5230-810a-6902e6ca18e3",
+      "candidate_id": "8a7a5bf3-a1d9-5324-8ebd-d6bc39148855",
+      "reason": "unresolved_lifecycle_conflict",
+      "current_state": "STILL_UNRESOLVED",
+      "next_action": "supply_valid_direct_confirmation",
+      "status": "pending_manual_confirmation",
+      "source_policy_version": "4.6-lifecycle-conflict-resolution-v1",
+      "name": "ต้นหลิวอาหารเจ",
+      "province": "ปราจีนบุรี"
+    },
+    {
+      "queue_id": "ca2d58b9-9214-55dd-af55-5c50c73392b2",
+      "candidate_id": "0b87b7f8-f9d6-58f9-871d-9d6d5f9172b1",
+      "reason": "unresolved_exact_coordinates",
+      "current_state": "EXACT_COORDINATES_UNRESOLVED",
+      "next_action": "supply_valid_direct_coordinate_confirmation",
+      "status": "pending_coordinate_confirmation",
+      "source_policy_version": "4.13-direct-coordinate-confirmation-v1",
+      "name": "ร้านอาหารเจ AMITA VEGAN",
+      "province": "ปราจีนบุรี"
+    }
+  ],
+  "discovery_continues": true,
+  "next_discovery_work": {
+    "mode": "coverage",
+    "province": "ปราจีนบุรี",
+    "category": "vegetarian",
+    "pending_candidates_do_not_block_discovery": true
+  },
+  "safety": {
+    "non_queue_tables_unchanged": true,
+    "canonical_writes": false,
+    "precanonical_identity_or_evidence_writes": false,
+    "production_json_writes": false,
+    "automatic_adoption": false,
+    "automatic_publication": false,
+    "pending_candidate_blocks_discovery": false,
+    "trust_policy_lowered": false,
+    "queue_types_separated": true
+  }
+}

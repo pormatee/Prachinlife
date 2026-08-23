@@ -1,0 +1,36 @@
+PHASE 4.14 CHECKPOINT
+
+Baseline: 94610e4 content
+STATUS = PASS
+MODE = COMMIT simulation
+PENDING_CANDIDATES = 1
+INSERTED_QUEUE = 1
+PENDING_QUEUE_TOTAL = 2
+QUEUE_TYPES = {
+  pending_coordinate_confirmation: 1,
+  pending_manual_confirmation: 1
+}
+
+AMITA:
+REASON = unresolved_exact_coordinates
+STATE = EXACT_COORDINATES_UNRESOLVED
+NEXT = supply_valid_direct_coordinate_confirmation
+QUEUE_TYPE = pending_coordinate_confirmation
+
+REPLAY:
+INSERTED_QUEUE = 0
+ALREADY_PRESENT = 1
+
+DISCOVERY_CONTINUES = True
+NON_QUEUE_TABLES_UNCHANGED = True
+CANONICAL_WRITES = False
+PRECANONICAL_IDENTITY_EVIDENCE_WRITES = False
+PRODUCTION_WRITES = False
+AUTOMATIC_ADOPTION = False
+AUTOMATIC_PUBLICATION = False
+PENDING_BLOCKS_DISCOVERY = False
+TRUST_POLICY_LOWERED = False
+QUEUE_TYPES_SEPARATED = True
+
+Targeted tests: 5/5 OK
+Full regression merged validation tree: 829/829 OK
