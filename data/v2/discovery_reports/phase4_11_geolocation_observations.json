@@ -1,0 +1,33 @@
+[
+  {
+    "candidate_name": "ร้านอาหารเจ AMITA VEGAN",
+    "province": "ปราจีนบุรี",
+    "source_name": "Wongnai",
+    "source_family": "wongnai",
+    "source_url": "https://www.wongnai.com/restaurants/2107360fZ-ร้านอาหารเจ-amita-vegan-ท่าตูม",
+    "address_text": "701/177 ซอย5 หมู่10 ท่าตูม ศรีมหาโพธิ ปราจีนบุรี",
+    "subdistrict": "ท่าตูม",
+    "district": "ศรีมหาโพธิ",
+    "province_confirmed": "ปราจีนบุรี",
+    "location_relation": "หมู่บ้านไพรวี่1 ข้างโรงพยาบาลเกษมราษฎร์",
+    "latitude": null,
+    "longitude": null,
+    "evidence_kind": "candidate_address_location"
+  },
+  {
+    "candidate_name": "ร้านอาหารเจ AMITA VEGAN",
+    "province": "ปราจีนบุรี",
+    "source_name": "Kasemrad Prachinburi official",
+    "source_family": "kasemrad-official",
+    "source_url": "https://www.kasemrad.co.th/th/prachinburi/contact",
+    "address_text": "766 หมู่10 ตำบลท่าตูม อำเภอศรีมหาโพธิ จังหวัดปราจีนบุรี 25140",
+    "subdistrict": "ท่าตูม",
+    "district": "ศรีมหาโพธิ",
+    "province_confirmed": "ปราจีนบุรี",
+    "location_relation": "reference_landmark_only",
+    "latitude": 13.89862,
+    "longitude": 101.59631,
+    "coordinate_owner": "โรงพยาบาลเกษมราษฎร์ ปราจีนบุรี",
+    "evidence_kind": "landmark_geolocation_reference"
+  }
+]
