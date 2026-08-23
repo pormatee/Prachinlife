@@ -1,0 +1,34 @@
+PrachinLife V2 Phase 3.4 — Independent Web Evidence Acquisition
+
+Baseline checkpoint: 6841bd7 (Phase 3.3 committed by operator)
+Goal: turn explicit, provenance-backed public web observations into candidate-only phone/website evidence for the Phase 3.2 priority queue.
+
+Pilot manifest:
+- 8 independent web observations
+- 6 priority places represented
+- 8 unique source observations
+
+Acquisition result in development loop:
+- matched observations: 8
+- candidate places: 6
+- candidate claims: 10
+- phone claims: 8
+- website claims: 2
+- blocked observations: 0
+
+Safety invariants:
+- canonical writes: false
+- evidence DB writes: false
+- production JSON writes: false
+- trust policy lowered: false
+- candidate-only: true
+- canonical database unchanged: true
+- OSM is explicitly rejected as an "independent web" source in this phase
+- identity requires target rank + place_id + province + name similarity + valid provenance URL
+
+Regression:
+- Phase 3.4 targeted tests: 8/8 OK
+- Full tests_v2 regression: 713/713 OK
+
+Next stage:
+Verification + controlled evidence persistence/adoption. Candidate observations must not be published directly.

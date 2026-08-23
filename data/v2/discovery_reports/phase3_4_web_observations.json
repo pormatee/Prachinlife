@@ -1,0 +1,89 @@
+{
+  "schema_version": "phase3_4-web-observations-v1",
+  "generated_at": "2026-08-23T01:20:00+00:00",
+  "method": "current public web discovery with explicit source provenance; candidate-only intake",
+  "observations": [
+    {
+      "target_rank": 1,
+      "place_id": "0453d377-7379-526a-bfdd-a3a92044ffd2",
+      "observed_name": "Anchan Vegetarian Restaurant",
+      "province": "เชียงใหม่",
+      "source_name": "Anchan Vegetarian Restaurant official website",
+      "source_url": "https://anchanvegetarian.com/",
+      "source_record_id": "anchanvegetarian-home",
+      "phone": "+66 83 581 1689",
+      "website": "https://anchanvegetarian.com/"
+    },
+    {
+      "target_rank": 2,
+      "place_id": "8bf61ac7-2e41-517d-80d4-e14ec1b61c4c",
+      "observed_name": "AUM Vegetarian Food",
+      "province": "เชียงใหม่",
+      "source_name": "Tripadvisor claimed listing",
+      "source_url": "https://www.tripadvisor.com/Restaurant_Review-g293917-d1129373-Reviews-AUM_Vegetarian_Food-Chiang_Mai.html",
+      "source_record_id": "tripadvisor-d1129373",
+      "phone": "+66 89 853 9796"
+    },
+    {
+      "target_rank": 3,
+      "place_id": "7ede2f45-7b0f-55fc-843e-f6bff1138946",
+      "observed_name": "Baan Unrak Vegetarian Restaurant & Bakery",
+      "province": "กาญจนบุรี",
+      "source_name": "Tripadvisor claimed listing",
+      "source_url": "https://www.tripadvisor.com/Restaurant_Review-g303919-d3578670-Reviews-Baan_Unrak_Vegetarian_Restaurant_Bakery-Sangkhla_Buri_Kanchanaburi_Province.html",
+      "source_record_id": "tripadvisor-d3578670",
+      "phone": "+66 34 595 006"
+    },
+    {
+      "target_rank": 22,
+      "place_id": "d1251fc6-b0c5-56e3-b3cd-dbbf8feebac8",
+      "observed_name": "Chada vegetarian restaurant",
+      "province": "เชียงใหม่",
+      "source_name": "Wongnai listing",
+      "source_url": "https://www.wongnai.com/restaurants/2205676Xo-chada-vegetarian-restaurant",
+      "source_record_id": "wongnai-2205676Xo",
+      "phone": "+66 89 885 6875"
+    },
+    {
+      "target_rank": 22,
+      "place_id": "d1251fc6-b0c5-56e3-b3cd-dbbf8feebac8",
+      "observed_name": "Chada Vegetarian Restaurant Chiang Mai",
+      "province": "เชียงใหม่",
+      "source_name": "Tripadvisor claimed listing",
+      "source_url": "https://www.tripadvisor.com/Restaurant_Review-g293917-d24890735-Reviews-Chada_Vegetarian_Restaurant_Chiang_Mai-Chiang_Mai.html",
+      "source_record_id": "tripadvisor-d24890735",
+      "phone": "+66 89 885 6875"
+    },
+    {
+      "target_rank": 40,
+      "place_id": "80fd8e12-c5a7-5b8f-a7a6-1e40c0c6d9ca",
+      "observed_name": "Guru Kripa Restaurant Pattaya Thailand",
+      "province": "ชลบุรี",
+      "source_name": "Tripadvisor listing",
+      "source_url": "https://www.tripadvisor.com/Restaurant_Review-g293919-d25232117-Reviews-Guru_Kripa_Restaurant_Pattaya_Thailand-Pattaya_Chonburi_Province.html",
+      "source_record_id": "tripadvisor-d25232117",
+      "phone": "+66 63 002 0351"
+    },
+    {
+      "target_rank": 42,
+      "place_id": "73b8d824-1308-54ea-ac64-ffcae2dd32eb",
+      "observed_name": "Hua Hin Vegan Cafe & Wine",
+      "province": "ประจวบคีรีขันธ์",
+      "source_name": "Tripadvisor claimed listing",
+      "source_url": "https://www.tripadvisor.com/Restaurant_Review-g297922-d12483848-Reviews-Hua_Hin_Vegan_Cafe_Wine-Hua_Hin_Prachuap_Khiri_Khan_Province.html",
+      "source_record_id": "tripadvisor-d12483848",
+      "phone": "+66 92 536 6241"
+    },
+    {
+      "target_rank": 42,
+      "place_id": "73b8d824-1308-54ea-ac64-ffcae2dd32eb",
+      "observed_name": "Hua Hin Vegan Cafe & Wine",
+      "province": "ประจวบคีรีขันธ์",
+      "source_name": "Wanderlog listing",
+      "source_url": "https://wanderlog.com/place/details/1137651/hua-hin-vegan-cafe--wine",
+      "source_record_id": "wanderlog-1137651",
+      "phone": "+66 92 536 6241",
+      "website": "https://facebook.com/huahinvegancafe/"
+    }
+  ]
+}
