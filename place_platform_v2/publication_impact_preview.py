@@ -151,6 +151,9 @@ def preview_controlled_publication_impact(*, database_path: str | Path, repo_roo
     changed_records: set[tuple[str, str]] = set()
     field_impact_counts: Counter[str] = Counter()
     external_link_additions = 0
+    external_link_already_present = 0
+    already_published_field_counts: Counter[str] = Counter()
+    already_published_records: set[tuple[str, str]] = set()
     unexpected_change_count = 0
     destructive_change_count = 0
     overwrite_count = 0
@@ -172,6 +175,23 @@ def preview_controlled_publication_impact(*, database_path: str | Path, repo_roo
                 continue
             preview = _overlay_record(record, canonical[pid], pid, enrichment.get(pid))
             diffs = _diff(record, preview)
+
+            # Post-publication compatibility: a targeted contact may already be present
+            # in production. Count it as an approved already-published field rather than
+            # forcing a synthetic "addition" diff on every future preview.
+            metadata = record.get("metadata") if isinstance(record, dict) else {}
+            metadata = metadata if isinstance(metadata, dict) else {}
+            enr = enrichment.get(pid) or {}
+            for field in sorted(targeted_fields):
+                expected_value = enr.get(field)
+                if expected_value not in (None, "") and metadata.get(field) == expected_value:
+                    already_published_field_counts[field] += 1
+                    already_published_records.add((fn, source_id))
+
+            current_links = record.get("external_links") if isinstance(record, dict) else []
+            current_urls = {x.get("url") for x in (current_links or []) if isinstance(x, dict)}
+            expected_urls = {x.get("url") for x in ((enr.get("external_links") or [])) if isinstance(x, dict)}
+            external_link_already_present += len(current_urls & expected_urls)
             classified = []
             for change in diffs:
                 path = change["path"]
@@ -240,8 +260,19 @@ def preview_controlled_publication_impact(*, database_path: str | Path, repo_roo
                 for c in impact["changes"]
                 if c["path"] == expected_path and c["category"] == "targeted_contact_addition"
             ]
-            if len(matches) != 1:
-                blockers.append(f"targeted_field_impact_count:{pid}:{rev['field_name']}:{len(matches)}")
+            already = 0
+            for impact in impacts:
+                if impact["place_id"] != pid:
+                    continue
+                fn = impact["production_file"]; source_id = impact["production_record_id"]
+                record = records_by_file.get(fn, {}).get(source_id) or {}
+                md = record.get("metadata") if isinstance(record, dict) else {}
+                md = md if isinstance(md, dict) else {}
+                expected_value = (enrichment.get(pid) or {}).get(rev["field_name"])
+                if expected_value not in (None, "") and md.get(rev["field_name"]) == expected_value:
+                    already += 1
+            if len(matches) + already != 1:
+                blockers.append(f"targeted_field_impact_count:{pid}:{rev['field_name']}:{len(matches)+already}")
 
     db_hash_after = _sha256(db)
     prod_hash_after = {fn: _sha256(root / fn) for fn in FILES}
@@ -254,8 +285,13 @@ def preview_controlled_publication_impact(*, database_path: str | Path, repo_roo
         "adopted_place_count": len(place_ids),
         "mapped_place_count": sum(1 for pid in place_ids if mappings.get(pid)),
         "changed_production_record_count": len(changed_records),
-        "targeted_field_impact_counts": dict(sorted(field_impact_counts.items())),
-        "external_link_addition_count": external_link_additions,
+        "already_published_record_count": len(already_published_records),
+        "targeted_field_impact_counts": dict(sorted((field_impact_counts + already_published_field_counts).items())),
+        "pending_targeted_field_impact_counts": dict(sorted(field_impact_counts.items())),
+        "already_published_field_counts": dict(sorted(already_published_field_counts.items())),
+        "external_link_addition_count": external_link_additions + external_link_already_present,
+        "pending_external_link_addition_count": external_link_additions,
+        "external_link_already_present_count": external_link_already_present,
         "identity_change_count": identity_change_count,
         "overwrite_count": overwrite_count,
         "destructive_change_count": destructive_change_count,

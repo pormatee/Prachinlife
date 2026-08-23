@@ -6860,14 +6860,21 @@
       "diet_vegetarian": "only",
       "diet_vegan": null,
       "opening_hours": null,
-      "phone": null,
+      "phone": "+6634595006",
       "website": null,
       "province_relation_id": 1908777,
       "verified": true
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/7081658186",
-    "collected_at": "2026-08-18T01:02:09.413408+00:00"
+    "collected_at": "2026-08-18T01:02:09.413408+00:00",
+    "external_links": [
+      {
+        "type": "web",
+        "label": "Tripadvisor claimed listing",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g303919-d3578670-Reviews-Baan_Unrak_Vegetarian_Restaurant_Bakery-Sangkhla_Buri_Kanchanaburi_Province.html"
+      }
+    ]
   },
   {
     "id": "osm-node-6075210585",
@@ -7625,14 +7632,21 @@
       "diet_vegetarian": "only",
       "diet_vegan": null,
       "opening_hours": null,
-      "phone": null,
+      "phone": "+66630020351",
       "website": null,
       "province_relation_id": 1908773,
       "verified": true
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/11598073400",
-    "collected_at": "2026-08-18T01:09:06.113837+00:00"
+    "collected_at": "2026-08-18T01:09:06.113837+00:00",
+    "external_links": [
+      {
+        "type": "web",
+        "label": "Tripadvisor listing",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g293919-d25232117-Reviews-Guru_Kripa_Restaurant_Pattaya_Thailand-Pattaya_Chonburi_Province.html"
+      }
+    ]
   },
   {
     "id": "osm-node-4269653375",
@@ -9949,14 +9963,31 @@
       "diet_vegetarian": null,
       "diet_vegan": "only",
       "opening_hours": "Mo-Su 10:00-22:00",
-      "phone": null,
-      "website": null,
+      "phone": "+66925366241",
+      "website": "https://facebook.com/huahinvegancafe/",
       "province_relation_id": 1908809,
       "verified": true
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/5224403935",
-    "collected_at": "2026-08-18T01:30:29.982225+00:00"
+    "collected_at": "2026-08-18T01:30:29.982225+00:00",
+    "external_links": [
+      {
+        "type": "official_website",
+        "label": "เว็บไซต์",
+        "url": "https://facebook.com/huahinvegancafe/"
+      },
+      {
+        "type": "web",
+        "label": "Wanderlog listing",
+        "url": "https://wanderlog.com/place/details/1137651/hua-hin-vegan-cafe--wine"
+      },
+      {
+        "type": "web",
+        "label": "Tripadvisor claimed listing",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g297922-d12483848-Reviews-Hua_Hin_Vegan_Cafe_Wine-Hua_Hin_Prachuap_Khiri_Khan_Province.html"
+      }
+    ]
   },
   {
     "id": "osm-node-10958015405",
@@ -18745,14 +18776,21 @@
       "diet_vegetarian": "only",
       "diet_vegan": "yes",
       "opening_hours": "Th-Mo 11:30-20:00",
-      "phone": null,
-      "website": null,
+      "phone": "+66835811689",
+      "website": "https://anchanvegetarian.com/",
       "province_relation_id": 1908771,
       "verified": true
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/4477017880",
-    "collected_at": "2026-08-18T01:12:04.416149+00:00"
+    "collected_at": "2026-08-18T01:12:04.416149+00:00",
+    "external_links": [
+      {
+        "type": "web",
+        "label": "Anchan Vegetarian Restaurant official website",
+        "url": "https://anchanvegetarian.com/"
+      }
+    ]
   },
   {
     "id": "osm-node-5258746823",
@@ -18880,14 +18918,21 @@
       "diet_vegetarian": "only",
       "diet_vegan": "yes",
       "opening_hours": "Mo-Su 10:30-20:30",
-      "phone": null,
+      "phone": "+66898539796",
       "website": null,
       "province_relation_id": 1908771,
       "verified": true
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/5484616521",
-    "collected_at": "2026-08-18T01:12:04.416834+00:00"
+    "collected_at": "2026-08-18T01:12:04.416834+00:00",
+    "external_links": [
+      {
+        "type": "web",
+        "label": "Tripadvisor claimed listing",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g293917-d1129373-Reviews-AUM_Vegetarian_Food-Chiang_Mai.html"
+      }
+    ]
   },
   {
     "id": "osm-node-3371585452",
@@ -19314,14 +19359,26 @@
       "diet_vegetarian": "only",
       "diet_vegan": "yes",
       "opening_hours": "Mo-Su 08:30-20:00",
-      "phone": null,
+      "phone": "+66898856875",
       "website": null,
       "province_relation_id": 1908771,
       "verified": true
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/9872196618",
-    "collected_at": "2026-08-18T01:12:04.417322+00:00"
+    "collected_at": "2026-08-18T01:12:04.417322+00:00",
+    "external_links": [
+      {
+        "type": "wongnai",
+        "label": "Wongnai listing",
+        "url": "https://www.wongnai.com/restaurants/2205676Xo-chada-vegetarian-restaurant"
+      },
+      {
+        "type": "web",
+        "label": "Tripadvisor claimed listing",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g293917-d24890735-Reviews-Chada_Vegetarian_Restaurant_Chiang_Mai-Chiang_Mai.html"
+      }
+    ]
   },
   {
     "id": "osm-node-9999104956",

@@ -1,0 +1,41 @@
+{
+  "policy_version": "3.9-controlled-production-publication-v2",
+  "mode": "COMMIT",
+  "status": "PUBLISHED",
+  "release_id": "20260823T025240Z-8f78b7f1",
+  "published_record_count": 6,
+  "targeted_record_count": 6,
+  "targeted_field_impact_counts": {
+    "phone": 6,
+    "website": 2
+  },
+  "external_link_addition_count": 9,
+  "backup_dir": "/data/data/com.termux/files/home/Proprachin/data/v2/phase3_9_publication_backups/20260823T025240Z-8f78b7f1",
+  "rollback_available": true,
+  "automatic_rollback_performed": false,
+  "post_comparative_status": "PASS",
+  "post_readiness_status": "READY",
+  "backup_manifest": {
+    "production": {
+      "prachinlife_index.json": "a3933f8ab8efb0658d8c2c01cb76231fa105964ec2602dbaa28a3da28379b19e",
+      "vegetarian_index.json": "e29ba37653d152a536d1acfcffe3ee593316f07fd9e6b41e53fda9479d9b0d6b",
+      "go_index.json": "03b0bcce1ef8f61aedb3e0cb1b0cca345dbfd9c47aeddcbcf8acad5efb98208a",
+      "service_index.json": "2b086ba38c3496374478075b9be20bf8eb920b1f38d20da9330e00dce320b019"
+    },
+    "staging": {
+      "prachinlife_index.json": "084e9b7c36833f3845f11cfb36511e5c8c2a9b07db00abcb3c467a10ec3c0336",
+      "vegetarian_index.json": "e29ba37653d152a536d1acfcffe3ee593316f07fd9e6b41e53fda9479d9b0d6b",
+      "go_index.json": "03b0bcce1ef8f61aedb3e0cb1b0cca345dbfd9c47aeddcbcf8acad5efb98208a",
+      "service_index.json": "2b086ba38c3496374478075b9be20bf8eb920b1f38d20da9330e00dce320b019"
+    }
+  },
+  "safety": {
+    "database_unchanged": true,
+    "atomic_writes": true,
+    "scope_limited_to_preview": true,
+    "trust_policy_lowered": false,
+    "province_agnostic": true,
+    "production_shape_preserved": true,
+    "staging_synchronized": true
+  }
+}
