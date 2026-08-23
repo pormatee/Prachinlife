@@ -1,0 +1,36 @@
+[
+  {
+    "source_type": "web",
+    "source_name": "Wongnai",
+    "source_record_id": "wongnai-2950062Zv",
+    "source_url": "https://www.wongnai.com/restaurants/2950062Zv",
+    "name": "มังสวิรัติ🥕🥦🍞🫘",
+    "province": "ปราจีนบุรี",
+    "latitude": 14.053,
+    "longitude": 101.3689,
+    "phone": "0959546958",
+    "discovery_reasons": [
+      "source_classifies_vegetarian"
+    ],
+    "raw_attributes": {
+      "address_text": "313/19 ปราจีนตคาม หน้าเมือง เมืองปราจีนบุรี ปราจีนบุรี"
+    }
+  },
+  {
+    "source_type": "web",
+    "source_name": "Vegetarian Thailand directory",
+    "source_record_id": "prachinburi-tonliw-jay",
+    "source_url": "https://w55221469.readyplanet.site/17587090/",
+    "name": "ต้นหลิวอาหารเจ",
+    "province": "ปราจีนบุรี",
+    "latitude": 13.99,
+    "longitude": 101.78,
+    "phone": "095-917-6495",
+    "discovery_reasons": [
+      "source_lists_as_jay_vegetarian"
+    ],
+    "raw_attributes": {
+      "address_text": "ตำบลหนองกี่ อำเภอกบินทร์บุรี ปราจีนบุรี 25110"
+    }
+  }
+]

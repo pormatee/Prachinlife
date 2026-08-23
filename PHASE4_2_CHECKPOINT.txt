@@ -1,0 +1,18 @@
+PHASE 4.2 CHECKPOINT
+
+Baseline: 965b823
+Target: ปราจีนบุรี / vegetarian
+Source observations: 2
+New-place candidates: 2
+Existing-place matches: 0
+Review candidates: 0
+Candidate only: True
+Database unchanged: True
+Evidence writes: False
+Canonical writes: False
+Production JSON writes: False
+Automatic adoption: False
+Trust policy lowered: False
+Full regression: 758/758 OK
+
+Next: Phase 4.3 independent evidence acquisition + entity/identity verification for new-place candidates.
