@@ -1,0 +1,50 @@
+{
+  "status": "PASS",
+  "policy_version": "4.6-lifecycle-conflict-resolution-v1",
+  "candidate_count": 1,
+  "decision_counts": {
+    "UNRESOLVED_NEEDS_DIRECT_CONFIRMATION": 1
+  },
+  "decisions": [
+    {
+      "candidate_id": "8a7a5bf3-a1d9-5324-8ebd-d6bc39148855",
+      "name": "ต้นหลิวอาหารเจ",
+      "province": "ปราจีนบุรี",
+      "matched_fresh_observation_count": 2,
+      "fresh_lifecycle_observation_count": 1,
+      "fresh_lifecycle_source_family_count": 1,
+      "fresh_lifecycle_status_support": {
+        "permanently_closed": 1
+      },
+      "excluded_observations": [
+        {
+          "candidate_name": "ต้นหลิวอาหารเจ",
+          "province": "ปราจีนบุรี",
+          "source_name": "Local business search",
+          "source_family": "local-business-index",
+          "source_record_id": "ChIJUz1B_iZjHDERXunn3XNSprE",
+          "observed_name": "ต้นหลิวอาหารเจสาขา2ปิดขายถาวร",
+          "phone": "+66 87 965 8287",
+          "lifecycle_status": "permanently_closed",
+          "identity_scope": "possible_other_branch",
+          "fresh_checked_at": "2026-08-23",
+          "note": "Different phone and explicit branch-2 naming; must not be merged with the main candidate.",
+          "exclusion_reason": "branch_or_phone_identity_mismatch"
+        }
+      ],
+      "resolution_outcome": "UNRESOLVED_NEEDS_DIRECT_CONFIRMATION",
+      "resolved_lifecycle": null,
+      "next_step": "direct_operator_or_merchant_confirmation"
+    }
+  ],
+  "safety": {
+    "database_unchanged": true,
+    "database_writes": false,
+    "canonical_writes": false,
+    "precanonical_writes": false,
+    "production_json_writes": false,
+    "automatic_lifecycle_resolution": false,
+    "branch_identity_guard_enforced": true,
+    "trust_policy_lowered": false
+  }
+}

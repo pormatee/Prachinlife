@@ -1,0 +1,41 @@
+[
+  {
+    "candidate_name": "ต้นหลิวอาหารเจ",
+    "province": "ปราจีนบุรี",
+    "source_name": "Restaurant Guru",
+    "source_family": "restaurantguru",
+    "source_url": "https://restaurantguru.com/ต้นหลิวอาหารเจ-Nong-Ki",
+    "observed_name": "ต้นหลิวอาหารเจย้ายอยู่เส้นทางเขตุนิคมหนองกี่",
+    "phone": "+66 95 917 6495",
+    "lifecycle_status": "permanently_closed",
+    "identity_scope": "same_place",
+    "fresh_checked_at": "2026-08-23",
+    "note": "Current page explicitly marks the place permanently closed."
+  },
+  {
+    "candidate_name": "ต้นหลิวอาหารเจ",
+    "province": "ปราจีนบุรี",
+    "source_name": "Vegetarian Thailand directory",
+    "source_family": "vegetarian-thailand-directory",
+    "source_url": "https://w55221469.readyplanet.site/17587090/",
+    "observed_name": "ต้นหลิวอาหารเจ",
+    "phone": "095-917-6495",
+    "lifecycle_status": null,
+    "identity_scope": "same_place",
+    "fresh_checked_at": "2026-08-23",
+    "note": "Current directory listing confirms identity/contact but does not assert open/closed status."
+  },
+  {
+    "candidate_name": "ต้นหลิวอาหารเจ",
+    "province": "ปราจีนบุรี",
+    "source_name": "Local business search",
+    "source_family": "local-business-index",
+    "source_record_id": "ChIJUz1B_iZjHDERXunn3XNSprE",
+    "observed_name": "ต้นหลิวอาหารเจสาขา2ปิดขายถาวร",
+    "phone": "+66 87 965 8287",
+    "lifecycle_status": "permanently_closed",
+    "identity_scope": "possible_other_branch",
+    "fresh_checked_at": "2026-08-23",
+    "note": "Different phone and explicit branch-2 naming; must not be merged with the main candidate."
+  }
+]

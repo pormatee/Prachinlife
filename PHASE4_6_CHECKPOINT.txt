@@ -1,0 +1,26 @@
+PHASE 4.6 CHECKPOINT
+
+Baseline: 5807c91 content
+STATUS = PASS
+CANDIDATES = 1
+DECISIONS = {'UNRESOLVED_NEEDS_DIRECT_CONFIRMATION': 1}
+
+PLACE = ต้นหลิวอาหารเจ
+MATCHED_FRESH_OBSERVATIONS = 2
+FRESH_LIFECYCLE_OBSERVATIONS = 1
+FRESH_LIFECYCLE_SOURCE_FAMILIES = 1
+FRESH_STATUS_SUPPORT = {'permanently_closed': 1}
+EXCLUDED_BRANCH_OBSERVATIONS = 1
+RESOLVED_LIFECYCLE = None
+NEXT = direct_operator_or_merchant_confirmation
+
+DATABASE_UNCHANGED = True
+CANONICAL_WRITES = False
+PRECANONICAL_WRITES = False
+PRODUCTION_WRITES = False
+AUTOMATIC_LIFECYCLE_RESOLUTION = False
+BRANCH_IDENTITY_GUARD = True
+TRUST_POLICY_LOWERED = False
+
+Full regression in clean archived development tree: 781/781 OK.
+User working tree may run a higher count because it retains additional untracked regression tests.
