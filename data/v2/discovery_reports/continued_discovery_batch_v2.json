@@ -1,0 +1,287 @@
+{
+  "status": "PASS",
+  "policy_version": "4.9-continue-discovery-batch-v1",
+  "source_observation_count": 6,
+  "candidate_group_count": 5,
+  "batch_state_counts": {
+    "EXISTING_CANONICAL": 1,
+    "KNOWN_DISCOVERY_CANDIDATE": 1,
+    "NEW_DISCOVERY_CANDIDATE": 2,
+    "PENDING_MANUAL_REVIEW": 1
+  },
+  "new_candidate_count": 2,
+  "verification_queue_count": 2,
+  "batch_results": [
+    {
+      "candidate_key": "c3e2112eaf69247b73254c75242617e79d17db2351038ecde66cfef7269e4225",
+      "name": "ร้านอาหารเจ AMITA VEGAN",
+      "province": "ปราจีนบุรี",
+      "category": "vegetarian",
+      "batch_state": "NEW_DISCOVERY_CANDIDATE",
+      "next_step": "verify_identity_batch",
+      "source_observation_count": 2,
+      "independent_source_family_count": 2,
+      "source_families": [
+        "restaurantguru",
+        "wongnai"
+      ],
+      "phones": [
+        "0804653226"
+      ],
+      "has_coordinates": false,
+      "canonical_matches": [],
+      "pending_matches": [],
+      "precanonical_matches": [],
+      "observations": [
+        {
+          "candidate_group": "amita-vegan-tha-tum",
+          "name": "ร้านอาหารเจ AMITA VEGAN",
+          "province": "ปราจีนบุรี",
+          "category": "vegetarian",
+          "source_type": "web",
+          "source_name": "Wongnai",
+          "source_family": "wongnai",
+          "source_record_id": "2107360fZ",
+          "source_url": "https://www.wongnai.com/restaurants/2107360fZ-ร้านอาหารเจ-amita-vegan-ท่าตูม",
+          "phone": "+66804653226",
+          "address_text": "701/177 ซอย5 หมู่10 ท่าตูม ศรีมหาโพธิ ปราจีนบุรี",
+          "discovery_reasons": [
+            "source_classifies_jay",
+            "official_listing"
+          ]
+        },
+        {
+          "candidate_group": "amita-vegan-tha-tum",
+          "name": "ร้านอาหารเจ AMITA VEGAN",
+          "province": "ปราจีนบุรี",
+          "category": "vegetarian",
+          "source_type": "web",
+          "source_name": "Restaurant Guru",
+          "source_family": "restaurantguru",
+          "source_record_id": "si-maha-phot-amita",
+          "source_url": "https://restaurantguru.com/restaurant-Si-Maha-Phot-t1",
+          "address_text": "Si Maha Phot, Prachin Buri",
+          "discovery_reasons": [
+            "source_classifies_vegetarian"
+          ]
+        }
+      ]
+    },
+    {
+      "candidate_key": "d8655d689492b6cdab6b120cc77ed4e0bfff9b721c64c5ffa9c44b21d52b04d8",
+      "name": "ฉันทนา",
+      "province": "ปราจีนบุรี",
+      "category": "vegetarian",
+      "batch_state": "NEW_DISCOVERY_CANDIDATE",
+      "next_step": "verify_identity_batch",
+      "source_observation_count": 1,
+      "independent_source_family_count": 1,
+      "source_families": [
+        "thairemark"
+      ],
+      "phones": [],
+      "has_coordinates": false,
+      "canonical_matches": [],
+      "pending_matches": [],
+      "precanonical_matches": [],
+      "observations": [
+        {
+          "candidate_group": "chantana-nong-phrongs",
+          "name": "ฉันทนา",
+          "province": "ปราจีนบุรี",
+          "category": "vegetarian",
+          "source_type": "news",
+          "source_name": "Thairemark",
+          "source_family": "thairemark",
+          "source_record_id": "52244",
+          "source_url": "https://thairemark.com/variety/52244/",
+          "address_text": "ตรงข้ามอนุสาวรีย์ลายพระหัตถ์ ต.หนองโพรง อ.ศรีมหาโพธิ จ.ปราจีนบุรี",
+          "discovery_reasons": [
+            "news_reports_jay_food_shop"
+          ]
+        }
+      ]
+    },
+    {
+      "candidate_key": "5ea763f1e66e655bba237207e6374fa1f2fe31ac59a72b3f444e87abd3539f46",
+      "name": "มังสวิรัติ🥕🥦🍞🫘",
+      "province": "ปราจีนบุรี",
+      "category": "vegetarian",
+      "batch_state": "KNOWN_DISCOVERY_CANDIDATE",
+      "next_step": "continue_identity_evidence_acquisition",
+      "source_observation_count": 1,
+      "independent_source_family_count": 1,
+      "source_families": [
+        "wongnai"
+      ],
+      "phones": [
+        "0959546958"
+      ],
+      "has_coordinates": false,
+      "canonical_matches": [],
+      "pending_matches": [],
+      "precanonical_matches": [],
+      "observations": [
+        {
+          "candidate_group": "vegetarian-2950062",
+          "name": "มังสวิรัติ🥕🥦🍞🫘",
+          "province": "ปราจีนบุรี",
+          "category": "vegetarian",
+          "source_type": "web",
+          "source_name": "Wongnai",
+          "source_family": "wongnai",
+          "source_record_id": "2950062Zv",
+          "source_url": "https://www.wongnai.com/restaurants/2950062Zv-มังสวิรัติ",
+          "phone": "0959546958",
+          "address_text": "313/19 ปราจีนตคาม หน้าเมือง เมืองปราจีนบุรี ปราจีนบุรี",
+          "discovery_reasons": [
+            "source_classifies_vegetarian"
+          ]
+        }
+      ]
+    },
+    {
+      "candidate_key": "0785e092b2e1ffd7fdab1ae0fc931c49d814741f2a4c9ebc56535444ae008c6e",
+      "name": "อาหารเจ ปราจีนบุรี",
+      "province": "ปราจีนบุรี",
+      "category": "vegetarian",
+      "batch_state": "EXISTING_CANONICAL",
+      "next_step": "attach_as_existing_place_evidence_if_useful",
+      "source_observation_count": 1,
+      "independent_source_family_count": 1,
+      "source_families": [
+        "wongnai"
+      ],
+      "phones": [
+        "0821389588",
+        "0871438416",
+        "0903853130"
+      ],
+      "has_coordinates": false,
+      "canonical_matches": [
+        {
+          "place_id": "801410d8-00e5-58e9-b77e-f681bbdf6f5c",
+          "canonical_name": "อาหารเจ ซั่นสี่",
+          "phone_match": true,
+          "name_similarity": 0.516
+        }
+      ],
+      "pending_matches": [],
+      "precanonical_matches": [],
+      "observations": [
+        {
+          "candidate_group": "jay-prachin-city",
+          "name": "อาหารเจ ปราจีนบุรี",
+          "province": "ปราจีนบุรี",
+          "category": "vegetarian",
+          "source_type": "web",
+          "source_name": "Wongnai",
+          "source_family": "wongnai",
+          "source_record_id": "1388936GX",
+          "source_url": "https://www.wongnai.com/restaurants/1388936GX-อาหารเจ-ปราจีนบุรี-ปราจีนบุรี",
+          "phone": "+66871438416, 0821389588, 0903853130",
+          "address_text": "149 151 ถนนเทศบาลดำริ ตำบลหน้าเมือง อำเภอเมืองปราจีนบุรี ปราจีนบุรี",
+          "discovery_reasons": [
+            "source_classifies_jay"
+          ]
+        }
+      ]
+    },
+    {
+      "candidate_key": "5e8dccffa9b6db06469081d83e87e87d063d1e69de4fd54fdec0828941bfdf71",
+      "name": "ต้นหลิวอาหารเจ",
+      "province": "ปราจีนบุรี",
+      "category": "vegetarian",
+      "batch_state": "PENDING_MANUAL_REVIEW",
+      "next_step": "skip_until_pending_resolution",
+      "source_observation_count": 1,
+      "independent_source_family_count": 1,
+      "source_families": [
+        "vegetarian-thailand-directory"
+      ],
+      "phones": [
+        "0959176495"
+      ],
+      "has_coordinates": false,
+      "canonical_matches": [],
+      "pending_matches": [
+        {
+          "candidate_id": "8a7a5bf3-a1d9-5324-8ebd-d6bc39148855",
+          "proposed_name": "ต้นหลิวอาหารเจ",
+          "province": "ปราจีนบุรี",
+          "reason": "unresolved_lifecycle_conflict",
+          "current_state": "STILL_UNRESOLVED",
+          "next_action": "supply_valid_direct_confirmation"
+        }
+      ],
+      "precanonical_matches": [
+        {
+          "candidate_id": "8a7a5bf3-a1d9-5324-8ebd-d6bc39148855",
+          "candidate_key": "5e8dccffa9b6db06469081d83e87e87d063d1e69de4fd54fdec0828941bfdf71",
+          "proposed_name": "ต้นหลิวอาหารเจ",
+          "province": "ปราจีนบุรี",
+          "status": "verified_identity"
+        }
+      ],
+      "observations": [
+        {
+          "candidate_group": "tonliw-jay",
+          "name": "ต้นหลิวอาหารเจ",
+          "province": "ปราจีนบุรี",
+          "category": "vegetarian",
+          "source_type": "web",
+          "source_name": "Vegetarian Thailand directory",
+          "source_family": "vegetarian-thailand-directory",
+          "source_record_id": "prachinburi-tonliw-jay",
+          "source_url": "https://w55221469.readyplanet.site/17587090/",
+          "phone": "095-917-6495",
+          "address_text": "ตำบลหนองกี่ อำเภอกบินทร์บุรี ปราจีนบุรี 25110",
+          "discovery_reasons": [
+            "source_lists_as_jay_vegetarian"
+          ]
+        }
+      ]
+    }
+  ],
+  "verification_queue": [
+    {
+      "candidate_key": "c3e2112eaf69247b73254c75242617e79d17db2351038ecde66cfef7269e4225",
+      "name": "ร้านอาหารเจ AMITA VEGAN",
+      "province": "ปราจีนบุรี",
+      "category": "vegetarian",
+      "independent_source_family_count": 2,
+      "source_observation_count": 2,
+      "identity_evidence_ready": true,
+      "needs_second_independent_source": false,
+      "needs_geolocation": true,
+      "next_step": "verify_identity_batch"
+    },
+    {
+      "candidate_key": "d8655d689492b6cdab6b120cc77ed4e0bfff9b721c64c5ffa9c44b21d52b04d8",
+      "name": "ฉันทนา",
+      "province": "ปราจีนบุรี",
+      "category": "vegetarian",
+      "independent_source_family_count": 1,
+      "source_observation_count": 1,
+      "identity_evidence_ready": false,
+      "needs_second_independent_source": true,
+      "needs_geolocation": true,
+      "next_step": "acquire_second_independent_source"
+    }
+  ],
+  "pending_queue_count": 1,
+  "discovery_continues": true,
+  "safety": {
+    "database_unchanged": true,
+    "database_writes": false,
+    "canonical_writes": false,
+    "precanonical_writes": false,
+    "pending_queue_writes": false,
+    "production_json_writes": false,
+    "automatic_adoption": false,
+    "automatic_publication": false,
+    "pending_candidates_do_not_block_discovery": true,
+    "trust_policy_lowered": false,
+    "batch_deduplication_enabled": true
+  }
+}

@@ -1,0 +1,37 @@
+PHASE 4.9 CHECKPOINT
+
+Baseline: 60c1e08
+STATUS = PASS
+SOURCE_OBSERVATIONS = 6
+CANDIDATE_GROUPS = 5
+BATCH_STATE_COUNTS = {
+  EXISTING_CANONICAL: 1,
+  KNOWN_DISCOVERY_CANDIDATE: 1,
+  NEW_DISCOVERY_CANDIDATE: 2,
+  PENDING_MANUAL_REVIEW: 1
+}
+NEW_CANDIDATES = 2
+VERIFICATION_QUEUE = 2
+PENDING_QUEUE = 1
+DISCOVERY_CONTINUES = True
+
+NEW:
+- ร้านอาหารเจ AMITA VEGAN: sources=2, identity_evidence_ready=True
+- ฉันทนา: sources=1, needs_second_independent_source=True
+
+EXCLUDED FROM NEW:
+- อาหารเจ ปราจีนบุรี -> EXISTING_CANONICAL
+- มังสวิรัติ🥕🥦🍞🫘 -> KNOWN_DISCOVERY_CANDIDATE
+- ต้นหลิวอาหารเจ -> PENDING_MANUAL_REVIEW
+
+DATABASE_UNCHANGED = True
+CANONICAL_WRITES = False
+PRECANONICAL_WRITES = False
+PENDING_QUEUE_WRITES = False
+PRODUCTION_WRITES = False
+AUTOMATIC_ADOPTION = False
+AUTOMATIC_PUBLICATION = False
+TRUST_POLICY_LOWERED = False
+
+Targeted Phase 4.9 tests: 6/6 OK
+Full regression on merged current-backend/full-root validation tree: 803/803 OK
