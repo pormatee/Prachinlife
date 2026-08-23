@@ -1,0 +1,60 @@
+{
+  "status": "PASS",
+  "policy_version": "4.20-phase4-final-gate-v1",
+  "required_phases": [
+    15,
+    16,
+    17,
+    18,
+    19
+  ],
+  "phase_checkpoint_pass": {
+    "15": true,
+    "16": true,
+    "17": true,
+    "18": true,
+    "19": true
+  },
+  "acceptance": {
+    "required_checkpoints_pass": true,
+    "coverage_reaudit_pass": true,
+    "pending_does_not_block_discovery": true,
+    "no_real_world_completeness_claim": true,
+    "coverage_work_explicitly_remains": true,
+    "final_gate_ready_from_reaudit": true,
+    "controlled_adoption_requires_full_eligibility": true,
+    "no_ready_candidate_stranded": true,
+    "database_integrity_ok": true
+  },
+  "database": {
+    "integrity_check": "ok",
+    "foreign_key_errors": 0,
+    "canonical_places": 919,
+    "precanonical_candidates": 2,
+    "pending_reviews": 2
+  },
+  "coverage_snapshot": {
+    "canonical_primary": 1,
+    "accounted_unique": 8,
+    "coverage_work_remains": true,
+    "real_world_completeness_claimed": false
+  },
+  "freeze": {
+    "phase": "4",
+    "freeze_ready": true,
+    "freeze_scope": "discovery coverage and controlled new-place adoption foundation",
+    "open_work_carries_forward": true,
+    "open_work_is_non_blocking": true
+  },
+  "safety": {
+    "database_unchanged": true,
+    "database_writes": false,
+    "canonical_writes": false,
+    "precanonical_writes": false,
+    "pending_writes": false,
+    "production_json_writes": false,
+    "automatic_publication": false,
+    "trust_policy_lowered": false,
+    "read_only_gate": true
+  }
+}
