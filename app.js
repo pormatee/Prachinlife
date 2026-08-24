@@ -487,6 +487,29 @@ EVENT BINDING
 
 function bindEvents() {
 
+  if (
+    !document.documentElement.dataset
+      .pilotPlaceDetailBound
+  ) {
+    document.documentElement.dataset
+      .pilotPlaceDetailBound = "1";
+
+    document.addEventListener(
+      "click",
+      event => {
+        const target = event.target;
+
+        if (
+          target instanceof Element &&
+          target.closest("[data-place-detail-key]")
+        ) {
+          window.PrachinLife?.core?.usageAnalytics
+            ?.track("place_detail");
+        }
+      }
+    );
+  }
+
   bindSearchEvents();
 
   bindRefreshEvent();
@@ -937,6 +960,100 @@ RECOMMENDED BUTTONS
 ===================================================== */
 
 function bindRecommendedEvents() {
+
+  const pilotRecommendedList =
+    document.getElementById("recommendedList");
+
+  if (
+    pilotRecommendedList &&
+    !pilotRecommendedList.dataset.pilotLearningBound
+  ) {
+    pilotRecommendedList.dataset.pilotLearningBound = "1";
+
+    pilotRecommendedList.addEventListener(
+      "click",
+      event => {
+        const target = event.target;
+
+        if (!(target instanceof Element)) return;
+
+        const feedback =
+          target.closest("[data-pilot-feedback]");
+
+        if (feedback) {
+          const value =
+            feedback.dataset.pilotFeedback;
+
+          if (value === "helpful") {
+            window.PrachinLife?.core?.usageAnalytics
+              ?.track("decision_feedback_helpful");
+          }
+
+          if (value === "not_helpful") {
+            window.PrachinLife?.core?.usageAnalytics
+              ?.track("decision_feedback_not_helpful");
+          }
+
+          const actions =
+            feedback.closest(".pilot-feedback-actions");
+
+          if (actions) {
+            actions
+              .querySelectorAll("[data-pilot-feedback]")
+              .forEach(button => {
+                const selected =
+                  button === feedback;
+
+                button.classList.toggle(
+                  "active",
+                  selected
+                );
+
+                button.setAttribute(
+                  "aria-pressed",
+                  selected ? "true" : "false"
+                );
+              });
+
+            let status =
+              actions.querySelector(
+                ".pilot-feedback-status"
+              );
+
+            if (!status) {
+              status =
+                document.createElement("span");
+
+              status.className =
+                "pilot-feedback-status";
+
+              status.setAttribute(
+                "role",
+                "status"
+              );
+
+              actions.appendChild(status);
+            }
+
+            status.textContent =
+              "ขอบคุณสำหรับความคิดเห็น";
+          }
+
+          return;
+        }
+
+        if (
+          target.closest("[data-pilot-map-action]")
+        ) {
+          window.PrachinLife?.core?.usageAnalytics
+            ?.track("map_action");
+
+          window.PrachinLife?.core?.usageAnalytics
+            ?.track("decision_select");
+        }
+      }
+    );
+  }
 
   document
     .querySelectorAll(
@@ -3590,6 +3707,14 @@ function renderRecommended(
     ? engine.recommend(getDecisionAssistantPlaces(), {limit:5})
     : [];
   if (decisionResults.length) window.PrachinLife?.core?.usageAnalytics?.track("decision_view");
+
+  const pilotBrain =
+    window.PrachinLife?.core?.pilotBrainV0;
+
+  const pilotDecisionResults =
+    pilotBrain
+      ? pilotBrain.build(decisionResults)
+      : decisionResults;
   const recommendedPlaceIdentityKey = place => {
     const contentType = String(
       place?.content_type
@@ -3615,7 +3740,7 @@ function renderRecommended(
 
   const seenRecommendedPlaces = new Set();
 
-  const placeItems = decisionResults
+  const placeItems = pilotDecisionResults
     .filter(result => {
       const key = recommendedPlaceIdentityKey(
         result?.place
@@ -4093,11 +4218,45 @@ function renderRecommendedDetailedCard(
 
         <p>
           ${window.PrachinLife.core.escapeHtml(
-            entry.decision && window.PrachinLife?.core?.decisionAssistant
-              ? window.PrachinLife.core.decisionAssistant.reasonText(entry.decision)
-              : "สถานที่ที่ PrachinLife มีข้อมูลอยู่ในระบบ"
+            entry.decision && window.PrachinLife?.core?.pilotBrainV0
+              ? (
+                  window.PrachinLife.core.pilotBrainV0.explain(entry.decision)
+                  || window.PrachinLife.core.decisionAssistant?.reasonText(entry.decision)
+                  || "สถานที่ที่ PrachinLife มีข้อมูลอยู่ในระบบ"
+                )
+              : (
+                  entry.decision && window.PrachinLife?.core?.decisionAssistant
+                    ? window.PrachinLife.core.decisionAssistant.reasonText(entry.decision)
+                    : "สถานที่ที่ PrachinLife มีข้อมูลอยู่ในระบบ"
+                )
           )}
         </p>
+
+        ${
+          entry.decision && window.PrachinLife?.core?.pilotBrainV0
+            ? `
+              <div class="recommended-detail-actions pilot-feedback-actions">
+                <button
+                  type="button"
+                  class="recommended-detail-button"
+                  data-pilot-feedback="helpful"
+                  aria-pressed="false"
+                >
+                  ช่วยตัดสินใจได้
+                </button>
+
+                <button
+                  type="button"
+                  class="recommended-detail-button"
+                  data-pilot-feedback="not_helpful"
+                  aria-pressed="false"
+                >
+                  ยังไม่ค่อยช่วย
+                </button>
+              </div>
+            `
+            : ""
+        }
 
         ${
           mapUrl
@@ -4106,6 +4265,7 @@ function renderRecommendedDetailedCard(
 
                 <a
                   class="recommended-detail-button"
+                  data-pilot-map-action="1"
                   href="${window.PrachinLife.core.escapeAttribute(mapUrl)}"
                   target="_blank"
                   rel="noopener noreferrer"
