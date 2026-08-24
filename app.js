@@ -2476,11 +2476,23 @@ function performSearch() {
   const normalizedQuery =
     query.toLowerCase();
 
+  const searchIntentEngine =
+    window.PrachinLife?.core?.searchIntentV1;
+
+  const searchIntent =
+    searchIntentEngine
+      ? searchIntentEngine.parse(query)
+      : {
+          group: null,
+          category: null,
+          province: null,
+          near_me: false,
+          residual: normalizedQuery
+        };
+
 
   const isVegetarianIntent =
-    /เจ|มังสวิรัติ|vegetarian|vegan/i.test(
-      query
-    );
+    searchIntent.group === "vegetarian";
 
   const vegetarianSearchSource =
     isVegetarianIntent
@@ -2505,6 +2517,24 @@ function performSearch() {
           .filter(Boolean)
           .join(" ")
           .toLowerCase();
+
+        if (searchIntent.group === "vegetarian") {
+          if (
+            searchIntent.province
+            &&
+            place.location?.province !== searchIntent.province
+          ) {
+            return false;
+          }
+
+          if (!searchIntent.residual) {
+            return true;
+          }
+
+          return text.includes(
+            searchIntent.residual
+          );
+        }
 
         return text.includes(
           normalizedQuery
@@ -2561,25 +2591,161 @@ function performSearch() {
   }
 
 
+  /*
+   * =====================================================
+   * PILOT V1 - SERVICE SEARCH / INTENT ROUTER V0
+   *
+   * Known service intent must be resolved against the
+   * trusted primary service directory before falling back
+   * to generic cross-content search.
+   * =====================================================
+   */
+
+  const serviceIntentCategory =
+    searchIntent.group === "services"
+      ? searchIntent.category
+      : null;
+
+  if (serviceIntentCategory) {
+    const serviceMatches =
+      primaryServicePlaces.filter(
+        place => {
+          if (
+            String(place?.category || "").toLowerCase()
+              !== serviceIntentCategory
+          ) {
+            return false;
+          }
+
+          if (
+            searchIntent.province
+            &&
+            place?.location?.province !== searchIntent.province
+          ) {
+            return false;
+          }
+
+          if (!searchIntent.residual) {
+            return true;
+          }
+
+          const searchableText = [
+            place?.title,
+            place?.name,
+            place?.metadata?.category_label,
+            place?.location?.subdistrict,
+            place?.location?.district,
+            place?.location?.province
+          ]
+            .filter(Boolean)
+            .join(" ")
+            .toLowerCase();
+
+          return searchableText.includes(
+            searchIntent.residual
+          );
+        }
+      );
+
+    if (serviceMatches.length > 0) {
+      currentMainCategory = "services";
+      currentServiceCategory = serviceIntentCategory;
+      filteredServicePlaces = serviceMatches;
+      currentServicePage = 1;
+
+      updateMainCategoryButtons();
+      hideAllOptionGroups();
+      hideAllResultSections();
+
+      window.PrachinLife.ui.showElement(
+        "servicesOptions"
+      );
+
+      window.PrachinLife.ui.showElement(
+        "serviceResultSection"
+      );
+
+      updateServiceButtons();
+      renderServicePlaces();
+
+      window.PrachinLife.ui.setText(
+        "serviceResultCount",
+        `${filteredServicePlaces.length} แห่ง`
+      );
+
+      scrollToResults();
+      return;
+    }
+  }
+
+
+  /*
+   * Explicit Go-category search may use safe non-review
+   * local places without promoting them into Primary.
+   *
+   * Broad Go browse/search continues to use primaryGoPlaces.
+   */
+  const explicitGoCategorySearch =
+    searchIntent.group === "go"
+    &&
+    searchIntent.category
+    &&
+    searchIntent.category !== "go";
+
+  const goSearchSource =
+    explicitGoCategorySearch
+      ? allGoPlaces.filter(
+          place =>
+            place?.metadata?.needs_review !== true
+        )
+      : primaryGoPlaces;
+
   const goMatches =
-    primaryGoPlaces.filter(
+    goSearchSource.filter(
       place => {
+        if (searchIntent.group === "go") {
+          if (
+            explicitGoCategorySearch
+            &&
+            String(place?.category || "").toLowerCase()
+              !== searchIntent.category
+          ) {
+            return false;
+          }
+
+          if (
+            searchIntent.province
+            &&
+            place?.location?.province !== searchIntent.province
+          ) {
+            return false;
+          }
+
+          if (!searchIntent.residual) {
+            return true;
+          }
+        }
+
         const text = [
-          place.title,
-          place.category,
-          place.metadata?.category_label,
-          place.location?.district,
-          place.location?.province,
+          place?.title,
+          place?.name,
+          place?.category,
+          place?.metadata?.category_label,
+          place?.location?.district,
+          place?.location?.province
         ]
           .filter(Boolean)
           .join(" ")
           .toLowerCase();
 
         return text.includes(
-          normalizedQuery
+          searchIntent.group === "go"
+            ? searchIntent.residual
+            : normalizedQuery
         );
       }
     );
+
 
   if (
     goMatches.length > 0
@@ -2609,6 +2775,105 @@ function performSearch() {
 
     scrollToResults();
 
+    return;
+  }
+
+
+  /*
+   * =====================================================
+   * PILOT V1 - KNOWN INTENT FAIL CLOSED
+   *
+   * Once a trusted intent is understood, never fall back
+   * to unrelated cross-category results.
+   * =====================================================
+   */
+
+  if (searchIntent.group === "go") {
+    currentMainCategory = "go";
+    filteredGoPlaces = [];
+
+    updateMainCategoryButtons();
+    hideAllOptionGroups();
+    hideAllResultSections();
+
+    window.PrachinLife.ui.showElement(
+      "goOptions"
+    );
+
+    window.PrachinLife.ui.showElement(
+      "goResultSection"
+    );
+
+    renderGoPlaces();
+
+    window.PrachinLife.ui.setText(
+      "goResultCount",
+      searchIntent.category === "temple"
+        ? "ยังไม่มีวัดที่พร้อมแสดงในรายการหลัก"
+        : "ยังไม่มีสถานที่ตรงกับคำค้นนี้"
+    );
+
+    scrollToResults();
+    return;
+  }
+
+  if (searchIntent.group === "services") {
+    currentMainCategory = "services";
+    currentServiceCategory =
+      searchIntent.category || "all";
+
+    filteredServicePlaces = [];
+    currentServicePage = 1;
+
+    updateMainCategoryButtons();
+    hideAllOptionGroups();
+    hideAllResultSections();
+
+    window.PrachinLife.ui.showElement(
+      "servicesOptions"
+    );
+
+    window.PrachinLife.ui.showElement(
+      "serviceResultSection"
+    );
+
+    updateServiceButtons();
+    renderServicePlaces();
+
+    window.PrachinLife.ui.setText(
+      "serviceResultCount",
+      "ยังไม่มีบริการตรงกับคำค้นนี้"
+    );
+
+    scrollToResults();
+    return;
+  }
+
+  if (searchIntent.group === "vegetarian") {
+    currentMainCategory = "vegetarian";
+    filteredVegetarianPlaces = [];
+    currentVegetarianPage = 1;
+
+    updateMainCategoryButtons();
+    hideAllOptionGroups();
+    hideAllResultSections();
+
+    window.PrachinLife.ui.showElement(
+      "vegetarianOptions"
+    );
+
+    window.PrachinLife.ui.showElement(
+      "vegetarianResultSection"
+    );
+
+    renderVegetarianPlaces();
+
+    window.PrachinLife.ui.setText(
+      "vegetarianResultCount",
+      "ยังไม่มีร้านตรงกับคำค้นนี้"
+    );
+
+    scrollToResults();
     return;
   }
 
