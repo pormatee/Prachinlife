@@ -1,0 +1,58 @@
+{
+  "all_public_match_staging": true,
+  "database_counts": {
+    "place_evidence": 5207,
+    "places": 919
+  },
+  "database_sha256": "bb4c5e0e5fe4ef4c53869ae666862ca77533ad6f51a7d2d97caf8937d9b21fd0",
+  "detail_coverage": {
+    "address": 2,
+    "area": 1,
+    "description": 1,
+    "district": 2,
+    "opening_hours": 3,
+    "phone": 5,
+    "places": 220,
+    "real_image": 0,
+    "subdistrict": 2,
+    "website": 27
+  },
+  "public_files": {
+    "go_index.json": {
+      "matches_staging": true,
+      "production_count": 44,
+      "production_sha256": "8e66a66ee40d8fd8f01d36115a03ed43d4f064562ebbf282a7da921982e6c745",
+      "staging_count": 44,
+      "staging_sha256": "8e66a66ee40d8fd8f01d36115a03ed43d4f064562ebbf282a7da921982e6c745"
+    },
+    "prachinlife_index.json": {
+      "matches_staging": true,
+      "production_count": 71,
+      "production_sha256": "a7541a221a124b206ffc93ebe71ce716dbd83df38ddf5d95bf61117392a86d1e",
+      "staging_count": 71,
+      "staging_sha256": "a7541a221a124b206ffc93ebe71ce716dbd83df38ddf5d95bf61117392a86d1e"
+    },
+    "service_index.json": {
+      "matches_staging": true,
+      "production_count": 121,
+      "production_sha256": "2b086ba38c3496374478075b9be20bf8eb920b1f38d20da9330e00dce320b019",
+      "staging_count": 121,
+      "staging_sha256": "2b086ba38c3496374478075b9be20bf8eb920b1f38d20da9330e00dce320b019"
+    },
+    "vegetarian_index.json": {
+      "matches_staging": true,
+      "production_count": 700,
+      "production_sha256": "38d94b3543470899fc4efe846ba200958420d263aeb6bd263137ed9afe3b0aae",
+      "staging_count": 700,
+      "staging_sha256": "38d94b3543470899fc4efe846ba200958420d263aeb6bd263137ed9afe3b0aae"
+    }
+  },
+  "status": "PASS",
+  "switch": {
+    "automatic_rollback_performed": false,
+    "database_changed": false,
+    "public_user_web_switched": true,
+    "rollback_available": true,
+    "status": "SWITCHED"
+  }
+}
