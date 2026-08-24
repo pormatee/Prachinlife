@@ -31,6 +31,7 @@ def _sniff_image_type(data: bytes, declared: str = "", filename: str = "") -> st
     raise ValueError("unsupported image type; use JPEG, PNG, or WebP")
 if str(ROOT) not in sys.path: sys.path.insert(0, str(ROOT))
 from place_platform_v2.admin_drafts import AdminDraftService, AdminDraftStore, AdminDraftStatus
+from place_platform_v2.admin_verified_workflow import preview_verified_update, commit_verified_update
 from place_platform_v2.admin_media import AdminMediaStore, MAX_UPLOAD_BYTES
 
 class AdminHandler(SimpleHTTPRequestHandler):
@@ -90,6 +91,14 @@ class AdminHandler(SimpleHTTPRequestHandler):
                 with AdminMediaStore(self.media_database,self.media_directory) as store:
                     asset=store.save(data=data,original_name=original_name,content_type=content_type)
                 self._json(201,{"status":"ok","media":{"media_id":asset.media_id,"url":asset.url,"content_type":asset.content_type,"size_bytes":asset.size_bytes,"sha256":asset.sha256,"original_name":asset.original_name},"canonical_write":False,"publication":False}); return
+            if path=="/api/admin/verified-update/preview":
+                body=self._body_json()
+                result=preview_verified_update(repo_root=ROOT,database_path=self.server.admin_canonical_database,payload=body)
+                self._json(200,result); return
+            if path=="/api/admin/verified-update/commit":
+                body=self._body_json()
+                result=commit_verified_update(repo_root=ROOT,database_path=self.server.admin_canonical_database,payload=body.get("payload") or {},confirm=str(body.get("confirm") or ""))
+                self._json(200,{"status":"ok","result":result}); return
             if path=="/api/admin/evidence-drafts":
                 result=self.service.persist(self._payload())
                 self._json(201,{"status":"ok","draft":{"draft_id":result.draft_id,"operation":result.operation,"review_status":result.status,"target_place_id":result.target_place_id,"candidate_place_id":result.candidate_place_id,"changes_count":result.changes_count,"created_at":result.created_at},"canonical_write":False,"publication":False}); return
