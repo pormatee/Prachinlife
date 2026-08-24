@@ -4631,7 +4631,7 @@ function renderEatCard(
 
 
   return `
-    <article class="promotion-card eat-card eat-v1-card" data-place-id="${window.PrachinLife.core.escapeAttribute(place?.id || "")}">
+    <article class="promotion-card eat-card eat-v1-card" data-place-id="${window.PrachinLife.core.escapeAttribute(place?.id || "")}" data-v2-place-id="${window.PrachinLife.core.escapeAttribute(place?.metadata?.v2_place_id || "")}">
       <div class="promotion-image-wrap eat-image-wrap">
 
         ${window.PrachinLife.core.placeImage.renderPlaceImage(

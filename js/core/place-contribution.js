@@ -71,6 +71,10 @@
         handoff: "manual_admin_import",
         canonical_write: false,
         publication: false,
+        trust_tier: "untrusted_community_report",
+        adoption_eligible: false,
+        admin_approval_eligible: false,
+        requires_independent_verification: true,
         created_at: new Date().toISOString()
       }
     };
@@ -142,7 +146,7 @@
     dialog.className = "place-contribution-dialog";
     dialog.innerHTML = `
       <form method="dialog" class="place-contribution-form">
-        <h3>เสนอแก้ไขข้อมูล</h3>
+        <h3>แจ้งข้อมูล / เสนอข้อมูล</h3>
         <p class="place-contribution-help">
           ${esc(placeName || "สถานที่")} — ข้อมูลจะยังไม่เปลี่ยนบน PrachinLife
           จนกว่าจะผ่านการตรวจสอบหลักฐาน
@@ -198,13 +202,13 @@
 
   function attachButton(card) {
     if (!(card instanceof HTMLElement)) return;
-    const placeId = text(card.dataset.placeId);
+    const placeId = text(card.dataset.v2PlaceId || card.dataset.placeId);
     if (!placeId || card.querySelector(".place-contribution-button")) return;
     const body = card.querySelector(".promotion-body") || card;
     const button = document.createElement("button");
     button.type = "button";
     button.className = "place-contribution-button";
-    button.textContent = "เสนอแก้ไขข้อมูล";
+    button.textContent = "แจ้งข้อมูล / เสนอข้อมูล";
     button.addEventListener("click", event => {
       event.preventDefault();
       event.stopPropagation();

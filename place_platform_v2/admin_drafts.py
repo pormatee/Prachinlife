@@ -480,6 +480,19 @@ class AdminDraftStore:
     def review(self, draft_id: str, decision: str, note: str = "") -> dict[str, Any]:
         if decision not in {AdminDraftStatus.APPROVED, AdminDraftStatus.REJECTED}:
             raise ValueError("decision must be approved or rejected")
+        if decision == AdminDraftStatus.APPROVED:
+            row = self._connection.execute(
+                "SELECT payload_json FROM admin_evidence_drafts WHERE draft_id = ? LIMIT 1",
+                (draft_id,),
+            ).fetchone()
+            if row is None:
+                raise ValueError("draft is missing or already reviewed")
+            payload = json.loads(row["payload_json"])
+            if _is_untrusted_community_report(payload):
+                raise ValueError(
+                    "community report is HOLD-only and cannot be approved directly; "
+                    "verify independently and create a separate operator evidence draft"
+                )
         latest_id = self._latest_draft_id_for_subject(draft_id)
         if latest_id is not None and latest_id != draft_id:
             raise ValueError("only the latest draft version can be reviewed")
@@ -501,6 +514,15 @@ class AdminDraftStore:
         self._reconcile_superseded_pending()
         return {"draft_id": draft_id, "review_status": decision, "review_note": note.strip(), "reviewed_at": now}
 
+
+
+def _is_untrusted_community_report(payload: Mapping[str, Any]) -> bool:
+    metadata = payload.get("contribution_metadata") or {}
+    return (
+        isinstance(metadata, Mapping)
+        and metadata.get("origin") == "public_suggest_edit"
+        and metadata.get("trust_tier") == "untrusted_community_report"
+    )
 
 def _parse_optional_datetime(value: Any) -> datetime | None:
     if value in (None, ""):

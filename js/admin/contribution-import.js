@@ -27,6 +27,13 @@
     if (!payload.source || !text(payload.source.source_name)) throw new Error("ไม่มี source_name");
     if (!validHttpUrl(payload.source.source_url)) throw new Error("source_url ไม่ถูกต้อง");
     if (!Array.isArray(payload.changes) || !payload.changes.length) throw new Error("ไม่มี changes");
+    const meta = payload.contribution_metadata || {};
+    if (meta.origin !== "public_suggest_edit") throw new Error("origin ไม่รองรับ");
+    if (meta.canonical_write !== false || meta.publication !== false) throw new Error("community report ต้องไม่มี canonical/public write");
+    if (meta.trust_tier !== "untrusted_community_report") throw new Error("trust_tier ไม่ปลอดภัย");
+    if (meta.adoption_eligible !== false || meta.admin_approval_eligible !== false) throw new Error("community report ต้องไม่ eligible for adoption/approval");
+    if (meta.requires_independent_verification !== true) throw new Error("ต้องกำหนด independent verification");
+
     for (const change of payload.changes) {
       if (!change || !ALLOWED_FIELDS.has(text(change.field_name))) {
         throw new Error(`field ไม่อนุญาต: ${text(change?.field_name)}`);

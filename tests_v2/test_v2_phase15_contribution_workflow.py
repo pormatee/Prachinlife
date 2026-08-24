@@ -57,7 +57,9 @@ class Phase15ContributionWorkflowTest(unittest.TestCase):
         self.assertIn('fetch("/api/admin/evidence-drafts"', text)
         self.assertIn('"evidence_draft_only"', text)
         self.assertNotIn("/approve", text)
-        self.assertNotIn("canonical_write", text)
+        self.assertIn('meta.canonical_write !== false', text)
+        self.assertIn('meta.publication !== false', text)
+        self.assertIn('meta.trust_tier !== "untrusted_community_report"', text)
 
     def test_1504_end_to_end_import_creates_pending_candidate_only(self):
         with tempfile.TemporaryDirectory() as td:
