@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>PrachinLife — Import Suggest Edit</title>
+  <link rel="stylesheet" href="admin.css">
+  <style>
+    .contribution-shell{max-width:900px;margin:30px auto;padding:0 16px}
+    .contribution-panel{background:#fff;border:1px solid #e3eae5;border-radius:18px;padding:20px}
+    .contribution-panel pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#f7faf8;border-radius:12px;padding:14px;max-height:420px;overflow:auto}
+    .contribution-actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+    .contribution-actions button{border:0;border-radius:999px;padding:10px 16px;background:#17633b;color:#fff;font:inherit;font-weight:700}
+    .contribution-actions button:disabled{opacity:.45}
+    #contributionStatus{margin:12px 0;color:#315541}
+  </style>
+</head>
+<body>
+  <main class="contribution-shell">
+    <div class="admin-header-actions">
+      <a class="admin-link-button secondary" href="admin-review.html">← Review Queue</a>
+      <a class="admin-link-button secondary" href="admin-view.html">Admin View</a>
+    </div>
+    <section class="contribution-panel">
+      <h1>นำเข้า “เสนอแก้ไขข้อมูล”</h1>
+      <p>
+        หน้านี้รับไฟล์ <code>prachinlife-contribution-v1</code> จากเว็บสาธารณะ
+        แล้วส่งเข้า Evidence Draft Queue เดิมเท่านั้น ไม่มี canonical write และไม่มี publication อัตโนมัติ
+      </p>
+      <div class="contribution-actions">
+        <input id="contributionFile" type="file" accept="application/json,.json">
+        <button id="contributionImportBtn" type="button" disabled>นำเข้าคิวตรวจสอบ</button>
+      </div>
+      <p id="contributionStatus" aria-live="polite">เลือกไฟล์เพื่อเริ่มตรวจรูปแบบ</p>
+      <pre id="contributionPreview"></pre>
+    </section>
+  </main>
+  <script src="js/admin/contribution-import.js?v=phase15"></script>
+</body>
+</html>

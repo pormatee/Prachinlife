@@ -1,0 +1,15 @@
+PHASE 15 USER CONTRIBUTION / SUGGEST EDIT CHECKPOINT
+BASE_HEAD = 17d3e11
+PHASE15_TESTS = 10 OK
+PUBLIC_SUGGEST_EDIT_UI = ready
+PUBLIC_DIRECT_POST = false
+HANDOFF = manual_admin_import
+ADMIN_IMPORT = existing_evidence_draft_endpoint
+EVIDENCE_STATUS = candidate
+DUPLICATE_GUARD = preserved
+REVIEW_VERSIONING = existing_pipeline
+CENTRAL_DB_CHANGED = false
+CANONICAL_WRITE = false
+AUTOMATIC_PUBLICATION = false
+TRUST_POLICY_LOWERED = false
+BACKUP = /data/data/com.termux/files/usr/tmp/prachinlife-phase15-20260824-094823
