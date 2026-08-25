@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <title>PrachinLife Admin Dashboard</title>
+  <link rel="stylesheet" href="admin-dashboard.css?v=admin-dashboard-v1-session-safe-20260825">
+</head>
+<body>
+<main class="dash-shell">
+  <header class="dash-header">
+    <div>
+      <p class="eyebrow">PRACHINLIFE • ADMIN CONTROL CENTER</p>
+      <h1>ภาพรวม PrachinLife</h1>
+      <p class="muted">Dashboard สำหรับดูการใช้งาน session ปัจจุบัน และสถานะระบบ</p>
+    </div>
+    <nav class="actions">
+      <a href="admin-view.html">แก้ไขปรับปรุงข้อมูล</a><a href="index.html">Home</a>
+      <a href="admin.html">เพิ่ม / แก้ไขข้อมูล</a>
+      <a href="admin-review.html">Review Queue</a>
+      <a href="admin-verified-update.html">Verified Update</a>
+    </nav>
+  </header>
+
+  <section class="notice">
+    <strong>Analytics V1:</strong>
+    ตัวเลขพฤติกรรมด้านล่างเป็นเฉพาะ session ปัจจุบันของ browser นี้
+    เพื่อรักษา privacy contract เดิมของ Pilot
+  </section>
+
+  <section class="cards">
+    <article><span>Events ใน session</span><strong id="events">0</strong><small>sessionStorage only</small></article>
+    <article><span>Search</span><strong id="searches">0</strong><small>session นี้</small></article>
+    <article><span>Near Me</span><strong id="nearMe">0</strong><small>ไม่เก็บพิกัดดิบ</small></article>
+    <article><span>Place Detail</span><strong id="placeDetail">0</strong><small>session นี้</small></article>
+    <article><span>AI Decision</span><strong id="decision">0</strong><small>view + select</small></article>
+    <article><span>Map Action</span><strong id="mapAction">0</strong><small>session นี้</small></article>
+  </section>
+
+  <section class="grid2">
+    <article class="panel">
+      <div class="panel-head">
+        <div><p class="eyebrow">BEHAVIOR</p><h2>พฤติกรรมใน session นี้</h2></div>
+        <button id="refreshBtn">รีเฟรช</button>
+      </div>
+      <div id="eventTable" class="event-table"></div>
+    </article>
+
+    <article class="panel">
+      <p class="eyebrow">SYSTEM</p>
+      <h2>สถานะข้อมูลหน้าเว็บ</h2>
+      <div id="dataHealth" class="health">กำลังตรวจ...</div>
+    </article>
+  </section>
+
+  <section class="panel">
+    <p class="eyebrow">ADMIN TOOLS</p>
+    <h2>Control Center</h2>
+    <div class="tool-grid">
+      <a href="admin.html"><strong>สถานที่ / ข้อมูล</strong><span>เพิ่มและแก้ไขผ่าน Evidence Draft</span></a>
+      <a href="admin-review.html"><strong>Review Queue</strong><span>ตรวจ Draft ก่อนอนุมัติ</span></a>
+      <a href="admin-verified-update.html"><strong>Verified Update</strong><span>อัปเดตผ่าน workflow ที่ตรวจสอบแล้ว</span></a>
+      <a href="admin-view.html"><strong>แก้ไขปรับปรุงข้อมูล</strong><span>มุมมองแบบหน้าเว็บผู้ใช้สำหรับเลือกสถานที่และแก้ไข</span></a><a href="index.html"><strong>Home / Public Web</strong><span>กลับไปหน้าเว็บผู้ใช้จริง</span></a>
+    </div>
+  </section>
+
+  <section class="panel future">
+    <p class="eyebrow">NEXT ANALYTICS LAYER</p>
+    <h2>Central Analytics Collector</h2>
+    <p>จำนวนผู้ใช้ทั้งหมด, Sessions ข้ามทุกเครื่อง, New vs Returning และ Zero Result รวม จะเพิ่มใน Phase ถัดไป โดยไม่เปลี่ยน privacy contract ของ Pilot จนกว่าจะออกแบบ collector กลางและ policy ให้ชัดเจน</p>
+  </section>
+</main>
+<script src="js/core/usage-analytics.js?v=phase8-final-20260823"></script>
+<script src="js/admin/dashboard.js?v=admin-dashboard-v1-session-safe-20260825"></script>
+</body>
+</html>
