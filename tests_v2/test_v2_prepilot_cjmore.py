@@ -126,6 +126,13 @@ class TestPrePilotCJMore(unittest.TestCase):
             "buildShoppingMerchantFilters();",
         ):
             self.assertIn(marker, app)
+    def test_app_cache_bust_for_prepilot_shopping(self):
+        html = (ROOT / "index.html").read_text(encoding="utf-8")
+        self.assertIn(
+            "app.js?v=prepilot-shopping-20260825",
+            html,
+        )
+
 
 if __name__ == "__main__":
     unittest.main()
