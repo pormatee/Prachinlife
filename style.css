@@ -5103,3 +5103,33 @@ body.place-detail-open {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
+
+/* =====================================================
+   PRE-PILOT MASTER IMAGE V2
+   ===================================================== */
+
+.promotion-image-wrap {
+  position: relative;
+}
+
+.place-master-badge {
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+  z-index: 2;
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: rgba(20, 24, 31, 0.72);
+  color: #fff;
+  font-size: 0.68rem;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+  pointer-events: none;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.place-master-badge.hidden {
+  display: none;
+}
