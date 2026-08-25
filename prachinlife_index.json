@@ -1,6 +1,56 @@
 [
   {
     "schema_version": "1.1",
+    "id": "cjmore-a7c2bff1e69dccf2",
+    "content_type": "deal",
+    "original_type": "campaign",
+    "title": "ซีเจลดเต็มพิกัด ( 25 ส.ค.-24 ก.ย.69 )",
+    "summary": "แคมเปญหรือโปรโมชั่นจาก CJ MORE",
+    "category": "shopping",
+    "tags": [
+      "deal",
+      "cj more",
+      "campaign",
+      "แคมเปญโปรโมชั่น",
+      "cjmore",
+      "ซีเจ",
+      "ซีเจ มอร์",
+      "แคมเปญ",
+      "national"
+    ],
+    "provider": {
+      "name": "CJ MORE",
+      "type": "merchant"
+    },
+    "location": {
+      "scope": "national",
+      "country": "TH",
+      "province": null,
+      "district": null,
+      "subdistrict": null,
+      "place_name": null,
+      "latitude": null,
+      "longitude": null
+    },
+    "source": {
+      "name": "CJ MORE Official",
+      "url": "https://www.cjmore.co.th/upload/promotion/e-book/196/index.html",
+      "type": "official_promotion",
+      "verified": true
+    },
+    "image_url": "https://www.cjmore.co.th/upload/promotion/196.jpg",
+    "published_at": null,
+    "expires_at": null,
+    "collected_at": "2026-08-25T05:50:34.770056+00:00",
+    "metadata": {
+      "old_price": 0,
+      "new_price": 0,
+      "expiry_text": "ตรวจสอบรายละเอียดจาก CJ MORE",
+      "urgent": false
+    }
+  },
+  {
+    "schema_version": "1.1",
     "id": "lotus-ed3c7c6f903a2117",
     "content_type": "deal",
     "original_type": "campaign",

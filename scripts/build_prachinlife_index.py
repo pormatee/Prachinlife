@@ -242,6 +242,26 @@ def build_deal_tags(
         )
 
     if (
+        "cj more" in merchant_text
+        or "cjmore" in merchant_text
+    ):
+
+        add_tag(
+            tags,
+            "cjmore",
+        )
+
+        add_tag(
+            tags,
+            "ซีเจ",
+        )
+
+        add_tag(
+            tags,
+            "ซีเจ มอร์",
+        )
+
+    if (
         promotion_type
         == "coupon"
     ):

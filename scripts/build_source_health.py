@@ -11,6 +11,7 @@ OUTPUT_FILE = META_DIR / "sources.json"
 SOURCES = {
     "bigc": META_DIR / "bigc.json",
     "lotus": META_DIR / "lotus.json",
+    "cjmore": META_DIR / "cjmore.json",
 }
 
 

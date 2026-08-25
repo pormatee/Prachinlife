@@ -26,6 +26,7 @@ FRONTEND_FILE = (
 SOURCE_FILES = [
     NORMALIZED_DIR / "bigc.json",
     NORMALIZED_DIR / "lotus.json",
+    NORMALIZED_DIR / "cjmore.json",
 ]
 
 

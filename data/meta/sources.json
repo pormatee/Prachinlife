@@ -14,6 +14,13 @@
       "last_attempt_at": "2026-08-24T23:48:46.740876+00:00",
       "last_success_at": "2026-08-24T23:48:46.740876+00:00",
       "last_error": null
+    },
+    "cjmore": {
+      "status": "fresh",
+      "record_count": 1,
+      "last_attempt_at": "2026-08-25T05:50:34.775172+00:00",
+      "last_success_at": "2026-08-25T05:50:34.775172+00:00",
+      "last_error": null
     }
   }
 }
