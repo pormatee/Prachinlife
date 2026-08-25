@@ -167,6 +167,27 @@ def _best_source_for_place(con, place_id):
             return {"source_name": "OpenStreetMap", "source_url": link["url"]}
     return {"source_name": "แหล่งข้อมูลสาธารณะ", "source_url": None}
 
+
+def _core_v2_state_for_place(con, place_id):
+    """Read latest Core Place Verification V2 state from append-only revisions."""
+    try:
+        rows = con.execute(
+            "SELECT after_values_json FROM place_revisions WHERE place_id=? "
+            "ORDER BY created_at DESC,rowid DESC", (place_id,),
+        ).fetchall()
+    except sqlite3.OperationalError:
+        return None
+    for row in rows:
+        try:
+            payload = json.loads(row[0] or "{}")
+        except Exception:
+            continue
+        state = str(payload.get("core_v2_state") or "").strip()
+        if state:
+            return state
+    return None
+
+
 def export_prachinlife_json(database_path, output_path, province="ปราจีนบุรี"):
     db = Path(database_path).resolve()
     out = Path(output_path).resolve()
@@ -176,12 +197,19 @@ def export_prachinlife_json(database_path, output_path, province="ปราจ�
         rows = con.execute(
             "SELECT place_id,canonical_name,latitude,longitude,address_text,province,"
             "categories_json,phone,website,lifecycle FROM places "
-            "WHERE province=? AND latitude IS NOT NULL AND longitude IS NOT NULL "
+            "WHERE province=? "
             "ORDER BY canonical_name COLLATE NOCASE, place_id",
             (province,),
         ).fetchall()
         places = []
         for r in rows:
+            core_v2_state = _core_v2_state_for_place(con, r["place_id"])
+            has_coordinates = r["latitude"] is not None and r["longitude"] is not None
+            coordinate_pending = core_v2_state == "VERIFIED_PLACE_COORDINATE_PENDING"
+            # Fail closed: null-coordinate rows are public only when a prior Core V2
+            # controlled adoption explicitly marked them as a verified place shell.
+            if not has_coordinates and not coordinate_pending:
+                continue
             source = _best_source_for_place(con, r["place_id"])
             details = _detail_evidence_for_place(con, r["place_id"])
             detail_provenance = _detail_provenance_for_place(con, r["place_id"])
@@ -211,6 +239,12 @@ def export_prachinlife_json(database_path, output_path, province="ปราจ�
                 "description": details.get("description"),
                 "prachinlife_page_url": details.get("prachinlife_page_url"),
                 "detail_provenance": detail_provenance,
+                "verification_state": core_v2_state,
+                "verified_place": core_v2_state in {
+                    "VERIFIED_PLACE_COORDINATE_PENDING", "VERIFIED_NEAR_ME_READY"
+                },
+                "near_me_eligible": bool(has_coordinates) and core_v2_state != "VERIFIED_PLACE_COORDINATE_PENDING",
+                "coordinate_status": "verified" if has_coordinates else "pending_review",
             })
     finally:
         con.close()

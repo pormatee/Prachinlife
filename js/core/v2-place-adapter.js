@@ -55,10 +55,19 @@
   function toLegacyPlace(place) {
     if (!place || typeof place !== "object") return null;
     const name = text(place.name);
-    const latitude = Number(place.latitude);
-    const longitude = Number(place.longitude);
+    const coordinateValuesPresent =
+      place.latitude !== null && place.latitude !== undefined &&
+      place.longitude !== null && place.longitude !== undefined &&
+      String(place.latitude).trim() !== "" && String(place.longitude).trim() !== "";
+    const latitude = coordinateValuesPresent ? Number(place.latitude) : null;
+    const longitude = coordinateValuesPresent ? Number(place.longitude) : null;
+    const hasCoordinates =
+      coordinateValuesPresent && Number.isFinite(latitude) && Number.isFinite(longitude);
+    const coordinatePending =
+      text(place.verification_state) === "VERIFIED_PLACE_COORDINATE_PENDING" ||
+      text(place.coordinate_status) === "pending_review";
 
-    if (!name || !Number.isFinite(latitude) || !Number.isFinite(longitude)) {
+    if (!name || (!hasCoordinates && !coordinatePending)) {
       return null;
     }
 
@@ -78,19 +87,22 @@
     const address = text(place.address);
     const displayArea = address || province || "ปราจีนบุรี";
 
-    const mapsUrl =
-      `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-        `${latitude},${longitude}`
-      )}`;
+    const mapsUrl = hasCoordinates
+      ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+          `${latitude},${longitude}`
+        )}`
+      : "";
 
     return {
-      id: text(place.id) || `v2-${latitude}-${longitude}-${name}`,
+      id: text(place.id) || (hasCoordinates
+        ? `v2-${latitude}-${longitude}-${name}`
+        : `v2-coordinate-pending-${name}`),
       title: name,
       name,
-      latitude,
-      longitude,
-      lat: latitude,
-      lng: longitude,
+      latitude: hasCoordinates ? latitude : null,
+      longitude: hasCoordinates ? longitude : null,
+      lat: hasCoordinates ? latitude : null,
+      lng: hasCoordinates ? longitude : null,
       province,
       area: displayArea,
       district: text(place.district) || displayArea,
@@ -123,7 +135,11 @@
       maps_url: mapsUrl,
       map_url: mapsUrl,
       google_maps_url: mapsUrl,
-      location_status: "found",
+      location_status: hasCoordinates ? "found" : "coordinate_pending",
+      verification_state: text(place.verification_state),
+      verified_place: place.verified_place === true,
+      near_me_eligible: place.near_me_eligible !== false && hasCoordinates,
+      coordinate_status: hasCoordinates ? "verified" : "pending_review",
 
       lifecycle: text(place.lifecycle) || "unknown",
       categories,
