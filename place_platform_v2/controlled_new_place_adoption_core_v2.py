@@ -141,7 +141,8 @@ def evaluate_controlled_new_place_adoption_core_v2(
 
 
 def run_controlled_new_place_adoption_core_v2(
-    *, database_path, coordinate_report_paths=(), commit=False, adopted_at=None
+    *, database_path, coordinate_report_paths=(), commit=False, adopted_at=None,
+    candidate_ids=(),
 ) -> dict[str, Any]:
     adopted_at = adopted_at or datetime.now(timezone.utc)
     if adopted_at.tzinfo is None:
@@ -153,6 +154,19 @@ def run_controlled_new_place_adoption_core_v2(
         coordinate_report_paths=coordinate_report_paths,
     )
     eligible = [x for x in evaluation["decisions"] if x["canonical_eligible"]]
+    requested_candidate_ids = {str(x) for x in candidate_ids if str(x)}
+    if requested_candidate_ids:
+        known_candidate_ids = {str(x["candidate_id"]) for x in evaluation["decisions"]}
+        unknown = requested_candidate_ids - known_candidate_ids
+        if unknown:
+            raise RuntimeError(
+                "controlled adoption scope contains unknown candidate_ids: "
+                + ",".join(sorted(unknown))
+            )
+        eligible = [
+            x for x in eligible
+            if str(x["candidate_id"]) in requested_candidate_ids
+        ]
     coordinate_details = _load_coordinate_details(coordinate_report_paths)
 
     con = sqlite3.connect(db)
@@ -363,6 +377,8 @@ def run_controlled_new_place_adoption_core_v2(
     return {
         "status": "PASS",
         "mode": "COMMIT" if commit else "DRY_RUN",
+        "requested_candidate_ids": sorted(requested_candidate_ids),
+        "scoped_commit": bool(requested_candidate_ids),
         "policy_version": POLICY_VERSION,
         "eligible_count": len(eligible),
         "near_me_ready_count": evaluation["near_me_ready_count"],

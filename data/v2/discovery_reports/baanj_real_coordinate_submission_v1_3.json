@@ -1,0 +1,21 @@
+{
+  "added_place_ids": [
+    "47b7efe5-b179-5bb8-9463-de487b3ad8f3"
+  ],
+  "automatic_approval": false,
+  "automatic_publication": false,
+  "candidate_id": "03e9ce35-d725-502d-8f59-1abfd1b8aeb9",
+  "canonical_coordinate": null,
+  "near_me_enabled": false,
+  "place_count_after": 920,
+  "place_count_before": 919,
+  "place_id": "47b7efe5-b179-5bb8-9463-de487b3ad8f3",
+  "review_status": "pending_review",
+  "status": "PASS",
+  "submission_id": "c00cccdb-1f26-5f3a-b51e-0456d9d1f8fa",
+  "submitted_coordinate": {
+    "latitude": 14.076182,
+    "longitude": 100.633498
+  },
+  "trust_policy_lowered": false
+}

@@ -1,0 +1,19 @@
+{
+  "approved_coordinate": {
+    "latitude": 14.076182,
+    "longitude": 100.633498
+  },
+  "automatic_approval": false,
+  "automatic_publication": false,
+  "core_v2_state": "VERIFIED_NEAR_ME_READY",
+  "full_regression_on_frozen_baseline": "PASS",
+  "near_me_enabled": true,
+  "pilot_publication": "data/v2/exports/baanj_pathum_pilot_v2.json",
+  "place": "Baan J Veggie House",
+  "place_id": "47b7efe5-b179-5bb8-9463-de487b3ad8f3",
+  "production_prachinburi_export_changed": false,
+  "review_status": "APPLIED",
+  "status": "PASS",
+  "submission_id": "c00cccdb-1f26-5f3a-b51e-0456d9d1f8fa",
+  "trust_policy_lowered": false
+}

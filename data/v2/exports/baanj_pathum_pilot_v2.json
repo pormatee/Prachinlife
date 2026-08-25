@@ -1,0 +1,53 @@
+{
+  "automatic_publication": false,
+  "count": 1,
+  "places": [
+    {
+      "address": null,
+      "area": null,
+      "categories": [
+        "vegetarian"
+      ],
+      "coordinate_status": "verified",
+      "description": null,
+      "detail_provenance": {},
+      "district": null,
+      "external_links": [
+        {
+          "label": "www.thaithurkic.com",
+          "type": "web",
+          "url": "https://www.thaithurkic.com/baan-j-veggie-house-099-262-8951"
+        },
+        {
+          "label": "www.mangsawirat.com",
+          "type": "web",
+          "url": "https://www.mangsawirat.com/content/20908/%E0%B8%A3%E0%B8%A7%E0%B8%A1%E0%B8%A3%E0%B9%89%E0%B8%B2%E0%B8%99%E0%B8%AD%E0%B8%B2%E0%B8%AB%E0%B8%B2%E0%B8%A3%E0%B8%A1%E0%B8%B1%E0%B8%87%E0%B8%AA%E0%B8%A7%E0%B8%B4%E0%B8%A3%E0%B8%B1%E0%B8%95%E0%B8%B4-%E0%B9%80%E0%B8%88-%E0%B8%A7%E0%B8%B5%E0%B9%81%E0%B8%81%E0%B8%99-%E0%B8%9A%E0%B8%A3%E0%B8%B4%E0%B8%81%E0%B8%B2%E0%B8%A3-delivery"
+        }
+      ],
+      "id": "47b7efe5-b179-5bb8-9463-de487b3ad8f3",
+      "image_url": null,
+      "latitude": 14.076182,
+      "lifecycle": "unknown",
+      "longitude": 100.633498,
+      "name": "Baan J Veggie House",
+      "near_me_eligible": true,
+      "opening_hours": null,
+      "phone": null,
+      "prachinlife_page_url": null,
+      "province": "ปทุมธานี",
+      "real_image": null,
+      "source": "place_platform_v2",
+      "source_name": "www.thaithurkic.com",
+      "source_url": "https://www.thaithurkic.com/baan-j-veggie-house-099-262-8951",
+      "subdistrict": null,
+      "verification_state": "VERIFIED_NEAR_ME_READY",
+      "verified_place": true,
+      "website": null
+    }
+  ],
+  "production_switch": false,
+  "province": "ปทุมธานี",
+  "publication_scope": "controlled_single_place_pilot",
+  "schema_version": "prachinlife-v2-baanj-pathum-pilot-1",
+  "trust_policy_lowered": false
+}
