@@ -444,6 +444,8 @@ async function init() {
 
     buildVegetarianProvinceFilters();
 
+    buildShoppingMerchantFilters();
+
 
     updateMeta();
 
@@ -1170,6 +1172,79 @@ function updateRecommendedButtons(
 SHOPPING EVENTS
 ===================================================== */
 
+function buildShoppingMerchantFilters() {
+
+  const container =
+    document.getElementById(
+      "shoppingMerchantFilters"
+    );
+
+  if (!container) return;
+
+  const merchants = [
+    ...new Set(
+      allPromotions
+        .map(
+          promotion =>
+            String(
+              promotion?.merchant || ""
+            ).trim()
+        )
+        .filter(Boolean)
+    ),
+  ].sort(
+    (a, b) =>
+      a.localeCompare(
+        b,
+        "th",
+        { sensitivity: "base" }
+      )
+  );
+
+  container.innerHTML = "";
+
+  const values = [
+    ["all", "ทั้งหมด"],
+    ...merchants.map(
+      merchant => [merchant, merchant]
+    ),
+  ];
+
+  for (const [value, label] of values) {
+    const button =
+      document.createElement("button");
+
+    button.type = "button";
+    button.className = "filter-button";
+    button.dataset.merchant = value;
+    button.textContent = label;
+
+    button.addEventListener(
+      "click",
+      () => {
+        currentMerchant =
+          button.dataset.merchant || "all";
+        currentPage = 1;
+        updateShoppingButtons();
+        applyFilters();
+        showShoppingResult();
+      }
+    );
+
+    container.appendChild(button);
+  }
+
+  if (
+    currentMerchant !== "all"
+    && !merchants.includes(currentMerchant)
+  ) {
+    currentMerchant = "all";
+  }
+
+  updateShoppingButtons();
+}
+
+
 function bindShoppingEvents() {
 
   document
@@ -1234,34 +1309,6 @@ function bindShoppingEvents() {
       }
     );
 
-
-  document
-    .querySelectorAll(
-      "[data-merchant]"
-    )
-    .forEach(
-      button => {
-
-        button.addEventListener(
-          "click",
-          () => {
-
-            currentMerchant =
-              button.dataset.merchant
-              || "all";
-
-            currentPage = 1;
-
-
-            updateShoppingButtons();
-
-            applyFilters();
-
-            showShoppingResult();
-          }
-        );
-      }
-    );
 }
 
 

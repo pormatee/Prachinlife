@@ -112,5 +112,20 @@ class TestPrePilotCJMore(unittest.TestCase):
             )
 
 
+    def test_shopping_merchant_filter_is_data_driven(self):
+        html = (ROOT / "index.html").read_text(encoding="utf-8")
+        app = (ROOT / "app.js").read_text(encoding="utf-8")
+
+        self.assertIn('id="shoppingMerchantFilters"', html)
+        self.assertNotIn('data-merchant="Big C"', html)
+        self.assertNotIn('data-merchant="Lotus\'s"', html)
+
+        for marker in (
+            "function buildShoppingMerchantFilters()",
+            "promotion?.merchant",
+            "buildShoppingMerchantFilters();",
+        ):
+            self.assertIn(marker, app)
+
 if __name__ == "__main__":
     unittest.main()
