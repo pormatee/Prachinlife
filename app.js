@@ -238,10 +238,65 @@ function getVegetarianDatasetV2First() {
             : []
         );
 
-  return getPreferredPlaceDataset(
-    "vegetarian",
-    primaryFallback
+  const preferredDataset =
+    getPreferredPlaceDataset(
+      "vegetarian",
+      primaryFallback
+    );
+
+  /*
+   * Baan J controlled pilot overlay.
+   *
+   * Keep the normal 80% V2 smart-fallback policy intact. For
+   * ?baanjpilot=1 only, overlay reviewed pilot records AFTER the
+   * fallback decision so a one-place pilot cannot replace the mature
+   * vegetarian directory, but can be verified inside that directory.
+   */
+  const pilotEnabled =
+    window.PrachinLifeV2
+    && typeof window.PrachinLifeV2.baanJPilotEnabled === "function"
+    && window.PrachinLifeV2.baanJPilotEnabled();
+
+  if (
+    !pilotEnabled
+    || !window.PrachinLifeV2Runtime
+    || window.PrachinLifeV2Runtime.getStatus() !== "ready"
+  ) {
+    return preferredDataset;
+  }
+
+  const pilotPlaces =
+    window.PrachinLifeV2Runtime
+      .getPlaces("vegetarian")
+      .filter(
+        place =>
+          place?.verification_state
+            === "VERIFIED_NEAR_ME_READY"
+          && place?.near_me_eligible === true
+      );
+
+  const merged = [...preferredDataset];
+
+  const seen = new Set(
+    merged.map(
+      place =>
+        String(place?.id || "")
+        || `${place?.title || place?.name || ""}|${place?.location?.province || place?.province || ""}`
+    )
   );
+
+  for (const place of pilotPlaces) {
+    const key =
+      String(place?.id || "")
+      || `${place?.title || place?.name || ""}|${place?.location?.province || place?.province || ""}`;
+
+    if (!seen.has(key)) {
+      merged.push(place);
+      seen.add(key);
+    }
+  }
+
+  return merged;
 }
 
 function getGoDatasetV2First() {
@@ -331,13 +386,28 @@ function getPrachinLifeV2NearMe(
 
   return source
     .map((place) => {
-      const placeLat = Number(
-        place.latitude ?? place.lat
-      );
+      if (place?.near_me_eligible === false) {
+        return null;
+      }
 
-      const placeLng = Number(
-        place.longitude ?? place.lng
-      );
+      const rawPlaceLat =
+        place?.latitude ?? place?.lat;
+      const rawPlaceLng =
+        place?.longitude ?? place?.lng;
+
+      if (
+        rawPlaceLat === null ||
+        rawPlaceLat === undefined ||
+        rawPlaceLng === null ||
+        rawPlaceLng === undefined ||
+        String(rawPlaceLat).trim() === "" ||
+        String(rawPlaceLng).trim() === ""
+      ) {
+        return null;
+      }
+
+      const placeLat = Number(rawPlaceLat);
+      const placeLng = Number(rawPlaceLng);
 
       if (
         !Number.isFinite(placeLat) ||
@@ -2389,8 +2459,12 @@ function prepareVegetarianPlaces() {
         const isNamedCandidate =
           displayTier === "named_candidate";
 
+        const isPendingHuman =
+          metadata.pending_human_confirmation === true
+          || metadata.verification_state === "PENDING_HUMAN_CONFIRMATION";
+
         return (
-          metadata.needs_review !== true
+          (metadata.needs_review !== true || isPendingHuman)
           &&
           (
             isPrimary
@@ -2402,6 +2476,46 @@ function prepareVegetarianPlaces() {
         );
       }
     );
+
+  /*
+   * Controlled Baan J user-web pilot:
+   * Keep the mature V1 primary directory unchanged by default.
+   * Only ?baanjpilot=1 may merge the reviewed V2 pilot place into
+   * the browse directory. This avoids defeating the normal 80%
+   * smart-fallback rule for an intentionally single-place pilot.
+   */
+  const baanJPilotBrowseEnabled =
+    window.PrachinLifeV2
+    && typeof window.PrachinLifeV2.baanJPilotEnabled === "function"
+    && window.PrachinLifeV2.baanJPilotEnabled();
+
+  if (
+    baanJPilotBrowseEnabled
+    && window.PrachinLifeV2Runtime
+    && window.PrachinLifeV2Runtime.getStatus() === "ready"
+  ) {
+    const pilotVegetarianPlaces =
+      window.PrachinLifeV2Runtime.getPlaces("vegetarian");
+
+    const seen = new Set(
+      primaryVegetarianPlaces.map(
+        place =>
+          String(place?.id || "")
+          || `${place?.title || place?.name || ""}|${place?.location?.province || place?.province || ""}`
+      )
+    );
+
+    for (const place of pilotVegetarianPlaces) {
+      const key =
+        String(place?.id || "")
+        || `${place?.title || place?.name || ""}|${place?.location?.province || place?.province || ""}`;
+
+      if (!seen.has(key)) {
+        primaryVegetarianPlaces.push(place);
+        seen.add(key);
+      }
+    }
+  }
 
   filteredVegetarianPlaces =
     [...primaryVegetarianPlaces];
@@ -3514,6 +3628,48 @@ function applyVegetarianFilters() {
     "vegetarianResultCount",
     `${filteredVegetarianPlaces.length} ร้าน`
   );
+
+  if (
+    window.PrachinLifeV2
+    && typeof window.PrachinLifeV2.baanJPilotEnabled === "function"
+    && window.PrachinLifeV2.baanJPilotEnabled()
+  ) {
+    const baanJ =
+      filteredVegetarianPlaces.find(
+        place =>
+          String(place?.title || place?.name || "").trim()
+            === "Baan J Veggie House"
+      )
+      || null;
+
+    const pathumCount =
+      filteredVegetarianPlaces.filter(
+        place =>
+          (
+            place?.location?.province
+            || place?.province
+            || ""
+          ) === "ปทุมธานี"
+      ).length;
+
+    window.PrachinLifeBaanJPilotAudit =
+      Object.freeze({
+        total: filteredVegetarianPlaces.length,
+        pathumCount,
+        baanJVisible: Boolean(baanJ),
+        baanJProvince:
+          baanJ?.location?.province
+          || baanJ?.province
+          || "",
+        baanJNearMeEligible:
+          baanJ?.near_me_eligible === true,
+      });
+
+    console.info(
+      "[Baan J pilot audit]",
+      window.PrachinLifeBaanJPilotAudit
+    );
+  }
 }
 
 

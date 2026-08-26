@@ -1,0 +1,22 @@
+{
+  "status": "PASS",
+  "model": "PATHUM_3_VERIFIED_3_PENDING_5_HIDDEN",
+  "verified_public": [
+    "Baan J Veggie House",
+    "Vegan Garden ร้านอาหารเจ-มังสวิรัติ คาเฟ่",
+    "Vegetarian by So Vegan ไอยรา"
+  ],
+  "pending_human_public": [
+    "REEKARR'S VEGAN",
+    "ร้านอาหารริมน้ำ Wave Side Restaurant",
+    "ร้านอาหารเจี๊ยบ"
+  ],
+  "hidden": [
+    "Bull & Bear",
+    "Jdaveggie",
+    "Premta Veg Pinto",
+    "The Brasserie",
+    "ร้านอาหารเจรังสิต"
+  ],
+  "trust_policy_lowered": false
+}

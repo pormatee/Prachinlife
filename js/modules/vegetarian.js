@@ -150,6 +150,7 @@ window.PrachinLife.modules.vegetarian.filterAndSortPlaces = function (
 
     result =
       result
+        .filter(place => window.PrachinLife.core.placeCard.isNearMeEligible(place))
         .map(
           place => ({
             ...place,
@@ -308,7 +309,15 @@ window.PrachinLife.modules.vegetarian.getUserStatus = function (
   const displayTier =
     metadata.display_tier || "";
 
-  const verified =
+
+  if (window.PrachinLife.core.placeCard.isPendingHuman(place)) {
+    return {
+      label: "รอการยืนยันเพิ่มเติม",
+      className: "is-pending-human",
+    };
+  }
+
+const verified =
     metadata.verified === true;
 
   if (
@@ -421,6 +430,7 @@ window.PrachinLife.modules.vegetarian.renderCard = function (
           )}
         </p>
 
+        ${window.PrachinLife.core.placeCard.renderPendingHumanNotice(place)}
         ${window.PrachinLife.core.placeCard.renderDataNote(place)}
 
         ${window.PrachinLife.core.placeCard.renderActions(place)}

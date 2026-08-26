@@ -181,7 +181,41 @@
     return parts.join(" · ");
   }
 
+  function isPendingHuman(place) {
+    const meta = metadata(place);
+    return (
+      meta.pending_human_confirmation === true
+      || meta.verification_state === "PENDING_HUMAN_CONFIRMATION"
+      || place?.pending_human_confirmation === true
+      || place?.verification_state === "PENDING_HUMAN_CONFIRMATION"
+    );
+  }
+
+  function isNearMeEligible(place) {
+    const meta = metadata(place);
+    if (isPendingHuman(place)) return false;
+    if (meta.near_me_eligible === false || place?.near_me_eligible === false) return false;
+    return true;
+  }
+
+  function renderPendingHumanNotice(place) {
+    if (!isPendingHuman(place)) return "";
+    const meta = metadata(place);
+    const badge = window.PrachinLife.core.escapeHtml(
+      meta.public_notice || "รอการยืนยันเพิ่มเติม"
+    );
+    const detail = window.PrachinLife.core.escapeHtml(
+      meta.public_notice_detail || "ข้อมูลนี้ยังรอการยืนยันเพิ่มเติม"
+    );
+    return '<div class="pending-human-notice" role="note"><strong>◷ '
+      + badge
+      + '</strong><span>'
+      + detail
+      + '</span></div>';
+  }
+
   function hasCoordinates(place) {
+    if (!isNearMeEligible(place)) return false;
     const lat = Number(
       place?.location?.latitude
       ?? place?.latitude
@@ -290,6 +324,9 @@
     getAdditionalLinks,
     getBestAdditionalLink,
     getLocationLabel,
+    isPendingHuman,
+    isNearMeEligible,
+    renderPendingHumanNotice,
     hasCoordinates,
     getMapUrl,
     renderActions,

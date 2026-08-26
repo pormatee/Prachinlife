@@ -208,7 +208,10 @@
     const button = document.createElement("button");
     button.type = "button";
     button.className = "place-contribution-button";
-    button.textContent = "แจ้งข้อมูล / เสนอข้อมูล";
+    button.textContent =
+      card.querySelector(".pending-human-notice")
+        ? "ช่วยยืนยันข้อมูล"
+        : "แจ้งข้อมูล / เสนอข้อมูล";
     button.addEventListener("click", event => {
       event.preventDefault();
       event.stopPropagation();
