@@ -1,0 +1,48 @@
+{
+  "name": "PrachinLife V2 Reproducible Regression Contract",
+  "version": 1,
+  "reference_checkpoint": "9e2c272",
+  "recovery_modules": [
+    {
+      "path": "place_platform_v2/admin_verified_workflow.py",
+      "sha256": "ddd06d0e360b201ea4d1876b8034e9c1cadacc4943efdbc085278abe493a9a58"
+    },
+    {
+      "path": "place_platform_v2/final_readiness_gate.py",
+      "sha256": "1a9a2ca8833eff3d27a28726f234a0db221a07ff2c4577e2254a1004511faaf3"
+    },
+    {
+      "path": "place_platform_v2/phase8_final_gate.py",
+      "sha256": "46f6e81d9325a889243411fbcb0b7d6a19185dd22d0aae22a014d7e09b1e11aa"
+    },
+    {
+      "path": "place_platform_v2/phase8_production_scale.py",
+      "sha256": "03388abaf1da1ff8a287b76c8b28c4979530c600b6115877d0ee713b3d588dc5"
+    },
+    {
+      "path": "place_platform_v2/vegetarian_nationwide_coverage.py",
+      "sha256": "3b7d42f4b9192528349cae52467fdc4921e7bbdd659b9c92e18b3daf95f56135"
+    },
+    {
+      "path": "place_platform_v2/vegetarian_real_discovery.py",
+      "sha256": "c7aac3b7a410825de5f0201938cabd564c0f0d73081ef29fedf514fc5ca427b4"
+    },
+    {
+      "path": "place_platform_v2/vegetarian_web_pilot.py",
+      "sha256": "6d45fe2ccd690ee138e4a1f321ba01a5176630f0731ed1b9406648119ca6f105"
+    }
+  ],
+  "affected_tests": [
+    "tests_v2/test_v2_phase2y7_final_readiness_gate.py",
+    "tests_v2/test_v2_phase8_final_production_scale.py",
+    "tests_v2/test_v2_phase8_vegetarian_nationwide_coverage.py",
+    "tests_v2/test_v2_phase8_vegetarian_real_discovery.py",
+    "tests_v2/test_v2_phase8_vegetarian_web_pilot.py"
+  ],
+  "contract_notes": [
+    "Checkpoint 9e2c272 alone is insufficient to reproduce the frozen regression environment.",
+    "Seven production modules existed in the working tree and were required by five tracked tests.",
+    "These seven modules are explicit regression dependencies.",
+    "No automatic canonical adoption, approval, or publication is permitted by this freeze."
+  ]
+}
