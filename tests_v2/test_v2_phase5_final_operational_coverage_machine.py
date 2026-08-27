@@ -17,14 +17,14 @@ class Phase5FinalTests(unittest.TestCase):
  def cycle(self):return run_coverage_cycle(root_dir=ROOT,database_path=self.db,reports_dir='data/v2/discovery_reports')
  def sync(self,items,commit=True):return sync_operational_work_queue(database_path=self.db,work_items=items,province='ปราจีนบุรี',category='vegetarian',commit=commit,now=datetime(2026,8,23,tzinfo=timezone.utc))
  def test_persistent_queue_deduplicates(self):
-  c=self.cycle();a=self.sync(c['work_items']);b=self.sync(c['work_items']);self.assertEqual(2,a['inserted']);self.assertEqual(0,b['inserted']);self.assertEqual(2,b['unchanged']);self.assertEqual(2,b['open_queue_count'])
+  c=self.cycle();a=self.sync(c['work_items']);b=self.sync(c['work_items']);self.assertEqual(4,a['inserted']);self.assertEqual(0,b['inserted']);self.assertEqual(4,b['unchanged']);self.assertEqual(4,b['open_queue_count'])
  def test_queue_state_transition_updates_without_duplicate(self):
   c=self.cycle();self.sync(c['work_items']);items=[dict(x) for x in c['work_items']];items[0]['queue']='manual_confirmation';items[0]['next_action']='operator_review';r=self.sync(items);self.assertEqual(1,r['updated']);
-  con=sqlite3.connect(self.db);self.assertEqual(2,con.execute("select count(*) from operational_work_queue").fetchone()[0]);con.close()
+  con=sqlite3.connect(self.db);self.assertEqual(4,con.execute("select count(*) from operational_work_queue").fetchone()[0]);con.close()
  def test_missing_work_is_resolved(self):
-  c=self.cycle();self.sync(c['work_items']);r=self.sync(c['work_items'][:1]);self.assertEqual(1,r['resolved']);self.assertEqual(1,r['open_queue_count'])
+  c=self.cycle();self.sync(c['work_items']);r=self.sync(c['work_items'][:1]);self.assertEqual(3,r['resolved']);self.assertEqual(1,r['open_queue_count'])
  def test_dry_run_does_not_create_queue_table(self):
-  c=self.cycle();r=self.sync(c['work_items'],commit=False);con=sqlite3.connect(self.db);exists=con.execute("select 1 from sqlite_master where type='table' and name='operational_work_queue'").fetchone();con.close();self.assertIsNone(exists);self.assertEqual(2,r['open_queue_count'])
+  c=self.cycle();r=self.sync(c['work_items'],commit=False);con=sqlite3.connect(self.db);exists=con.execute("select 1 from sqlite_master where type='table' and name='operational_work_queue'").fetchone();con.close();self.assertIsNone(exists);self.assertEqual(4,r['open_queue_count'])
  def test_excluded_non_primary_not_operator_work(self):
   c=self.cycle();items=c['work_items']+[{'candidate_id':None,'name':'mixed','queue':'excluded_non_primary','next_action':'keep','blockers':[]}];r=self.sync(items,commit=False);self.assertEqual(len(c['work_items']),r['active_work_count'])
  def test_scope_is_repeatable(self):

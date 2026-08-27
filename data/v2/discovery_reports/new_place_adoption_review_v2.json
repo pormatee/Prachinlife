@@ -1,14 +1,107 @@
 {
   "status": "PASS",
   "policy_version": "4.5-controlled-new-place-adoption-review-v1",
-  "candidate_count": 1,
+  "candidate_count": 5,
   "decision_counts": {
-    "NEEDS_REVIEW": 1
+    "NEEDS_REVIEW": 1,
+    "READY": 4
   },
-  "ready_count": 0,
+  "ready_count": 4,
   "needs_review_count": 1,
   "blocked_count": 0,
   "decisions": [
+    {
+      "candidate_id": "03e9ce35-d725-502d-8f59-1abfd1b8aeb9",
+      "candidate_key": "db9658196f4544ec8f98d18a51f6d6692642a3cda049f4ccfda11c87ff5f9b7c",
+      "name": "Baan J Veggie House",
+      "province": "ปทุมธานี",
+      "category": "vegetarian",
+      "identity_outcome": "VERIFIED_IDENTITY",
+      "independent_source_family_count": 2,
+      "source_families": [
+        "mangsawirat",
+        "thaithurkic"
+      ],
+      "evidence_count": 2,
+      "phone_support": {},
+      "lifecycle_observations": {},
+      "duplicate_matches": [],
+      "blockers": [],
+      "review_flags": [],
+      "adoption_outcome": "READY",
+      "proposed_lifecycle": "unknown",
+      "next_step": "controlled_canonical_adoption"
+    },
+    {
+      "candidate_id": "0b87b7f8-f9d6-58f9-871d-9d6d5f9172b1",
+      "candidate_key": "c3e2112eaf69247b73254c75242617e79d17db2351038ecde66cfef7269e4225",
+      "name": "ร้านอาหารเจ AMITA VEGAN",
+      "province": "ปราจีนบุรี",
+      "category": "vegetarian",
+      "identity_outcome": "VERIFIED_IDENTITY",
+      "independent_source_family_count": 3,
+      "source_families": [
+        "kasemrad-official",
+        "restaurantguru",
+        "wongnai"
+      ],
+      "evidence_count": 4,
+      "phone_support": {
+        "0804653226": 1
+      },
+      "lifecycle_observations": {},
+      "duplicate_matches": [],
+      "blockers": [],
+      "review_flags": [],
+      "adoption_outcome": "READY",
+      "proposed_lifecycle": "unknown",
+      "next_step": "controlled_canonical_adoption"
+    },
+    {
+      "candidate_id": "34b6e4c0-7b3b-567b-8c0d-22261eb5e9ce",
+      "candidate_key": "68fb5380b7128734ee084af62dd85e9f037b5438250053b7e003777e98feacb7",
+      "name": "Vegetarian by So Vegan ไอยรา",
+      "province": "ปทุมธานี",
+      "category": "vegetarian",
+      "identity_outcome": "VERIFIED_IDENTITY",
+      "independent_source_family_count": 2,
+      "source_families": [
+        "jobthai",
+        "lemon8"
+      ],
+      "evidence_count": 2,
+      "phone_support": {},
+      "lifecycle_observations": {},
+      "duplicate_matches": [],
+      "blockers": [],
+      "review_flags": [],
+      "adoption_outcome": "READY",
+      "proposed_lifecycle": "unknown",
+      "next_step": "controlled_canonical_adoption"
+    },
+    {
+      "candidate_id": "4d45e5f7-5843-50d7-b1a2-ce9bbb0651b9",
+      "candidate_key": "ad9adbd7d2ff9050908e001596d9f14afae2f07d154b78f2f8686e6cfa03d2cb",
+      "name": "Vegan Garden ร้านอาหารเจ-มังสวิรัติ คาเฟ่",
+      "province": "ปทุมธานี",
+      "category": "vegetarian",
+      "identity_outcome": "VERIFIED_IDENTITY",
+      "independent_source_family_count": 3,
+      "source_families": [
+        "mangsawirat",
+        "thaithurkic",
+        "wongnai"
+      ],
+      "evidence_count": 3,
+      "phone_support": {},
+      "lifecycle_observations": {},
+      "duplicate_matches": [],
+      "blockers": [],
+      "review_flags": [],
+      "adoption_outcome": "READY",
+      "proposed_lifecycle": "unknown",
+      "next_step": "controlled_canonical_adoption"
+    },
     {
       "candidate_id": "8a7a5bf3-a1d9-5324-8ebd-d6bc39148855",
       "candidate_key": "5e8dccffa9b6db06469081d83e87e87d063d1e69de4fd54fdec0828941bfdf71",

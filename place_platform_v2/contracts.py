@@ -24,6 +24,8 @@ class SourceType(str, Enum):
     OTHER = "other"
 
 
+    VERIFICATION_REPORT = "verification_report"
+    HUMAN_REVIEWED = "human_reviewed"
 class EvidenceStatus(str, Enum):
     CANDIDATE = "candidate"
     SUPPORTED = "supported"

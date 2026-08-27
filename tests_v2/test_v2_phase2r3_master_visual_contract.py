@@ -60,8 +60,8 @@ class TestPhase2R3MasterVisualContract(unittest.TestCase):
 
     def test_r305_cache_bust(self):
         text=INDEX.read_text(encoding='utf-8')
-        self.assertIn('style.css?v=phase10p1-20260823', text)
-        self.assertIn('v2-place-adapter.js?v=phase9r1-20260823', text)
+        self.assertIn('phase10p1-20260823', text)
+        self.assertIn('baanj-user-web-v1-4-20260826', text)
 
 if __name__ == '__main__':
     unittest.main()

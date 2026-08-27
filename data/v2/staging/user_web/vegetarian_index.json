@@ -9818,23 +9818,28 @@
       "province": "ปทุมธานี",
       "district": null,
       "subdistrict": null,
-      "country": "TH",
-      "latitude": 14.0631701,
-      "longitude": 100.6586319
+      "country": "TH"
     },
     "metadata": {
-      "display_tier": "option_available",
+      "display_tier": "dedicated",
       "evidence_reason": "diet_yes",
-      "show_in_primary_directory": false,
-      "needs_review": false,
+      "show_in_primary_directory": true,
+      "needs_review": true,
       "review_reason": null,
-      "diet_vegetarian": null,
+      "diet_vegetarian": "yes",
       "diet_vegan": "yes",
       "opening_hours": "Mo-Fr 09:00-15:00",
       "phone": "0957946924",
       "website": "https://reekarrs-vegan.business.site/",
       "province_relation_id": 1908797,
-      "verified": false
+      "verified": false,
+      "pending_human_confirmation": true,
+      "v2_place_id": "3a25ab04-dcb9-5745-9368-7b2ec9eb687f",
+      "verification_state": "PENDING_HUMAN_CONFIRMATION",
+      "near_me_eligible": false,
+      "public_notice": "รอการยืนยันเพิ่มเติม",
+      "public_notice_detail": "พบข้อมูลของสถานที่นี้แล้ว แต่ยังต้องการการยืนยันว่าร้านยังเปิดและข้อมูลปัจจุบันถูกต้อง",
+      "contribution_cta": "ช่วยยืนยันข้อมูล"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/9518429268",
@@ -9851,15 +9856,13 @@
       "province": "ปทุมธานี",
       "district": null,
       "subdistrict": null,
-      "country": "TH",
-      "latitude": 14.0565457,
-      "longitude": 100.5488317
+      "country": "TH"
     },
     "metadata": {
-      "display_tier": "option_available",
+      "display_tier": "dedicated",
       "evidence_reason": "diet_yes",
-      "show_in_primary_directory": false,
-      "needs_review": false,
+      "show_in_primary_directory": true,
+      "needs_review": true,
       "review_reason": null,
       "diet_vegetarian": "yes",
       "diet_vegan": null,
@@ -9867,7 +9870,14 @@
       "phone": "+6684 262 8791",
       "website": "https://www.waveside.net",
       "province_relation_id": 1908797,
-      "verified": false
+      "verified": false,
+      "pending_human_confirmation": true,
+      "v2_place_id": "3e6e5dde-1a4e-5e05-8566-e0d35aa6513b",
+      "verification_state": "PENDING_HUMAN_CONFIRMATION",
+      "near_me_eligible": false,
+      "public_notice": "รอการยืนยันเพิ่มเติม",
+      "public_notice_detail": "พบข้อมูลของสถานที่นี้แล้ว แต่ยังต้องการการยืนยันว่าร้านยังเปิดและข้อมูลปัจจุบันถูกต้อง",
+      "contribution_cta": "ช่วยยืนยันข้อมูล"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/12080926886",
@@ -9884,23 +9894,28 @@
       "province": "ปทุมธานี",
       "district": null,
       "subdistrict": null,
-      "country": "TH",
-      "latitude": 13.9194921,
-      "longitude": 100.6930529
+      "country": "TH"
     },
     "metadata": {
-      "display_tier": "named_candidate",
+      "display_tier": "dedicated",
       "evidence_reason": "name_keyword",
       "show_in_primary_directory": true,
-      "needs_review": false,
+      "needs_review": true,
       "review_reason": null,
-      "diet_vegetarian": null,
+      "diet_vegetarian": "yes",
       "diet_vegan": null,
       "opening_hours": null,
       "phone": null,
       "website": null,
       "province_relation_id": 1908797,
-      "verified": false
+      "verified": false,
+      "pending_human_confirmation": true,
+      "v2_place_id": "022d67fc-61dc-5403-9641-a44ed1dbef10",
+      "verification_state": "PENDING_HUMAN_CONFIRMATION",
+      "near_me_eligible": false,
+      "public_notice": "รอการยืนยันเพิ่มเติม",
+      "public_notice_detail": "พบข้อมูลของสถานที่นี้แล้ว แต่ยังต้องการการยืนยันว่าร้านยังเปิดและข้อมูลปัจจุบันถูกต้อง",
+      "contribution_cta": "ช่วยยืนยันข้อมูล"
     },
     "source": "OpenStreetMap",
     "source_url": "https://www.openstreetmap.org/node/5458865091",
@@ -23392,5 +23407,65 @@
         "url": "https://www.wongnai.com/restaurants/1975749Hk-อาหารเจ-ซั่นสี่-เมืองปราจีนบุรี"
       }
     ]
+  },
+  {
+    "title": "Baan J Veggie House",
+    "content_type": "vegetarian",
+    "location": {
+      "province": "ปทุมธานี",
+      "latitude": 14.076182,
+      "longitude": 100.633498
+    },
+    "metadata": {
+      "show_in_primary_directory": true,
+      "display_tier": "dedicated",
+      "verified": true,
+      "needs_review": false,
+      "pending_human_confirmation": false,
+      "v2_place_id": "47b7efe5-b179-5bb8-9463-de487b3ad8f3",
+      "verification_state": "VERIFIED_NEAR_ME_READY",
+      "near_me_eligible": true,
+      "diet_vegetarian": "yes"
+    }
+  },
+  {
+    "title": "Vegan Garden ร้านอาหารเจ-มังสวิรัติ คาเฟ่",
+    "content_type": "vegetarian",
+    "location": {
+      "province": "ปทุมธานี",
+      "latitude": 13.9596821,
+      "longitude": 100.6867682
+    },
+    "metadata": {
+      "show_in_primary_directory": true,
+      "display_tier": "dedicated",
+      "verified": true,
+      "needs_review": false,
+      "pending_human_confirmation": false,
+      "v2_place_id": "10ac3f04-300e-50fb-8116-774b5c83d9e3",
+      "verification_state": "VERIFIED_NEAR_ME_READY",
+      "near_me_eligible": true,
+      "diet_vegetarian": "yes"
+    }
+  },
+  {
+    "title": "Vegetarian by So Vegan ไอยรา",
+    "content_type": "vegetarian",
+    "location": {
+      "province": "ปทุมธานี",
+      "latitude": 14.0791968,
+      "longitude": 100.6343395
+    },
+    "metadata": {
+      "show_in_primary_directory": true,
+      "display_tier": "dedicated",
+      "verified": true,
+      "needs_review": false,
+      "pending_human_confirmation": false,
+      "v2_place_id": "8c0d8b1c-3735-515d-b284-8452a8bdf2a2",
+      "verification_state": "VERIFIED_NEAR_ME_READY",
+      "near_me_eligible": true,
+      "diet_vegetarian": "yes"
+    }
   }
 ]

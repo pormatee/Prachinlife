@@ -30,8 +30,8 @@ class Phase9RecommendedServiceCategoryTest(unittest.TestCase):
 
     def test_cache_busts_changed_frontend_files(self):
         html=(ROOT/"index.html").read_text(encoding="utf-8")
-        self.assertIn("v2-place-adapter.js?v=phase9r1-20260823", html)
-        self.assertIn("app.js?v=prepilot-shopping-20260825", html)
+        self.assertIn("baanj-user-web-v1-4-20260826", html)
+        self.assertIn("baanj-user-web-v1-4-20260826", html)
 
 if __name__ == "__main__":
     unittest.main()

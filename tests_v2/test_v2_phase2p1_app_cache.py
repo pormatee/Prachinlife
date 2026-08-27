@@ -19,7 +19,7 @@ class TestPhase2P1AppCache(unittest.TestCase):
     def test_p12_adapter_cache_busted(self):
         text = INDEX.read_text(encoding="utf-8")
         self.assertIn(
-            "js/core/v2-place-adapter.js?v=phase9r1-20260823",
+            "js/core/v2-place-adapter.js?v=baanj-user-web-v1-4-20260826",
             text,
         )
 

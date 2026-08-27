@@ -2,6 +2,15 @@
   "use strict";
 
   const V2_URL = "data/v2/exports/prachinlife_places_v2.json";
+  const BAANJ_PILOT_URL = "data/v2/exports/baanj_pathum_pilot_v2.json";
+
+  function baanJPilotEnabled() {
+    try {
+      return new URLSearchParams(global.location?.search || "").get("baanjpilot") === "1";
+    } catch (_) {
+      return false;
+    }
+  }
 
   function text(value) {
     return typeof value === "string" ? value.trim() : "";
@@ -104,6 +113,13 @@
       lat: hasCoordinates ? latitude : null,
       lng: hasCoordinates ? longitude : null,
       province,
+      location: {
+        province,
+        district: text(place.district),
+        subdistrict: text(place.subdistrict),
+        latitude: hasCoordinates ? latitude : null,
+        longitude: hasCoordinates ? longitude : null,
+      },
       area: displayArea,
       district: text(place.district) || displayArea,
       subdistrict: text(place.subdistrict),
@@ -175,11 +191,44 @@
     if (payload.schema_version !== "prachinlife-v2-json-1" || !Array.isArray(payload.places)) {
       throw new Error("Invalid PrachinLife V2 export contract");
     }
-    return payload.places.map(toLegacyPlace).filter(Boolean);
+
+    const sourcePlaces = [...payload.places];
+
+    if (baanJPilotEnabled()) {
+      const pilotResponse = await fetch(
+        `${BAANJ_PILOT_URL}?t=${Date.now()}`,
+        { cache: "no-store" }
+      );
+      if (!pilotResponse.ok) {
+        throw new Error(`Baan J pilot HTTP ${pilotResponse.status}`);
+      }
+      const pilot = await pilotResponse.json();
+      if (
+        pilot.schema_version !== "prachinlife-v2-baanj-pathum-pilot-1" ||
+        pilot.publication_scope !== "controlled_single_place_pilot" ||
+        !Array.isArray(pilot.places)
+      ) {
+        throw new Error("Invalid Baan J controlled pilot export contract");
+      }
+      sourcePlaces.push(...pilot.places);
+    }
+
+    const seen = new Set();
+    return sourcePlaces
+      .map(toLegacyPlace)
+      .filter(Boolean)
+      .filter((place) => {
+        const key = text(place.id) || `${place.name}|${place.province}`;
+        if (seen.has(key)) return false;
+        seen.add(key);
+        return true;
+      });
   }
 
   global.PrachinLifeV2 = Object.freeze({
     V2_URL,
+    BAANJ_PILOT_URL,
+    baanJPilotEnabled,
     CATEGORY_ALIASES,
     normalizeCategories,
     groupFor,

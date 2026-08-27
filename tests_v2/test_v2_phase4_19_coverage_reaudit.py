@@ -10,7 +10,7 @@ class Phase419(unittest.TestCase):
   self.assertEqual('PASS',r['status']);self.assertEqual(b,sha(DB));self.assertTrue(r['safety']['read_only_audit']);self.assertTrue(r['closure_assessment']['phase4_final_gate_ready'])
  def test_current_funnel_accounts_for_pending_followup_and_exclusions(self):
   r=audit_phase4_coverage(database_path=DB,reports_dir=RD)
-  self.assertEqual(2,r['funnel']['state_counts']['PRECANONICAL']);self.assertEqual(2,r['funnel']['state_counts']['PENDING_CONFIRMATION']);self.assertEqual(3,r['funnel']['state_counts']['EXCLUDED_GENERAL_OR_MIXED_SCOPE']);self.assertEqual(0,r['funnel']['state_counts']['READY_FOR_CONTROLLED_ADOPTION'])
+  self.assertEqual(4,r['funnel']['state_counts']['PRECANONICAL']);self.assertEqual(2,r['funnel']['state_counts']['PENDING_CONFIRMATION']);self.assertEqual(3,r['funnel']['state_counts']['EXCLUDED_GENERAL_OR_MIXED_SCOPE']);self.assertEqual(0,r['funnel']['state_counts']['READY_FOR_CONTROLLED_ADOPTION'])
   self.assertIn('ฉันทนา',r['funnel']['followup_names']);self.assertIn('มังสวิรัติ🥕🥦🍞🫘',r['funnel']['followup_names'])
  def test_prachin_primary_vegetarian_canonical_is_measured(self):
   r=audit_phase4_coverage(database_path=DB,reports_dir=RD)

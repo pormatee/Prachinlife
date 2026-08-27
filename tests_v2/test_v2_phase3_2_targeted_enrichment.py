@@ -16,8 +16,8 @@ class TestPhase32TargetedEnrichment(unittest.TestCase):
         cls.report=build_targeted_enrichment_plan(database_path=DB,repo_root=ROOT,quality_report_path=QUALITY,limit=50)
 
     def test_all_visible_production_places_map_to_v2(self):
-        self.assertEqual(self.report['visible_place_count'],333)
-        self.assertEqual(self.report['mapped_visible_place_count'],333)
+        self.assertEqual(self.report['visible_place_count'],336)
+        self.assertEqual(self.report['mapped_visible_place_count'],336)
 
     def test_top_50_queue_is_complete_and_deterministic(self):
         self.assertEqual(self.report['quality_priority_count'],50)

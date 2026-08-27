@@ -7,7 +7,7 @@
   "unmapped_eligible_place_count": 0,
   "files": {
     "prachinlife_index.json": 72,
-    "vegetarian_index.json": 700,
+    "vegetarian_index.json": 703,
     "go_index.json": 44,
     "service_index.json": 121
   },
@@ -19,7 +19,7 @@
   },
   "v1_fallback_records": {
     "prachinlife_index.json": 17,
-    "vegetarian_index.json": 699,
+    "vegetarian_index.json": 702,
     "go_index.json": 0,
     "service_index.json": 0
   },

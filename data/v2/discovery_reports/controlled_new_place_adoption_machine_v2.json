@@ -8,6 +8,20 @@
   "inserted_revision_count": 0,
   "decisions": [
     {
+      "candidate_id": "03e9ce35-d725-502d-8f59-1abfd1b8aeb9",
+      "name": "Baan J Veggie House",
+      "province": "ปทุมธานี",
+      "category": "vegetarian",
+      "outcome": "NOT_READY",
+      "blockers": [
+        "exact_candidate_coordinates_not_verified"
+      ],
+      "source_family_count": 2,
+      "exact_coordinate_count": 0,
+      "duplicate_place_ids": [],
+      "next_step": "resolve_adoption_blockers"
+    },
+    {
       "candidate_id": "0b87b7f8-f9d6-58f9-871d-9d6d5f9172b1",
       "name": "ร้านอาหารเจ AMITA VEGAN",
       "province": "ปราจีนบุรี",
@@ -15,6 +29,34 @@
       "outcome": "NOT_READY",
       "blockers": [
         "pending_manual_or_coordinate_confirmation",
+        "exact_candidate_coordinates_not_verified"
+      ],
+      "source_family_count": 3,
+      "exact_coordinate_count": 0,
+      "duplicate_place_ids": [],
+      "next_step": "resolve_adoption_blockers"
+    },
+    {
+      "candidate_id": "34b6e4c0-7b3b-567b-8c0d-22261eb5e9ce",
+      "name": "Vegetarian by So Vegan ไอยรา",
+      "province": "ปทุมธานี",
+      "category": "vegetarian",
+      "outcome": "NOT_READY",
+      "blockers": [
+        "exact_candidate_coordinates_not_verified"
+      ],
+      "source_family_count": 2,
+      "exact_coordinate_count": 0,
+      "duplicate_place_ids": [],
+      "next_step": "resolve_adoption_blockers"
+    },
+    {
+      "candidate_id": "4d45e5f7-5843-50d7-b1a2-ce9bbb0651b9",
+      "name": "Vegan Garden ร้านอาหารเจ-มังสวิรัติ คาเฟ่",
+      "province": "ปทุมธานี",
+      "category": "vegetarian",
+      "outcome": "NOT_READY",
+      "blockers": [
         "exact_candidate_coordinates_not_verified"
       ],
       "source_family_count": 3,
