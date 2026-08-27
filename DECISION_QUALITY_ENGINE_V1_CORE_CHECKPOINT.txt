@@ -1,0 +1,31 @@
+PrachinLife Decision Quality Engine V1 Core Freeze
+
+Parent checkpoint:
+633f8e0 Freeze Master Super Brain V1 architecture contract
+
+Verified:
+- Full regression: 1229 tests / OK
+- HARD_CONSTRAINT_DOMINANCE = PASS
+- TRADEOFF_EXPLICITNESS = PASS
+- UNCERTAINTY_EXPOSURE = PASS
+- REGRET_REDUCTION = PASS
+- INSUFFICIENT_DATA_FAIL_CLOSED = PASS
+- PROVIDER_PARITY = PASS
+- COMMERCIAL_NEUTRALITY = PASS
+- DETERMINISTIC_TIE_BREAK = PASS
+- FACT_INFERENCE_PREFERENCE_SEPARATION = PASS
+- HUMAN_FINAL_DECISION = TRUE
+- PRODUCTION_CODE_CHANGED_BY_LOOP2 = FALSE
+
+Frozen scope:
+- deterministic Decision Quality Engine V1
+- domain policy hints for eat / vegetarian / shopping / go / service
+- cross-domain decision-quality tests
+- adversarial challenge tests
+
+Invariants:
+- no canonical DB write authority
+- no automatic publication
+- no sponsor influence on organic decision quality
+- provider does not influence deterministic decision policy
+- human remains final decision maker
