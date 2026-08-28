@@ -1,6 +1,202 @@
 [
   {
     "schema_version": "1.1",
+    "id": "lotus-3c03f82563cdd6cd",
+    "content_type": "deal",
+    "original_type": "campaign",
+    "title": "ประกาศรายชื่อผู้โชคดีที่เข้าร่วมได้รับ 50 โลตัสคอยน์ ประจำเดือน กรกฎาคม",
+    "summary": "แคมเปญหรือโปรโมชั่นจาก Lotus's",
+    "category": "shopping",
+    "tags": [
+      "deal",
+      "lotuss",
+      "campaign",
+      "แคมเปญโปรโมชั่น",
+      "lotus",
+      "โลตัส",
+      "แคมเปญ",
+      "national"
+    ],
+    "provider": {
+      "name": "Lotus's",
+      "type": "merchant"
+    },
+    "location": {
+      "scope": "national",
+      "country": "TH",
+      "province": null,
+      "district": null,
+      "subdistrict": null,
+      "place_name": null,
+      "latitude": null,
+      "longitude": null
+    },
+    "source": {
+      "name": "My Lotus's Official",
+      "url": "https://my.lotuss.com/promotions/th",
+      "type": "official_promotion",
+      "verified": true
+    },
+    "image_url": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202608260449150572.webp",
+    "published_at": null,
+    "expires_at": null,
+    "collected_at": "2026-08-28T06:09:42.940890+00:00",
+    "metadata": {
+      "old_price": 0,
+      "new_price": 0,
+      "expiry_text": "ตรวจสอบรายละเอียดจาก Lotus's",
+      "urgent": false
+    }
+  },
+  {
+    "schema_version": "1.1",
+    "id": "bigc-d08523c8b2cc24b2",
+    "content_type": "deal",
+    "original_type": "campaign",
+    "title": "ช้อปหยุดโลก แรงจัดรับสิ้นเดือน วันที่ 27ส.ค - 6 ก.ย เท่านั้น!!",
+    "summary": "แคมเปญหรือโปรโมชั่นจาก Big C",
+    "category": "shopping",
+    "tags": [
+      "deal",
+      "big c",
+      "campaign",
+      "แคมเปญโปรโมชั่น",
+      "bigc",
+      "บิ๊กซี",
+      "แคมเปญ",
+      "national"
+    ],
+    "provider": {
+      "name": "Big C",
+      "type": "merchant"
+    },
+    "location": {
+      "scope": "national",
+      "country": "TH",
+      "province": null,
+      "district": null,
+      "subdistrict": null,
+      "place_name": null,
+      "latitude": null,
+      "longitude": null
+    },
+    "source": {
+      "name": "Big C Official",
+      "url": "https://linebc.bigc.co.th/catalog/e-leaflet-SYL-HYP-27Aug-6Sep?utm_source=Corp_BIG_C_Website&utm_medium=Corp_BIG_C_Website&utm_campaign=|PV:DMK|DA:20260806|AN:|OB:traffic|FM:Photo|",
+      "type": "official_promotion",
+      "verified": true
+    },
+    "image_url": "https://corporate.bigc.co.th/upload_file/promotion/260828034113_PDFE-LFSYL_8(27Aug-6Sep26)_page-0001_c.jpg",
+    "published_at": null,
+    "expires_at": null,
+    "collected_at": "2026-08-28T06:09:33.948605+00:00",
+    "metadata": {
+      "old_price": 0,
+      "new_price": 0,
+      "expiry_text": "ตรวจสอบรายละเอียดจาก Big C",
+      "urgent": false
+    }
+  },
+  {
+    "schema_version": "1.1",
+    "id": "bigc-c33fc523ad5370a3",
+    "content_type": "deal",
+    "original_type": "campaign",
+    "title": "Big C market ช้อปหยุดโลก แรงจัดรับสิ้นเดือน วันที่ 27ส.ค - 6 ก.ย เท่านั้น!!",
+    "summary": "แคมเปญหรือโปรโมชั่นจาก Big C",
+    "category": "shopping",
+    "tags": [
+      "deal",
+      "big c",
+      "campaign",
+      "แคมเปญโปรโมชั่น",
+      "bigc",
+      "บิ๊กซี",
+      "แคมเปญ",
+      "national"
+    ],
+    "provider": {
+      "name": "Big C",
+      "type": "merchant"
+    },
+    "location": {
+      "scope": "national",
+      "country": "TH",
+      "province": null,
+      "district": null,
+      "subdistrict": null,
+      "place_name": null,
+      "latitude": null,
+      "longitude": null
+    },
+    "source": {
+      "name": "Big C Official",
+      "url": "https://linebc.bigc.co.th/catalog/e-leaflet-SYL-BMK-27Aug-6Sep?utm_source=Corp_BIG_C_Website&utm_medium=Corp_BIG_C_Website&utm_campaign=|PV:DMK|DA:20260806|AN:|OB:traffic|FM:Photo|",
+      "type": "official_promotion",
+      "verified": true
+    },
+    "image_url": "https://corporate.bigc.co.th/upload_file/promotion/260828034933_PDFE-LFSYL_8(27Aug-6Sep26)BMK_page-0001_c.jpg",
+    "published_at": null,
+    "expires_at": null,
+    "collected_at": "2026-08-28T06:09:33.948605+00:00",
+    "metadata": {
+      "old_price": 0,
+      "new_price": 0,
+      "expiry_text": "ตรวจสอบรายละเอียดจาก Big C",
+      "urgent": false
+    }
+  },
+  {
+    "schema_version": "1.1",
+    "id": "bigc-0b1d3ed662546ec5",
+    "content_type": "deal",
+    "original_type": "campaign",
+    "title": "Big C foodplace ช้อปหยุดโลก แรงจัดรับสิ้นเดือน วันที่ 27ส.ค - 6 ก.ย เท่านั้น!!",
+    "summary": "แคมเปญหรือโปรโมชั่นจาก Big C",
+    "category": "shopping",
+    "tags": [
+      "deal",
+      "big c",
+      "campaign",
+      "แคมเปญโปรโมชั่น",
+      "bigc",
+      "บิ๊กซี",
+      "แคมเปญ",
+      "national"
+    ],
+    "provider": {
+      "name": "Big C",
+      "type": "merchant"
+    },
+    "location": {
+      "scope": "national",
+      "country": "TH",
+      "province": null,
+      "district": null,
+      "subdistrict": null,
+      "place_name": null,
+      "latitude": null,
+      "longitude": null
+    },
+    "source": {
+      "name": "Big C Official",
+      "url": "https://linebc.bigc.co.th/catalog/e-leaflet-SYL-FP-27Aug-6Sep?utm_source=Corp_BIG_C_Website&utm_medium=Corp_BIG_C_Website&utm_campaign=|PV:DMK|DA:20260806|AN:|OB:traffic|FM:Photo|",
+      "type": "official_promotion",
+      "verified": true
+    },
+    "image_url": "https://corporate.bigc.co.th/upload_file/promotion/260828035902_PDFE-LFSYL_8(27Aug-6Sep26)FP_page-0001_c.jpg",
+    "published_at": null,
+    "expires_at": null,
+    "collected_at": "2026-08-28T06:09:33.948605+00:00",
+    "metadata": {
+      "old_price": 0,
+      "new_price": 0,
+      "expiry_text": "ตรวจสอบรายละเอียดจาก Big C",
+      "urgent": false
+    }
+  },
+  {
+    "schema_version": "1.1",
     "id": "cjmore-a7c2bff1e69dccf2",
     "content_type": "deal",
     "original_type": "campaign",
@@ -46,55 +242,6 @@
       "old_price": 0,
       "new_price": 0,
       "expiry_text": "ตรวจสอบรายละเอียดจาก CJ MORE",
-      "urgent": false
-    }
-  },
-  {
-    "schema_version": "1.1",
-    "id": "lotus-ed3c7c6f903a2117",
-    "content_type": "deal",
-    "original_type": "campaign",
-    "title": "ประกาศรายชื่อผู้โชคดีที่เข้าร่วมได้รับ 50 โลตัสคอยน์ ประจำเดือน พฤษภาคม",
-    "summary": "แคมเปญหรือโปรโมชั่นจาก Lotus's",
-    "category": "shopping",
-    "tags": [
-      "deal",
-      "lotuss",
-      "campaign",
-      "แคมเปญโปรโมชั่น",
-      "lotus",
-      "โลตัส",
-      "แคมเปญ",
-      "national"
-    ],
-    "provider": {
-      "name": "Lotus's",
-      "type": "merchant"
-    },
-    "location": {
-      "scope": "national",
-      "country": "TH",
-      "province": null,
-      "district": null,
-      "subdistrict": null,
-      "place_name": null,
-      "latitude": null,
-      "longitude": null
-    },
-    "source": {
-      "name": "My Lotus's Official",
-      "url": "https://my.lotuss.com/promotions/th",
-      "type": "official_promotion",
-      "verified": true
-    },
-    "image_url": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202608180350193866.webp",
-    "published_at": null,
-    "expires_at": null,
-    "collected_at": "2026-08-19T23:50:28.583510+00:00",
-    "metadata": {
-      "old_price": 0,
-      "new_price": 0,
-      "expiry_text": "ตรวจสอบรายละเอียดจาก Lotus's",
       "urgent": false
     }
   },
@@ -4325,55 +4472,6 @@
       "verified": true
     },
     "image_url": "https://corporate.bigc.co.th/upload_file/promotion/260805105752_1BMK8FINALPROOF2_c.jpg",
-    "published_at": null,
-    "expires_at": null,
-    "collected_at": "2026-08-15T13:59:12.330118+07:00",
-    "metadata": {
-      "old_price": 0,
-      "new_price": 0,
-      "expiry_text": "ตรวจสอบรายละเอียดจาก Big C",
-      "urgent": false
-    }
-  },
-  {
-    "schema_version": "1.1",
-    "id": "bigc-74aed2b02f6d6b1f",
-    "content_type": "deal",
-    "original_type": "campaign",
-    "title": "โปรโมชั่นหลากแบรนด์ ครองใจมหาชน",
-    "summary": "แคมเปญหรือโปรโมชั่นจาก Big C",
-    "category": "shopping",
-    "tags": [
-      "deal",
-      "big c",
-      "campaign",
-      "แคมเปญโปรโมชั่น",
-      "bigc",
-      "บิ๊กซี",
-      "แคมเปญ",
-      "national"
-    ],
-    "provider": {
-      "name": "Big C",
-      "type": "merchant"
-    },
-    "location": {
-      "scope": "national",
-      "country": "TH",
-      "province": null,
-      "district": null,
-      "subdistrict": null,
-      "place_name": null,
-      "latitude": null,
-      "longitude": null
-    },
-    "source": {
-      "name": "Big C Official",
-      "url": "https://linebc.bigc.co.th/catalog/e-catalogue-oi-bro-8-2026?utm_source=Corp_BIG_C_Website&utm_medium=Corp_BIG_C_Website&utm_campaign=|PV:DMK|DA:20260806|AN:|OB:traffic|FM:Photo|",
-      "type": "official_promotion",
-      "verified": true
-    },
-    "image_url": "https://corporate.bigc.co.th/upload_file/promotion/260805105841_Oi1BRO8_c.jpg",
     "published_at": null,
     "expires_at": null,
     "collected_at": "2026-08-15T13:59:12.330118+07:00",

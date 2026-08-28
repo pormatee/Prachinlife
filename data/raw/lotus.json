@@ -70,6 +70,16 @@
     "collected_at": "2026-08-15T14:00:44.294306+07:00"
   },
   {
+    "source_id": "lotus-3c03f82563cdd6cd",
+    "source_provider": "lotus",
+    "source_page": "https://my.lotuss.com/promotions/th",
+    "title": "ประกาศรายชื่อผู้โชคดีที่เข้าร่วมได้รับ 50 โลตัสคอยน์ ประจำเดือน กรกฎาคม",
+    "image_url": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202608260449150572.webp",
+    "destination_url": null,
+    "raw_type": "campaign",
+    "collected_at": "2026-08-28T06:09:42.940890+00:00"
+  },
+  {
     "source_id": "lotus-84d7ec7bc38a3ab1",
     "source_provider": "lotus",
     "source_page": "https://my.lotuss.com/promotions/th",
@@ -108,15 +118,5 @@
     "destination_url": null,
     "raw_type": "campaign",
     "collected_at": "2026-08-18T23:49:11.702808+00:00"
-  },
-  {
-    "source_id": "lotus-ed3c7c6f903a2117",
-    "source_provider": "lotus",
-    "source_page": "https://my.lotuss.com/promotions/th",
-    "title": "ประกาศรายชื่อผู้โชคดีที่เข้าร่วมได้รับ 50 โลตัสคอยน์ ประจำเดือน พฤษภาคม",
-    "image_url": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202608180350193866.webp",
-    "destination_url": null,
-    "raw_type": "campaign",
-    "collected_at": "2026-08-19T23:50:28.583510+00:00"
   }
 ]
