@@ -187,7 +187,27 @@ def load_bundle_views(repo_root: str | Path) -> tuple[tuple[PublishedPlaceView, 
                 continue
             if view.place_id in selected:
                 duplicate_ids.append(view.place_id)
-                # Deterministic first-wins precedence = BUNDLE_FILES order.
+                current = selected[view.place_id]
+                merged_categories = []
+                seen_categories = set()
+                for category in tuple(current.categories) + tuple(view.categories):
+                    key = " ".join(str(category).casefold().split())
+                    if key and key not in seen_categories:
+                        seen_categories.add(key)
+                        merged_categories.append(str(category))
+                selected[view.place_id] = PublishedPlaceView(
+                    place_id=current.place_id,
+                    name=current.name,
+                    location=current.location,
+                    province=current.province,
+                    categories=tuple(merged_categories),
+                    lifecycle=current.lifecycle,
+                    address_text=current.address_text,
+                    phone=current.phone,
+                    website=current.website,
+                    publication_policy_version=current.publication_policy_version,
+                    published_at=current.published_at,
+                )
                 continue
             selected[view.place_id] = view
             source_files[view.place_id] = filename
@@ -201,7 +221,7 @@ def load_bundle_views(repo_root: str | Path) -> tuple[tuple[PublishedPlaceView, 
         "rejected_record_count": rejected,
         "duplicate_record_count": len(duplicate_ids),
         "duplicate_ids": sorted(set(duplicate_ids)),
-        "dedupe_policy": "FIRST_FILE_WINS_BUNDLE_ORDER",
+        "dedupe_policy": "FIRST_FILE_SCALARS_CATEGORY_UNION_BUNDLE_ORDER",
         "consumer_switched": False,
     }
     return views, report
