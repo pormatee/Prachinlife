@@ -311,3 +311,46 @@ def rollback_controlled_production_publication(*, repo_root, release_id, backup_
     abase.mkdir(parents=True, exist_ok=True)
     _write_atomic(abase / "controlled_production_publication_v2.json", report)
     return report
+
+# === DEDICATED PERSISTED PROJECTION WIRING V1 ===
+from .controlled_production_projection_wiring_v1 import (
+    sync_dedicated_projection_after_commit as _sync_dedicated_projection_after_commit_v1,
+    rollback_dedicated_projection as _rollback_dedicated_projection_v1,
+)
+
+_commit_controlled_production_publication_without_projection_v1 = commit_controlled_production_publication
+_rollback_controlled_production_publication_without_projection_v1 = rollback_controlled_production_publication
+
+def commit_controlled_production_publication(*args, **kwargs):
+    result = _commit_controlled_production_publication_without_projection_v1(*args, **kwargs)
+    repo_root = kwargs.get("repo_root")
+    if repo_root is None and len(args) >= 1:
+        repo_root = args[0]
+    if repo_root is None:
+        raise RuntimeError("repo_root required for projection wiring")
+    projection = _sync_dedicated_projection_after_commit_v1(
+        repo_root=repo_root,
+        publication_result=result,
+    )
+    if isinstance(result, dict):
+        result = dict(result)
+        result["persisted_projection_v1"] = projection
+    return result
+
+def rollback_controlled_production_publication(*args, **kwargs):
+    repo_root = kwargs.get("repo_root")
+    release_id = kwargs.get("release_id")
+    if repo_root is None and len(args) >= 1:
+        repo_root = args[0]
+    if release_id is None and len(args) >= 2:
+        release_id = args[1]
+    result = _rollback_controlled_production_publication_without_projection_v1(*args, **kwargs)
+    projection = _rollback_dedicated_projection_v1(
+        repo_root=repo_root,
+        release_id=release_id,
+    )
+    if isinstance(result, dict):
+        result = dict(result)
+        result["persisted_projection_v1"] = projection
+    return result
+
