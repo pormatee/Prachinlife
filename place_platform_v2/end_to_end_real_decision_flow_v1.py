@@ -29,12 +29,19 @@ from .real_decision_integration_v1 import (
 )
 
 
+_SERVICE_MARKERS = (
+    "service", "fuel", "gas", "gas_station", "fuel_station",
+    "ปั๊ม", "น้ำมัน",
+    "clinic", "pharmacy", "repair", "laundry",
+    "บริการ", "คลินิก", "ร้านยา", "ซ่อม", "ซักรีด",
+)
+
 _CATEGORY_MARKERS: Mapping[str, tuple[str, ...]] = {
     "vegetarian": ("vegetarian", "vegan", "jay", "เจ", "มังสวิรัติ"),
     "eat": ("eat", "food", "restaurant", "cafe", "คาเฟ่", "ร้านอาหาร", "อาหาร", "vegetarian", "vegan", "jay", "เจ", "มังสวิรัติ"),
     "shopping": ("shopping", "shop", "store", "market", "supermarket", "mall", "ห้าง", "ตลาด", "ซูเปอร์"),
     "go": ("go", "travel", "attraction", "temple", "park", "เที่ยว", "ที่เที่ยว", "วัด", "สวน"),
-    "service": ("service", "fuel", "gas", "gas_station", "fuel_station", "ปั๊ม", "น้ำมัน", "clinic", "pharmacy", "repair", "บริการ", "คลินิก", "ร้านยา", "ซ่อม"),
+    "service": _SERVICE_MARKERS,
 }
 
 _OBJECT_MARKERS: Mapping[str, tuple[str, ...]] = {
@@ -42,7 +49,7 @@ _OBJECT_MARKERS: Mapping[str, tuple[str, ...]] = {
     "restaurant": ("eat", "food", "restaurant", "cafe", "คาเฟ่", "ร้านอาหาร", "อาหาร", "vegetarian", "vegan", "jay", "เจ", "มังสวิรัติ"),
     "shop": ("shopping", "shop", "store", "market", "supermarket", "mall", "ห้าง", "ตลาด", "ซูเปอร์"),
     "destination": ("go", "travel", "attraction", "temple", "park", "เที่ยว", "ที่เที่ยว", "วัด", "สวน"),
-    "service_place": ("service", "clinic", "pharmacy", "repair", "บริการ", "คลินิก", "ร้านยา", "ซ่อม"),
+    "service_place": _SERVICE_MARKERS,
 }
 
 
