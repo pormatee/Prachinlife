@@ -9,6 +9,8 @@ never writes the database, never publishes, and never calls an LLM/provider.
 """
 from __future__ import annotations
 
+from place_platform_v2.decision_context_normalization_v1 import normalize_decision_context_v1
+
 from dataclasses import dataclass
 from typing import Any, Mapping, Sequence
 
@@ -186,6 +188,7 @@ def run_end_to_end_real_decision_flow_v1(
     candidate_limit: int = 50,
     recommendation_limit: int = 3,
 ) -> EndToEndRealDecisionResultV1:
+    context = normalize_decision_context_v1(context)
     """Execute the complete deterministic V1 decision path over published data."""
     if not request_id.strip():
         raise ValueError("request_id required")

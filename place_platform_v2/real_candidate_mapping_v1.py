@@ -24,7 +24,9 @@ def _normal(value: str) -> str:
     return " ".join(str(value).casefold().split())
 
 
-def _distance_km(a: GeoPoint, b: GeoPoint) -> float:
+def _distance_km(a: GeoPoint, b: GeoPoint) -> float | None:
+    if a is None or b is None:
+        return None
     earth = 6371.0088
     lat1, lon1, lat2, lon2 = map(
         radians, (a.latitude, a.longitude, b.latitude, b.longitude)
@@ -90,8 +92,8 @@ def published_place_to_decision_candidate(
         "website": place.website,
         "publication_policy_version": place.publication_policy_version,
         "published_at": place.published_at.isoformat(),
-        "latitude": place.location.latitude,
-        "longitude": place.location.longitude,
+        "latitude": (place.location.latitude if place.location is not None else None),
+        "longitude": (place.location.longitude if place.location is not None else None),
     }
     evidence = [
         _published_evidence("name", place.name, place),
@@ -100,7 +102,7 @@ def published_place_to_decision_candidate(
         _published_evidence("lifecycle", place.lifecycle.value, place),
         _published_evidence(
             "location",
-            (place.location.latitude, place.location.longitude),
+            (((place.location.latitude, place.location.longitude) if place.location is not None else None) if place.location is not None else None),
             place,
         ),
     ]
@@ -121,7 +123,7 @@ def published_place_to_decision_candidate(
 
     if origin is not None:
         km = _distance_km(origin, place.location)
-        norm = max(0.0, min(1.0, km / distance_scale_km))
+        norm = None if km is None else max(0.0, min(1.0, km / distance_scale_km))
         attrs["distance_km"] = km
         attrs["distance_norm"] = norm
         evidence.append(
