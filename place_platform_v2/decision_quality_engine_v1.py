@@ -309,9 +309,10 @@ def evaluate_decision_quality(
             audit=DecisionAudit(POLICY_VERSION, False),
         )
 
-    valid.sort(key=lambda x: (-x.organic_score, x.regret_risk, x.candidate_id))
-    lower_regret = min(valid, key=lambda x: (x.regret_risk, -x.organic_score, x.candidate_id))
-    upside = max(valid, key=lambda x: (x.preference_fit, x.organic_score, x.candidate_id))
+    # Identity must not influence recommendation order for exact score ties.
+    valid.sort(key=lambda x: (-x.organic_score, x.regret_risk))
+    lower_regret = min(valid, key=lambda x: (x.regret_risk, -x.organic_score))
+    upside = max(valid, key=lambda x: (x.preference_fit, x.organic_score))
 
     selected: list[EvaluatedCandidate] = []
     for idx, e in enumerate(valid[:limit]):

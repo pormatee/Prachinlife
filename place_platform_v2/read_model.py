@@ -134,7 +134,14 @@ class InMemoryPublishedPlaceRepository:
             if distance <= query.radius_km:
                 matches.append(PublishedNearbyResult(place=place, distance_km=distance))
 
-        matches.sort(key=lambda item: (item.distance_km, item.place.place_id))
+        matches.sort(key=lambda item: (
+            item.distance_km,
+            _normal(item.place.name),
+            _normal(item.place.address_text or ""),
+            _normal(item.place.province),
+            tuple(sorted(_normal(v) for v in item.place.categories)),
+            (float(item.place.location.latitude), float(item.place.location.longitude)),
+        ))
         return tuple(matches[: query.limit])
 
     def search_text(self, query: PublishedTextQuery) -> tuple[PublishedPlaceView, ...]:
@@ -162,5 +169,11 @@ class InMemoryPublishedPlaceRepository:
                 continue
             matches.append(place)
 
-        matches.sort(key=lambda place: (_normal(place.name), place.place_id))
+        matches.sort(key=lambda place: (
+            _normal(place.name),
+            _normal(place.address_text or ""),
+            _normal(place.province),
+            tuple(sorted(_normal(v) for v in place.categories)),
+            (float(place.location.latitude), float(place.location.longitude)),
+        ))
         return tuple(matches[: query.limit])

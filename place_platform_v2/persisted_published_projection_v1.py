@@ -278,7 +278,10 @@ class SQLitePublishedPlaceRepositoryV1:
 
         matches.sort(key=lambda view: (
             _normal(_value(view, "canonical_name", "name", "display_name") or ""),
-            str(_value(view, "place_id", "id") or ""),
+            _normal(_value(view, "address_text", "address") or ""),
+            _normal(_value(view, "province") or ""),
+            tuple(sorted(_normal(v) for v in _categories(view))),
+            _coord(view) or (float("inf"), float("inf")),
         ))
         return tuple(matches[:limit])
 
@@ -315,6 +318,10 @@ class SQLitePublishedPlaceRepositoryV1:
 
         matches.sort(key=lambda item: (
             item.distance_km,
-            str(_value(item.place, "place_id", "id") or ""),
+            _normal(_value(item.place, "canonical_name", "name", "display_name") or ""),
+            _normal(_value(item.place, "address_text", "address") or ""),
+            _normal(_value(item.place, "province") or ""),
+            tuple(sorted(_normal(v) for v in _categories(item.place))),
+            _coord(item.place) or (float("inf"), float("inf")),
         ))
         return tuple(matches[:limit])
