@@ -7,6 +7,7 @@ from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from typing import Any
 from urllib.parse import urlparse
 
+from .decision_action_contract_v1 import attach_decision_actions_v1
 from .web_ai_runtime_v1 import run_decision as _run_master_brain_decision
 from .web_ai_runtime_v1 import health_payload as _brain_health_payload
 
@@ -45,6 +46,9 @@ def decision_payload(payload: dict[str, Any]) -> dict[str, Any]:
         raise ValueError("request_body_must_be_object")
     return _run_master_brain_decision(payload)
 
+def decision_response_payload(payload: dict[str, Any]) -> dict[str, Any]:
+    return attach_decision_actions_v1(decision_payload(payload))
+
 class Handler(BaseHTTPRequestHandler):
     server_version = "LocalLifeAPIV1"
     def _cors(self):
@@ -80,7 +84,7 @@ class Handler(BaseHTTPRequestHandler):
         if n<=0 or n>MAX_BODY_BYTES:
             self._json(HTTPStatus.REQUEST_ENTITY_TOO_LARGE,{"ok":False,"error":"body_size_invalid"}); return
         try:
-            payload=json.loads(self.rfile.read(n).decode("utf-8")); result=decision_payload(payload); self._json(HTTPStatus.OK,{"ok":True,"api_version":API_VERSION,"result":result})
+            payload=json.loads(self.rfile.read(n).decode("utf-8")); result=decision_response_payload(payload); self._json(HTTPStatus.OK,{"ok":True,"api_version":API_VERSION,"result":result})
         except (UnicodeDecodeError,json.JSONDecodeError,ValueError) as exc:
             self._json(HTTPStatus.BAD_REQUEST,{"ok":False,"error":str(exc)})
         except Exception:
