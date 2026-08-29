@@ -2,8 +2,6 @@ from __future__ import annotations
 
 import json
 import os
-import shutil
-import tempfile
 import threading
 from dataclasses import asdict, is_dataclass
 from http import HTTPStatus
@@ -12,7 +10,6 @@ from pathlib import Path
 from typing import Any
 from urllib.parse import urlparse
 
-from place_platform_v2.controlled_publication_bundle_adapter_v1 import BUNDLE_FILES, build_projection_database
 from place_platform_v2.production_published_place_repository_adapter_v1 import ProductionPublishedPlaceRepositoryAdapterV1
 from place_platform_v2.end_to_end_real_decision_flow_v1 import run_end_to_end_real_decision_flow_v1
 
@@ -21,7 +18,6 @@ DEFAULT_ORIGIN = "https://pormatee.github.io"
 MAX_BODY_BYTES = 16 * 1024
 _RUNTIME_LOCK = threading.Lock()
 _RUNTIME_REPO = None
-_RUNTIME_TMP = None
 
 def _conv(v: Any) -> Any:
     if is_dataclass(v):
@@ -44,31 +40,21 @@ def _origin_ok(origin: str | None) -> bool:
     return origin.rstrip("/") in _allowed_origins()
 
 def _build_runtime_repository():
-    global _RUNTIME_REPO, _RUNTIME_TMP
+    global _RUNTIME_REPO
     with _RUNTIME_LOCK:
         if _RUNTIME_REPO is not None:
             return _RUNTIME_REPO
 
-        tmp = tempfile.TemporaryDirectory(prefix="prachinlife-web-ai-runtime-")
-        tr = Path(tmp.name)
-        for rel in BUNDLE_FILES:
-            src = ROOT / rel
-            if not src.exists():
-                tmp.cleanup()
-                raise FileNotFoundError(f"publication bundle file missing: {rel}")
-            dst = tr / rel
-            dst.parent.mkdir(parents=True, exist_ok=True)
-            shutil.copy2(src, dst)
-
-        projection = tr / "data/v2/decision_published_places_v1.sqlite3"
-        projection.parent.mkdir(parents=True, exist_ok=True)
-        build_projection_database(tr, projection)
+        projection = ROOT / "data/v2/decision_published_places_v1.sqlite3"
+        if not projection.exists():
+            raise FileNotFoundError(
+                f"authoritative persisted projection is not available: {projection}"
+            )
 
         _RUNTIME_REPO = ProductionPublishedPlaceRepositoryAdapterV1(
             ROOT,
             projection_path=projection,
         )
-        _RUNTIME_TMP = tmp
         return _RUNTIME_REPO
 
 def health_payload() -> dict[str, Any]:
@@ -77,7 +63,7 @@ def health_payload() -> dict[str, Any]:
         "ok": True,
         "service": "prachinlife-web-ai-runtime-v1",
         "brain": "decision-behavior-v1",
-        "publication_projection": "ephemeral-read-model",
+        "publication_projection": "authoritative-persisted-read-model",
         "canonical_write": False,
         "human_final_decision": True,
         "repository_ready": repo is not None,
