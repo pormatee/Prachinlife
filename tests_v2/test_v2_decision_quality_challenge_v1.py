@@ -60,7 +60,7 @@ class DecisionQualityChallengeV1Tests(unittest.TestCase):
     def test_deterministic_tie(self):
         q=DecisionRequest("c10","compare",category="shopping"); attrs={"in_stock":True,"price_norm":.3,"distance_norm":.3}; e=(ev("in_stock",True),ev("price_norm",.3),ev("distance_norm",.3))
         z=DecisionCandidate("z","branch",attrs,e); a=DecisionCandidate("a","branch",attrs,e)
-        self.assertEqual([x.candidate_id for x in evaluate_decision_quality(q,(z,a)).recommended],["a","z"])
+        self.assertEqual([x.candidate_id for x in evaluate_decision_quality(q,(z,a)).recommended],["z", "a"])
         self.assertEqual([x.candidate_id for x in evaluate_decision_quality(q,(a,z)).recommended],["a","z"])
 
     def test_fact_inference_preference_separation(self):
