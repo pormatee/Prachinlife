@@ -106,5 +106,62 @@ class LocalLifeApiActionBoundaryV1Tests(unittest.TestCase):
         self.assertIn("decision_response_payload(payload)", source)
 
 
+class GenericDecisionActionContractRealResponseShapeV1Tests(unittest.TestCase):
+    def test_real_end_to_end_shape_generates_addressable_actions(self):
+        payload = {
+            "request_id": "real-shape",
+            "status": "qualified_with_uncertainty",
+            "decision": {
+                "status": "qualified_with_uncertainty",
+                "best_fit_candidate_id": "p-real-1",
+                "alternative_candidate_ids": ["p-real-2", "p-real-3"],
+                "uncertainty_fields": ["opening_hours"],
+            },
+            "explanation": {
+                "best_fit_candidate_id": "p-real-1",
+                "best_fit_name": "Example Place",
+                "alternatives": ["p-real-2", "p-real-3"],
+                "uncertainty_fields": ["opening_hours"],
+                "tradeoffs": [],
+                "regret_risks": [],
+                "human_final_decision": True,
+            },
+            "highest_value_question": None,
+            "human_final_decision": True,
+        }
+        actions = build_decision_actions_v1(payload)
+        types = [action["type"] for action in actions]
+        self.assertIn("OPEN_PLACE_CARD", types)
+        self.assertIn("SHOW_ALTERNATIVES", types)
+        self.assertIn("COMPARE_PLACES", types)
+        self.assertIn("OPEN_MAP", types)
+
+        place_ids = []
+        for action in actions:
+            target = action.get("target")
+            if isinstance(target, dict) and target.get("place_id"):
+                place_ids.append(target["place_id"])
+            params = action.get("params")
+            if isinstance(params, dict):
+                place_ids.extend(params.get("place_ids") or [])
+
+        self.assertIn("p-real-1", place_ids)
+        self.assertIn("p-real-2", place_ids)
+
+    def test_real_explanation_shape_alone_is_sufficient(self):
+        payload = {
+            "status": "qualified_with_uncertainty",
+            "decision": {},
+            "explanation": {
+                "best_fit_candidate_id": "p-real-1",
+                "alternatives": ["p-real-2"],
+                "uncertainty_fields": ["opening_hours"],
+            },
+        }
+        actions = build_decision_actions_v1(payload)
+        self.assertEqual(actions[0]["type"], "OPEN_PLACE_CARD")
+        self.assertEqual(actions[0]["target"]["place_id"], "p-real-1")
+
+
 if __name__ == "__main__":
     unittest.main()

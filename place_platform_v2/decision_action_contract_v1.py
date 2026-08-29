@@ -55,19 +55,57 @@ def _decision(result: Mapping[str, Any]) -> Mapping[str, Any]:
 
 
 def _best_fit(result: Mapping[str, Any], decision: Mapping[str, Any]) -> Mapping[str, Any] | None:
+    # Mapping-style recommendation contracts remain supported.
     for source in (decision, result):
         for key in ("best_fit", "recommendation", "primary_recommendation"):
             value = source.get(key)
             if isinstance(value, Mapping):
                 return value
+
+    # Real EndToEndRealDecisionResultV1 is serialized with candidate ids,
+    # primarily under explanation.best_fit_candidate_id.
+    explanation = result.get("explanation")
+    if isinstance(explanation, Mapping):
+        candidate_id = explanation.get("best_fit_candidate_id")
+        if isinstance(candidate_id, str) and candidate_id.strip():
+            return {"place_id": candidate_id.strip()}
+
+    candidate_id = decision.get("best_fit_candidate_id")
+    if isinstance(candidate_id, str) and candidate_id.strip():
+        return {"place_id": candidate_id.strip()}
+
     return None
 
 
 def _alternatives(result: Mapping[str, Any], decision: Mapping[str, Any]) -> list[Mapping[str, Any]]:
+    # Mapping-style alternatives remain supported.
     for source in (decision, result):
         value = source.get("alternatives")
         if isinstance(value, list):
-            return [item for item in value if isinstance(item, Mapping)]
+            mapped = [item for item in value if isinstance(item, Mapping)]
+            if mapped:
+                return mapped
+
+    # Real EndToEndRealDecisionResultV1 exposes alternative candidate ids
+    # through explanation.alternatives.
+    explanation = result.get("explanation")
+    if isinstance(explanation, Mapping):
+        value = explanation.get("alternatives")
+        if isinstance(value, list):
+            return [
+                {"place_id": item.strip()}
+                for item in value
+                if isinstance(item, str) and item.strip()
+            ]
+
+    value = decision.get("alternative_candidate_ids")
+    if isinstance(value, list):
+        return [
+            {"place_id": item.strip()}
+            for item in value
+            if isinstance(item, str) and item.strip()
+        ]
+
     return []
 
 
@@ -99,9 +137,10 @@ def _uncertainty_tokens(result: Mapping[str, Any], decision: Mapping[str, Any]) 
 
     explanation = result.get("explanation")
     if isinstance(explanation, Mapping):
-        value = explanation.get("uncertainties")
-        if isinstance(value, list):
-            raw.extend(value)
+        for key in ("uncertainties", "uncertainty_fields"):
+            value = explanation.get(key)
+            if isinstance(value, list):
+                raw.extend(value)
 
     tokens: set[str] = set()
     for item in raw:
@@ -181,11 +220,11 @@ def build_decision_actions_v1(result: Mapping[str, Any]) -> list[dict[str, Any]]
         ))
 
     coords = _coordinates(best)
-    if best_id and coords:
+    if best_id:
         actions.append(_action(
             "OPEN_MAP",
             target={"place_id": best_id},
-            params=coords,
+            params=coords if coords else None,
             requires_user_confirmation=True,
         ))
 
