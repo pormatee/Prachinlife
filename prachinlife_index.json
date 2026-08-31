@@ -1,6 +1,55 @@
 [
   {
     "schema_version": "1.1",
+    "id": "lotus-7a5d738d32910d3a",
+    "content_type": "deal",
+    "original_type": "coupon",
+    "title": "อย่าลืม!! เปิดแอปดู คูปองส่วนลดพิเศษ เฉพาะคุณ 1 ก.ย. 69 - 30 ก.ย. 69",
+    "summary": "คูปองหรือสิทธิ์ส่วนลดจาก Lotus's",
+    "category": "shopping",
+    "tags": [
+      "deal",
+      "lotuss",
+      "coupon",
+      "คูปอง",
+      "lotus",
+      "โลตัส",
+      "saving",
+      "national"
+    ],
+    "provider": {
+      "name": "Lotus's",
+      "type": "merchant"
+    },
+    "location": {
+      "scope": "national",
+      "country": "TH",
+      "province": null,
+      "district": null,
+      "subdistrict": null,
+      "place_name": null,
+      "latitude": null,
+      "longitude": null
+    },
+    "source": {
+      "name": "My Lotus's Official",
+      "url": "https://my.lotuss.com/promotions/th",
+      "type": "official_promotion",
+      "verified": true
+    },
+    "image_url": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202605250654037428.webp",
+    "published_at": null,
+    "expires_at": null,
+    "collected_at": "2026-08-31T23:06:06.347268+00:00",
+    "metadata": {
+      "old_price": 0,
+      "new_price": 0,
+      "expiry_text": "ตรวจสอบรายละเอียดจาก Lotus's",
+      "urgent": false
+    }
+  },
+  {
+    "schema_version": "1.1",
     "id": "lotus-3c03f82563cdd6cd",
     "content_type": "deal",
     "original_type": "campaign",
@@ -3986,55 +4035,6 @@
         "wheelchair": null,
         "internet_access": null
       }
-    }
-  },
-  {
-    "schema_version": "1.1",
-    "id": "lotus-70f5075ca612dd7a",
-    "content_type": "deal",
-    "original_type": "coupon",
-    "title": "อย่าลืม!! เปิดแอปดู คูปองส่วนลดพิเศษ เฉพาะคุณ 1 ส.ค. 69 - 31 ส.ค. 69",
-    "summary": "คูปองหรือสิทธิ์ส่วนลดจาก Lotus's",
-    "category": "shopping",
-    "tags": [
-      "deal",
-      "lotuss",
-      "coupon",
-      "คูปอง",
-      "lotus",
-      "โลตัส",
-      "saving",
-      "national"
-    ],
-    "provider": {
-      "name": "Lotus's",
-      "type": "merchant"
-    },
-    "location": {
-      "scope": "national",
-      "country": "TH",
-      "province": null,
-      "district": null,
-      "subdistrict": null,
-      "place_name": null,
-      "latitude": null,
-      "longitude": null
-    },
-    "source": {
-      "name": "My Lotus's Official",
-      "url": "https://my.lotuss.com/promotions/th",
-      "type": "official_promotion",
-      "verified": true
-    },
-    "image_url": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202605250654037428.webp",
-    "published_at": null,
-    "expires_at": null,
-    "collected_at": "2026-08-15T14:00:44.294306+07:00",
-    "metadata": {
-      "old_price": 0,
-      "new_price": 0,
-      "expiry_text": "ตรวจสอบรายละเอียดจาก Lotus's",
-      "urgent": false
     }
   },
   {
