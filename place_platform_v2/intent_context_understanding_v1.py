@@ -220,7 +220,7 @@ class StructuredDecisionRequest:
         )
 
 
-def understand_user_request(user_text: str, context: Mapping[str, Any] | None = None) -> StructuredDecisionRequest:
+def _understand_user_request_core(user_text: str, context: Mapping[str, Any] | None = None) -> StructuredDecisionRequest:
     """Translate user language into a deterministic decision request.
 
     This function only interprets the user's request. It does not search data,
@@ -342,3 +342,32 @@ def build_consumer_decision_request(
     """Understand natural language and build the contract consumed by the Brain pipeline."""
     understood = understand_user_request(user_text, context)
     return understood, understood.to_consumer_request(request_id)
+
+# THAI_QUERY_NORMALIZATION_V1_WRAPPER
+def understand_user_request(user_text, *args, **kwargs):
+    """Public ICU entry point with conservative Thai user-language normalization.
+
+    The original user text is restored on the structured result for audit/display.
+    Normalization affects intent understanding only; it is not canonical identity matching.
+    """
+    from dataclasses import replace as _dc_replace
+    from .thai_query_normalization_v1 import normalize_thai_query_v1 as _normalize_thai_query_v1
+
+    _original_user_text = user_text
+    _normalized_user_text = _normalize_thai_query_v1(user_text)
+    _result = _understand_user_request_core(_normalized_user_text, *args, **kwargs)
+
+    if hasattr(_result, "user_text"):
+        try:
+            _result = _dc_replace(_result, user_text=_original_user_text)
+        except (TypeError, ValueError):
+            pass
+    return _result
+
+
+try:
+    import inspect as _inspect
+    understand_user_request.__signature__ = _inspect.signature(_understand_user_request_core)
+except (TypeError, ValueError):
+    pass
+
