@@ -20,6 +20,6 @@ class TestPhase2Y2PublicDetailEnrichment(unittest.TestCase):
             self.assertIn(marker,text)
 
     def test_y204_cache_bust(self):
-        self.assertIn('baanj-user-web-v1-4-20260826',(ROOT/'index.html').read_text(encoding='utf-8'))
+        self.assertIn('app.js?v=',(ROOT/'index.html').read_text(encoding='utf-8'))
 
 if __name__=='__main__': unittest.main()

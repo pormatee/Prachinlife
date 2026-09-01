@@ -4,7 +4,7 @@ import json
 import unittest
 from pathlib import Path
 
-EXPORT = Path("data/v2/exports/prachinlife_places_v2.json")
+EXPORT = Path("data/v2/exports/decision_published_places_v1.json")
 ADAPTER = Path("js/core/v2-place-adapter.js")
 INDEX = Path("index.html")
 APP = Path("app.js")
@@ -13,14 +13,15 @@ APP = Path("app.js")
 class TestV2FrontendBridge(unittest.TestCase):
     def test_d01_export_contract(self):
         payload = json.loads(EXPORT.read_text(encoding="utf-8"))
-        self.assertEqual(payload["schema_version"], "prachinlife-v2-json-1")
+        self.assertEqual(payload["schema_version"], "prachinlife-published-projection-web-1")
+        self.assertEqual(payload["authority"], "decision_published_places_v1")
         self.assertEqual(payload["count"], len(payload["places"]))
 
     def test_d02_adapter_exists(self):
         text = ADAPTER.read_text(encoding="utf-8")
         self.assertIn("loadV2Places", text)
         self.assertIn("toLegacyPlace", text)
-        self.assertIn("prachinlife_places_v2.json", text)
+        self.assertIn("decision_published_places_v1.json", text)
 
     def test_d03_index_load_order(self):
         text = INDEX.read_text(encoding="utf-8")

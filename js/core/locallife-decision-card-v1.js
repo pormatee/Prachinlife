@@ -4,6 +4,9 @@
   const DECISION_TIMEOUT_MS = 90000;
   const MAX_ALTERNATIVES = 2;
 
+  // AI ASSISTANT FEATURE UX V2
+  let robotAssistPendingBaseQuery = "";
+
   const LABELS = Object.freeze({
     opening_hours: "เวลาเปิด-ปิด",
     phone: "เบอร์โทร",
@@ -137,6 +140,7 @@
     button.type = "button";
     button.className = "local-life-decision-action" + (variant ? " " + variant : "");
     button.textContent = label;
+    if (action?.type) button.dataset.actionType = String(action.type);
     button.addEventListener("click", function () {
       const outcome = executeFromUserClick(action);
       if (outcome?.status === "not_available") {
@@ -168,6 +172,83 @@
     body.appendChild(wrap);
   }
 
+  function orderedDecisionIds(result) {
+    const bestId = String(
+      result?.explanation?.best_fit_candidate_id ??
+      result?.decision?.best_fit_candidate_id ??
+      ""
+    ).trim();
+    const alternatives = Array.isArray(result?.explanation?.alternatives)
+      ? result.explanation.alternatives.slice(0, MAX_ALTERNATIVES)
+      : [];
+    const ids = [bestId, ...alternatives.map((id) => String(id || "").trim())]
+      .filter(Boolean);
+    return ids.filter((id, index) => ids.indexOf(id) === index).slice(0, 3);
+  }
+
+  function resolveOrderedDecisionPlaces(result) {
+    const ids = orderedDecisionIds(result);
+    if (!ids.length) return null;
+    const places = ids.map((id) => resolvePlace(id));
+    if (places.some((place) => !place)) return null;
+    return places;
+  }
+
+  function placeGroup(place) {
+    const categories = Array.isArray(place?.categories) ? place.categories : [];
+    return String(place?.main_category ?? place?.category ?? categories[0] ?? "").trim();
+  }
+
+  function renderDecisionPlaceCard(place, rank) {
+    const article = document.createElement("article");
+    article.className = "local-life-decision-place-card";
+    article.dataset.placeId = placeId(place);
+    article.dataset.decisionRank = String(rank);
+
+    const image = core().placeImage;
+    if (image && typeof image.renderPlaceImage === "function") {
+      const media = document.createElement("div");
+      media.className = "local-life-decision-place-media";
+      media.innerHTML = image.renderPlaceImage(
+        place, placeGroup(place), String(place?.title ?? place?.name ?? "สถานที่")
+      );
+      article.appendChild(media);
+    }
+
+    const content = document.createElement("div");
+    content.className = "local-life-decision-place-content";
+    content.appendChild(textNode(
+      "span", "local-life-decision-place-rank",
+      rank === 1 ? "A · เหมาะที่สุด" : (rank === 2 ? "B · ตัวเลือกสำรอง" : "C · ตัวเลือกสำรอง")
+    ));
+    content.appendChild(textNode("h4", "", String(place?.title ?? place?.name ?? "สถานที่")));
+
+    const placeCard = core().placeCard;
+    if (placeCard && typeof placeCard.getLocationLabel === "function") {
+      const location = placeCard.getLocationLabel(place, place?.province || "");
+      if (location) content.appendChild(textNode("p", "local-life-decision-place-location", location));
+    }
+    if (placeCard && typeof placeCard.renderActions === "function") {
+      const actionWrap = document.createElement("div");
+      actionWrap.className = "local-life-decision-place-actions";
+      actionWrap.innerHTML = placeCard.renderActions(place);
+      if (actionWrap.childElementCount) content.appendChild(actionWrap);
+    }
+    article.appendChild(content);
+    return article;
+  }
+
+  function appendDecisionPlaceCards(body, result) {
+    const places = resolveOrderedDecisionPlaces(result);
+    if (!places) return false;
+    const wrap = document.createElement("div");
+    wrap.className = "local-life-decision-place-cards";
+    wrap.setAttribute("aria-label", "สถานที่ที่ Master Super Brain แนะนำตามลำดับ");
+    places.forEach((place, index) => wrap.appendChild(renderDecisionPlaceCard(place, index + 1)));
+    body.appendChild(wrap);
+    return true;
+  }
+
   function appendUncertainty(body, result) {
     const labels = uncertaintyLabels(result);
     if (!labels.length) return;
@@ -182,6 +263,12 @@
     const body = clearBody();
     if (!body) return;
     setVisible(true);
+
+    const orderedPlaces = resolveOrderedDecisionPlaces(result);
+    if (!orderedPlaces) {
+      renderError("ไม่สามารถจับคู่คำแนะนำกับข้อมูลสถานที่ที่เผยแพร่แล้วได้");
+      return;
+    }
 
     const bestId = String(
       result?.explanation?.best_fit_candidate_id ??
@@ -203,7 +290,10 @@
     hero.appendChild(textNode("p", "local-life-decision-reason", "ผ่านเงื่อนไขที่ระบบตรวจสอบได้จากข้อมูลที่เผยแพร่แล้ว"));
     body.appendChild(hero);
 
-    appendAlternatives(body, result);
+    if (!appendDecisionPlaceCards(body, result)) {
+      renderError("ไม่สามารถแสดงสถานที่ที่แนะนำตามลำดับได้");
+      return;
+    }
     appendUncertainty(body, result);
 
     const actions = document.createElement("div");
@@ -253,17 +343,16 @@
   }
 
   async function requestDecision() {
-    const input = document.getElementById("searchInput");
+    const input = document.getElementById("robotAssistInput");
     const button = document.getElementById("decisionAssistBtn");
     const query = String(input?.value || "").trim();
+    const decisionText = robotAssistPendingBaseQuery
+      ? robotAssistPendingBaseQuery + "\nข้อมูลเพิ่มเติมจากผู้ใช้: " + query
+      : query;
 
     if (!query) {
-      setVisible(true);
-      setStatus("พิมพ์สิ่งที่ต้องการก่อน");
-      const body = clearBody();
-      if (body) {
-        body.appendChild(textNode("p", "local-life-decision-hint", "เช่น “หาร้านเจในปทุมธานี”"));
-      }
+      openRobotAssist();
+      addRobotMessage("assistant", "พิมพ์สิ่งที่อยากให้ช่วยคิดได้เลยครับ เช่น “เที่ยวปราจีนบุรีไหนดี”");
       input?.focus();
       return;
     }
@@ -275,24 +364,72 @@
     }
 
     if (button) button.disabled = true;
-    renderLoading();
+    addRobotMessage("user", query);
+    input.value = "";
+    const thinking = addRobotMessage("assistant", "กำลังช่วยคิดจากข้อมูลที่เผยแพร่แล้ว...");
 
     try {
       const response = await api.decision(
         {
-          text: query,
+          text: decisionText,
           request_id: "web-decision-card-v1-" + Date.now(),
           recommendation_limit: 3,
         },
         { timeoutMs: DECISION_TIMEOUT_MS }
       );
-      renderResponse(response);
+
+      const result = resultPayload(response);
+      const bestId = String(
+        result?.explanation?.best_fit_candidate_id ??
+        result?.decision?.best_fit_candidate_id ??
+        ""
+      ).trim();
+
+      if (thinking) thinking.remove();
+
+      if (result && (result.status === "needs_user_input" || (!bestId && result.highest_value_question))) {
+        robotAssistPendingBaseQuery = decisionText;
+        addRobotMessage(
+          "assistant",
+          String(result.highest_value_question || "ขอข้อมูลเพิ่มอีกนิดครับ").trim()
+        );
+        input?.focus();
+        return;
+      }
+
+      if (bestId) {
+        addRobotMessage("assistant", "ได้เลยครับ ผมแสดงคำแนะนำเบื้องต้นไว้ด้านล่างให้แล้ว");
+        renderResponse(response);
+
+        const followUp = String(result?.highest_value_question || "").trim();
+        if (followUp) {
+          robotAssistPendingBaseQuery = decisionText;
+          addRobotMessage("assistant", followUp);
+        } else {
+          robotAssistPendingBaseQuery = "";
+          addRobotMessage("assistant", "ถ้าอยากถามต่อหรือให้ช่วยเปรียบเทียบเพิ่มเติม พิมพ์ต่อได้เลยครับ");
+        }
+
+        // Keep the compact conversation available after recommendations.
+        // It collapses only when the user explicitly closes it or enters place detail.
+        openRobotAssist();
+
+        window.setTimeout(function () {
+          section()?.scrollIntoView({ behavior: "smooth", block: "start" });
+        }, 120);
+        return;
+      }
+
+      robotAssistPendingBaseQuery = "";
+      addRobotMessage("assistant", "ตอนนี้ข้อมูลยังไม่พอให้แนะนำตัวเลือกที่เหมาะสมครับ");
     } catch (error) {
+      if (thinking) thinking.remove();
       const isAbort = error?.name === "AbortError";
-      renderError(
+      addRobotMessage(
+        "assistant",
         isAbort
-          ? "ระบบใช้เวลานานเกินไป ลองกด “ช่วยคิด” อีกครั้ง"
-          : "เชื่อมต่อผู้ช่วยไม่สำเร็จ ลองใหม่อีกครั้งได้"
+          ? "ระบบใช้เวลานานเกินไป ลองถามใหม่อีกครั้งได้ครับ"
+          : "เชื่อมต่อผู้ช่วยไม่สำเร็จ ลองใหม่อีกครั้งได้ครับ"
       );
     } finally {
       if (button) button.disabled = false;
@@ -319,8 +456,8 @@
 
     const header = document.createElement("div");
     header.className = "local-life-decision-header";
-    header.appendChild(textNode("span", "eyebrow", "LOCAL LIFE DECISION"));
-    const status = textNode("h2", "", "เพื่อนช่วยคิด");
+    header.appendChild(textNode("span", "eyebrow", "ROBOT ASSIST"));
+    const status = textNode("h2", "", "คำแนะนำจากผู้ช่วย");
     status.id = "localLifeDecisionCardStatus";
     header.appendChild(status);
 
@@ -336,30 +473,221 @@
     return el;
   }
 
+  function robotPanel() {
+    return document.getElementById("robotAssistPanel");
+  }
+
+  function robotMessages() {
+    return document.getElementById("robotAssistMessages");
+  }
+
+  function addRobotMessage(role, message) {
+    const messages = robotMessages();
+    if (!messages) return null;
+    const bubble = textNode("div", "robot-assist-message " + role, message);
+    messages.appendChild(bubble);
+    messages.scrollTop = messages.scrollHeight;
+    return bubble;
+  }
+
+  function openRobotAssist() {
+    const panel = robotPanel();
+    const button = document.getElementById("decisionAssistBtn");
+    if (!panel) return;
+    panel.hidden = false;
+    panel.setAttribute("aria-hidden", "false");
+    button?.setAttribute("aria-expanded", "true");
+    window.setTimeout(function () {
+      document.getElementById("robotAssistInput")?.focus();
+    }, 50);
+  }
+
+  function closeRobotAssist() {
+    const panel = robotPanel();
+    const button = document.getElementById("decisionAssistBtn");
+    if (!panel) return;
+    panel.hidden = true;
+    panel.setAttribute("aria-hidden", "true");
+    button?.setAttribute("aria-expanded", "false");
+  }
+
+  function createRobotPanel() {
+    if (robotPanel()) return robotPanel();
+
+    const panel = document.createElement("aside");
+    panel.id = "robotAssistPanel";
+    panel.className = "robot-assist-panel";
+    panel.hidden = true;
+    panel.setAttribute("aria-hidden", "true");
+    panel.setAttribute("aria-label", "AI Assistant");
+
+    const header = document.createElement("div");
+    header.className = "robot-assist-header";
+
+    const titleWrap = document.createElement("div");
+    titleWrap.className = "robot-assist-title";
+    titleWrap.appendChild(textNode("span", "robot-assist-avatar", "🤖"));
+
+    const titleText = document.createElement("div");
+    titleText.appendChild(textNode("strong", "", "AI Assistant"));
+    titleText.appendChild(textNode("small", "", "เพื่อนช่วยคิดให้ตัดสินใจง่ายขึ้น"));
+    titleWrap.appendChild(titleText);
+
+    const close = document.createElement("button");
+    close.type = "button";
+    close.className = "robot-assist-close";
+    close.setAttribute("aria-label", "ปิด Robot Assist");
+    close.textContent = "×";
+    close.addEventListener("click", closeRobotAssist);
+
+    header.appendChild(titleWrap);
+    header.appendChild(close);
+
+    const messages = document.createElement("div");
+    messages.id = "robotAssistMessages";
+    messages.className = "robot-assist-messages";
+    messages.appendChild(textNode(
+      "div",
+      "robot-assist-message assistant",
+      "สวัสดีครับ อยากให้ช่วยคิดเรื่องกิน เที่ยว ช้อป หรือบริการอะไร?"
+    ));
+
+    const composer = document.createElement("div");
+    composer.className = "robot-assist-composer";
+
+    const input = document.createElement("input");
+    input.id = "robotAssistInput";
+    input.type = "text";
+    input.autocomplete = "off";
+    input.placeholder = "ถาม AI Assistant...";
+    input.setAttribute("aria-label", "ข้อความถึง AI Assistant");
+
+    const send = document.createElement("button");
+    send.type = "button";
+    send.className = "robot-assist-send";
+    send.textContent = "ส่ง";
+    send.addEventListener("click", requestDecision);
+
+    input.addEventListener("keydown", function (event) {
+      if (event.key === "Enter" && !event.isComposing) {
+        event.preventDefault();
+        requestDecision();
+      }
+    });
+
+    composer.appendChild(input);
+    composer.appendChild(send);
+    panel.appendChild(header);
+    panel.appendChild(messages);
+    panel.appendChild(composer);
+
+    const feature = document.getElementById("robotAssistFeature");
+    if (feature?.parentNode) {
+      feature.insertAdjacentElement("afterend", panel);
+    } else {
+      const controlCenter = document.getElementById("controlCenter");
+      if (controlCenter) {
+        controlCenter.prepend(panel);
+      } else {
+        document.body.prepend(panel);
+      }
+    }
+    return panel;
+  }
+
+  function modernRobotIcon() {
+    return `
+      <svg class="ai-assistant-mark" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+        <rect x="7" y="10" width="34" height="27" rx="10" fill="none" stroke="currentColor" stroke-width="2.6"/>
+        <path d="M24 10V6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/>
+        <circle cx="24" cy="4.5" r="2.3" fill="currentColor"/>
+        <circle cx="18" cy="23" r="2.7" fill="currentColor"/>
+        <circle cx="30" cy="23" r="2.7" fill="currentColor"/>
+        <path d="M17.5 30c2 2 4.1 3 6.5 3s4.5-1 6.5-3" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+        <path d="M4.5 18h3M40.5 18h3" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+        <path d="M38 5l.8 2.2L41 8l-2.2.8L38 11l-.8-2.2L35 8l2.2-.8L38 5Z" fill="currentColor"/>
+      </svg>`;
+  }
+
   function createAssistButton() {
     if (document.getElementById("decisionAssistBtn")) {
       return document.getElementById("decisionAssistBtn");
     }
 
     const searchButton = document.getElementById("searchBtn");
-    if (!searchButton?.parentNode) return null;
+    const controlCenter = document.getElementById("controlCenter");
+    if (!searchButton && !controlCenter) return null;
+
+    const feature = document.createElement("div");
+    feature.id = "robotAssistFeature";
+    feature.className = "ai-assistant-feature";
+
+    const visual = document.createElement("div");
+    visual.className = "ai-assistant-feature-visual";
+    visual.innerHTML = modernRobotIcon();
+
+    const copy = document.createElement("div");
+    copy.className = "ai-assistant-feature-copy";
+    copy.appendChild(textNode("strong", "", "AI Assistant"));
+    copy.appendChild(textNode("span", "", "ให้ AI ช่วยคิด เปรียบเทียบ และแนะนำจากข้อมูลสถานที่"));
 
     const button = document.createElement("button");
     button.id = "decisionAssistBtn";
-    button.className = "secondary-button local-life-decision-trigger";
+    button.className = "ai-assistant-feature-button";
     button.type = "button";
-    button.textContent = "ช่วยคิด";
-    button.setAttribute("aria-label", "ให้ LocalLife ช่วยคิดจากคำค้นนี้");
-    searchButton.insertAdjacentElement("afterend", button);
+    button.textContent = "ถาม AI";
+    button.setAttribute("aria-label", "เปิด AI Assistant");
+    button.setAttribute("aria-controls", "robotAssistPanel");
+    button.setAttribute("aria-expanded", "false");
+
+    feature.appendChild(visual);
+    feature.appendChild(copy);
+    feature.appendChild(button);
+
+    const searchRow = searchButton?.parentElement;
+    if (searchRow?.parentNode) {
+      searchRow.insertAdjacentElement("afterend", feature);
+    } else if (controlCenter) {
+      controlCenter.prepend(feature);
+    } else {
+      document.body.prepend(feature);
+    }
+
     return button;
+  }
+
+  function bindDetailCollapse() {
+    if (document.documentElement.dataset.robotAssistDetailCollapseBound === "1") return;
+    document.documentElement.dataset.robotAssistDetailCollapseBound = "1";
+
+    document.addEventListener("click", function (event) {
+      const target = event.target instanceof Element ? event.target : null;
+      if (!target) return;
+
+      const detailControl = target.closest(
+        ".place-card-action-detail, [data-action-type='OPEN_PLACE_CARD']"
+      );
+      if (!detailControl) return;
+
+      // Entering place detail gets visual priority, but chat history is preserved.
+      closeRobotAssist();
+    });
   }
 
   function init() {
     createSection();
+    createRobotPanel();
+    bindDetailCollapse();
     const button = createAssistButton();
     if (!button || button.dataset.bound === "1") return;
     button.dataset.bound = "1";
-    button.addEventListener("click", requestDecision);
+    button.addEventListener("click", function () {
+      if (robotPanel()?.hidden) {
+        openRobotAssist();
+      } else {
+        closeRobotAssist();
+      }
+    });
   }
 
   global.PrachinLife = global.PrachinLife || {};

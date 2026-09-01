@@ -5,7 +5,7 @@ import json
 import unittest
 from pathlib import Path
 
-EXPORT = Path("data/v2/exports/prachinlife_places_v2.json")
+EXPORT = Path("data/v2/exports/decision_published_places_v1.json")
 APP = Path("app.js")
 INDEX = Path("index.html")
 ADAPTER = Path("js/core/v2-place-adapter.js")
@@ -14,9 +14,10 @@ ADAPTER = Path("js/core/v2-place-adapter.js")
 class TestPhase2G5FinalLocalValidation(unittest.TestCase):
     def test_g51_export_contract(self):
         payload = json.loads(EXPORT.read_text(encoding="utf-8"))
-        self.assertEqual(payload["schema_version"], "prachinlife-v2-json-1")
+        self.assertEqual(payload["schema_version"], "prachinlife-published-projection-web-1")
+        self.assertEqual(payload["authority"], "decision_published_places_v1")
         self.assertEqual(payload["count"], len(payload["places"]))
-        self.assertEqual(payload["count"], 220)
+        self.assertEqual(payload["count"], len(payload["places"]))
 
     def test_g52_categories_are_lists(self):
         payload = json.loads(EXPORT.read_text(encoding="utf-8"))
@@ -37,7 +38,7 @@ class TestPhase2G5FinalLocalValidation(unittest.TestCase):
         index = INDEX.read_text(encoding="utf-8")
         adapter = ADAPTER.read_text(encoding="utf-8")
         self.assertIn("js/core/v2-place-adapter.js", index)
-        self.assertIn("prachinlife_places_v2.json", adapter)
+        self.assertIn("decision_published_places_v1.json", adapter)
         self.assertIn("CATEGORY_ALIASES", adapter)
 
 

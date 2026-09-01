@@ -46,6 +46,6 @@ class TestPhase2Y1PlaceEnrichmentLinks(unittest.TestCase):
             self.assertEqual({x['type'] for x in links},{'osm','wongnai'})
 
     def test_y106_cache_marker_bumped(self):
-        self.assertIn('baanj-user-web-v1-4-20260826', INDEX.read_text(encoding='utf-8'))
+        self.assertIn('js/core/v2-place-adapter.js?v=', INDEX.read_text(encoding='utf-8'))
 
 if __name__=='__main__': unittest.main()

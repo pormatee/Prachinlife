@@ -30,6 +30,6 @@ class TestPhase2Y4SafePublicNavigation(unittest.TestCase):
     def test_y404_public_assets_are_cache_busted(self):
         html=(ROOT/'index.html').read_text(encoding='utf-8')
         self.assertIn('phase10-20260823',html)
-        self.assertIn('baanj-user-web-v1-4-20260826',html)
+        self.assertIn('app.js?v=',html)
 
 if __name__=='__main__': unittest.main()

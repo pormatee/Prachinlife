@@ -1,7 +1,7 @@
 (function (global) {
   "use strict";
 
-  const V2_URL = "data/v2/exports/prachinlife_places_v2.json";
+  const V2_URL = "data/v2/exports/decision_published_places_v1.json";
   const BAANJ_PILOT_URL = "data/v2/exports/baanj_pathum_pilot_v2.json";
 
   function baanJPilotEnabled() {
@@ -37,11 +37,30 @@
   }
 
   const CATEGORY_ALIASES = Object.freeze({
-    vegetarian: new Set(["vegetarian","vegan","jay"]),
-    eat: new Set(["eat","food","restaurant","cafe","fast_food","food_court","ice_cream"]),
-    go: new Set(["go","travel","tourism","attraction","temple","park","nature"]),
-    service: new Set(["service","hospital","clinic","pharmacy","bank","atm","fuel","school","college","university","laundry","car_repair"]),
-    shopping: new Set(["shopping","shop"])
+    vegetarian: new Set([
+      "vegetarian","vegan","jay",
+      "เจ","มังสวิรัติ","วีแกน","เจ / มังสวิรัติ"
+    ]),
+    eat: new Set([
+      "eat","food","restaurant","cafe","fast_food","food_court","ice_cream",
+      "ร้านอาหาร","อาหาร","คาเฟ่","กาแฟ","ศูนย์อาหาร","ไอศกรีม"
+    ]),
+    go: new Set([
+      "go","travel","tourism","attraction","temple","park","nature",
+      "เที่ยว","สถานที่ท่องเที่ยว","วัด","ศาสนสถาน","วัด / ศาสนสถาน",
+      "สวน","สวน / พื้นที่พักผ่อน","เมืองโบราณ / ประวัติศาสตร์",
+      "โบราณสถาน / ประวัติศาสตร์","พิพิธภัณฑ์ / ประวัติศาสตร์",
+      "ธรรมชาติ / จุดชมวิว","จุดชมวิว","พิพิธภัณฑ์","โบราณสถาน"
+    ]),
+    service: new Set([
+      "service","hospital","clinic","pharmacy","bank","atm","fuel","school","college","university","laundry","car_repair",
+      "บริการ","โรงพยาบาล","คลินิก","ร้านยา","ธนาคาร","เอทีเอ็ม","ปั๊มน้ำมัน",
+      "โรงเรียน","วิทยาลัย","มหาวิทยาลัย","ซักรีด","ซ่อมรถ"
+    ]),
+    shopping: new Set([
+      "shopping","shop",
+      "ช้อป","ช้อปปิ้ง","ร้านค้า","ห้าง","ห้างสรรพสินค้า","ตลาด"
+    ])
   });
 
   function groupFor(categories) {
@@ -75,8 +94,11 @@
     const coordinatePending =
       text(place.verification_state) === "VERIFIED_PLACE_COORDINATE_PENDING" ||
       text(place.coordinate_status) === "pending_review";
+    const publishedProjectionPlace =
+      text(place.source) === "decision_published_places_v1" ||
+      text(place.metadata?.published_projection) === "decision_published_places_v1";
 
-    if (!name || (!hasCoordinates && !coordinatePending)) {
+    if (!name || (!hasCoordinates && !coordinatePending && !publishedProjectionPlace)) {
       return null;
     }
 
@@ -188,7 +210,7 @@
       throw new Error(`V2 places HTTP ${response.status}`);
     }
     const payload = await response.json();
-    if (payload.schema_version !== "prachinlife-v2-json-1" || !Array.isArray(payload.places)) {
+    if (!["prachinlife-v2-json-1", "prachinlife-published-projection-web-1"].includes(payload.schema_version) || !Array.isArray(payload.places)) {
       throw new Error("Invalid PrachinLife V2 export contract");
     }
 

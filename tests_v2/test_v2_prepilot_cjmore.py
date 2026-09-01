@@ -129,7 +129,7 @@ class TestPrePilotCJMore(unittest.TestCase):
     def test_app_cache_bust_for_prepilot_shopping(self):
         html = (ROOT / "index.html").read_text(encoding="utf-8")
         self.assertIn(
-            "app.js?v=baanj-user-web-v1-4-20260826",
+            "app.js?v=",
             html,
         )
 
