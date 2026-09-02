@@ -15,9 +15,9 @@ class T(unittest.TestCase):
         self.assertIn("modernRobotIcon",JS)
         self.assertIn("<svg",JS)
         self.assertIn("ai-assistant-mark",JS)
-    def test_compact_chat(self):
-        self.assertIn("max-height: 300px",CSS)
-        self.assertIn("max-height: 138px",CSS)
+    def test_chat_readability_bounds(self):
+        self.assertIn("max-height: 540px",CSS)
+        self.assertIn("max-height: 380px",CSS)
     def test_search_independent(self):
         i=JS.index("async function requestDecision")
         self.assertNotIn('document.getElementById("searchInput")',JS[i:i+1000])

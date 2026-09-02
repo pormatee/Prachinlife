@@ -3,6 +3,11 @@
 
   const DECISION_TIMEOUT_MS = 90000;
   const MAX_ALTERNATIVES = 2;
+  const CHAT_MEMORY_STORAGE_KEY = "prachinlife.ai_assistant.conversation.v1";
+  const CHAT_MEMORY_SCHEMA_VERSION = 1;
+  const CHAT_MEMORY_MAX_MESSAGES = 80;
+  const CHAT_MEMORY_MAX_USER_TURNS = 8;
+  const CHAT_MEMORY_MAX_TEXT_CHARS = 6000;
 
   // AI ASSISTANT FEATURE UX V2 + CONVERSATIONAL AI GATEWAY V1
   // The gateway carries explicit user/device context only. It never ranks,
@@ -10,8 +15,192 @@
   let robotAssistPendingBaseQuery = "";
   let robotAssistPendingContextField = "";
   let robotAssistConversationContext = Object.create(null);
+  let robotAssistConversationAnchor = "";
+  let robotAssistConversationUserTurns = [];
+  let robotAssistStoredMessages = [];
   let robotAssistDeviceLocationState = "unknown";
   let robotAssistDeviceLocationAt = 0;
+
+
+  function chatStorage() {
+    try {
+      return global.localStorage || null;
+    } catch (_) {
+      return null;
+    }
+  }
+
+  function persistentConversationContext() {
+    const out = {};
+    const locationText = String(
+      robotAssistConversationContext.location_text || ""
+    ).trim();
+    if (locationText) out.location_text = locationText;
+    // Exact device coordinates are deliberately ephemeral. A refresh must
+    // reacquire GPS if the Brain still requires current_location.
+    return out;
+  }
+
+  function normalizedStoredMessages(raw) {
+    if (!Array.isArray(raw)) return [];
+    return raw
+      .filter((item) => item && (item.role === "user" || item.role === "assistant"))
+      .map((item) => ({
+        role: item.role,
+        text: String(item.text || "").slice(0, 1200),
+      }))
+      .filter((item) => item.text.trim())
+      .slice(-CHAT_MEMORY_MAX_MESSAGES);
+  }
+
+  function normalizedUserTurns(raw) {
+    if (!Array.isArray(raw)) return [];
+    return raw
+      .map((value) => String(value || "").trim().slice(0, 1000))
+      .filter(Boolean)
+      .slice(-CHAT_MEMORY_MAX_USER_TURNS);
+  }
+
+  function saveConversationMemory() {
+    const storage = chatStorage();
+    if (!storage) return false;
+    const now = Date.now();
+    const state = {
+      schema_version: CHAT_MEMORY_SCHEMA_VERSION,
+      saved_at: now,
+      messages: robotAssistStoredMessages.slice(-CHAT_MEMORY_MAX_MESSAGES),
+      user_turns: robotAssistConversationUserTurns.slice(-CHAT_MEMORY_MAX_USER_TURNS),
+      conversation_anchor: String(robotAssistConversationAnchor || "").slice(
+        0,
+        CHAT_MEMORY_MAX_TEXT_CHARS
+      ),
+      pending_base_query: String(robotAssistPendingBaseQuery || "").slice(
+        0,
+        CHAT_MEMORY_MAX_TEXT_CHARS
+      ),
+      pending_context_field: String(robotAssistPendingContextField || ""),
+      context: persistentConversationContext(),
+    };
+    try {
+      storage.setItem(CHAT_MEMORY_STORAGE_KEY, JSON.stringify(state));
+      return true;
+    } catch (_) {
+      return false;
+    }
+  }
+
+  function clearConversationMemory() {
+    const storage = chatStorage();
+    if (!storage) return;
+    try {
+      storage.removeItem(CHAT_MEMORY_STORAGE_KEY);
+    } catch (_) {
+      // Storage failure must not block the assistant.
+    }
+  }
+
+  function loadConversationMemory() {
+    const storage = chatStorage();
+    if (!storage) return false;
+    let parsed = null;
+    try {
+      const raw = storage.getItem(CHAT_MEMORY_STORAGE_KEY);
+      if (!raw) return false;
+      parsed = JSON.parse(raw);
+    } catch (_) {
+      clearConversationMemory();
+      return false;
+    }
+
+    if (
+      !parsed
+      || parsed.schema_version !== CHAT_MEMORY_SCHEMA_VERSION
+    ) {
+      clearConversationMemory();
+      return false;
+    }
+
+    robotAssistStoredMessages = normalizedStoredMessages(parsed.messages);
+    robotAssistConversationUserTurns = normalizedUserTurns(parsed.user_turns);
+    robotAssistConversationAnchor = String(
+      parsed.conversation_anchor || ""
+    ).slice(0, CHAT_MEMORY_MAX_TEXT_CHARS);
+    robotAssistPendingBaseQuery = String(
+      parsed.pending_base_query || ""
+    ).slice(0, CHAT_MEMORY_MAX_TEXT_CHARS);
+    const restoredPendingField = String(
+      parsed.pending_context_field || ""
+    );
+    robotAssistPendingContextField = (
+      restoredPendingField === "current_location"
+      || restoredPendingField === "location"
+    ) ? restoredPendingField : "";
+
+    robotAssistConversationContext = Object.create(null);
+    const locationText = String(parsed?.context?.location_text || "").trim();
+    if (locationText) {
+      robotAssistConversationContext.location_text = locationText.slice(0, 200);
+    }
+
+    // Device coordinates are never restored from browser storage.
+    robotAssistDeviceLocationState = "unknown";
+    robotAssistDeviceLocationAt = 0;
+    return true;
+  }
+
+  function rememberUserTurn(query) {
+    const value = String(query || "").trim();
+    if (!value) return;
+    robotAssistConversationUserTurns.push(value);
+    robotAssistConversationUserTurns =
+      robotAssistConversationUserTurns.slice(-CHAT_MEMORY_MAX_USER_TURNS);
+    if (!robotAssistConversationAnchor) {
+      robotAssistConversationAnchor = value;
+    }
+    saveConversationMemory();
+  }
+
+  function conversationDecisionText(query, pendingWasStructured) {
+    const latest = String(query || "").trim();
+    if (!latest) return "";
+
+    if (robotAssistPendingBaseQuery) {
+      return pendingWasStructured
+            ? robotAssistPendingBaseQuery
+        : (
+            robotAssistPendingBaseQuery
+            + "\nข้อมูลเพิ่มเติมจากผู้ใช้: "
+            + latest
+          ).slice(0, CHAT_MEMORY_MAX_TEXT_CHARS);
+    }
+
+    const previousTurns = robotAssistConversationUserTurns
+      .filter((turn) => turn !== robotAssistConversationAnchor)
+      .slice(-Math.max(0, CHAT_MEMORY_MAX_USER_TURNS - 1));
+    if (!robotAssistConversationAnchor || previousTurns.length === 0) {
+      return latest;
+    }
+
+    const lines = [
+      "คำขอหลักของบทสนทนา: " + robotAssistConversationAnchor,
+      "บริบทจากข้อความผู้ใช้ก่อนหน้า:",
+      ...previousTurns.map((turn) => "- " + turn),
+      "ข้อความล่าสุด: " + latest,
+    ];
+    return lines.join("\n").slice(0, CHAT_MEMORY_MAX_TEXT_CHARS);
+  }
+
+  function resetConversationState() {
+    robotAssistPendingBaseQuery = "";
+    robotAssistPendingContextField = "";
+    robotAssistConversationContext = Object.create(null);
+    robotAssistConversationAnchor = "";
+    robotAssistConversationUserTurns = [];
+    robotAssistStoredMessages = [];
+    robotAssistDeviceLocationState = "unknown";
+    robotAssistDeviceLocationAt = 0;
+    clearConversationMemory();
+  }
 
   const LABELS = Object.freeze({
     opening_hours: "เวลาเปิด-ปิด",
@@ -127,6 +316,7 @@
       delete robotAssistConversationContext.current_location;
       robotAssistDeviceLocationAt = 0;
       robotAssistPendingContextField = "";
+      saveConversationMemory();
       return true;
     }
     return false;
@@ -466,18 +656,17 @@
     }
 
     const pendingWasStructured = applyPendingUserContext(query);
-    const decisionText = robotAssistPendingBaseQuery
-      ? (
-          pendingWasStructured
-            ? robotAssistPendingBaseQuery
-            : robotAssistPendingBaseQuery + "\nข้อมูลเพิ่มเติมจากผู้ใช้: " + query
-        )
-      : query;
+    const decisionText = conversationDecisionText(query, pendingWasStructured);
 
     if (button) button.disabled = true;
     addRobotMessage("user", query);
+    rememberUserTurn(query);
     input.value = "";
-    const thinking = addRobotMessage("assistant", "กำลังช่วยคิดจากข้อมูลที่เผยแพร่แล้ว...");
+    const thinking = addRobotMessage(
+      "assistant",
+      "กำลังช่วยคิดจากข้อมูลที่เผยแพร่แล้ว...",
+      { persist: false }
+    );
 
     try {
       let response = await api.decision(
@@ -527,6 +716,7 @@
       if (result && (result.status === "needs_user_input" || (!bestId && result.highest_value_question))) {
         robotAssistPendingBaseQuery = decisionText;
         robotAssistPendingContextField = nextPendingContextField(result);
+        saveConversationMemory();
         addRobotMessage(
           "assistant",
           String(result.highest_value_question || "ขอข้อมูลเพิ่มอีกนิดครับ").trim()
@@ -537,6 +727,8 @@
 
       if (bestId) {
         robotAssistPendingContextField = "";
+        robotAssistPendingBaseQuery = "";
+        saveConversationMemory();
         addRobotMessage("assistant", "ได้เลยครับ ระบบตัดสินใจแสดงคำแนะนำให้แล้วครับ");
         renderResponse(response);
 
@@ -544,9 +736,11 @@
         if (followUp) {
           robotAssistPendingBaseQuery = decisionText;
           robotAssistPendingContextField = nextPendingContextField(result);
+          saveConversationMemory();
           addRobotMessage("assistant", followUp);
         } else {
           robotAssistPendingBaseQuery = "";
+          saveConversationMemory();
           addRobotMessage("assistant", "ถ้าอยากถามต่อหรือให้ช่วยเปรียบเทียบเพิ่มเติม พิมพ์ต่อได้เลยครับ");
         }
 
@@ -562,6 +756,7 @@
 
       robotAssistPendingBaseQuery = "";
       robotAssistPendingContextField = "";
+      saveConversationMemory();
       addRobotMessage("assistant", "ตอนนี้ข้อมูลยังไม่พอให้ระบบแนะนำตัวเลือกที่เหมาะสมครับ");
     } catch (error) {
       if (thinking) thinking.remove();
@@ -622,13 +817,59 @@
     return document.getElementById("robotAssistMessages");
   }
 
-  function addRobotMessage(role, message) {
+  function appendRobotBubble(role, message) {
     const messages = robotMessages();
     if (!messages) return null;
     const bubble = textNode("div", "robot-assist-message " + role, message);
     messages.appendChild(bubble);
     messages.scrollTop = messages.scrollHeight;
     return bubble;
+  }
+
+  function addRobotMessage(role, message, options) {
+    const bubble = appendRobotBubble(role, message);
+    const persist = options?.persist !== false;
+    if (persist && (role === "user" || role === "assistant")) {
+      robotAssistStoredMessages.push({
+        role,
+        text: String(message || "").slice(0, 1200),
+      });
+      robotAssistStoredMessages =
+        robotAssistStoredMessages.slice(-CHAT_MEMORY_MAX_MESSAGES);
+      saveConversationMemory();
+    }
+    return bubble;
+  }
+
+  function renderConversationMessages() {
+    const messages = robotMessages();
+    if (!messages) return;
+    messages.replaceChildren();
+
+    if (!robotAssistStoredMessages.length) {
+      appendRobotBubble(
+        "assistant",
+        "สวัสดีครับ อยากให้ช่วยคิดเรื่องกิน เที่ยว ช้อป หรือบริการอะไร?"
+      );
+      return;
+    }
+
+    robotAssistStoredMessages.forEach((item) => {
+      appendRobotBubble(item.role, item.text);
+    });
+    messages.scrollTop = messages.scrollHeight;
+  }
+
+  function startNewConversation() {
+    resetConversationState();
+    renderConversationMessages();
+    const input = document.getElementById("robotAssistInput");
+    if (input) input.value = "";
+    const decisionSection = section();
+    if (decisionSection) decisionSection.hidden = true;
+    clearBody();
+    setStatus("");
+    openRobotAssist();
   }
 
   function openRobotAssist() {
@@ -674,6 +915,16 @@
     titleText.appendChild(textNode("small", "", "เพื่อนช่วยคิดให้ตัดสินใจง่ายขึ้น"));
     titleWrap.appendChild(titleText);
 
+    const headerActions = document.createElement("div");
+    headerActions.className = "robot-assist-header-actions";
+
+    const reset = document.createElement("button");
+    reset.type = "button";
+    reset.className = "robot-assist-reset";
+    reset.textContent = "เริ่มใหม่";
+    reset.setAttribute("aria-label", "เริ่มบทสนทนาใหม่");
+    reset.addEventListener("click", startNewConversation);
+
     const close = document.createElement("button");
     close.type = "button";
     close.className = "robot-assist-close";
@@ -681,24 +932,21 @@
     close.textContent = "×";
     close.addEventListener("click", closeRobotAssist);
 
+    headerActions.appendChild(reset);
+    headerActions.appendChild(close);
     header.appendChild(titleWrap);
-    header.appendChild(close);
+    header.appendChild(headerActions);
 
     const messages = document.createElement("div");
     messages.id = "robotAssistMessages";
     messages.className = "robot-assist-messages";
-    messages.appendChild(textNode(
-      "div",
-      "robot-assist-message assistant",
-      "สวัสดีครับ อยากให้ช่วยคิดเรื่องกิน เที่ยว ช้อป หรือบริการอะไร?"
-    ));
 
     const composer = document.createElement("div");
     composer.className = "robot-assist-composer";
 
-    const input = document.createElement("input");
+    const input = document.createElement("textarea");
     input.id = "robotAssistInput";
-    input.type = "text";
+    input.rows = 1;
     input.autocomplete = "off";
     input.placeholder = "ถาม AI Assistant...";
     input.setAttribute("aria-label", "ข้อความถึง AI Assistant");
@@ -710,7 +958,7 @@
     send.addEventListener("click", requestDecision);
 
     input.addEventListener("keydown", function (event) {
-      if (event.key === "Enter" && !event.isComposing) {
+      if (event.key === "Enter" && !event.shiftKey && !event.isComposing) {
         event.preventDefault();
         requestDecision();
       }
@@ -733,6 +981,7 @@
         document.body.prepend(panel);
       }
     }
+    renderConversationMessages();
     return panel;
   }
 
@@ -816,6 +1065,7 @@
   }
 
   function init() {
+    loadConversationMemory();
     createSection();
     createRobotPanel();
     bindDetailCollapse();
