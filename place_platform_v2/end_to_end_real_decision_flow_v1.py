@@ -131,6 +131,7 @@ def _fetch_published_places(
     understanding: StructuredDecisionRequest,
     *,
     origin: GeoPoint | None,
+    location_text: str | None,
     radius_km: float,
     limit: int,
 ) -> tuple[PublishedPlaceView, ...]:
@@ -144,10 +145,13 @@ def _fetch_published_places(
             )
         )
         return tuple(item.place for item in nearby)
+
+    # A user-supplied area name is a broad text-area fallback only. It is not
+    # converted into coordinates and therefore cannot become distance evidence.
     return tuple(
         repository.search_text(
             PublishedTextQuery(
-                text="",
+                text=(location_text or "") if understanding.province is None else "",
                 province=understanding.province,
                 limit=limit,
             )
@@ -195,7 +199,21 @@ def run_end_to_end_real_decision_flow_v1(
     candidate_limit: int = 50,
     recommendation_limit: int = 3,
 ) -> EndToEndRealDecisionResultV1:
+    raw_context = context
     context = normalize_decision_context_v1(context)
+    # Conversation Gateway V1 carries explicit user-entered area text. Preserve
+    # that single field even if the generic decision normalizer predates it.
+    raw_location_text = None
+    if raw_context and raw_context.get("location_text") is not None:
+        if not isinstance(raw_context.get("location_text"), str):
+            raise ValueError("location_text must be a string")
+        raw_location_text = raw_context.get("location_text").strip() or None
+        if raw_location_text and len(raw_location_text) > 200:
+            raise ValueError("location_text too long")
+    if raw_location_text:
+        context = dict(context)
+        context["location_text"] = raw_location_text
+
     """Execute the complete deterministic V1 decision path over published data."""
     if not request_id.strip():
         raise ValueError("request_id required")
@@ -222,7 +240,8 @@ def run_end_to_end_real_decision_flow_v1(
         )
 
     origin = _origin_from_context(context)
-    if understanding.near_me and origin is None:
+    location_text = str(context.get("location_text") or "").strip() or None
+    if understanding.near_me and origin is None and not location_text:
         explanation = _explain(None, ())
         return EndToEndRealDecisionResultV1(
             request_id=request_id,
@@ -240,6 +259,7 @@ def run_end_to_end_real_decision_flow_v1(
         repository,
         understanding,
         origin=origin,
+        location_text=location_text,
         radius_km=radius_km,
         limit=candidate_limit,
     )

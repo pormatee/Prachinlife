@@ -4,8 +4,14 @@
   const DECISION_TIMEOUT_MS = 90000;
   const MAX_ALTERNATIVES = 2;
 
-  // AI ASSISTANT FEATURE UX V2
+  // AI ASSISTANT FEATURE UX V2 + CONVERSATIONAL AI GATEWAY V1
+  // The gateway carries explicit user/device context only. It never ranks,
+  // selects candidates, or changes the decision returned by MSB/DQE.
   let robotAssistPendingBaseQuery = "";
+  let robotAssistPendingContextField = "";
+  let robotAssistConversationContext = Object.create(null);
+  let robotAssistDeviceLocationState = "unknown";
+  let robotAssistDeviceLocationAt = 0;
 
   const LABELS = Object.freeze({
     opening_hours: "เวลาเปิด-ปิด",
@@ -27,6 +33,105 @@
     }
     return input;
   }
+
+  function unresolvedContextFields(result) {
+    const raw = result?.understanding?.unresolved_context;
+    if (!Array.isArray(raw)) return [];
+    return raw
+      .map((value) => String(value || "").trim())
+      .filter(Boolean);
+  }
+
+  function nextPendingContextField(result) {
+    const unresolved = unresolvedContextFields(result);
+    if (unresolved.includes("current_location")) return "current_location";
+    if (unresolved.includes("location")) return "location";
+    return "";
+  }
+
+  function decisionContextPayload() {
+    const payload = {};
+    const currentLocation = robotAssistConversationContext.current_location;
+    const locationFresh =
+      robotAssistDeviceLocationAt === 0
+      || (Date.now() - robotAssistDeviceLocationAt) <= 300000;
+    if (
+      locationFresh
+      && Array.isArray(currentLocation)
+      && currentLocation.length === 2
+      && Number.isFinite(Number(currentLocation[0]))
+      && Number.isFinite(Number(currentLocation[1]))
+    ) {
+      payload.current_location = [
+        Number(currentLocation[0]),
+        Number(currentLocation[1]),
+      ];
+    }
+
+    const locationText = String(
+      robotAssistConversationContext.location_text || ""
+    ).trim();
+    if (locationText) payload.location_text = locationText;
+
+    return payload;
+  }
+
+  function deviceLocation() {
+    if (robotAssistDeviceLocationState === "denied") {
+      return Promise.resolve(null);
+    }
+    if (!global.navigator?.geolocation) {
+      robotAssistDeviceLocationState = "unavailable";
+      return Promise.resolve(null);
+    }
+
+    return new Promise((resolve) => {
+      global.navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const latitude = Number(position?.coords?.latitude);
+          const longitude = Number(position?.coords?.longitude);
+          if (!Number.isFinite(latitude) || !Number.isFinite(longitude)) {
+            robotAssistDeviceLocationState = "unavailable";
+            resolve(null);
+            return;
+          }
+          robotAssistDeviceLocationState = "granted";
+          robotAssistDeviceLocationAt = Date.now();
+          robotAssistConversationContext.current_location = [latitude, longitude];
+          delete robotAssistConversationContext.location_text;
+          resolve([latitude, longitude]);
+        },
+        (error) => {
+          robotAssistDeviceLocationState =
+            Number(error?.code) === 1 ? "denied" : "unavailable";
+          resolve(null);
+        },
+        {
+          enableHighAccuracy: false,
+          timeout: 7000,
+          maximumAge: 300000,
+        }
+      );
+    });
+  }
+
+  function applyPendingUserContext(query) {
+    const value = String(query || "").trim();
+    if (!value || !robotAssistPendingContextField) return false;
+
+    if (
+      robotAssistPendingContextField === "current_location"
+      || robotAssistPendingContextField === "location"
+    ) {
+      robotAssistConversationContext.location_text = value;
+      delete robotAssistConversationContext.current_location;
+      robotAssistDeviceLocationAt = 0;
+      robotAssistPendingContextField = "";
+      return true;
+    }
+    return false;
+  }
+
 
   function placeId(place) {
     return String(place?.id ?? place?.place_id ?? place?.metadata?.v2_place_id ?? "").trim();
@@ -346,9 +451,6 @@
     const input = document.getElementById("robotAssistInput");
     const button = document.getElementById("decisionAssistBtn");
     const query = String(input?.value || "").trim();
-    const decisionText = robotAssistPendingBaseQuery
-      ? robotAssistPendingBaseQuery + "\nข้อมูลเพิ่มเติมจากผู้ใช้: " + query
-      : query;
 
     if (!query) {
       openRobotAssist();
@@ -363,22 +465,57 @@
       return;
     }
 
+    const pendingWasStructured = applyPendingUserContext(query);
+    const decisionText = robotAssistPendingBaseQuery
+      ? (
+          pendingWasStructured
+            ? robotAssistPendingBaseQuery
+            : robotAssistPendingBaseQuery + "\nข้อมูลเพิ่มเติมจากผู้ใช้: " + query
+        )
+      : query;
+
     if (button) button.disabled = true;
     addRobotMessage("user", query);
     input.value = "";
     const thinking = addRobotMessage("assistant", "กำลังช่วยคิดจากข้อมูลที่เผยแพร่แล้ว...");
 
     try {
-      const response = await api.decision(
+      let response = await api.decision(
         {
           text: decisionText,
+          context: decisionContextPayload(),
           request_id: "web-decision-card-v1-" + Date.now(),
           recommendation_limit: 3,
         },
         { timeoutMs: DECISION_TIMEOUT_MS }
       );
 
-      const result = resultPayload(response);
+      let result = resultPayload(response);
+
+      // If the understanding layer says current device position is the only
+      // missing location fact, the gateway tries to obtain that fact before
+      // asking the user. It does not infer intent, choose candidates, or rank.
+      if (
+        result
+        && unresolvedContextFields(result).includes("current_location")
+        && !decisionContextPayload().current_location
+        && !decisionContextPayload().location_text
+      ) {
+        const location = await deviceLocation();
+        if (location) {
+          response = await api.decision(
+            {
+              text: decisionText,
+              context: decisionContextPayload(),
+              request_id: "web-decision-card-v1-location-" + Date.now(),
+              recommendation_limit: 3,
+            },
+            { timeoutMs: DECISION_TIMEOUT_MS }
+          );
+          result = resultPayload(response);
+        }
+      }
+
       const bestId = String(
         result?.explanation?.best_fit_candidate_id ??
         result?.decision?.best_fit_candidate_id ??
@@ -389,6 +526,7 @@
 
       if (result && (result.status === "needs_user_input" || (!bestId && result.highest_value_question))) {
         robotAssistPendingBaseQuery = decisionText;
+        robotAssistPendingContextField = nextPendingContextField(result);
         addRobotMessage(
           "assistant",
           String(result.highest_value_question || "ขอข้อมูลเพิ่มอีกนิดครับ").trim()
@@ -398,12 +536,14 @@
       }
 
       if (bestId) {
-        addRobotMessage("assistant", "ได้เลยครับ ผมแสดงคำแนะนำเบื้องต้นไว้ด้านล่างให้แล้ว");
+        robotAssistPendingContextField = "";
+        addRobotMessage("assistant", "ได้เลยครับ ผมแสดงคำแนะนำจากระบบตัดสินใจไว้ด้านล่างให้แล้ว");
         renderResponse(response);
 
         const followUp = String(result?.highest_value_question || "").trim();
         if (followUp) {
           robotAssistPendingBaseQuery = decisionText;
+          robotAssistPendingContextField = nextPendingContextField(result);
           addRobotMessage("assistant", followUp);
         } else {
           robotAssistPendingBaseQuery = "";
@@ -421,7 +561,8 @@
       }
 
       robotAssistPendingBaseQuery = "";
-      addRobotMessage("assistant", "ตอนนี้ข้อมูลยังไม่พอให้แนะนำตัวเลือกที่เหมาะสมครับ");
+      robotAssistPendingContextField = "";
+      addRobotMessage("assistant", "ตอนนี้ข้อมูลยังไม่พอให้ระบบแนะนำตัวเลือกที่เหมาะสมครับ");
     } catch (error) {
       if (thinking) thinking.remove();
       const isAbort = error?.name === "AbortError";

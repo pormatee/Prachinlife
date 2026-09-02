@@ -223,7 +223,8 @@ def run_contextual_personal_decision_v1(
         return ContextualPersonalDecisionResult(request_id,"needs_user_input",understanding,empty_profile,None,(),(),(),(),(),(),(),True,question,True)
 
     origin=_origin_from_context(context)
-    if understanding.near_me and origin is None:
+    location_text = str((context or {}).get("location_text") or "").strip() or None
+    if understanding.near_me and origin is None and not location_text:
         return ContextualPersonalDecisionResult(request_id,"needs_user_input",understanding,empty_profile,None,(),(),(),(),(),(),(),True,question,True)
 
     profile=build_context_policy_profile(understanding,trusted_context=context)
@@ -235,7 +236,14 @@ def run_contextual_personal_decision_v1(
         preferences=profile.preferences,
         context=understanding.to_consumer_request(request_id).context,
     )
-    published=_fetch_published_places(repository,understanding,origin=origin,radius_km=radius_km,limit=candidate_limit)
+    published=_fetch_published_places(
+        repository,
+        understanding,
+        origin=origin,
+        location_text=location_text,
+        radius_km=radius_km,
+        limit=candidate_limit,
+    )
     compatible=tuple(p for p in published if _candidate_compatible(p,understanding))
 
     by_place={}

@@ -248,9 +248,17 @@ def _understand_user_request_core(user_text: str, context: Mapping[str, Any] | N
     unresolved=[]
     inferred={}
 
+    explicit_location_text = None
+    if context and context.get("location_text") is not None:
+        if not isinstance(context.get("location_text"), str):
+            raise ValueError("location_text must be a string")
+        explicit_location_text = context.get("location_text").strip() or None
+        if explicit_location_text and len(explicit_location_text) > 200:
+            raise ValueError("location_text too long")
+
     if province:
         hard.append(ConsumerCondition("province", province, strength="hard", operator="eq", source="user"))
-    elif not near_me:
+    elif not near_me and not explicit_location_text:
         unresolved.append("location")
 
     if category == "vegetarian":
@@ -260,9 +268,17 @@ def _understand_user_request_core(user_text: str, context: Mapping[str, Any] | N
 
     if near_me:
         inferred["near_me"] = True
-        # Origin must come from trusted runtime/user context, never invented.
-        if not context or not context.get("current_location"):
+        # Exact origin must come from trusted runtime/user context. A user-
+        # supplied location_text is an explicit area fallback, never invented
+        # coordinates and never treated as distance evidence.
+        if not context or (
+            not context.get("current_location")
+            and not explicit_location_text
+        ):
             unresolved.append("current_location")
+
+    if explicit_location_text:
+        inferred["location_text"] = explicit_location_text
 
     if temporal_context:
         inferred["temporal_context"] = temporal_context
