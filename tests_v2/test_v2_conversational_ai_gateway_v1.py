@@ -31,9 +31,11 @@ class TestConversationalAiGatewayV1(unittest.TestCase):
         self.assertIn("robotAssistConversationContext.current_location", JS)
         self.assertIn("robotAssistConversationContext.location_text", JS)
 
-    def test_02_device_location_is_requested_only_after_brain_reports_missing_current_location(self):
-        self.assertIn('unresolvedContextFields(result).includes("current_location")', JS)
+    def test_02_near_me_prefers_current_device_location_over_stale_area_context(self):
+        self.assertIn("resultRequestsNearMe(result)", JS)
+        self.assertIn("&& !pendingWasStructured", JS)
         self.assertIn("navigator.geolocation.getCurrentPosition", JS)
+        self.assertIn("const location = await deviceLocation();", JS)
         self.assertIn('text: decisionText', JS)
 
     def test_03_gateway_does_not_contain_ranking_authority(self):

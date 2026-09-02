@@ -238,6 +238,15 @@
     return "";
   }
 
+  function resultNeedsLocationClarification(result) {
+    const pending = nextPendingContextField(result);
+    return pending === "current_location" || pending === "location";
+  }
+
+  function resultRequestsNearMe(result) {
+    return result?.understanding?.near_me === true;
+  }
+
   function decisionContextPayload() {
     const payload = {};
     const currentLocation = robotAssistConversationContext.current_location;
@@ -681,14 +690,14 @@
 
       let result = resultPayload(response);
 
-      // If the understanding layer says current device position is the only
-      // missing location fact, the gateway tries to obtain that fact before
-      // asking the user. It does not infer intent, choose candidates, or rank.
+      // For near-me, current device position has priority over a
+      // location_text remembered from an earlier turn/session. If the user
+      // explicitly answered a location clarification in this turn, respect it.
       if (
         result
-        && unresolvedContextFields(result).includes("current_location")
+        && resultRequestsNearMe(result)
+        && !pendingWasStructured
         && !decisionContextPayload().current_location
-        && !decisionContextPayload().location_text
       ) {
         const location = await deviceLocation();
         if (location) {
@@ -713,7 +722,14 @@
 
       if (thinking) thinking.remove();
 
-      if (result && (result.status === "needs_user_input" || (!bestId && result.highest_value_question))) {
+      if (
+        result
+        && (
+          result.status === "needs_user_input"
+          || resultNeedsLocationClarification(result)
+          || (!bestId && result.highest_value_question)
+        )
+      ) {
         robotAssistPendingBaseQuery = decisionText;
         robotAssistPendingContextField = nextPendingContextField(result);
         saveConversationMemory();
@@ -877,6 +893,7 @@
     const button = document.getElementById("decisionAssistBtn");
     if (!panel) return;
     panel.hidden = false;
+    syncRobotAssistVisualViewport();
     panel.setAttribute("aria-hidden", "false");
     button?.setAttribute("aria-expanded", "true");
     window.setTimeout(function () {
@@ -891,6 +908,36 @@
     panel.hidden = true;
     panel.setAttribute("aria-hidden", "true");
     button?.setAttribute("aria-expanded", "false");
+  }
+
+  function syncRobotAssistVisualViewport() {
+    const panel = robotPanel();
+    if (!panel) return;
+    const viewport = global.visualViewport;
+    const mobile = global.matchMedia?.("(max-width: 520px)")?.matches;
+    if (!mobile || !viewport) {
+      panel.style.removeProperty("--robot-assist-vv-top");
+      panel.style.removeProperty("--robot-assist-vv-height");
+      return;
+    }
+
+    const top = Math.max(8, Number(viewport.offsetTop || 0) + 8);
+    const height = Math.max(
+      260,
+      Number(viewport.height || global.innerHeight || 0) - 16
+    );
+    panel.style.setProperty("--robot-assist-vv-top", top + "px");
+    panel.style.setProperty("--robot-assist-vv-height", height + "px");
+  }
+
+  function bindRobotAssistVisualViewport() {
+    if (document.documentElement.dataset.robotAssistVisualViewportBound === "1") return;
+    document.documentElement.dataset.robotAssistVisualViewportBound = "1";
+    const viewport = global.visualViewport;
+    if (!viewport) return;
+    viewport.addEventListener("resize", syncRobotAssistVisualViewport);
+    viewport.addEventListener("scroll", syncRobotAssistVisualViewport);
+    global.addEventListener("orientationchange", syncRobotAssistVisualViewport);
   }
 
   function createRobotPanel() {
@@ -957,6 +1004,9 @@
     send.textContent = "ส่ง";
     send.addEventListener("click", requestDecision);
 
+    input.addEventListener("focus", function () {
+      window.setTimeout(syncRobotAssistVisualViewport, 40);
+    });
     input.addEventListener("keydown", function (event) {
       if (event.key === "Enter" && !event.shiftKey && !event.isComposing) {
         event.preventDefault();
@@ -1068,6 +1118,8 @@
     loadConversationMemory();
     createSection();
     createRobotPanel();
+    bindRobotAssistVisualViewport();
+    syncRobotAssistVisualViewport();
     bindDetailCollapse();
     const button = createAssistButton();
     if (!button || button.dataset.bound === "1") return;

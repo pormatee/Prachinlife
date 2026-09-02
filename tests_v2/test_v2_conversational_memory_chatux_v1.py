@@ -64,13 +64,14 @@ class TestConversationalMemoryChatUxV1(unittest.TestCase):
 
     def test_10_mobile_chat_is_large_readable_panel(self):
         self.assertIn("position: fixed !important;", CSS)
-        self.assertIn("top: max(10px, env(safe-area-inset-top, 0px));", CSS)
-        self.assertIn("bottom: max(8px, env(safe-area-inset-bottom, 0px));", CSS)
+        self.assertIn("--robot-assist-vv-top", CSS)
+        self.assertIn("--robot-assist-vv-height", CSS)
+        self.assertIn("100dvh", CSS)
         self.assertIn("min-height: 220px;", CSS)
 
     def test_11_cache_busts_js_and_css(self):
-        self.assertIn("css/locallife-decision-card-v1.css?v=conversational-memory-chatux-v1", INDEX)
-        self.assertIn("conversational-memory-chatux-v1", INDEX)
+        self.assertIn("css/locallife-decision-card-v1.css?v=conversational-memory-chatux-v1-2", INDEX)
+        self.assertIn("conversational-memory-chatux-v1-2", INDEX)
 
     def test_12_existing_gateway_authority_boundary_is_untouched(self):
         start = JS.index("function decisionContextPayload()")
@@ -78,6 +79,23 @@ class TestConversationalMemoryChatUxV1(unittest.TestCase):
         block = JS[start:end]
         for forbidden in ("ranking", "sponsor", "best_fit_candidate_id", "candidate_ids"):
             self.assertNotIn(forbidden, block)
+
+
+    def test_13_visual_viewport_keeps_chat_inside_keyboard_visible_area(self):
+        self.assertIn("function syncRobotAssistVisualViewport()", JS)
+        self.assertIn("global.visualViewport", JS)
+        self.assertIn('viewport.addEventListener("resize"', JS)
+        self.assertIn('input.addEventListener("focus"', JS)
+
+    def test_14_location_clarification_dominates_recommendation(self):
+        self.assertIn("function resultNeedsLocationClarification(result)", JS)
+        self.assertIn("resultNeedsLocationClarification(result)", JS)
+
+    def test_15_near_me_prefers_device_location_over_stale_location_text(self):
+        self.assertIn("function resultRequestsNearMe(result)", JS)
+        self.assertIn("resultRequestsNearMe(result)", JS)
+        self.assertIn("&& !pendingWasStructured", JS)
+        self.assertIn("const location = await deviceLocation();", JS)
 
 
 if __name__ == "__main__":
