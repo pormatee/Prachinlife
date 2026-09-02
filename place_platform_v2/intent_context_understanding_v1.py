@@ -47,6 +47,13 @@ _PROVINCE_ALIASES = {
     "ชลบุรี": ("ชลบุรี", "chonburi"),
 }
 
+# Deterministic administrative-area aliases. These aliases only resolve a
+# user-supplied area to its containing province for candidate retrieval.
+# They never fabricate coordinates and never provide distance evidence.
+_LOCALITY_PROVINCE_ALIASES = {
+    "ปทุมธานี": ("รังสิต", "rangsit"),
+}
+
 _CATEGORY_RULES = (
     ("vegetarian", ("อาหารเจ", "ร้านเจ", "กินเจ", "เจ", "มังสวิรัติ", "vegan", "vegetarian")),
     ("shopping", ("ซื้อของ", "ช้อป", "shopping", "ห้าง", "ซูเปอร์", "สินค้า", "ของใช้")),
@@ -130,8 +137,12 @@ def _contains(text: str, terms: tuple[str, ...]) -> bool:
 
 
 def _extract_province(text: str) -> str | None:
+    normalized = _norm(text)
     for canonical, aliases in _PROVINCE_ALIASES.items():
-        if any(_norm(alias) in text for alias in aliases):
+        if any(_norm(alias) in normalized for alias in aliases):
+            return canonical
+    for canonical, aliases in _LOCALITY_PROVINCE_ALIASES.items():
+        if any(_norm(alias) in normalized for alias in aliases):
             return canonical
     return None
 
@@ -235,7 +246,6 @@ def _understand_user_request_core(user_text: str, context: Mapping[str, Any] | N
     decision_object, object_category=_extract_decision_object(text)
     category=object_category or _extract_category(text)
     references=_extract_references(text, decision_object)
-    province=_extract_province(text)
     temporal_context, temporal_signals=_extract_time_context(text)
     near_me=_contains(text, _NEAR_ME_TERMS)
     wants_recommendation=_contains(text, _RECOMMEND_TERMS)
@@ -255,6 +265,13 @@ def _understand_user_request_core(user_text: str, context: Mapping[str, Any] | N
         explicit_location_text = context.get("location_text").strip() or None
         if explicit_location_text and len(explicit_location_text) > 200:
             raise ValueError("location_text too long")
+
+    # Resolve explicit area context using the same deterministic administrative
+    # alias boundary as direct user text. The original location_text is still
+    # preserved in inferred_context for traceability.
+    province = _extract_province(text)
+    if province is None and explicit_location_text:
+        province = _extract_province(explicit_location_text)
 
     if province:
         hard.append(ConsumerCondition("province", province, strength="hard", operator="eq", source="user"))

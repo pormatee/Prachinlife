@@ -65,6 +65,7 @@ class TestConversationalAiGatewayV1(unittest.TestCase):
         self.assertTrue(understood.near_me)
         self.assertNotIn("current_location", understood.unresolved_context)
         self.assertEqual("รังสิต", understood.inferred_context.get("location_text"))
+        self.assertEqual("ปทุมธานี", understood.province)
         self.assertNotIn("current_location", understood.inferred_context)
 
     def test_06_missing_location_still_requires_clarification(self):
@@ -88,7 +89,8 @@ class TestConversationalAiGatewayV1(unittest.TestCase):
         self.assertEqual((), result)
         self.assertEqual(0, len(repo.nearby_queries))
         self.assertEqual(1, len(repo.text_queries))
-        self.assertEqual("รังสิต", repo.text_queries[0].text)
+        self.assertEqual("", repo.text_queries[0].text)
+        self.assertEqual("ปทุมธานี", repo.text_queries[0].province)
 
     def test_08_exact_device_coordinates_use_nearby_path(self):
         from place_platform_v2.contracts import GeoPoint
@@ -111,7 +113,7 @@ class TestConversationalAiGatewayV1(unittest.TestCase):
 
     def test_09_cache_bust_preserves_previous_contract_and_adds_gateway(self):
         self.assertIn(
-            "ai-assistant-persistent-chat-ux-v3-conversational-gateway-v1",
+            "ai-assistant-persistent-chat-ux-v3-conversational-gateway-v1-location-context-resolver-v1",
             INDEX,
         )
 
@@ -142,8 +144,19 @@ class TestConversationalAiGatewayV1(unittest.TestCase):
         )
         self.assertEqual(0, len(repo.nearby_queries))
         self.assertEqual(1, len(repo.text_queries))
-        self.assertEqual("รังสิต", repo.text_queries[0].text)
+        self.assertEqual("", repo.text_queries[0].text)
+        self.assertEqual("ปทุมธานี", repo.text_queries[0].province)
         self.assertNotEqual("needs_user_input", result.status)
+
+
+    def test_12_ui_copy_does_not_claim_result_is_below_chat(self):
+        self.assertIn("ระบบตัดสินใจแสดงคำแนะนำให้แล้วครับ", JS)
+        self.assertNotIn("ไว้ด้านล่างให้แล้ว", JS)
+
+    def test_13_rangsit_direct_text_resolves_to_pathum_thani_without_coordinates(self):
+        understood = understand_user_request("หาร้านเจรังสิต", context={})
+        self.assertEqual("ปทุมธานี", understood.province)
+        self.assertNotIn("current_location", understood.inferred_context)
 
 
 if __name__ == "__main__":

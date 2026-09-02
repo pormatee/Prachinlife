@@ -537,7 +537,7 @@
 
       if (bestId) {
         robotAssistPendingContextField = "";
-        addRobotMessage("assistant", "ได้เลยครับ ผมแสดงคำแนะนำจากระบบตัดสินใจไว้ด้านล่างให้แล้ว");
+        addRobotMessage("assistant", "ได้เลยครับ ระบบตัดสินใจแสดงคำแนะนำให้แล้วครับ");
         renderResponse(response);
 
         const followUp = String(result?.highest_value_question || "").trim();
