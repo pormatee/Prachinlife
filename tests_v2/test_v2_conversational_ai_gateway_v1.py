@@ -161,5 +161,17 @@ class TestConversationalAiGatewayV1(unittest.TestCase):
         self.assertNotIn("current_location", understood.inferred_context)
 
 
+    def test_14_near_me_without_device_location_does_not_use_stale_area_for_recommendation(self):
+        self.assertIn("const contextWithoutStaleArea = decisionContextPayload();", JS)
+        self.assertIn("delete contextWithoutStaleArea.location_text;", JS)
+        self.assertIn("context: contextWithoutStaleArea", JS)
+
+    def test_15_device_location_can_be_retried_after_previous_denial(self):
+        start = JS.index("function deviceLocation()")
+        end = JS.index("function applyPendingUserContext(", start)
+        block = JS[start:end]
+        self.assertNotIn('if (robotAssistDeviceLocationState === "denied")', block)
+
+
 if __name__ == "__main__":
     unittest.main()

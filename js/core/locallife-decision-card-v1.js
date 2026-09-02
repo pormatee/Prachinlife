@@ -275,9 +275,9 @@
   }
 
   function deviceLocation() {
-    if (robotAssistDeviceLocationState === "denied") {
-      return Promise.resolve(null);
-    }
+    // Do not permanently trust an earlier denied/unavailable state. The user
+    // may enable device location after the previous attempt, so every new
+    // near-me request is allowed to ask the browser for the current position.
     if (!global.navigator?.geolocation) {
       robotAssistDeviceLocationState = "unavailable";
       return Promise.resolve(null);
@@ -690,9 +690,12 @@
 
       let result = resultPayload(response);
 
-      // For near-me, current device position has priority over a
-      // location_text remembered from an earlier turn/session. If the user
-      // explicitly answered a location clarification in this turn, respect it.
+      // For every fresh near-me request, current device position has priority
+      // over a location_text remembered from an earlier turn/session.
+      // If the browser cannot provide current position, re-ask the Brain with
+      // remembered area text removed so the Brain decides what clarification
+      // is required. An explicit structured location answer in this turn is
+      // respected and is not overridden by GPS.
       if (
         result
         && resultRequestsNearMe(result)
@@ -706,6 +709,19 @@
               text: decisionText,
               context: decisionContextPayload(),
               request_id: "web-decision-card-v1-location-" + Date.now(),
+              recommendation_limit: 3,
+            },
+            { timeoutMs: DECISION_TIMEOUT_MS }
+          );
+          result = resultPayload(response);
+        } else {
+          const contextWithoutStaleArea = decisionContextPayload();
+          delete contextWithoutStaleArea.location_text;
+          response = await api.decision(
+            {
+              text: decisionText,
+              context: contextWithoutStaleArea,
+              request_id: "web-decision-card-v1-location-missing-" + Date.now(),
               recommendation_limit: 3,
             },
             { timeoutMs: DECISION_TIMEOUT_MS }

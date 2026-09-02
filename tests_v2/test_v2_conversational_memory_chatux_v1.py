@@ -71,7 +71,7 @@ class TestConversationalMemoryChatUxV1(unittest.TestCase):
 
     def test_11_cache_busts_js_and_css(self):
         self.assertIn("css/locallife-decision-card-v1.css?v=conversational-memory-chatux-v1-2", INDEX)
-        self.assertIn("conversational-memory-chatux-v1-2", INDEX)
+        self.assertIn("conversational-memory-chatux-v1-4", INDEX)
 
     def test_12_existing_gateway_authority_boundary_is_untouched(self):
         start = JS.index("function decisionContextPayload()")
@@ -96,6 +96,19 @@ class TestConversationalMemoryChatUxV1(unittest.TestCase):
         self.assertIn("resultRequestsNearMe(result)", JS)
         self.assertIn("&& !pendingWasStructured", JS)
         self.assertIn("const location = await deviceLocation();", JS)
+
+
+    def test_16_near_me_gps_failure_removes_stale_area_before_brain_retry(self):
+        self.assertIn("const contextWithoutStaleArea = decisionContextPayload();", JS)
+        self.assertIn("delete contextWithoutStaleArea.location_text;", JS)
+        self.assertIn("context: contextWithoutStaleArea", JS)
+
+    def test_17_location_permission_state_is_retryable_after_user_changes_setting(self):
+        start = JS.index("function deviceLocation()")
+        end = JS.index("function applyPendingUserContext(", start)
+        block = JS[start:end]
+        self.assertNotIn('robotAssistDeviceLocationState === "denied"', block)
+        self.assertIn("navigator.geolocation.getCurrentPosition", block)
 
 
 if __name__ == "__main__":
