@@ -232,7 +232,15 @@ class T(unittest.TestCase):
         self.assertEqual("https://api.openai.com/v1/responses", DEFAULT_OPENAI_ENDPOINT)
 
     def test_11_environment_defaults_to_disabled_without_api_key(self):
-        with mock.patch.dict(os.environ, {"PRACHINLIFE_SEMANTIC_PROVIDER": "auto", "OPENAI_API_KEY": ""}, clear=False):
+        with mock.patch.dict(
+            os.environ,
+            {
+                "PRACHINLIFE_SEMANTIC_PROVIDER": "auto",
+                "OPENAI_API_KEY": "",
+                "DEEPSEEK_API_KEY": "",
+            },
+            clear=False,
+        ):
             result = interpret_semantic_language_v1("หาร้านเจ", {})
         self.assertEqual("fallback_disabled", result.status)
         self.assertFalse(result.used_model)

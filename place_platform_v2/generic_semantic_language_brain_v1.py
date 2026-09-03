@@ -20,6 +20,8 @@ SEMANTIC_LANGUAGE_BRAIN_VERSION = "GENERIC-SEMANTIC-LANGUAGE-BRAIN-V1"
 SEMANTIC_MEANING_SCHEMA_VERSION = "GENERIC-SEMANTIC-MEANING-V1"
 DEFAULT_OPENAI_MODEL = "gpt-5.6-luna"
 DEFAULT_OPENAI_ENDPOINT = "https://api.openai.com/v1/responses"
+DEFAULT_DEEPSEEK_MODEL = "deepseek-v4-flash"
+DEFAULT_DEEPSEEK_ENDPOINT = "https://api.deepseek.com/responses"
 MAX_USER_TEXT = 4000
 MAX_CONTEXT_TEXT = 200
 MAX_CRITERIA = 8
@@ -442,23 +444,150 @@ class OpenAIResponsesSemanticProviderV1(SemanticLanguageProviderV1):
         return _validate_meaning(raw)
 
 
+
+class DeepSeekResponsesSemanticProviderV1(SemanticLanguageProviderV1):
+    """DeepSeek Responses API adapter for semantic-only structured output.
+
+    DeepSeek's Responses API currently supports deepseek-v4-flash. Thinking is
+    disabled because this boundary performs language interpretation only; all
+    place ranking and decision reasoning remains downstream in MSB/DQE.
+    """
+    name = "deepseek"
+
+    def __init__(
+        self,
+        *,
+        api_key: str,
+        model: str = DEFAULT_DEEPSEEK_MODEL,
+        endpoint: str = DEFAULT_DEEPSEEK_ENDPOINT,
+        timeout_seconds: float = 8.0,
+    ) -> None:
+        api_key = str(api_key or "").strip()
+        if not api_key:
+            raise SemanticLanguageProviderError("deepseek_api_key_missing")
+        self.model = str(model or DEFAULT_DEEPSEEK_MODEL).strip()
+        if self.model != DEFAULT_DEEPSEEK_MODEL:
+            raise SemanticLanguageProviderError("deepseek_responses_model_unsupported")
+        self._api_key = api_key
+        self._endpoint = str(endpoint or DEFAULT_DEEPSEEK_ENDPOINT).strip()
+        self._timeout_seconds = min(max(float(timeout_seconds), 1.0), 30.0)
+
+    def _request_payload(self, semantic_input: Mapping[str, Any]) -> dict[str, Any]:
+        return {
+            "model": self.model,
+            "instructions": _SYSTEM_INSTRUCTIONS,
+            "input": [
+                {
+                    "role": "user",
+                    "content": [
+                        {
+                            "type": "input_text",
+                            "text": json.dumps(semantic_input, ensure_ascii=False, separators=(",", ":")),
+                        }
+                    ],
+                }
+            ],
+            "text": {
+                "format": {
+                    "type": "json_schema",
+                    "name": "prachinlife_semantic_language_v1",
+                    "schema": SEMANTIC_OUTPUT_SCHEMA,
+                }
+            },
+            "reasoning": {"effort": "none"},
+            "max_output_tokens": 1400,
+            "stream": False,
+        }
+
+    @staticmethod
+    def _extract_output_text(data: Mapping[str, Any]) -> str:
+        direct = data.get("output_text")
+        if isinstance(direct, str) and direct.strip():
+            return direct.strip()
+        output = data.get("output")
+        if not isinstance(output, list):
+            raise SemanticLanguageProviderError("deepseek_output_missing")
+        for item in output:
+            if not isinstance(item, Mapping) or item.get("type") != "message":
+                continue
+            content = item.get("content")
+            if not isinstance(content, list):
+                continue
+            for part in content:
+                if not isinstance(part, Mapping):
+                    continue
+                text = part.get("text")
+                if part.get("type") == "output_text" and isinstance(text, str) and text.strip():
+                    return text.strip()
+        raise SemanticLanguageProviderError("deepseek_output_text_missing")
+
+    def interpret(self, semantic_input: Mapping[str, Any]) -> Mapping[str, Any]:
+        body = json.dumps(self._request_payload(semantic_input), ensure_ascii=False).encode("utf-8")
+        req = urlrequest.Request(
+            self._endpoint,
+            data=body,
+            method="POST",
+            headers={
+                "Authorization": f"Bearer {self._api_key}",
+                "Content-Type": "application/json",
+                "Accept": "application/json",
+                "User-Agent": "PrachinLife-Semantic-Language-Brain-V1",
+            },
+        )
+        try:
+            with urlrequest.urlopen(req, timeout=self._timeout_seconds) as response:
+                data = json.loads(response.read().decode("utf-8"))
+        except urlerror.HTTPError as exc:
+            raise SemanticLanguageProviderError(f"provider_http_{exc.code}") from None
+        except (urlerror.URLError, socket.timeout, TimeoutError):
+            raise SemanticLanguageProviderError("provider_unavailable") from None
+        except json.JSONDecodeError:
+            raise SemanticLanguageProviderError("provider_invalid_json") from None
+        if not isinstance(data, Mapping):
+            raise SemanticLanguageProviderError("provider_invalid_response")
+        output_text = self._extract_output_text(data)
+        try:
+            raw = json.loads(output_text)
+        except json.JSONDecodeError:
+            raise SemanticLanguageProviderError("provider_semantic_json_invalid") from None
+        return _validate_meaning(raw)
+
 def _provider_from_environment() -> SemanticLanguageProviderV1 | None:
     mode = str(os.environ.get("PRACHINLIFE_SEMANTIC_PROVIDER", "auto") or "auto").strip().casefold()
-    api_key = str(os.environ.get("OPENAI_API_KEY", "") or "").strip()
+    openai_key = str(os.environ.get("OPENAI_API_KEY", "") or "").strip()
+    deepseek_key = str(os.environ.get("DEEPSEEK_API_KEY", "") or "").strip()
     if mode in {"off", "disabled", "none"}:
         return None
-    if mode == "auto" and not api_key:
-        return None
-    if mode not in {"auto", "openai"}:
+    if mode not in {"auto", "openai", "deepseek"}:
         raise SemanticLanguageProviderError("semantic_provider_unsupported")
-    model = str(os.environ.get("PRACHINLIFE_SEMANTIC_MODEL", DEFAULT_OPENAI_MODEL) or DEFAULT_OPENAI_MODEL).strip()
-    endpoint = str(os.environ.get("PRACHINLIFE_SEMANTIC_ENDPOINT", DEFAULT_OPENAI_ENDPOINT) or DEFAULT_OPENAI_ENDPOINT).strip()
+
+    if mode == "auto":
+        if openai_key:
+            mode = "openai"
+        elif deepseek_key:
+            mode = "deepseek"
+        else:
+            return None
+
     try:
         timeout = float(os.environ.get("PRACHINLIFE_SEMANTIC_TIMEOUT_SECONDS", "8"))
     except ValueError:
         timeout = 8.0
+
+    if mode == "deepseek":
+        model = str(os.environ.get("PRACHINLIFE_SEMANTIC_MODEL", DEFAULT_DEEPSEEK_MODEL) or DEFAULT_DEEPSEEK_MODEL).strip()
+        endpoint = str(os.environ.get("PRACHINLIFE_SEMANTIC_ENDPOINT", DEFAULT_DEEPSEEK_ENDPOINT) or DEFAULT_DEEPSEEK_ENDPOINT).strip()
+        return DeepSeekResponsesSemanticProviderV1(
+            api_key=deepseek_key,
+            model=model,
+            endpoint=endpoint,
+            timeout_seconds=timeout,
+        )
+
+    model = str(os.environ.get("PRACHINLIFE_SEMANTIC_MODEL", DEFAULT_OPENAI_MODEL) or DEFAULT_OPENAI_MODEL).strip()
+    endpoint = str(os.environ.get("PRACHINLIFE_SEMANTIC_ENDPOINT", DEFAULT_OPENAI_ENDPOINT) or DEFAULT_OPENAI_ENDPOINT).strip()
     return OpenAIResponsesSemanticProviderV1(
-        api_key=api_key,
+        api_key=openai_key,
         model=model,
         endpoint=endpoint,
         timeout_seconds=timeout,
@@ -553,16 +682,35 @@ def interpret_semantic_language_v1(
 
 def semantic_provider_health_v1() -> dict[str, Any]:
     mode = str(os.environ.get("PRACHINLIFE_SEMANTIC_PROVIDER", "auto") or "auto").strip().casefold()
-    api_key_present = bool(str(os.environ.get("OPENAI_API_KEY", "") or "").strip())
-    model = str(os.environ.get("PRACHINLIFE_SEMANTIC_MODEL", DEFAULT_OPENAI_MODEL) or DEFAULT_OPENAI_MODEL).strip()
-    enabled = mode == "openai" or (mode == "auto" and api_key_present)
+    openai_present = bool(str(os.environ.get("OPENAI_API_KEY", "") or "").strip())
+    deepseek_present = bool(str(os.environ.get("DEEPSEEK_API_KEY", "") or "").strip())
+
+    selected = "none"
+    if mode == "openai" and openai_present:
+        selected = "openai"
+    elif mode == "deepseek" and deepseek_present:
+        selected = "deepseek"
+    elif mode == "auto":
+        if openai_present:
+            selected = "openai"
+        elif deepseek_present:
+            selected = "deepseek"
+
+    if selected == "deepseek":
+        default_model = DEFAULT_DEEPSEEK_MODEL
+    else:
+        default_model = DEFAULT_OPENAI_MODEL
+    model = str(os.environ.get("PRACHINLIFE_SEMANTIC_MODEL", default_model) or default_model).strip()
+    enabled = selected != "none"
+
     return {
         "brain_version": SEMANTIC_LANGUAGE_BRAIN_VERSION,
         "provider_mode": mode,
         "enabled": enabled,
-        "provider": "openai" if enabled else "none",
+        "provider": selected,
         "model": model if enabled else None,
-        "api_key_present": api_key_present,
+        "api_key_present": (deepseek_present if selected == "deepseek" else openai_present if selected == "openai" else False),
+        "provider_keys_present": {"openai": openai_present, "deepseek": deepseek_present},
         "exact_location_sent_to_language_model": False,
         "ranking_authority": False,
     }
