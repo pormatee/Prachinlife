@@ -44,6 +44,9 @@
       refinements: refinements,
       candidate_ids: candidateIds,
       referenced_candidate_id: candidateIds.includes(referenced) ? referenced : "",
+      reference_fact: ["hours", "parking", "address", "phone", "website"].includes(String(raw.reference_fact || ""))
+        ? String(raw.reference_fact)
+        : "",
       last_user_text: String(raw.last_user_text || "").slice(0, 1000),
     };
   }
@@ -752,6 +755,18 @@
       }
 
       captureSemanticState(result);
+
+      const referenceAnswer = String(result?.reference_answer?.answer || "").trim();
+      if (referenceAnswer) {
+        if (thinking) thinking.remove();
+        robotAssistPendingBaseQuery = "";
+        robotAssistPendingContextField = "";
+        saveConversationMemory();
+        addRobotMessage("assistant", referenceAnswer);
+        openRobotAssist();
+        input?.focus();
+        return;
+      }
 
       const bestId = String(
         result?.explanation?.best_fit_candidate_id ??

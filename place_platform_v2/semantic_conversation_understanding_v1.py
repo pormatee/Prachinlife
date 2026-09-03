@@ -15,6 +15,7 @@ from .intent_context_understanding_v1 import understand_user_request
 SEMANTIC_CONVERSATION_STATE_VERSION = "SEMANTIC-CONVERSATION-STATE-V1"
 MAX_CANDIDATE_IDS = 3
 MAX_REFINEMENTS = 8
+_REFERENCE_FACT_KEYS = {"hours", "parking", "address", "phone", "website"}
 
 _BASE_QUERY_BY_CATEGORY = {
     "vegetarian": "หาร้านเจ",
@@ -56,6 +57,7 @@ class SemanticConversationStateV1:
     refinements: tuple[str, ...] = ()
     candidate_ids: tuple[str, ...] = ()
     referenced_candidate_id: str | None = None
+    reference_fact: str | None = None
     last_user_text: str | None = None
 
     def to_payload(self) -> dict[str, Any]:
@@ -70,6 +72,7 @@ class SemanticConversationStateV1:
             "refinements": list(self.refinements),
             "candidate_ids": list(self.candidate_ids),
             "referenced_candidate_id": self.referenced_candidate_id,
+            "reference_fact": self.reference_fact,
             "last_user_text": self.last_user_text,
         }
 
@@ -123,6 +126,9 @@ def state_from_payload(raw: Any) -> SemanticConversationStateV1 | None:
     referenced = _clean_string(raw.get("referenced_candidate_id"), 200)
     if referenced and referenced not in candidate_ids:
         referenced = None
+    reference_fact = _clean_string(raw.get("reference_fact"), 40)
+    if reference_fact not in _REFERENCE_FACT_KEYS:
+        reference_fact = None
     return SemanticConversationStateV1(
         turn_index=turn_index,
         active_request_text=_clean_string(raw.get("active_request_text"), 1000),
@@ -133,6 +139,7 @@ def state_from_payload(raw: Any) -> SemanticConversationStateV1 | None:
         refinements=tuple(refinements),
         candidate_ids=tuple(candidate_ids),
         referenced_candidate_id=referenced,
+        reference_fact=reference_fact,
         last_user_text=_clean_string(raw.get("last_user_text"), 1000),
     )
 
@@ -195,6 +202,125 @@ def _reference_index(text: str) -> int | None:
     return None
 
 
+
+def _detect_reference_fact(text: str) -> str | None:
+    t = re.sub(r"\s+", "", str(text or "").casefold())
+    groups = (
+        ("hours", ("เปิดกี่โมง", "ปิดกี่โมง", "เวลาเปิด", "เวลาปิด", "เวลาทำการ", "เปิดไหม", "เปิดหรือยัง", "เปิดอยู่ไหม", "openinghours", "hours")),
+        ("parking", ("มีที่จอด", "ที่จอดรถ", "จอดรถ", "parking")),
+        ("phone", ("เบอร์โทร", "เบอร์", "โทรศัพท์", "โทรหา", "phone", "telephone")),
+        ("website", ("เว็บไซต์", "เวบไซต์", "เว็บ", "web", "website")),
+        ("address", ("ที่อยู่", "อยู่ตรงไหน", "อยู่ที่ไหน", "อยู่ไหน", "พิกัดร้าน", "address")),
+    )
+    for key, terms in groups:
+        if any(re.sub(r"\s+", "", term.casefold()) in t for term in terms):
+            return key
+    return None
+
+
+def _implicit_reference_index(text: str) -> int | None:
+    t = re.sub(r"\s+", "", str(text or "").casefold())
+    if any(term in t for term in ("ร้านนี้", "ร้านนั้น", "อันนี้", "อันนั้น", "ตัวนี้", "ตัวนั้น")):
+        return 0
+    return None
+
+
+def _place_value(place: Any, *names: str) -> Any:
+    if isinstance(place, Mapping):
+        for name in names:
+            if name in place:
+                return place.get(name)
+        return None
+    for name in names:
+        if hasattr(place, name):
+            return getattr(place, name)
+    return None
+
+
+def _display_fact_value(value: Any) -> str | None:
+    if value is None:
+        return None
+    if isinstance(value, bool):
+        return "มี" if value else "ไม่มี"
+    if isinstance(value, str):
+        value = value.strip()
+        return value or None
+    if isinstance(value, Mapping):
+        parts = [f"{k}: {v}" for k, v in value.items() if v not in (None, "", (), [], {})]
+        return ", ".join(parts) or None
+    if isinstance(value, (list, tuple)):
+        parts = [str(x).strip() for x in value if str(x).strip()]
+        return ", ".join(parts) or None
+    return str(value).strip() or None
+
+
+def build_reference_fact_answer_v1(
+    state: SemanticConversationStateV1,
+    repository: Any,
+) -> dict[str, Any] | None:
+    """Read a referenced candidate fact from Published Projection only."""
+    candidate_id = state.referenced_candidate_id
+    fact = state.reference_fact
+    if not candidate_id or fact not in _REFERENCE_FACT_KEYS:
+        return None
+
+    getter = getattr(repository, "get_published", None)
+    place = getter(candidate_id) if callable(getter) else None
+    if place is None:
+        return {
+            "candidate_id": candidate_id,
+            "fact": fact,
+            "status": "candidate_not_available",
+            "answer": "ตอนนี้ยังอ่านข้อมูลของร้านที่อ้างถึงจาก Published Projection ไม่ได้ครับ",
+            "source": "published_projection",
+        }
+
+    name = _display_fact_value(_place_value(place, "name")) or "ร้านที่เลือก"
+    field_names = {
+        "hours": ("opening_hours_text", "opening_hours", "hours_text", "hours"),
+        "parking": ("parking_text", "parking", "has_parking"),
+        "address": ("address_text", "address"),
+        "phone": ("phone", "telephone"),
+        "website": ("website", "url"),
+    }
+    value = _display_fact_value(_place_value(place, *field_names[fact]))
+
+    if value is None:
+        labels = {
+            "hours": "เวลาทำการ",
+            "parking": "ที่จอดรถ",
+            "address": "ที่อยู่",
+            "phone": "เบอร์โทร",
+            "website": "เว็บไซต์",
+        }
+        return {
+            "candidate_id": candidate_id,
+            "fact": fact,
+            "status": "unknown",
+            "answer": f"ตอนนี้ข้อมูล{labels[fact]}ของ {name} ยังไม่มีในข้อมูลที่เผยแพร่ซึ่งระบบยืนยันครับ",
+            "source": "published_projection",
+        }
+
+    if fact == "hours":
+        answer = f"{name} มีข้อมูลเวลาทำการว่า {value} ครับ"
+    elif fact == "parking":
+        answer = f"ข้อมูลที่จอดรถของ {name}: {value} ครับ"
+    elif fact == "address":
+        answer = f"{name} อยู่ที่ {value} ครับ"
+    elif fact == "phone":
+        answer = f"เบอร์โทรของ {name}: {value} ครับ"
+    else:
+        answer = f"เว็บไซต์ของ {name}: {value} ครับ"
+
+    return {
+        "candidate_id": candidate_id,
+        "fact": fact,
+        "status": "known",
+        "answer": answer,
+        "source": "published_projection",
+    }
+
+
 def _looks_like_location_change(text: str, direct_province: str | None) -> bool:
     if not direct_province:
         return False
@@ -241,6 +367,7 @@ def resolve_semantic_turn_v1(user_text: str, context: Mapping[str, Any] | None =
             refinements=(),
             candidate_ids=(),
             referenced_candidate_id=None,
+            reference_fact=None,
             last_user_text=user_text.strip(),
         )
         return SemanticTurnResolutionV1(user_text.strip(), context, state, "new")
@@ -258,7 +385,8 @@ def resolve_semantic_turn_v1(user_text: str, context: Mapping[str, Any] | None =
     near_me = previous.near_me
     active_request_text = previous.active_request_text or user_text.strip()
     candidate_ids = previous.candidate_ids
-    referenced_candidate_id = None
+    referenced_candidate_id = previous.referenced_candidate_id
+    reference_fact = _detect_reference_fact(user_text)
     mode = "refine"
 
     category_changed = bool(direct.category and direct.category != previous.category)
@@ -271,6 +399,8 @@ def resolve_semantic_turn_v1(user_text: str, context: Mapping[str, Any] | None =
         refinements = list(add)
         active_request_text = user_text.strip()
         candidate_ids = ()
+        referenced_candidate_id = None
+        reference_fact = None
         if direct.province:
             context["location_text"] = user_text.strip()
         mode = "new_intent"
@@ -295,9 +425,23 @@ def resolve_semantic_turn_v1(user_text: str, context: Mapping[str, Any] | None =
             mode = "location_change"
 
     ref_index = _reference_index(user_text)
-    if ref_index is not None and ref_index < len(candidate_ids):
-        referenced_candidate_id = candidate_ids[ref_index]
-        mode = "reference"
+    if ref_index is None:
+        ref_index = _implicit_reference_index(user_text)
+    if ref_index is not None:
+        if ref_index < len(candidate_ids):
+            referenced_candidate_id = candidate_ids[ref_index]
+            mode = "reference"
+        else:
+            referenced_candidate_id = None
+            mode = "reference_unresolved"
+
+    if reference_fact:
+        if referenced_candidate_id:
+            mode = "reference_fact"
+        else:
+            mode = "reference_unresolved"
+    elif mode != "reference":
+        reference_fact = None
 
     state = SemanticConversationStateV1(
         turn_index=previous.turn_index + 1,
@@ -309,6 +453,7 @@ def resolve_semantic_turn_v1(user_text: str, context: Mapping[str, Any] | None =
         refinements=tuple(refinements[:MAX_REFINEMENTS]),
         candidate_ids=tuple(candidate_ids[:MAX_CANDIDATE_IDS]),
         referenced_candidate_id=referenced_candidate_id,
+        reference_fact=reference_fact,
         last_user_text=user_text.strip(),
     )
     return SemanticTurnResolutionV1(_canonical_query(state), context, state, mode)
@@ -337,8 +482,12 @@ def finalize_semantic_state_v1(state: SemanticConversationStateV1, result: Mappi
             ids.append(value)
         if len(ids) >= MAX_CANDIDATE_IDS:
             break
-    candidate_ids = tuple(ids) if ids else state.candidate_ids
-    referenced = state.referenced_candidate_id if state.referenced_candidate_id in candidate_ids else None
+    if state.reference_fact and state.referenced_candidate_id:
+        candidate_ids = state.candidate_ids
+        referenced = state.referenced_candidate_id
+    else:
+        candidate_ids = tuple(ids) if ids else state.candidate_ids
+        referenced = state.referenced_candidate_id if state.referenced_candidate_id in candidate_ids else None
 
     return replace(
         state,

@@ -13,6 +13,7 @@ from urllib.parse import urlparse
 from place_platform_v2.production_published_place_repository_adapter_v1 import ProductionPublishedPlaceRepositoryAdapterV1
 from place_platform_v2.end_to_end_real_decision_flow_v1 import run_end_to_end_real_decision_flow_v1
 from place_platform_v2.semantic_conversation_understanding_v1 import (
+    build_reference_fact_answer_v1,
     finalize_semantic_state_v1,
     resolve_semantic_turn_v1,
 )
@@ -106,10 +107,76 @@ def run_decision(payload: dict[str, Any]) -> dict[str, Any]:
     recommendation_limit = min(max(recommendation_limit, 1), 10)
 
     semantic_turn = resolve_semantic_turn_v1(text.strip(), context)
+    repository = _build_runtime_repository()
+
+    if semantic_turn.mode == "reference_unresolved":
+        state = semantic_turn.state
+        return {
+            "request_id": request_id,
+            "status": "needs_user_input",
+            "understanding": {
+                "category": state.category,
+                "decision_object": state.decision_object,
+                "province": state.province,
+                "near_me": state.near_me,
+                "unresolved_context": ["candidate_reference"],
+            },
+            "published_candidate_ids": list(state.candidate_ids),
+            "compatible_candidate_ids": list(state.candidate_ids),
+            "decision": None,
+            "explanation": {
+                "best_fit_candidate_id": None,
+                "best_fit_name": None,
+                "why_fit": [],
+                "alternatives": [],
+                "uncertainty_fields": ["candidate_reference"],
+                "tradeoffs": [],
+                "regret_risks": [],
+                "human_final_decision": True,
+            },
+            "needs_user_input": True,
+            "highest_value_question": "หมายถึงร้านไหนครับ เช่น ร้านแรก ร้านที่สอง หรือร้านที่สาม?",
+            "human_final_decision": True,
+            "conversation_state": state.to_payload(),
+        }
+
+    if semantic_turn.mode == "reference_fact":
+        state = semantic_turn.state
+        answer = build_reference_fact_answer_v1(state, repository)
+        return {
+            "request_id": request_id,
+            "status": "reference_fact",
+            "understanding": {
+                "category": state.category,
+                "decision_object": state.decision_object,
+                "province": state.province,
+                "near_me": state.near_me,
+                "unresolved_context": [],
+            },
+            "published_candidate_ids": list(state.candidate_ids),
+            "compatible_candidate_ids": list(state.candidate_ids),
+            "decision": None,
+            "explanation": {
+                "best_fit_candidate_id": None,
+                "best_fit_name": None,
+                "why_fit": [],
+                "alternatives": [],
+                "uncertainty_fields": [],
+                "tradeoffs": [],
+                "regret_risks": [],
+                "human_final_decision": True,
+            },
+            "needs_user_input": False,
+            "highest_value_question": None,
+            "human_final_decision": True,
+            "reference_answer": answer,
+            "conversation_state": state.to_payload(),
+        }
+
     result = run_end_to_end_real_decision_flow_v1(
         request_id=request_id,
         user_text=semantic_turn.effective_text,
-        repository=_build_runtime_repository(),
+        repository=repository,
         context=semantic_turn.brain_context,
         radius_km=radius_km,
         candidate_limit=candidate_limit,
