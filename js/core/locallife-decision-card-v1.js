@@ -44,12 +44,22 @@
       refinements: refinements,
       candidate_ids: candidateIds,
       referenced_candidate_id: candidateIds.includes(referenced) ? referenced : "",
-      reference_fact: ["hours", "parking", "address", "phone", "website"].includes(String(raw.reference_fact || ""))
+      reference_fact: ["hours", "parking", "address", "phone", "website", "price"].includes(String(raw.reference_fact || ""))
         ? String(raw.reference_fact)
         : "",
       comparison_criterion: ["overall", "distance"].includes(String(raw.comparison_criterion || ""))
         ? String(raw.comparison_criterion)
         : "",
+      explanation_request: ["why", "tradeoffs", "risks", "uncertainty"].includes(String(raw.explanation_request || ""))
+        ? String(raw.explanation_request)
+        : "",
+      language_act: String(raw.language_act || "").slice(0, 40),
+      semantic_criteria: Array.isArray(raw.semantic_criteria)
+        ? raw.semantic_criteria.map((value) => String(value || "").trim()).filter(Boolean).slice(0, 8)
+        : [],
+      language_confidence: Number.isFinite(Number(raw.language_confidence))
+        ? Math.max(0, Math.min(1, Number(raw.language_confidence)))
+        : null,
       last_user_text: String(raw.last_user_text || "").slice(0, 1000),
     };
   }
@@ -789,6 +799,18 @@
       }
 
       captureSemanticState(result);
+
+      const explanationAnswer = String(result?.explanation_answer || "").trim();
+      if (explanationAnswer) {
+        if (thinking) thinking.remove();
+        robotAssistPendingBaseQuery = "";
+        robotAssistPendingContextField = "";
+        saveConversationMemory();
+        addRobotMessage("assistant", explanationAnswer);
+        openRobotAssist();
+        input?.focus();
+        return;
+      }
 
       const comparisonAnswer = String(result?.comparison_answer || "").trim();
       if (comparisonAnswer) {

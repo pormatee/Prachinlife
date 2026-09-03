@@ -47,8 +47,8 @@ def evaluate_prior_candidate_comparison_v1(
 ) -> CandidateComparisonBrainResultV1:
     if criterion not in {"overall", "distance"}:
         raise ValueError("unsupported comparison criterion")
-    if len(candidate_ids) < 2:
-        raise ValueError("comparison requires at least two prior candidates")
+    if len(candidate_ids) < 1:
+        raise ValueError("decision re-evaluation requires at least one prior candidate")
 
     places = []
     getter = getattr(repository, "get_published", None)

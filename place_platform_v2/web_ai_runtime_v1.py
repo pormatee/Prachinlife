@@ -7,12 +7,17 @@ from dataclasses import asdict, is_dataclass
 from http import HTTPStatus
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
-from typing import Any
+from typing import Any, Mapping
 from urllib.parse import urlparse
 
 from place_platform_v2.production_published_place_repository_adapter_v1 import ProductionPublishedPlaceRepositoryAdapterV1
 from place_platform_v2.end_to_end_real_decision_flow_v1 import run_end_to_end_real_decision_flow_v1
 from place_platform_v2.candidate_comparison_brain_v1 import evaluate_prior_candidate_comparison_v1
+from place_platform_v2.decision_explanation_brain_v1 import evaluate_decision_explanation_v1
+from place_platform_v2.generic_semantic_language_brain_v1 import (
+    interpret_semantic_language_v1,
+    semantic_provider_health_v1,
+)
 from place_platform_v2.semantic_conversation_understanding_v1 import (
     build_reference_fact_answer_v1,
     finalize_semantic_state_v1,
@@ -81,6 +86,23 @@ def _candidate_summaries(repository: Any, candidate_ids) -> list[dict[str, str]]
     return out
 
 
+def _language_candidate_references(repository: Any, context: Mapping[str, Any] | None) -> list[dict[str, str]]:
+    if not isinstance(context, Mapping):
+        return []
+    state = context.get("conversation_state")
+    if not isinstance(state, Mapping):
+        return []
+    ids = state.get("candidate_ids")
+    if not isinstance(ids, (list, tuple)):
+        return []
+    # Only names/order are sent to the Language Brain. Place IDs remain server-side.
+    return [
+        {"name": item["name"]}
+        for item in _candidate_summaries(repository, ids)
+        if item.get("name")
+    ]
+
+
 def _comparison_answer(criterion: str, decision: Any, summaries: list[dict[str, str]]) -> str:
     if decision is None:
         return ""
@@ -94,6 +116,45 @@ def _comparison_answer(criterion: str, decision: Any, summaries: list[dict[str, 
     return f"จากเงื่อนไขที่คุยกันตอนนี้ ระบบตัดสินใจให้ {best_name} เหมาะสุดครับ"
 
 
+
+def _explanation_answer(
+    request_kind: str,
+    explanation: Any,
+    summaries: list[dict[str, str]],
+) -> str:
+    names = {x["candidate_id"]: x["name"] for x in summaries}
+    best_id = str(getattr(explanation, "best_fit_candidate_id", "") or "").strip()
+    best_name = names.get(best_id, best_id or "ตัวเลือกที่ระบบเลือก")
+
+    why_fit = [str(x).strip() for x in (getattr(explanation, "why_fit", ()) or ()) if str(x).strip()]
+    tradeoffs = [str(x).strip() for x in (getattr(explanation, "tradeoffs", ()) or ()) if str(x).strip()]
+    uncertainty = [str(x).strip() for x in (getattr(explanation, "uncertainty_fields", ()) or ()) if str(x).strip()]
+    regret = [str(x).strip() for x in (getattr(explanation, "regret_risks", ()) or ()) if str(x).strip()]
+
+    if request_kind == "tradeoffs":
+        if tradeoffs:
+            return f"สิ่งที่ Brain ใช้เทียบสำหรับ {best_name}: " + " • ".join(tradeoffs[:3]) + " ครับ"
+        return f"ตอนนี้ Brain ยังไม่มี trade-off ที่ยืนยันได้พอให้อธิบายว่า {best_name} ดีกว่าตัวเลือกอื่นตรงไหนโดยไม่เดาครับ"
+
+    if request_kind == "risks":
+        if regret:
+            return f"ข้อควรระวังที่ Brain ระบุสำหรับคำตัดสินนี้: " + " • ".join(regret[:3]) + " ครับ"
+        return "ตอนนี้ Brain ยังไม่มีข้อเสียหรือความเสี่ยงที่ยืนยันได้เพิ่มเติมจากข้อมูลที่มีครับ"
+
+    if request_kind == "uncertainty":
+        if uncertainty:
+            return "จุดที่ Brain ยังไม่แน่ใจและควรตรวจสอบเพิ่มคือ " + " • ".join(uncertainty[:3]) + " ครับ"
+        return "จากข้อมูลที่ Brain ส่งกลับมา ตอนนี้ไม่มี uncertainty เพิ่มที่ระบุไว้ครับ แต่ผู้ใช้ยังเป็นผู้ตัดสินใจสุดท้าย"
+
+    evidence = why_fit or tradeoffs
+    if evidence:
+        return f"เหตุผลที่ Brain รองรับการเลือก {best_name} ตอนนี้คือ " + " • ".join(evidence[:3]) + " ครับ"
+    if uncertainty or regret:
+        caveats = (uncertainty + regret)[:3]
+        return f"คำตัดสินล่าสุดยังเป็น {best_name} แต่ Brain มีเพียงข้อจำกัด/ความไม่แน่ใจที่ระบุไว้: " + " • ".join(caveats) + " จึงไม่ควรแต่งเหตุผลเพิ่มครับ"
+    return f"คำตัดสินล่าสุดคือ {best_name} แต่ Brain ยังไม่ได้ส่งเหตุผลที่ยืนยันได้มากพอให้ผมอธิบายเพิ่มโดยไม่เดาครับ"
+
+
 def health_payload() -> dict[str, Any]:
     repo = _build_runtime_repository()
     return {
@@ -104,7 +165,30 @@ def health_payload() -> dict[str, Any]:
         "canonical_write": False,
         "human_final_decision": True,
         "repository_ready": repo is not None,
+        "semantic_language_brain": semantic_provider_health_v1(),
     }
+
+def run_semantic(payload: dict[str, Any]) -> dict[str, Any]:
+    text = payload.get("text")
+    if not isinstance(text, str) or not text.strip():
+        raise ValueError("text is required")
+    if len(text) > 4000:
+        raise ValueError("text too long")
+    context = payload.get("context") or {}
+    if not isinstance(context, dict):
+        raise ValueError("context must be an object")
+    repository = _build_runtime_repository()
+    result = interpret_semantic_language_v1(
+        text.strip(),
+        context,
+        _language_candidate_references(repository, context),
+    )
+    return {
+        "language_brain": result.public_payload(),
+        "meaning": _conv(result.meaning),
+        "fallback_used": not result.used_model,
+    }
+
 
 def run_decision(payload: dict[str, Any]) -> dict[str, Any]:
     text = payload.get("text")
@@ -138,9 +222,162 @@ def run_decision(payload: dict[str, Any]) -> dict[str, Any]:
     candidate_limit = min(max(candidate_limit, 1), 100)
     recommendation_limit = min(max(recommendation_limit, 1), 10)
 
-    semantic_turn = resolve_semantic_turn_v1(text.strip(), context)
     repository = _build_runtime_repository()
+    language_result = interpret_semantic_language_v1(
+        text.strip(),
+        context,
+        _language_candidate_references(repository, context),
+    )
+    semantic_turn = resolve_semantic_turn_v1(
+        text.strip(),
+        context,
+        language_interpretation=language_result.meaning,
+    )
 
+    if semantic_turn.mode == "language_clarification":
+        state = semantic_turn.state
+        meaning = language_result.meaning if isinstance(language_result.meaning, Mapping) else {}
+        clarification = meaning.get("clarification") if isinstance(meaning, Mapping) else None
+        question = clarification.get("question") if isinstance(clarification, Mapping) else None
+        field = clarification.get("field") if isinstance(clarification, Mapping) else None
+        return {
+            "request_id": request_id,
+            "status": "needs_user_input",
+            "understanding": {
+                "category": state.category,
+                "decision_object": state.decision_object,
+                "province": state.province,
+                "near_me": state.near_me,
+                "unresolved_context": [str(field or "semantic_ambiguity")],
+            },
+            "published_candidate_ids": list(state.candidate_ids),
+            "compatible_candidate_ids": list(state.candidate_ids),
+            "decision": None,
+            "explanation": {
+                "best_fit_candidate_id": None,
+                "best_fit_name": None,
+                "why_fit": [],
+                "alternatives": [],
+                "uncertainty_fields": [str(field or "semantic_ambiguity")],
+                "tradeoffs": [],
+                "regret_risks": [],
+                "human_final_decision": True,
+            },
+            "needs_user_input": True,
+            "highest_value_question": str(question or "ขอข้อมูลเพิ่มอีกนิดเพื่อเข้าใจความต้องการให้ตรงครับ"),
+            "human_final_decision": True,
+            "conversation_state": state.to_payload(),
+            "language_brain": language_result.public_payload(),
+        }
+
+    if semantic_turn.mode == "decision_explanation_unresolved":
+        state = semantic_turn.state
+        return {
+            "request_id": request_id,
+            "status": "needs_user_input",
+            "understanding": {
+                "category": state.category,
+                "decision_object": state.decision_object,
+                "province": state.province,
+                "near_me": state.near_me,
+                "unresolved_context": ["prior_decision"],
+            },
+            "published_candidate_ids": [],
+            "compatible_candidate_ids": [],
+            "decision": None,
+            "explanation": {
+                "best_fit_candidate_id": None,
+                "best_fit_name": None,
+                "why_fit": [],
+                "alternatives": [],
+                "uncertainty_fields": ["prior_decision"],
+                "tradeoffs": [],
+                "regret_risks": [],
+                "human_final_decision": True,
+            },
+            "needs_user_input": True,
+            "highest_value_question": "ยังไม่มีคำตัดสินก่อนหน้าให้ผมอธิบายครับ ลองบอกสิ่งที่อยากให้ช่วยเลือกก่อน",
+            "human_final_decision": True,
+            "conversation_state": state.to_payload(),
+        }
+
+    if semantic_turn.mode == "decision_explanation":
+        state = semantic_turn.state
+        explained = evaluate_decision_explanation_v1(
+            request_id=request_id,
+            effective_text=semantic_turn.effective_text,
+            candidate_ids=state.candidate_ids,
+            request_kind=state.explanation_request or "why",
+            criterion=state.comparison_criterion,
+            repository=repository,
+            context=semantic_turn.brain_context,
+            recommendation_limit=recommendation_limit,
+        )
+        summaries = _candidate_summaries(repository, explained.candidate_ids)
+        if explained.needs_location:
+            return {
+                "request_id": request_id,
+                "status": "needs_user_input",
+                "understanding": {
+                    "category": state.category,
+                    "decision_object": state.decision_object,
+                    "province": state.province,
+                    "near_me": True,
+                    "unresolved_context": ["current_location"],
+                },
+                "published_candidate_ids": list(state.candidate_ids),
+                "compatible_candidate_ids": list(state.candidate_ids),
+                "decision": None,
+                "explanation": {
+                    "best_fit_candidate_id": None,
+                    "best_fit_name": None,
+                    "why_fit": [],
+                    "alternatives": [],
+                    "uncertainty_fields": ["current_location"],
+                    "tradeoffs": [],
+                    "regret_risks": [],
+                    "human_final_decision": True,
+                },
+                "needs_user_input": True,
+                "highest_value_question": "คำตัดสินก่อนหน้าใช้ความใกล้เป็นเงื่อนไข ขอใช้ตำแหน่งปัจจุบันอีกครั้งเพื่ออธิบายให้ตรงกับผลเดิมครับ",
+                "human_final_decision": True,
+                "candidate_summaries": summaries,
+                "conversation_state": state.to_payload(),
+            }
+
+        names = {x["candidate_id"]: x["name"] for x in summaries}
+        best_id = str(explained.best_fit_candidate_id or "")
+        answer = _explanation_answer(state.explanation_request or "why", explained, summaries)
+        return {
+            "request_id": request_id,
+            "status": "decision_explanation",
+            "understanding": {
+                "category": state.category,
+                "decision_object": state.decision_object,
+                "province": state.province,
+                "near_me": state.near_me,
+                "unresolved_context": [],
+            },
+            "published_candidate_ids": list(explained.candidate_ids),
+            "compatible_candidate_ids": list(explained.candidate_ids),
+            "decision": None,
+            "explanation": {
+                "best_fit_candidate_id": best_id or None,
+                "best_fit_name": names.get(best_id),
+                "why_fit": list(explained.why_fit),
+                "alternatives": [x for x in explained.candidate_ids if x != best_id][:2],
+                "uncertainty_fields": list(explained.uncertainty_fields),
+                "tradeoffs": list(explained.tradeoffs),
+                "regret_risks": list(explained.regret_risks),
+                "human_final_decision": True,
+            },
+            "needs_user_input": False,
+            "highest_value_question": None,
+            "human_final_decision": True,
+            "candidate_summaries": summaries,
+            "explanation_answer": answer,
+            "conversation_state": state.to_payload(),
+        }
 
     if semantic_turn.mode == "comparison_unresolved":
         state = semantic_turn.state
@@ -330,6 +567,7 @@ def run_decision(payload: dict[str, Any]) -> dict[str, Any]:
     final_state = finalize_semantic_state_v1(semantic_turn.state, converted)
     converted["conversation_state"] = final_state.to_payload()
     converted["candidate_summaries"] = _candidate_summaries(repository, final_state.candidate_ids)
+    converted["language_brain"] = language_result.public_payload()
     return converted
 
 class Handler(BaseHTTPRequestHandler):
@@ -379,7 +617,7 @@ class Handler(BaseHTTPRequestHandler):
             return
 
         path = urlparse(self.path).path
-        if path != "/v1/decision":
+        if path not in {"/v1/decision", "/v1/semantic"}:
             self._json(HTTPStatus.NOT_FOUND, {"ok": False, "error": "not_found"})
             return
 
@@ -396,7 +634,7 @@ class Handler(BaseHTTPRequestHandler):
             payload = json.loads(self.rfile.read(n).decode("utf-8"))
             if not isinstance(payload, dict):
                 raise ValueError("JSON object required")
-            result = run_decision(payload)
+            result = run_semantic(payload) if path == "/v1/semantic" else run_decision(payload)
             self._json(HTTPStatus.OK, {"ok": True, "result": result})
         except ValueError as e:
             self._json(HTTPStatus.BAD_REQUEST, {"ok": False, "error": str(e)})
