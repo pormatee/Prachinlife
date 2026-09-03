@@ -26,8 +26,9 @@ class T(unittest.TestCase):
         self.assertIn("result?.highest_value_question",JS)
         self.assertIn("robotAssistPendingBaseQuery = decisionText",JS)
     def test_refinement(self):
-        self.assertIn("ข้อมูลเพิ่มเติมจากผู้ใช้:",JS)
+        self.assertIn("payload.conversation_state = semanticState",JS)
         self.assertIn("text: decisionText",JS)
+        self.assertNotIn("ข้อมูลเพิ่มเติมจากผู้ใช้:",JS)
     def test_result_area_reused(self):
         self.assertIn("localLifeDecisionCardSection",JS)
         self.assertIn("scrollIntoView",JS)

@@ -54,10 +54,11 @@ class TestConversationalAiGatewayV1(unittest.TestCase):
     def test_04_location_followup_becomes_structured_context_not_free_text(self):
         self.assertIn('robotAssistPendingContextField === "current_location"', JS)
         self.assertIn('robotAssistConversationContext.location_text = value', JS)
-        self.assertIn(
-            "pendingWasStructured\n            ? robotAssistPendingBaseQuery",
-            JS,
-        )
+        start = JS.index("function conversationDecisionText(query, pendingWasStructured)")
+        end = JS.index("function resetConversationState()", start)
+        block = JS[start:end]
+        self.assertIn("robotAssistPendingBaseQuery && pendingWasStructured", block)
+        self.assertIn("return robotAssistPendingBaseQuery;", block)
 
     def test_05_user_area_text_satisfies_location_clarification_without_fabricating_coordinates(self):
         understood = understand_user_request(

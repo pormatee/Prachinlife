@@ -20,7 +20,41 @@
   let robotAssistStoredMessages = [];
   let robotAssistDeviceLocationState = "unknown";
   let robotAssistDeviceLocationAt = 0;
+  let robotAssistSemanticState = null;
 
+
+  function normalizedSemanticState(raw) {
+    if (!raw || typeof raw !== "object" || Array.isArray(raw)) return null;
+    if (raw.schema_version !== "SEMANTIC-CONVERSATION-STATE-V1") return null;
+    const candidateIds = Array.isArray(raw.candidate_ids)
+      ? raw.candidate_ids.map((value) => String(value || "").trim()).filter(Boolean).slice(0, 3)
+      : [];
+    const refinements = Array.isArray(raw.refinements)
+      ? raw.refinements.map((value) => String(value || "").trim()).filter(Boolean).slice(0, 8)
+      : [];
+    const referenced = String(raw.referenced_candidate_id || "").trim();
+    return {
+      schema_version: "SEMANTIC-CONVERSATION-STATE-V1",
+      turn_index: Math.max(0, Number(raw.turn_index || 0) || 0),
+      active_request_text: String(raw.active_request_text || "").slice(0, 1000),
+      category: String(raw.category || "").slice(0, 80),
+      decision_object: String(raw.decision_object || "").slice(0, 80),
+      province: String(raw.province || "").slice(0, 120),
+      near_me: raw.near_me === true,
+      refinements: refinements,
+      candidate_ids: candidateIds,
+      referenced_candidate_id: candidateIds.includes(referenced) ? referenced : "",
+      last_user_text: String(raw.last_user_text || "").slice(0, 1000),
+    };
+  }
+
+  function captureSemanticState(result) {
+    const nextState = normalizedSemanticState(result?.conversation_state);
+    if (!nextState) return false;
+    robotAssistSemanticState = nextState;
+    saveConversationMemory();
+    return true;
+  }
 
   function chatStorage() {
     try {
@@ -80,6 +114,7 @@
       ),
       pending_context_field: String(robotAssistPendingContextField || ""),
       context: persistentConversationContext(),
+      semantic_state: normalizedSemanticState(robotAssistSemanticState),
     };
     try {
       storage.setItem(CHAT_MEMORY_STORAGE_KEY, JSON.stringify(state));
@@ -141,6 +176,7 @@
     if (locationText) {
       robotAssistConversationContext.location_text = locationText.slice(0, 200);
     }
+    robotAssistSemanticState = normalizedSemanticState(parsed.semantic_state);
 
     // Device coordinates are never restored from browser storage.
     robotAssistDeviceLocationState = "unknown";
@@ -163,31 +199,12 @@
   function conversationDecisionText(query, pendingWasStructured) {
     const latest = String(query || "").trim();
     if (!latest) return "";
-
-    if (robotAssistPendingBaseQuery) {
-      return pendingWasStructured
-            ? robotAssistPendingBaseQuery
-        : (
-            robotAssistPendingBaseQuery
-            + "\nข้อมูลเพิ่มเติมจากผู้ใช้: "
-            + latest
-          ).slice(0, CHAT_MEMORY_MAX_TEXT_CHARS);
+    // Multi-turn meaning now comes from server-issued structured semantic state.
+    // Only a structured clarification answer replays the pending base request.
+    if (robotAssistPendingBaseQuery && pendingWasStructured) {
+      return robotAssistPendingBaseQuery;
     }
-
-    const previousTurns = robotAssistConversationUserTurns
-      .filter((turn) => turn !== robotAssistConversationAnchor)
-      .slice(-Math.max(0, CHAT_MEMORY_MAX_USER_TURNS - 1));
-    if (!robotAssistConversationAnchor || previousTurns.length === 0) {
-      return latest;
-    }
-
-    const lines = [
-      "คำขอหลักของบทสนทนา: " + robotAssistConversationAnchor,
-      "บริบทจากข้อความผู้ใช้ก่อนหน้า:",
-      ...previousTurns.map((turn) => "- " + turn),
-      "ข้อความล่าสุด: " + latest,
-    ];
-    return lines.join("\n").slice(0, CHAT_MEMORY_MAX_TEXT_CHARS);
+    return latest;
   }
 
   function resetConversationState() {
@@ -199,6 +216,7 @@
     robotAssistStoredMessages = [];
     robotAssistDeviceLocationState = "unknown";
     robotAssistDeviceLocationAt = 0;
+    robotAssistSemanticState = null;
     clearConversationMemory();
   }
 
@@ -270,6 +288,9 @@
       robotAssistConversationContext.location_text || ""
     ).trim();
     if (locationText) payload.location_text = locationText;
+
+    const semanticState = normalizedSemanticState(robotAssistSemanticState);
+    if (semanticState) payload.conversation_state = semanticState;
 
     return payload;
   }
@@ -729,6 +750,8 @@
           result = resultPayload(response);
         }
       }
+
+      captureSemanticState(result);
 
       const bestId = String(
         result?.explanation?.best_fit_candidate_id ??

@@ -33,11 +33,12 @@ class TestConversationalMemoryChatUxV1(unittest.TestCase):
         self.assertIn("parsed.pending_base_query", JS)
         self.assertIn("parsed.pending_context_field", JS)
 
-    def test_05_multiturn_user_context_is_forwarded(self):
+    def test_05_multiturn_user_context_is_forwarded_as_structured_semantic_state(self):
         self.assertIn("function conversationDecisionText(query, pendingWasStructured)", JS)
-        self.assertIn("คำขอหลักของบทสนทนา:", JS)
-        self.assertIn("บริบทจากข้อความผู้ใช้ก่อนหน้า:", JS)
-        self.assertIn("ข้อความล่าสุด:", JS)
+        self.assertIn("robotAssistSemanticState", JS)
+        self.assertIn("payload.conversation_state = semanticState", JS)
+        self.assertIn("captureSemanticState(result);", JS)
+        self.assertNotIn("บริบทจากข้อความผู้ใช้ก่อนหน้า:", JS)
         self.assertIn("rememberUserTurn(query);", JS)
 
     def test_06_close_does_not_clear_memory(self):
@@ -71,7 +72,7 @@ class TestConversationalMemoryChatUxV1(unittest.TestCase):
 
     def test_11_cache_busts_js_and_css(self):
         self.assertIn("css/locallife-decision-card-v1.css?v=conversational-memory-chatux-v1-2", INDEX)
-        self.assertIn("conversational-memory-chatux-v1-4", INDEX)
+        self.assertIn("semantic-conversation-understanding-v1", INDEX)
 
     def test_12_existing_gateway_authority_boundary_is_untouched(self):
         start = JS.index("function decisionContextPayload()")

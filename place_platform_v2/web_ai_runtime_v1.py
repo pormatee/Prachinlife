@@ -12,6 +12,10 @@ from urllib.parse import urlparse
 
 from place_platform_v2.production_published_place_repository_adapter_v1 import ProductionPublishedPlaceRepositoryAdapterV1
 from place_platform_v2.end_to_end_real_decision_flow_v1 import run_end_to_end_real_decision_flow_v1
+from place_platform_v2.semantic_conversation_understanding_v1 import (
+    finalize_semantic_state_v1,
+    resolve_semantic_turn_v1,
+)
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_ORIGIN = "https://pormatee.github.io"
@@ -101,16 +105,20 @@ def run_decision(payload: dict[str, Any]) -> dict[str, Any]:
     candidate_limit = min(max(candidate_limit, 1), 100)
     recommendation_limit = min(max(recommendation_limit, 1), 10)
 
+    semantic_turn = resolve_semantic_turn_v1(text.strip(), context)
     result = run_end_to_end_real_decision_flow_v1(
         request_id=request_id,
-        user_text=text.strip(),
+        user_text=semantic_turn.effective_text,
         repository=_build_runtime_repository(),
-        context=context,
+        context=semantic_turn.brain_context,
         radius_km=radius_km,
         candidate_limit=candidate_limit,
         recommendation_limit=recommendation_limit,
     )
-    return _conv(result)
+    converted = _conv(result)
+    final_state = finalize_semantic_state_v1(semantic_turn.state, converted)
+    converted["conversation_state"] = final_state.to_payload()
+    return converted
 
 class Handler(BaseHTTPRequestHandler):
     server_version = "PrachinLifeWebAIRuntimeV1"
