@@ -1,6 +1,202 @@
 [
   {
     "schema_version": "1.1",
+    "id": "bigc-1680fbf363893f38",
+    "content_type": "deal",
+    "original_type": "campaign",
+    "title": "สด ยกขบวนแบรนด์คุณภาพ ที่ Big C market",
+    "summary": "แคมเปญหรือโปรโมชั่นจาก Big C",
+    "category": "shopping",
+    "tags": [
+      "deal",
+      "big c",
+      "campaign",
+      "แคมเปญโปรโมชั่น",
+      "bigc",
+      "บิ๊กซี",
+      "แคมเปญ",
+      "national"
+    ],
+    "provider": {
+      "name": "Big C",
+      "type": "merchant"
+    },
+    "location": {
+      "scope": "national",
+      "country": "TH",
+      "province": null,
+      "district": null,
+      "subdistrict": null,
+      "place_name": null,
+      "latitude": null,
+      "longitude": null
+    },
+    "source": {
+      "name": "Big C Official",
+      "url": "https://linebc.bigc.co.th/catalog/e-catalogue-bmk-bro-9-2026?utm_source=Corp_BIG_C_Website&utm_medium=Corp_BIG_C_Website&utm_campaign=|PV:DMK|DA:20260326|AN:|OB:traffic|FM:Photo|",
+      "type": "official_promotion",
+      "verified": true
+    },
+    "image_url": "https://corporate.bigc.co.th/upload_file/promotion/260902035012_E-BMK9-2026_pages-to-jpg-0001_c.jpg",
+    "published_at": null,
+    "expires_at": null,
+    "collected_at": "2026-09-03T00:58:35.952177+00:00",
+    "metadata": {
+      "old_price": 0,
+      "new_price": 0,
+      "expiry_text": "ตรวจสอบรายละเอียดจาก Big C",
+      "urgent": false
+    }
+  },
+  {
+    "schema_version": "1.1",
+    "id": "bigc-4571790feb29880b",
+    "content_type": "deal",
+    "original_type": "campaign",
+    "title": "สด ยกขบวนแบรนด์คุณภาพ ที่ Big C",
+    "summary": "แคมเปญหรือโปรโมชั่นจาก Big C",
+    "category": "shopping",
+    "tags": [
+      "deal",
+      "big c",
+      "campaign",
+      "แคมเปญโปรโมชั่น",
+      "bigc",
+      "บิ๊กซี",
+      "แคมเปญ",
+      "national"
+    ],
+    "provider": {
+      "name": "Big C",
+      "type": "merchant"
+    },
+    "location": {
+      "scope": "national",
+      "country": "TH",
+      "province": null,
+      "district": null,
+      "subdistrict": null,
+      "place_name": null,
+      "latitude": null,
+      "longitude": null
+    },
+    "source": {
+      "name": "Big C Official",
+      "url": "https://linebc.bigc.co.th/catalog/e-catalogue-bro-9-2026?utm_source=Corp_BIG_C_Website&utm_medium=Corp_BIG_C_Website&utm_campaign=|PV:DMK|DA:20260326|AN:|OB:traffic|FM:Photo|",
+      "type": "official_promotion",
+      "verified": true
+    },
+    "image_url": "https://corporate.bigc.co.th/upload_file/promotion/260902035848_E-BRO9-2026_page-0001_c.jpg",
+    "published_at": null,
+    "expires_at": null,
+    "collected_at": "2026-09-03T00:58:35.952177+00:00",
+    "metadata": {
+      "old_price": 0,
+      "new_price": 0,
+      "expiry_text": "ตรวจสอบรายละเอียดจาก Big C",
+      "urgent": false
+    }
+  },
+  {
+    "schema_version": "1.1",
+    "id": "bigc-04d47a0307d90c4a",
+    "content_type": "deal",
+    "original_type": "campaign",
+    "title": "สด ยกขบวนแบรนด์คุณภาพ ที่ Big C foodplace",
+    "summary": "แคมเปญหรือโปรโมชั่นจาก Big C",
+    "category": "shopping",
+    "tags": [
+      "deal",
+      "big c",
+      "campaign",
+      "แคมเปญโปรโมชั่น",
+      "bigc",
+      "บิ๊กซี",
+      "แคมเปญ",
+      "national"
+    ],
+    "provider": {
+      "name": "Big C",
+      "type": "merchant"
+    },
+    "location": {
+      "scope": "national",
+      "country": "TH",
+      "province": null,
+      "district": null,
+      "subdistrict": null,
+      "place_name": null,
+      "latitude": null,
+      "longitude": null
+    },
+    "source": {
+      "name": "Big C Official",
+      "url": "https://linebc.bigc.co.th/catalog/e-catalogue-foodplace-9-2026?utm_source=Corp_BIG_C_Website&utm_medium=Corp_BIG_C_Website&utm_campaign=|PV:DMK|DA:20260326|AN:|OB:traffic|FM:Photo|",
+      "type": "official_promotion",
+      "verified": true
+    },
+    "image_url": "https://corporate.bigc.co.th/upload_file/promotion/260902040214_E-FP9-2026_page-0001_c.jpg",
+    "published_at": null,
+    "expires_at": null,
+    "collected_at": "2026-09-03T00:58:35.952177+00:00",
+    "metadata": {
+      "old_price": 0,
+      "new_price": 0,
+      "expiry_text": "ตรวจสอบรายละเอียดจาก Big C",
+      "urgent": false
+    }
+  },
+  {
+    "schema_version": "1.1",
+    "id": "bigc-7316e0c454e6abc6",
+    "content_type": "deal",
+    "original_type": "campaign",
+    "title": "PLAYFUL CARTOON World วันที่ 3 - 30 ก.ย 69",
+    "summary": "แคมเปญหรือโปรโมชั่นจาก Big C",
+    "category": "shopping",
+    "tags": [
+      "deal",
+      "big c",
+      "campaign",
+      "แคมเปญโปรโมชั่น",
+      "bigc",
+      "บิ๊กซี",
+      "แคมเปญ",
+      "national"
+    ],
+    "provider": {
+      "name": "Big C",
+      "type": "merchant"
+    },
+    "location": {
+      "scope": "national",
+      "country": "TH",
+      "province": null,
+      "district": null,
+      "subdistrict": null,
+      "place_name": null,
+      "latitude": null,
+      "longitude": null
+    },
+    "source": {
+      "name": "Big C Official",
+      "url": "https://linebc.bigc.co.th/catalog/e-catalogue-SL-Kids-Character-2?utm_source=Corp_BIG_C_Website&utm_medium=Corp_BIG_C_Website&utm_campaign=|PV:DMK|DA:20260326|AN:|OB:traffic|FM:Photo|",
+      "type": "official_promotion",
+      "verified": true
+    },
+    "image_url": "https://corporate.bigc.co.th/upload_file/promotion/260902034900_E-Cat.SLKidsCharacter_2_pages-to-jpg-0001_c.jpg",
+    "published_at": null,
+    "expires_at": null,
+    "collected_at": "2026-09-03T00:58:35.952177+00:00",
+    "metadata": {
+      "old_price": 0,
+      "new_price": 0,
+      "expiry_text": "ตรวจสอบรายละเอียดจาก Big C",
+      "urgent": false
+    }
+  },
+  {
+    "schema_version": "1.1",
     "id": "lotus-9430f0aad6907258",
     "content_type": "deal",
     "original_type": "member_offer",
@@ -236,55 +432,6 @@
       "verified": true
     },
     "image_url": "https://corporate.bigc.co.th/upload_file/promotion/260828034933_PDFE-LFSYL_8(27Aug-6Sep26)BMK_page-0001_c.jpg",
-    "published_at": null,
-    "expires_at": null,
-    "collected_at": "2026-08-28T06:09:33.948605+00:00",
-    "metadata": {
-      "old_price": 0,
-      "new_price": 0,
-      "expiry_text": "ตรวจสอบรายละเอียดจาก Big C",
-      "urgent": false
-    }
-  },
-  {
-    "schema_version": "1.1",
-    "id": "bigc-0b1d3ed662546ec5",
-    "content_type": "deal",
-    "original_type": "campaign",
-    "title": "Big C foodplace ช้อปหยุดโลก แรงจัดรับสิ้นเดือน วันที่ 27ส.ค - 6 ก.ย เท่านั้น!!",
-    "summary": "แคมเปญหรือโปรโมชั่นจาก Big C",
-    "category": "shopping",
-    "tags": [
-      "deal",
-      "big c",
-      "campaign",
-      "แคมเปญโปรโมชั่น",
-      "bigc",
-      "บิ๊กซี",
-      "แคมเปญ",
-      "national"
-    ],
-    "provider": {
-      "name": "Big C",
-      "type": "merchant"
-    },
-    "location": {
-      "scope": "national",
-      "country": "TH",
-      "province": null,
-      "district": null,
-      "subdistrict": null,
-      "place_name": null,
-      "latitude": null,
-      "longitude": null
-    },
-    "source": {
-      "name": "Big C Official",
-      "url": "https://linebc.bigc.co.th/catalog/e-leaflet-SYL-FP-27Aug-6Sep?utm_source=Corp_BIG_C_Website&utm_medium=Corp_BIG_C_Website&utm_campaign=|PV:DMK|DA:20260806|AN:|OB:traffic|FM:Photo|",
-      "type": "official_promotion",
-      "verified": true
-    },
-    "image_url": "https://corporate.bigc.co.th/upload_file/promotion/260828035902_PDFE-LFSYL_8(27Aug-6Sep26)FP_page-0001_c.jpg",
     "published_at": null,
     "expires_at": null,
     "collected_at": "2026-08-28T06:09:33.948605+00:00",
@@ -4332,153 +4479,6 @@
       "old_price": 0,
       "new_price": 0,
       "expiry_text": "ตรวจสอบรายละเอียดจาก Lotus's",
-      "urgent": false
-    }
-  },
-  {
-    "schema_version": "1.1",
-    "id": "bigc-c466f61cb40a554f",
-    "content_type": "deal",
-    "original_type": "campaign",
-    "title": "ช้อปแบบตัวแม่ ช้อปเลยที่บิ๊กซี",
-    "summary": "แคมเปญหรือโปรโมชั่นจาก Big C",
-    "category": "shopping",
-    "tags": [
-      "deal",
-      "big c",
-      "campaign",
-      "แคมเปญโปรโมชั่น",
-      "bigc",
-      "บิ๊กซี",
-      "แคมเปญ",
-      "national"
-    ],
-    "provider": {
-      "name": "Big C",
-      "type": "merchant"
-    },
-    "location": {
-      "scope": "national",
-      "country": "TH",
-      "province": null,
-      "district": null,
-      "subdistrict": null,
-      "place_name": null,
-      "latitude": null,
-      "longitude": null
-    },
-    "source": {
-      "name": "Big C Official",
-      "url": "https://linebc.bigc.co.th/catalog/e-catalogue-bro-8-2026?utm_source=Corp_BIG_C_Website&utm_medium=Corp_BIG_C_Website&utm_campaign=|PV:DMK|DA:20260326|AN:|OB:traffic|FM:Photo|",
-      "type": "official_promotion",
-      "verified": true
-    },
-    "image_url": "https://corporate.bigc.co.th/upload_file/promotion/260805105534_1BRO8@FINALPROOF4_c.jpg",
-    "published_at": null,
-    "expires_at": null,
-    "collected_at": "2026-08-15T13:59:12.330118+07:00",
-    "metadata": {
-      "old_price": 0,
-      "new_price": 0,
-      "expiry_text": "ตรวจสอบรายละเอียดจาก Big C",
-      "urgent": false
-    }
-  },
-  {
-    "schema_version": "1.1",
-    "id": "bigc-9b4d327530281716",
-    "content_type": "deal",
-    "original_type": "campaign",
-    "title": "ช้อปแบบตัวแม่ ช้อปเลยที่บิ๊กซี foodplace",
-    "summary": "แคมเปญหรือโปรโมชั่นจาก Big C",
-    "category": "shopping",
-    "tags": [
-      "deal",
-      "big c",
-      "campaign",
-      "แคมเปญโปรโมชั่น",
-      "bigc",
-      "บิ๊กซี",
-      "แคมเปญ",
-      "national"
-    ],
-    "provider": {
-      "name": "Big C",
-      "type": "merchant"
-    },
-    "location": {
-      "scope": "national",
-      "country": "TH",
-      "province": null,
-      "district": null,
-      "subdistrict": null,
-      "place_name": null,
-      "latitude": null,
-      "longitude": null
-    },
-    "source": {
-      "name": "Big C Official",
-      "url": "https://linebc.bigc.co.th/catalog/e-catalogue-foodplace-8-2026?utm_source=Corp_BIG_C_Website&utm_medium=Corp_BIG_C_Website&utm_campaign=|PV:DMK|DA:20260326|AN:|OB:traffic|FM:Photo|",
-      "type": "official_promotion",
-      "verified": true
-    },
-    "image_url": "https://corporate.bigc.co.th/upload_file/promotion/260805105656_1FP8-FINALPROOF2_c.jpg",
-    "published_at": null,
-    "expires_at": null,
-    "collected_at": "2026-08-15T13:59:12.330118+07:00",
-    "metadata": {
-      "old_price": 0,
-      "new_price": 0,
-      "expiry_text": "ตรวจสอบรายละเอียดจาก Big C",
-      "urgent": false
-    }
-  },
-  {
-    "schema_version": "1.1",
-    "id": "bigc-3c4df90544b12701",
-    "content_type": "deal",
-    "original_type": "campaign",
-    "title": "ช้อปแบบตัวแม่ ช้อปเลยที่บิ๊กซี",
-    "summary": "แคมเปญหรือโปรโมชั่นจาก Big C",
-    "category": "shopping",
-    "tags": [
-      "deal",
-      "big c",
-      "campaign",
-      "แคมเปญโปรโมชั่น",
-      "bigc",
-      "บิ๊กซี",
-      "แคมเปญ",
-      "national"
-    ],
-    "provider": {
-      "name": "Big C",
-      "type": "merchant"
-    },
-    "location": {
-      "scope": "national",
-      "country": "TH",
-      "province": null,
-      "district": null,
-      "subdistrict": null,
-      "place_name": null,
-      "latitude": null,
-      "longitude": null
-    },
-    "source": {
-      "name": "Big C Official",
-      "url": "https://linebc.bigc.co.th/catalog/e-catalogue-bmk-bro-8-2026?utm_source=Corp_BIG_C_Website&utm_medium=Corp_BIG_C_Website&utm_campaign=|PV:DMK|DA:20260326|AN:|OB:traffic|FM:Photo|",
-      "type": "official_promotion",
-      "verified": true
-    },
-    "image_url": "https://corporate.bigc.co.th/upload_file/promotion/260805105752_1BMK8FINALPROOF2_c.jpg",
-    "published_at": null,
-    "expires_at": null,
-    "collected_at": "2026-08-15T13:59:12.330118+07:00",
-    "metadata": {
-      "old_price": 0,
-      "new_price": 0,
-      "expiry_text": "ตรวจสอบรายละเอียดจาก Big C",
       "urgent": false
     }
   }
