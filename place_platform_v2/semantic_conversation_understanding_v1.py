@@ -16,6 +16,7 @@ SEMANTIC_CONVERSATION_STATE_VERSION = "SEMANTIC-CONVERSATION-STATE-V1"
 MAX_CANDIDATE_IDS = 3
 MAX_REFINEMENTS = 8
 _REFERENCE_FACT_KEYS = {"hours", "parking", "address", "phone", "website"}
+_COMPARISON_CRITERIA = {"overall", "distance"}
 
 _BASE_QUERY_BY_CATEGORY = {
     "vegetarian": "หาร้านเจ",
@@ -58,6 +59,7 @@ class SemanticConversationStateV1:
     candidate_ids: tuple[str, ...] = ()
     referenced_candidate_id: str | None = None
     reference_fact: str | None = None
+    comparison_criterion: str | None = None
     last_user_text: str | None = None
 
     def to_payload(self) -> dict[str, Any]:
@@ -73,6 +75,7 @@ class SemanticConversationStateV1:
             "candidate_ids": list(self.candidate_ids),
             "referenced_candidate_id": self.referenced_candidate_id,
             "reference_fact": self.reference_fact,
+            "comparison_criterion": self.comparison_criterion,
             "last_user_text": self.last_user_text,
         }
 
@@ -129,6 +132,9 @@ def state_from_payload(raw: Any) -> SemanticConversationStateV1 | None:
     reference_fact = _clean_string(raw.get("reference_fact"), 40)
     if reference_fact not in _REFERENCE_FACT_KEYS:
         reference_fact = None
+    comparison_criterion = _clean_string(raw.get("comparison_criterion"), 40)
+    if comparison_criterion not in _COMPARISON_CRITERIA:
+        comparison_criterion = None
     return SemanticConversationStateV1(
         turn_index=turn_index,
         active_request_text=_clean_string(raw.get("active_request_text"), 1000),
@@ -140,6 +146,7 @@ def state_from_payload(raw: Any) -> SemanticConversationStateV1 | None:
         candidate_ids=tuple(candidate_ids),
         referenced_candidate_id=referenced,
         reference_fact=reference_fact,
+        comparison_criterion=comparison_criterion,
         last_user_text=_clean_string(raw.get("last_user_text"), 1000),
     )
 
@@ -201,6 +208,27 @@ def _reference_index(text: str) -> int | None:
             return index
     return None
 
+
+
+
+def _detect_comparison(text: str) -> str | None:
+    t = re.sub(r"\s+", "", str(text or "").casefold())
+    distance_terms = (
+        "ร้านไหนใกล้กว่า", "อันไหนใกล้กว่า", "ตัวไหนใกล้กว่า",
+        "ไหนใกล้กว่า", "ใกล้ที่สุด", "ใกล้กว่ากัน",
+    )
+    if any(term in t for term in distance_terms):
+        return "distance"
+
+    overall_terms = (
+        "ร้านไหนดีกว่า", "อันไหนดีกว่า", "ตัวไหนดีกว่า", "ไหนดีกว่า",
+        "ร้านไหนเหมาะกว่า", "อันไหนเหมาะกว่า", "ไหนเหมาะกว่า",
+        "ร้านไหนดี", "เลือกอันไหน", "เลือกร้านไหน", "ควรเลือกร้านไหน",
+        "ร้านไหนดีที่สุด", "อันไหนดีที่สุด",
+    )
+    if any(term in t for term in overall_terms):
+        return "overall"
+    return None
 
 
 def _detect_reference_fact(text: str) -> str | None:
@@ -368,11 +396,13 @@ def resolve_semantic_turn_v1(user_text: str, context: Mapping[str, Any] | None =
             candidate_ids=(),
             referenced_candidate_id=None,
             reference_fact=None,
+            comparison_criterion=None,
             last_user_text=user_text.strip(),
         )
         return SemanticTurnResolutionV1(user_text.strip(), context, state, "new")
 
     direct = direct_text
+    comparison_criterion = _detect_comparison(user_text)
     add, remove, near_update = _detect_refinements(user_text)
     refinements = [x for x in previous.refinements if x not in set(remove)]
     for item in add:
@@ -401,6 +431,7 @@ def resolve_semantic_turn_v1(user_text: str, context: Mapping[str, Any] | None =
         candidate_ids = ()
         referenced_candidate_id = None
         reference_fact = None
+        comparison_criterion = None
         if direct.province:
             context["location_text"] = user_text.strip()
         mode = "new_intent"
@@ -409,10 +440,10 @@ def resolve_semantic_turn_v1(user_text: str, context: Mapping[str, Any] | None =
             category = direct.category
         if direct.decision_object:
             decision_object = direct.decision_object
-        if add or remove:
+        if (add or remove) and comparison_criterion is None:
             candidate_ids = ()
         if near_update is not None:
-            if near_update != near_me:
+            if near_update != near_me and comparison_criterion is None:
                 candidate_ids = ()
             near_me = near_update
         if _looks_like_location_change(user_text, direct.province):
@@ -436,12 +467,20 @@ def resolve_semantic_turn_v1(user_text: str, context: Mapping[str, Any] | None =
             mode = "reference_unresolved"
 
     if reference_fact:
+        comparison_criterion = None
         if referenced_candidate_id:
             mode = "reference_fact"
         else:
             mode = "reference_unresolved"
+    elif comparison_criterion:
+        reference_fact = None
+        referenced_candidate_id = None
+        if comparison_criterion == "distance":
+            near_me = True
+        mode = "comparison" if len(candidate_ids) >= 2 else "comparison_unresolved"
     elif mode != "reference":
         reference_fact = None
+        comparison_criterion = None
 
     state = SemanticConversationStateV1(
         turn_index=previous.turn_index + 1,
@@ -454,6 +493,7 @@ def resolve_semantic_turn_v1(user_text: str, context: Mapping[str, Any] | None =
         candidate_ids=tuple(candidate_ids[:MAX_CANDIDATE_IDS]),
         referenced_candidate_id=referenced_candidate_id,
         reference_fact=reference_fact,
+        comparison_criterion=comparison_criterion,
         last_user_text=user_text.strip(),
     )
     return SemanticTurnResolutionV1(_canonical_query(state), context, state, mode)

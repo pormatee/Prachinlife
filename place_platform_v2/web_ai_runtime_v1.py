@@ -12,6 +12,7 @@ from urllib.parse import urlparse
 
 from place_platform_v2.production_published_place_repository_adapter_v1 import ProductionPublishedPlaceRepositoryAdapterV1
 from place_platform_v2.end_to_end_real_decision_flow_v1 import run_end_to_end_real_decision_flow_v1
+from place_platform_v2.candidate_comparison_brain_v1 import evaluate_prior_candidate_comparison_v1
 from place_platform_v2.semantic_conversation_understanding_v1 import (
     build_reference_fact_answer_v1,
     finalize_semantic_state_v1,
@@ -62,6 +63,37 @@ def _build_runtime_repository():
         )
         return _RUNTIME_REPO
 
+
+def _candidate_summaries(repository: Any, candidate_ids) -> list[dict[str, str]]:
+    getter = getattr(repository, "get_published", None)
+    if not callable(getter):
+        return []
+    out = []
+    for candidate_id in candidate_ids:
+        candidate_id = str(candidate_id or "").strip()
+        if not candidate_id:
+            continue
+        place = getter(candidate_id)
+        if place is None:
+            continue
+        name = str(getattr(place, "name", "") or "").strip()
+        out.append({"candidate_id": candidate_id, "name": name or candidate_id})
+    return out
+
+
+def _comparison_answer(criterion: str, decision: Any, summaries: list[dict[str, str]]) -> str:
+    if decision is None:
+        return ""
+    best_id = str(getattr(decision, "best_fit_candidate_id", "") or "").strip()
+    names = {x["candidate_id"]: x["name"] for x in summaries}
+    best_name = names.get(best_id, best_id)
+    if not best_id:
+        return "ข้อมูลที่ยืนยันตอนนี้ยังไม่พอให้ระบบตัดสินว่าแต่ละตัวเลือกไหนเหมาะกว่าครับ"
+    if criterion == "distance":
+        return f"เมื่อเทียบตัวเลือกเดิมโดยเน้นความใกล้จากตำแหน่งปัจจุบัน ระบบตัดสินใจให้ {best_name} เหมาะสุดครับ"
+    return f"จากเงื่อนไขที่คุยกันตอนนี้ ระบบตัดสินใจให้ {best_name} เหมาะสุดครับ"
+
+
 def health_payload() -> dict[str, Any]:
     repo = _build_runtime_repository()
     return {
@@ -108,6 +140,118 @@ def run_decision(payload: dict[str, Any]) -> dict[str, Any]:
 
     semantic_turn = resolve_semantic_turn_v1(text.strip(), context)
     repository = _build_runtime_repository()
+
+
+    if semantic_turn.mode == "comparison_unresolved":
+        state = semantic_turn.state
+        return {
+            "request_id": request_id,
+            "status": "needs_user_input",
+            "understanding": {
+                "category": state.category,
+                "decision_object": state.decision_object,
+                "province": state.province,
+                "near_me": state.near_me,
+                "unresolved_context": ["comparison_candidates"],
+            },
+            "published_candidate_ids": list(state.candidate_ids),
+            "compatible_candidate_ids": list(state.candidate_ids),
+            "decision": None,
+            "explanation": {
+                "best_fit_candidate_id": None,
+                "best_fit_name": None,
+                "why_fit": [],
+                "alternatives": [],
+                "uncertainty_fields": ["comparison_candidates"],
+                "tradeoffs": [],
+                "regret_risks": [],
+                "human_final_decision": True,
+            },
+            "needs_user_input": True,
+            "highest_value_question": "ตอนนี้มีตัวเลือกที่จำไว้ไม่ถึงสองร้าน จึงยังเปรียบเทียบกันไม่ได้ครับ",
+            "human_final_decision": True,
+            "candidate_summaries": _candidate_summaries(repository, state.candidate_ids),
+            "conversation_state": state.to_payload(),
+        }
+
+    if semantic_turn.mode == "comparison":
+        state = semantic_turn.state
+        comparison = evaluate_prior_candidate_comparison_v1(
+            request_id=request_id,
+            effective_text=semantic_turn.effective_text,
+            candidate_ids=state.candidate_ids,
+            criterion=state.comparison_criterion or "overall",
+            repository=repository,
+            context=semantic_turn.brain_context,
+            recommendation_limit=recommendation_limit,
+        )
+        if comparison.needs_location:
+            understanding = _conv(comparison.understanding)
+            unresolved = list(understanding.get("unresolved_context") or [])
+            if "current_location" not in unresolved:
+                unresolved.append("current_location")
+            understanding["unresolved_context"] = unresolved
+            understanding["near_me"] = True
+            return {
+                "request_id": request_id,
+                "status": "needs_user_input",
+                "understanding": understanding,
+                "published_candidate_ids": list(state.candidate_ids),
+                "compatible_candidate_ids": list(state.candidate_ids),
+                "decision": None,
+                "explanation": {
+                    "best_fit_candidate_id": None,
+                    "best_fit_name": None,
+                    "why_fit": [],
+                    "alternatives": [],
+                    "uncertainty_fields": ["current_location"],
+                    "tradeoffs": [],
+                    "regret_risks": [],
+                    "human_final_decision": True,
+                },
+                "needs_user_input": True,
+                "highest_value_question": "ขอใช้ตำแหน่งปัจจุบันเพื่อเปรียบเทียบว่าร้านไหนใกล้กว่าครับ",
+                "human_final_decision": True,
+                "candidate_summaries": _candidate_summaries(repository, state.candidate_ids),
+                "conversation_state": state.to_payload(),
+            }
+
+        decision = comparison.decision
+        summaries = _candidate_summaries(repository, comparison.candidate_ids)
+        names = {x["candidate_id"]: x["name"] for x in summaries}
+        best_id = str(getattr(decision, "best_fit_candidate_id", "") or "")
+        alternatives = list(getattr(decision, "alternative_candidate_ids", ()) or ())
+        result = {
+            "request_id": request_id,
+            "status": getattr(decision, "status", "insufficient_data"),
+            "understanding": _conv(comparison.understanding),
+            "published_candidate_ids": list(comparison.candidate_ids),
+            "compatible_candidate_ids": list(comparison.candidate_ids),
+            "decision": _conv(decision),
+            "explanation": {
+                "best_fit_candidate_id": best_id or None,
+                "best_fit_name": names.get(best_id),
+                "why_fit": [],
+                "alternatives": alternatives,
+                "uncertainty_fields": list(getattr(decision, "uncertainty_fields", ()) or ()),
+                "tradeoffs": list(getattr(decision, "tradeoffs", ()) or ()),
+                "regret_risks": list(getattr(decision, "regret_risks", ()) or ()),
+                "human_final_decision": True,
+            },
+            "needs_user_input": False,
+            "highest_value_question": None,
+            "human_final_decision": True,
+            "candidate_summaries": summaries,
+            "comparison_answer": _comparison_answer(
+                state.comparison_criterion or "overall",
+                decision,
+                summaries,
+            ),
+        }
+        final_state = finalize_semantic_state_v1(state, result)
+        result["conversation_state"] = final_state.to_payload()
+        result["candidate_summaries"] = _candidate_summaries(repository, final_state.candidate_ids)
+        return result
 
     if semantic_turn.mode == "reference_unresolved":
         state = semantic_turn.state
@@ -185,6 +329,7 @@ def run_decision(payload: dict[str, Any]) -> dict[str, Any]:
     converted = _conv(result)
     final_state = finalize_semantic_state_v1(semantic_turn.state, converted)
     converted["conversation_state"] = final_state.to_payload()
+    converted["candidate_summaries"] = _candidate_summaries(repository, final_state.candidate_ids)
     return converted
 
 class Handler(BaseHTTPRequestHandler):

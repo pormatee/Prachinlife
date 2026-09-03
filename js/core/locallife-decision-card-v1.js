@@ -47,6 +47,9 @@
       reference_fact: ["hours", "parking", "address", "phone", "website"].includes(String(raw.reference_fact || ""))
         ? String(raw.reference_fact)
         : "",
+      comparison_criterion: ["overall", "distance"].includes(String(raw.comparison_criterion || ""))
+        ? String(raw.comparison_criterion)
+        : "",
       last_user_text: String(raw.last_user_text || "").slice(0, 1000),
     };
   }
@@ -242,6 +245,37 @@
       return input.result;
     }
     return input;
+  }
+
+
+  function candidateSummaryNames(result) {
+    const raw = result?.candidate_summaries;
+    if (!Array.isArray(raw)) return [];
+    return raw
+      .map((item) => ({
+        candidate_id: String(item?.candidate_id || "").trim(),
+        name: String(item?.name || "").trim(),
+      }))
+      .filter((item) => item.candidate_id && item.name);
+  }
+
+  function recommendationRelay(result, bestId) {
+    const summaries = candidateSummaryNames(result);
+    const byId = new Map(summaries.map((item) => [item.candidate_id, item.name]));
+    const bestName = String(
+      result?.explanation?.best_fit_name || byId.get(bestId) || ""
+    ).trim();
+    if (!bestName) {
+      return "ได้เลยครับ ระบบตัดสินใจแสดงคำแนะนำให้แล้วครับ";
+    }
+    const alternatives = summaries
+      .filter((item) => item.candidate_id !== bestId)
+      .map((item) => item.name)
+      .slice(0, 2);
+    if (alternatives.length) {
+      return `จากผลตัดสินตอนนี้ แนะนำ ${bestName} เป็นตัวเลือกแรกครับ ตัวเลือกอื่นมี ${alternatives.join(" และ ")}`;
+    }
+    return `จากผลตัดสินตอนนี้ แนะนำ ${bestName} เป็นตัวเลือกแรกครับ`;
   }
 
   function unresolvedContextFields(result) {
@@ -756,6 +790,19 @@
 
       captureSemanticState(result);
 
+      const comparisonAnswer = String(result?.comparison_answer || "").trim();
+      if (comparisonAnswer) {
+        if (thinking) thinking.remove();
+        robotAssistPendingBaseQuery = "";
+        robotAssistPendingContextField = "";
+        saveConversationMemory();
+        addRobotMessage("assistant", comparisonAnswer);
+        renderResponse(response);
+        openRobotAssist();
+        input?.focus();
+        return;
+      }
+
       const referenceAnswer = String(result?.reference_answer?.answer || "").trim();
       if (referenceAnswer) {
         if (thinking) thinking.remove();
@@ -799,7 +846,7 @@
         robotAssistPendingContextField = "";
         robotAssistPendingBaseQuery = "";
         saveConversationMemory();
-        addRobotMessage("assistant", "ได้เลยครับ ระบบตัดสินใจแสดงคำแนะนำให้แล้วครับ");
+        addRobotMessage("assistant", recommendationRelay(result, bestId));
         renderResponse(response);
 
         const followUp = String(result?.highest_value_question || "").trim();
