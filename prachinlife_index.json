@@ -1,10 +1,10 @@
 [
   {
     "schema_version": "1.1",
-    "id": "lotus-b99ac28bae5ae187",
+    "id": "lotus-fd0691d67bc2274d",
     "content_type": "deal",
     "original_type": "campaign",
-    "title": "โปรแรงเฉพาะวันศุกร์เท่านั้น! แซลมอนสดนอร์เวย์",
+    "title": "ช้อปแซลมอนสดนอร์เวย์ ลุ้นบินไปนอร์เวย์! หรือร่วม Workshop",
     "summary": "แคมเปญหรือโปรโมชั่นจาก Lotus's",
     "category": "shopping",
     "tags": [
@@ -37,10 +37,10 @@
       "type": "official_promotion",
       "verified": true
     },
-    "image_url": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202609020822422456.webp",
+    "image_url": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202609040912546154.webp",
     "published_at": null,
     "expires_at": null,
-    "collected_at": "2026-09-04T00:49:34.574050+00:00",
+    "collected_at": "2026-09-05T00:38:29.259432+00:00",
     "metadata": {
       "old_price": 0,
       "new_price": 0,
