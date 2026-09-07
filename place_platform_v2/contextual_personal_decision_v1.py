@@ -8,6 +8,7 @@ It does not mutate PublishedPlaceView, canonical storage, evidence tables, or
 publication state, and it never fabricates missing dynamic facts.
 """
 from __future__ import annotations
+from place_platform_v2.locallife_semantic.production_bridge_v1 import understand_user_request_with_semantics
 
 from dataclasses import dataclass
 from typing import Any, Iterable, Mapping
@@ -215,7 +216,7 @@ def run_contextual_personal_decision_v1(
     recommendation_limit: int = 3,
 ) -> ContextualPersonalDecisionResult:
     """Run contextual L4 decisioning over published places + explicit overlay facts."""
-    understanding=understand_user_request(user_text, context=context)
+    understanding=understand_user_request_with_semantics(user_text, context=context)
     question=_question_for(understanding)
     empty_profile=ContextPolicyProfile((),(),(),())
 

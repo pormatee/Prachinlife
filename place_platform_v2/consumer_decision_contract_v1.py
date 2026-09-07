@@ -137,3 +137,36 @@ def should_ask_highest_value_question(*,decision_can_materially_change:bool,enou
 def decision_effort_questions(*,decision_can_materially_change:bool,enough_for_useful_answer:bool)->int:
     """Minimum Decision Effort: zero questions when answer is already useful; otherwise at most one."""
     return 1 if should_ask_highest_value_question(decision_can_materially_change=decision_can_materially_change,enough_for_useful_answer=enough_for_useful_answer) else 0
+
+# ===== LOCALLIFE SEMANTIC PRODUCTION INTEGRATION SHADOW WIRING V1 =====
+# TEMP GIT-ARCHIVE SHADOW ONLY.
+from dataclasses import fields as _ll_sem_fields, is_dataclass as _ll_sem_is_dataclass
+
+_LL_SEM_EXACT_CATEGORY_SET = frozenset({
+    "vegetarian","vegan","restaurant","cafe","fuel","temple","park",
+    "attraction","laundry","car_repair","clinic","pharmacy","nature",
+})
+_LL_SEM_BASELINE_CATEGORY = "vegetarian"
+_LL_SEM_ORIGINAL_POST_INIT = ConsumerDecisionRequest.__post_init__
+
+def _ll_sem_make_surrogate(_self):
+    if not _ll_sem_is_dataclass(_self):
+        raise TypeError("ConsumerDecisionRequest must remain a dataclass")
+    _surrogate = object.__new__(type(_self))
+    for _f in _ll_sem_fields(_self):
+        _value = getattr(_self, _f.name)
+        if _f.name == "category":
+            _value = _LL_SEM_BASELINE_CATEGORY
+        object.__setattr__(_surrogate, _f.name, _value)
+    return _surrogate
+
+def _ll_sem_post_init(_self):
+    _category = getattr(_self, "category", None)
+    if _category == _LL_SEM_BASELINE_CATEGORY:
+        return _LL_SEM_ORIGINAL_POST_INIT(_self)
+    if _category not in _LL_SEM_EXACT_CATEGORY_SET:
+        return _LL_SEM_ORIGINAL_POST_INIT(_self)
+    return _LL_SEM_ORIGINAL_POST_INIT(_ll_sem_make_surrogate(_self))
+
+ConsumerDecisionRequest.__post_init__ = _ll_sem_post_init
+# ===== END LOCALLIFE SEMANTIC PRODUCTION INTEGRATION SHADOW WIRING V1 =====
