@@ -23406,7 +23406,12 @@
         "label": "Wongnai",
         "url": "https://www.wongnai.com/restaurants/1975749Hk-อาหารเจ-ซั่นสี่-เมืองปราจีนบุรี"
       }
-    ]
+    ],
+    "name": "อาหารเจ ซั่นสี่",
+    "province": "ปราจีนบุรี",
+    "latitude": 14.05236,
+    "longitude": 101.36833,
+    "place_id": "801410d8-00e5-58e9-b77e-f681bbdf6f5c"
   },
   {
     "title": "Baan J Veggie House",
@@ -23467,5 +23472,55 @@
       "near_me_eligible": true,
       "diet_vegetarian": "yes"
     }
+  },
+  {
+    "id": "642f3b83-c3f2-5de7-ba26-092261df3cf2",
+    "location": {
+      "province": "ปราจีนบุรี",
+      "latitude": 13.904319,
+      "longitude": 101.595581
+    },
+    "external_links": [
+      {
+        "type": "wongnai",
+        "label": "Wongnai",
+        "url": "https://www.wongnai.com/restaurants/2107360fZ-ร้านอาหารเจ-amita-vegan-ท่าตูม"
+      },
+      {
+        "type": "web",
+        "label": "Restaurant Guru",
+        "url": "https://restaurantguru.com/Si-Maha-Phot"
+      },
+      {
+        "type": "web",
+        "label": "Kasemrad Prachinburi official",
+        "url": "https://www.kasemrad.co.th/th/prachinburi/contact"
+      }
+    ],
+    "metadata": {
+      "phone": "0804653226",
+      "v2_preview_overlay": true,
+      "v2_place_id": "642f3b83-c3f2-5de7-ba26-092261df3cf2",
+      "v2_policy_version": "staged-milestone-v1",
+      "v2_core_identity_source": "canonical_v2",
+      "local_life_trust": {
+        "place_id": "642f3b83-c3f2-5de7-ba26-092261df3cf2",
+        "visible": true,
+        "hard_blockers": [],
+        "disclosures": [],
+        "field_trust": {
+          "location": "VERIFIED",
+          "category": "VERIFIED",
+          "existence": "SUPPORTED",
+          "lifecycle": "SUPPORTED"
+        },
+        "policy_version": "LOCAL-LIFE-TRUST-PUBLICATION-V1"
+      }
+    },
+    "place_id": "642f3b83-c3f2-5de7-ba26-092261df3cf2",
+    "name": "ร้านอาหารเจ AMITA VEGAN",
+    "province": "ปราจีนบุรี",
+    "latitude": 13.904319,
+    "longitude": 101.595581
   }
 ]

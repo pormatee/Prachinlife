@@ -39,7 +39,12 @@
         "label": "OpenStreetMap current observation",
         "url": "https://www.openstreetmap.org/node/12280000098"
       }
-    ]
+    ],
+    "name": "Siam Dasada",
+    "province": "ปราจีนบุรี",
+    "latitude": 14.1932375,
+    "longitude": 101.3831505,
+    "place_id": "b9aa14d6-2b09-5de6-a20d-f652ea63a2bf"
   },
   {
     "id": "osm-node-4943305721",
@@ -81,7 +86,12 @@
         "label": "The Verona at Tub Lan official website",
         "url": "https://www.veronatublan.com/"
       }
-    ]
+    ],
+    "name": "Verona",
+    "province": "ปราจีนบุรี",
+    "latitude": 14.2155093,
+    "longitude": 101.9005021,
+    "place_id": "418e6632-2750-5386-aad7-f97ede205940"
   },
   {
     "id": "osm-node-5449003442",
@@ -123,7 +133,12 @@
         "label": "OpenStreetMap current observation",
         "url": "https://www.openstreetmap.org/node/5449003442"
       }
-    ]
+    ],
+    "name": "ผาเก็บตะวัน",
+    "province": "ปราจีนบุรี",
+    "latitude": 14.3182787,
+    "longitude": 101.9299268,
+    "place_id": "f771b5c2-e1f6-5e05-ad93-9d6420ff8bed"
   },
   {
     "id": "osm-node-7999239609",
@@ -165,7 +180,12 @@
         "label": "OpenStreetMap current observation",
         "url": "https://www.openstreetmap.org/node/7999239609"
       }
-    ]
+    ],
+    "name": "ศาลาประชาคม หมู่ 4",
+    "province": "ปราจีนบุรี",
+    "latitude": 13.9679526,
+    "longitude": 101.552187,
+    "place_id": "0d366db7-59fa-502f-8164-4a235bcd9f96"
   },
   {
     "id": "osm-node-7999051156",
@@ -207,7 +227,12 @@
         "label": "OpenStreetMap current observation",
         "url": "https://www.openstreetmap.org/node/7999051156"
       }
-    ]
+    ],
+    "name": "ศาสลาประชาคม หมู่7",
+    "province": "ปราจีนบุรี",
+    "latitude": 13.9760665,
+    "longitude": 101.5979282,
+    "place_id": "3f3788b5-8473-5e5c-8901-c37c2be19088"
   },
   {
     "id": "osm-way-1351872829",
@@ -249,7 +274,12 @@
         "label": "OpenStreetMap current observation",
         "url": "https://www.openstreetmap.org/node/1351872829"
       }
-    ]
+    ],
+    "name": "สวนปราจีนวนารมย์",
+    "province": "ปราจีนบุรี",
+    "latitude": 14.0596956,
+    "longitude": 101.3711593,
+    "place_id": "2bbf4032-2bf3-5a84-89b8-7d530e0ecb7e"
   },
   {
     "id": "osm-way-1311218809",
@@ -291,7 +321,12 @@
         "label": "OpenStreetMap current observation",
         "url": "https://www.openstreetmap.org/way/1311218809"
       }
-    ]
+    ],
+    "name": "สวนเฉลิมพระเกียรติ 70 พรรษา มหาราชินี",
+    "province": "ปราจีนบุรี",
+    "latitude": 14.0658622,
+    "longitude": 101.5178232,
+    "place_id": "b5faca61-4b29-5377-b892-453db7af25b1"
   },
   {
     "id": "osm-node-8527903036",
@@ -333,7 +368,12 @@
         "label": "OpenStreetMap current observation",
         "url": "https://www.openstreetmap.org/node/8527903036"
       }
-    ]
+    ],
+    "name": "อุทยาน กบินทร์ เฉลิมราชย์",
+    "province": "ปราจีนบุรี",
+    "latitude": 13.9869401,
+    "longitude": 101.7498873,
+    "place_id": "70b26f43-00c2-5677-8d3a-c12aa6e4c610"
   },
   {
     "id": "osm-node-477117643",
@@ -375,7 +415,12 @@
         "label": "OpenStreetMap current observation",
         "url": "https://www.openstreetmap.org/node/477117643"
       }
-    ]
+    ],
+    "name": "Chedi",
+    "province": "ปราจีนบุรี",
+    "latitude": 14.2225943,
+    "longitude": 101.3971784,
+    "place_id": "ad4e4922-d84a-50f4-8f8d-25ffb41513aa"
   },
   {
     "id": "osm-node-4481583826",
@@ -417,7 +462,12 @@
         "label": "OpenStreetMap current observation",
         "url": "https://www.openstreetmap.org/node/4481583826"
       }
-    ]
+    ],
+    "name": "Wat Don Yai",
+    "province": "ปราจีนบุรี",
+    "latitude": 13.9635733,
+    "longitude": 101.4202061,
+    "place_id": "22ccbc6a-9981-5a52-ba8e-9b1651be8caf"
   },
   {
     "id": "osm-node-1666731926",
@@ -459,7 +509,12 @@
         "label": "OpenStreetMap current observation",
         "url": "https://www.openstreetmap.org/node/1666731926"
       }
-    ]
+    ],
+    "name": "Wat Kao Samo",
+    "province": "ปราจีนบุรี",
+    "latitude": 13.9130918,
+    "longitude": 101.4638515,
+    "place_id": "d54b8704-2868-51a2-875e-97d90c8e8c17"
   },
   {
     "id": "osm-way-518203817",
@@ -501,7 +556,12 @@
         "label": "OpenStreetMap current observation",
         "url": "https://www.openstreetmap.org/node/518203817"
       }
-    ]
+    ],
+    "name": "Wat Pa Mafai",
+    "province": "ปราจีนบุรี",
+    "latitude": 14.1392701,
+    "longitude": 101.2926475,
+    "place_id": "546d9345-1423-516b-b772-2ea0383bb953"
   },
   {
     "id": "osm-node-5243829913",
@@ -543,7 +603,12 @@
         "label": "OpenStreetMap current observation",
         "url": "https://www.openstreetmap.org/node/5243829913"
       }
-    ]
+    ],
+    "name": "วัดกลางเมืองเก่า",
+    "province": "ปราจีนบุรี",
+    "latitude": 14.0118482,
+    "longitude": 101.7627344,
+    "place_id": "18ebb732-aaab-59a0-8fb1-62b342f659c5"
   },
   {
     "id": "osm-node-5158314453",
@@ -585,7 +650,12 @@
         "label": "OpenStreetMap current observation",
         "url": "https://www.openstreetmap.org/node/5158314453"
       }
-    ]
+    ],
+    "name": "วัดทุ่งประพาส",
+    "province": "ปราจีนบุรี",
+    "latitude": 13.8992592,
+    "longitude": 101.6143262,
+    "place_id": "f9850dd3-7493-591b-98bd-4b01ed496180"
   },
   {
     "id": "osm-node-7041312967",
@@ -627,7 +697,12 @@
         "label": "OpenStreetMap current observation",
         "url": "https://www.openstreetmap.org/node/7041312967"
       }
-    ]
+    ],
+    "name": "วัดนาคํา",
+    "province": "ปราจีนบุรี",
+    "latitude": 14.0088755,
+    "longitude": 101.840367,
+    "place_id": "896cd178-6225-5ec1-a0a5-8020931b61ce"
   },
   {
     "id": "osm-node-5182718404",
@@ -669,7 +744,12 @@
         "label": "OpenStreetMap current observation",
         "url": "https://www.openstreetmap.org/node/5182718404"
       }
-    ]
+    ],
+    "name": "วัดบรรพตรัตนารามเขาไม้แก้ว",
+    "province": "ปราจีนบุรี",
+    "latitude": 13.8252277,
+    "longitude": 101.7499988,
+    "place_id": "1143af8f-2f04-5329-a5c0-330b12250697"
   },
   {
     "id": "osm-way-1540257731",
@@ -711,7 +791,12 @@
         "label": "OpenStreetMap current observation",
         "url": "https://www.openstreetmap.org/way/1540257731"
       }
-    ]
+    ],
+    "name": "วัดบางเตย",
+    "province": "ปราจีนบุรี",
+    "latitude": 13.9444126,
+    "longitude": 101.2025602,
+    "place_id": "0b348092-7187-5ca0-9085-ddd02ae24c04"
   },
   {
     "id": "osm-node-7041843507",
@@ -753,7 +838,12 @@
         "label": "OpenStreetMap current observation",
         "url": "https://www.openstreetmap.org/node/7041843507"
       }
-    ]
+    ],
+    "name": "วัดบุญเกิด",
+    "province": "ปราจีนบุรี",
+    "latitude": 13.9035433,
+    "longitude": 101.6585215,
+    "place_id": "4a43c3a8-9e58-5753-8c96-2436803ff4ec"
   },
   {
     "id": "osm-way-1540257706",
@@ -795,7 +885,12 @@
         "label": "OpenStreetMap current observation",
         "url": "https://www.openstreetmap.org/node/1540257706"
       }
-    ]
+    ],
+    "name": "วัดบุพพาราม",
+    "province": "ปราจีนบุรี",
+    "latitude": 13.9739517,
+    "longitude": 101.4828929,
+    "place_id": "c5780467-a73e-56d7-8bc0-0d84ddefdb12"
   },
   {
     "id": "osm-way-1540257704",
@@ -837,7 +932,12 @@
         "label": "OpenStreetMap current observation",
         "url": "https://www.openstreetmap.org/node/1540257704"
       }
-    ]
+    ],
+    "name": "วัดประทุมบูชา",
+    "province": "ปราจีนบุรี",
+    "latitude": 13.9745004,
+    "longitude": 101.5125597,
+    "place_id": "94df458b-53db-533a-a4a3-b9436ae9ff5f"
   },
   {
     "id": "osm-way-1540257698",
@@ -879,7 +979,12 @@
         "label": "OpenStreetMap current observation",
         "url": "https://www.openstreetmap.org/way/1540257698"
       }
-    ]
+    ],
+    "name": "วัดปากแพรก",
+    "province": "ปราจีนบุรี",
+    "latitude": 13.9865695,
+    "longitude": 101.691119,
+    "place_id": "cf8ba483-0bbd-5728-85da-331741445566"
   },
   {
     "id": "osm-node-7040512147",
@@ -921,7 +1026,12 @@
         "label": "OpenStreetMap current observation",
         "url": "https://www.openstreetmap.org/node/7040512147"
       }
-    ]
+    ],
+    "name": "วัดพระปรง (วัดสมศรีราษฎร์)",
+    "province": "ปราจีนบุรี",
+    "latitude": 13.9516368,
+    "longitude": 101.9174443,
+    "place_id": "a44bc6b0-2a69-5bfc-b33c-e7ae0fb4fd60"
   },
   {
     "id": "osm-way-1396724438",
@@ -963,7 +1073,12 @@
         "label": "OpenStreetMap current observation",
         "url": "https://www.openstreetmap.org/node/1396724438"
       }
-    ]
+    ],
+    "name": "วัดมหาชัย",
+    "province": "ปราจีนบุรี",
+    "latitude": 14.0052274,
+    "longitude": 101.7553914,
+    "place_id": "73c69c8d-29bc-5ae0-8211-e2dd59696dbb"
   },
   {
     "id": "osm-way-1540257729",
@@ -1005,7 +1120,12 @@
         "label": "OpenStreetMap current observation",
         "url": "https://www.openstreetmap.org/node/1540257729"
       }
-    ]
+    ],
+    "name": "วัดมูลเหล็ก",
+    "province": "ปราจีนบุรี",
+    "latitude": 14.0083281,
+    "longitude": 101.2378053,
+    "place_id": "a93e35df-87be-5ae5-94dc-bbb5bb7ed2b2"
   },
   {
     "id": "osm-node-11212240060",
@@ -1047,7 +1167,12 @@
         "label": "OpenStreetMap current observation",
         "url": "https://www.openstreetmap.org/node/11212240060"
       }
-    ]
+    ],
+    "name": "วัดรัตนเนตตาราม ปราจีนบุรี",
+    "province": "ปราจีนบุรี",
+    "latitude": 14.0827922,
+    "longitude": 101.7639048,
+    "place_id": "cab5512d-cbf6-546e-befa-efa7dc8742d1"
   },
   {
     "id": "osm-node-5243829920",
@@ -1089,7 +1214,12 @@
         "label": "OpenStreetMap current observation",
         "url": "https://www.openstreetmap.org/node/5243829920"
       }
-    ]
+    ],
+    "name": "วัดศรีบุญเรือง",
+    "province": "ปราจีนบุรี",
+    "latitude": 14.0133706,
+    "longitude": 101.7712719,
+    "place_id": "1fdace1e-dd25-561d-84de-4155798d0d2e"
   },
   {
     "id": "osm-node-5243829914",
@@ -1131,7 +1261,12 @@
         "label": "OpenStreetMap current observation",
         "url": "https://www.openstreetmap.org/node/5243829914"
       }
-    ]
+    ],
+    "name": "วัดศรีษะเมือง",
+    "province": "ปราจีนบุรี",
+    "latitude": 14.012102,
+    "longitude": 101.7662441,
+    "place_id": "8da1b98d-7f51-5ae4-a9bb-3ead69302929"
   },
   {
     "id": "osm-way-1540257718",
@@ -1173,7 +1308,12 @@
         "label": "OpenStreetMap current observation",
         "url": "https://www.openstreetmap.org/way/1540257718"
       }
-    ]
+    ],
+    "name": "วัดสง่างาม",
+    "province": "ปราจีนบุรี",
+    "latitude": 14.0323442,
+    "longitude": 101.426333,
+    "place_id": "03393763-0fa7-5774-b7a4-32a8e8168b49"
   },
   {
     "id": "osm-node-7041843509",
@@ -1215,7 +1355,12 @@
         "label": "OpenStreetMap current observation",
         "url": "https://www.openstreetmap.org/node/7041843509"
       }
-    ]
+    ],
+    "name": "วัดสุทธิธรรม",
+    "province": "ปราจีนบุรี",
+    "latitude": 13.8972505,
+    "longitude": 101.592804,
+    "place_id": "f943451f-3963-5847-ad48-714ad12071a1"
   },
   {
     "id": "osm-node-7041843508",
@@ -1257,7 +1402,12 @@
         "label": "OpenStreetMap current observation",
         "url": "https://www.openstreetmap.org/node/7041843508"
       }
-    ]
+    ],
+    "name": "วัดหนองคล้า",
+    "province": "ปราจีนบุรี",
+    "latitude": 13.9050281,
+    "longitude": 101.6408768,
+    "place_id": "cab6942b-b5b9-5bb7-97a4-4b7802f76298"
   },
   {
     "id": "osm-node-7041632208",
@@ -1299,7 +1449,12 @@
         "label": "OpenStreetMap current observation",
         "url": "https://www.openstreetmap.org/node/7041632208"
       }
-    ]
+    ],
+    "name": "วัดหนองนมหนู",
+    "province": "ปราจีนบุรี",
+    "latitude": 13.9205109,
+    "longitude": 101.6821986,
+    "place_id": "c2a94a08-8d67-5fed-a1cc-a7264df776bf"
   },
   {
     "id": "osm-node-7040512150",
@@ -1341,7 +1496,12 @@
         "label": "OpenStreetMap current observation",
         "url": "https://www.openstreetmap.org/node/7040512150"
       }
-    ]
+    ],
+    "name": "วัดหนองนาใน",
+    "province": "ปราจีนบุรี",
+    "latitude": 13.9677871,
+    "longitude": 101.9340728,
+    "place_id": "4c8f7e6b-7743-5ff0-85ab-7ae2388521fc"
   },
   {
     "id": "osm-node-7040512146",
@@ -1383,7 +1543,12 @@
         "label": "OpenStreetMap current observation",
         "url": "https://www.openstreetmap.org/node/7040512146"
       }
-    ]
+    ],
+    "name": "วัดหนองโดน",
+    "province": "ปราจีนบุรี",
+    "latitude": 13.9518671,
+    "longitude": 101.9018357,
+    "place_id": "f6421c45-71ff-51ff-9b31-efcfadcfb9d5"
   },
   {
     "id": "osm-node-6506145033",
@@ -1425,7 +1590,12 @@
         "label": "OpenStreetMap current observation",
         "url": "https://www.openstreetmap.org/node/6506145033"
       }
-    ]
+    ],
+    "name": "วัดหนองไผ่ล้อม",
+    "province": "ปราจีนบุรี",
+    "latitude": 13.9614585,
+    "longitude": 101.8702301,
+    "place_id": "a31aefc3-a5d4-5c88-8f3f-77f0c1f5e52c"
   },
   {
     "id": "osm-node-5243829879",
@@ -1467,7 +1637,12 @@
         "label": "OpenStreetMap current observation",
         "url": "https://www.openstreetmap.org/node/5243829879"
       }
-    ]
+    ],
+    "name": "วัดหลวงบดินทร์เดชา (วัดสิงหเสนี)",
+    "province": "ปราจีนบุรี",
+    "latitude": 14.0043965,
+    "longitude": 101.7610636,
+    "place_id": "c71c7249-ac99-572b-925a-1b918df906ef"
   },
   {
     "id": "osm-node-5243832947",
@@ -1509,7 +1684,12 @@
         "label": "OpenStreetMap current observation",
         "url": "https://www.openstreetmap.org/node/5243832947"
       }
-    ]
+    ],
+    "name": "วัดอัมพวัน",
+    "province": "ปราจีนบุรี",
+    "latitude": 14.0247993,
+    "longitude": 101.7896359,
+    "place_id": "beac601a-caad-598f-b8c1-bd7d8d159086"
   },
   {
     "id": "osm-node-5243832992",
@@ -1551,7 +1731,12 @@
         "label": "OpenStreetMap current observation",
         "url": "https://www.openstreetmap.org/node/5243832992"
       }
-    ]
+    ],
+    "name": "วัดโคกอุดม",
+    "province": "ปราจีนบุรี",
+    "latitude": 14.064465,
+    "longitude": 101.8012397,
+    "place_id": "4288bb41-2552-5b57-9a2e-00620a883091"
   },
   {
     "id": "osm-way-1351539885",
@@ -1593,7 +1778,12 @@
         "label": "OpenStreetMap current observation",
         "url": "https://www.openstreetmap.org/node/1351539885"
       }
-    ]
+    ],
+    "name": "วัดโยธาราษฎร์ศรัทธาธรรม",
+    "province": "ปราจีนบุรี",
+    "latitude": 14.0645523,
+    "longitude": 101.3983604,
+    "place_id": "8c88fcfe-d07f-52b6-994a-07fab3289a62"
   },
   {
     "id": "osm-node-7041632206",
@@ -1635,7 +1825,12 @@
         "label": "OpenStreetMap current observation",
         "url": "https://www.openstreetmap.org/node/7041632206"
       }
-    ]
+    ],
+    "name": "วัดใหม่เชตวัน",
+    "province": "ปราจีนบุรี",
+    "latitude": 13.8056072,
+    "longitude": 101.7675822,
+    "place_id": "06571797-3932-5888-95e0-3a76b1ae0fee"
   },
   {
     "id": "osm-node-7040512151",
@@ -1677,7 +1872,12 @@
         "label": "OpenStreetMap current observation",
         "url": "https://www.openstreetmap.org/node/7040512151"
       }
-    ]
+    ],
+    "name": "หมู่กุฎิปฏิบัติธรรมพระประจำ (อาศรมปริวาส)",
+    "province": "ปราจีนบุรี",
+    "latitude": 14.0121441,
+    "longitude": 101.9141513,
+    "place_id": "50e9054a-5992-50eb-96a8-031879bc9c1f"
   },
   {
     "id": "osm-way-518190349",
@@ -1719,7 +1919,12 @@
         "label": "OpenStreetMap current observation",
         "url": "https://www.openstreetmap.org/way/518190349"
       }
-    ]
+    ],
+    "name": "หลวงพ่อสิงห์",
+    "province": "ปราจีนบุรี",
+    "latitude": 14.1605492,
+    "longitude": 101.3472801,
+    "place_id": "0a37ad44-fa09-5f27-95a1-86629707ef7d"
   },
   {
     "id": "official-go-1",
@@ -1765,7 +1970,12 @@
       }
     ],
     "district": "เมืองปราจีนบุรี",
-    "subdistrict": "หน้าเมือง"
+    "subdistrict": "หน้าเมือง",
+    "name": "พิพิธภัณฑสถานแห่งชาติปราจีนบุรี",
+    "province": "ปราจีนบุรี",
+    "latitude": 14.047306,
+    "longitude": 101.37467,
+    "place_id": "df7d47d4-6772-50f6-a8a9-237b4a28ea62"
   },
   {
     "id": "official-go-2",
@@ -1809,7 +2019,12 @@
         "label": "พิพิธภัณฑสถานแห่งชาติ ปราจีนบุรี / กรมศิลปากร",
         "url": "https://www.finearts.go.th/prachinburimuseum/view/47629"
       }
-    ]
+    ],
+    "name": "โบราณสถานสระมรกต",
+    "province": "ปราจีนบุรี",
+    "latitude": 13.863657,
+    "longitude": 101.424075,
+    "place_id": "895f1f1e-993f-557c-b5c8-9fc4cae9cb16"
   },
   {
     "id": "official-go-3",
@@ -1854,6 +2069,11 @@
         "url": "https://www.finearts.go.th/main/view/25201-ท่องเมืองโบราณ--ศรีมโหสถ-?type1=11"
       }
     ],
-    "description": "เมืองโบราณขนาดใหญ่ในอำเภอศรีมโหสถ จังหวัดปราจีนบุรี มีพัฒนาการราวพุทธศตวรรษที่ 11-18 และมีคูน้ำคันดินล้อมรอบ"
+    "description": "เมืองโบราณขนาดใหญ่ในอำเภอศรีมโหสถ จังหวัดปราจีนบุรี มีพัฒนาการราวพุทธศตวรรษที่ 11-18 และมีคูน้ำคันดินล้อมรอบ",
+    "name": "เมืองโบราณศรีมโหสถ",
+    "province": "ปราจีนบุรี",
+    "latitude": 13.895284,
+    "longitude": 101.413708,
+    "place_id": "57595b16-d24d-5f41-9cf7-8ec261642886"
   }
 ]

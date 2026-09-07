@@ -1,7 +1,7 @@
 {
   "schema_version": "prachinlife-published-projection-web-1",
   "authority": "decision_published_places_v1",
-  "count": 922,
+  "count": 923,
   "places": [
     {
       "id": "0045b5d3-9654-5e3c-b56b-4ee811ba97aa",
@@ -20286,6 +20286,33 @@
         "v2_place_id": "fffbaf25-1aed-5d14-9b06-8856e13ba1b1",
         "published_projection": "decision_published_places_v1",
         "projection_schema_version": "PERSISTED-PUBLISHED-PROJECTION-V1"
+      }
+    },
+    {
+      "id": "642f3b83-c3f2-5de7-ba26-092261df3cf2",
+      "place_id": "642f3b83-c3f2-5de7-ba26-092261df3cf2",
+      "name": "ร้านอาหารเจ AMITA VEGAN",
+      "province": "ปราจีนบุรี",
+      "categories": [
+        "vegetarian"
+      ],
+      "latitude": 13.904319,
+      "longitude": 101.595581,
+      "lat": 13.904319,
+      "lng": 101.595581,
+      "location": {
+        "province": "ปราจีนบุรี",
+        "latitude": 13.904319,
+        "longitude": 101.595581
+      },
+      "lifecycle": "active",
+      "address": "ปราจีนบุรี",
+      "phone": "0804653226",
+      "website": "",
+      "source": "decision_published_places_v1",
+      "data_version": "published_projection_v1",
+      "metadata": {
+        "v2_place_id": "642f3b83-c3f2-5de7-ba26-092261df3cf2"
       }
     }
   ]

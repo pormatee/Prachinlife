@@ -2,12 +2,19 @@
   "policy_version": "staged-milestone-v1",
   "preview_mode": "v2_overlay_with_v1_fallback",
   "province": "ปราจีนบุรี",
-  "eligible_place_count": 220,
+  "eligible_place_count": 221,
   "overlay_place_count": 220,
-  "unmapped_eligible_place_count": 0,
+  "unmapped_eligible_place_count": 1,
+  "new_place_bridge_place_count": 0,
+  "new_place_bridge_records": {
+    "prachinlife_index.json": 0,
+    "vegetarian_index.json": 0,
+    "go_index.json": 0,
+    "service_index.json": 0
+  },
   "files": {
     "prachinlife_index.json": 74,
-    "vegetarian_index.json": 703,
+    "vegetarian_index.json": 704,
     "go_index.json": 44,
     "service_index.json": 121
   },
@@ -19,7 +26,7 @@
   },
   "v1_fallback_records": {
     "prachinlife_index.json": 19,
-    "vegetarian_index.json": 702,
+    "vegetarian_index.json": 703,
     "go_index.json": 0,
     "service_index.json": 0
   },
