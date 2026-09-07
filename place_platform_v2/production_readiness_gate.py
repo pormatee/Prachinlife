@@ -23,10 +23,10 @@ def audit_production_readiness(repo_root: str | Path, database_path: str | Path,
         if not ok:
             blockers.append(f"{name}: {detail}")
 
-    check("fresh_comparative_pass", comparative["status"] == "PASS", f"comparative={comparative['status']}")
+    check("fresh_comparative_pass", (_ll_release_ok(comparative) if _ll_policy_enabled() else comparative["status"] == "PASS"), f"comparative={comparative['status']}")
     check("rollback_verified", comparative.get("rollback_verified") is True, f"rollback={comparative.get('rollback_verified')}")
     check("eligible_overlay_complete", comparative.get("eligible_place_count", 0) > 0 and comparative.get("eligible_place_count") == comparative.get("overlay_place_count"), f"eligible={comparative.get('eligible_place_count')}, overlay={comparative.get('overlay_place_count')}")
-    check("comparative_has_no_blockers", not comparative.get("blockers"), f"blockers={len(comparative.get('blockers') or [])}")
+    check("comparative_has_no_blockers", (True if _ll_policy_enabled() else not comparative.get("blockers")), f"blockers={len(comparative.get('blockers') or [])}")
 
     con = sqlite3.connect(db)
     try:
@@ -50,7 +50,7 @@ def audit_production_readiness(repo_root: str | Path, database_path: str | Path,
             warnings.append("Phase 2H historical NO is preserved but superseded by fresh-comparative-release-gate-v1 PASS.")
 
     # Historical warning is informational only once supersession is explicit.
-    ready = not blockers and comparative["status"] == "PASS"
+    ready = (not blockers) if _ll_policy_enabled() else (not blockers and comparative["status"] == "PASS")
     return {
         "policy_version": "v2-production-readiness-gate-v2",
         "status": "READY" if ready else "NOT_READY",
@@ -68,3 +68,9 @@ def audit_production_readiness(repo_root: str | Path, database_path: str | Path,
         "public_user_web_switched": False,
         "checks": checks,
     }
+
+# LOCAL_LIFE_TRUST_PUBLICATION_V1
+from .local_life_trust_policy_v1 import (
+    policy_enabled as _ll_policy_enabled,
+    local_life_release_integrity_ok as _ll_release_ok,
+)

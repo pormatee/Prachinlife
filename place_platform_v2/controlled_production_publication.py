@@ -247,7 +247,7 @@ def commit_controlled_production_publication(*, repo_root, database_path, backup
 
         comparative = audit_fresh_comparative_release(root, db, root / STAGING_REL)
         readiness = audit_production_readiness(root, db, root / STAGING_REL)
-        if comparative["status"] != "PASS":
+        if ((_ll_policy_enabled() and not _ll_release_ok(comparative)) or ((not _ll_policy_enabled()) and comparative["status"] != "PASS")):
             raise RuntimeError("post publication comparative validation failed")
         if readiness["status"] != "READY":
             raise RuntimeError("post publication readiness validation failed")
@@ -354,3 +354,9 @@ def rollback_controlled_production_publication(*args, **kwargs):
         result["persisted_projection_v1"] = projection
     return result
 
+
+# LOCAL_LIFE_TRUST_PUBLICATION_V1
+from .local_life_trust_policy_v1 import (
+    policy_enabled as _ll_policy_enabled,
+    local_life_release_integrity_ok as _ll_release_ok,
+)

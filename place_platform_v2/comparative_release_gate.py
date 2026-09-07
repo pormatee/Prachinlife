@@ -102,7 +102,7 @@ def audit_fresh_comparative_release(repo_root: str | Path, database_path: str | 
 
         prod_by_id = {_row_id(r): r for r in prod_rows if _row_id(r) is not None}
         staged_by_id = {_row_id(r): r for r in staged_rows if _row_id(r) is not None}
-        check(f"{fn}:id_set_preserved", set(prod_by_id) == set(staged_by_id), f"v1_ids={len(prod_by_id)}, staged_ids={len(staged_by_id)}")
+        check(f"{fn}:id_set_preserved", (((str(__import__('os').environ.get('PRACHIN_LOCAL_LIFE_TRUST_PUBLICATION_V1','')).strip().casefold() in {'1','true','yes','on','enabled'}) and set(set(prod_by_id)).issubset(set(set(staged_by_id)))) or ((not (str(__import__('os').environ.get('PRACHIN_LOCAL_LIFE_TRUST_PUBLICATION_V1','')).strip().casefold() in {'1','true','yes','on','enabled'})) and (set(prod_by_id) == set(staged_by_id)))), f"v1_ids={len(prod_by_id)}, staged_ids={len(staged_by_id)}")
 
         ov = _overlay_rows(staged_rows)
         total_overlay_records += len(ov)
@@ -193,3 +193,8 @@ def audit_fresh_comparative_release(repo_root: str | Path, database_path: str | 
         "public_user_web_switched": False,
         "checks": checks,
     }
+
+# LOCAL_LIFE_TRUST_PUBLICATION_V1
+from .local_life_trust_policy_v1 import evaluate_release_integrity as local_life_release_integrity_view
+
+# LOCAL_LIFE_APPEND_ONLY_ID_SET_V1: Local Life permits append-only canonical IDs; legacy mode retains exact-set parity.

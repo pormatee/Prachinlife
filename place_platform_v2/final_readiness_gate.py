@@ -60,7 +60,7 @@ def audit_final_readiness(
         len(eligible) > 0 and manifest_eligible == manifest_overlay == len(eligible),
         f"current={len(eligible)}, manifest_eligible={manifest_eligible}, overlay={manifest_overlay}",
     )
-    check("fresh_comparative_pass", comparative.get("status") == "PASS", f"status={comparative.get('status')}")
+    check("fresh_comparative_pass", (_ll_release_ok(comparative) if _ll_policy_enabled() else comparative.get("status") == "PASS"), f"status={comparative.get('status')}")
     check("production_readiness_ready", readiness.get("status") == "READY", f"status={readiness.get('status')}")
     check("switch_plan_ready", switch_plan.get("status") == "READY_TO_SWITCH", f"status={switch_plan.get('status')}")
     check("rollback_verified", switch_plan.get("rollback_verified") is True, f"rollback={switch_plan.get('rollback_verified')}")
@@ -87,3 +87,9 @@ def audit_final_readiness(
         "blockers": blockers,
         "checks": checks,
     }
+
+# LOCAL_LIFE_TRUST_PUBLICATION_V1
+from .local_life_trust_policy_v1 import (
+    policy_enabled as _ll_policy_enabled,
+    local_life_release_integrity_ok as _ll_release_ok,
+)

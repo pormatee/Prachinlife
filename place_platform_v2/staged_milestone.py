@@ -379,3 +379,9 @@ def select_identity_anchor_queue(database_path, province='ปราจีนบ�
 
     out.sort(key=lambda item: (item['place_id'], item['osm_type'], item['osm_id']))
     return out if limit is None else out[:limit]
+
+# LOCAL_LIFE_TRUST_PUBLICATION_V1
+from .local_life_trust_policy_v1 import (
+    local_life_eligible_place_ids,
+    local_life_eligibility_audit,
+)

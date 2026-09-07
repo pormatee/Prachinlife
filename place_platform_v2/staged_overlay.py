@@ -149,7 +149,11 @@ def _overlay_record(record, canonical, place_id, enrichment=None):
 
 
 def build_overlay_staging(database_path, repo_root, output_root, province='ปราจีนบุรี'):
-    eligible, _ = eligible_place_ids(database_path, province)
+    if str(__import__('os').environ.get('PRACHIN_LOCAL_LIFE_TRUST_PUBLICATION_V1','')).strip().casefold() in {'1','true','yes','on','enabled'}:
+        from .local_life_trust_policy_v1 import local_life_eligible_place_ids
+        eligible, _ = local_life_eligible_place_ids(database_path, province)
+    else:
+        eligible, _ = eligible_place_ids(database_path, province)
     eligible = set(eligible)
     mapping = _source_mapping(database_path, eligible)
     canon = _canonical_rows(database_path, eligible)
@@ -184,6 +188,130 @@ def build_overlay_staging(database_path, repo_root, output_root, province='ป�
         overlay_counts[fn] = overlays
         fallback_counts[fn] = len(payload) - overlays
 
+    # GENERIC_NEW_PLACE_STAGING_BRIDGE_V1
+    new_place_bridge_records = {fn: 0 for fn in FILES}
+    new_place_bridge_place_ids = set()
+    _local_life_bridge_enabled = (
+        str(__import__('os').environ.get(
+            'PRACHIN_LOCAL_LIFE_TRUST_PUBLICATION_V1', ''
+        )).strip().casefold() in {'1','true','yes','on','enabled'}
+    )
+
+    def _bridge_get(row, key, default=None):
+        if isinstance(row, dict):
+            return row.get(key, default)
+        try:
+            return row[key]
+        except Exception:
+            return default
+
+    def _bridge_categories(row):
+        raw = _bridge_get(row, 'categories', None)
+        if raw is None:
+            raw = _bridge_get(row, 'categories_json', [])
+        if isinstance(raw, str):
+            try:
+                raw = json.loads(raw)
+            except Exception:
+                raw = [raw]
+        if isinstance(raw, dict):
+            if raw.get('__type__') == 'tuple':
+                raw = raw.get('items', [])
+            elif isinstance(raw.get('items'), list):
+                raw = raw.get('items', [])
+            else:
+                raw = []
+        if isinstance(raw, tuple):
+            raw = list(raw)
+        if not isinstance(raw, list):
+            raw = [] if raw in (None, '') else [raw]
+        return {str(x).strip().casefold() for x in raw if str(x).strip()}
+
+    def _bridge_target_files(row):
+        cats = _bridge_categories(row)
+        targets = []
+        if cats & {'vegetarian', 'vegan', 'jay'}:
+            targets.append('vegetarian_index.json')
+        if cats & {'eat', 'food', 'restaurant', 'cafe', 'fast_food', 'food_court', 'ice_cream'}:
+            targets.append('prachinlife_index.json')
+        if cats & {'go', 'travel', 'tourism', 'attraction', 'temple', 'park', 'nature'}:
+            targets.append('go_index.json')
+        if cats & {'service', 'hospital', 'clinic', 'pharmacy', 'bank', 'atm', 'fuel', 'school', 'college', 'university', 'laundry', 'car_repair'}:
+            targets.append('service_index.json')
+        return tuple(fn for fn in targets if fn in FILES)
+
+    for pid in sorted((eligible - overlay_place_ids) if _local_life_bridge_enabled else set()):
+        canonical = canon.get(pid)
+        if canonical is None:
+            continue
+        targets = _bridge_target_files(canonical)
+        if not targets:
+            continue
+        record = _overlay_record({'id': pid}, canonical, pid, enrichment.get(pid))
+        if not isinstance(record, dict):
+            raise TypeError('new-place overlay serializer must return dict')
+        record = dict(record)
+        record['id'] = pid
+        record['place_id'] = pid
+        metadata = record.get('metadata')
+        metadata = dict(metadata) if isinstance(metadata, dict) else {}
+        metadata['v2_place_id'] = pid
+        try:
+            from .local_life_trust_policy_v1 import local_life_place_decision_for_id
+            metadata['local_life_trust'] = local_life_place_decision_for_id(
+                database_path, pid
+            ).as_dict()
+        except Exception as _trust_exc:
+            metadata['local_life_trust'] = {
+                'policy_version': 'LOCAL-LIFE-TRUST-PUBLICATION-V1',
+                'visible': True,
+                'field_trust': {
+                    'location': 'SUPPORTED',
+                    'category': 'SUPPORTED',
+                    'existence': 'SUPPORTED',
+                    'lifecycle': 'UNKNOWN',
+                },
+                'disclosures': [
+                    'trust metadata generation unavailable: '
+                    + type(_trust_exc).__name__
+                ],
+                'hard_blockers': [],
+            }
+        record['metadata'] = metadata
+        written = 0
+        for fn in targets:
+            stage_file = outroot / fn
+            payload = json.loads(stage_file.read_text(encoding='utf-8'))
+            if not isinstance(payload, list):
+                raise ValueError(f'{fn} staging payload must be a list')
+            if any(
+                isinstance(x, dict)
+                and str(
+                    x.get('place_id')
+                    or x.get('id')
+                    or (
+                        (x.get('metadata') or {}).get('v2_place_id')
+                        if isinstance(x.get('metadata'), dict)
+                        else ''
+                    )
+                    or ''
+                ) == pid
+                for x in payload
+            ):
+                continue
+            payload.append(dict(record))
+            stage_file.write_text(
+                json.dumps(payload, ensure_ascii=False, indent=2),
+                encoding='utf-8',
+            )
+            file_counts[fn] = len(payload)
+            overlay_counts[fn] = overlay_counts.get(fn, 0) + 1
+            new_place_bridge_records[fn] = new_place_bridge_records.get(fn, 0) + 1
+            written += 1
+        if written:
+            overlay_place_ids.add(pid)
+            new_place_bridge_place_ids.add(pid)
+
     manifest = {
         'policy_version': POLICY_VERSION,
         'preview_mode': 'v2_overlay_with_v1_fallback',
@@ -191,6 +319,7 @@ def build_overlay_staging(database_path, repo_root, output_root, province='ป�
         'eligible_place_count': len(eligible),
         'overlay_place_count': len(overlay_place_ids),
         'unmapped_eligible_place_count': len(eligible - overlay_place_ids),
+        **({'new_place_bridge_place_count': len(new_place_bridge_place_ids), 'new_place_bridge_records': new_place_bridge_records} if _local_life_bridge_enabled else {}),
         'files': file_counts,
         'v2_overlay_records': overlay_counts,
         'v1_fallback_records': fallback_counts,

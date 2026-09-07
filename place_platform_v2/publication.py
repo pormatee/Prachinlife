@@ -193,3 +193,6 @@ def build_published_view(
         publication_policy_version=decision.policy_version,
         published_at=when,
     )
+
+# LOCAL_LIFE_TRUST_PUBLICATION_V1
+from .local_life_trust_policy_v1 import evaluate_place_like as local_life_visibility_decision

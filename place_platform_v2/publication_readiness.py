@@ -90,3 +90,6 @@ def evaluate_pilot_readiness(database_path: str | Path, place_id: str) -> PilotR
         reasons.append('canonical lifecycle is not active')
     ready=(place.lifecycle is PlaceLifecycle.ACTIVE and not blocked)
     return PilotReadiness(place_id,place.canonical_name,place.lifecycle.value,tuple(legacy_verified),tuple(lineage_verified),tuple(blocked),tuple(reasons),ready)
+
+# LOCAL_LIFE_TRUST_PUBLICATION_V1
+from .local_life_trust_policy_v1 import evaluate_place_like as local_life_visibility_readiness
