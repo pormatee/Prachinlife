@@ -1,9 +1,9 @@
 {
   "source": "bigc",
   "status": "fresh",
-  "last_attempt_at": "2026-09-07T00:43:54.186512+00:00",
-  "last_success_at": "2026-09-07T00:43:54.186512+00:00",
-  "record_count": 4,
+  "last_attempt_at": "2026-09-08T00:56:47.889959+00:00",
+  "last_success_at": "2026-09-08T00:56:47.889959+00:00",
+  "record_count": 6,
   "last_error": null,
   "previous_status": "fresh"
 }
