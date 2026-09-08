@@ -135,28 +135,45 @@ def _fetch_published_places(
     radius_km: float,
     limit: int,
 ) -> tuple[PublishedPlaceView, ...]:
+    # Preserve one repository read per request, while avoiding category
+    # starvation caused by truncating a broad result set too early.
+    fetch_limit = max(limit, 1000)
+
     if understanding.near_me and origin is not None:
         nearby = repository.search_nearby(
             PublishedNearbyQuery(
                 origin=origin,
                 radius_km=radius_km,
                 province=understanding.province,
-                limit=limit,
+                limit=fetch_limit,
             )
         )
-        return tuple(item.place for item in nearby)
+        places = tuple(item.place for item in nearby)
+    else:
+        # A user-supplied area name is a broad text-area fallback only. It is not
+        # converted into coordinates and therefore cannot become distance evidence.
+        places = tuple(
+            repository.search_text(
+                PublishedTextQuery(
+                    text=(location_text or "") if understanding.province is None else "",
+                    province=understanding.province,
+                    limit=fetch_limit,
+                )
+            )
+        )
 
-    # A user-supplied area name is a broad text-area fallback only. It is not
-    # converted into coordinates and therefore cannot become distance evidence.
-    return tuple(
-        repository.search_text(
-            PublishedTextQuery(
-                text=(location_text or "") if understanding.province is None else "",
-                province=understanding.province,
-                limit=limit,
-            )
-        )
+    category = understanding.category
+    if not category:
+        return places[:limit]
+
+    preferred = tuple(
+        place for place in places
+        if category in tuple(place.categories or ())
     )
+    preferred_ids = {place.place_id for place in preferred}
+    broad = tuple(place for place in places if place.place_id not in preferred_ids)
+    return (preferred + broad)[:limit]
+
 
 
 def _explain(
