@@ -395,104 +395,6 @@
   },
   {
     "schema_version": "1.1",
-    "id": "bigc-d08523c8b2cc24b2",
-    "content_type": "deal",
-    "original_type": "campaign",
-    "title": "ช้อปหยุดโลก แรงจัดรับสิ้นเดือน วันที่ 27ส.ค - 6 ก.ย เท่านั้น!!",
-    "summary": "แคมเปญหรือโปรโมชั่นจาก Big C",
-    "category": "shopping",
-    "tags": [
-      "deal",
-      "big c",
-      "campaign",
-      "แคมเปญโปรโมชั่น",
-      "bigc",
-      "บิ๊กซี",
-      "แคมเปญ",
-      "national"
-    ],
-    "provider": {
-      "name": "Big C",
-      "type": "merchant"
-    },
-    "location": {
-      "scope": "national",
-      "country": "TH",
-      "province": null,
-      "district": null,
-      "subdistrict": null,
-      "place_name": null,
-      "latitude": null,
-      "longitude": null
-    },
-    "source": {
-      "name": "Big C Official",
-      "url": "https://linebc.bigc.co.th/catalog/e-leaflet-SYL-HYP-27Aug-6Sep?utm_source=Corp_BIG_C_Website&utm_medium=Corp_BIG_C_Website&utm_campaign=|PV:DMK|DA:20260806|AN:|OB:traffic|FM:Photo|",
-      "type": "official_promotion",
-      "verified": true
-    },
-    "image_url": "https://corporate.bigc.co.th/upload_file/promotion/260828034113_PDFE-LFSYL_8(27Aug-6Sep26)_page-0001_c.jpg",
-    "published_at": null,
-    "expires_at": null,
-    "collected_at": "2026-08-28T06:09:33.948605+00:00",
-    "metadata": {
-      "old_price": 0,
-      "new_price": 0,
-      "expiry_text": "ตรวจสอบรายละเอียดจาก Big C",
-      "urgent": false
-    }
-  },
-  {
-    "schema_version": "1.1",
-    "id": "bigc-c33fc523ad5370a3",
-    "content_type": "deal",
-    "original_type": "campaign",
-    "title": "Big C market ช้อปหยุดโลก แรงจัดรับสิ้นเดือน วันที่ 27ส.ค - 6 ก.ย เท่านั้น!!",
-    "summary": "แคมเปญหรือโปรโมชั่นจาก Big C",
-    "category": "shopping",
-    "tags": [
-      "deal",
-      "big c",
-      "campaign",
-      "แคมเปญโปรโมชั่น",
-      "bigc",
-      "บิ๊กซี",
-      "แคมเปญ",
-      "national"
-    ],
-    "provider": {
-      "name": "Big C",
-      "type": "merchant"
-    },
-    "location": {
-      "scope": "national",
-      "country": "TH",
-      "province": null,
-      "district": null,
-      "subdistrict": null,
-      "place_name": null,
-      "latitude": null,
-      "longitude": null
-    },
-    "source": {
-      "name": "Big C Official",
-      "url": "https://linebc.bigc.co.th/catalog/e-leaflet-SYL-BMK-27Aug-6Sep?utm_source=Corp_BIG_C_Website&utm_medium=Corp_BIG_C_Website&utm_campaign=|PV:DMK|DA:20260806|AN:|OB:traffic|FM:Photo|",
-      "type": "official_promotion",
-      "verified": true
-    },
-    "image_url": "https://corporate.bigc.co.th/upload_file/promotion/260828034933_PDFE-LFSYL_8(27Aug-6Sep26)BMK_page-0001_c.jpg",
-    "published_at": null,
-    "expires_at": null,
-    "collected_at": "2026-08-28T06:09:33.948605+00:00",
-    "metadata": {
-      "old_price": 0,
-      "new_price": 0,
-      "expiry_text": "ตรวจสอบรายละเอียดจาก Big C",
-      "urgent": false
-    }
-  },
-  {
-    "schema_version": "1.1",
     "id": "cjmore-a7c2bff1e69dccf2",
     "content_type": "deal",
     "original_type": "campaign",
@@ -5362,6 +5264,104 @@
       "old_price": 0,
       "new_price": 0,
       "expiry_text": "ตรวจสอบรายละเอียดจาก Lotus's",
+      "urgent": false
+    }
+  },
+  {
+    "schema_version": "1.1",
+    "id": "bigc-35fddf107204b96c",
+    "content_type": "deal",
+    "original_type": "campaign",
+    "title": "Taste of thailand Guaranteed by Big C",
+    "summary": "แคมเปญหรือโปรโมชั่นจาก Big C",
+    "category": "shopping",
+    "tags": [
+      "deal",
+      "big c",
+      "campaign",
+      "แคมเปญโปรโมชั่น",
+      "bigc",
+      "บิ๊กซี",
+      "แคมเปญ",
+      "national"
+    ],
+    "provider": {
+      "name": "Big C",
+      "type": "merchant"
+    },
+    "location": {
+      "scope": "national",
+      "country": "TH",
+      "province": null,
+      "district": null,
+      "subdistrict": null,
+      "place_name": null,
+      "latitude": null,
+      "longitude": null
+    },
+    "source": {
+      "name": "Big C Official",
+      "url": "https://linebc.bigc.co.th/catalog/e-catalogue-tourist-bro-5-2026-26Store-En?id=25022?utm_source=Corp_BIG_C_Website&utm_medium=Corp_BIG_C_Website&utm_campaign=|PV:DMK|DA:20260326|AN:|OB:traffic|FM:Phot",
+      "type": "official_promotion",
+      "verified": true
+    },
+    "image_url": "https://corporate.bigc.co.th/upload_file/promotion/260907051609_E-Tourist_5-26store)_page-0001_c.jpg",
+    "published_at": null,
+    "expires_at": null,
+    "collected_at": "2026-09-08T00:56:47.889456+00:00",
+    "metadata": {
+      "old_price": 0,
+      "new_price": 0,
+      "expiry_text": "ตรวจสอบรายละเอียดจาก Big C",
+      "urgent": false
+    }
+  },
+  {
+    "schema_version": "1.1",
+    "id": "bigc-7de5f5e6451a9ef6",
+    "content_type": "deal",
+    "original_type": "campaign",
+    "title": "ช้อปแบบตัวแม่ ช้อปเลยที่บิ๊กซี",
+    "summary": "แคมเปญหรือโปรโมชั่นจาก Big C",
+    "category": "shopping",
+    "tags": [
+      "deal",
+      "big c",
+      "campaign",
+      "แคมเปญโปรโมชั่น",
+      "bigc",
+      "บิ๊กซี",
+      "แคมเปญ",
+      "national"
+    ],
+    "provider": {
+      "name": "Big C",
+      "type": "merchant"
+    },
+    "location": {
+      "scope": "national",
+      "country": "TH",
+      "province": null,
+      "district": null,
+      "subdistrict": null,
+      "place_name": null,
+      "latitude": null,
+      "longitude": null
+    },
+    "source": {
+      "name": "Big C Official",
+      "url": "https://linebc.bigc.co.th/catalog/e-catalogue-oi-bro-9-2026?utm_source=Corp_BIG_C_Website&utm_medium=Corp_BIG_C_Website&utm_campaign=|PV:DMK|DA:20260326|AN:|OB:traffic|FM:Photo|",
+      "type": "official_promotion",
+      "verified": true
+    },
+    "image_url": "https://corporate.bigc.co.th/upload_file/promotion/260907051251_Oi9_page-0001_c.jpg",
+    "published_at": null,
+    "expires_at": null,
+    "collected_at": "2026-09-08T00:56:47.889456+00:00",
+    "metadata": {
+      "old_price": 0,
+      "new_price": 0,
+      "expiry_text": "ตรวจสอบรายละเอียดจาก Big C",
       "urgent": false
     }
   }

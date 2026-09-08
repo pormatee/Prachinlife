@@ -1,5 +1,25 @@
 [
   {
+    "source_id": "bigc-35fddf107204b96c",
+    "source_provider": "bigc",
+    "source_page": "https://corporate.bigc.co.th/promotions-bigc?lang=th",
+    "title": "Taste of thailand Guaranteed by Big C",
+    "image_url": "https://corporate.bigc.co.th/upload_file/promotion/260907051609_E-Tourist_5-26store)_page-0001_c.jpg",
+    "destination_url": "https://linebc.bigc.co.th/catalog/e-catalogue-tourist-bro-5-2026-26Store-En?id=25022?utm_source=Corp_BIG_C_Website&utm_medium=Corp_BIG_C_Website&utm_campaign=|PV:DMK|DA:20260326|AN:|OB:traffic|FM:Phot",
+    "raw_type": "campaign",
+    "collected_at": "2026-09-08T00:56:47.889456+00:00"
+  },
+  {
+    "source_id": "bigc-7de5f5e6451a9ef6",
+    "source_provider": "bigc",
+    "source_page": "https://corporate.bigc.co.th/promotions-bigc?lang=th",
+    "title": "ช้อปแบบตัวแม่ ช้อปเลยที่บิ๊กซี",
+    "image_url": "https://corporate.bigc.co.th/upload_file/promotion/260907051251_Oi9_page-0001_c.jpg",
+    "destination_url": "https://linebc.bigc.co.th/catalog/e-catalogue-oi-bro-9-2026?utm_source=Corp_BIG_C_Website&utm_medium=Corp_BIG_C_Website&utm_campaign=|PV:DMK|DA:20260326|AN:|OB:traffic|FM:Photo|",
+    "raw_type": "campaign",
+    "collected_at": "2026-09-08T00:56:47.889456+00:00"
+  },
+  {
     "source_id": "bigc-1680fbf363893f38",
     "source_provider": "bigc",
     "source_page": "https://corporate.bigc.co.th/promotions-bigc?lang=th",
@@ -38,25 +58,5 @@
     "destination_url": "https://linebc.bigc.co.th/catalog/e-catalogue-SL-Kids-Character-2?utm_source=Corp_BIG_C_Website&utm_medium=Corp_BIG_C_Website&utm_campaign=|PV:DMK|DA:20260326|AN:|OB:traffic|FM:Photo|",
     "raw_type": "campaign",
     "collected_at": "2026-09-03T00:58:35.952177+00:00"
-  },
-  {
-    "source_id": "bigc-d08523c8b2cc24b2",
-    "source_provider": "bigc",
-    "source_page": "https://corporate.bigc.co.th/promotions-bigc?lang=th",
-    "title": "ช้อปหยุดโลก แรงจัดรับสิ้นเดือน วันที่ 27ส.ค - 6 ก.ย เท่านั้น!!",
-    "image_url": "https://corporate.bigc.co.th/upload_file/promotion/260828034113_PDFE-LFSYL_8(27Aug-6Sep26)_page-0001_c.jpg",
-    "destination_url": "https://linebc.bigc.co.th/catalog/e-leaflet-SYL-HYP-27Aug-6Sep?utm_source=Corp_BIG_C_Website&utm_medium=Corp_BIG_C_Website&utm_campaign=|PV:DMK|DA:20260806|AN:|OB:traffic|FM:Photo|",
-    "raw_type": "campaign",
-    "collected_at": "2026-08-28T06:09:33.948605+00:00"
-  },
-  {
-    "source_id": "bigc-c33fc523ad5370a3",
-    "source_provider": "bigc",
-    "source_page": "https://corporate.bigc.co.th/promotions-bigc?lang=th",
-    "title": "Big C market ช้อปหยุดโลก แรงจัดรับสิ้นเดือน วันที่ 27ส.ค - 6 ก.ย เท่านั้น!!",
-    "image_url": "https://corporate.bigc.co.th/upload_file/promotion/260828034933_PDFE-LFSYL_8(27Aug-6Sep26)BMK_page-0001_c.jpg",
-    "destination_url": "https://linebc.bigc.co.th/catalog/e-leaflet-SYL-BMK-27Aug-6Sep?utm_source=Corp_BIG_C_Website&utm_medium=Corp_BIG_C_Website&utm_campaign=|PV:DMK|DA:20260806|AN:|OB:traffic|FM:Photo|",
-    "raw_type": "campaign",
-    "collected_at": "2026-08-28T06:09:33.948605+00:00"
   }
 ]
