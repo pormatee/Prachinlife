@@ -1,6 +1,104 @@
 [
   {
     "schema_version": "1.1",
+    "id": "bigc-35fddf107204b96c",
+    "content_type": "deal",
+    "original_type": "campaign",
+    "title": "Taste of thailand Guaranteed by Big C",
+    "summary": "แคมเปญหรือโปรโมชั่นจาก Big C",
+    "category": "shopping",
+    "tags": [
+      "deal",
+      "big c",
+      "campaign",
+      "แคมเปญโปรโมชั่น",
+      "bigc",
+      "บิ๊กซี",
+      "แคมเปญ",
+      "national"
+    ],
+    "provider": {
+      "name": "Big C",
+      "type": "merchant"
+    },
+    "location": {
+      "scope": "national",
+      "country": "TH",
+      "province": null,
+      "district": null,
+      "subdistrict": null,
+      "place_name": null,
+      "latitude": null,
+      "longitude": null
+    },
+    "source": {
+      "name": "Big C Official",
+      "url": "https://linebc.bigc.co.th/catalog/e-catalogue-tourist-bro-5-2026-26Store-En?id=25022?utm_source=Corp_BIG_C_Website&utm_medium=Corp_BIG_C_Website&utm_campaign=|PV:DMK|DA:20260326|AN:|OB:traffic|FM:Phot",
+      "type": "official_promotion",
+      "verified": true
+    },
+    "image_url": "https://corporate.bigc.co.th/upload_file/promotion/260907051609_E-Tourist_5-26store)_page-0001_c.jpg",
+    "published_at": null,
+    "expires_at": null,
+    "collected_at": "2026-09-08T00:56:47.889456+00:00",
+    "metadata": {
+      "old_price": 0,
+      "new_price": 0,
+      "expiry_text": "ตรวจสอบรายละเอียดจาก Big C",
+      "urgent": false
+    }
+  },
+  {
+    "schema_version": "1.1",
+    "id": "bigc-7de5f5e6451a9ef6",
+    "content_type": "deal",
+    "original_type": "campaign",
+    "title": "ช้อปแบบตัวแม่ ช้อปเลยที่บิ๊กซี",
+    "summary": "แคมเปญหรือโปรโมชั่นจาก Big C",
+    "category": "shopping",
+    "tags": [
+      "deal",
+      "big c",
+      "campaign",
+      "แคมเปญโปรโมชั่น",
+      "bigc",
+      "บิ๊กซี",
+      "แคมเปญ",
+      "national"
+    ],
+    "provider": {
+      "name": "Big C",
+      "type": "merchant"
+    },
+    "location": {
+      "scope": "national",
+      "country": "TH",
+      "province": null,
+      "district": null,
+      "subdistrict": null,
+      "place_name": null,
+      "latitude": null,
+      "longitude": null
+    },
+    "source": {
+      "name": "Big C Official",
+      "url": "https://linebc.bigc.co.th/catalog/e-catalogue-oi-bro-9-2026?utm_source=Corp_BIG_C_Website&utm_medium=Corp_BIG_C_Website&utm_campaign=|PV:DMK|DA:20260326|AN:|OB:traffic|FM:Photo|",
+      "type": "official_promotion",
+      "verified": true
+    },
+    "image_url": "https://corporate.bigc.co.th/upload_file/promotion/260907051251_Oi9_page-0001_c.jpg",
+    "published_at": null,
+    "expires_at": null,
+    "collected_at": "2026-09-08T00:56:47.889456+00:00",
+    "metadata": {
+      "old_price": 0,
+      "new_price": 0,
+      "expiry_text": "ตรวจสอบรายละเอียดจาก Big C",
+      "urgent": false
+    }
+  },
+  {
+    "schema_version": "1.1",
     "id": "lotus-fd0691d67bc2274d",
     "content_type": "deal",
     "original_type": "campaign",
@@ -651,24 +749,8 @@
         "outdoor_seating": null,
         "wheelchair": null,
         "internet_access": null
-      },
-      "v2_preview_overlay": true,
-      "v2_place_id": "43da6a1c-cc04-5b9c-8787-0f07a6233f0e",
-      "v2_policy_version": "staged-milestone-v1",
-      "v2_core_identity_source": "canonical_v2"
-    },
-    "external_links": [
-      {
-        "type": "osm",
-        "label": "OpenStreetMap current observation",
-        "url": "https://www.openstreetmap.org/node/10104800519"
       }
-    ],
-    "name": "Cafe Amazon",
-    "province": "ปราจีนบุรี",
-    "latitude": 13.9981463,
-    "longitude": 101.2234316,
-    "place_id": "43da6a1c-cc04-5b9c-8787-0f07a6233f0e"
+    }
   },
   {
     "schema_version": "1.1",
@@ -731,24 +813,8 @@
         "outdoor_seating": null,
         "wheelchair": null,
         "internet_access": null
-      },
-      "v2_preview_overlay": true,
-      "v2_place_id": "271295ec-f3cc-5fa3-bd28-80d7b8e1f302",
-      "v2_policy_version": "staged-milestone-v1",
-      "v2_core_identity_source": "canonical_v2"
-    },
-    "external_links": [
-      {
-        "type": "osm",
-        "label": "OpenStreetMap current observation",
-        "url": "https://www.openstreetmap.org/node/6369552999"
       }
-    ],
-    "name": "Cafe Amazon",
-    "province": "ปราจีนบุรี",
-    "latitude": 14.1513019,
-    "longitude": 101.3109747,
-    "place_id": "271295ec-f3cc-5fa3-bd28-80d7b8e1f302"
+    }
   },
   {
     "schema_version": "1.1",
@@ -814,24 +880,8 @@
         "outdoor_seating": null,
         "wheelchair": null,
         "internet_access": null
-      },
-      "v2_preview_overlay": true,
-      "v2_place_id": "dc571338-a051-5047-bd8e-f3d185340bb9",
-      "v2_policy_version": "staged-milestone-v1",
-      "v2_core_identity_source": "canonical_v2"
-    },
-    "external_links": [
-      {
-        "type": "osm",
-        "label": "OpenStreetMap current observation",
-        "url": "https://www.openstreetmap.org/node/2676351772"
       }
-    ],
-    "name": "Café Amazon",
-    "province": "ปราจีนบุรี",
-    "latitude": 14.1342611,
-    "longitude": 101.3775249,
-    "place_id": "dc571338-a051-5047-bd8e-f3d185340bb9"
+    }
   },
   {
     "schema_version": "1.1",
@@ -897,24 +947,8 @@
         "outdoor_seating": null,
         "wheelchair": null,
         "internet_access": "wlan"
-      },
-      "v2_preview_overlay": true,
-      "v2_place_id": "ea1ec28e-0e32-5d25-a697-97db9c81f0ec",
-      "v2_policy_version": "staged-milestone-v1",
-      "v2_core_identity_source": "canonical_v2"
-    },
-    "external_links": [
-      {
-        "type": "osm",
-        "label": "OpenStreetMap current observation",
-        "url": "https://www.openstreetmap.org/node/4750841828"
       }
-    ],
-    "name": "cho ka chua",
-    "province": "ปราจีนบุรี",
-    "latitude": 14.1198596,
-    "longitude": 101.3246913,
-    "place_id": "ea1ec28e-0e32-5d25-a697-97db9c81f0ec"
+    }
   },
   {
     "schema_version": "1.1",
@@ -980,24 +1014,8 @@
         "outdoor_seating": null,
         "wheelchair": null,
         "internet_access": null
-      },
-      "v2_preview_overlay": true,
-      "v2_place_id": "c7a919a0-ed7b-51b5-901a-c09629c06a0b",
-      "v2_policy_version": "staged-milestone-v1",
-      "v2_core_identity_source": "canonical_v2"
-    },
-    "external_links": [
-      {
-        "type": "osm",
-        "label": "OpenStreetMap current observation",
-        "url": "https://www.openstreetmap.org/node/2823924411"
       }
-    ],
-    "name": "Coffee shop",
-    "province": "ปราจีนบุรี",
-    "latitude": 14.2268013,
-    "longitude": 101.3860267,
-    "place_id": "c7a919a0-ed7b-51b5-901a-c09629c06a0b"
+    }
   },
   {
     "schema_version": "1.1",
@@ -1063,24 +1081,8 @@
         "outdoor_seating": null,
         "wheelchair": null,
         "internet_access": "wlan"
-      },
-      "v2_preview_overlay": true,
-      "v2_place_id": "ff380270-a96b-5f39-b445-99b5895ca075",
-      "v2_policy_version": "staged-milestone-v1",
-      "v2_core_identity_source": "canonical_v2"
-    },
-    "external_links": [
-      {
-        "type": "osm",
-        "label": "OpenStreetMap current observation",
-        "url": "https://www.openstreetmap.org/node/4841184021"
       }
-    ],
-    "name": "K'Bin Coffee",
-    "province": "ปราจีนบุรี",
-    "latitude": 14.0925201,
-    "longitude": 101.8291513,
-    "place_id": "ff380270-a96b-5f39-b445-99b5895ca075"
+    }
   },
   {
     "schema_version": "1.1",
@@ -1143,24 +1145,8 @@
         "outdoor_seating": null,
         "wheelchair": null,
         "internet_access": null
-      },
-      "v2_preview_overlay": true,
-      "v2_place_id": "61ad8602-11d6-56c3-bc53-d6b98f5b62d3",
-      "v2_policy_version": "staged-milestone-v1",
-      "v2_core_identity_source": "canonical_v2"
-    },
-    "external_links": [
-      {
-        "type": "osm",
-        "label": "OpenStreetMap current observation",
-        "url": "https://www.openstreetmap.org/node/12756489327"
       }
-    ],
-    "name": "Lamin Coffee",
-    "province": "ปราจีนบุรี",
-    "latitude": 13.9924869,
-    "longitude": 101.7252698,
-    "place_id": "61ad8602-11d6-56c3-bc53-d6b98f5b62d3"
+    }
   },
   {
     "schema_version": "1.1",
@@ -1223,24 +1209,8 @@
         "outdoor_seating": null,
         "wheelchair": null,
         "internet_access": null
-      },
-      "v2_preview_overlay": true,
-      "v2_place_id": "b88631a6-a2fb-578a-9de0-acd3b843d254",
-      "v2_policy_version": "staged-milestone-v1",
-      "v2_core_identity_source": "canonical_v2"
-    },
-    "external_links": [
-      {
-        "type": "osm",
-        "label": "OpenStreetMap current observation",
-        "url": "https://www.openstreetmap.org/node/11648691807"
       }
-    ],
-    "name": "Teas & Trees",
-    "province": "ปราจีนบุรี",
-    "latitude": 14.1307452,
-    "longitude": 101.4451647,
-    "place_id": "b88631a6-a2fb-578a-9de0-acd3b843d254"
+    }
   },
   {
     "schema_version": "1.1",
@@ -1309,24 +1279,8 @@
         "outdoor_seating": null,
         "wheelchair": null,
         "internet_access": null
-      },
-      "v2_preview_overlay": true,
-      "v2_place_id": "1198f0b5-8ed6-574e-add6-1e0c33483b55",
-      "v2_policy_version": "staged-milestone-v1",
-      "v2_core_identity_source": "canonical_v2"
-    },
-    "external_links": [
-      {
-        "type": "osm",
-        "label": "OpenStreetMap current observation",
-        "url": "https://www.openstreetmap.org/node/9538872995"
       }
-    ],
-    "name": "กาแฟตัวหมี",
-    "province": "ปราจีนบุรี",
-    "latitude": 13.9496111,
-    "longitude": 101.5055641,
-    "place_id": "1198f0b5-8ed6-574e-add6-1e0c33483b55"
+    }
   },
   {
     "schema_version": "1.1",
@@ -1389,24 +1343,8 @@
         "outdoor_seating": null,
         "wheelchair": null,
         "internet_access": "wlan"
-      },
-      "v2_preview_overlay": true,
-      "v2_place_id": "9ee01b20-e377-57ca-bb4d-5aa7c71ba744",
-      "v2_policy_version": "staged-milestone-v1",
-      "v2_core_identity_source": "canonical_v2"
-    },
-    "external_links": [
-      {
-        "type": "osm",
-        "label": "OpenStreetMap current observation",
-        "url": "https://www.openstreetmap.org/node/4036359329"
       }
-    ],
-    "name": "กาแฟสดบลูคอฟฟี่",
-    "province": "ปราจีนบุรี",
-    "latitude": 13.8757618,
-    "longitude": 101.5627755,
-    "place_id": "9ee01b20-e377-57ca-bb4d-5aa7c71ba744"
+    }
   },
   {
     "schema_version": "1.1",
@@ -1469,24 +1407,8 @@
         "outdoor_seating": null,
         "wheelchair": null,
         "internet_access": "wlan"
-      },
-      "v2_preview_overlay": true,
-      "v2_place_id": "f678dc6d-6ce5-5dd4-acbf-72fe4523dab3",
-      "v2_policy_version": "staged-milestone-v1",
-      "v2_core_identity_source": "canonical_v2"
-    },
-    "external_links": [
-      {
-        "type": "osm",
-        "label": "OpenStreetMap current observation",
-        "url": "https://www.openstreetmap.org/way/431800572"
       }
-    ],
-    "name": "กาแฟสดบลูคอฟฟี่",
-    "province": "ปราจีนบุรี",
-    "latitude": 13.8757602,
-    "longitude": 101.5628054,
-    "place_id": "f678dc6d-6ce5-5dd4-acbf-72fe4523dab3"
+    }
   },
   {
     "schema_version": "1.1",
@@ -1554,27 +1476,8 @@
         "outdoor_seating": null,
         "wheelchair": null,
         "internet_access": null
-      },
-      "v2_preview_overlay": true,
-      "v2_place_id": "794c0388-c476-5b54-817a-96648597767e",
-      "v2_policy_version": "staged-milestone-v1",
-      "v2_core_identity_source": "canonical_v2"
-    },
-    "external_links": [
-      {
-        "type": "osm",
-        "label": "OpenStreetMap current observation",
-        "url": "https://www.openstreetmap.org/node/12723499519"
       }
-    ],
-    "district": "ประจันตคาม",
-    "subdistrict": "โพธิ์งาม",
-    "area": "หมู่ที่ 9",
-    "name": "ขุนเขาคาเฟ่",
-    "province": "ปราจีนบุรี",
-    "latitude": 14.077714,
-    "longitude": 101.5126155,
-    "place_id": "794c0388-c476-5b54-817a-96648597767e"
+    }
   },
   {
     "schema_version": "1.1",
@@ -1640,24 +1543,8 @@
         "outdoor_seating": null,
         "wheelchair": null,
         "internet_access": null
-      },
-      "v2_preview_overlay": true,
-      "v2_place_id": "2f4ddbdd-a877-5cfa-aaa2-65d31dea17be",
-      "v2_policy_version": "staged-milestone-v1",
-      "v2_core_identity_source": "canonical_v2"
-    },
-    "external_links": [
-      {
-        "type": "osm",
-        "label": "OpenStreetMap current observation",
-        "url": "https://www.openstreetmap.org/node/12281368013"
       }
-    ],
-    "name": "คาเฟ่ อเมซอน",
-    "province": "ปราจีนบุรี",
-    "latitude": 14.1499387,
-    "longitude": 101.3064455,
-    "place_id": "2f4ddbdd-a877-5cfa-aaa2-65d31dea17be"
+    }
   },
   {
     "schema_version": "1.1",
@@ -1723,24 +1610,8 @@
         "outdoor_seating": null,
         "wheelchair": null,
         "internet_access": null
-      },
-      "v2_preview_overlay": true,
-      "v2_place_id": "55b32c1c-d19d-53b1-a0f8-998b9ae06bb2",
-      "v2_policy_version": "staged-milestone-v1",
-      "v2_core_identity_source": "canonical_v2"
-    },
-    "external_links": [
-      {
-        "type": "osm",
-        "label": "OpenStreetMap current observation",
-        "url": "https://www.openstreetmap.org/node/12535015655"
       }
-    ],
-    "name": "คาเฟ่ อเมซอน",
-    "province": "ปราจีนบุรี",
-    "latitude": 13.8964751,
-    "longitude": 101.599531,
-    "place_id": "55b32c1c-d19d-53b1-a0f8-998b9ae06bb2"
+    }
   },
   {
     "schema_version": "1.1",
@@ -1806,24 +1677,8 @@
         "outdoor_seating": null,
         "wheelchair": null,
         "internet_access": null
-      },
-      "v2_preview_overlay": true,
-      "v2_place_id": "113b61d5-c34b-5efc-b59a-bb6ecb190a19",
-      "v2_policy_version": "staged-milestone-v1",
-      "v2_core_identity_source": "canonical_v2"
-    },
-    "external_links": [
-      {
-        "type": "osm",
-        "label": "OpenStreetMap current observation",
-        "url": "https://www.openstreetmap.org/node/12535084238"
       }
-    ],
-    "name": "คาเฟ่ อเมซอน",
-    "province": "ปราจีนบุรี",
-    "latitude": 14.0162108,
-    "longitude": 101.7773389,
-    "place_id": "113b61d5-c34b-5efc-b59a-bb6ecb190a19"
+    }
   },
   {
     "schema_version": "1.1",
@@ -1889,24 +1744,8 @@
         "outdoor_seating": null,
         "wheelchair": null,
         "internet_access": null
-      },
-      "v2_preview_overlay": true,
-      "v2_place_id": "957f86a6-fc36-5dbf-97ad-7dbb831f796b",
-      "v2_policy_version": "staged-milestone-v1",
-      "v2_core_identity_source": "canonical_v2"
-    },
-    "external_links": [
-      {
-        "type": "osm",
-        "label": "OpenStreetMap current observation",
-        "url": "https://www.openstreetmap.org/node/12729633359"
       }
-    ],
-    "name": "คาเฟ่ อเมซอน",
-    "province": "ปราจีนบุรี",
-    "latitude": 14.0092435,
-    "longitude": 101.705088,
-    "place_id": "957f86a6-fc36-5dbf-97ad-7dbb831f796b"
+    }
   },
   {
     "schema_version": "1.1",
@@ -1972,24 +1811,8 @@
         "outdoor_seating": null,
         "wheelchair": null,
         "internet_access": null
-      },
-      "v2_preview_overlay": true,
-      "v2_place_id": "f1607424-008d-551e-9042-43ca8dc6fea7",
-      "v2_policy_version": "staged-milestone-v1",
-      "v2_core_identity_source": "canonical_v2"
-    },
-    "external_links": [
-      {
-        "type": "osm",
-        "label": "OpenStreetMap current observation",
-        "url": "https://www.openstreetmap.org/node/12729755735"
       }
-    ],
-    "name": "คาเฟ่ อเมซอน",
-    "province": "ปราจีนบุรี",
-    "latitude": 14.0594056,
-    "longitude": 101.6035681,
-    "place_id": "f1607424-008d-551e-9042-43ca8dc6fea7"
+    }
   },
   {
     "schema_version": "1.1",
@@ -2055,24 +1878,8 @@
         "outdoor_seating": null,
         "wheelchair": null,
         "internet_access": null
-      },
-      "v2_preview_overlay": true,
-      "v2_place_id": "2c5d6060-b1ce-55b0-891e-f97cb530531d",
-      "v2_policy_version": "staged-milestone-v1",
-      "v2_core_identity_source": "canonical_v2"
-    },
-    "external_links": [
-      {
-        "type": "osm",
-        "label": "OpenStreetMap current observation",
-        "url": "https://www.openstreetmap.org/node/1609809894"
       }
-    ],
-    "name": "คาเฟ่ อเมซอน",
-    "province": "ปราจีนบุรี",
-    "latitude": 14.2160997,
-    "longitude": 101.8998552,
-    "place_id": "2c5d6060-b1ce-55b0-891e-f97cb530531d"
+    }
   },
   {
     "schema_version": "1.1",
@@ -2138,24 +1945,8 @@
         "outdoor_seating": null,
         "wheelchair": null,
         "internet_access": "wlan"
-      },
-      "v2_preview_overlay": true,
-      "v2_place_id": "1c62e0dd-f213-5dd5-bca4-1f7a0c98600a",
-      "v2_policy_version": "staged-milestone-v1",
-      "v2_core_identity_source": "canonical_v2"
-    },
-    "external_links": [
-      {
-        "type": "osm",
-        "label": "OpenStreetMap current observation",
-        "url": "https://www.openstreetmap.org/node/4873907938"
       }
-    ],
-    "name": "คาเฟ่ อเมซอน",
-    "province": "ปราจีนบุรี",
-    "latitude": 13.978555,
-    "longitude": 101.7569822,
-    "place_id": "1c62e0dd-f213-5dd5-bca4-1f7a0c98600a"
+    }
   },
   {
     "schema_version": "1.1",
@@ -2221,24 +2012,8 @@
         "outdoor_seating": null,
         "wheelchair": null,
         "internet_access": null
-      },
-      "v2_preview_overlay": true,
-      "v2_place_id": "efdfc66f-30cc-5030-b7bc-2935f9cee564",
-      "v2_policy_version": "staged-milestone-v1",
-      "v2_core_identity_source": "canonical_v2"
-    },
-    "external_links": [
-      {
-        "type": "osm",
-        "label": "OpenStreetMap current observation",
-        "url": "https://www.openstreetmap.org/node/5434366222"
       }
-    ],
-    "name": "คาเฟ่ อเมซอน",
-    "province": "ปราจีนบุรี",
-    "latitude": 13.9830599,
-    "longitude": 101.7754906,
-    "place_id": "efdfc66f-30cc-5030-b7bc-2935f9cee564"
+    }
   },
   {
     "schema_version": "1.1",
@@ -2304,24 +2079,8 @@
         "outdoor_seating": null,
         "wheelchair": null,
         "internet_access": "yes"
-      },
-      "v2_preview_overlay": true,
-      "v2_place_id": "2291f136-1796-5c04-99e2-b7c3515f5591",
-      "v2_policy_version": "staged-milestone-v1",
-      "v2_core_identity_source": "canonical_v2"
-    },
-    "external_links": [
-      {
-        "type": "osm",
-        "label": "OpenStreetMap current observation",
-        "url": "https://www.openstreetmap.org/node/5434377523"
       }
-    ],
-    "name": "คาเฟ่ อเมซอน",
-    "province": "ปราจีนบุรี",
-    "latitude": 13.9799667,
-    "longitude": 101.7525653,
-    "place_id": "2291f136-1796-5c04-99e2-b7c3515f5591"
+    }
   },
   {
     "schema_version": "1.1",
@@ -2384,24 +2143,8 @@
         "outdoor_seating": null,
         "wheelchair": null,
         "internet_access": null
-      },
-      "v2_preview_overlay": true,
-      "v2_place_id": "b3e1b4bd-68ff-5296-bbfc-c10776c9c31c",
-      "v2_policy_version": "staged-milestone-v1",
-      "v2_core_identity_source": "canonical_v2"
-    },
-    "external_links": [
-      {
-        "type": "osm",
-        "label": "OpenStreetMap current observation",
-        "url": "https://www.openstreetmap.org/node/7999239610"
       }
-    ],
-    "name": "ทีทำการผู้ใหญ่บ้าน หมู่ 4",
-    "province": "ปราจีนบุรี",
-    "latitude": 13.9683922,
-    "longitude": 101.5522523,
-    "place_id": "b3e1b4bd-68ff-5296-bbfc-c10776c9c31c"
+    }
   },
   {
     "schema_version": "1.1",
@@ -2467,24 +2210,8 @@
         "outdoor_seating": null,
         "wheelchair": null,
         "internet_access": null
-      },
-      "v2_preview_overlay": true,
-      "v2_place_id": "6ce8ad7f-5dfb-537a-a839-8e430b68c8f2",
-      "v2_policy_version": "staged-milestone-v1",
-      "v2_core_identity_source": "canonical_v2"
-    },
-    "external_links": [
-      {
-        "type": "osm",
-        "label": "OpenStreetMap current observation",
-        "url": "https://www.openstreetmap.org/node/8518228355"
       }
-    ],
-    "name": "ปาป๊า คอฟฟี่ Papa Coffee",
-    "province": "ปราจีนบุรี",
-    "latitude": 14.0660493,
-    "longitude": 101.8069557,
-    "place_id": "6ce8ad7f-5dfb-537a-a839-8e430b68c8f2"
+    }
   },
   {
     "schema_version": "1.1",
@@ -2552,24 +2279,8 @@
         "outdoor_seating": null,
         "wheelchair": null,
         "internet_access": null
-      },
-      "v2_preview_overlay": true,
-      "v2_place_id": "cc5821ae-8462-56f9-86cc-316a549f0397",
-      "v2_policy_version": "staged-milestone-v1",
-      "v2_core_identity_source": "canonical_v2"
-    },
-    "external_links": [
-      {
-        "type": "osm",
-        "label": "OpenStreetMap current observation",
-        "url": "https://www.openstreetmap.org/node/13251429765"
       }
-    ],
-    "name": "ร้านชานมสด (กลอยกาแฟสด)",
-    "province": "ปราจีนบุรี",
-    "latitude": 14.0654859,
-    "longitude": 101.80591,
-    "place_id": "cc5821ae-8462-56f9-86cc-316a549f0397"
+    }
   },
   {
     "schema_version": "1.1",
@@ -2632,24 +2343,8 @@
         "outdoor_seating": null,
         "wheelchair": null,
         "internet_access": null
-      },
-      "v2_preview_overlay": true,
-      "v2_place_id": "bfc4ec85-1da8-5e1b-9ce4-db3c3f1205bd",
-      "v2_policy_version": "staged-milestone-v1",
-      "v2_core_identity_source": "canonical_v2"
-    },
-    "external_links": [
-      {
-        "type": "osm",
-        "label": "OpenStreetMap current observation",
-        "url": "https://www.openstreetmap.org/node/7999239632"
       }
-    ],
-    "name": "โรงน้ำแข็ง",
-    "province": "ปราจีนบุรี",
-    "latitude": 13.975032,
-    "longitude": 101.509933,
-    "place_id": "bfc4ec85-1da8-5e1b-9ce4-db3c3f1205bd"
+    }
   },
   {
     "schema_version": "1.1",
@@ -2710,24 +2405,8 @@
         "outdoor_seating": null,
         "wheelchair": null,
         "internet_access": null
-      },
-      "v2_preview_overlay": true,
-      "v2_place_id": "f51004c0-e4be-506d-a417-00316e6b04bf",
-      "v2_policy_version": "staged-milestone-v1",
-      "v2_core_identity_source": "canonical_v2"
-    },
-    "external_links": [
-      {
-        "type": "osm",
-        "label": "OpenStreetMap current observation",
-        "url": "https://www.openstreetmap.org/node/6594614085"
       }
-    ],
-    "name": "Check in",
-    "province": "ปราจีนบุรี",
-    "latitude": 14.0564445,
-    "longitude": 101.3612059,
-    "place_id": "f51004c0-e4be-506d-a417-00316e6b04bf"
+    }
   },
   {
     "schema_version": "1.1",
@@ -2788,24 +2467,8 @@
         "outdoor_seating": null,
         "wheelchair": null,
         "internet_access": null
-      },
-      "v2_preview_overlay": true,
-      "v2_place_id": "958012f7-3800-5ab2-9704-d02e8b02621f",
-      "v2_policy_version": "staged-milestone-v1",
-      "v2_core_identity_source": "canonical_v2"
-    },
-    "external_links": [
-      {
-        "type": "osm",
-        "label": "OpenStreetMap current observation",
-        "url": "https://www.openstreetmap.org/node/8518228365"
       }
-    ],
-    "name": "Coffee & The Kitchen By บ้านสวนดอกไม้",
-    "province": "ปราจีนบุรี",
-    "latitude": 14.0054151,
-    "longitude": 101.7644167,
-    "place_id": "958012f7-3800-5ab2-9704-d02e8b02621f"
+    }
   },
   {
     "schema_version": "1.1",
@@ -2869,24 +2532,8 @@
         "outdoor_seating": null,
         "wheelchair": null,
         "internet_access": null
-      },
-      "v2_preview_overlay": true,
-      "v2_place_id": "f59b7f73-cec3-5f38-b2aa-027da2efa0e2",
-      "v2_policy_version": "staged-milestone-v1",
-      "v2_core_identity_source": "canonical_v2"
-    },
-    "external_links": [
-      {
-        "type": "osm",
-        "label": "OpenStreetMap current observation",
-        "url": "https://www.openstreetmap.org/node/11164355070"
       }
-    ],
-    "name": "Prachin Thai Food",
-    "province": "ปราจีนบุรี",
-    "latitude": 13.9052953,
-    "longitude": 101.5778169,
-    "place_id": "f59b7f73-cec3-5f38-b2aa-027da2efa0e2"
+    }
   },
   {
     "schema_version": "1.1",
@@ -2947,33 +2594,17 @@
         "outdoor_seating": null,
         "wheelchair": null,
         "internet_access": null
-      },
-      "v2_preview_overlay": true,
-      "v2_place_id": "22730e27-0433-5558-aa5b-38e1fd80a40e",
-      "v2_policy_version": "staged-milestone-v1",
-      "v2_core_identity_source": "canonical_v2"
-    },
-    "external_links": [
-      {
-        "type": "osm",
-        "label": "OpenStreetMap current observation",
-        "url": "https://www.openstreetmap.org/node/7836162676"
       }
-    ],
-    "name": "The Platoo Kitchen",
-    "province": "ปราจีนบุรี",
-    "latitude": 14.1308452,
-    "longitude": 101.4685576,
-    "place_id": "22730e27-0433-5558-aa5b-38e1fd80a40e"
+    }
   },
   {
     "schema_version": "1.1",
     "id": "osm-node-4943305721",
     "content_type": "eat",
-    "original_type": "attraction",
+    "original_type": "restaurant",
     "title": "Verona",
     "summary": "ร้านอาหารในจังหวัดปราจีนบุรี",
-    "category": "attraction",
+    "category": "restaurant",
     "tags": [
       "eat",
       "อาหาร",
@@ -3025,24 +2656,8 @@
         "outdoor_seating": null,
         "wheelchair": "yes",
         "internet_access": null
-      },
-      "v2_preview_overlay": true,
-      "v2_place_id": "418e6632-2750-5386-aad7-f97ede205940",
-      "v2_policy_version": "staged-milestone-v1",
-      "v2_core_identity_source": "canonical_v2"
-    },
-    "external_links": [
-      {
-        "type": "web",
-        "label": "The Verona at Tub Lan official website",
-        "url": "https://www.veronatublan.com/"
       }
-    ],
-    "name": "Verona",
-    "province": "ปราจีนบุรี",
-    "latitude": 14.2155093,
-    "longitude": 101.9005021,
-    "place_id": "418e6632-2750-5386-aad7-f97ede205940"
+    }
   },
   {
     "schema_version": "1.1",
@@ -3108,24 +2723,8 @@
         "outdoor_seating": null,
         "wheelchair": null,
         "internet_access": null
-      },
-      "v2_preview_overlay": true,
-      "v2_place_id": "f59e9548-adb3-5c6f-b4c5-2b829751561c",
-      "v2_policy_version": "staged-milestone-v1",
-      "v2_core_identity_source": "canonical_v2"
-    },
-    "external_links": [
-      {
-        "type": "osm",
-        "label": "OpenStreetMap current observation",
-        "url": "https://www.openstreetmap.org/node/12863075914"
       }
-    ],
-    "name": "กู๊ดวิวบ้านสวนริมคลอง ปราจีนบุรี",
-    "province": "ปราจีนบุรี",
-    "latitude": 14.0694165,
-    "longitude": 101.9914583,
-    "place_id": "f59e9548-adb3-5c6f-b4c5-2b829751561c"
+    }
   },
   {
     "schema_version": "1.1",
@@ -3186,24 +2785,8 @@
         "outdoor_seating": null,
         "wheelchair": null,
         "internet_access": null
-      },
-      "v2_preview_overlay": true,
-      "v2_place_id": "094d3d1f-40e8-52ce-be7e-1b1c232ffabf",
-      "v2_policy_version": "staged-milestone-v1",
-      "v2_core_identity_source": "canonical_v2"
-    },
-    "external_links": [
-      {
-        "type": "osm",
-        "label": "OpenStreetMap current observation",
-        "url": "https://www.openstreetmap.org/node/8487743496"
       }
-    ],
-    "name": "ก๋วยเตี๋ยวลิ้นวัว-เนื้อลาย นครสวรรค์-สาขากบินทร์บุรี",
-    "province": "ปราจีนบุรี",
-    "latitude": 14.0641184,
-    "longitude": 101.8054791,
-    "place_id": "094d3d1f-40e8-52ce-be7e-1b1c232ffabf"
+    }
   },
   {
     "schema_version": "1.1",
@@ -3264,24 +2847,8 @@
         "outdoor_seating": null,
         "wheelchair": null,
         "internet_access": null
-      },
-      "v2_preview_overlay": true,
-      "v2_place_id": "06305e2a-15a8-5e4a-8068-5a272222aed7",
-      "v2_policy_version": "staged-milestone-v1",
-      "v2_core_identity_source": "canonical_v2"
-    },
-    "external_links": [
-      {
-        "type": "osm",
-        "label": "OpenStreetMap current observation",
-        "url": "https://www.openstreetmap.org/node/8477554774"
       }
-    ],
-    "name": "ก๋วยเตี๋ยวเป็ดโดนัท",
-    "province": "ปราจีนบุรี",
-    "latitude": 14.0651602,
-    "longitude": 101.8069401,
-    "place_id": "06305e2a-15a8-5e4a-8068-5a272222aed7"
+    }
   },
   {
     "schema_version": "1.1",
@@ -3342,24 +2909,8 @@
         "outdoor_seating": null,
         "wheelchair": null,
         "internet_access": null
-      },
-      "v2_preview_overlay": true,
-      "v2_place_id": "a031f900-5295-5dcd-b0d0-53d305a297c0",
-      "v2_policy_version": "staged-milestone-v1",
-      "v2_core_identity_source": "canonical_v2"
-    },
-    "external_links": [
-      {
-        "type": "osm",
-        "label": "OpenStreetMap current observation",
-        "url": "https://www.openstreetmap.org/node/8511009144"
       }
-    ],
-    "name": "ข้าวเหนียวนึ่ง เมืองนครพนม",
-    "province": "ปราจีนบุรี",
-    "latitude": 14.0633617,
-    "longitude": 101.8056382,
-    "place_id": "a031f900-5295-5dcd-b0d0-53d305a297c0"
+    }
   },
   {
     "schema_version": "1.1",
@@ -3420,24 +2971,8 @@
         "outdoor_seating": null,
         "wheelchair": null,
         "internet_access": null
-      },
-      "v2_preview_overlay": true,
-      "v2_place_id": "47ceb75b-791b-53a6-ba8d-86f2900ee37f",
-      "v2_policy_version": "staged-milestone-v1",
-      "v2_core_identity_source": "canonical_v2"
-    },
-    "external_links": [
-      {
-        "type": "osm",
-        "label": "OpenStreetMap current observation",
-        "url": "https://www.openstreetmap.org/node/8477554775"
       }
-    ],
-    "name": "ดินหวาน",
-    "province": "ปราจีนบุรี",
-    "latitude": 14.0660987,
-    "longitude": 101.8073965,
-    "place_id": "47ceb75b-791b-53a6-ba8d-86f2900ee37f"
+    }
   },
   {
     "schema_version": "1.1",
@@ -3498,24 +3033,8 @@
         "outdoor_seating": null,
         "wheelchair": null,
         "internet_access": null
-      },
-      "v2_preview_overlay": true,
-      "v2_place_id": "98b56a01-c659-5de4-a492-db5537bda40c",
-      "v2_policy_version": "staged-milestone-v1",
-      "v2_core_identity_source": "canonical_v2"
-    },
-    "external_links": [
-      {
-        "type": "osm",
-        "label": "OpenStreetMap current observation",
-        "url": "https://www.openstreetmap.org/node/8477529505"
       }
-    ],
-    "name": "ตั้งหย่งปัง",
-    "province": "ปราจีนบุรี",
-    "latitude": 14.0664777,
-    "longitude": 101.8076687,
-    "place_id": "98b56a01-c659-5de4-a492-db5537bda40c"
+    }
   },
   {
     "schema_version": "1.1",
@@ -3583,24 +3102,8 @@
         "outdoor_seating": null,
         "wheelchair": null,
         "internet_access": null
-      },
-      "v2_preview_overlay": true,
-      "v2_place_id": "42200e5e-1dff-589c-9cc3-a87eff923e3e",
-      "v2_policy_version": "staged-milestone-v1",
-      "v2_core_identity_source": "canonical_v2"
-    },
-    "external_links": [
-      {
-        "type": "osm",
-        "label": "OpenStreetMap current observation",
-        "url": "https://www.openstreetmap.org/node/14087623913"
       }
-    ],
-    "name": "ตามสั่งตำแซ่บ",
-    "province": "ปราจีนบุรี",
-    "latitude": 14.0534434,
-    "longitude": 101.390861,
-    "place_id": "42200e5e-1dff-589c-9cc3-a87eff923e3e"
+    }
   },
   {
     "schema_version": "1.1",
@@ -3661,24 +3164,8 @@
         "outdoor_seating": null,
         "wheelchair": null,
         "internet_access": null
-      },
-      "v2_preview_overlay": true,
-      "v2_place_id": "c5a6756e-218b-5c35-a8b9-d0e42763d108",
-      "v2_policy_version": "staged-milestone-v1",
-      "v2_core_identity_source": "canonical_v2"
-    },
-    "external_links": [
-      {
-        "type": "osm",
-        "label": "OpenStreetMap current observation",
-        "url": "https://www.openstreetmap.org/node/8459869506"
       }
-    ],
-    "name": "บุศบาจิ้มจุ่ม",
-    "province": "ปราจีนบุรี",
-    "latitude": 14.0643625,
-    "longitude": 101.8061805,
-    "place_id": "c5a6756e-218b-5c35-a8b9-d0e42763d108"
+    }
   },
   {
     "schema_version": "1.1",
@@ -3739,24 +3226,8 @@
         "outdoor_seating": null,
         "wheelchair": null,
         "internet_access": null
-      },
-      "v2_preview_overlay": true,
-      "v2_place_id": "cf4c6ecd-ffd5-5449-b877-a0d98a649665",
-      "v2_policy_version": "staged-milestone-v1",
-      "v2_core_identity_source": "canonical_v2"
-    },
-    "external_links": [
-      {
-        "type": "osm",
-        "label": "OpenStreetMap current observation",
-        "url": "https://www.openstreetmap.org/node/4158649383"
       }
-    ],
-    "name": "บ้านส้มตำ",
-    "province": "ปราจีนบุรี",
-    "latitude": 14.1768741,
-    "longitude": 101.3530191,
-    "place_id": "cf4c6ecd-ffd5-5449-b877-a0d98a649665"
+    }
   },
   {
     "schema_version": "1.1",
@@ -3817,24 +3288,8 @@
         "outdoor_seating": null,
         "wheelchair": null,
         "internet_access": null
-      },
-      "v2_preview_overlay": true,
-      "v2_place_id": "99f9e03a-f9ee-534b-bdc6-d1e84d010921",
-      "v2_policy_version": "staged-milestone-v1",
-      "v2_core_identity_source": "canonical_v2"
-    },
-    "external_links": [
-      {
-        "type": "osm",
-        "label": "OpenStreetMap current observation",
-        "url": "https://www.openstreetmap.org/node/13955478384"
       }
-    ],
-    "name": "ปาล์มสวีทโฮม",
-    "province": "ปราจีนบุรี",
-    "latitude": 13.9832206,
-    "longitude": 101.7681497,
-    "place_id": "99f9e03a-f9ee-534b-bdc6-d1e84d010921"
+    }
   },
   {
     "schema_version": "1.1",
@@ -3896,24 +3351,8 @@
         "outdoor_seating": null,
         "wheelchair": null,
         "internet_access": null
-      },
-      "v2_preview_overlay": true,
-      "v2_place_id": "f156f119-717b-5e52-b3b0-afe376817b44",
-      "v2_policy_version": "staged-milestone-v1",
-      "v2_core_identity_source": "canonical_v2"
-    },
-    "external_links": [
-      {
-        "type": "osm",
-        "label": "OpenStreetMap current observation",
-        "url": "https://www.openstreetmap.org/node/11425827233"
       }
-    ],
-    "name": "ร้านปลายจวัก",
-    "province": "ปราจีนบุรี",
-    "latitude": 13.9056677,
-    "longitude": 101.577423,
-    "place_id": "f156f119-717b-5e52-b3b0-afe376817b44"
+    }
   },
   {
     "schema_version": "1.1",
@@ -3974,24 +3413,8 @@
         "outdoor_seating": null,
         "wheelchair": null,
         "internet_access": null
-      },
-      "v2_preview_overlay": true,
-      "v2_place_id": "2298b6be-0d9e-56a4-86b5-2c7bdbcf8144",
-      "v2_policy_version": "staged-milestone-v1",
-      "v2_core_identity_source": "canonical_v2"
-    },
-    "external_links": [
-      {
-        "type": "osm",
-        "label": "OpenStreetMap current observation",
-        "url": "https://www.openstreetmap.org/node/8482167812"
       }
-    ],
-    "name": "ร้านป้าแอ๊ว อาหารตามสั่ง",
-    "province": "ปราจีนบุรี",
-    "latitude": 14.0648239,
-    "longitude": 101.8068303,
-    "place_id": "2298b6be-0d9e-56a4-86b5-2c7bdbcf8144"
+    }
   },
   {
     "schema_version": "1.1",
@@ -4052,24 +3475,8 @@
         "outdoor_seating": null,
         "wheelchair": null,
         "internet_access": null
-      },
-      "v2_preview_overlay": true,
-      "v2_place_id": "ef2d3acf-8f51-5898-8879-375c3dde52b5",
-      "v2_policy_version": "staged-milestone-v1",
-      "v2_core_identity_source": "canonical_v2"
-    },
-    "external_links": [
-      {
-        "type": "osm",
-        "label": "OpenStreetMap current observation",
-        "url": "https://www.openstreetmap.org/node/8526925620"
       }
-    ],
-    "name": "ร้านศรีนุชข้าวต้มกุ๊ย",
-    "province": "ปราจีนบุรี",
-    "latitude": 14.0708667,
-    "longitude": 101.8118901,
-    "place_id": "ef2d3acf-8f51-5898-8879-375c3dde52b5"
+    }
   },
   {
     "schema_version": "1.1",
@@ -4135,24 +3542,8 @@
         "outdoor_seating": null,
         "wheelchair": null,
         "internet_access": null
-      },
-      "v2_preview_overlay": true,
-      "v2_place_id": "b366a714-90f7-5ae2-8772-2eefe58feca6",
-      "v2_policy_version": "staged-milestone-v1",
-      "v2_core_identity_source": "canonical_v2"
-    },
-    "external_links": [
-      {
-        "type": "osm",
-        "label": "OpenStreetMap current observation",
-        "url": "https://www.openstreetmap.org/node/13706395637"
       }
-    ],
-    "name": "ร้านอาหารจีน จุ้ว เชียง เก๋อ 304",
-    "province": "ปราจีนบุรี",
-    "latitude": 13.9173455,
-    "longitude": 101.5743212,
-    "place_id": "b366a714-90f7-5ae2-8772-2eefe58feca6"
+    }
   },
   {
     "schema_version": "1.1",
@@ -4213,24 +3604,8 @@
         "outdoor_seating": null,
         "wheelchair": null,
         "internet_access": null
-      },
-      "v2_preview_overlay": true,
-      "v2_place_id": "84bf4f8f-e2a5-55c3-875f-4517c64887e0",
-      "v2_policy_version": "staged-milestone-v1",
-      "v2_core_identity_source": "canonical_v2"
-    },
-    "external_links": [
-      {
-        "type": "osm",
-        "label": "OpenStreetMap current observation",
-        "url": "https://www.openstreetmap.org/node/7306657537"
       }
-    ],
-    "name": "ร้านอาโก",
-    "province": "ปราจีนบุรี",
-    "latitude": 13.9797738,
-    "longitude": 101.7528495,
-    "place_id": "84bf4f8f-e2a5-55c3-875f-4517c64887e0"
+    }
   },
   {
     "schema_version": "1.1",
@@ -4291,24 +3666,8 @@
         "outdoor_seating": null,
         "wheelchair": null,
         "internet_access": null
-      },
-      "v2_preview_overlay": true,
-      "v2_place_id": "eda2df2d-acfe-5b38-9a64-0af53b74d923",
-      "v2_policy_version": "staged-milestone-v1",
-      "v2_core_identity_source": "canonical_v2"
-    },
-    "external_links": [
-      {
-        "type": "osm",
-        "label": "OpenStreetMap current observation",
-        "url": "https://www.openstreetmap.org/node/8477554771"
       }
-    ],
-    "name": "ร้านเซาะกราว",
-    "province": "ปราจีนบุรี",
-    "latitude": 14.0649819,
-    "longitude": 101.8132738,
-    "place_id": "eda2df2d-acfe-5b38-9a64-0af53b74d923"
+    }
   },
   {
     "schema_version": "1.1",
@@ -4369,24 +3728,8 @@
         "outdoor_seating": null,
         "wheelchair": null,
         "internet_access": null
-      },
-      "v2_preview_overlay": true,
-      "v2_place_id": "5840823b-ae42-5682-b789-978181d0e02a",
-      "v2_policy_version": "staged-milestone-v1",
-      "v2_core_identity_source": "canonical_v2"
-    },
-    "external_links": [
-      {
-        "type": "osm",
-        "label": "OpenStreetMap current observation",
-        "url": "https://www.openstreetmap.org/node/8526925621"
       }
-    ],
-    "name": "ร้านโกหยัด ข้าวต้มกุ๊ย",
-    "province": "ปราจีนบุรี",
-    "latitude": 14.0706968,
-    "longitude": 101.8116583,
-    "place_id": "5840823b-ae42-5682-b789-978181d0e02a"
+    }
   },
   {
     "schema_version": "1.1",
@@ -4447,24 +3790,8 @@
         "outdoor_seating": null,
         "wheelchair": null,
         "internet_access": null
-      },
-      "v2_preview_overlay": true,
-      "v2_place_id": "8aa7749d-b373-562c-b645-e0eae858fcf9",
-      "v2_policy_version": "staged-milestone-v1",
-      "v2_core_identity_source": "canonical_v2"
-    },
-    "external_links": [
-      {
-        "type": "osm",
-        "label": "OpenStreetMap current observation",
-        "url": "https://www.openstreetmap.org/node/8477554772"
       }
-    ],
-    "name": "ลาบเป็ดยโส",
-    "province": "ปราจีนบุรี",
-    "latitude": 14.0656878,
-    "longitude": 101.8147554,
-    "place_id": "8aa7749d-b373-562c-b645-e0eae858fcf9"
+    }
   },
   {
     "schema_version": "1.1",
@@ -4525,24 +3852,8 @@
         "outdoor_seating": null,
         "wheelchair": null,
         "internet_access": null
-      },
-      "v2_preview_overlay": true,
-      "v2_place_id": "c2a69572-7810-5ae5-bc25-b01cc6811da6",
-      "v2_policy_version": "staged-milestone-v1",
-      "v2_core_identity_source": "canonical_v2"
-    },
-    "external_links": [
-      {
-        "type": "osm",
-        "label": "OpenStreetMap current observation",
-        "url": "https://www.openstreetmap.org/node/4036092969"
       }
-    ],
-    "name": "สเต็กซอย 4 วังสำราญ",
-    "province": "ปราจีนบุรี",
-    "latitude": 13.9093811,
-    "longitude": 101.5784591,
-    "place_id": "c2a69572-7810-5ae5-bc25-b01cc6811da6"
+    }
   },
   {
     "schema_version": "1.1",
@@ -4603,24 +3914,8 @@
         "outdoor_seating": null,
         "wheelchair": null,
         "internet_access": null
-      },
-      "v2_preview_overlay": true,
-      "v2_place_id": "3e54f146-a064-5eee-ac9b-b03bf4485c14",
-      "v2_policy_version": "staged-milestone-v1",
-      "v2_core_identity_source": "canonical_v2"
-    },
-    "external_links": [
-      {
-        "type": "osm",
-        "label": "OpenStreetMap current observation",
-        "url": "https://www.openstreetmap.org/node/8477554773"
       }
-    ],
-    "name": "สเต็กบ้านน้ำพริก",
-    "province": "ปราจีนบุรี",
-    "latitude": 14.0644395,
-    "longitude": 101.8100869,
-    "place_id": "3e54f146-a064-5eee-ac9b-b03bf4485c14"
+    }
   },
   {
     "schema_version": "1.1",
@@ -4681,24 +3976,8 @@
         "outdoor_seating": null,
         "wheelchair": null,
         "internet_access": null
-      },
-      "v2_preview_overlay": true,
-      "v2_place_id": "d632aacb-1c26-57da-9979-198951a6900f",
-      "v2_policy_version": "staged-milestone-v1",
-      "v2_core_identity_source": "canonical_v2"
-    },
-    "external_links": [
-      {
-        "type": "osm",
-        "label": "OpenStreetMap current observation",
-        "url": "https://www.openstreetmap.org/node/518190355"
       }
-    ],
-    "name": "อาคารโรงอาหาร 1",
-    "province": "ปราจีนบุรี",
-    "latitude": 14.1598677,
-    "longitude": 101.3452317,
-    "place_id": "d632aacb-1c26-57da-9979-198951a6900f"
+    }
   },
   {
     "schema_version": "1.1",
@@ -4759,24 +4038,8 @@
         "outdoor_seating": null,
         "wheelchair": null,
         "internet_access": null
-      },
-      "v2_preview_overlay": true,
-      "v2_place_id": "b2d13a4a-c60e-5d45-abaf-81717a090106",
-      "v2_policy_version": "staged-milestone-v1",
-      "v2_core_identity_source": "canonical_v2"
-    },
-    "external_links": [
-      {
-        "type": "osm",
-        "label": "OpenStreetMap current observation",
-        "url": "https://www.openstreetmap.org/node/518190348"
       }
-    ],
-    "name": "อาคารโรงอาหาร 2",
-    "province": "ปราจีนบุรี",
-    "latitude": 14.1602046,
-    "longitude": 101.3453349,
-    "place_id": "b2d13a4a-c60e-5d45-abaf-81717a090106"
+    }
   },
   {
     "schema_version": "1.1",
@@ -4842,24 +4105,8 @@
         "outdoor_seating": null,
         "wheelchair": null,
         "internet_access": null
-      },
-      "v2_preview_overlay": true,
-      "v2_place_id": "eb040772-37bb-5727-b68b-d8ed595c5f5a",
-      "v2_policy_version": "staged-milestone-v1",
-      "v2_core_identity_source": "canonical_v2"
-    },
-    "external_links": [
-      {
-        "type": "osm",
-        "label": "OpenStreetMap current observation",
-        "url": "https://www.openstreetmap.org/node/6982014185"
       }
-    ],
-    "name": "เกศรา ส้มตำรสเด็ด กบินทร์บุรี",
-    "province": "ปราจีนบุรี",
-    "latitude": 13.9909837,
-    "longitude": 101.7225505,
-    "place_id": "eb040772-37bb-5727-b68b-d8ed595c5f5a"
+    }
   },
   {
     "schema_version": "1.1",
@@ -4920,24 +4167,8 @@
         "outdoor_seating": null,
         "wheelchair": null,
         "internet_access": null
-      },
-      "v2_preview_overlay": true,
-      "v2_place_id": "75bf2dcd-8ed1-5fd3-988c-7a28b97cd130",
-      "v2_policy_version": "staged-milestone-v1",
-      "v2_core_identity_source": "canonical_v2"
-    },
-    "external_links": [
-      {
-        "type": "osm",
-        "label": "OpenStreetMap current observation",
-        "url": "https://www.openstreetmap.org/node/8511009142"
       }
-    ],
-    "name": "แมนหมูกระทะ",
-    "province": "ปราจีนบุรี",
-    "latitude": 14.0629925,
-    "longitude": 101.8057482,
-    "place_id": "75bf2dcd-8ed1-5fd3-988c-7a28b97cd130"
+    }
   },
   {
     "schema_version": "1.1",
@@ -5001,24 +4232,8 @@
         "outdoor_seating": null,
         "wheelchair": null,
         "internet_access": null
-      },
-      "v2_preview_overlay": true,
-      "v2_place_id": "9384fcc0-ff09-5b6c-8597-7ab3dbef6a57",
-      "v2_policy_version": "staged-milestone-v1",
-      "v2_core_identity_source": "canonical_v2"
-    },
-    "external_links": [
-      {
-        "type": "osm",
-        "label": "OpenStreetMap current observation",
-        "url": "https://www.openstreetmap.org/node/7008336988"
       }
-    ],
-    "name": "โกเดชพิศดาร",
-    "province": "ปราจีนบุรี",
-    "latitude": 14.0061739,
-    "longitude": 101.7022325,
-    "place_id": "9384fcc0-ff09-5b6c-8597-7ab3dbef6a57"
+    }
   },
   {
     "schema_version": "1.1",
@@ -5264,104 +4479,6 @@
       "old_price": 0,
       "new_price": 0,
       "expiry_text": "ตรวจสอบรายละเอียดจาก Lotus's",
-      "urgent": false
-    }
-  },
-  {
-    "schema_version": "1.1",
-    "id": "bigc-35fddf107204b96c",
-    "content_type": "deal",
-    "original_type": "campaign",
-    "title": "Taste of thailand Guaranteed by Big C",
-    "summary": "แคมเปญหรือโปรโมชั่นจาก Big C",
-    "category": "shopping",
-    "tags": [
-      "deal",
-      "big c",
-      "campaign",
-      "แคมเปญโปรโมชั่น",
-      "bigc",
-      "บิ๊กซี",
-      "แคมเปญ",
-      "national"
-    ],
-    "provider": {
-      "name": "Big C",
-      "type": "merchant"
-    },
-    "location": {
-      "scope": "national",
-      "country": "TH",
-      "province": null,
-      "district": null,
-      "subdistrict": null,
-      "place_name": null,
-      "latitude": null,
-      "longitude": null
-    },
-    "source": {
-      "name": "Big C Official",
-      "url": "https://linebc.bigc.co.th/catalog/e-catalogue-tourist-bro-5-2026-26Store-En?id=25022?utm_source=Corp_BIG_C_Website&utm_medium=Corp_BIG_C_Website&utm_campaign=|PV:DMK|DA:20260326|AN:|OB:traffic|FM:Phot",
-      "type": "official_promotion",
-      "verified": true
-    },
-    "image_url": "https://corporate.bigc.co.th/upload_file/promotion/260907051609_E-Tourist_5-26store)_page-0001_c.jpg",
-    "published_at": null,
-    "expires_at": null,
-    "collected_at": "2026-09-08T00:56:47.889456+00:00",
-    "metadata": {
-      "old_price": 0,
-      "new_price": 0,
-      "expiry_text": "ตรวจสอบรายละเอียดจาก Big C",
-      "urgent": false
-    }
-  },
-  {
-    "schema_version": "1.1",
-    "id": "bigc-7de5f5e6451a9ef6",
-    "content_type": "deal",
-    "original_type": "campaign",
-    "title": "ช้อปแบบตัวแม่ ช้อปเลยที่บิ๊กซี",
-    "summary": "แคมเปญหรือโปรโมชั่นจาก Big C",
-    "category": "shopping",
-    "tags": [
-      "deal",
-      "big c",
-      "campaign",
-      "แคมเปญโปรโมชั่น",
-      "bigc",
-      "บิ๊กซี",
-      "แคมเปญ",
-      "national"
-    ],
-    "provider": {
-      "name": "Big C",
-      "type": "merchant"
-    },
-    "location": {
-      "scope": "national",
-      "country": "TH",
-      "province": null,
-      "district": null,
-      "subdistrict": null,
-      "place_name": null,
-      "latitude": null,
-      "longitude": null
-    },
-    "source": {
-      "name": "Big C Official",
-      "url": "https://linebc.bigc.co.th/catalog/e-catalogue-oi-bro-9-2026?utm_source=Corp_BIG_C_Website&utm_medium=Corp_BIG_C_Website&utm_campaign=|PV:DMK|DA:20260326|AN:|OB:traffic|FM:Photo|",
-      "type": "official_promotion",
-      "verified": true
-    },
-    "image_url": "https://corporate.bigc.co.th/upload_file/promotion/260907051251_Oi9_page-0001_c.jpg",
-    "published_at": null,
-    "expires_at": null,
-    "collected_at": "2026-09-08T00:56:47.889456+00:00",
-    "metadata": {
-      "old_price": 0,
-      "new_price": 0,
-      "expiry_text": "ตรวจสอบรายละเอียดจาก Big C",
       "urgent": false
     }
   }
