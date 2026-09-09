@@ -88,7 +88,24 @@ def _matches_any_category(place: PublishedPlaceView, markers: Sequence[str]) -> 
     return any(any(_normal(marker) in cat for marker in markers) for cat in cats)
 
 
+def _requested_subcategory_markers(
+    understanding: StructuredDecisionRequest,
+) -> tuple[str, ...]:
+    # Keep the public category contract broad ("eat") while preventing an
+    # explicit cafe request from silently degrading into any restaurant.
+    if understanding.category != "eat":
+        return ()
+    text = _normal(understanding.user_text)
+    cafe_terms = ("คาเฟ่", "ร้านกาแฟ", "กาแฟ", "cafe", "coffee")
+    if any(term in text for term in cafe_terms):
+        return ("cafe", "coffee", "คาเฟ่", "กาแฟ", "ร้านกาแฟ")
+    return ()
+
+
 def _candidate_compatible(place: PublishedPlaceView, understanding: StructuredDecisionRequest) -> bool:
+    subtype_markers = _requested_subcategory_markers(understanding)
+    if subtype_markers and not _matches_any_category(place, subtype_markers):
+        return False
     if understanding.decision_object:
         markers = _OBJECT_MARKERS.get(understanding.decision_object)
         if markers:
@@ -161,6 +178,19 @@ def _fetch_published_places(
                 )
             )
         )
+
+    subtype_markers = _requested_subcategory_markers(understanding)
+    if subtype_markers:
+        subtype_preferred = tuple(
+            place for place in places
+            if _matches_any_category(place, subtype_markers)
+        )
+        subtype_ids = {place.place_id for place in subtype_preferred}
+        broad = tuple(
+            place for place in places
+            if place.place_id not in subtype_ids
+        )
+        return (subtype_preferred + broad)[:limit]
 
     category = understanding.category
     if not category:

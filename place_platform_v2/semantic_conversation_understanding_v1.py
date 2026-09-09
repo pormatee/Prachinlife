@@ -462,13 +462,14 @@ def _resolve_from_language_brain_v1(
         language_confidence=float(confidence),
         last_user_text=user_text.strip(),
     )
-    return SemanticTurnResolutionV1(_canonical_query(state), context, state, mode)
+    return SemanticTurnResolutionV1(_effective_query_for_turn(state, user_text, mode), context, state, mode)
 
 
 def _detect_comparison(text: str) -> str | None:
     t = re.sub(r"\s+", "", str(text or "").casefold())
     distance_terms = (
         "ร้านไหนใกล้กว่า", "อันไหนใกล้กว่า", "ตัวไหนใกล้กว่า",
+        "ร้านไหนใกล้", "อันไหนใกล้", "ตัวไหนใกล้", "ไหนใกล้",
         "ไหนใกล้กว่า", "ใกล้ที่สุด", "ใกล้กว่ากัน",
     )
     if any(term in t for term in distance_terms):
@@ -479,6 +480,8 @@ def _detect_comparison(text: str) -> str | None:
         "ร้านไหนเหมาะกว่า", "อันไหนเหมาะกว่า", "ไหนเหมาะกว่า",
         "ร้านไหนดี", "เลือกอันไหน", "เลือกร้านไหน", "ควรเลือกร้านไหน",
         "ร้านไหนดีที่สุด", "อันไหนดีที่สุด",
+        "ต่างกันยังไง", "ต่างกันยังงัย", "ต่างกันอย่างไร",
+        "เปรียบเทียบ", "เทียบกัน",
     )
     if any(term in t for term in overall_terms):
         return "overall"
@@ -631,6 +634,31 @@ def _canonical_query(state: SemanticConversationStateV1) -> str:
     return " ".join(dict.fromkeys(parts))
 
 
+def _effective_query_for_turn(
+    state: SemanticConversationStateV1,
+    user_text: str,
+    mode: str,
+) -> str:
+    # Preserve specific latest-turn wording for a genuinely new intent.
+    # Broad canonical categories such as "eat" do not encode subtypes like
+    # cafe, so downstream understanding/retrieval must still see that word.
+    if mode not in {"new", "new_intent"}:
+        return _canonical_query(state)
+
+    latest = str(user_text or "").strip()
+    if not latest:
+        return _canonical_query(state)
+
+    parts = [latest]
+    folded = latest.casefold()
+    if state.near_me:
+        if not any(x in folded for x in ("ใกล้ฉัน", "แถวนี้", "ใกล้ๆ", "ใกล้ ๆ", "near me", "nearby")):
+            parts.append("ใกล้ฉัน")
+    elif state.province and state.province.casefold() not in folded:
+        parts.append(state.province)
+    return " ".join(dict.fromkeys(parts))
+
+
 def resolve_semantic_turn_v1(
     user_text: str,
     context: Mapping[str, Any] | None = None,
@@ -640,17 +668,93 @@ def resolve_semantic_turn_v1(
         raise ValueError("user_text required")
     context = dict(context or {})
     previous = state_from_payload(context.pop("conversation_state", None))
-    if isinstance(language_interpretation, Mapping):
+
+    # High-confidence signals stated in the latest utterance must not be
+    # overridden by stale multi-turn state. The deterministic layer is used
+    # only as an explicit-turn boundary here; it still never ranks/selects.
+    direct_text = understand_user_request(user_text, context={})
+    explicit_comparison = _detect_comparison(user_text)
+    explicit_reference_fact = _detect_reference_fact(user_text)
+    explicit_reference_index = _reference_index(user_text)
+    if explicit_reference_index is None:
+        explicit_reference_index = _implicit_reference_index(user_text)
+
+    explicit_domain_switch = bool(
+        previous
+        and (
+            (direct_text.category and direct_text.category != previous.category)
+            or (
+                direct_text.decision_object
+                and direct_text.decision_object != previous.decision_object
+            )
+        )
+    )
+
+    provider_category = (
+        _meaning_string(language_interpretation, "category", 80)
+        if isinstance(language_interpretation, Mapping) else None
+    )
+    provider_object = (
+        _meaning_string(language_interpretation, "decision_object", 80)
+        if isinstance(language_interpretation, Mapping) else None
+    )
+    provider_act = (
+        _meaning_string(language_interpretation, "conversation_act", 40)
+        if isinstance(language_interpretation, Mapping) else None
+    )
+
+    ambiguous_new_request = bool(
+        previous
+        and direct_text.decision_type == "select"
+        and direct_text.category is None
+        and direct_text.decision_object is None
+        and provider_category is None
+        and provider_object is None
+        and provider_act in (None, "other", "refine", "new_request")
+        and explicit_comparison is None
+        and explicit_reference_fact is None
+        and explicit_reference_index is None
+    )
+    if ambiguous_new_request:
+        state = SemanticConversationStateV1(
+            turn_index=previous.turn_index + 1,
+            active_request_text=user_text.strip(),
+            category=None,
+            decision_object=None,
+            province=previous.province,
+            near_me=previous.near_me,
+            refinements=(),
+            candidate_ids=(),
+            referenced_candidate_id=None,
+            reference_fact=None,
+            comparison_criterion=None,
+            explanation_request=None,
+            language_act="clarification",
+            semantic_criteria=(),
+            language_confidence=None,
+            last_user_text=user_text.strip(),
+        )
+        return SemanticTurnResolutionV1(user_text.strip(), context, state, "language_clarification")
+
+    # Explicit category/object changes and explicit compare/reference phrases
+    # are resolved from the latest utterance so old candidates cannot win.
+    use_language_brain = not (
+        explicit_domain_switch
+        or explicit_comparison is not None
+        or explicit_reference_fact is not None
+        or explicit_reference_index is not None
+    )
+    if isinstance(language_interpretation, Mapping) and use_language_brain:
         resolved = _resolve_from_language_brain_v1(
             user_text.strip(), context, previous, language_interpretation
         )
         if resolved is not None:
             return resolved
+
     # Deterministic phrase interpretation below is compatibility fallback only.
     # Distinguish facts explicitly present in the latest utterance from values
     # merely carried in trusted context. This prevents an old location_text
     # from making an unrelated follow-up look like a new location command.
-    direct_text = understand_user_request(user_text, context={})
 
     if previous is None:
         direct = understand_user_request(user_text, context=context)
@@ -698,8 +802,10 @@ def resolve_semantic_turn_v1(
     if category_changed or explicit_new_object:
         category = direct.category or category
         decision_object = direct.decision_object or decision_object
-        province = direct.province
-        near_me = bool(direct.near_me)
+        # A topic/category switch keeps the established location unless the
+        # latest utterance explicitly supplies a replacement.
+        province = direct.province or previous.province
+        near_me = bool(direct.near_me) if direct.near_me else previous.near_me
         refinements = list(add)
         active_request_text = user_text.strip()
         candidate_ids = ()
@@ -785,7 +891,7 @@ def resolve_semantic_turn_v1(
         language_confidence=None,
         last_user_text=user_text.strip(),
     )
-    return SemanticTurnResolutionV1(_canonical_query(state), context, state, mode)
+    return SemanticTurnResolutionV1(_effective_query_for_turn(state, user_text, mode), context, state, mode)
 
 
 def finalize_semantic_state_v1(state: SemanticConversationStateV1, result: Mapping[str, Any]) -> SemanticConversationStateV1:
