@@ -676,6 +676,10 @@ def resolve_semantic_turn_v1(
     explicit_comparison = _detect_comparison(user_text)
     explicit_reference_fact = _detect_reference_fact(user_text)
     explicit_reference_index = _reference_index(user_text)
+    explicit_add, explicit_remove, explicit_near_update = _detect_refinements(user_text)
+    explicit_refinement_change = bool(
+        explicit_add or explicit_remove or explicit_near_update is not None
+    )
     if explicit_reference_index is None:
         explicit_reference_index = _implicit_reference_index(user_text)
 
@@ -714,6 +718,7 @@ def resolve_semantic_turn_v1(
         and explicit_comparison is None
         and explicit_reference_fact is None
         and explicit_reference_index is None
+        and not explicit_refinement_change
     )
     if ambiguous_new_request:
         state = SemanticConversationStateV1(
@@ -743,6 +748,7 @@ def resolve_semantic_turn_v1(
         or explicit_comparison is not None
         or explicit_reference_fact is not None
         or explicit_reference_index is not None
+        or explicit_refinement_change
     )
     if isinstance(language_interpretation, Mapping) and use_language_brain:
         resolved = _resolve_from_language_brain_v1(
@@ -780,8 +786,8 @@ def resolve_semantic_turn_v1(
 
     direct = direct_text
     explanation_request = None
-    comparison_criterion = _detect_comparison(user_text)
-    add, remove, near_update = _detect_refinements(user_text)
+    comparison_criterion = explicit_comparison
+    add, remove, near_update = explicit_add, explicit_remove, explicit_near_update
     refinements = [x for x in previous.refinements if x not in set(remove)]
     for item in add:
         if item not in refinements:
@@ -843,6 +849,8 @@ def resolve_semantic_turn_v1(
         if ref_index < len(candidate_ids):
             referenced_candidate_id = candidate_ids[ref_index]
             mode = "reference"
+            if reference_fact is None and previous.reference_fact in _REFERENCE_FACT_KEYS:
+                reference_fact = previous.reference_fact
         else:
             referenced_candidate_id = None
             mode = "reference_unresolved"

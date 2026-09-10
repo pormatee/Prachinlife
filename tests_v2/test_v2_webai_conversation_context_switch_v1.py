@@ -184,5 +184,52 @@ class TestWebAIConversationContextSwitchV1(unittest.TestCase):
         self.assertIn(("vegetarian", True, "hard"), hard)
 
 
+    def test_10_pending_hours_fact_survives_store_selection_without_ai_provider(self):
+        s = prior_state()
+        q = resolve_semantic_turn_v1(
+            "ปิดกี่โมง",
+            {"conversation_state": s.to_payload()},
+            language_interpretation=None,
+        )
+        self.assertEqual("reference_unresolved", q.mode)
+        self.assertEqual("hours", q.state.reference_fact)
+        self.assertEqual(s.candidate_ids, q.state.candidate_ids)
+
+        r = resolve_semantic_turn_v1(
+            "ร้านแรก",
+            {"conversation_state": q.state.to_payload()},
+            language_interpretation=None,
+        )
+        self.assertEqual("reference_fact", r.mode)
+        self.assertEqual("hours", r.state.reference_fact)
+        self.assertEqual("veg-a", r.state.referenced_candidate_id)
+        self.assertEqual(s.candidate_ids, r.state.candidate_ids)
+
+    def test_11_family_refinement_not_ambiguous_without_ai_provider(self):
+        s = prior_state()
+        r = resolve_semantic_turn_v1(
+            "จะพาแม่ไปด้วยนะ",
+            {"conversation_state": s.to_payload()},
+            language_interpretation=None,
+        )
+        self.assertEqual("refine", r.mode)
+        self.assertIn("family", r.state.refinements)
+        self.assertEqual((), r.state.candidate_ids)
+        self.assertEqual("vegetarian", r.state.category)
+        self.assertEqual("ปราจีนบุรี", r.state.province)
+        self.assertIn("เหมาะกับครอบครัว", r.effective_text)
+
+    def test_12_known_refinement_cannot_be_erased_by_provider_other_act(self):
+        s = prior_state()
+        r = resolve_semantic_turn_v1(
+            "จะพาแม่ไปด้วยนะ",
+            {"conversation_state": s.to_payload()},
+            language_interpretation=language_meaning("other"),
+        )
+        self.assertEqual("refine", r.mode)
+        self.assertIn("family", r.state.refinements)
+        self.assertEqual((), r.state.candidate_ids)
+
+
 if __name__ == "__main__":
     unittest.main()
