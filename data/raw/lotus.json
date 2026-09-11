@@ -70,6 +70,16 @@
     "collected_at": "2026-08-15T14:00:44.294306+07:00"
   },
   {
+    "source_id": "lotus-55dc5e8125bb4e74",
+    "source_provider": "lotus",
+    "source_page": "https://my.lotuss.com/promotions/th",
+    "title": "ทีวีลดแรง 7 วันเท่านั้น",
+    "image_url": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202609100708540758.webp",
+    "destination_url": null,
+    "raw_type": "campaign",
+    "collected_at": "2026-09-11T00:50:55.759002+00:00"
+  },
+  {
     "source_id": "lotus-fd0691d67bc2274d",
     "source_provider": "lotus",
     "source_page": "https://my.lotuss.com/promotions/th",
@@ -78,6 +88,16 @@
     "destination_url": null,
     "raw_type": "campaign",
     "collected_at": "2026-09-05T00:38:29.259432+00:00"
+  },
+  {
+    "source_id": "lotus-80961a1ec532ef40",
+    "source_provider": "lotus",
+    "source_page": "https://my.lotuss.com/promotions/th",
+    "title": "โปรแรงเฉพาะวันศุกร์เท่านั้น! แซลมอนสดนอร์เวย์",
+    "image_url": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202609090711053549.webp",
+    "destination_url": null,
+    "raw_type": "campaign",
+    "collected_at": "2026-09-11T00:50:55.759002+00:00"
   },
   {
     "source_id": "lotus-3c03f82563cdd6cd",
@@ -95,26 +115,6 @@
     "source_page": "https://my.lotuss.com/promotions/th",
     "title": "ใหม่! Yoose เครื่องโกนหนวดไฟฟ้าดีไซน์สุดมินิมอล",
     "image_url": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202608181026017440.webp",
-    "destination_url": null,
-    "raw_type": "campaign",
-    "collected_at": "2026-08-18T23:49:11.702808+00:00"
-  },
-  {
-    "source_id": "lotus-811b5e876693dc7d",
-    "source_provider": "lotus",
-    "source_page": "https://my.lotuss.com/promotions/th",
-    "title": "ประกาศรายชื่อผู้โชคดีที่เข้าร่วมได้รับ 50 โลตัสคอยน์ ประจำเดือน มกราคม",
-    "image_url": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202608180611193051.webp",
-    "destination_url": null,
-    "raw_type": "campaign",
-    "collected_at": "2026-08-18T23:49:11.702808+00:00"
-  },
-  {
-    "source_id": "lotus-bc417e080b733f14",
-    "source_provider": "lotus",
-    "source_page": "https://my.lotuss.com/promotions/th",
-    "title": "ประกาศรายชื่อผู้โชคดีที่เข้าร่วมได้รับ 50 โลตัสคอยน์ ประจำเดือน มีนาคม",
-    "image_url": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202608180419523219.webp",
     "destination_url": null,
     "raw_type": "campaign",
     "collected_at": "2026-08-18T23:49:11.702808+00:00"
