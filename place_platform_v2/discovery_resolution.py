@@ -2,7 +2,11 @@ from __future__ import annotations
 from dataclasses import dataclass
 from enum import Enum
 from .contracts import SourcePlaceCandidate, SourceRef, SourceType
-from .entity_resolution import EntityResolutionEngine, ResolutionOutcome
+from .entity_resolution import (
+    EntityResolutionEngine,
+    ResolutionOutcome,
+    ResolutionSignal,
+)
 from .ingestion import IngestionObservation, build_claims, normalize_candidate
 
 class DiscoveryResolutionOutcome(str, Enum):
@@ -67,18 +71,44 @@ class CanonicalResolutionOrchestrator:
         places = tuple(sorted(canonical_places, key=lambda x: x.identity.place_id))
         same = []
         review = []
+        identity_review_signals = {
+            ResolutionSignal.SAME_SOURCE_RECORD,
+            ResolutionSignal.SAME_CANDIDATE_KEY,
+            ResolutionSignal.SAME_PHONE,
+            ResolutionSignal.SAME_WEBSITE,
+            ResolutionSignal.SAME_NAME,
+            ResolutionSignal.SIMILAR_NAME,
+        }
+
         for place in places:
             decision = self.engine.compare(observation, canonical_observation(place))
             if decision.outcome is ResolutionOutcome.SAME_ENTITY:
                 same.append(place.identity.place_id)
             elif decision.outcome is ResolutionOutcome.REVIEW:
-                review.append(place.identity.place_id)
+                review.append((place.identity.place_id, decision))
 
-        if len(same) == 1 and not review:
+        identity_reviews = [
+            (place_id, decision)
+            for place_id, decision in review
+            if identity_review_signals.intersection(decision.signals)
+        ]
+
+        # One deterministic entity match must not be vetoed merely because
+        # another canonical place is geographically close. A NEAR_LOCATION-only
+        # REVIEW is a blocking hint, not competing identity evidence.
+        if len(same) == 1 and not identity_reviews:
+            reason = (
+                "one deterministic canonical match"
+                if not review
+                else "one deterministic canonical match; proximity-only review shadows ignored"
+            )
             return DiscoveryResolutionItem(
                 observation, DiscoveryResolutionOutcome.MATCHED,
-                same[0], len(places), "one deterministic canonical match"
+                same[0], len(places), reason
             )
+
+        # Multiple SAME_ENTITY results or identity-bearing REVIEW comparisons
+        # remain ambiguous and fail closed.
         if same or review:
             return DiscoveryResolutionItem(
                 observation, DiscoveryResolutionOutcome.REVIEW,
