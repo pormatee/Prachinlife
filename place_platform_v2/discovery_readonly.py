@@ -25,7 +25,12 @@ def load_canonical_places_readonly(database_path):
         location = None
         if row["latitude"] is not None and row["longitude"] is not None:
             location = GeoPoint(float(row["latitude"]), float(row["longitude"]))
-        categories = tuple(str(x) for x in json.loads(row["categories_json"]))
+        raw_categories = json.loads(row["categories_json"])
+        if isinstance(raw_categories, dict) and raw_categories.get("__type__") == "tuple":
+            raw_categories = raw_categories.get("items", [])
+        if not isinstance(raw_categories, list):
+            raise ValueError("stored categories_json must be a list or tagged tuple")
+        categories = tuple(str(x) for x in raw_categories)
         result.append(CanonicalPlace(
             identity=PlaceIdentity(row["place_id"]),
             canonical_name=row["canonical_name"],
