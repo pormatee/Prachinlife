@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#f5f7fb">
+  <meta name="robots" content="noindex,nofollow">
+  <title>LocalLife Regional Preview</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/locallife/web-shell-v1.css">
+</head>
+<body data-region="prachinburi" data-view="search" data-context-endpoint="/v1/regions/prachinburi/context">
+  <div class="ll-app">
+    <header class="ll-header">
+      <div class="ll-container ll-header-inner">
+        <div class="ll-brand" aria-label="Regional product">
+          <div class="ll-brand-mark" aria-hidden="true">LL</div>
+          <div class="ll-brand-copy">
+            <div class="ll-brand-name" id="brandName">LocalLife</div>
+            <div class="ll-brand-tagline" id="brandTagline">กำลังโหลดบริบทพื้นที่</div>
+          </div>
+        </div>
+        <span class="ll-preview-badge">Web Preview</span>
+      </div>
+    </header>
+
+    <main class="ll-main ll-container">
+      <section class="ll-hero" aria-labelledby="pageTitle">
+        <p class="ll-eyebrow" id="pageEyebrow">LOCAL EVERYDAY ASSISTANT</p>
+        <h1 class="ll-title" id="pageTitle">กำลังโหลด…</h1>
+        <p class="ll-subtitle" id="pageSubtitle">กำลังอ่าน Regional Context ที่ได้รับอนุญาต</p>
+        <div class="ll-status-row">
+          <span class="ll-status-pill" id="connectionStatus" data-state="loading"><span class="ll-dot" aria-hidden="true"></span><span>กำลังเชื่อมข้อมูลพื้นที่</span></span>
+        </div>
+      </section>
+
+      <section class="ll-section" id="quickSection" hidden>
+        <h2 class="ll-section-title">คุณต้องการอะไร</h2>
+        <div class="ll-grid" id="quickLinks"></div>
+      </section>
+
+      <section class="ll-section ll-view-panel" id="viewPanel" hidden>
+        <h2 id="viewPanelTitle"></h2>
+        <p id="viewPanelCopy"></p>
+        <div class="ll-safe-note">หน้านี้ยังไม่แสดงข้อมูลสถานที่จนกว่าจะเชื่อม Published Read Model ในขั้นถัดไป</div>
+      </section>
+
+      <section class="ll-error" id="contextError" role="alert" hidden>
+        <strong>ยังเปิดข้อมูลพื้นที่ไม่ได้</strong>
+        <p id="contextErrorMessage"></p>
+        <button class="ll-retry" id="retryContext" type="button">ลองใหม่</button>
+      </section>
+    </main>
+
+    <nav class="ll-bottom-nav" id="bottomNav" aria-label="เมนูหลัก">
+      <a class="ll-nav-link" aria-disabled="true"><span class="ll-nav-icon">⌂</span><span>หน้าหลัก</span></a>
+      <a class="ll-nav-link" aria-disabled="true"><span class="ll-nav-icon">⌕</span><span>ค้นหา</span></a>
+      <a class="ll-nav-link" aria-disabled="true"><span class="ll-nav-icon">ช</span><span>กิน</span></a>
+      <a class="ll-nav-link" aria-disabled="true"><span class="ll-nav-icon">↗</span><span>เที่ยว</span></a>
+      <a class="ll-nav-link" aria-disabled="true"><span class="ll-nav-icon">✓</span><span>บริการ</span></a>
+    </nav>
+  </div>
+  <script src="../../assets/locallife/web-shell-v1.js" defer></script>
+</body>
+</html>
