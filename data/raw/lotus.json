@@ -70,6 +70,16 @@
     "collected_at": "2026-08-15T14:00:44.294306+07:00"
   },
   {
+    "source_id": "lotus-f22ffcb767fcb8ab",
+    "source_provider": "lotus",
+    "source_page": "https://my.lotuss.com/promotions/th",
+    "title": "iPhone 18 Pro และ iPhone 18 Pro Max พร้อมให้คุณเป็นเจ้าของแล้วที่ร้าน True Shop by Lotus’s วันนี้ !! พร้อมข้อเสนอที่ดีที่สุดกับ Truedtac5G",
+    "image_url": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202609120601112073.webp",
+    "destination_url": null,
+    "raw_type": "campaign",
+    "collected_at": "2026-09-13T00:39:00.551910+00:00"
+  },
+  {
     "source_id": "lotus-55dc5e8125bb4e74",
     "source_provider": "lotus",
     "source_page": "https://my.lotuss.com/promotions/th",
@@ -108,15 +118,5 @@
     "destination_url": null,
     "raw_type": "campaign",
     "collected_at": "2026-08-18T23:49:11.702808+00:00"
-  },
-  {
-    "source_id": "lotus-811b5e876693dc7d",
-    "source_provider": "lotus",
-    "source_page": "https://my.lotuss.com/promotions/th",
-    "title": "ประกาศรายชื่อผู้โชคดีที่เข้าร่วมได้รับ 50 โลตัสคอยน์ ประจำเดือน มกราคม",
-    "image_url": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202608180611193051.webp",
-    "destination_url": null,
-    "raw_type": "campaign",
-    "collected_at": "2026-09-12T00:55:52.753161+00:00"
   }
 ]
