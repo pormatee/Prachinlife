@@ -1,0 +1,47 @@
+{
+  "contract_version": "locallife.regional-web/v1",
+  "product_id": "th-prachinburi",
+  "locale": "th",
+  "brand": {
+    "name": "PrachinLife",
+    "tagline": "ทำให้ชีวิต ง่ายขึ้น ทุกวัน..."
+  },
+  "legacy": {
+    "preserve_root_entry": true,
+    "root_entry": "index.html",
+    "public_cutover": false
+  },
+  "routes": {
+    "home": "/prachinburi",
+    "search": "/prachinburi/search",
+    "eat": "/prachinburi/eat",
+    "go": "/prachinburi/go",
+    "services": "/prachinburi/services"
+  },
+  "navigation": [
+    {
+      "id": "home",
+      "label": "หน้าแรก"
+    },
+    {
+      "id": "search",
+      "label": "ค้นหา"
+    },
+    {
+      "id": "eat",
+      "label": "กิน"
+    },
+    {
+      "id": "go",
+      "label": "เที่ยว"
+    },
+    {
+      "id": "services",
+      "label": "บริการ"
+    }
+  ],
+  "decision_endpoint": "/v1/decision",
+  "regional_context_endpoint": "/v1/regions/prachinburi/context",
+  "read_model_mode": "compatibility_adapter",
+  "direct_domain_data": false
+}

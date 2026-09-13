@@ -1,0 +1,20 @@
+{
+  "contract_version": "locallife.regional-taxonomy-presentation/v1",
+  "product_id": "th-prachinburi",
+  "direction": "canonical_to_presentation_only",
+  "reverse_mapping_allowed": false,
+  "mapping": {
+    "fuel": "ปั๊มน้ำมัน",
+    "temple": "วัด / ศาสนสถาน",
+    "restaurant": "ร้านอาหาร",
+    "cafe": "คาเฟ่",
+    "park": "สวน / พื้นที่พักผ่อน",
+    "laundry": "ซักรีด",
+    "car_repair": "ซ่อมรถ",
+    "clinic": "คลินิก",
+    "vegetarian": "vegetarian",
+    "pharmacy": "ร้านยา",
+    "nature": "ธรรมชาติ / จุดชมวิว",
+    "attraction": "สถานที่ท่องเที่ยว"
+  }
+}

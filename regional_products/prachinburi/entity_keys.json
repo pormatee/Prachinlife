@@ -1,0 +1,11 @@
+{
+  "contract_version": "locallife.regional-entity-keys/v1",
+  "product_id": "th-prachinburi",
+  "authority_mode": "existing_core",
+  "regional_overrides": {},
+  "notes": "No inferred Prachinburi entity-key mapping is introduced by L0.2. Existing entity-resolution/candidate-key authorities remain authoritative.",
+  "governance": {
+    "fail_closed": true,
+    "direct_write": false
+  }
+}

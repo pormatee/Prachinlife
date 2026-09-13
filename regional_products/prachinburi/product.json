@@ -1,0 +1,44 @@
+{
+  "contract_version": "locallife.regional-product/v1",
+  "product_id": "th-prachinburi",
+  "brand": "PrachinLife",
+  "region": {
+    "country_code": "TH",
+    "kind": "province",
+    "code": "TH-25",
+    "slug": "prachinburi",
+    "name_th": "ปราจีนบุรี",
+    "name_en": "Prachinburi"
+  },
+  "capabilities": {
+    "places": true,
+    "near_me": true,
+    "eat": true,
+    "go": true,
+    "services": true,
+    "promotions": true,
+    "regional_dna": true,
+    "decision_api": true
+  },
+  "config_refs": {
+    "sources": "regional_products/prachinburi/sources.json",
+    "entity_keys": "regional_products/prachinburi/entity_keys.json",
+    "taxonomy": "regional_products/prachinburi/taxonomy.json",
+    "web": "regional_products/prachinburi/web.json"
+  },
+  "analytics": {
+    "regional_dna_semantics": "w1.1e-v1.1",
+    "share_metric": "slot_participation",
+    "preserve_unresolved": true
+  },
+  "governance": {
+    "fail_closed": true,
+    "human_final_decision": true,
+    "direct_canonical_write": false,
+    "direct_published_write": false
+  },
+  "compatibility": {
+    "preserve_existing_prachinlife": true,
+    "preserve_existing_api_outputs": true
+  }
+}

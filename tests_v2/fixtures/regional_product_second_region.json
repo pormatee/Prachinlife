@@ -1,0 +1,44 @@
+{
+  "contract_version": "locallife.regional-product/v1",
+  "product_id": "th-reference-sandbox",
+  "brand": "LocalLife Reference Fixture",
+  "region": {
+    "country_code": "TH",
+    "kind": "province",
+    "code": "TH-ZZ",
+    "slug": "reference-sandbox",
+    "name_th": "จังหวัดทดสอบ",
+    "name_en": "Reference Sandbox"
+  },
+  "capabilities": {
+    "places": true,
+    "near_me": false,
+    "eat": true,
+    "go": false,
+    "services": true,
+    "promotions": false,
+    "regional_dna": true,
+    "decision_api": true
+  },
+  "config_refs": {
+    "sources": "regional_products/reference-sandbox/sources.json",
+    "entity_keys": "regional_products/reference-sandbox/entity_keys.json",
+    "taxonomy": "regional_products/reference-sandbox/taxonomy.json",
+    "web": "regional_products/reference-sandbox/web.json"
+  },
+  "analytics": {
+    "regional_dna_semantics": "fixture-v1",
+    "share_metric": "slot_participation",
+    "preserve_unresolved": true
+  },
+  "governance": {
+    "fail_closed": true,
+    "human_final_decision": true,
+    "direct_canonical_write": false,
+    "direct_published_write": false
+  },
+  "compatibility": {
+    "preserve_existing_prachinlife": false,
+    "preserve_existing_api_outputs": true
+  }
+}

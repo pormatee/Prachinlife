@@ -1,0 +1,50 @@
+{
+  "contract_version": "locallife.regional-sources/v1",
+  "product_id": "th-prachinburi",
+  "region_scope": {
+    "country_code": "TH",
+    "region_kind": "province",
+    "region_code": "TH-25",
+    "region_slug": "prachinburi",
+    "province_name": "ปราจีนบุรี",
+    "iso3166_2": "TH-25"
+  },
+  "intake_authority": {
+    "policy_version": "PRACHINBURI-EXPANSION-INTAKE-V1",
+    "module": "place_platform_v2.prachinburi_expansion_intake_v1",
+    "direct_write": false
+  },
+  "required_path": [
+    "source_candidate",
+    "intake_triage",
+    "entity_resolution_dedup",
+    "field_evidence",
+    "verification",
+    "adoption",
+    "canonical",
+    "publication_gate",
+    "published_projection"
+  ],
+  "discovery_sources": [
+    {
+      "source_name": "OpenStreetMap",
+      "adapter": "OSMPlaceAdapterV2",
+      "scope": "ISO3166-2=TH-25",
+      "mode": "read_only_candidate_discovery",
+      "province_scope_is_explicit_source_claim": false,
+      "direct_target_categories": [
+        "restaurant",
+        "cafe",
+        "vegetarian",
+        "clinic",
+        "pharmacy"
+      ]
+    }
+  ],
+  "governance": {
+    "fail_closed": true,
+    "direct_canonical_write": false,
+    "direct_published_write": false,
+    "legacy_presentation_as_evidence": false
+  }
+}
