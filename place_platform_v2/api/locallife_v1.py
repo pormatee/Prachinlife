@@ -7,6 +7,7 @@ from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from typing import Any
 from urllib.parse import urlparse
 
+from ..application import decision_service_v1 as _decision_service
 from ..decision_action_contract_v1 import attach_decision_actions_v1
 from ..web_ai_runtime_v1 import run_decision as _run_master_brain_decision
 from ..web_ai_runtime_v1 import health_payload as _brain_health_payload
@@ -48,13 +49,18 @@ def health_payload() -> dict[str, Any]:
 
 
 def decision_payload(payload: dict[str, Any]) -> dict[str, Any]:
-    if not isinstance(payload, dict):
-        raise ValueError("request_body_must_be_object")
-    return _run_master_brain_decision(payload)
+    return _decision_service.decision_payload(
+        payload,
+        run_decision=_run_master_brain_decision,
+    )
 
 
 def decision_response_payload(payload: dict[str, Any]) -> dict[str, Any]:
-    return attach_decision_actions_v1(decision_payload(payload))
+    return _decision_service.decision_response_payload(
+        payload,
+        decide=decision_payload,
+        attach_actions=attach_decision_actions_v1,
+    )
 
 
 def regional_context_response_payload(region_slug: str) -> dict[str, object]:
