@@ -8,6 +8,7 @@ from typing import Any
 from urllib.parse import urlparse
 
 from ..application import decision_service_v1 as _decision_service
+from ..application import regional_context_service_v1 as _regional_context_service
 from ..decision_action_contract_v1 import attach_decision_actions_v1
 from ..web_ai_runtime_v1 import run_decision as _run_master_brain_decision
 from ..web_ai_runtime_v1 import health_payload as _brain_health_payload
@@ -64,7 +65,10 @@ def decision_response_payload(payload: dict[str, Any]) -> dict[str, Any]:
 
 
 def regional_context_response_payload(region_slug: str) -> dict[str, object]:
-    return regional_context_payload_v1(region_slug)
+    return _regional_context_service.regional_context_response_payload(
+        region_slug,
+        load_context=regional_context_payload_v1,
+    )
 
 
 def _regional_context_slug(path: str) -> str | None:
