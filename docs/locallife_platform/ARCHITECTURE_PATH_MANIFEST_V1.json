@@ -1,0 +1,80 @@
+{
+  "schema_version": "LOCALLIFE-ARCHITECTURE-PATH-MANIFEST-V1",
+  "status": "FROZEN_FOR_ALIGNMENT_V1",
+  "owners": {
+    "locallife_core": {
+      "current_roots": [
+        "place_platform_v2"
+      ],
+      "target_logical_boundaries": [
+        "place_platform_v2/api",
+        "place_platform_v2/application",
+        "place_platform_v2/decision",
+        "place_platform_v2/intake",
+        "place_platform_v2/publication",
+        "place_platform_v2/regional",
+        "place_platform_v2/cbi",
+        "place_platform_v2/compat"
+      ],
+      "notes": "Do not rename package root during Alignment V1."
+    },
+    "prachinlife_regional": {
+      "config_root": "regional_products/prachinburi",
+      "presentation_root": "regional_products/prachinburi/web",
+      "public_route_root": "prachinburi",
+      "public_routes_stable": true
+    },
+    "shared_web": {
+      "root": "assets/locallife"
+    },
+    "data": {
+      "canonical_candidate": "data/v2/place_platform_v2.sqlite3",
+      "published_read_model": "data/v2/decision_published_places_v1.sqlite3",
+      "staging_root": "data/v2/staging",
+      "freeze_paths_alignment_v1": true
+    },
+    "cbi": {
+      "owner": "MEasyMate CBI",
+      "locallife_contains": "adapter/domain integration/pinned runtime only",
+      "prachinlife_specific_core_logic_allowed": false
+    }
+  },
+  "migration_waves": [
+    {
+      "wave": 0,
+      "name": "protect_current_r6_checkpoint",
+      "runtime_change": false
+    },
+    {
+      "wave": 1,
+      "name": "architecture_manifest_only",
+      "runtime_change": false
+    },
+    {
+      "wave": 2,
+      "name": "regional_presentation_alignment",
+      "runtime_change": "compatibility_only"
+    },
+    {
+      "wave": 3,
+      "name": "regional_runtime_boundary",
+      "runtime_change": true
+    },
+    {
+      "wave": 4,
+      "name": "api_application_boundary",
+      "runtime_change": true
+    },
+    {
+      "wave": 5,
+      "name": "publication_decision_boundaries",
+      "runtime_change": true
+    },
+    {
+      "wave": 6,
+      "name": "cbi_shadow_integration",
+      "runtime_change": true
+    }
+  ],
+  "production_cutover": false
+}

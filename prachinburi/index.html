@@ -1,67 +1,363 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="th">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#f5f7fb">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#f7f8f4">
   <meta name="robots" content="noindex,nofollow">
-  <title>LocalLife Regional Preview</title>
+  <title>PrachinLife | Web Preview R6</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../assets/locallife/web-shell-v1.css">
+  <!-- Reuse the already-approved PrachinLife visual system without modifying production root. -->
+  <link rel="stylesheet" href="../style.css?v=legacy-visual-reuse-v1">
+  <link rel="stylesheet" href="../css/locallife-decision-card-v1.css?v=regional-ai-modal-v12r3">
+  <link rel="stylesheet" href="../regional_products/prachinburi/web/legacy-experience-v1.css?v=12r5">
+
+  <style id="prachinlife-ai-critical-mobile-v12r4">
+    @media (max-width: 1000px), (pointer: coarse) {
+      html:has(#robotAssistPanel:not([hidden])),
+      body:has(#robotAssistPanel:not([hidden])) {
+        overflow: hidden !important;
+        overscroll-behavior: none !important;
+      }
+
+      #robotAssistPanel:not([hidden]) {
+        position: fixed !important;
+        inset: 0 !important;
+        z-index: 99999 !important;
+        width: 100vw !important;
+        max-width: none !important;
+        height: 100dvh !important;
+        max-height: none !important;
+        margin: 0 !important;
+        border: 0 !important;
+        border-radius: 0 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        overflow: hidden !important;
+        background: #fff !important;
+        box-shadow: none !important;
+      }
+
+      #robotAssistPanel:not([hidden]) .robot-assist-header {
+        flex: 0 0 auto !important;
+        position: relative !important;
+        z-index: 2 !important;
+        background: #fff !important;
+      }
+
+      #robotAssistPanel:not([hidden]) .robot-assist-messages {
+        flex: 1 1 auto !important;
+        min-height: 0 !important;
+        max-height: none !important;
+        overflow-y: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+        overscroll-behavior: contain !important;
+        padding-bottom: 104px !important;
+      }
+
+      #robotAssistPanel:not([hidden]) .robot-assist-composer {
+        position: fixed !important;
+        left: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        z-index: 100000 !important;
+        display: grid !important;
+        grid-template-columns: minmax(0, 1fr) auto !important;
+        gap: 8px !important;
+        padding:
+          9px
+          9px
+          max(9px, env(safe-area-inset-bottom, 0px)) !important;
+        background: #fff !important;
+        border-top: 1px solid #e7eee9 !important;
+        box-shadow: 0 -8px 22px rgba(22, 33, 27, .10) !important;
+      }
+
+      #robotAssistPanel:not([hidden]) .robot-assist-composer textarea {
+        min-width: 0 !important;
+        width: 100% !important;
+        min-height: 50px !important;
+        max-height: 96px !important;
+        resize: none !important;
+      }
+
+      #robotAssistPanel:not([hidden]) .robot-assist-send {
+        min-height: 50px !important;
+        align-self: end !important;
+      }
+    }
+  </style>
+
 </head>
-<body data-region="prachinburi" data-view="home" data-context-endpoint="/v1/regions/prachinburi/context">
-  <div class="ll-app">
-    <header class="ll-header">
-      <div class="ll-container ll-header-inner">
-        <div class="ll-brand" aria-label="Regional product">
-          <div class="ll-brand-mark" aria-hidden="true">LL</div>
-          <div class="ll-brand-copy">
-            <div class="ll-brand-name" id="brandName">LocalLife</div>
-            <div class="ll-brand-tagline" id="brandTagline">กำลังโหลดบริบทพื้นที่</div>
+
+<body
+  data-region="prachinburi"
+  data-view="home"
+  data-context-endpoint="/v1/regions/prachinburi/context"
+>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#top" class="brand" aria-label="PrachinLife หน้าแรก">
+        <div class="brand-mark brand-logo-mark">
+          <img
+            src="../assets/brand/prachinlife-icon-v1.png"
+            alt=""
+            class="brand-logo-image"
+          >
+        </div>
+        <div class="brand-copy">
+          <strong id="brandName">PrachinLife</strong>
+          <span id="brandTagline">ทำให้ชีวิต <em>ง่ายขึ้น...</em></span>
+        </div>
+      </a>
+
+      <nav class="desktop-nav">
+        <a href="#top">หน้าแรก</a>
+        <a href="#controlCenter">หาอะไร</a>
+        <a href="#previewResults">ผลลัพธ์</a>
+        <a href="#about">เกี่ยวกับ</a>
+      </nav>
+
+      <span class="legacy-preview-badge">Web Preview</span>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero legacy-preview-hero">
+      <div class="container hero-inner">
+        <div class="hero-badge">LOCAL LIFE • PRACHINBURI</div>
+
+        <h1 class="lifestyle-headline">
+          ทำให้ชีวิต <span class="lifestyle-highlight">ง่ายขึ้น</span> ทุกวัน...
+        </h1>
+
+        <p class="hero-description">
+          กิน • ช้อป • เที่ยว • เจ / มังสวิรัติ • ใกล้ฉัน
+        </p>
+
+        <div class="hero-search">
+          <div class="search-row">
+            <div class="search-field">
+              <span class="search-icon" aria-hidden="true">🔎</span>
+              <input
+                id="searchInput"
+                type="search"
+                placeholder="ค้นหาร้าน อาหารเจ โปรโมชั่น สถานที่ หรือบริการ..."
+                autocomplete="off"
+                aria-label="ค้นหา"
+              >
+            </div>
+            <button id="searchBtn" class="primary-button" type="button">ค้นหา</button>
           </div>
         </div>
-        <span class="ll-preview-badge">Web Preview</span>
-      </div>
-    </header>
 
-    <main class="ll-main ll-container">
-      <section class="ll-hero" aria-labelledby="pageTitle">
-        <p class="ll-eyebrow" id="pageEyebrow">LOCAL EVERYDAY ASSISTANT</p>
-        <h1 class="ll-title" id="pageTitle">กำลังโหลด…</h1>
-        <p class="ll-subtitle" id="pageSubtitle">กำลังอ่าน Regional Context ที่ได้รับอนุญาต</p>
-        <div class="ll-status-row">
-          <span class="ll-status-pill" id="connectionStatus" data-state="loading"><span class="ll-dot" aria-hidden="true"></span><span>กำลังเชื่อมข้อมูลพื้นที่</span></span>
+
+        <section class="ai-assistant-feature" id="aiAssistantFeature" aria-label="ผู้ช่วย AI PrachinLife">
+          <div class="ai-assistant-feature-visual" aria-hidden="true">
+            <svg class="ai-assistant-mark" viewBox="0 0 36 36" role="img" aria-hidden="true">
+              <rect x="7" y="9" width="22" height="18" rx="7" fill="none" stroke="currentColor" stroke-width="2.2"/>
+              <circle cx="14" cy="18" r="1.8" fill="currentColor"/>
+              <circle cx="22" cy="18" r="1.8" fill="currentColor"/>
+              <path d="M14 23c2.2 1.6 5.8 1.6 8 0M18 5v4M15.5 5h5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="ai-assistant-feature-copy">
+            <strong>ผู้ช่วย AI PrachinLife</strong>
+            <span>ถามเป็นภาษาธรรมชาติ เช่น “หาร้านเจใกล้ฉัน” หรือ “มีคาเฟ่น่าไปไหม”</span>
+          </div>
+          <button
+            id="aiAssistantOpen"
+            class="ai-assistant-feature-button"
+            type="button"
+            disabled
+          >
+            ถาม AI
+          </button>
+        </section>
+
+        <section
+          class="robot-assist-panel"
+          id="robotAssistPanel"
+          aria-label="แชตกับผู้ช่วย AI PrachinLife"
+          hidden
+        >
+          <div class="robot-assist-header">
+            <div class="robot-assist-title">
+              <span class="robot-assist-avatar" aria-hidden="true">🤖</span>
+              <div>
+                <strong>ผู้ช่วย AI PrachinLife</strong>
+                <small id="robotAssistStatus">เชื่อมผ่าน LocalLife Decision API</small>
+              </div>
+            </div>
+            <div class="robot-assist-header-actions">
+              <button id="robotAssistReset" class="robot-assist-reset" type="button">ล้าง</button>
+              <button id="robotAssistClose" class="robot-assist-close" type="button" aria-label="ปิด">×</button>
+            </div>
+          </div>
+
+          <div class="robot-assist-messages" id="robotAssistMessages" aria-live="polite">
+            <div class="robot-assist-message assistant">
+              สวัสดีครับ ถามสิ่งที่อยากหาในชีวิตประจำวันได้เลยครับ
+            </div>
+          </div>
+
+          <div class="robot-assist-composer">
+            <textarea
+              id="robotAssistInput"
+              rows="2"
+              maxlength="4000"
+              placeholder="เช่น ร้านเจใกล้ฉัน / คาเฟ่น่าไป / ช่วยเลือกให้หน่อย"
+              aria-label="พิมพ์คำถามถึงผู้ช่วย AI"
+            ></textarea>
+            <button id="robotAssistSend" class="robot-assist-send" type="button">ส่ง</button>
+          </div>
+        </section>
+
+        <div class="legacy-runtime-row" aria-live="polite">
+          <span class="legacy-runtime-dot" id="runtimeDot"></span>
+          <span id="runtimeStatus">กำลังเชื่อม Regional Context...</span>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section class="ll-section" id="quickSection" hidden>
-        <h2 class="ll-section-title">คุณต้องการอะไร</h2>
-        <div class="ll-grid" id="quickLinks"></div>
-      </section>
+    <section id="controlCenter" class="section soft-section">
+      <div class="container">
+        <div class="section-heading compact">
+          <div>
+            <span class="eyebrow">EXPLORE YOUR DAY</span>
+            <h2>วันนี้อยากทำอะไร?</h2>
+            <p>เลือกเรื่องที่ต้องการ แล้วเราจะช่วยพาไปยังข้อมูลที่เกี่ยวข้อง</p>
+          </div>
+        </div>
 
-      <section class="ll-section ll-view-panel" id="viewPanel" hidden>
-        <h2 id="viewPanelTitle"></h2>
-        <p id="viewPanelCopy"></p>
-        <div class="ll-safe-note">หน้านี้ยังไม่แสดงข้อมูลสถานที่จนกว่าจะเชื่อม Published Read Model ในขั้นถัดไป</div>
-      </section>
+        <div id="mainCategoryFilters" class="control-main-grid legacy-category-grid">
+          <button type="button" class="control-main-button active" data-preview-category="recommended">
+            <span class="control-main-icon category-image-icon" aria-hidden="true">
+              <img src="../assets/images/icons/soft3d/recommended.png" alt="" class="category-icon-image">
+            </span>
+            <span class="control-main-copy">
+              <strong>แนะนำ</strong>
+              <small>วันนี้มีอะไรน่าสนใจ</small>
+            </span>
+          </button>
 
-      <section class="ll-error" id="contextError" role="alert" hidden>
-        <strong>ยังเปิดข้อมูลพื้นที่ไม่ได้</strong>
-        <p id="contextErrorMessage"></p>
-        <button class="ll-retry" id="retryContext" type="button">ลองใหม่</button>
-      </section>
-    </main>
+          <button type="button" class="control-main-button" data-preview-category="shopping">
+            <span class="control-main-icon category-image-icon" aria-hidden="true">
+              <img src="../assets/images/icons/soft3d/shopping.png" alt="" class="category-icon-image">
+            </span>
+            <span class="control-main-copy">
+              <strong>ช้อป</strong>
+              <small>โปรและสิทธิ์คุ้ม</small>
+            </span>
+          </button>
 
-    <nav class="ll-bottom-nav" id="bottomNav" aria-label="เมนูหลัก">
-      <a class="ll-nav-link" aria-disabled="true"><span class="ll-nav-icon">⌂</span><span>หน้าหลัก</span></a>
-      <a class="ll-nav-link" aria-disabled="true"><span class="ll-nav-icon">⌕</span><span>ค้นหา</span></a>
-      <a class="ll-nav-link" aria-disabled="true"><span class="ll-nav-icon">ช</span><span>กิน</span></a>
-      <a class="ll-nav-link" aria-disabled="true"><span class="ll-nav-icon">↗</span><span>เที่ยว</span></a>
-      <a class="ll-nav-link" aria-disabled="true"><span class="ll-nav-icon">✓</span><span>บริการ</span></a>
-    </nav>
-  </div>
-  <script src="../assets/locallife/web-shell-v1.js" defer></script>
+          <button type="button" class="control-main-button" data-preview-category="eat">
+            <span class="control-main-icon category-image-icon" aria-hidden="true">
+              <img src="../assets/images/icons/soft3d/eat.png" alt="" class="category-icon-image">
+            </span>
+            <span class="control-main-copy">
+              <strong>กิน</strong>
+              <small>ร้านอาหารและคาเฟ่</small>
+            </span>
+          </button>
+
+          <button type="button" class="control-main-button" data-preview-category="vegetarian">
+            <span class="control-main-icon category-image-icon" aria-hidden="true">
+              <img src="../assets/images/icons/jay-icon.jpeg" alt="" class="category-icon-image category-jay-real">
+            </span>
+            <span class="control-main-copy">
+              <strong>เจ / มังสวิรัติ</strong>
+              <small>ค้นทั่วไทยและใกล้ฉัน</small>
+            </span>
+          </button>
+
+          <button type="button" class="control-main-button" data-preview-category="go">
+            <span class="control-main-icon category-image-icon" aria-hidden="true">
+              <img src="../assets/images/icons/soft3d/travel.png" alt="" class="category-icon-image">
+            </span>
+            <span class="control-main-copy">
+              <strong>เที่ยว</strong>
+              <small>สถานที่และกิจกรรม</small>
+            </span>
+          </button>
+
+          <button type="button" class="control-main-button" data-preview-category="services">
+            <span class="control-main-icon category-image-icon" aria-hidden="true">
+              <img src="../assets/images/icons/soft3d/service.png" alt="" class="category-icon-image">
+            </span>
+            <span class="control-main-copy">
+              <strong>บริการ</strong>
+              <small>สิ่งที่ต้องใช้ใกล้ตัว</small>
+            </span>
+          </button>
+        </div>
+
+        <div id="recommendedOptions" class="control-options legacy-preview-options">
+          <div class="control-group">
+            <span class="filter-label">เลือกแบบเร็ว</span>
+            <div class="filter-buttons">
+              <button type="button" class="filter-button active" data-preview-chip="ทั้งหมด">✨ ทั้งหมด</button>
+              <button type="button" class="filter-button" data-preview-chip="ช้อปคุ้ม">🛒 ช้อปคุ้ม</button>
+              <button type="button" class="filter-button" data-preview-chip="กินอะไร">🍜 กินอะไร</button>
+              <button type="button" class="filter-button" data-preview-chip="อาหารเจ">🥬 หาอาหารเจ</button>
+              <button type="button" class="filter-button" data-preview-chip="ล่าสุด">🆕 ล่าสุด</button>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <span class="filter-label">ใกล้ฉัน</span>
+            <div class="filter-buttons">
+              <button id="nearMeBtn" type="button" class="filter-button">📍 ใกล้ฉัน</button>
+            </div>
+            <p class="control-note">
+              PrachinLife จะขอตำแหน่งเมื่อเปิดฟังก์ชันใกล้ฉันในขั้นเชื่อม Published Read Model เท่านั้น
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="previewResults" class="section">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">YOUR LOCAL LIFE</span>
+            <h2 id="previewTitle">แนะนำสำหรับวันนี้</h2>
+            <p id="previewCopy">
+              ขั้นนี้นำหน้าตา PrachinLife เดิมกลับมาก่อน แล้วค่อยเชื่อมข้อมูล Published Read Model ในขั้นถัดไป
+            </p>
+          </div>
+        </div>
+
+        <div class="legacy-result-placeholder" id="previewPlaceholder">
+          <div class="legacy-result-icon" aria-hidden="true">PL</div>
+          <div>
+            <strong>Visual Experience พร้อมแล้ว</strong>
+            <p>
+              ยังไม่ฝังข้อมูลร้าน สถานที่ โปรโมชั่น หรือข้อมูล Canonical ลงในหน้า Preview นี้
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section soft-section legacy-about">
+      <div class="container">
+        <span class="eyebrow">PRACHINLIFE × LOCALLIFE CORE</span>
+        <h2>หน้าตาเดิมที่คุ้นเคย แกนระบบใหม่ที่ใช้ร่วมกันได้</h2>
+        <p>
+          PrachinLife ยังคงประสบการณ์ใช้งานของตัวเอง ส่วน LocalLife Core ทำหน้าที่เป็นแกนข้อมูล
+          สัญญา และ API ภายใน โดยไม่ให้หน้าเว็บเขียน Canonical หรือ Published data โดยตรง
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <script
+    src="../regional_products/prachinburi/web/legacy-experience-v1.js?v=12r6"
+    defer
+  ></script>
 </body>
 </html>
