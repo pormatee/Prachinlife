@@ -36,6 +36,10 @@ class LocalLifeAPIRegionalContextV1Tests(unittest.TestCase):
         _install_api_dependency_stubs()
         os.environ["LOCALLIFE_REPOSITORY_ROOT"] = str(ROOT)
         sys.modules.pop("place_platform_v2.locallife_api_v1", None)
+        sys.modules.pop("place_platform_v2.api.locallife_v1", None)
+        api_package = sys.modules.get("place_platform_v2.api")
+        if api_package is not None:
+            api_package.__dict__.pop("locallife_v1", None)
         cls.api = importlib.import_module("place_platform_v2.locallife_api_v1")
         cls.server = ThreadingHTTPServer(("127.0.0.1", 0), cls.api.Handler)
         cls.thread = threading.Thread(target=cls.server.serve_forever, daemon=True)
