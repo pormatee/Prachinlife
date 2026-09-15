@@ -80,6 +80,16 @@
     "collected_at": "2026-09-13T00:39:00.551910+00:00"
   },
   {
+    "source_id": "lotus-dd84ac386c14027e",
+    "source_provider": "lotus",
+    "source_page": "https://my.lotuss.com/promotions/th",
+    "title": "Exclusive Meeting by Dao Coffee x Perth Santa",
+    "image_url": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202609110912211077.webp",
+    "destination_url": null,
+    "raw_type": "campaign",
+    "collected_at": "2026-09-15T01:12:37.544283+00:00"
+  },
+  {
     "source_id": "lotus-55dc5e8125bb4e74",
     "source_provider": "lotus",
     "source_page": "https://my.lotuss.com/promotions/th",
@@ -108,15 +118,5 @@
     "destination_url": null,
     "raw_type": "campaign",
     "collected_at": "2026-08-28T06:09:42.940890+00:00"
-  },
-  {
-    "source_id": "lotus-84d7ec7bc38a3ab1",
-    "source_provider": "lotus",
-    "source_page": "https://my.lotuss.com/promotions/th",
-    "title": "ใหม่! Yoose เครื่องโกนหนวดไฟฟ้าดีไซน์สุดมินิมอล",
-    "image_url": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202608181026017440.webp",
-    "destination_url": null,
-    "raw_type": "campaign",
-    "collected_at": "2026-08-18T23:49:11.702808+00:00"
   }
 ]
