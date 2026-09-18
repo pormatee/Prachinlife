@@ -70,6 +70,16 @@
     "collected_at": "2026-08-15T14:00:44.294306+07:00"
   },
   {
+    "source_id": "lotus-44160890fdeb2e24",
+    "source_provider": "lotus",
+    "source_page": "https://my.lotuss.com/promotions/th",
+    "title": "ลุ้นทอง ลุ้นรวย กับดีน่าและบีนเวลล์ ยิ่งซื้อเยอะ ยิ่งมีสิทธิ์ลุ้น",
+    "image_url": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202609170937020144.webp",
+    "destination_url": null,
+    "raw_type": "campaign",
+    "collected_at": "2026-09-18T01:04:35.105207+00:00"
+  },
+  {
     "source_id": "lotus-f22ffcb767fcb8ab",
     "source_provider": "lotus",
     "source_page": "https://my.lotuss.com/promotions/th",
@@ -108,15 +118,5 @@
     "destination_url": null,
     "raw_type": "campaign",
     "collected_at": "2026-09-05T00:38:29.259432+00:00"
-  },
-  {
-    "source_id": "lotus-bfe696c2e45df3c2",
-    "source_provider": "lotus",
-    "source_page": "https://my.lotuss.com/promotions/th",
-    "title": "โลตัส 32 ปี ช้อปครบยิ่งคุ้ม!​ แลกซื้อกระเป๋า 32 ปี Collection",
-    "image_url": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202609161211022972.webp",
-    "destination_url": null,
-    "raw_type": "campaign",
-    "collected_at": "2026-09-17T01:06:19.664891+00:00"
   }
 ]

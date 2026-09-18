@@ -1,6 +1,55 @@
 [
   {
     "schema_version": "1.1",
+    "id": "lotus-44160890fdeb2e24",
+    "content_type": "deal",
+    "original_type": "campaign",
+    "title": "ลุ้นทอง ลุ้นรวย กับดีน่าและบีนเวลล์ ยิ่งซื้อเยอะ ยิ่งมีสิทธิ์ลุ้น",
+    "summary": "แคมเปญหรือโปรโมชั่นจาก Lotus's",
+    "category": "shopping",
+    "tags": [
+      "deal",
+      "lotuss",
+      "campaign",
+      "แคมเปญโปรโมชั่น",
+      "lotus",
+      "โลตัส",
+      "แคมเปญ",
+      "national"
+    ],
+    "provider": {
+      "name": "Lotus's",
+      "type": "merchant"
+    },
+    "location": {
+      "scope": "national",
+      "country": "TH",
+      "province": null,
+      "district": null,
+      "subdistrict": null,
+      "place_name": null,
+      "latitude": null,
+      "longitude": null
+    },
+    "source": {
+      "name": "My Lotus's Official",
+      "url": "https://my.lotuss.com/promotions/th",
+      "type": "official_promotion",
+      "verified": true
+    },
+    "image_url": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202609170937020144.webp",
+    "published_at": null,
+    "expires_at": null,
+    "collected_at": "2026-09-18T01:04:35.105207+00:00",
+    "metadata": {
+      "old_price": 0,
+      "new_price": 0,
+      "expiry_text": "ตรวจสอบรายละเอียดจาก Lotus's",
+      "urgent": false
+    }
+  },
+  {
+    "schema_version": "1.1",
     "id": "lotus-ebf4eaf5b147648d",
     "content_type": "deal",
     "original_type": "campaign",
@@ -38,55 +87,6 @@
       "verified": true
     },
     "image_url": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202609110425271285.webp",
-    "published_at": null,
-    "expires_at": null,
-    "collected_at": "2026-09-17T01:06:19.664891+00:00",
-    "metadata": {
-      "old_price": 0,
-      "new_price": 0,
-      "expiry_text": "ตรวจสอบรายละเอียดจาก Lotus's",
-      "urgent": false
-    }
-  },
-  {
-    "schema_version": "1.1",
-    "id": "lotus-bfe696c2e45df3c2",
-    "content_type": "deal",
-    "original_type": "campaign",
-    "title": "โลตัส 32 ปี ช้อปครบยิ่งคุ้ม!​ แลกซื้อกระเป๋า 32 ปี Collection",
-    "summary": "แคมเปญหรือโปรโมชั่นจาก Lotus's",
-    "category": "shopping",
-    "tags": [
-      "deal",
-      "lotuss",
-      "campaign",
-      "แคมเปญโปรโมชั่น",
-      "lotus",
-      "โลตัส",
-      "แคมเปญ",
-      "national"
-    ],
-    "provider": {
-      "name": "Lotus's",
-      "type": "merchant"
-    },
-    "location": {
-      "scope": "national",
-      "country": "TH",
-      "province": null,
-      "district": null,
-      "subdistrict": null,
-      "place_name": null,
-      "latitude": null,
-      "longitude": null
-    },
-    "source": {
-      "name": "My Lotus's Official",
-      "url": "https://my.lotuss.com/promotions/th",
-      "type": "official_promotion",
-      "verified": true
-    },
-    "image_url": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202609161211022972.webp",
     "published_at": null,
     "expires_at": null,
     "collected_at": "2026-09-17T01:06:19.664891+00:00",
