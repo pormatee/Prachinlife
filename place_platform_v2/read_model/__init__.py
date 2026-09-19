@@ -11,8 +11,8 @@ from dataclasses import dataclass
 from math import asin, cos, radians, sin, sqrt
 from typing import Protocol, Sequence
 
-from .contracts import GeoPoint
-from .publication import PublishedPlaceView
+from ..contracts import GeoPoint
+from ..publication import PublishedPlaceView
 
 
 @dataclass(frozen=True)
