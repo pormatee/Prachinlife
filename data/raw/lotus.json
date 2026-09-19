@@ -70,6 +70,26 @@
     "collected_at": "2026-08-15T14:00:44.294306+07:00"
   },
   {
+    "source_id": "lotus-ea1a2dd728eb1e10",
+    "source_provider": "lotus",
+    "source_page": "https://my.lotuss.com/promotions/th",
+    "title": "วิสกัส®แมวกวักรับทรัพย์ ลุ้นรับโชคทอง",
+    "image_url": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202609180927066498.webp",
+    "destination_url": null,
+    "raw_type": "campaign",
+    "collected_at": "2026-09-19T01:00:12.880862+00:00"
+  },
+  {
+    "source_id": "lotus-a86dcfbfd33f6474",
+    "source_provider": "lotus",
+    "source_page": "https://my.lotuss.com/promotions/th",
+    "title": "ทองแตก แจกคอยน์ x3",
+    "image_url": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202609181118543071.webp",
+    "destination_url": null,
+    "raw_type": "campaign",
+    "collected_at": "2026-09-19T01:00:12.880862+00:00"
+  },
+  {
     "source_id": "lotus-44160890fdeb2e24",
     "source_provider": "lotus",
     "source_page": "https://my.lotuss.com/promotions/th",
@@ -98,25 +118,5 @@
     "destination_url": null,
     "raw_type": "campaign",
     "collected_at": "2026-09-15T01:12:37.544283+00:00"
-  },
-  {
-    "source_id": "lotus-ebf4eaf5b147648d",
-    "source_provider": "lotus",
-    "source_page": "https://my.lotuss.com/promotions/th",
-    "title": "H&S PLUS LINA-MIU FAN EXCLUSIVE",
-    "image_url": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202609110425271285.webp",
-    "destination_url": null,
-    "raw_type": "campaign",
-    "collected_at": "2026-09-17T01:06:19.664891+00:00"
-  },
-  {
-    "source_id": "lotus-fd0691d67bc2274d",
-    "source_provider": "lotus",
-    "source_page": "https://my.lotuss.com/promotions/th",
-    "title": "ช้อปแซลมอนสดนอร์เวย์ ลุ้นบินไปนอร์เวย์! หรือร่วม Workshop",
-    "image_url": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202609040912546154.webp",
-    "destination_url": null,
-    "raw_type": "campaign",
-    "collected_at": "2026-09-05T00:38:29.259432+00:00"
   }
 ]
