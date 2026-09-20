@@ -9,6 +9,7 @@ from urllib.parse import urlparse
 
 from ..application import decision_service_v1 as _decision_service
 from ..application import regional_context_service_v1 as _regional_context_service
+from ..cbi.api_shadow_v1 import observe_decision_request_shadow_v1 as _observe_cbi_shadow_decision_request
 from ..decision_action_contract_v1 import attach_decision_actions_v1
 from ..web_ai_runtime_v1 import run_decision as _run_master_brain_decision
 from ..web_ai_runtime_v1 import health_payload as _brain_health_payload
@@ -50,6 +51,9 @@ def health_payload() -> dict[str, Any]:
 
 
 def decision_payload(payload: dict[str, Any]) -> dict[str, Any]:
+    if isinstance(payload, dict):
+        _observe_cbi_shadow_decision_request(payload)
+
     return _decision_service.decision_payload(
         payload,
         run_decision=_run_master_brain_decision,
