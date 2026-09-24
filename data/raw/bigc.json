@@ -1,5 +1,35 @@
 [
   {
+    "source_id": "bigc-166538113436b536",
+    "source_provider": "bigc",
+    "source_page": "https://corporate.bigc.co.th/promotions-bigc?lang=th",
+    "title": "Big C ช้อปหยุดโลก ลดแรง รับสิ้นเดือน",
+    "image_url": "https://corporate.bigc.co.th/upload_file/promotion/260923134307_PDFE-LFSYL_9(24Sep-4Oct26)_c.jpg",
+    "destination_url": "https://linebc.bigc.co.th/catalog/SYL_9_24Sep-4Oct26?utm_source=Corp_BIG_C_Website&utm_medium=Corp_BIG_C_Website&utm_campaign=SYL_9_24Sep-4Oct26",
+    "raw_type": "campaign",
+    "collected_at": "2026-09-24T01:09:04.571594+00:00"
+  },
+  {
+    "source_id": "bigc-b92a5777c80ccbb3",
+    "source_provider": "bigc",
+    "source_page": "https://corporate.bigc.co.th/promotions-bigc?lang=th",
+    "title": "Big C Food Place ช้อปหยุดโลก ลดแรง รับสิ้นเดือน",
+    "image_url": "https://corporate.bigc.co.th/upload_file/promotion/260923135135_PDFE-LFSYL_9(24Sep-4Oct26)FP_c.jpg",
+    "destination_url": "https://linebc.bigc.co.th/catalog/SYL_9_24Sep-4Oct26_FP?utm_source=Corp_BIG_C_Website&utm_medium=Corp_BIG_C_Website&utm_campaign=SYL_9_24Sep-4Oct26_FP",
+    "raw_type": "campaign",
+    "collected_at": "2026-09-24T01:09:04.571594+00:00"
+  },
+  {
+    "source_id": "bigc-a552833875eb9e23",
+    "source_provider": "bigc",
+    "source_page": "https://corporate.bigc.co.th/promotions-bigc?lang=th",
+    "title": "Big C Market ช้อปหยุดโลก ลดแรง รับสิ้นเดือน",
+    "image_url": "https://corporate.bigc.co.th/upload_file/promotion/260923135309_PDFE-LFSYL_9(24Sep-4Oct26)BMK_c.jpg",
+    "destination_url": "https://linebc.bigc.co.th/catalog/SYL_9_24Sep-4Oct26_BMK?utm_source=Corp_BIG_C_Website&utm_medium=Corp_BIG_C_Website&utm_campaign=SYL_9_24Sep-4Oct26_BMK",
+    "raw_type": "campaign",
+    "collected_at": "2026-09-24T01:09:04.571594+00:00"
+  },
+  {
     "source_id": "bigc-35fddf107204b96c",
     "source_provider": "bigc",
     "source_page": "https://corporate.bigc.co.th/promotions-bigc?lang=th",
@@ -26,36 +56,6 @@
     "title": "สด ยกขบวนแบรนด์คุณภาพ ที่ Big C market",
     "image_url": "https://corporate.bigc.co.th/upload_file/promotion/260902035012_E-BMK9-2026_pages-to-jpg-0001_c.jpg",
     "destination_url": "https://linebc.bigc.co.th/catalog/e-catalogue-bmk-bro-9-2026?utm_source=Corp_BIG_C_Website&utm_medium=Corp_BIG_C_Website&utm_campaign=|PV:DMK|DA:20260326|AN:|OB:traffic|FM:Photo|",
-    "raw_type": "campaign",
-    "collected_at": "2026-09-03T00:58:35.952177+00:00"
-  },
-  {
-    "source_id": "bigc-4571790feb29880b",
-    "source_provider": "bigc",
-    "source_page": "https://corporate.bigc.co.th/promotions-bigc?lang=th",
-    "title": "สด ยกขบวนแบรนด์คุณภาพ ที่ Big C",
-    "image_url": "https://corporate.bigc.co.th/upload_file/promotion/260902035848_E-BRO9-2026_page-0001_c.jpg",
-    "destination_url": "https://linebc.bigc.co.th/catalog/e-catalogue-bro-9-2026?utm_source=Corp_BIG_C_Website&utm_medium=Corp_BIG_C_Website&utm_campaign=|PV:DMK|DA:20260326|AN:|OB:traffic|FM:Photo|",
-    "raw_type": "campaign",
-    "collected_at": "2026-09-03T00:58:35.952177+00:00"
-  },
-  {
-    "source_id": "bigc-04d47a0307d90c4a",
-    "source_provider": "bigc",
-    "source_page": "https://corporate.bigc.co.th/promotions-bigc?lang=th",
-    "title": "สด ยกขบวนแบรนด์คุณภาพ ที่ Big C foodplace",
-    "image_url": "https://corporate.bigc.co.th/upload_file/promotion/260902040214_E-FP9-2026_page-0001_c.jpg",
-    "destination_url": "https://linebc.bigc.co.th/catalog/e-catalogue-foodplace-9-2026?utm_source=Corp_BIG_C_Website&utm_medium=Corp_BIG_C_Website&utm_campaign=|PV:DMK|DA:20260326|AN:|OB:traffic|FM:Photo|",
-    "raw_type": "campaign",
-    "collected_at": "2026-09-03T00:58:35.952177+00:00"
-  },
-  {
-    "source_id": "bigc-7316e0c454e6abc6",
-    "source_provider": "bigc",
-    "source_page": "https://corporate.bigc.co.th/promotions-bigc?lang=th",
-    "title": "PLAYFUL CARTOON World วันที่ 3 - 30 ก.ย 69",
-    "image_url": "https://corporate.bigc.co.th/upload_file/promotion/260902034900_E-Cat.SLKidsCharacter_2_pages-to-jpg-0001_c.jpg",
-    "destination_url": "https://linebc.bigc.co.th/catalog/e-catalogue-SL-Kids-Character-2?utm_source=Corp_BIG_C_Website&utm_medium=Corp_BIG_C_Website&utm_campaign=|PV:DMK|DA:20260326|AN:|OB:traffic|FM:Photo|",
     "raw_type": "campaign",
     "collected_at": "2026-09-03T00:58:35.952177+00:00"
   }
