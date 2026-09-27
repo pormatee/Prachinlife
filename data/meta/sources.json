@@ -1,18 +1,18 @@
 {
-  "overall_status": "degraded",
+  "overall_status": "healthy",
   "sources": {
     "bigc": {
-      "status": "stale",
+      "status": "fresh",
       "record_count": 6,
-      "last_attempt_at": "2026-09-26T01:14:04.007438+00:00",
-      "last_success_at": "2026-09-25T01:10:59.880044+00:00",
-      "last_error": "Big C download failed: HTTPSConnectionPool(host='corporate.bigc.co.th', port=443): Max retries exceeded with url: /promotions-bigc?lang=th (Caused by NameResolutionError(\"HTTPSConnection(host='corporate.bigc.co.th', port=443): Failed to resolve 'corporate.bigc.co.th' ([Errno -3] Temporary failure in name resolution)\"))"
+      "last_attempt_at": "2026-09-27T01:06:47.473582+00:00",
+      "last_success_at": "2026-09-27T01:06:47.473582+00:00",
+      "last_error": null
     },
     "lotus": {
       "status": "fresh",
       "record_count": 12,
-      "last_attempt_at": "2026-09-26T01:14:08.786344+00:00",
-      "last_success_at": "2026-09-26T01:14:08.786344+00:00",
+      "last_attempt_at": "2026-09-27T01:06:48.119791+00:00",
+      "last_success_at": "2026-09-27T01:06:48.119791+00:00",
       "last_error": null
     },
     "cjmore": {
