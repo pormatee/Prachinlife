@@ -1,6 +1,55 @@
 [
   {
     "schema_version": "1.1",
+    "id": "lotus-c1cbc6ab575b195e",
+    "content_type": "deal",
+    "original_type": "campaign",
+    "title": "ท้าให้ลอง ชุดไก่ย่างส้มตำเจ๊แดง",
+    "summary": "แคมเปญหรือโปรโมชั่นจาก Lotus's",
+    "category": "shopping",
+    "tags": [
+      "deal",
+      "lotuss",
+      "campaign",
+      "แคมเปญโปรโมชั่น",
+      "lotus",
+      "โลตัส",
+      "แคมเปญ",
+      "national"
+    ],
+    "provider": {
+      "name": "Lotus's",
+      "type": "merchant"
+    },
+    "location": {
+      "scope": "national",
+      "country": "TH",
+      "province": null,
+      "district": null,
+      "subdistrict": null,
+      "place_name": null,
+      "latitude": null,
+      "longitude": null
+    },
+    "source": {
+      "name": "My Lotus's Official",
+      "url": "https://my.lotuss.com/promotions/th",
+      "type": "official_promotion",
+      "verified": true
+    },
+    "image_url": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202609230741075037.webp",
+    "published_at": null,
+    "expires_at": null,
+    "collected_at": "2026-09-28T01:26:09.326979+00:00",
+    "metadata": {
+      "old_price": 0,
+      "new_price": 0,
+      "expiry_text": "ตรวจสอบรายละเอียดจาก Lotus's",
+      "urgent": false
+    }
+  },
+  {
+    "schema_version": "1.1",
     "id": "lotus-62e19a8b49d77d0b",
     "content_type": "deal",
     "original_type": "campaign",
@@ -335,55 +384,6 @@
     "published_at": null,
     "expires_at": null,
     "collected_at": "2026-09-22T01:28:07.183731+00:00",
-    "metadata": {
-      "old_price": 0,
-      "new_price": 0,
-      "expiry_text": "ตรวจสอบรายละเอียดจาก Lotus's",
-      "urgent": false
-    }
-  },
-  {
-    "schema_version": "1.1",
-    "id": "lotus-ea1a2dd728eb1e10",
-    "content_type": "deal",
-    "original_type": "campaign",
-    "title": "วิสกัส®แมวกวักรับทรัพย์ ลุ้นรับโชคทอง",
-    "summary": "แคมเปญหรือโปรโมชั่นจาก Lotus's",
-    "category": "shopping",
-    "tags": [
-      "deal",
-      "lotuss",
-      "campaign",
-      "แคมเปญโปรโมชั่น",
-      "lotus",
-      "โลตัส",
-      "แคมเปญ",
-      "national"
-    ],
-    "provider": {
-      "name": "Lotus's",
-      "type": "merchant"
-    },
-    "location": {
-      "scope": "national",
-      "country": "TH",
-      "province": null,
-      "district": null,
-      "subdistrict": null,
-      "place_name": null,
-      "latitude": null,
-      "longitude": null
-    },
-    "source": {
-      "name": "My Lotus's Official",
-      "url": "https://my.lotuss.com/promotions/th",
-      "type": "official_promotion",
-      "verified": true
-    },
-    "image_url": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202609180927066498.webp",
-    "published_at": null,
-    "expires_at": null,
-    "collected_at": "2026-09-19T01:00:12.880862+00:00",
     "metadata": {
       "old_price": 0,
       "new_price": 0,
