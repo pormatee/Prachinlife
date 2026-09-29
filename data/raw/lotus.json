@@ -80,6 +80,16 @@
     "collected_at": "2026-09-25T01:11:00.706034+00:00"
   },
   {
+    "source_id": "lotus-465cb8a87c4fed09",
+    "source_provider": "lotus",
+    "source_page": "https://my.lotuss.com/promotions/th",
+    "title": "ท้าให้ลอง ไก่ย่างสูตรแกงหม้อแม่จูน",
+    "image_url": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202609230704245109.webp",
+    "destination_url": null,
+    "raw_type": "campaign",
+    "collected_at": "2026-09-29T02:29:52.624761+00:00"
+  },
+  {
     "source_id": "lotus-c1cbc6ab575b195e",
     "source_provider": "lotus",
     "source_page": "https://my.lotuss.com/promotions/th",
@@ -105,16 +115,6 @@
     "source_page": "https://my.lotuss.com/promotions/th",
     "title": "ช้อปคุ้มๆ รับคอยน์ล้นๆ เมื่อช้อปสินค้าภายใต้แบรนด์ดัง ที่ โลตัส โก เฟรช ซูเปอร์มาร์เก็ต",
     "image_url": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202609211015288892.webp",
-    "destination_url": null,
-    "raw_type": "campaign",
-    "collected_at": "2026-09-22T01:28:07.183731+00:00"
-  },
-  {
-    "source_id": "lotus-c66b572dcd4a5b23",
-    "source_provider": "lotus",
-    "source_page": "https://my.lotuss.com/promotions/th",
-    "title": "ช้อปคุ้มๆ รับคอยน์ล้นๆ เมื่อช้อปสินค้าภายใต้แบรนด์ดัง ที่ โลตัส ไฮเปอร์มาร์เก็ต (สาขาใหญ่)",
-    "image_url": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202609211013555315.webp",
     "destination_url": null,
     "raw_type": "campaign",
     "collected_at": "2026-09-22T01:28:07.183731+00:00"
