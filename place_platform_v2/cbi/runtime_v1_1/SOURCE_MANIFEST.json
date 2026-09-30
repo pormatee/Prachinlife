@@ -1,0 +1,27 @@
+{
+  "domain_id": "local_life",
+  "domain_pack_version": "1.1.0",
+  "files": {
+    "cbi/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "cbi/ai_hub_provider_port_v1.py": "b2adac01cbde5fb4c823d6fe14b225e9d0b5adb204c3518eb2f8ef1c675af46e",
+    "cbi/clarification_builder.py": "0ed1385ef5783bb0e9e12453f41be6c4efaa8f80e5c90615b846cf8f5aa89680",
+    "cbi/confidence_gate.py": "746f3a5d8d3ae60e7c4656497ce70f7169632ac366dd27991f026ff1068f26d2",
+    "cbi/conversation_context.py": "de5d600ec9e469416aa83a1e15418bfcbed0a3b836a629d3041b2bbeb69c2c58",
+    "cbi/core.py": "458a2c622c85de9064c09285e57412fc79d065459678f83578bec0340e072f32",
+    "cbi/core_v1_1.py": "c1c3fa87d7c3f11ff5be5b96e20cfbedcb6f4bc8c43aa5ce4e0cb8213623669a",
+    "cbi/provider_port.py": "9a76d72425413d5b5fc49fd77e7ae8545e936a4a888ee0ab85250ffc68d10971",
+    "cbi/reference_resolver.py": "0637604e09ae8d3787f436d7aead70800794af6d1609a91ab740cd92aa233c76",
+    "cbi/request_validator.py": "e06e24ed46869f84d6317f103cf6953e7baec1c4c1e0ea51b5641323eeaf6d94",
+    "cbi/result_builder.py": "ef2fa3fe61174bbdc945d67a38b61f64a7176cdeb1c3710d0b190e7f93f21af5",
+    "cbi/semantic_interpreter.py": "fa8cfcaae87a0563fc31a8bae4a75f0a4973696559e372a9d7d9f73770ad0e12",
+    "cbi/state_manager.py": "1270e58a7858d9e9977e2c523732b696c73686c97c4d974e0739da02be839163",
+    "cbi/version_guard.py": "2bc4c8b1af9129791521b5847c31146a2109a073a3de699e993911547c8e1070",
+    "domain_packs/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "domain_packs/locallife.py": "a5136acfdec360f45451355268675079f84e3ecd8bf539ecc9fae2d896c792be"
+  },
+  "projection_only": true,
+  "runtime_version": "1.1.0",
+  "schema_version": "LOCALLIFE-CBI-PINNED-RUNTIME-MANIFEST-V1",
+  "source_commit": "4957dc6db12bdf5bccd0d95bbe8b22dbef8f1d17",
+  "source_repository": "pormatee/MEasyMate_CBI"
+}
