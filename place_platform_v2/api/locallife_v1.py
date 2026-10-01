@@ -9,7 +9,14 @@ from urllib.parse import urlparse
 
 from ..application import decision_service_v1 as _decision_service
 from ..application import regional_context_service_v1 as _regional_context_service
-from ..cbi.api_shadow_v1 import observe_decision_request_shadow_v1 as _observe_cbi_shadow_decision_request
+from ..cbi.api_shadow_v1 import (
+    cbi_api_shadow_enabled_v1 as _cbi_api_shadow_enabled,
+    configure_cbi_api_shadow_observer_v1 as _configure_cbi_shadow_observer,
+    observe_decision_request_shadow_v1 as _observe_cbi_shadow_decision_request,
+)
+from ..cbi.runtime_shadow_v1_1 import (
+    build_locallife_cbi_runtime_shadow_v1_1,
+)
 from ..decision_action_contract_v1 import attach_decision_actions_v1
 from ..web_ai_runtime_v1 import run_decision as _run_master_brain_decision
 from ..web_ai_runtime_v1 import health_payload as _brain_health_payload
@@ -22,6 +29,17 @@ DEFAULT_HOST = "0.0.0.0"
 DEFAULT_PORT = 8000
 DEFAULT_ALLOWED_ORIGINS = ("https://pormatee.github.io",)
 MAX_BODY_BYTES = 64 * 1024
+
+_CBI_RUNTIME_SHADOW_V1_1 = (
+    build_locallife_cbi_runtime_shadow_v1_1()
+)
+
+
+def _ensure_cbi_runtime_shadow_v1_1() -> None:
+    if not _cbi_api_shadow_enabled():
+        _configure_cbi_shadow_observer(
+            _CBI_RUNTIME_SHADOW_V1_1.observe_payload
+        )
 
 
 def _allowed_origins() -> set[str]:
@@ -52,6 +70,7 @@ def health_payload() -> dict[str, Any]:
 
 def decision_payload(payload: dict[str, Any]) -> dict[str, Any]:
     if isinstance(payload, dict):
+        _ensure_cbi_runtime_shadow_v1_1()
         _observe_cbi_shadow_decision_request(payload)
 
     return _decision_service.decision_payload(
