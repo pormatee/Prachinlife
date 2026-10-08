@@ -1,6 +1,104 @@
 [
   {
     "schema_version": "1.1",
+    "id": "lotus-ea1a2dd728eb1e10",
+    "content_type": "deal",
+    "original_type": "campaign",
+    "title": "วิสกัส®แมวกวักรับทรัพย์ ลุ้นรับโชคทอง",
+    "summary": "แคมเปญหรือโปรโมชั่นจาก Lotus's",
+    "category": "shopping",
+    "tags": [
+      "deal",
+      "lotuss",
+      "campaign",
+      "แคมเปญโปรโมชั่น",
+      "lotus",
+      "โลตัส",
+      "แคมเปญ",
+      "national"
+    ],
+    "provider": {
+      "name": "Lotus's",
+      "type": "merchant"
+    },
+    "location": {
+      "scope": "national",
+      "country": "TH",
+      "province": null,
+      "district": null,
+      "subdistrict": null,
+      "place_name": null,
+      "latitude": null,
+      "longitude": null
+    },
+    "source": {
+      "name": "My Lotus's Official",
+      "url": "https://my.lotuss.com/promotions/th",
+      "type": "official_promotion",
+      "verified": true
+    },
+    "image_url": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202609180927066498.webp",
+    "published_at": null,
+    "expires_at": null,
+    "collected_at": "2026-10-08T02:34:26.684434+00:00",
+    "metadata": {
+      "old_price": 0,
+      "new_price": 0,
+      "expiry_text": "ตรวจสอบรายละเอียดจาก Lotus's",
+      "urgent": false
+    }
+  },
+  {
+    "schema_version": "1.1",
+    "id": "bigc-213732f8b422169f",
+    "content_type": "deal",
+    "original_type": "campaign",
+    "title": "E-Cat imp 6_France 2026",
+    "summary": "แคมเปญหรือโปรโมชั่นจาก Big C",
+    "category": "shopping",
+    "tags": [
+      "deal",
+      "big c",
+      "campaign",
+      "แคมเปญโปรโมชั่น",
+      "bigc",
+      "บิ๊กซี",
+      "แคมเปญ",
+      "national"
+    ],
+    "provider": {
+      "name": "Big C",
+      "type": "merchant"
+    },
+    "location": {
+      "scope": "national",
+      "country": "TH",
+      "province": null,
+      "district": null,
+      "subdistrict": null,
+      "place_name": null,
+      "latitude": null,
+      "longitude": null
+    },
+    "source": {
+      "name": "Big C Official",
+      "url": "https://linebc.bigc.co.th/catalog/e-cat-imp-6-france?utm_source=Corp_BIG_C_Website&utm_medium=promotion&utm_campaign=|PV:DMK|DA:20261008|AN:-|OB:VIEW|FM:Photo|FT:Line_Connect_Event|CN:e-cat-imp-6-fran",
+      "type": "official_promotion",
+      "verified": true
+    },
+    "image_url": "https://corporate.bigc.co.th/upload_file/promotion/260929104413_07f571cb745e.jpg",
+    "published_at": null,
+    "expires_at": null,
+    "collected_at": "2026-10-08T02:34:22.734248+00:00",
+    "metadata": {
+      "old_price": 0,
+      "new_price": 0,
+      "expiry_text": "ตรวจสอบรายละเอียดจาก Big C",
+      "urgent": false
+    }
+  },
+  {
+    "schema_version": "1.1",
     "id": "lotus-f2e153f3acdf4604",
     "content_type": "deal",
     "original_type": "member_offer",
@@ -346,55 +444,6 @@
   },
   {
     "schema_version": "1.1",
-    "id": "bigc-434350656aa69ec3",
-    "content_type": "deal",
-    "original_type": "campaign",
-    "title": "Taste of Thailand Guaranteed by Big C (26store) - Chinese",
-    "summary": "แคมเปญหรือโปรโมชั่นจาก Big C",
-    "category": "shopping",
-    "tags": [
-      "deal",
-      "big c",
-      "campaign",
-      "แคมเปญโปรโมชั่น",
-      "bigc",
-      "บิ๊กซี",
-      "แคมเปญ",
-      "national"
-    ],
-    "provider": {
-      "name": "Big C",
-      "type": "merchant"
-    },
-    "location": {
-      "scope": "national",
-      "country": "TH",
-      "province": null,
-      "district": null,
-      "subdistrict": null,
-      "place_name": null,
-      "latitude": null,
-      "longitude": null
-    },
-    "source": {
-      "name": "Big C Official",
-      "url": "https://linebc.bigc.co.th/catalog/e-tourist-7-26store-chinese?utm_source=Corp_BIG_C_Website&utm_medium=promotion&utm_campaign=|PV:DMK|DA:20261001|AN:-|OB:VIEW|FM:Photo|FT:Line_Connect_Event|CN:e-touri",
-      "type": "official_promotion",
-      "verified": true
-    },
-    "image_url": "https://corporate.bigc.co.th/upload_file/promotion/260930092721_7a182ffe2ea2.jpg",
-    "published_at": null,
-    "expires_at": null,
-    "collected_at": "2026-10-01T01:49:31.500524+00:00",
-    "metadata": {
-      "old_price": 0,
-      "new_price": 0,
-      "expiry_text": "ตรวจสอบรายละเอียดจาก Big C",
-      "urgent": false
-    }
-  },
-  {
-    "schema_version": "1.1",
     "id": "lotus-465cb8a87c4fed09",
     "content_type": "deal",
     "original_type": "campaign",
@@ -484,55 +533,6 @@
     "published_at": null,
     "expires_at": null,
     "collected_at": "2026-09-28T01:26:09.326979+00:00",
-    "metadata": {
-      "old_price": 0,
-      "new_price": 0,
-      "expiry_text": "ตรวจสอบรายละเอียดจาก Lotus's",
-      "urgent": false
-    }
-  },
-  {
-    "schema_version": "1.1",
-    "id": "lotus-62e19a8b49d77d0b",
-    "content_type": "deal",
-    "original_type": "campaign",
-    "title": "ช้อปครบ รับทันที!! ที่โลตัส โก เฟรช (สาขาเล็ก)",
-    "summary": "แคมเปญหรือโปรโมชั่นจาก Lotus's",
-    "category": "shopping",
-    "tags": [
-      "deal",
-      "lotuss",
-      "campaign",
-      "แคมเปญโปรโมชั่น",
-      "lotus",
-      "โลตัส",
-      "แคมเปญ",
-      "national"
-    ],
-    "provider": {
-      "name": "Lotus's",
-      "type": "merchant"
-    },
-    "location": {
-      "scope": "national",
-      "country": "TH",
-      "province": null,
-      "district": null,
-      "subdistrict": null,
-      "place_name": null,
-      "latitude": null,
-      "longitude": null
-    },
-    "source": {
-      "name": "My Lotus's Official",
-      "url": "https://my.lotuss.com/promotions/th",
-      "type": "official_promotion",
-      "verified": true
-    },
-    "image_url": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202609240725010508.webp",
-    "published_at": null,
-    "expires_at": null,
-    "collected_at": "2026-09-25T01:11:00.706034+00:00",
     "metadata": {
       "old_price": 0,
       "new_price": 0,
