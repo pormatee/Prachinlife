@@ -4,15 +4,15 @@
     "bigc": {
       "status": "fresh",
       "record_count": 6,
-      "last_attempt_at": "2026-10-08T02:34:22.734641+00:00",
-      "last_success_at": "2026-10-08T02:34:22.734641+00:00",
+      "last_attempt_at": "2026-10-09T02:48:39.827997+00:00",
+      "last_success_at": "2026-10-09T02:48:39.827997+00:00",
       "last_error": null
     },
     "lotus": {
       "status": "fresh",
       "record_count": 12,
-      "last_attempt_at": "2026-10-08T02:34:26.684763+00:00",
-      "last_success_at": "2026-10-08T02:34:26.684763+00:00",
+      "last_attempt_at": "2026-10-09T02:48:47.260672+00:00",
+      "last_success_at": "2026-10-09T02:48:47.260672+00:00",
       "last_error": null
     },
     "cjmore": {

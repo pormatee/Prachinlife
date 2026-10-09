@@ -1,10 +1,10 @@
 [
   {
     "schema_version": "1.1",
-    "id": "lotus-ea1a2dd728eb1e10",
+    "id": "lotus-bb047f333185cdd2",
     "content_type": "deal",
     "original_type": "campaign",
-    "title": "วิสกัส®แมวกวักรับทรัพย์ ลุ้นรับโชคทอง",
+    "title": "ซิมทรูพร้อมใช้ 30 วัน 199 บาท",
     "summary": "แคมเปญหรือโปรโมชั่นจาก Lotus's",
     "category": "shopping",
     "tags": [
@@ -37,10 +37,59 @@
       "type": "official_promotion",
       "verified": true
     },
-    "image_url": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202609180927066498.webp",
+    "image_url": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202610080613393592.webp",
     "published_at": null,
     "expires_at": null,
-    "collected_at": "2026-10-08T02:34:26.684434+00:00",
+    "collected_at": "2026-10-09T02:48:47.260364+00:00",
+    "metadata": {
+      "old_price": 0,
+      "new_price": 0,
+      "expiry_text": "ตรวจสอบรายละเอียดจาก Lotus's",
+      "urgent": false
+    }
+  },
+  {
+    "schema_version": "1.1",
+    "id": "lotus-ab08926a05a1a610",
+    "content_type": "deal",
+    "original_type": "campaign",
+    "title": "ช้อปแซลมอนสดนอร์เวย์ครบ 499 บาท แลกสิทธิ์คีบแซลมอนซาชิมิฟรี!!",
+    "summary": "แคมเปญหรือโปรโมชั่นจาก Lotus's",
+    "category": "shopping",
+    "tags": [
+      "deal",
+      "lotuss",
+      "campaign",
+      "แคมเปญโปรโมชั่น",
+      "lotus",
+      "โลตัส",
+      "แคมเปญ",
+      "national"
+    ],
+    "provider": {
+      "name": "Lotus's",
+      "type": "merchant"
+    },
+    "location": {
+      "scope": "national",
+      "country": "TH",
+      "province": null,
+      "district": null,
+      "subdistrict": null,
+      "place_name": null,
+      "latitude": null,
+      "longitude": null
+    },
+    "source": {
+      "name": "My Lotus's Official",
+      "url": "https://my.lotuss.com/promotions/th",
+      "type": "official_promotion",
+      "verified": true
+    },
+    "image_url": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202610071014372800.webp",
+    "published_at": null,
+    "expires_at": null,
+    "collected_at": "2026-10-09T02:48:47.260364+00:00",
     "metadata": {
       "old_price": 0,
       "new_price": 0,
@@ -141,55 +190,6 @@
     "published_at": null,
     "expires_at": null,
     "collected_at": "2026-10-02T02:02:07.658955+00:00",
-    "metadata": {
-      "old_price": 0,
-      "new_price": 0,
-      "expiry_text": "ตรวจสอบรายละเอียดจาก Lotus's",
-      "urgent": false
-    }
-  },
-  {
-    "schema_version": "1.1",
-    "id": "lotus-c66b572dcd4a5b23",
-    "content_type": "deal",
-    "original_type": "campaign",
-    "title": "ช้อปคุ้มๆ รับคอยน์ล้นๆ เมื่อช้อปสินค้าภายใต้แบรนด์ดัง ที่ โลตัส ไฮเปอร์มาร์เก็ต (สาขาใหญ่)",
-    "summary": "แคมเปญหรือโปรโมชั่นจาก Lotus's",
-    "category": "shopping",
-    "tags": [
-      "deal",
-      "lotuss",
-      "campaign",
-      "แคมเปญโปรโมชั่น",
-      "lotus",
-      "โลตัส",
-      "แคมเปญ",
-      "national"
-    ],
-    "provider": {
-      "name": "Lotus's",
-      "type": "merchant"
-    },
-    "location": {
-      "scope": "national",
-      "country": "TH",
-      "province": null,
-      "district": null,
-      "subdistrict": null,
-      "place_name": null,
-      "latitude": null,
-      "longitude": null
-    },
-    "source": {
-      "name": "My Lotus's Official",
-      "url": "https://my.lotuss.com/promotions/th",
-      "type": "official_promotion",
-      "verified": true
-    },
-    "image_url": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202609211013555315.webp",
-    "published_at": null,
-    "expires_at": null,
-    "collected_at": "2026-10-01T01:49:42.535214+00:00",
     "metadata": {
       "old_price": 0,
       "new_price": 0,
