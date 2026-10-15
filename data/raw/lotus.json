@@ -60,6 +60,26 @@
     "collected_at": "2026-08-15T14:00:44.294306+07:00"
   },
   {
+    "source_id": "lotus-c8a801fb31fe3c3b",
+    "source_provider": "lotus",
+    "source_page": "https://my.lotuss.com/promotions/th",
+    "title": "รายละเอียดกิจกรรม “ฮาโลวีนหรรษา นาทีต้องมนต์ ที่โลตัส”",
+    "image_url": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202610140902197766.webp",
+    "destination_url": null,
+    "raw_type": "campaign",
+    "collected_at": "2026-10-15T01:15:07.621949+00:00"
+  },
+  {
+    "source_id": "lotus-4ff86df89e36d6e5",
+    "source_provider": "lotus",
+    "source_page": "https://my.lotuss.com/promotions/th",
+    "title": "CAT DOG n joy X Lotus's with Offroad ลุ้นรับสิทธิ์! เป็นผู้โชคดี 50 คน",
+    "image_url": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202610140648308268.webp",
+    "destination_url": null,
+    "raw_type": "campaign",
+    "collected_at": "2026-10-15T01:15:07.621949+00:00"
+  },
+  {
     "source_id": "lotus-f3388045ed589697",
     "source_provider": "lotus",
     "source_page": "https://my.lotuss.com/promotions/th",
@@ -80,6 +100,16 @@
     "collected_at": "2026-10-09T02:48:47.260364+00:00"
   },
   {
+    "source_id": "lotus-aa233784441bd318",
+    "source_provider": "lotus",
+    "source_page": "https://my.lotuss.com/promotions/th",
+    "title": "Downy soft heaven Lucky Draw",
+    "image_url": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202610050942552734.webp",
+    "destination_url": null,
+    "raw_type": "campaign",
+    "collected_at": "2026-10-15T01:15:07.621949+00:00"
+  },
+  {
     "source_id": "lotus-ab08926a05a1a610",
     "source_provider": "lotus",
     "source_page": "https://my.lotuss.com/promotions/th",
@@ -88,35 +118,5 @@
     "destination_url": null,
     "raw_type": "campaign",
     "collected_at": "2026-10-09T02:48:47.260364+00:00"
-  },
-  {
-    "source_id": "lotus-465cb8a87c4fed09",
-    "source_provider": "lotus",
-    "source_page": "https://my.lotuss.com/promotions/th",
-    "title": "ท้าให้ลอง ไก่ย่างสูตรแกงหม้อแม่จูน",
-    "image_url": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202609230704245109.webp",
-    "destination_url": null,
-    "raw_type": "campaign",
-    "collected_at": "2026-09-29T02:29:52.624761+00:00"
-  },
-  {
-    "source_id": "lotus-c1cbc6ab575b195e",
-    "source_provider": "lotus",
-    "source_page": "https://my.lotuss.com/promotions/th",
-    "title": "ท้าให้ลอง ชุดไก่ย่างส้มตำเจ๊แดง",
-    "image_url": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202609230741075037.webp",
-    "destination_url": null,
-    "raw_type": "campaign",
-    "collected_at": "2026-09-28T01:26:09.326979+00:00"
-  },
-  {
-    "source_id": "lotus-92a1ad3155774a78",
-    "source_provider": "lotus",
-    "source_page": "https://my.lotuss.com/promotions/th",
-    "title": "ช้อปคุ้มๆ รับคอยน์ล้นๆ เมื่อช้อปสินค้าภายใต้แบรนด์ดัง ที่ โลตัส โก เฟรช มินิ ซูเปอร์มาร์เก็ต",
-    "image_url": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202609211016174896.webp",
-    "destination_url": null,
-    "raw_type": "campaign",
-    "collected_at": "2026-09-22T01:28:07.183731+00:00"
   }
 ]
