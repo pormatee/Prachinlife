@@ -1,5 +1,15 @@
 [
   {
+    "source_id": "lotus-ae20b420434bc09b",
+    "source_provider": "lotus",
+    "source_page": "https://my.lotuss.com/promotions/th",
+    "title": "อย่าลืม!! เปิดแอปดู คูปองส่วนลดพิเศษ เฉพาะคุณ 7 ต.ค. 69 - 31 ต.ค. 69",
+    "image_url": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202605250654037428.webp",
+    "destination_url": null,
+    "raw_type": "coupon",
+    "collected_at": "2026-10-16T01:01:12.541077+00:00"
+  },
+  {
     "source_id": "lotus-f2e153f3acdf4604",
     "source_provider": "lotus",
     "source_page": "https://my.lotuss.com/promotions/th",
@@ -60,6 +70,16 @@
     "collected_at": "2026-08-15T14:00:44.294306+07:00"
   },
   {
+    "source_id": "lotus-17b1aa7f8beddbe2",
+    "source_provider": "lotus",
+    "source_page": "https://my.lotuss.com/promotions/th",
+    "title": "โลตัสช่วยฟื้นบ้านหลังน้ำลด",
+    "image_url": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202610150356565874.webp",
+    "destination_url": null,
+    "raw_type": "campaign",
+    "collected_at": "2026-10-16T01:01:12.541077+00:00"
+  },
+  {
     "source_id": "lotus-c8a801fb31fe3c3b",
     "source_provider": "lotus",
     "source_page": "https://my.lotuss.com/promotions/th",
@@ -95,26 +115,6 @@
     "source_page": "https://my.lotuss.com/promotions/th",
     "title": "ซิมทรูพร้อมใช้ 30 วัน 199 บาท",
     "image_url": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202610080613393592.webp",
-    "destination_url": null,
-    "raw_type": "campaign",
-    "collected_at": "2026-10-09T02:48:47.260364+00:00"
-  },
-  {
-    "source_id": "lotus-aa233784441bd318",
-    "source_provider": "lotus",
-    "source_page": "https://my.lotuss.com/promotions/th",
-    "title": "Downy soft heaven Lucky Draw",
-    "image_url": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202610050942552734.webp",
-    "destination_url": null,
-    "raw_type": "campaign",
-    "collected_at": "2026-10-15T01:15:07.621949+00:00"
-  },
-  {
-    "source_id": "lotus-ab08926a05a1a610",
-    "source_provider": "lotus",
-    "source_page": "https://my.lotuss.com/promotions/th",
-    "title": "ช้อปแซลมอนสดนอร์เวย์ครบ 499 บาท แลกสิทธิ์คีบแซลมอนซาชิมิฟรี!!",
-    "image_url": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202610071014372800.webp",
     "destination_url": null,
     "raw_type": "campaign",
     "collected_at": "2026-10-09T02:48:47.260364+00:00"
