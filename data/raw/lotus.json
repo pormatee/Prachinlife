@@ -70,6 +70,26 @@
     "collected_at": "2026-08-15T14:00:44.294306+07:00"
   },
   {
+    "source_id": "lotus-4d89a6c150d978f7",
+    "source_provider": "lotus",
+    "source_page": "https://my.lotuss.com/promotions/th",
+    "title": "iPhone 18 DUO พร้อมให้คุณเป็นเจ้าของแล้วที่ร้าน True Shop by Lotus’s วันนี้ ! พร้อมข้อเสนอที่ดีที่สุดกับ Truedtac5G",
+    "image_url": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202610160950080634.webp",
+    "destination_url": null,
+    "raw_type": "campaign",
+    "collected_at": "2026-10-17T01:07:18.968565+00:00"
+  },
+  {
+    "source_id": "lotus-94e3def4b893e165",
+    "source_provider": "lotus",
+    "source_page": "https://my.lotuss.com/promotions/th",
+    "title": "ชี้พิกัด! สาขาแลกซื้อกระเป๋าถุงสีดำ ที่โลตัส โก เฟรช",
+    "image_url": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202610160813221259.webp",
+    "destination_url": null,
+    "raw_type": "campaign",
+    "collected_at": "2026-10-17T01:07:18.968565+00:00"
+  },
+  {
     "source_id": "lotus-17b1aa7f8beddbe2",
     "source_provider": "lotus",
     "source_page": "https://my.lotuss.com/promotions/th",
@@ -98,25 +118,5 @@
     "destination_url": null,
     "raw_type": "campaign",
     "collected_at": "2026-10-15T01:15:07.621949+00:00"
-  },
-  {
-    "source_id": "lotus-f3388045ed589697",
-    "source_provider": "lotus",
-    "source_page": "https://my.lotuss.com/promotions/th",
-    "title": "กิจกรรม “NIVEA X Lotus’s Lucky draw”",
-    "image_url": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202610081002359151.webp",
-    "destination_url": null,
-    "raw_type": "campaign",
-    "collected_at": "2026-10-14T01:38:32.184171+00:00"
-  },
-  {
-    "source_id": "lotus-bb047f333185cdd2",
-    "source_provider": "lotus",
-    "source_page": "https://my.lotuss.com/promotions/th",
-    "title": "ซิมทรูพร้อมใช้ 30 วัน 199 บาท",
-    "image_url": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202610080613393592.webp",
-    "destination_url": null,
-    "raw_type": "campaign",
-    "collected_at": "2026-10-09T02:48:47.260364+00:00"
   }
 ]
