@@ -70,6 +70,16 @@
     "collected_at": "2026-08-15T14:00:44.294306+07:00"
   },
   {
+    "source_id": "lotus-30b3c29616d51c4c",
+    "source_provider": "lotus",
+    "source_page": "https://my.lotuss.com/promotions/th",
+    "title": "ประกาศรายชื่อผู้โชคดี ​กิจกรรม “โลตัสแอปคู้มมมมมม คุ้ม with Junior”​",
+    "image_url": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202610190331552745.webp",
+    "destination_url": null,
+    "raw_type": "campaign",
+    "collected_at": "2026-10-20T01:36:41.109728+00:00"
+  },
+  {
     "source_id": "lotus-4d89a6c150d978f7",
     "source_provider": "lotus",
     "source_page": "https://my.lotuss.com/promotions/th",
@@ -105,16 +115,6 @@
     "source_page": "https://my.lotuss.com/promotions/th",
     "title": "รายละเอียดกิจกรรม “ฮาโลวีนหรรษา นาทีต้องมนต์ ที่โลตัส”",
     "image_url": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202610140902197766.webp",
-    "destination_url": null,
-    "raw_type": "campaign",
-    "collected_at": "2026-10-15T01:15:07.621949+00:00"
-  },
-  {
-    "source_id": "lotus-4ff86df89e36d6e5",
-    "source_provider": "lotus",
-    "source_page": "https://my.lotuss.com/promotions/th",
-    "title": "CAT DOG n joy X Lotus's with Offroad ลุ้นรับสิทธิ์! เป็นผู้โชคดี 50 คน",
-    "image_url": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202610140648308268.webp",
     "destination_url": null,
     "raw_type": "campaign",
     "collected_at": "2026-10-15T01:15:07.621949+00:00"
