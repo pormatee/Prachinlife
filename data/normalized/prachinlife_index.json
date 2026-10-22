@@ -1,6 +1,153 @@
 [
   {
     "schema_version": "1.1",
+    "id": "bigc-f9efcf2cb822c76f",
+    "content_type": "deal",
+    "original_type": "campaign",
+    "title": "Big C Food Place ช้อปหยุดโลก ลดแรง รับสิ้นเดือน",
+    "summary": "แคมเปญหรือโปรโมชั่นจาก Big C",
+    "category": "shopping",
+    "tags": [
+      "deal",
+      "big c",
+      "campaign",
+      "แคมเปญโปรโมชั่น",
+      "bigc",
+      "บิ๊กซี",
+      "แคมเปญ",
+      "national"
+    ],
+    "provider": {
+      "name": "Big C",
+      "type": "merchant"
+    },
+    "location": {
+      "scope": "national",
+      "country": "TH",
+      "province": null,
+      "district": null,
+      "subdistrict": null,
+      "place_name": null,
+      "latitude": null,
+      "longitude": null
+    },
+    "source": {
+      "name": "Big C Official",
+      "url": "https://linebc.bigc.co.th/catalog/e-lf-syl-10-22oct-1nov26-fp?utm_source=Corp_BIG_C_Website&utm_medium=promotion&utm_campaign=|PV:DMK|DA:20261022|AN:-|OB:VIEW|FM:Photo|FT:Line_Connect_Event|CN:e-lf-sy",
+      "type": "official_promotion",
+      "verified": true
+    },
+    "image_url": "https://corporate.bigc.co.th/upload_file/promotion/261021110426_c191736b878c.jpg",
+    "published_at": null,
+    "expires_at": null,
+    "collected_at": "2026-10-22T01:17:16.211298+00:00",
+    "metadata": {
+      "old_price": 0,
+      "new_price": 0,
+      "expiry_text": "ตรวจสอบรายละเอียดจาก Big C",
+      "urgent": false
+    }
+  },
+  {
+    "schema_version": "1.1",
+    "id": "bigc-64feb65372cb091b",
+    "content_type": "deal",
+    "original_type": "campaign",
+    "title": "Big C Market ช้อปหยุดโลก ลดแรง รับสิ้นเดือน",
+    "summary": "แคมเปญหรือโปรโมชั่นจาก Big C",
+    "category": "shopping",
+    "tags": [
+      "deal",
+      "big c",
+      "campaign",
+      "แคมเปญโปรโมชั่น",
+      "bigc",
+      "บิ๊กซี",
+      "แคมเปญ",
+      "national"
+    ],
+    "provider": {
+      "name": "Big C",
+      "type": "merchant"
+    },
+    "location": {
+      "scope": "national",
+      "country": "TH",
+      "province": null,
+      "district": null,
+      "subdistrict": null,
+      "place_name": null,
+      "latitude": null,
+      "longitude": null
+    },
+    "source": {
+      "name": "Big C Official",
+      "url": "https://linebc.bigc.co.th/catalog/e-lf-syl-10-22oct-1nov26-bmk?utm_source=Corp_BIG_C_Website&utm_medium=promotion&utm_campaign=|PV:DMK|DA:20261022|AN:-|OB:VIEW|FM:Photo|FT:Line_Connect_Event|CN:e-lf-s",
+      "type": "official_promotion",
+      "verified": true
+    },
+    "image_url": "https://corporate.bigc.co.th/upload_file/promotion/261021110614_ce111b63adde.jpg",
+    "published_at": null,
+    "expires_at": null,
+    "collected_at": "2026-10-22T01:17:16.211298+00:00",
+    "metadata": {
+      "old_price": 0,
+      "new_price": 0,
+      "expiry_text": "ตรวจสอบรายละเอียดจาก Big C",
+      "urgent": false
+    }
+  },
+  {
+    "schema_version": "1.1",
+    "id": "bigc-c20d0329075dfdba",
+    "content_type": "deal",
+    "original_type": "campaign",
+    "title": "Big C ช้อปหยุดโลก ลดแรง รับสิ้นเดือน",
+    "summary": "แคมเปญหรือโปรโมชั่นจาก Big C",
+    "category": "shopping",
+    "tags": [
+      "deal",
+      "big c",
+      "campaign",
+      "แคมเปญโปรโมชั่น",
+      "bigc",
+      "บิ๊กซี",
+      "แคมเปญ",
+      "national"
+    ],
+    "provider": {
+      "name": "Big C",
+      "type": "merchant"
+    },
+    "location": {
+      "scope": "national",
+      "country": "TH",
+      "province": null,
+      "district": null,
+      "subdistrict": null,
+      "place_name": null,
+      "latitude": null,
+      "longitude": null
+    },
+    "source": {
+      "name": "Big C Official",
+      "url": "https://linebc.bigc.co.th/catalog/e-lf-syl-10-22oct-1nov26?utm_source=Corp_BIG_C_Website&utm_medium=promotion&utm_campaign=|PV:DMK|DA:20261022|AN:-|OB:VIEW|FM:Photo|FT:Line_Connect_Event|CN:e-lf-syl-1",
+      "type": "official_promotion",
+      "verified": true
+    },
+    "image_url": "https://corporate.bigc.co.th/upload_file/promotion/261021110721_41ff4196dab8.jpg",
+    "published_at": null,
+    "expires_at": null,
+    "collected_at": "2026-10-22T01:17:16.211298+00:00",
+    "metadata": {
+      "old_price": 0,
+      "new_price": 0,
+      "expiry_text": "ตรวจสอบรายละเอียดจาก Big C",
+      "urgent": false
+    }
+  },
+  {
+    "schema_version": "1.1",
     "id": "lotus-30b3c29616d51c4c",
     "content_type": "deal",
     "original_type": "campaign",
@@ -344,55 +491,6 @@
   },
   {
     "schema_version": "1.1",
-    "id": "bigc-213732f8b422169f",
-    "content_type": "deal",
-    "original_type": "campaign",
-    "title": "E-Cat imp 6_France 2026",
-    "summary": "แคมเปญหรือโปรโมชั่นจาก Big C",
-    "category": "shopping",
-    "tags": [
-      "deal",
-      "big c",
-      "campaign",
-      "แคมเปญโปรโมชั่น",
-      "bigc",
-      "บิ๊กซี",
-      "แคมเปญ",
-      "national"
-    ],
-    "provider": {
-      "name": "Big C",
-      "type": "merchant"
-    },
-    "location": {
-      "scope": "national",
-      "country": "TH",
-      "province": null,
-      "district": null,
-      "subdistrict": null,
-      "place_name": null,
-      "latitude": null,
-      "longitude": null
-    },
-    "source": {
-      "name": "Big C Official",
-      "url": "https://linebc.bigc.co.th/catalog/e-cat-imp-6-france?utm_source=Corp_BIG_C_Website&utm_medium=promotion&utm_campaign=|PV:DMK|DA:20261008|AN:-|OB:VIEW|FM:Photo|FT:Line_Connect_Event|CN:e-cat-imp-6-fran",
-      "type": "official_promotion",
-      "verified": true
-    },
-    "image_url": "https://corporate.bigc.co.th/upload_file/promotion/260929104413_07f571cb745e.jpg",
-    "published_at": null,
-    "expires_at": null,
-    "collected_at": "2026-10-08T02:34:22.734248+00:00",
-    "metadata": {
-      "old_price": 0,
-      "new_price": 0,
-      "expiry_text": "ตรวจสอบรายละเอียดจาก Big C",
-      "urgent": false
-    }
-  },
-  {
-    "schema_version": "1.1",
     "id": "lotus-f2e153f3acdf4604",
     "content_type": "deal",
     "original_type": "member_offer",
@@ -530,104 +628,6 @@
       "verified": true
     },
     "image_url": "https://corporate.bigc.co.th/upload_file/promotion/260929162927_a18d6eec02c9.jpg",
-    "published_at": null,
-    "expires_at": null,
-    "collected_at": "2026-10-01T01:49:31.500524+00:00",
-    "metadata": {
-      "old_price": 0,
-      "new_price": 0,
-      "expiry_text": "ตรวจสอบรายละเอียดจาก Big C",
-      "urgent": false
-    }
-  },
-  {
-    "schema_version": "1.1",
-    "id": "bigc-3c0a021833f07ede",
-    "content_type": "deal",
-    "original_type": "campaign",
-    "title": "สวยเว่อ คุ้มเต็มสิบ ช้อปเลยที่ Big C MARKET",
-    "summary": "แคมเปญหรือโปรโมชั่นจาก Big C",
-    "category": "shopping",
-    "tags": [
-      "deal",
-      "big c",
-      "campaign",
-      "แคมเปญโปรโมชั่น",
-      "bigc",
-      "บิ๊กซี",
-      "แคมเปญ",
-      "national"
-    ],
-    "provider": {
-      "name": "Big C",
-      "type": "merchant"
-    },
-    "location": {
-      "scope": "national",
-      "country": "TH",
-      "province": null,
-      "district": null,
-      "subdistrict": null,
-      "place_name": null,
-      "latitude": null,
-      "longitude": null
-    },
-    "source": {
-      "name": "Big C Official",
-      "url": "https://linebc.bigc.co.th/catalog/beauty-bmk-10-2026?utm_source=Corp_BIG_C_Website&utm_medium=promotion&utm_campaign=|PV:DMK|DA:20261001|AN:-|OB:VIEW|FM:Photo|FT:Line_Connect_Event|CN:beauty-bmk-10-20",
-      "type": "official_promotion",
-      "verified": true
-    },
-    "image_url": "https://corporate.bigc.co.th/upload_file/promotion/260929163135_0a6dc2bc434b.jpg",
-    "published_at": null,
-    "expires_at": null,
-    "collected_at": "2026-10-01T01:49:31.500524+00:00",
-    "metadata": {
-      "old_price": 0,
-      "new_price": 0,
-      "expiry_text": "ตรวจสอบรายละเอียดจาก Big C",
-      "urgent": false
-    }
-  },
-  {
-    "schema_version": "1.1",
-    "id": "bigc-2ca821ba4c671f2d",
-    "content_type": "deal",
-    "original_type": "campaign",
-    "title": "Taste of Thailand Guaranteed by Big C",
-    "summary": "แคมเปญหรือโปรโมชั่นจาก Big C",
-    "category": "shopping",
-    "tags": [
-      "deal",
-      "big c",
-      "campaign",
-      "แคมเปญโปรโมชั่น",
-      "bigc",
-      "บิ๊กซี",
-      "แคมเปญ",
-      "national"
-    ],
-    "provider": {
-      "name": "Big C",
-      "type": "merchant"
-    },
-    "location": {
-      "scope": "national",
-      "country": "TH",
-      "province": null,
-      "district": null,
-      "subdistrict": null,
-      "place_name": null,
-      "latitude": null,
-      "longitude": null
-    },
-    "source": {
-      "name": "Big C Official",
-      "url": "https://linebc.bigc.co.th/catalog/e-tourist-7-26store-english?utm_source=Corp_BIG_C_Website&utm_medium=promotion&utm_campaign=|PV:DMK|DA:20261001|AN:-|OB:VIEW|FM:Photo|FT:Line_Connect_Event|CN:e-touri",
-      "type": "official_promotion",
-      "verified": true
-    },
-    "image_url": "https://corporate.bigc.co.th/upload_file/promotion/260930092254_8ec336100102.jpg",
     "published_at": null,
     "expires_at": null,
     "collected_at": "2026-10-01T01:49:31.500524+00:00",
