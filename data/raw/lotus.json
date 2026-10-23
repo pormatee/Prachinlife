@@ -80,16 +80,6 @@
     "collected_at": "2026-10-20T01:36:41.109728+00:00"
   },
   {
-    "source_id": "lotus-4d89a6c150d978f7",
-    "source_provider": "lotus",
-    "source_page": "https://my.lotuss.com/promotions/th",
-    "title": "iPhone 18 DUO พร้อมให้คุณเป็นเจ้าของแล้วที่ร้าน True Shop by Lotus’s วันนี้ ! พร้อมข้อเสนอที่ดีที่สุดกับ Truedtac5G",
-    "image_url": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202610160950080634.webp",
-    "destination_url": null,
-    "raw_type": "campaign",
-    "collected_at": "2026-10-17T01:07:18.968565+00:00"
-  },
-  {
     "source_id": "lotus-94e3def4b893e165",
     "source_provider": "lotus",
     "source_page": "https://my.lotuss.com/promotions/th",
@@ -118,5 +108,15 @@
     "destination_url": null,
     "raw_type": "campaign",
     "collected_at": "2026-10-15T01:15:07.621949+00:00"
+  },
+  {
+    "source_id": "lotus-4ff86df89e36d6e5",
+    "source_provider": "lotus",
+    "source_page": "https://my.lotuss.com/promotions/th",
+    "title": "CAT DOG n joy X Lotus's with Offroad ลุ้นรับสิทธิ์! เป็นผู้โชคดี 50 คน",
+    "image_url": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202610140648308268.webp",
+    "destination_url": null,
+    "raw_type": "campaign",
+    "collected_at": "2026-10-23T01:16:46.916610+00:00"
   }
 ]
