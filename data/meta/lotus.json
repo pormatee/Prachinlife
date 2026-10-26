@@ -1,8 +1,8 @@
 {
   "source": "lotus",
   "status": "fresh",
-  "last_attempt_at": "2026-10-25T00:52:56.475904+00:00",
-  "last_success_at": "2026-10-25T00:52:56.475904+00:00",
+  "last_attempt_at": "2026-10-26T01:00:20.871531+00:00",
+  "last_success_at": "2026-10-26T01:00:20.871531+00:00",
   "record_count": 12,
   "last_error": null,
   "previous_status": "fresh"
