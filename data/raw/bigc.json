@@ -1,35 +1,5 @@
 [
   {
-    "source_id": "bigc-f9efcf2cb822c76f",
-    "source_provider": "bigc",
-    "source_page": "https://corporate.bigc.co.th/promotions-bigc?lang=th",
-    "title": "Big C Food Place ช้อปหยุดโลก ลดแรง รับสิ้นเดือน",
-    "image_url": "https://corporate.bigc.co.th/upload_file/promotion/261021110426_c191736b878c.jpg",
-    "destination_url": "https://linebc.bigc.co.th/catalog/e-lf-syl-10-22oct-1nov26-fp?utm_source=Corp_BIG_C_Website&utm_medium=promotion&utm_campaign=|PV:DMK|DA:20261022|AN:-|OB:VIEW|FM:Photo|FT:Line_Connect_Event|CN:e-lf-sy",
-    "raw_type": "campaign",
-    "collected_at": "2026-10-22T01:17:16.211298+00:00"
-  },
-  {
-    "source_id": "bigc-64feb65372cb091b",
-    "source_provider": "bigc",
-    "source_page": "https://corporate.bigc.co.th/promotions-bigc?lang=th",
-    "title": "Big C Market ช้อปหยุดโลก ลดแรง รับสิ้นเดือน",
-    "image_url": "https://corporate.bigc.co.th/upload_file/promotion/261021110614_ce111b63adde.jpg",
-    "destination_url": "https://linebc.bigc.co.th/catalog/e-lf-syl-10-22oct-1nov26-bmk?utm_source=Corp_BIG_C_Website&utm_medium=promotion&utm_campaign=|PV:DMK|DA:20261022|AN:-|OB:VIEW|FM:Photo|FT:Line_Connect_Event|CN:e-lf-s",
-    "raw_type": "campaign",
-    "collected_at": "2026-10-22T01:17:16.211298+00:00"
-  },
-  {
-    "source_id": "bigc-c20d0329075dfdba",
-    "source_provider": "bigc",
-    "source_page": "https://corporate.bigc.co.th/promotions-bigc?lang=th",
-    "title": "Big C ช้อปหยุดโลก ลดแรง รับสิ้นเดือน",
-    "image_url": "https://corporate.bigc.co.th/upload_file/promotion/261021110721_41ff4196dab8.jpg",
-    "destination_url": "https://linebc.bigc.co.th/catalog/e-lf-syl-10-22oct-1nov26?utm_source=Corp_BIG_C_Website&utm_medium=promotion&utm_campaign=|PV:DMK|DA:20261022|AN:-|OB:VIEW|FM:Photo|FT:Line_Connect_Event|CN:e-lf-syl-1",
-    "raw_type": "campaign",
-    "collected_at": "2026-10-22T01:17:16.211298+00:00"
-  },
-  {
     "source_id": "bigc-1d4b1bc594f8eca2",
     "source_provider": "bigc",
     "source_page": "https://corporate.bigc.co.th/promotions-bigc?lang=th",
@@ -58,5 +28,35 @@
     "destination_url": "https://linebc.bigc.co.th/catalog/beauty-fp-10-2026?utm_source=Corp_BIG_C_Website&utm_medium=promotion&utm_campaign=|PV:DMK|DA:20261001|AN:-|OB:VIEW|FM:Photo|FT:Line_Connect_Event|CN:beauty-fp-10-2026",
     "raw_type": "campaign",
     "collected_at": "2026-10-01T01:49:31.500524+00:00"
+  },
+  {
+    "source_id": "bigc-3c0a021833f07ede",
+    "source_provider": "bigc",
+    "source_page": "https://corporate.bigc.co.th/promotions-bigc?lang=th",
+    "title": "สวยเว่อ คุ้มเต็มสิบ ช้อปเลยที่ Big C MARKET",
+    "image_url": "https://corporate.bigc.co.th/upload_file/promotion/260929163135_0a6dc2bc434b.jpg",
+    "destination_url": "https://linebc.bigc.co.th/catalog/beauty-bmk-10-2026?utm_source=Corp_BIG_C_Website&utm_medium=promotion&utm_campaign=|PV:DMK|DA:20261001|AN:-|OB:VIEW|FM:Photo|FT:Line_Connect_Event|CN:beauty-bmk-10-20",
+    "raw_type": "campaign",
+    "collected_at": "2026-11-02T02:08:24.634168+00:00"
+  },
+  {
+    "source_id": "bigc-2ca821ba4c671f2d",
+    "source_provider": "bigc",
+    "source_page": "https://corporate.bigc.co.th/promotions-bigc?lang=th",
+    "title": "Taste of Thailand Guaranteed by Big C",
+    "image_url": "https://corporate.bigc.co.th/upload_file/promotion/260930092254_8ec336100102.jpg",
+    "destination_url": "https://linebc.bigc.co.th/catalog/e-tourist-7-26store-english?utm_source=Corp_BIG_C_Website&utm_medium=promotion&utm_campaign=|PV:DMK|DA:20261001|AN:-|OB:VIEW|FM:Photo|FT:Line_Connect_Event|CN:e-touri",
+    "raw_type": "campaign",
+    "collected_at": "2026-11-02T02:08:24.634168+00:00"
+  },
+  {
+    "source_id": "bigc-984bb0e0669dd4b4",
+    "source_provider": "bigc",
+    "source_page": "https://corporate.bigc.co.th/promotions-bigc?lang=th",
+    "title": "Taste of Thailand Guaranteed by Big C (Asiatique)-English",
+    "image_url": "https://corporate.bigc.co.th/upload_file/promotion/260930092457_db8246b892cf.jpg",
+    "destination_url": "https://linebc.bigc.co.th/catalog/e-tourist-7-asiatique-english?utm_source=Corp_BIG_C_Website&utm_medium=promotion&utm_campaign=|PV:DMK|DA:20261001|AN:-|OB:VIEW|FM:Photo|FT:Line_Connect_Event|CN:e-tou",
+    "raw_type": "campaign",
+    "collected_at": "2026-11-02T02:08:24.634168+00:00"
   }
 ]
