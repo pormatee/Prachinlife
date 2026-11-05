@@ -60,16 +60,6 @@
     "collected_at": "2026-08-15T14:00:44.294306+07:00"
   },
   {
-    "source_id": "lotus-956d68c127d5bf35",
-    "source_provider": "lotus",
-    "source_page": "https://my.lotuss.com/promotions/th",
-    "title": "ไอศกรีม Soft Serve รสมันหวานญี่ปุ่น สาวกมันหวานต้องลอง อร่อยละมุนทุกคำ!",
-    "image_url": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202611030244045794.webp",
-    "destination_url": null,
-    "raw_type": "campaign",
-    "collected_at": "2026-11-04T02:55:48.864637+00:00"
-  },
-  {
     "source_id": "lotus-084651f25cb2a66c",
     "source_provider": "lotus",
     "source_page": "https://my.lotuss.com/promotions/th",
@@ -78,6 +68,16 @@
     "destination_url": null,
     "raw_type": "campaign",
     "collected_at": "2026-11-03T03:51:03.499104+00:00"
+  },
+  {
+    "source_id": "lotus-ec878eef04070dca",
+    "source_provider": "lotus",
+    "source_page": "https://my.lotuss.com/promotions/th",
+    "title": "ชี้พิกัด! สาขาแลกซื้อกระเป๋าถุงสีเขียว ลายตาราง ที่โลตัส โก เฟรช",
+    "image_url": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202611040858467534.webp",
+    "destination_url": null,
+    "raw_type": "campaign",
+    "collected_at": "2026-11-05T03:14:27.539053+00:00"
   },
   {
     "source_id": "lotus-17b1aa7f8beddbe2",
@@ -100,16 +100,6 @@
     "collected_at": "2026-10-23T01:16:46.916610+00:00"
   },
   {
-    "source_id": "lotus-8bd8b42c657dbd79",
-    "source_provider": "lotus",
-    "source_page": "https://my.lotuss.com/promotions/th",
-    "title": "มื้อนี้มีอะไรใหม่? แวะโลตัสมาอัปเดตกัน!",
-    "image_url": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202610160737389566.webp",
-    "destination_url": null,
-    "raw_type": "campaign",
-    "collected_at": "2026-10-29T02:09:51.040587+00:00"
-  },
-  {
     "source_id": "lotus-f3388045ed589697",
     "source_provider": "lotus",
     "source_page": "https://my.lotuss.com/promotions/th",
@@ -118,5 +108,15 @@
     "destination_url": null,
     "raw_type": "campaign",
     "collected_at": "2026-10-31T02:03:29.575793+00:00"
+  },
+  {
+    "source_id": "lotus-bb047f333185cdd2",
+    "source_provider": "lotus",
+    "source_page": "https://my.lotuss.com/promotions/th",
+    "title": "ซิมทรูพร้อมใช้ 30 วัน 199 บาท",
+    "image_url": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202610080613393592.webp",
+    "destination_url": null,
+    "raw_type": "campaign",
+    "collected_at": "2026-11-05T03:14:27.539053+00:00"
   }
 ]

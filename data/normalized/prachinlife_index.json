@@ -1,10 +1,10 @@
 [
   {
     "schema_version": "1.1",
-    "id": "lotus-956d68c127d5bf35",
+    "id": "lotus-ec878eef04070dca",
     "content_type": "deal",
     "original_type": "campaign",
-    "title": "ไอศกรีม Soft Serve รสมันหวานญี่ปุ่น สาวกมันหวานต้องลอง อร่อยละมุนทุกคำ!",
+    "title": "ชี้พิกัด! สาขาแลกซื้อกระเป๋าถุงสีเขียว ลายตาราง ที่โลตัส โก เฟรช",
     "summary": "แคมเปญหรือโปรโมชั่นจาก Lotus's",
     "category": "shopping",
     "tags": [
@@ -37,10 +37,59 @@
       "type": "official_promotion",
       "verified": true
     },
-    "image_url": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202611030244045794.webp",
+    "image_url": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202611040858467534.webp",
     "published_at": null,
     "expires_at": null,
-    "collected_at": "2026-11-04T02:55:48.864637+00:00",
+    "collected_at": "2026-11-05T03:14:27.539053+00:00",
+    "metadata": {
+      "old_price": 0,
+      "new_price": 0,
+      "expiry_text": "ตรวจสอบรายละเอียดจาก Lotus's",
+      "urgent": false
+    }
+  },
+  {
+    "schema_version": "1.1",
+    "id": "lotus-bb047f333185cdd2",
+    "content_type": "deal",
+    "original_type": "campaign",
+    "title": "ซิมทรูพร้อมใช้ 30 วัน 199 บาท",
+    "summary": "แคมเปญหรือโปรโมชั่นจาก Lotus's",
+    "category": "shopping",
+    "tags": [
+      "deal",
+      "lotuss",
+      "campaign",
+      "แคมเปญโปรโมชั่น",
+      "lotus",
+      "โลตัส",
+      "แคมเปญ",
+      "national"
+    ],
+    "provider": {
+      "name": "Lotus's",
+      "type": "merchant"
+    },
+    "location": {
+      "scope": "national",
+      "country": "TH",
+      "province": null,
+      "district": null,
+      "subdistrict": null,
+      "place_name": null,
+      "latitude": null,
+      "longitude": null
+    },
+    "source": {
+      "name": "My Lotus's Official",
+      "url": "https://my.lotuss.com/promotions/th",
+      "type": "official_promotion",
+      "verified": true
+    },
+    "image_url": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202610080613393592.webp",
+    "published_at": null,
+    "expires_at": null,
+    "collected_at": "2026-11-05T03:14:27.539053+00:00",
     "metadata": {
       "old_price": 0,
       "new_price": 0,
@@ -286,55 +335,6 @@
     "published_at": null,
     "expires_at": null,
     "collected_at": "2026-10-31T02:03:29.575793+00:00",
-    "metadata": {
-      "old_price": 0,
-      "new_price": 0,
-      "expiry_text": "ตรวจสอบรายละเอียดจาก Lotus's",
-      "urgent": false
-    }
-  },
-  {
-    "schema_version": "1.1",
-    "id": "lotus-8bd8b42c657dbd79",
-    "content_type": "deal",
-    "original_type": "campaign",
-    "title": "มื้อนี้มีอะไรใหม่? แวะโลตัสมาอัปเดตกัน!",
-    "summary": "แคมเปญหรือโปรโมชั่นจาก Lotus's",
-    "category": "shopping",
-    "tags": [
-      "deal",
-      "lotuss",
-      "campaign",
-      "แคมเปญโปรโมชั่น",
-      "lotus",
-      "โลตัส",
-      "แคมเปญ",
-      "national"
-    ],
-    "provider": {
-      "name": "Lotus's",
-      "type": "merchant"
-    },
-    "location": {
-      "scope": "national",
-      "country": "TH",
-      "province": null,
-      "district": null,
-      "subdistrict": null,
-      "place_name": null,
-      "latitude": null,
-      "longitude": null
-    },
-    "source": {
-      "name": "My Lotus's Official",
-      "url": "https://my.lotuss.com/promotions/th",
-      "type": "official_promotion",
-      "verified": true
-    },
-    "image_url": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202610160737389566.webp",
-    "published_at": null,
-    "expires_at": null,
-    "collected_at": "2026-10-29T02:09:51.040587+00:00",
     "metadata": {
       "old_price": 0,
       "new_price": 0,
