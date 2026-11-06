@@ -189,16 +189,16 @@
     "image": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202611020214359455.webp"
   },
   {
-    "id": "lotus-ec878eef04070dca",
+    "id": "lotus-da99c4ecdd6c7eaa",
     "promotion_type": "campaign",
     "title": "ชี้พิกัด! สาขาแลกซื้อกระเป๋าถุงสีเขียว ลายตาราง ที่โลตัส โก เฟรช",
     "merchant": "Lotus's",
-    "image_url": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202611040858467534.webp",
+    "image_url": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202611050548544880.webp",
     "source_url": "https://my.lotuss.com/promotions/th",
     "source": "My Lotus's Official",
     "source_type": "official_promotion",
     "verified": true,
-    "collected_at": "2026-11-05T03:14:27.539053+00:00",
+    "collected_at": "2026-11-06T03:14:17.990820+00:00",
     "location_scope": "national",
     "country": "TH",
     "province": null,
@@ -213,7 +213,7 @@
     "branch": "Lotus's / ตรวจสอบสาขาที่ร่วมรายการ",
     "category": "แคมเปญโปรโมชั่น",
     "urgent": false,
-    "image": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202611040858467534.webp"
+    "image": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202611050548544880.webp"
   },
   {
     "id": "lotus-17b1aa7f8beddbe2",
@@ -297,16 +297,16 @@
     "image": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202610081002359151.webp"
   },
   {
-    "id": "lotus-bb047f333185cdd2",
+    "id": "lotus-47e97cc8e4b0f865",
     "promotion_type": "campaign",
-    "title": "ซิมทรูพร้อมใช้ 30 วัน 199 บาท",
+    "title": "ซิมทรูพร้อมใช้ แบบ 30 วัน",
     "merchant": "Lotus's",
-    "image_url": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202610080613393592.webp",
+    "image_url": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202611050927349178.webp",
     "source_url": "https://my.lotuss.com/promotions/th",
     "source": "My Lotus's Official",
     "source_type": "official_promotion",
     "verified": true,
-    "collected_at": "2026-11-05T03:14:27.539053+00:00",
+    "collected_at": "2026-11-06T03:14:17.990820+00:00",
     "location_scope": "national",
     "country": "TH",
     "province": null,
@@ -314,13 +314,13 @@
     "subdistrict": null,
     "branch_name": null,
     "store": "Lotus's",
-    "product": "ซิมทรูพร้อมใช้ 30 วัน 199 บาท",
+    "product": "ซิมทรูพร้อมใช้ แบบ 30 วัน",
     "old_price": 0,
     "new_price": 0,
     "expiry": "ตรวจสอบรายละเอียดจาก Lotus's",
     "branch": "Lotus's / ตรวจสอบสาขาที่ร่วมรายการ",
     "category": "แคมเปญโปรโมชั่น",
     "urgent": false,
-    "image": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202610080613393592.webp"
+    "image": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202611050927349178.webp"
   }
 ]

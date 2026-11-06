@@ -1,7 +1,7 @@
 [
   {
     "schema_version": "1.1",
-    "id": "lotus-ec878eef04070dca",
+    "id": "lotus-da99c4ecdd6c7eaa",
     "content_type": "deal",
     "original_type": "campaign",
     "title": "ชี้พิกัด! สาขาแลกซื้อกระเป๋าถุงสีเขียว ลายตาราง ที่โลตัส โก เฟรช",
@@ -37,10 +37,10 @@
       "type": "official_promotion",
       "verified": true
     },
-    "image_url": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202611040858467534.webp",
+    "image_url": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202611050548544880.webp",
     "published_at": null,
     "expires_at": null,
-    "collected_at": "2026-11-05T03:14:27.539053+00:00",
+    "collected_at": "2026-11-06T03:14:17.990820+00:00",
     "metadata": {
       "old_price": 0,
       "new_price": 0,
@@ -50,10 +50,10 @@
   },
   {
     "schema_version": "1.1",
-    "id": "lotus-bb047f333185cdd2",
+    "id": "lotus-47e97cc8e4b0f865",
     "content_type": "deal",
     "original_type": "campaign",
-    "title": "ซิมทรูพร้อมใช้ 30 วัน 199 บาท",
+    "title": "ซิมทรูพร้อมใช้ แบบ 30 วัน",
     "summary": "แคมเปญหรือโปรโมชั่นจาก Lotus's",
     "category": "shopping",
     "tags": [
@@ -86,10 +86,10 @@
       "type": "official_promotion",
       "verified": true
     },
-    "image_url": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202610080613393592.webp",
+    "image_url": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202611050927349178.webp",
     "published_at": null,
     "expires_at": null,
-    "collected_at": "2026-11-05T03:14:27.539053+00:00",
+    "collected_at": "2026-11-06T03:14:17.990820+00:00",
     "metadata": {
       "old_price": 0,
       "new_price": 0,
