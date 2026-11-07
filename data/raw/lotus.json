@@ -60,16 +60,6 @@
     "collected_at": "2026-08-15T14:00:44.294306+07:00"
   },
   {
-    "source_id": "lotus-084651f25cb2a66c",
-    "source_provider": "lotus",
-    "source_page": "https://my.lotuss.com/promotions/th",
-    "title": "ประกาศรายชื่อผู้โชคดี ​กิจกรรม “โลตัสแอปคู้มมมมมม คุ้ม! with Book & Tomafox”",
-    "image_url": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202611020214359455.webp",
-    "destination_url": null,
-    "raw_type": "campaign",
-    "collected_at": "2026-11-03T03:51:03.499104+00:00"
-  },
-  {
     "source_id": "lotus-da99c4ecdd6c7eaa",
     "source_provider": "lotus",
     "source_page": "https://my.lotuss.com/promotions/th",
@@ -98,6 +88,16 @@
     "destination_url": null,
     "raw_type": "campaign",
     "collected_at": "2026-10-23T01:16:46.916610+00:00"
+  },
+  {
+    "source_id": "lotus-fd702cede613209f",
+    "source_provider": "lotus",
+    "source_page": "https://my.lotuss.com/promotions/th",
+    "title": "มื้อนี้มีอะไรใหม่? แวะโลตัสมาอัปเดตกัน!",
+    "image_url": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202611060916582764.webp",
+    "destination_url": null,
+    "raw_type": "campaign",
+    "collected_at": "2026-11-07T02:33:44.742712+00:00"
   },
   {
     "source_id": "lotus-f3388045ed589697",
