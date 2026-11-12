@@ -1,13 +1,13 @@
 [
   {
-    "source_id": "lotus-f2e153f3acdf4604",
+    "source_id": "lotus-20459b52ba75335c",
     "source_provider": "lotus",
     "source_page": "https://my.lotuss.com/promotions/th",
     "title": "สมัครสมาชิกใหม่มายโลตัส",
-    "image_url": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202610010818132763.webp",
+    "image_url": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202611110238593192.webp",
     "destination_url": null,
     "raw_type": "member_offer",
-    "collected_at": "2026-10-02T02:02:07.658955+00:00"
+    "collected_at": "2026-11-12T03:38:38.402679+00:00"
   },
   {
     "source_id": "lotus-f1f66745b0b667e1",
@@ -80,14 +80,34 @@
     "collected_at": "2026-11-10T04:30:15.133624+00:00"
   },
   {
-    "source_id": "lotus-da99c4ecdd6c7eaa",
+    "source_id": "lotus-8057b2b6588a567f",
     "source_provider": "lotus",
     "source_page": "https://my.lotuss.com/promotions/th",
-    "title": "ชี้พิกัด! สาขาแลกซื้อกระเป๋าถุงสีเขียว ลายตาราง ที่โลตัส โก เฟรช",
-    "image_url": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202611050548544880.webp",
+    "title": "แคตตาล็อกปีใหม่ปล่อยใจมาจอยที่โลตัส โก เฟรช (สาขาเล็ก)",
+    "image_url": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202611050739085618.webp",
     "destination_url": null,
     "raw_type": "campaign",
-    "collected_at": "2026-11-06T03:14:17.990820+00:00"
+    "collected_at": "2026-11-12T03:38:38.402679+00:00"
+  },
+  {
+    "source_id": "lotus-2cc0b53ced759b95",
+    "source_provider": "lotus",
+    "source_page": "https://my.lotuss.com/promotions/th",
+    "title": "แคตตาล็อกปีใหม่ปล่อยใจมาจอยที่โลตัส โก เฟรช (ซูเปอร์มาร์เก็ต)",
+    "image_url": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202611050731465181.webp",
+    "destination_url": null,
+    "raw_type": "campaign",
+    "collected_at": "2026-11-12T03:38:38.402679+00:00"
+  },
+  {
+    "source_id": "lotus-203e7de439b95695",
+    "source_provider": "lotus",
+    "source_page": "https://my.lotuss.com/promotions/th",
+    "title": "แคตตาล็อกปีใหม่ปล่อยใจมาจอยที่โลตัส (สาขาใหญ่)",
+    "image_url": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202611050718031496.webp",
+    "destination_url": null,
+    "raw_type": "campaign",
+    "collected_at": "2026-11-12T03:38:38.402679+00:00"
   },
   {
     "source_id": "lotus-17b1aa7f8beddbe2",
@@ -98,25 +118,5 @@
     "destination_url": null,
     "raw_type": "campaign",
     "collected_at": "2026-10-16T01:01:12.541077+00:00"
-  },
-  {
-    "source_id": "lotus-4ff86df89e36d6e5",
-    "source_provider": "lotus",
-    "source_page": "https://my.lotuss.com/promotions/th",
-    "title": "CAT DOG n joy X Lotus's with Offroad ลุ้นรับสิทธิ์! เป็นผู้โชคดี 50 คน",
-    "image_url": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202610140648308268.webp",
-    "destination_url": null,
-    "raw_type": "campaign",
-    "collected_at": "2026-10-23T01:16:46.916610+00:00"
-  },
-  {
-    "source_id": "lotus-fd702cede613209f",
-    "source_provider": "lotus",
-    "source_page": "https://my.lotuss.com/promotions/th",
-    "title": "มื้อนี้มีอะไรใหม่? แวะโลตัสมาอัปเดตกัน!",
-    "image_url": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202611060916582764.webp",
-    "destination_url": null,
-    "raw_type": "campaign",
-    "collected_at": "2026-11-07T02:33:44.742712+00:00"
   }
 ]
