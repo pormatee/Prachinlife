@@ -1,10 +1,10 @@
 [
   {
     "schema_version": "1.1",
-    "id": "lotus-203e7de439b95695",
+    "id": "lotus-b02633cd06743929",
     "content_type": "deal",
     "original_type": "campaign",
-    "title": "แคตตาล็อกปีใหม่ปล่อยใจมาจอยที่โลตัส (สาขาใหญ่)",
+    "title": "คัดพิเศษผลไม้นำเข้าประจำสัปดาห์ คัดสรรความสดใหม่จากทั่วโลก!",
     "summary": "แคมเปญหรือโปรโมชั่นจาก Lotus's",
     "category": "shopping",
     "tags": [
@@ -37,10 +37,10 @@
       "type": "official_promotion",
       "verified": true
     },
-    "image_url": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202611050718031496.webp",
+    "image_url": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202611130825175158.webp",
     "published_at": null,
     "expires_at": null,
-    "collected_at": "2026-11-14T02:55:21.023472+00:00",
+    "collected_at": "2026-11-15T02:25:35.899960+00:00",
     "metadata": {
       "old_price": 0,
       "new_price": 0,
