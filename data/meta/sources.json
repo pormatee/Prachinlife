@@ -4,15 +4,15 @@
     "bigc": {
       "status": "stale",
       "record_count": 6,
-      "last_attempt_at": "2026-11-15T02:25:33.861485+00:00",
+      "last_attempt_at": "2026-11-16T02:35:44.973921+00:00",
       "last_success_at": "2026-11-02T02:08:24.634628+00:00",
       "last_error": "Big C download failed: HTTP 403"
     },
     "lotus": {
       "status": "fresh",
       "record_count": 12,
-      "last_attempt_at": "2026-11-15T02:25:35.900529+00:00",
-      "last_success_at": "2026-11-15T02:25:35.900529+00:00",
+      "last_attempt_at": "2026-11-16T02:35:46.138832+00:00",
+      "last_success_at": "2026-11-16T02:35:46.138832+00:00",
       "last_error": null
     },
     "cjmore": {
