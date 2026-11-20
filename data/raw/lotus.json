@@ -1,13 +1,13 @@
 [
   {
-    "source_id": "lotus-20459b52ba75335c",
+    "source_id": "lotus-15b774839d92d06a",
     "source_provider": "lotus",
     "source_page": "https://my.lotuss.com/promotions/th",
     "title": "สมัครสมาชิกใหม่มายโลตัส",
-    "image_url": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202611110238593192.webp",
+    "image_url": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202611191059531808.webp",
     "destination_url": null,
     "raw_type": "member_offer",
-    "collected_at": "2026-11-12T03:38:38.402679+00:00"
+    "collected_at": "2026-11-20T03:52:59.265997+00:00"
   },
   {
     "source_id": "lotus-f1f66745b0b667e1",
@@ -60,6 +60,16 @@
     "collected_at": "2026-08-15T14:00:44.294306+07:00"
   },
   {
+    "source_id": "lotus-4d8136b167e89eb9",
+    "source_provider": "lotus",
+    "source_page": "https://my.lotuss.com/promotions/th",
+    "title": "ประกาศรายชื่อผู้โชคดีที่เข้าร่วมได้รับ 50 โลตัสคอยน์ ประจำเดือน ตุลาคม",
+    "image_url": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202611190958345887.webp",
+    "destination_url": null,
+    "raw_type": "campaign",
+    "collected_at": "2026-11-20T03:52:59.265997+00:00"
+  },
+  {
     "source_id": "lotus-f61df9ca71416d5c",
     "source_provider": "lotus",
     "source_page": "https://my.lotuss.com/promotions/th",
@@ -105,16 +115,6 @@
     "source_page": "https://my.lotuss.com/promotions/th",
     "title": "แคตตาล็อกปีใหม่ปล่อยใจมาจอยที่โลตัส โก เฟรช (สาขาเล็ก)",
     "image_url": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202611050739085618.webp",
-    "destination_url": null,
-    "raw_type": "campaign",
-    "collected_at": "2026-11-12T03:38:38.402679+00:00"
-  },
-  {
-    "source_id": "lotus-2cc0b53ced759b95",
-    "source_provider": "lotus",
-    "source_page": "https://my.lotuss.com/promotions/th",
-    "title": "แคตตาล็อกปีใหม่ปล่อยใจมาจอยที่โลตัส โก เฟรช (ซูเปอร์มาร์เก็ต)",
-    "image_url": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202611050731465181.webp",
     "destination_url": null,
     "raw_type": "campaign",
     "collected_at": "2026-11-12T03:38:38.402679+00:00"

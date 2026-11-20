@@ -1,6 +1,106 @@
 [
   {
     "schema_version": "1.1",
+    "id": "lotus-15b774839d92d06a",
+    "content_type": "deal",
+    "original_type": "member_offer",
+    "title": "สมัครสมาชิกใหม่มายโลตัส",
+    "summary": "สิทธิประโยชน์สำหรับสมาชิกจาก Lotus's",
+    "category": "shopping",
+    "tags": [
+      "deal",
+      "lotuss",
+      "member_offer",
+      "สิทธิสมาชิก",
+      "lotus",
+      "โลตัส",
+      "benefit",
+      "membership",
+      "สมาชิก",
+      "national"
+    ],
+    "provider": {
+      "name": "Lotus's",
+      "type": "merchant"
+    },
+    "location": {
+      "scope": "national",
+      "country": "TH",
+      "province": null,
+      "district": null,
+      "subdistrict": null,
+      "place_name": null,
+      "latitude": null,
+      "longitude": null
+    },
+    "source": {
+      "name": "My Lotus's Official",
+      "url": "https://my.lotuss.com/promotions/th",
+      "type": "official_promotion",
+      "verified": true
+    },
+    "image_url": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202611191059531808.webp",
+    "published_at": null,
+    "expires_at": null,
+    "collected_at": "2026-11-20T03:52:59.265997+00:00",
+    "metadata": {
+      "old_price": 0,
+      "new_price": 0,
+      "expiry_text": "ตรวจสอบรายละเอียดจาก Lotus's",
+      "urgent": false
+    }
+  },
+  {
+    "schema_version": "1.1",
+    "id": "lotus-4d8136b167e89eb9",
+    "content_type": "deal",
+    "original_type": "campaign",
+    "title": "ประกาศรายชื่อผู้โชคดีที่เข้าร่วมได้รับ 50 โลตัสคอยน์ ประจำเดือน ตุลาคม",
+    "summary": "แคมเปญหรือโปรโมชั่นจาก Lotus's",
+    "category": "shopping",
+    "tags": [
+      "deal",
+      "lotuss",
+      "campaign",
+      "แคมเปญโปรโมชั่น",
+      "lotus",
+      "โลตัส",
+      "แคมเปญ",
+      "national"
+    ],
+    "provider": {
+      "name": "Lotus's",
+      "type": "merchant"
+    },
+    "location": {
+      "scope": "national",
+      "country": "TH",
+      "province": null,
+      "district": null,
+      "subdistrict": null,
+      "place_name": null,
+      "latitude": null,
+      "longitude": null
+    },
+    "source": {
+      "name": "My Lotus's Official",
+      "url": "https://my.lotuss.com/promotions/th",
+      "type": "official_promotion",
+      "verified": true
+    },
+    "image_url": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202611190958345887.webp",
+    "published_at": null,
+    "expires_at": null,
+    "collected_at": "2026-11-20T03:52:59.265997+00:00",
+    "metadata": {
+      "old_price": 0,
+      "new_price": 0,
+      "expiry_text": "ตรวจสอบรายละเอียดจาก Lotus's",
+      "urgent": false
+    }
+  },
+  {
+    "schema_version": "1.1",
     "id": "lotus-3163b6d73dddcf9c",
     "content_type": "deal",
     "original_type": "campaign",
@@ -148,57 +248,6 @@
   },
   {
     "schema_version": "1.1",
-    "id": "lotus-20459b52ba75335c",
-    "content_type": "deal",
-    "original_type": "member_offer",
-    "title": "สมัครสมาชิกใหม่มายโลตัส",
-    "summary": "สิทธิประโยชน์สำหรับสมาชิกจาก Lotus's",
-    "category": "shopping",
-    "tags": [
-      "deal",
-      "lotuss",
-      "member_offer",
-      "สิทธิสมาชิก",
-      "lotus",
-      "โลตัส",
-      "benefit",
-      "membership",
-      "สมาชิก",
-      "national"
-    ],
-    "provider": {
-      "name": "Lotus's",
-      "type": "merchant"
-    },
-    "location": {
-      "scope": "national",
-      "country": "TH",
-      "province": null,
-      "district": null,
-      "subdistrict": null,
-      "place_name": null,
-      "latitude": null,
-      "longitude": null
-    },
-    "source": {
-      "name": "My Lotus's Official",
-      "url": "https://my.lotuss.com/promotions/th",
-      "type": "official_promotion",
-      "verified": true
-    },
-    "image_url": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202611110238593192.webp",
-    "published_at": null,
-    "expires_at": null,
-    "collected_at": "2026-11-12T03:38:38.402679+00:00",
-    "metadata": {
-      "old_price": 0,
-      "new_price": 0,
-      "expiry_text": "ตรวจสอบรายละเอียดจาก Lotus's",
-      "urgent": false
-    }
-  },
-  {
-    "schema_version": "1.1",
     "id": "lotus-8057b2b6588a567f",
     "content_type": "deal",
     "original_type": "campaign",
@@ -236,55 +285,6 @@
       "verified": true
     },
     "image_url": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202611050739085618.webp",
-    "published_at": null,
-    "expires_at": null,
-    "collected_at": "2026-11-12T03:38:38.402679+00:00",
-    "metadata": {
-      "old_price": 0,
-      "new_price": 0,
-      "expiry_text": "ตรวจสอบรายละเอียดจาก Lotus's",
-      "urgent": false
-    }
-  },
-  {
-    "schema_version": "1.1",
-    "id": "lotus-2cc0b53ced759b95",
-    "content_type": "deal",
-    "original_type": "campaign",
-    "title": "แคตตาล็อกปีใหม่ปล่อยใจมาจอยที่โลตัส โก เฟรช (ซูเปอร์มาร์เก็ต)",
-    "summary": "แคมเปญหรือโปรโมชั่นจาก Lotus's",
-    "category": "shopping",
-    "tags": [
-      "deal",
-      "lotuss",
-      "campaign",
-      "แคมเปญโปรโมชั่น",
-      "lotus",
-      "โลตัส",
-      "แคมเปญ",
-      "national"
-    ],
-    "provider": {
-      "name": "Lotus's",
-      "type": "merchant"
-    },
-    "location": {
-      "scope": "national",
-      "country": "TH",
-      "province": null,
-      "district": null,
-      "subdistrict": null,
-      "place_name": null,
-      "latitude": null,
-      "longitude": null
-    },
-    "source": {
-      "name": "My Lotus's Official",
-      "url": "https://my.lotuss.com/promotions/th",
-      "type": "official_promotion",
-      "verified": true
-    },
-    "image_url": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202611050731465181.webp",
     "published_at": null,
     "expires_at": null,
     "collected_at": "2026-11-12T03:38:38.402679+00:00",
