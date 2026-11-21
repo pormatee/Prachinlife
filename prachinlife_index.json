@@ -1,6 +1,55 @@
 [
   {
     "schema_version": "1.1",
+    "id": "lotus-00a5ded1d35f0f68",
+    "content_type": "deal",
+    "original_type": "campaign",
+    "title": "คัดพิเศษผลไม้นำเข้าประจำสัปดาห์ คัดสรรความสดใหม่จากทั่วโลก!",
+    "summary": "แคมเปญหรือโปรโมชั่นจาก Lotus's",
+    "category": "shopping",
+    "tags": [
+      "deal",
+      "lotuss",
+      "campaign",
+      "แคมเปญโปรโมชั่น",
+      "lotus",
+      "โลตัส",
+      "แคมเปญ",
+      "national"
+    ],
+    "provider": {
+      "name": "Lotus's",
+      "type": "merchant"
+    },
+    "location": {
+      "scope": "national",
+      "country": "TH",
+      "province": null,
+      "district": null,
+      "subdistrict": null,
+      "place_name": null,
+      "latitude": null,
+      "longitude": null
+    },
+    "source": {
+      "name": "My Lotus's Official",
+      "url": "https://my.lotuss.com/promotions/th",
+      "type": "official_promotion",
+      "verified": true
+    },
+    "image_url": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202611201249339006.webp",
+    "published_at": null,
+    "expires_at": null,
+    "collected_at": "2026-11-21T03:48:06.313173+00:00",
+    "metadata": {
+      "old_price": 0,
+      "new_price": 0,
+      "expiry_text": "ตรวจสอบรายละเอียดจาก Lotus's",
+      "urgent": false
+    }
+  },
+  {
+    "schema_version": "1.1",
     "id": "lotus-15b774839d92d06a",
     "content_type": "deal",
     "original_type": "member_offer",
@@ -190,55 +239,6 @@
     "published_at": null,
     "expires_at": null,
     "collected_at": "2026-11-18T04:02:08.792180+00:00",
-    "metadata": {
-      "old_price": 0,
-      "new_price": 0,
-      "expiry_text": "ตรวจสอบรายละเอียดจาก Lotus's",
-      "urgent": false
-    }
-  },
-  {
-    "schema_version": "1.1",
-    "id": "lotus-b02633cd06743929",
-    "content_type": "deal",
-    "original_type": "campaign",
-    "title": "คัดพิเศษผลไม้นำเข้าประจำสัปดาห์ คัดสรรความสดใหม่จากทั่วโลก!",
-    "summary": "แคมเปญหรือโปรโมชั่นจาก Lotus's",
-    "category": "shopping",
-    "tags": [
-      "deal",
-      "lotuss",
-      "campaign",
-      "แคมเปญโปรโมชั่น",
-      "lotus",
-      "โลตัส",
-      "แคมเปญ",
-      "national"
-    ],
-    "provider": {
-      "name": "Lotus's",
-      "type": "merchant"
-    },
-    "location": {
-      "scope": "national",
-      "country": "TH",
-      "province": null,
-      "district": null,
-      "subdistrict": null,
-      "place_name": null,
-      "latitude": null,
-      "longitude": null
-    },
-    "source": {
-      "name": "My Lotus's Official",
-      "url": "https://my.lotuss.com/promotions/th",
-      "type": "official_promotion",
-      "verified": true
-    },
-    "image_url": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202611130825175158.webp",
-    "published_at": null,
-    "expires_at": null,
-    "collected_at": "2026-11-15T02:25:35.899960+00:00",
     "metadata": {
       "old_price": 0,
       "new_price": 0,
