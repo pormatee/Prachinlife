@@ -60,6 +60,16 @@
     "collected_at": "2026-08-15T14:00:44.294306+07:00"
   },
   {
+    "source_id": "lotus-e2b124744b8671bf",
+    "source_provider": "lotus",
+    "source_page": "https://my.lotuss.com/promotions/th",
+    "title": "Mondahmin x Lotus’s ชวนคุณมาร่วมสร้างความทรงจำสุดประทับใจกับ ซี–นุนิว ในค่ำคืนแห่งความหรูหรา ท่ามกลางบรรยากาศสุดโรแมนติกบนเรือ OKURA CRUISE ️",
+    "image_url": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202611240444108975.webp",
+    "destination_url": null,
+    "raw_type": "campaign",
+    "collected_at": "2026-11-25T05:15:24.304248+00:00"
+  },
+  {
     "source_id": "lotus-4d8136b167e89eb9",
     "source_provider": "lotus",
     "source_page": "https://my.lotuss.com/promotions/th",
@@ -108,15 +118,5 @@
     "destination_url": null,
     "raw_type": "campaign",
     "collected_at": "2026-11-11T02:33:43.731357+00:00"
-  },
-  {
-    "source_id": "lotus-8057b2b6588a567f",
-    "source_provider": "lotus",
-    "source_page": "https://my.lotuss.com/promotions/th",
-    "title": "แคตตาล็อกปีใหม่ปล่อยใจมาจอยที่โลตัส โก เฟรช (สาขาเล็ก)",
-    "image_url": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202611050739085618.webp",
-    "destination_url": null,
-    "raw_type": "campaign",
-    "collected_at": "2026-11-12T03:38:38.402679+00:00"
   }
 ]
