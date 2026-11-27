@@ -1,5 +1,15 @@
 [
   {
+    "source_id": "lotus-6184cd2ee85082ac",
+    "source_provider": "lotus",
+    "source_page": "https://my.lotuss.com/promotions/th",
+    "title": "Lotus’s Pet Friendly Mall",
+    "image_url": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202610060724291852.webp",
+    "destination_url": null,
+    "raw_type": "campaign",
+    "collected_at": "2026-11-27T04:49:06.621792+00:00"
+  },
+  {
     "source_id": "lotus-15b774839d92d06a",
     "source_provider": "lotus",
     "source_page": "https://my.lotuss.com/promotions/th",
@@ -108,15 +118,5 @@
     "destination_url": null,
     "raw_type": "campaign",
     "collected_at": "2026-11-19T03:59:17.008387+00:00"
-  },
-  {
-    "source_id": "lotus-6146d8ad49e8d5cf",
-    "source_provider": "lotus",
-    "source_page": "https://my.lotuss.com/promotions/th",
-    "title": "Swisse ชวนคุณไป Bright & Glow on the beach กับ NUT-HONG กัน!",
-    "image_url": "https://pvc-59e770c8-2cb3-44f2-ae48-15e1acc03f35.ams3.digitaloceanspaces.com/images/202611100722204594.webp",
-    "destination_url": null,
-    "raw_type": "campaign",
-    "collected_at": "2026-11-11T02:33:43.731357+00:00"
   }
 ]
